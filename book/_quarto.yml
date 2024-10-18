@@ -1,0 +1,38 @@
+project:
+  type: book
+
+execute:
+  daemon: true
+
+book:
+  title: "العشرون البايثونية"
+  image: cover.png
+  author: "حسان القوز"
+  date: "17/10/2024"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - part: المنهج
+      chapters:
+        - 02_hello.qmd
+        - 03_numbers.qmd
+        - 04_strings.qmd
+    - summary.qmd
+    - part: المساعدة
+      chapters:
+        - references.qmd
+  appendices:
+    - env_setup.qmd
+    - string_methods.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: custom.scss
+
+  pdf:
+    documentclass: scrreprt
+
+
+

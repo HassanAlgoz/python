@@ -1,0 +1,361 @@
+---
+title: الأرقام
+jupyter: python3
+---
+
+تدعم بايثون مجموعة متنوعة من أنواع البيانات العددية، بما في ذلك `int` (الأعداد الصحيحة)، `float` (الأعداد الحقيقية)، و `complex` (الأعداد المركبة).
+
+إليك التسلسل الهرمي لأنواع الأرقام:
+
+```{mermaid}
+graph LR
+    A[Object]
+
+    A --> A2[numbers.Number]
+    A2 --> A21[numbers.Integral]
+    A21 --> A211[Integers: int]
+    A21 --> A212[Booleans: bool]
+    A2 --> A22[numbers.Real: float]
+    A2 --> A23[numbers.Complex: complex]
+```
+
+إليك نسخة مبسطة:
+
+```{mermaid}
+graph LR
+    A[Object كائن]
+
+    A --> A2[Number عدد]
+    A2 --> A211[int صحيح]
+    A2 --> A212[bool منطقي]
+    A2 --> A22[float عشري]
+    A2 --> A23[complex مركب]
+```
+
+## وظيفة الأرقام في لغة البرمجة
+
+* الأعداد الصحيحة ([Integers](https://docs.python.org/3/library/functions.html#int)) للفهرسة والعد: `..., -2, -1, 0, 1, 2, ...`
+* الأعداد العشرية ([Floats](https://docs.python.org/3/library/functions.html#float)) لتمثيل الكميات مثل المال، المسافة، والوقت: `3.14, 2.718, 0.0, 15.0`
+* الأعداد المركبة ([Complex](https://docs.python.org/3/library/functions.html#complex)) في الرياضيات والهندسة: `(1 + 2j), (1.0 - 2.0j)`
+* القيم المنطقية ([Booleans](https://docs.python.org/3/library/stdtypes.html#boolean-type-bool)) لتمثيل قيم الحقيقة: `True, False`
+
+```{python}
+x = 5
+y = 3.0
+z = -10
+b = True
+c = 1 + 2j
+```
+
+```{python}
+print(type(x))
+print(type(y))
+print(type(z))
+print(type(b))
+print(type(c))
+```
+
+### العمليات الحسابية
+
+```{python}
+# العمليات الحسابية (Arithmetic operations)
+print(x + y) # الجمع (Addition)
+print(x - y) # الطرح (Subtraction)
+print(x * y) # الضرب (Multiplication)
+print(x / y) # القسمة (Division)
+print(x % y) # باقي القسمة (Remainder)
+print(x ** y) # الأس (Exponentiation)
+```
+
+### ماذا تعني صفة العددية؟
+
+الاشتراك في صفة العددية يعني أنها تقبل العمليات الحسابية ، مع ملاحظة أن النوع الأقل دقة يتحول إلى النوع الأعلى دقة:
+
+- فمثلاً: `int + float = float`
+- وكذلك: `int / int = float`
+- وأيضًا: `bool * int = int`
+- وهكذا: `int * complex = complex`
+
+```{python}
+print(x + z)
+print(x + y)
+print(y * z)
+print(b * x)
+print(c + x)
+```
+
+لاحظ أن قسمة الصحيح تقوم بتقريب النتيجة إلى الأقرب:
+
+```{python}
+print(7 / 2)  # قسمة صحيحٍ تنتج عشريًا
+print(7 // 2) # قسمة صحيح تنتج صحيحًا
+```
+
+#### تمرين
+
+تحقق من نوع كل من التعبيرين السابقين باستخدام الدالة `type()`. هل يمكنك استخراج قاعدة من هذه الأمثلة؟
+
+
+- `7 / 2`
+- `7 // 2`
+- `7.0 / 2`
+- `7 / 2.0`
+
+```{python}
+# try it
+```
+
+جرب الآتي حتى تستكشف ماذا يحصل لو:
+
+- [x] `int + bool`
+- [ ] `int * str`
+- [ ] `str * int`
+- [ ] `str + str`
+- [ ] `int + str` (لاحظ أن هذه العملية ستفشل)
+
+```{python}
+i = 5
+b = True
+s1 = '5'
+s2 = '11'
+
+print(i + b)  # int + bool
+# ... أكمل البقية ...
+```
+
+وبهذا يتبين أن النوع يؤثر في طبيعة العملية فمثلاً:
+
+- `"5" + "5" -> "55"` وهو الدمج بين النصين وإن كانا أرقامًا
+- `5 + 5 -> 10` وهو الجمع المعروف
+
+### ترتيب العمليات (Operator precedence)
+
+ترتيب العمليات هو نفسه كما في الرياضيات:
+
+1. الأقواس
+2. الأسس
+3. الضرب والقسمة
+4. الجمع والطرح
+
+للتفصيل الشامل انظر: [Evaluation order](https://docs.python.org/3/reference/expressions.html#evaluation-order)
+
+#### تمرين
+
+أضف أقواس لتغيير النتيجة لتطابق التوكيد:
+
+```{python}
+#| error: true
+assert 3 + 2 * 5 == 25
+```
+
+الحل:
+
+```{python}
+assert (3 + 2) * 5 == 25
+```
+
+مثال آخر:
+
+```{python}
+#| error: true
+assert 8 - 4 / 2 == 2
+```
+
+ما هو الحل؟ ضع الأقواس في مكانها الصحيح.
+
+```{python}
+# try it
+```
+
+مثال أخير:
+
+```{python}
+#| error: true
+assert 2 ** 3 * 4 == 4096
+```
+
+ما هو الحل؟ ضع الأقواس في مكانها الصحيح.
+
+```{python}
+# try it
+```
+
+
+## الدوال الرياضية المضمّنة
+
+```{python}
+print(abs(z)) # القيمة المطلقة (Absolute value)
+print(pow(x,y)) # القوة
+print(max(x,y)) # القيمة العظمى
+print(min(x,y)) # القيمة الصغرى
+```
+
+للوصول إلى دوال رياضية إضافية: نقوم بـ [`import math`](https://docs.python.org/3/library/math.html)، ثم نستخدم البادئة `math.` للوصول إلى الدوال.
+
+```{python}
+import math
+
+# حساب المسافة بين نقطتين
+x1, y1 = 0, 0
+x2, y2 = 3, 4
+distance = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+print(distance)
+```
+
+
+```{python}
+import math
+
+print(round(y, 2)) # تقريب إلى رقمين بعد الفاصلة
+print(math.floor(y)) # تقريب لأقرب عدد صحيح أصغر
+print(math.ceil(y)) # تقريب لأقرب عدد صحيح أكبر
+print(math.trunc(y)) # حذف ما بعد الفاصلة
+```
+
+#### تمرين
+
+يمكننا حساب مساحة المستطيل باستخدام الصيغة التالية:
+
+$$
+area = length \times width
+$$
+
+```{python}
+# Calculate the area of a rectangule
+length, width = 10, 5
+area = length * width
+
+print(area)
+```
+
+#### تمرين
+
+اكتب برنامجًا ليعرف رقمين ثم اطبع مجموعهما، الفرق بينهما، حاصل ضربهما، خارج القسمة، وباقي القسمة. استخدم أسماء متغيرات وتعليقات مناسبة.
+
+```{python}
+# try it
+```
+
+#### تمرين
+
+احسب مساحة المكعب باستخدام الصيغة التالية:
+
+$$
+\text{area} = \text{width} \times \text{length} \times \text{height}
+$$
+
+- قم بتعيين العرض (width)، الطول (length)، والارتفاع (height) إلى متغيرات.
+- احسب المساحة باستخدام الصيغة.
+- اطبع النتيجة.
+
+```{python}
+# try it
+```
+
+#### تمرين
+
+اكتب برنامجًا يطلب من المستخدم إدخال عدد الساعات (hours) ومعدل الأجر لكل ساعة (rate per hour) لحساب الأجر الإجمالي (gross pay).
+
+```{python}
+# your code here
+```
+
+
+#### تمرين
+
+اكتب برنامجًا يطلب من المستخدم درجة الحرارة بالسلسيوس (Celsius)، ثم يحول درجة الحرارة إلى فهرنهايت (Fahrenheit)، ويطبع درجة الحرارة المحولة.
+
+```{python}
+# your code here
+```
+
+#### تمرين
+
+اكتب برنامجًا يحسب مساحة الدائرة باستخدام الصيغة التالية:
+
+
+$$
+\text{area} = \pi \times \text{radius}^2
+$$
+
+- قم بتعيين نصف القطر إلى متغير.
+- احسب المساحة باستخدام الصيغة.
+- اطبع النتيجة.
+
+تلميح: يمكنك استخدام الثابت `math.pi` للحصول على قيمة $\pi$.
+
+```{python}
+# your code here
+```
+
+
+## العمليات على مستوى البت
+
+```{mermaid}
+graph LR
+    A[Object]
+
+    A --> A2[Number]
+    A2 --> A21[Integral]
+    A21 --> A211[Integers: int]
+    A21 --> A212[Booleans: bool]
+```
+
+العمليات على مستوى البت (Bitwise operations) تكون منطقية فقط للأعداد الصحيحة (Integral).
+
+| عشري (Decimal) | ست عشري (Hexadecimal) | ثنائي (Binary) |
+|---|---|---|
+| 0 | 0 | 00000000 |
+| 1 | 1 | 00000001 |
+| 2 | 2 | 00000010 |
+| 3 | 3 | 00000011 |
+| 4 | 4 | 00000100 |
+| 5 | 5 | 00000101 |
+| 6 | 6 | 00000110 |
+| 7 | 7 | 00000111 |
+| 8 | 8 | 00001000 |
+| 9 | 9 | 00001001 |
+| 10 | a | 00001010 |
+| 11 | b | 00001011 |
+| 12 | c | 00001100 |
+| 13 | d | 00001101 |
+| 14 | e | 00001110 |
+| 15 | f | 00001111 |
+| 16 | 10 | 00010000 |
+
+يمكن عرض الأعداد الصحيحة بالتمثيل الثنائي أو الست عشري:
+
+```{python}
+x = 6
+print(bin(x)) # ثنائي
+print(hex(x)) # ست عشري
+
+x = 16
+print(bin(x)) # ثنائي
+print(hex(x)) # ست عشري
+```
+
+يسرد هذا الجدول العمليات على مستوى البت مرتبة حسب الأولوية التصاعدية:
+
+| العملية | النتيجة                          | 
+|---------|----------------------------------|
+| `~x`    | عكس جميع بتات x                  |
+| `x << n`| إزاحة x إلى اليسار بمقدار n بتات |
+| `x >> n`| إزاحة x إلى اليمين بمقدار n بتات |
+| `x & y` | عملية AND على مستوى البت بين x و y |
+| `x ^ y` | عملية XOR (exclusive or) على مستوى البت بين x و y |
+| `x | y` | عملية OR على مستوى البت بين x و y |
+
+## المقارنة
+
+الأرقام المنطقية (Booleans) تنتج من عمليات المقارنة:
+
+```{python}
+# العمليات المقارنة (Comparison operations)
+print(x == y) # يساوي (Equal to)
+print(x != y) # لا يساوي (Not equal to)
+print(x > y) # أكبر من (Greater than)
+print(x < y) # أصغر من (Less than)
+print(x >= y) # أكبر من أو يساوي (Greater than or equal to)
+print(x <= y) # أصغر من أو يساوي (Less than or equal to)
+```
