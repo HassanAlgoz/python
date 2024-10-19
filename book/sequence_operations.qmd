@@ -1,0 +1,157 @@
+# Common Sequence Operations
+
+
+## Common Sequence Operations [🔗](https://docs.python.org/3/library/stdtypes.html#common-sequence-operations)
+
+This table lists the sequence operations sorted in ascending priority. In the table:
+
+- `s` and `t` are sequences of the same type
+- `n`, `i`, `j` and `k` are integers
+- `x` is an arbitrary object that meets any type and value restrictions imposed by the sequence `s`.
+
+| **Operation**            | **Result**                                                                   |
+|--------------------------|-------------------------------------------------------------------------------|
+| `x in s`                 | True if an item of `s` is equal to `x`, else False                            |
+| `x not in s`             | False if an item of `s` is equal to `x`, else True                            |
+| `s + t`                  | The concatenation of `s` and `t`                                              |
+| `s * n` or `n * s`       | Equivalent to adding `s` to itself `n` times                                  |
+| `s[i]`                   | `i`-th item of `s`, origin 0                                                  |
+| `s[i:j]`                 | Slice of `s` from `i` to `j`                                                  |
+| `s[i:j:k]`               | Slice of `s` from `i` to `j` with step `k`                                    |
+| `len(s)`                 | Length of `s`                                                                 |
+| `min(s)`                 | Smallest item of `s`                                                          |
+| `max(s)`                 | Largest item of `s`                                                           |
+| `s.index(x[, i[, j]])`   | Index of the first occurrence of `x` in `s` (at or after index `i` and before `j`) |
+| `s.count(x)`             | Total number of occurrences of `x` in `s`                                     |
+
+
+## Mutable Sequence Operations [🔗](https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types)
+
+In the table
+- `s` is a mutable sequence
+- `t` is any iterable object
+- `x` is an arbitrary object that meets any type and value restrictions imposed by the sequence `s` (for example, bytearray only accepts integers that meet the value restriction 0 <= x <= 255).
+
+| **Operation**            | **Result**                                                                 |
+|--------------------------|---------------------------------------------------------------------------|
+| `s[i] = x`               | Item `i` of `s` is replaced by `x`                                         |
+| `s[i:j] = t`             | Slice of `s` from `i` to `j` is replaced by the contents of the iterable `t` |
+| `del s[i:j]`             | Same as `s[i:j] = []`                                                      |
+| `s[i:j:k] = t`           | The elements of `s[i:j:k]` are replaced by those of `t`                    |
+| `del s[i:j:k]`           | Removes the elements of `s[i:j:k]` from the list                           |
+| `s.append(x)`            | Appends `x` to the end of the sequence (same as `s[len(s):len(s)] = [x]`)  |
+| `s.clear()`              | Removes all items from `s` (same as `del s[:]`)                            |
+| `s.copy()`               | Creates a shallow copy of `s` (same as `s[:]`)                             |
+| `s.extend(t)` or `s += t`| Extends `s` with the contents of `t`                                       |
+| `s *= n`                 | Updates `s` with its contents repeated `n` times                           |
+| `s.insert(i, x)`         | Inserts `x` into `s` at the index given by `i` (same as `s[i:i] = [x]`)    |
+| `s.pop()` or `s.pop(i)`  | Retrieves the item at `i` and also removes it from `s`                     |
+| `s.remove(x)`            | Removes the first item from `s` where `s[i]` is equal to `x`               |
+| `s.reverse()`            | Reverses the items of `s` in place                                         |
+
+
+## More tricks with sequences
+
+### Counting with `enumerate()`
+
+We use the built-in [`enumerate(iterable, start=0)`](https://docs.python.org/3/library/functions.html#enumerate) function to iterate over a list and have access to the index of each element.
+
+```{python}
+seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+for i, s in enumerate(seasons, start=1):
+    print(i, s)
+```
+
+### Associating with `zip()`
+
+The built-in [`zip(*iterables, strict=False)`](https://docs.python.org/3/library/functions.html#zip) Iterates over several iterables in parallel, producing tuples with an item from each one.
+
+```{python}
+names = ['Adam', 'Belal', 'Camal']
+level = [25, 30, 35]
+
+for name, lvl in zip(names, level, strict=True):
+    print(name, 'is at level', lvl)
+```
+
+Recommended: `strict=True` raises a `ValueError` if the iterables are of different lengths. Without the strict=True argument, any bug that results in iterables of different lengths will be silenced, possibly manifesting as a hard-to-find bug in another part of the program.
+
+### Comparison
+
+String, tuples and lists are compared lexicographically; i.e., by comparing corresponding elements.
+
+```{python}
+assert (1, 2, 3) < (1, 2, 4)
+assert [1, 2, 3] < [1, 2, 4]
+assert 'abc' < 'abz'
+```
+
+The way strings are compared is using the Unicode code points of the characters.
+
+Let's break it down with Python (remember, the `ord()` function returns the Unicode code point for a one-character string):
+
+```{python}
+s1 = 'abc'
+s2 = 'abz'
+
+l1 = []
+l2 = []
+
+for x in s1:
+    l1.append(ord(x))
+
+for x in s2:
+    l2.append(ord(x))
+
+print(l1)
+print(l2)
+```
+
+The Unicode code points for the characters in `s1` are `[97, 98, 99]` and for `s2` are `[97, 98, 122]`. Since `99` is less than `122`, `'abc' < 'abz'` is `True`.
+
+It follows that comparison between strings is case-sensitive, since `ord('A')` is less than `ord('a')`. Therefore, we normalize them into a unified case before comparision, either by converting them to lowercase or uppercase.
+
+```{python}
+name1 = 'Adam'
+name2 = 'adam'
+assert name1.lower() == name2.lower()
+```
+
+### Unpacking
+
+Sequences can be unpacked into multiple variables.
+
+```{python}
+t = (10, 20, 30)
+a, b, c = t
+print(a, b, c)
+```
+
+```{python}
+l = [10, 20, 30]
+a, b, c = l
+print(a, b, c)
+```
+
+### membership operator: `in`
+
+The `in` operator is used to check if a value is present in a sequence (`str`, `list`, `range`, etc.).
+
+```{python}
+vowels = "aeiou"
+print("a" in vowels)
+```
+
+Also works with lists:
+
+```{python}
+vowels = ["a", "e", "i", "o", "u"]
+print("a" in vowels)
+```
+
+As well as tuples:
+
+```{python}
+vowels = ("a", "e", "i", "o", "u")
+print("a" in vowels)
+```
