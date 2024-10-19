@@ -128,6 +128,42 @@ print(i + b)  # int + bool
 - `"5" + "5" -> "55"` وهو الدمج بين النصين وإن كانا أرقامًا
 - `5 + 5 -> 10` وهو الجمع المعروف
 
+### إعادة التعيين (Reassignment)
+
+You can reassign a variable using the result of an operation. For example:
+
+- `i = i + 1` is equivalent to `i += 1`
+- `i = i - 1` is equivalent to `i -= 1`
+- `i = i * 2` is equivalent to `i *= 2`
+- `i = i / 2` is equivalent to `i /= 2`
+
+Side note: see [Augmented assignment statements](https://docs.python.org/3/reference/simple_stmts.html#augmented-assignment-statements) for details in which they actually differ.
+
+Try the code below to see the result:
+
+```{python}
+i = 0
+print(i)
+```
+
+```{python}
+i = i + 1
+print(i)
+```
+
+```{python}
+i += 1
+print(i)
+```
+
+Note that `i++` is not valid in Python. The following will raise an error:
+
+```{python}
+#| error: true
+i++
+print(i)
+```
+
 ### ترتيب العمليات (Operator precedence)
 
 ترتيب العمليات هو نفسه كما في الرياضيات:
@@ -359,3 +395,7 @@ print(x < y) # أصغر من (Less than)
 print(x >= y) # أكبر من أو يساوي (Greater than or equal to)
 print(x <= y) # أصغر من أو يساوي (Less than or equal to)
 ```
+
+## References
+
+- [https://docs.python.org/3/reference/simple_stmts.html](https://docs.python.org/3/reference/simple_stmts.html#augmented-assignment-statements)
