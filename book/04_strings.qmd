@@ -1,5 +1,5 @@
 ---
-title: السلاسل
+title: السلسلة النصية
 jupyter: python3
 ---
 
@@ -15,43 +15,16 @@ graph TD
 ```
 
 
-## Character Encoding
+## ترميز الحروف
 
-**Character encoding** is the process of assigning numbers to graphical characters, especially the written characters of human language, allowing them to be stored, transmitted, and transformed using digital computers.
+**ترميز الحروف** هي عملية تعيين أرقام للأحرف الرسومية مما يسمح بتخزينها ونقلها وتحويلها باستخدام الحواسيب الرقمية.
 
-**ASCII** codes represent text in digital devices. ASCII has just `128` code points, of which only `95` are printable characters (English-only). The set of available punctuation had significant impact on the syntax of computer languages and text markup.
+**رموز ASCII** تحتوي على `128` حرف للغة الإنجليزية وبعض علامات الترقيم. منها `95` فقط هي أحرف قابلة للطباعة أما البقية فتسمى أحرف تحكُّم (مثل حرف السطر الجديد `\n` ، وحرف الرجوع لبداية السطر `\r`).
 
-**ANSII** contain further characters from `128` to `255`, which differ based on language.
+ثم امتدت عن طريق **رموز ANSII** لتغطي أحرف إضافية (من `128` إلى `255`) وهي الأحرف الاتينية للغات الأخرى.
 
-**Unicode** has over a **million code points**, but the first `128` of these are the same as ASCII
 
-#### Question: How many languages are covered by Unicode?
-
-Answer: all of the languages that can be written in the following widely-used scripts: Latin, Greek, Cyrillic, Armenian, Hebrew, **Arabic**, Syriac, Thaana, Devanagari, Bengali, Gurmukhi, Oriya, Tamil, Telugu, Kannada, Malayalam, Sinhala, Thai, Lao, Tibetan, Myanmar, Georgian, Hangul, Ethiopic, Cherokee, Canadian Aboriginal Syllabics, Khmer, Mongolian, Han (Japanese, Chinese, Korean ideographs), Hiragana, Katakana, and Yi. [Source](https://www.unicode.org/faq/basic_q.html#:~:text=The%20simplest%20answer%20is%20that,%2C%20Myanmar%2C%20Georgian%2C%20Hangul%2C)
-
-Figure below: showing that if we try to save Arabic text (Unicode) using ASCII (a subset of it), we get warning, and we lose our work.
-
-<img src="assets/save_ascii_arabic.png" title="Save Popup in Notepad" width="400" />
-
-Error reads: "This file contains characters in Unicode format which will be lost if you save this file as an ANSI encoded text file. To keep the Unicode information, click Cancel below and then select one of the Unicode options from the Encoding drop down list. Continue?"
-
-## Code Points
-
-السلسلة النصية (**String**) هي تسلسل من القيم التي تمثل نقاط الشيفرة في نظام **Unicode**. يمكن تمثيل جميع نقاط الشيفرة في النطاق U+0000 - U+10FFFF داخل سلسلة نصية. لا يوجد في **Python** نوع خاص بالحرف (**char**)، بل يتم تمثيل كل نقطة شيفرة في السلسلة النصية ككائن سلسلة بطول 1.
-
-الدالة المدمجة **ord()** تقوم بتحويل نقطة الشيفرة من شكلها النصي إلى عدد صحيح ضمن النطاق 0 - 10FFFF؛ بينما تقوم الدالة **chr()** بتحويل عدد صحيح ضمن النطاق 0 - 10FFFF إلى كائن سلسلة نصية بطول 1.
-
-يمكن استخدام **str.encode()** لتحويل سلسلة نصية (**str**) إلى **bytes** باستخدام ترميز النص المحدد، ويمكن استخدام **bytes.decode()** لتحقيق العكس.
-
-```{python}
-# ASCII (English-only) characters are represented by numbers between 0 and 127
-print(ord("A"), ord("Z"))
-print(chr(65), chr(90))
-print(ord("a"), ord("z"))
-print(ord("0"), ord("9"))
-```
-
-لنستكشف السلاسل عن طريق حزمة `string`:
+لنستكشف السلاسل عن طريق حزمة من المكتبة الأساسية `string`. الآتي الأحرف اللاتينية الكبيرة والصغيرة، وعلامات الترقيم:
 
 ```{python}
 import string
@@ -60,18 +33,37 @@ print(string.ascii_letters)
 print(string.punctuation)
 ```
 
-الكود التالي يعرض نقاط الشيفرة للحروف اللاتينية والعلامات الترقيمية (سنتعلم كيف نفهم `for in` في الدروس القادمة):
+
+### ترميز Unicode
+
+واليوم **رموز Unicode** تحتوي على أكثر من **مليون حرف** لتغطية لغات العالم كافة: اللاتينية، اليونانية، السيريلية، الأرمنية، العبرية، **العربية**، السريانية، الثانا، الديفاناغارية، البنغالية، الجورموخية، الأورية، التاميلية، التيلوغوية، الكانادية، المالايالامية، السنهالية، التايلاندية، اللاوية، التبتية، الميانمارية، الجورجية، الهانغول، الإثيوبية، الشيروكية، الرموز الكندية الأصلية، الخميرية، المنغولية، الهان (الأيدوغراف الياباني، الصيني، الكوري)، الهيراغانا، الكاتاكانا، واليي. [المصدر](https://www.unicode.org/faq/basic_q.html#:~:text=The%20simplest%20answer%20is%20that,%2C%20Myanmar%2C%20Georgian%2C%20Hangul%2C). وما يزال أول `128` حرف منها متطابق مع رموز ASCII.
+
+
+#### مثال
+ماذا يحصل لو كتبنا حروف عربية ثم حاولنا حفظ الملف بترميز ASCII ولم نحفظه بترميز Unicode؟
+
+![برنامج نوتباد في وندوز بكلام عربي يظهر بشكل استفهامات](assets/save_ascii_arabic.png)
+
+الخطأ يقول: "This file contains characters in Unicode format which will be lost if you save this file as an ANSI encoded text file. To keep the Unicode information, click Cancel below and then select one of the Unicode options from the Encoding drop down list. Continue?"
+
+
+## كيف يتم تمثيل النصوص في بايثون؟
+
+تمثيل النصوص في بايثون يكون عن طريق النوع `str`؛ يُعرَّف بكتابة سلسلة من الأحرف لكن في الواقع تتحول إلى سلسلة من رموز Unicode (أي: أرقام). هذا يعني أنها قد تكون سلسلة رموز لاتينية أو عربية أو صينية أو غير ذلك مما تحويه رموز Unicode.
+
+الدالة المدمجة **ord()** تقوم بتحويل الحرف إلى رقم الرمز. بينما **chr()** تعكس ذلك (من الرمز إلى الحرف).
+
+على النقيض من سي وجافا؛ لا يوجد نوع خاص بالحرف الواحد (`char`) في بايثون.
+
 
 ```{python}
-import string
-
-print([ord(x) for x in string.ascii_letters])
-print([ord(x) for x in string.punctuation])
+print(ord("A"), ord("Z"))
+print(chr(65), chr(90))
+print(ord("a"), ord("z"))
+print(ord("0"), ord("9"))
 ```
 
-نلاحظ أن الحروف اللاتينية تبدأ من 65 وتنتهي بـ 90، ثم من 97 إلى 122 بينما تبدأ العلامات الترقيمية من 33 وتنتهي بـ 47 ثم من 58 وتنتهي بـ 64. ثم من 91 وتنتهي بـ 96. وأخيرًا من 123 وتنتهي بـ 126.
-
-ماذا عن الحروف العربية؟ أين تقع في شفرة Unicode؟
+ماذا عن الحروف العربية؟ أين تقع في أرقام ترميز Unicode؟
 
 ```{python}
 # Arabic Unicode points are between 1536 and 1791
@@ -82,18 +74,18 @@ print(ord('َ'), hex(ord('َ')))
 print(ord('ُ'), hex(ord('ُ')))
 ```
 
-See [Wikipedia: Arabic script in Unicode](https://en.wikipedia.org/wiki/Arabic_script_in_Unicode) for details.
-
-خلاصة: السلاسل في بايثون تمثل الحروف سواءً الإنجليزية أو العربية أو غيرها.
-
-والأمر الآخر: أن الحروف في الأصل أرقام مخزنة لكن يتم عرضها بشكل نصي للمستخدم.
+راجع [ويكيبيديا: النص العربي في Unicode](https://en.wikipedia.org/wiki/Arabic_script_in_Unicode) لمزيد من التفاصيل.
 
 ## السلاسل النصية (Strings)
 
-[String](https://docs.python.org/3/reference/datamodel.html#immutable-sequences) can represent anything; literally as a sequence of symbols. However, they are mostly used with textual data such as:
-- names (short)
-- addresses (long)
-- messages (multiline)
+السلسلة النصية هي متتالية من أحرف بترميز Unicode.
+
+تُستخدم غالباً مع البيانات النصية مثل:
+
+- الأسماء
+- العناوين
+- الرسائل
+- البيانات النصية شبه المهيكلة مثل: CSV, JSON, XML, ...وغيرها
 
 ```{python}
 name = 'Adam' # String literals can use single quotes
@@ -111,46 +103,40 @@ Thank you.
 print(message)
 ```
 
-Note: there is no separate “character” type
-
-```{python}
-type('a')
-```
-
-Length of a string:
+لمعرفة طول السلسلة:
 
 ```{python}
 phone = "123456789"
 len(phone)
 ```
 
-## String Methods
+## دوال السلاسل النصية
 
-- Strings are **objects**, just like everything else in Python.
-- Objects have **methods** that can be **called** using the `.` operator followed by `()` (parenthesis):
+- السلاسل النصية هي **كائنات**، مثل أي شيء في بايثون.
+- الكائنات لديها **دوال مضافة (Methods)** يمكن **استدعاؤها** باستخدام المعامل `.` متبوعًا بـ `()` (قوسين):
 
-... We will delve into this in more detail in upcoming lessons.
+... سنتناول هذا بمزيد من التفصيل في الدروس القادمة.
 
-There are numerous functions available to operate on strings in Python. The table below provides an overview of the most commonly used string methods:
+هناك العديد من الدوال المتاحة للعمل على السلاسل النصية في بايثون. الجدول أدناه يعطي نظرة عامة على أكثر دوال السلاسل النصية استخدامًا:
 
-**Must-Know String Methods**
+**دوال السلاسل النصية الأساسية**
 
-| Function | Description |
+| الدالة | الوصف |
 |---|---|
-| `.upper()` | Converts a string to uppercase. |
-| `.lower()` | Converts a string to lowercase. |
-| `.find()` | Finds the index of a substring within a string. |
-| `.replace()` | Replaces occurrences of a substring within a string. |
-| `.startswith()` | Checks if a string starts with a specified prefix. |
-| `.endswith()` | Checks if a string ends with a specified suffix. |
-| `.count()` | Counts the number of occurrences of a substring within a string. |
-| `.split()` | Splits a string into a list of substrings based on a delimiter. |
-| `.join()` | Joins elements of an iterable into a string using a separator. |
-| `.strip()` | Removes leading and trailing whitespace from a string. |
+| `.upper()` | تحويل السلسلة النصية إلى أحرف كبيرة. |
+| `.lower()` | تحويل السلسلة النصية إلى أحرف صغيرة. |
+| `.find()` | إيجاد فهرس (index) سلسلة فرعية داخل سلسلة نصية. |
+| `.replace()` | استبدال تكرارات سلسلة فرعية داخل سلسلة نصية. |
+| `.startswith()` | التحقق مما إذا كانت السلسلة النصية تبدأ بمقدمة محددة. |
+| `.endswith()` | التحقق مما إذا كانت السلسلة النصية تنتهي بنهاية محددة. |
+| `.count()` | عد عدد تكرارات سلسلة فرعية داخل سلسلة نصية. |
+| `.split()` | تقسيم السلسلة النصية إلى قائمة من السلاسل الفرعية بناءً على محدد. |
+| `.join()` | دمج عناصر قابل للتكرار في سلسلة نصية باستخدام فاصل. |
+| `.strip()` | إزالة المسافات البيضاء من بداية ونهاية السلسلة النصية. |
 
-See [the appendix](string_methods.qmd) for more details.
+راجع [ملحق دوال السلاسل](string_methods.qmd) لمزيد من التفاصيل.
 
-Let's try some string methods:
+لنستكشف بعض دوال السلاسل النصية:
  
 ```{python}
 print("hello".upper())
@@ -174,47 +160,38 @@ help(str.title)
 ### `count`, `find`, and `replace`
 
 ```{python}
-# Count occurrences
 name = "Adam Ibraheem"
 
 print(name.count('a'))
-print(name.find('a')) # fist occurrence
+print(name.find('a'))
 print(name.replace('a', 'x'))
 ```
 
-```{python}
-# 3rd argument is `count`
-# Maximum number of occurrences to replace.
-# -1 (the default value) means replace all occurrences
-print(name.replace('a', 'x', 1))
-```
+### الأحرف البيضاء (Whitespace Characters)
 
-### Whitespace Characters
-
-Printable characters include:
-- [`ascii_letters`](https://docs.python.org/3/library/string.html#string.ascii_letters)
-- [`digits`](https://docs.python.org/3/library/string.html#string.digits)
-- [`punctuation`](https://docs.python.org/3/library/string.html#string.punctuation)
+الأحرف في الأجهزة الرقمية على نوعين:
+1. **أحرف مطبوعة** (مثلاً: الأحرف اللاتينية والأرقام وعلامات الترقيم)
+2. **أحرف تحكُّم** (مخفيَّة؛ والغرض منها التحكم بمعالج هذا النص)
 
 ```{python}
 import string
 string.printable
 ```
 
-Non-printable characters are called [`whitespace`](https://docs.python.org/3/library/string.html#string.whitespace). This includes the characters:
-1. space
-2. tab
-3. linefeed
-4. return
-5. formfeed
-6. vertical tab
+كانت أحرف التحكُّم تستخدم لرن جرس الآلة الطابعة ، والتحكم بها ، لكن اليوم الذي يُستخدم منها غالبًا هو [**الأحرف البيضاء**](https://docs.python.org/3/library/string.html#string.whitespace) ويشمل ذلك الأحرف التالية:
+1. space ويمثل المسافة كالتي بين الكلمات
+2. tab ويمثل المسافة كالتي بين أعمدة الجداول
+3. linefeed تعليمة سطر جديد
+4. return تعليمة العودة لبداية السطر الجديد
+5. formfeed تعليمة الصفحة الجديدة
+6. vertical tab تعليمة العمود الجديد
 
 ```{python}
 import string
 string.whitespace
 ```
 
-Let's look at three whitespace characters: space, tab, and linefeed.
+لنلقي نظرة على ثلاثة من الأحرف البيضاء: المسافة (space)، التبويب (tab)، وتعليمة السطر الجديد (linefeed).
 
 ```{python}
 # Tab character: "\t"
@@ -226,7 +203,7 @@ print('A\tB')
 print('A\nB')
 ```
 
-Notice the length of a string is the number of characters in the string, both **printable** and **whitespace**.
+لاحظ أن طول السلسلة النصية هو عدد الأحرف في السلسلة، سواء كانت **قابلة للطباعة** (printable) أو **أحرف بيضاء** (whitespace).
 
 ```{python}
 print(len('A B'))
@@ -234,7 +211,7 @@ print(len('A\tB'))
 print(len('A\nB'))
 ```
 
-In general, if we take a string and add to it these characters, we get the same length plus 3:
+بشكل عام، إذا أخذنا سلسلة نصية وأضفنا إليها هذه الأحرف، نحصل على نفس الطول زائد 3:
 
 ```{python}
 s = 'Salam'
@@ -243,24 +220,26 @@ assert len(s + '\n\t ') == len(s) + 3
 
 ### `.strip()`
 
+لاحظ أن هذه الدالة ستزيل الأحرف البيضاء من بداية ونهاية السلسلة النصية، ولكن ليس الأحرف البيضاء في منتصف السلسلة
+
+قبل:
+
 ```{python}
-# note that this will remove leading and trailing whitespace,
-# but not whitespace in the middle of the string
 text = '\t hello    world \n\n\n'
 print(text)
 ```
 
+بعد:
+
 ```{python}
-# Strip whitespaces
 print(text.strip())
 ```
 
 ### `.split()`
 
-See: [Splitlines](https://docs.python.org/3/library/stdtypes.html#str.splitlines)
+انظر: [Splitlines](https://docs.python.org/3/library/stdtypes.html#str.splitlines)
 
 ```{python}
-# multi-line string
 text = '''
 Hello
 World
@@ -269,13 +248,15 @@ How are you?
 '''
 ```
 
+إذا تركنا الكود كما هو في السطر من غير `print` فإن ذلك يعرض السلسلة النصية كما هي (بما في ذلك أحرف المسافات البيضاء)
+
 ```{python}
-# displays the string as is (showing whitespace characters)
 text
 ```
 
+أما إذا وضعنا `print` فإنه يطبع الأحرف المرئية ، وينسِّقُ المظهر بناءً على أحرف التحكُّم المخفية:
+
 ```{python}
-# follows control characters and prints visible characters
 print(text)
 ```
 
@@ -283,22 +264,21 @@ print(text)
 text.splitlines()
 ```
 
+إذا لم نحدد محدد الفاصل فإن الفاصل الافتراضي هو المسافة.
+
 ```{python}
-# Split
-print("Hello, world".split()) # default is space
+print("Hello, world".split())
 ```
+
+هنا نحدد الفاصل أنه الحرف `"l"`:
 
 ```{python}
 print("Hello, world".split("l"))
 ```
 
-```{python}
-# `maxsplit` argument: Maximum number of splits to do.
-# -1 (the default value) means no limit.
-print("Hello, world".split("l", 1)) # 1 means split only once
-```
-
 ### `.join()`
+
+هذه الدالة تدمج عناصر في متتالية مع وضع فاصل بينها.
 
 ```{python}
 names = ["Adam", "Belal", "Camal"]
@@ -310,10 +290,14 @@ print(' + '.join(names))
 
 ## Repetition
 
+يمكن تكرار السلسلة النصية باستخدام العامل `*`:
+
 ```{python}
 s = "Salam " * 3
 print(s)
 ```
+
+كذلك يمكنك وضعه مع الأحرف التي تمثل الأرقام:
 
 ```{python}
 zeros = "0" * 3
@@ -321,14 +305,16 @@ x = "1" + zeros
 print(x)
 ```
 
+لكن لاحظ الآتي:
+
 ```{python}
 x + x
 ```
 
-- We expected `1000`, but we got `10001000`. Why?
-- Because `x` is a string, and `+` operator concatenates strings.
+- توقعنا `1000`، لكن حصلنا على `10001000`. لماذا؟
+- لأن `x` هي سلسلة نصية (string)، وعامل `+` يقوم بدمج السلاسل النصية.
 
-Let's convert `x` to an integer using `int()`:
+لنقم بتحويل `x` إلى عدد صحيح باستخدام `int()`:
 
 ```{python}
 z = int(x)
@@ -337,7 +323,7 @@ z + z
 
 ## Concatenation
 
-We want to be able to write:
+نريد أن نكون قادرين على كتابة:
 
 ```{python}
 #| error: true
@@ -347,9 +333,9 @@ sentence = "I want to reach level " + lvl
 print(sentence)
 ```
 
-It raises an error! Why? .. the error message tells use that we cannot concatenate a string with an integer.
+يظهر خطأ! لماذا؟ .. رسالة الخطأ تخبرنا أنه لا يمكننا دمج سلسلة نصية مع عدد صحيح.
 
-How do we solve that? We convert the integer to a string using `str()`:
+كيف نحل هذه المشكلة؟ نقوم بتحويل العدد الصحيح إلى سلسلة نصية باستخدام `str()`:
 
 ```{python}
 age = 40
@@ -357,32 +343,33 @@ sentence = "My name is Adam and I am " + str(age) + " years old."
 print(sentence)
 ```
 
-Notice that we add two space characters, one after "am" and one before "years" to make the sentence readable.
+لاحظ أننا نضيف حرفي مسافة، واحدة بعد "am" وواحدة قبل "years" لجعل الجملة قابلة للقراءة.
 
-Try doing this for the previous sentence with `lvl`:
+حاول القيام بذلك للجملة السابقة مع `lvl`:
 
 ```{python}
 # try it
 ```
 
-## String formatting
+## تنسيق السلاسل النصية
 
-We look at 3 most commonly used ways to **concatenate** strings in Python:
+نستعرض ثلاث طرق لدمج السلاسل النصية في بايثون:
 
-**Firstly**, joining individual strings via the `+` operator (as we did above).
-- Basic, but no control over the format
-- Also you have to convert numbers to strings using [`str()`](https://docs.python.org/3/library/stdtypes.html#str)
+**أولاً**، دمج السلاسل النصية الفردية باستخدام عامل `+` (كما فعلنا سابقًا).
 
-**Secondly**, using the [`.format()`](https://docs.python.org/3/library/stdtypes.html#str.format) method.
+- بسيط، ولكن لا يوفر تحكمًا في التنسيق
+- كما يجب عليك تحويل الأرقام إلى سلاسل نصية باستخدام الدالة المُضافَة [`str()`](https://docs.python.org/3/library/stdtypes.html#str)
 
-Where replacement fields are delimited by braces `{}`. Each replacement field contains either:
+**ثانيًا**، استخدام الدالة المُضافَة [`.format()`](https://docs.python.org/3/library/stdtypes.html#str.format).
 
-1. the numeric **index** of a positional argument (starting from `0`), or
-2. the name of a **keyword argument** (if the argument is a dictionary).
+حيث يتم تحديد حقول الاستبدال بواسطة الأقواس `{}`. يحتوي كل حقل استبدال على:
 
-**Thirdly**, using [f-strings](https://docs.python.org/3/reference/lexical_analysis.html#formatted-string-literals).
+1. **الفهرس الرقمي** للمعامل الموضعي (يبدأ من `0`)، أو
+2. اسم **المعامل بالكلمة المفتاحية** (إذا كان المعامل قاموسًا).
 
-> A formatted string literal or f-string is a string literal that is prefixed with 'f' or 'F'. These strings may contain replacement fields, which are expressions delimited by curly braces {}. While other string literals always have a constant value, formatted strings are really expressions evaluated at run time. [Docs](https://docs.python.org/3/reference/lexical_analysis.html#formatted-string-literals)
+**ثالثًا**، استخدام [f-strings](https://docs.python.org/3/reference/lexical_analysis.html#formatted-string-literals).
+
+> سلسلة نصية مهيكلة أو f-string هي سلسلة نصية مسبوقة بالحرف 'f' أو 'F'. قد تحتوي هذه السلاسل على حقول استبدال، وهي تعبيرات محددة بواسطة الأقواس المعقوفة {}. بينما تحتوي السلاسل النصية الأخرى دائمًا على قيمة ثابتة، فإن السلاسل النصية المهيكلة هي تعبيرات يتم تقييمها في وقت التشغيل. [المستندات](https://docs.python.org/3/reference/lexical_analysis.html#formatted-string-literals)
 
 
 ```{python}
@@ -396,22 +383,24 @@ assert x1 == x2 == x3
 print(x1)
 ```
 
-#### Exercise
+#### تمرين
 
-Print `"Hello, my name is John Doe. and I am 30 years old"`. Using the variables `first_name`, `last_name`, and `age` via all three approaches mentioned above:
+اطبع الجملة `"Hello, my name is John Doe. and I am 30 years old"`. باستخدام المتغيرات `first_name`، `last_name`، و `age` عبر الطرق الثلاث المذكورة آنفًا:
+
 
 ```{python}
 # try it
 ```
 
-### Alignment and padding
+### المحاذاة والحشو (Alignment and Padding)
 
 ```{python}
 print(name.ljust(15)) 
 print(name.center(15))
 ```
 
-A fun way to decorate a string using `center` method:
+طريقة ممتعة لتزيين سلسلة نصية باستخدام دالة `center`:
+
 
 ```{python}
 print('*' * 20)
@@ -421,7 +410,7 @@ print('*' * 20)
 
 #### Exercise
 
-Refactor the above code snippet to define three variables and use them in decorating the name:
+قم بصياغة الكود السابق لتعريف ثلاثة متغيرات واستخدامها في تزيين الاسم:
 
 - `name`
 - `width`
@@ -430,12 +419,11 @@ Refactor the above code snippet to define three variables and use them in decora
 ```{python}
 # try it
 name = 'Adam'
-
-
-
 ```
 
-Padding numbers:
+## تنسيق الأرقام
+
+### محاذاة الأرقام
 
 ```{python}
 print(f'{100:10}')
@@ -443,9 +431,24 @@ print(f'{1000:10}')
 print(f'{10000:10}')
 ```
 
-## Formatting numbers
 
-### Thousands separator
+يمكننا أيضًا جعل كل من العدد `n` والتعبئة `p` متغيرات:
+
+
+```{python}
+n = 100
+p = 5
+print(f'{n:{p}}')
+```
+
+بشكل افتراضي، يتم محاذاة الرقم إلى اليمين. يمكننا محاذاته إلى اليسار بإضافة `<`. لاحظ الفرق بين التعبيرين أدناه:
+
+```{python}
+print(f'{n:>{p}}')
+print(f'{n:<{p}}')
+```
+
+### فاصل الآلاف
 
 ```{python}
 big_num = 10000
@@ -453,14 +456,15 @@ print(f'{big_num}')
 print(f'{big_num:,}')
 ```
 
-### Scientific Notation
+### الترميز العلمي (Scientific Notation)
+
 
 ```{python}
 small_num = 1e-4
 print(f"{small_num:.2e}")
 ```
 
-### Decimals
+### الأعداد العشرية (Decimals)
 
 ```{python}
 num = 10.5689
@@ -470,48 +474,33 @@ print(f'{num:.2f}')
 print(f'{num:.0f}')
 ```
 
-#### Example: currency
+#### مثال: تنسيق الكم المالي
 
-Here we use 2 components inside the curly braces and the `$` prefix:
-- `$` sign is added before the number (not part of the formatted number at all)
-- `,` adds the thousands separator
-- `.2f` round the number to 2 decimal places
+هنا نستخدم مكونين داخل الأقواس المعقوفة وعلامة `$` في البداية:
+- يتم إضافة علامة `$` قبل الرقم (ليست جزءًا من الرقم المنسق على الإطلاق)
+- `,` تضيف فاصل الآلاف
+- `.2f` يقوم بتقريب الرقم إلى منزلتين عشريتين
+
 
 ```{python}
 price = 2978.95
 print(f"${price:,.2f}")
 ```
 
-### Parametrized formats
+### تنسيق كتابة القيَم العددية الثابتة (Number literal formats)
 
-We can also make both the number `n` and the padding `p` to be variables:
+[**الحروفيَّة**](https://docs.python.org/3/reference/lexical_analysis.html#literals) هي رموز للقيم الثابتة لبعض الأنواع المدمجة. مثال: `42` هو حرفيُّ عدد صحيح و `3.14` هو حرفيُّ عدد عشري.
 
-```{python}
-n = 100
-p = 5
-print(f'{n:{p}}')
-```
+تسمح بايثون بطرق أكثر قابلية للقراءة في كتابة الحروفية العددية:
 
-By default the number is right-aligned. We can left-align it by adding `<`. Notice the difference between the two expressions below:
+- يمكن استخدام الشرطة السفلية `_` في الأرقام لفصلها لتحسين القراءة
+- يمكن استخدام `e` أو `E` لتمثيل الترميز العلمي
+- `0b` أو `0B` للأرقام الثنائية
+- `0o` أو `0O` للأرقام الثمانية
+- `0x` أو `0X` للأرقام الست عشرية
+- `j` أو `J` للأعداد المركبة
 
-```{python}
-print(f'{n:>{p}}')
-print(f'{n:<{p}}')
-```
-
-Checkout: [PyFormat](https://pyformat.info/) for more.
-
-### Number literal formats
-
-[**Literals**](https://docs.python.org/3/reference/lexical_analysis.html#literals) are notations for constant values of some built-in types. Example: `42` is an integer literal and `3.14` is a floating-point literal.
-
-Python allows more readable ways in writing number literals:
-- underscores `_` in numbers separate them for better readability
-- `e` or `E` can be used to represent scientific notation
-- `0b` or `0B` for binary numbers
-- `0o` or `0O` for octal numbers
-- `0x` or `0X` for hexadecimal numbers
-- `j` or `J` for complex numbers
+وإليك تطبيق ذلك:
 
 ```{python}
 assert 1e-4 == 0.0001
@@ -522,7 +511,7 @@ assert 0x10 == 16
 assert 1 + 2j == 2j + 1
 ```
 
-## References
+## المراجع
 
 - [Text Sequence Type — str](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str)
 - [String methods](https://docs.python.org/3/library/stdtypes.html#string-methods)
