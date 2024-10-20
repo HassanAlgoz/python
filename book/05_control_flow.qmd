@@ -1,84 +1,102 @@
 ---
-title: جريان التحكم
+title: تدفق التحكم
 jupyter: python3
 ---
 
-## Algorithms
+## الخوارزميات
 
-### Definition
+**الخوارزمية (Algorithm)** تسلسل من التعليمات تعمل على مدخلات، تعالجها، وتنتج مخرجات.
 
-An **algorithm** is a sequence of instructions that takes some input, processes it, and produces some output.
+يمكن وصف الخوارزميات باستخدام الأشكال؛ وتسمى هذه **خريطة التدفق (flowchart)**.
 
-Here is a more formal characterization of what an algorithm is:
+### شبيه الكود (Pseudocode)
+ 
+توصف الخوارزمية كذلك بكود غير حقيقي وهذا ما نسميه **شبيه الكود (pseudocode)**. وسبب التسمية أنه لا يوجَد مفسِّر له لتنفيذه.
 
-> As an effective method, an algorithm can be expressed within a finite amount of space and time and in a well-defined formal language for calculating a function. Starting from an initial state and initial input (perhaps empty), the instructions describe a computation that, when executed, proceeds through a finite number of well-defined successive states, eventually producing "output" and terminating at a final ending state. The transition from one state to the next is not necessarily deterministic; some algorithms, known as randomized algorithms, incorporate random input. [Source](https://en.wikipedia.org/wiki/Algorithm)
+**والذكاء الصطناعي** اليوم قادر على ترجمته إلى كود بايثون! أو إلى لغات برمجية أخرى أعقد منها.
+### كيف يتم تنفيذ الخوارزميات؟
 
-Algorithms may be described loosely in English; that's what we call **pseudocode**.
+**البرنامج الحاسوبي** ما هو إلا خوارزمية؛ لكنها مكتوبة بالمستوى التنفيذي للحاسوب؛ فهو مستوىً لا يحتاج لمزيد ترجمة.
 
-Algorithms may also be described using shapes; these are called **flowcharts**.
+فلغات البرمجة مثل بايثون لا تُفهم مباشرة من قبل مكونات الحاسوب الصلبة (الكهربائية). بل يتم ترجمة الكود بواسطة برنامج آخر إلى سلسلة من التعليمات ذات المستوى الأدنى والأكثر تفصيلاً حتى تتواءم مع بنية مكونات الحاسوب، ليتم فيما بعد تحميلها في وحدة المعالجة المركزية (CPU) وتنفيذها.
 
-It helps to use non-formal language to describe algorithms, and later we can translate them into a formal language that a computer can understand; i.e., a Python program. However, Python was written to be easy to read and write, so it is already a good language for describing algorithms.
+هذا ما يحدث خلف الكواليس عند تشغيل الكود.
 
-### Algorithm Execution
+## تدفق التحكم (Control Flow)
 
-A computer program is an algorithm written for a computer to execute. Programming languages like Python are not actually directly understood by computer hardware. Instead, the code is translated by another program (Python Interpreter) into a lower-level, more detailed sequence of instructions that match the architecture of the hardware of the computer, and are then loaded into the CPU and executed. Of course, we don't need to worry about this when we write Python code, but it's good to know that there is a lot going on behind the scenes when we run a Python program.
+مصطلح التحكم هنا يشير للسطر أو رقم التعليمة التي نحن بصدد تشغيلها. فالتحكم قد يتدفق بشكل تسلسلي (تعليمات متوالية: الواحدة تلو الأخرى: 1 ، 2 ، 3 ...)، أو يختار من بين طريقين (أو أكثر)، أو يعود لرقم تعليمة سابقة (وهذا الذي يعطيه خاصية التكرار، لأنها متسلسلة). فنخلص من هذا أن **تدفق التحكم** في الخورازمية له ثلاثة عناصِر:
+1. **التسلسل (sequencing)**
+2. **الاختيار (selection)**
+**التكرار (iteration)**
 
-## Control Flow
-
-Algorithms may specify statements that **follow one another**, or they may specify statements that are executed **based on a condition**, or they may specify statements that are **executed repeatedly**.
-
-Thus, we say an algorithm is made up of three basic building blocks: **sequencing**, **selection**, and **iteration**.
-
-![Control flow of elementary control structures. 
+![تدفق التحكم في الهياكل الأساسية للتحكم. 
 ](https://www.researchgate.net/profile/Kay-Smarsly/publication/322509045/figure/fig1/AS:583153716215809@1516046088625/Control-flow-of-elementary-control-structures.png)
 
+ولك أن تتصور **البرنامج المتوازي**: له مجموعة تدفقات تحكم متوازية. وعادة ما تجعل للتنفيذ المتوازي نقطة تلاقي لاعتبار الناتج من جميع خطوط التنفيذ المتوازية.
 
-## Order of execution
+```{mermaid}
+%%| fig-cap: "مثال لتدفقي تحكُّم متوازية"
+graph LR
+    A(Start)
+    A -->|Task 1| B[Execution]
+    A -->|Task 2| C[Execution]
+    A -->|Task 3| D[Execution]
+    B --> E[Join/Sync Point]
+    C --> E
+    D --> E
+    E --> F[End]
+```
 
-Python is a ***procedural programming language*** (as opposed to ***Declarative***). This means that code is executed in the order that it is written. For example, if we write the following code:
+## ترتيب التنفيذ
+
+بايثون هي لغة برمجة ***إجرائية (Procedural)*** على عكس ***الوصفية (Declarative)***. هذا يعني أن الكود يُنفذ بالترتيب الذي يُكتب به. على سبيل المثال، إذا كتبنا الكود التالي:
 
 ```{python}
 x = 5
 x = 2
 ```
 
-The last statement overwrites the value of `x` with `2`.
+فالتعيين اللاحق ناسخٌ (ماحٍ) لما قبله.
 
-## User Input
+## علاقة الإدخال بتدفق التحكُّم
 
-We will be using the `input()` function which **interrupts** the flow of the program and hands control to the user to provide some input, waiting until the `Enter` key is pressed to signal that the input is complete.
+نستخدم دالة `input()` حيث **تقطَع تدفق البرنامج (Interrupt)** فيتوقَّف لتمنح التحكم للمستخدم لتقديم بعض المدخلات، وتنتظر حتى يتم الضغط على مفتاح `Enter` للإشارة إلى أن الإدخال اكتمل ، ليعود التحكم للبرنامج كيف يُكمِل تدفقه.
 
 ```python
 name = input("What's your name? ")
 print(f"Salam, {name}!")
 ```
 
+::: {.callout-note}
+ملاحظة جانبية: قِس على هذا المدخلات الأخرى وكذلك المُخرجات. فعند أي مُدخَل (سواءً ملفٌّ يُقرأ ، أو بيانات قادمة من الشَّبكة أو من قاعدة بيانات محليَّة) فإنه يقطَعُ تدفُّقَ البرنامج لحين يتم تسجيله في الذاكرة (RAM) ، ثم يُتِمُّ البرنامج سيرَه. وكذلك الأمر عند أي عملية إنتاج مُخرجات؛ فهي عمليَّة كتابة تحتاج من البرنامج أن يجعل التحكم في يدِ نظام التشغيل لأنه المخوَّل بعمليَّات كهذه. ثم قد يعود على البرنامج برسالة خطأ، أو بالتمام إن تم كل شيء على أحسن حال. وهذا تفصيله يكون في تعدد خيوط التنفيذ (Multi-processing).
+:::
+
 #### تمرين
 
-اطلب من المستخدم إدخال `العمر (age)` وأخبره كم سيكون عمره بعد 10 سنوات.
+اطلب من المستخدم إدخال الاسم والعمر ثم أخبره كم سيكون عمره بعد 10 سنوات مناديًا له باسمه.
 
-Note: you have to convert the input to an integer using `int()` function, before you can perform arithmetic operations on it.
+ملاحظة: استخدم دالة `int()` لتحويل المدخل إلى عدد صحيح قبل أن تتمكن من إجراء العمليات الحسابية عليه.
 
-Hint: check that the `type()` of `age` is `int` before performing arithmetic operations.
+تلميح: تحقق من أن `type()` لمتغير العمر هو من نوع `int` قبل إجراء العمليات الحسابية.
 
 ```{python}
 # try it
 ```
 
-## Boolean Expressions
+## التعبيرات المنطقية (Boolean Expressions)
 
-Boolean expressions are expressions that evaluate to either `True` or `False`. The following operators are used to compare values:
+التعبيرات المنطقية هي تعبيرات تؤول إما إلى `True` أو `False`. يتم استخدام العلامات التالية للمقارنة:
 
-| Operator | Description |
+| العلامة | الوصف |
 | --- | --- |
-| `==` | Equal to |
-| `!=` | Not equal to |
-| `>` | Greater than |
-| `<` | Less than |
-| `>=` | Greater than or equal to |
-| `<=` | Less than or equal to |
+| `==` | يساوي |
+| `!=` | لا يساوي |
+| `>` | أكبر من |
+| `<` | أصغر من |
+| `>=` | أكبر من أو يساوي |
+| `<=` | أصغر من أو يساوي |
 
-Let's try few examples of boolean expressions:
+لنستكشف سويًّا التعبيرات المنطقية وما يمكن بينها:
 
 ```{python}
 b1 = 5 > 9
@@ -90,7 +108,7 @@ b2 = len('12345') > len('123456789')
 print(b2)
 ```
 
-Boolean expressions can be combined using the `and`, `or`, and `not` operators:
+يمكن دمج التعبيرات المنطقية باستخدام العوامل `and`، `or`، و `not`:
 
 ```{python}
 b3 = b1 and b2
@@ -107,9 +125,9 @@ b5 = not b1
 print(b5)
 ```
 
-## Conditional Statements
+## العبارات الشرطية (Conditional Statements)
 
-Conditional statements are used to execute different pieces of code depending on the value of a boolean expression. Example:
+تُستخدم العبارات الشرطية لتنفيذ أجزاء مختلفة من الكود بناءً على قيمة تعبير منطقي (boolean expression). مثال:
 
 ```{python}
 if b5:
@@ -117,11 +135,11 @@ if b5:
 print('Outside')
 ```
 
-### Indentation in Python
+### المسافة البادئة (Indentation)
 
-Notice the **indentation** (whitespaces just below the `if`) in the code above is not just for readability, it specifies the block of code that is executed if the condition is `True`. The indentation is usually 4 spaces, but can be any number of spaces or tabs, as long as it is consistent throughout the code block.
+لاحظ أن **المسافة البادئة** (المسافات البيضاء أسفل كلمة `if`) في الكود أعلاه ليست لمجرد تسهيل قراءة الكود، بل هي التي تحدد التعليمات المشروطة. عادةً ما تكون المسافة البادئة عبارة عن 4 مسافات أو 2 أو أكثر، لكن لابد أن تكون موحَّدة طوال الكود.
 
-Without proper indentation, code will raise an error:
+لاحظ: بدون المسافة البادئة الصحيحة، سيظهر خطأ في الكود:
 
 ```{python}
 #| error: true
@@ -131,7 +149,7 @@ print('Inside')
 print('Outside')
 ```
 
-If you indent both `print` statements, the code will run unexpectedly opposite of what is intended, i.e., it will print `Outside` when it is actually inside the `if` block.
+إذا قمت بزيادة المسافة البادئة لكل من جملتي `print()`، فسوف يعمل الكود بتدفِّقٍ غيرِ الذي قصدناه ابتداءً. أي أنه سيطبع `Outside` عندما يكون في الواقع داخل اللَّبِنَة الشرطية.
 
 ```{python}
 if b5:
@@ -139,11 +157,11 @@ if b5:
     print('Outside')
 ```
 
-This results in a silent error that would never show up as bug and won't stop the program. So be cautious with indentation!
+يؤدي الكود السابق إلى خطأ منطقي لن يظهر أبدًا كخطأ ولن يوقف البرنامج. لذا كن حذرًا مع المسافة البادئة في كتابة كود بايثون!
 
-### Combining Conditions
+### تركيب الشروط
 
-You can combine multiple conditions using the `and`, `or`, and `not` operators, because they result in a boolean value. For example:
+يمكنك دمج شروط متعددة باستخدام العوامل `and`، `or`، و `not`، لأنها تنتج قيمة منطقية (boolean value). على سبيل المثال:
 
 ```{python}
 age = 20
@@ -153,7 +171,7 @@ if age > 18 and height > 170:
   print("You are eligible to donate blood")
 ```
 
-We can use parenthesis to group conditions together. It also lifts any ambiguity in the order of operations:
+يمكننا استخدام الأقواس لتجميع الشروط معًا. كما أنها تزيل أي غموض في ترتيب العمليات:
 
 ```{python}
 age = 16
@@ -165,7 +183,7 @@ if age < 16 or (temperature < 20 and not is_wearing_coat):
   print("I suggest you don't go outside")
 ```
 
-You can think of the whole condition as a single boolean value that is `True` or `False`. And you can break it down into smaller parts as well to make it easier to understand:
+يُنظَر للشرط بأكمله كقيمة منطقية واحدة تكون `True` أو `False` ولا بأس بتجزئته حينما يسهل بذلك الفهم:
 
 ```{python}
 is_minor = age < 16
@@ -176,11 +194,10 @@ if b:
   print("I suggest you don't go outside")
 ```
 
-This goes back to the idea that expressions evaluate to a value, and that value can be used in other expressions. This idea is a powerful simplification tool when analyzing and composing complex programs.
 
 #### تمرين
 
-- اطلب `عرض (width)` و `ارتفاع (height)` المستطيل من المستخدم باستخدام `input()`
+- اطلب `عرض (width)` و `ارتفاع (height)` المستطيل من المستخدم عن طريق دالة `input()`
 - احسب مساحة المستطيل وخزنها في متغير `area`
 - إذا كانت `area` أكبر من 100 و `width` أكبر من `height`، اطبع: `"المستطيل كبير وعريض"`
 - إذا كانت `area` أكبر من 100 و `width` أقل من أو يساوي `height`، اطبع: `"المستطيل كبير وطويل"`
@@ -189,40 +206,9 @@ This goes back to the idea that expressions evaluate to a value, and that value 
 # try it
 ```
 
-### Truth Value Testing
+### `if`، `elif`، و `else`
 
-Any object can be tested for truth value in an `if` condition. Here are most of the built-in objects considered false:
-
-1. constants defined to be false: `None` and `False`
-2. zero of any numeric type: `0`, `0.0`, `0j`
-3. empty sequences and collections: `''`, `()`, `[]`, `{}`
-
-Example:
-
-```{python}
-if False or None or 0 or "":
-    print("should never print")
-```
-
-Any other object value is considered `True`:
-
-```{python}
-if True or 1 or "abc":
-    print("should always print")
-```
-
-#### Exercise
-
-- Ask the user to enter their address
-- If the address is not empty, print: `"Thank you for providing your address"`
-
-```{python}
-# try it
-```
-
-### `if`, `elif`, and `else`
-
-The full syntax for a conditional statement is as follows:
+الصيغة الكاملة لجملة الشرط هي كما يلي:
 
 ```python
 if <boolean expression>:
@@ -233,9 +219,10 @@ else:
     <code>
 ```
 
-There can be zero or more [`elif`](https://docs.python.org/3/reference/compound_stmts.html#elif) parts, and the [`else`](https://docs.python.org/3/reference/compound_stmts.html#else) part is optional. The keyword ‘`elif`’ is short for ‘else if’, and is useful to avoid excessive indentation. An `if` … `elif` … `elif` … sequence is a substitute for the `switch` or `case` statements found in other languages.
+قد يوجد [`elif`](https://docs.python.org/3/reference/compound_stmts.html#elif) واحدة أو أكثر، وقد توجد [`else`] واحدة فقط (https://docs.python.org/3/reference/compound_stmts.html#else). أما الكلمة `elif` فهي اختصار لـ `else if`. تسلسل `if` ... `elif` ... `elif` ... هو بديل لجمل `switch` أو `case` الموجودة في لغات أخرى.
 
-Test the following code block with different values for `x` and try to trace back the flow of control:
+جرب الكود التالي بقيم مختلفة لـ `x` وحاول تتبع تدفق التحكم:
+
 - `x = -5`
 - `x = 0`
 - `x = 1`
@@ -257,23 +244,23 @@ else:
 print("Always:", x)
 ```
 
-Notice that the last statement is not indentented, so it is always executed.
+لاحظ أن العبارة الأخيرة خارج كل اللَّبِنات الشرطية لذا يتم تنفيذها دائمًا.
 
-#### Exercise
+#### تمرين
 
-- Use the `input()` function to ask the user for `username` and `password` and store both in corresponding variables 
-- If the username is `"admin"` and the password is `"abc123"`, print: `"Welcome admin"`
-- Or the username is `"backdoor"` and the password is `"let me in"`, print: `"Nobody knows!"`
-- Otherwise, print: `"Access denied!"`
+- استخدم دالة `input()` لطلب `اسم المستخدم (username)` و `كلمة المرور (password)` من المستخدم وخزن كل منهما في متغير مناسب
+- إذا كان اسم المستخدم هو `"admin"` وكلمة المرور هي `"abc123"`، اطبع: `"Welcome admin"`
+- أو إذا كان اسم المستخدم هو `"backdoor"` وكلمة المرور هي `"let me in"`، اطبع: `"Nobody knows!"`
+- خلاف ذلك، اطبع: `"Access denied!"`
 
 ```{python}
 #| eval: false
 password = 
 ```
 
-#### Exercise
+#### تمرين
 
-Say we want to assign a grade to a student based on their score, according to the following table:
+نريد تعيين درجة لطالب بناءً على نتيجته، وفقًا للجدول التالي:
 
 | Mark | Grade |
 |---|---|
@@ -283,7 +270,7 @@ Say we want to assign a grade to a student based on their score, according to th
 | 60-69 | D |
 | 0-59 | F |
 
-Find the bug(s) in the following code and fix it (run it with different scores to test it):
+ابحث عن الخطأ (أو الأخطاء) في الكود التالي وأصلحه. اختبره بدرجات (`score`) مختلفة للتأكد من صحته:
 
 ```{python}
 #|eval: false
@@ -301,30 +288,31 @@ if score >= 60:
 print("F")
 ```
 
-Hint:
-- you may find it useful to comment the first two lines, and assign the score directly to a value to test the code.
-- the code is missing `elif` and `else` statements
-- you don't need to remove any `print` statement
+تلميحات:
 
-#### Exercise
+- قد تجد أنه من المفيد تعليق السطرين الأولين (بعلامة التعليق: `#`) وتعيين قيمة `score` مباشرة لاختبار الكود بسرعة.
+- الكود يفتقد إلى عبارات `elif` و `else`.
+- لا تحتاج إلى إزالة أي عبارة `print`.
 
-- Ask the user to enter their age
-- Convert the input to an integer using the `int()` function
-- If the age is less than 5, print: `"Early childhood"`
-- Else If the age is between 5 and 12, print: `"Childhood"`
-- Else If the age is between 12 and 18, print: `"Teenager"`
-- Else If the age is between 18 and 65, print: `"Adult"`
-- Else print: `"Senior citizen"`
+#### تمرين
 
-Note: using `elif` makes it possible to check ranges based on the previous condition.
+- اطلب من المستخدم إدخال عمره
+- حوّل المدخل إلى عدد صحيح باستخدام دالة `int()`
+- إذا كان العمر أقل من 5، اطبع: `"Child"`
+- إذا كان العمر بين 5 و 12، اطبع: `"Kid"`
+- إذا كان العمر بين 12 و 18، اطبع: `"Adolesence"`
+- إذا كان العمر بين 18 و 65، اطبع: `"Adult"`
+- خلاف ذلك، اطبع: `"Senior"`
+
+ملاحظة: استخدام `elif` يعلق الشرط بانتفاء الذي قبله.
 
 ```{python}
 # try it
 ```
 
-### Nested `if`s
+### التداخل في جمل الشرط
 
-Nested `if` statements are `if` statements inside other `if` statements. For example:
+جمل الشرط المتداخلة (Nested `if` statements) هي جمل `if` داخل جمل `if` أخرى. على سبيل المثال:
 
 ```python
 if <boolean expression>:
@@ -336,12 +324,11 @@ else:
     <code>
 ```
 
-- Also note that the indentation is important. The inner `if` statement must be indented more than the outer `if` statement.
-- The `else` clause belongs to the `if` statement at the same indentation level.
+- لاحظ أيضًا أن المسافة البادئة مهمة. يجب أن تكون جملة `if` الداخلية ذات مسافة بادئة أكثر من جملة `if` الخارجية.
 
-The following example assigns the letter grade for score ranges, and then prints an additional message depending on sub-ranges:
+#### مثال
 
-Say we want to assign a grade to a student based on their score, according to the following table:
+افترض أننا نريد تعيين درجة لطالب بناءً على نتيجته، وفقًا للجدول التالي:
 
 | Mark | Grade |
 |---|---|
@@ -378,18 +365,18 @@ else:
   print("Failed: F")
 ```
 
-## Indefinite Loops
+## الحلقة المُطْلقة (Indefinite loop)
 
-An **indefinite loop** is a loop that doesn't have a predetermined end specified in the condition itself (although it may be determined at some other line). It continues to execute until a certain condition is met. The `while` loop is used to create an indefinite loop.
+الحلقة المُطْلقة (وتُنشأ باستخدام `while`) هي حلقة لا تحتوي على نهاية محددة مسبقًا في الشرط نفسه ، بل يتم تحديدها في سطر آخر ، فتستمر في التكرار حتى يُستوفى شرطها.
 
-The syntax of a `while` loop is as follows:
+صيغة حلقة `while` كما يلي:
 
 ```python
 while <boolean expression>:
     <code>
 ```
 
-The code block is executed repeatedly as long as the boolean expression is `True`. If the condition is `False` in the first place, the code block is never executed.
+يتم تكرار اللبنة الواقعة في نطاق جملة الشرط ما بقي الشرط (`True`). وإذا انتفى الشرط (`False`) في البداية، فلن يتم الدخول في اللبنة أصلاً.
 
 ```python
 i = 0
@@ -398,12 +385,12 @@ while i < 5:
     i += 1
 print('Done')
 ```
+ونلاحظ هنا أنك إذا نسيت زيادة قيمة `i`، فإن الحلقة لن تنتهي أبدًا؛ وهذا ما يسمى **حلقة لانهائية (infinite loop)**.
 
-Note that: if you forget to increment `i`, the loop will never end; that's called an **infinite loop**
-
-Let's look at the flowchart:
+لنلقِ نظرة على مخطط التدفق:
 
 ```{mermaid}
+%%| fig-cap: "تدفق التحكم لحلقة while"
 graph TD
     A[Start] --> B{Condition}
     B -- True --> C[Print i]
@@ -412,9 +399,10 @@ graph TD
     B -- False --> E[End]
 ```
 
-If we unfold the loop, it looks like this:
+إذا فككنا الحلقة، فستبدو هكذا:
 
 ```{mermaid}
+%%| fig-cap: "تدفق التحكم بعد فك الحلقة. الرسم صغير لكن القصد هو بيان أنها ستكون طويلة جدًّا عند الفك."
 graph LR
     A[Start] --> B{0 < 5}
     B -- True --> C[Print 0]
@@ -435,27 +423,27 @@ graph LR
     Q -- False --> R[End]
 ```
 
-Let's trace it step by step for when `i = 0`:
+لنقم بتتبع الخطوات عندما تكون `i = 0`:
 
-1. `0 < 5` is `True`, so we print `0` and increment `i` so it becomes 1
-2. `1 < 5` is `True`, so we print `1` and increment `i` so it becomes 2
-3. `2 < 5` is `True`, so we print `2` and increment `i` so it becomes 3
-4. `3 < 5` is `True`, so we print `2` and increment `i` so it becomes 4
-5. `4 < 5` is `True`, so we print `2` and increment `i` so it becomes 5
-6. `5 < 5` is `False`, so we exit the loop
-5. We print `Done`
+1. `0 < 5` تؤول `True`، فنطبع `0` ونزيد `i` لتصبح 1
+2. `1 < 5` تؤول `True`، فنطبع `1` ونزيد `i` لتصبح 2
+3. `2 < 5` تؤول `True`، فنطبع `2` ونزيد `i` لتصبح 3
+4. `3 < 5` تؤول `True`، فنطبع `3` ونزيد `i` لتصبح 4
+5. `4 < 5` تؤول `True`، فنطبع `4` ونزيد `i` لتصبح 5
+6. `5 < 5` تؤول `False`،فنخرج من الحلقة
+7. نطبع `Done`
 
 #### تمرين
 
 - اطلب من المستخدم إدخال رقم
 - إذا كان الرقم الذي أدخله المستخدم أقل من 1، اطبع: `"الرقم يجب أن يكون أكبر من 1"` ثم اطلب من المستخدم إعادة الإدخال
-- اطبع الأرقام من 1 إلى الرقم الذي أدخله المستخدم
+- أخيرًا اطبع مجموع الأرقام من 1 إلى الرقم الذي أدخله المستخدم
 
 ```{python}
 # try it
 ```
 
-#### `break` and `continue` Statements
+#### عبارات `break` و `continue`
 
 ```{python}
 i = 0
@@ -467,7 +455,8 @@ while i < 5:
 print('Done')
 ```
 
-The [`continue`](https://docs.python.org/3/reference/simple_stmts.html#continue) statement continues with the next iteration of the loop:
+عبارة [`continue`](https://docs.python.org/3/reference/simple_stmts.html#continue) تقفز للتكرار القادم متخطِّيةً بقية خطوات التكرار الحالي.
+
 
 ```{python}
 i = 0
@@ -481,7 +470,7 @@ print('Done')
 ```
 
 
-The [`break`](https://docs.python.org/3/reference/simple_stmts.html#break) statement breaks out of the innermost enclosing [`for`](https://docs.python.org/3/reference/compound_stmts.html#for) or [`while`](https://docs.python.org/3/reference/compound_stmts.html#while) loop:
+أما عبارة [`break`](https://docs.python.org/3/reference/simple_stmts.html#break) فتوقِف التكرار تمامًا. وإن كان لدينا تكرار متداخل (تكرار داخل تكرار) فإن الذي يتوقف هو التكرار الداخلي.
 
 
 ```{python}
