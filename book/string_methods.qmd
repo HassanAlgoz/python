@@ -1,76 +1,62 @@
+# الدوال المدمجة والطرق المضافة للسلاسل النصية
 
-## Python Common String Methods and Built-in Functions
+## المجموعة الأولى: دوال مدمجة
 
-### Must-Know String Methods
-
-| Function | Description |
+| الدالة | الوصف |
 |---|---|
-| `.upper()` | Converts a string to uppercase. |
-| `.lower()` | Converts a string to lowercase. |
-| `.find()` | Finds the index of a substring within a string. |
-| `.replace()` | Replaces occurrences of a substring within a string. |
-| `.split()` | Splits a string into a list of substrings based on a delimiter. |
-| `.join()` | Joins elements of an iterable into a string using a separator. |
-| `.strip()` | Removes leading and trailing whitespace from a string. |
-| `.startswith()` | Checks if a string starts with a specified prefix. |
-| `.endswith()` | Checks if a string ends with a specified suffix. |
-| `.count()` | Counts the number of occurrences of a substring within a string. |
+| `len()` | لمعرفة الطول. |
+| `print()` | طباعة. |
+| `ord()` | لمعرفة رمز Unicode لحرف. |
+| `int()` | تحويل سلسلة نصية إلى عدد صحيح. |
+| `float()` | تحويل سلسلة نصية إلى عدد عشري. |
 
+## المجموعة الثانية: طرق مضافة شائعة الاستعمال
 
-### Good-to-Know String Methods
-
-| Function | Description |
+| الدالة المضافة | الوصف |
 |---|---|
-| `.encode()` | Encodes a string using a specified encoding. |
-| `.translate()` | Replaces characters in a string using a translation table. |
-| `.capitalize()` | Capitalizes the first character of a string. |
-| `.center()` | Centers a string within a specified field width. |
-| `.casefold()` | Converts a string to a casefolded version for case-insensitive comparisons. |
-| `.expandtabs()` | Expands tab characters in a string. |
-| `.index()` | Finds the index of a substring within a string, raising an exception if not found. |
-| `.format()` | Creates a formatted string using placeholders. |
-| `.format_map()` | Formats a string using substitutions from a mapping. |
-| `.__contains__()` | Checks if a substring is contained within a string (using the `in` operator). |
+| `.upper()` | تحويل السلسلة النصية إلى أحرف كبيرة. |
+| `.lower()` | تحويل السلسلة النصية إلى أحرف صغيرة. |
+| `.find()` | إيجاد فهرس (index) سلسلة نصية فرعية داخل سلسلة نصية. |
+| `.replace()` | استبدال تكرارات سلسلة نصية فرعية داخل سلسلة نصية. |
+| `.split()` | تقسيم السلسلة النصية إلى قائمة من السلاسل النصية الفرعية بناءً على محدد. |
+| `.join()` | دمج عناصر من iterable إلى سلسلة نصية باستخدام فاصل. |
+| `.strip()` | إزالة المسافات البيضاء من بداية ونهاية السلسلة النصية. |
+| `.startswith()` | التحقق مما إذا كانت السلسلة النصية تبدأ بمقدمة محددة. |
+| `.endswith()` | التحقق مما إذا كانت السلسلة النصية تنتهي بنهاية محددة. |
+| `.count()` | عد عدد تكرارات سلسلة نصية فرعية داخل سلسلة نصية. |
+| `.format()` | إنشاء سلسلة نصية منسقة باستخدام عناصر نائبة. |
 
-### Miscellaneous String Methods
+## المجموعة الثالثة: طرق مضافة متداولة
 
-| Function | Description |
+| الدالة المضافة | الوصف |
 |---|---|
-| `.isalnum()` | Checks if a string consists only of alphanumeric characters. |
-| `.isalpha()` | Checks if a string consists only of alphabetic characters. |
-| `.isdecimal()` | Checks if a string consists only of decimal characters. |
-| `.isdigit()` | Checks if a string consists only of digit characters. |
-| `.isidentifier()` | Checks if a string is a valid Python identifier. |
-| `.islower()` | Checks if all cased characters in a string are lowercase. |
-| `.isnumeric()` | Checks if a string consists only of numeric characters. |
-| `.isprintable()` | Checks if a string consists only of printable characters. |
-| `.isspace()` | Checks if a string consists only of whitespace characters. |
-| `.istitle()` | Checks if a string is in title case. |
-| `.isupper()` | Checks if all cased characters in a string are uppercase. |
-| `.rjust()` | Right-justifies a string within a specified field width. |
-| `.ljust()` | Left-justifies a string within a specified field width. |
-| `.swapcase()` | Swaps the case of characters in a string. |
-| `.partition()` | Splits a string into three parts based on a separator. |
-| `.splitlines()` | Splits a string into a list of lines. |
-| `.title()` | Converts a string to title case. |
-| `.zfill()` | Fills a string with zeros on the left to a specified width. |
+| `.encode()` | ترميز السلسلة النصية باستخدام ترميز محدد. |
+| `.casefold()` | تحويل السلسلة النصية إلى نسخة casefold للمقارنات غير الحساسة لحالة الأحرف. |
+| `.capitalize()` | تحويل الحرف الأول من السلسلة النصية إلى حرف كبير. |
+| `.center()` | توسيط السلسلة النصية داخل عرض حقل محدد. |
+| `.translate()` | استبدال الأحرف في السلسلة النصية باستخدام جدول ترجمة. |
+| `.expandtabs()` | توسيع أحرف الجدولة في السلسلة النصية. |
+| `.index()` | إيجاد فهرس سلسلة نصية فرعية داخل سلسلة نصية، وإثارة استثناء إذا لم يتم العثور عليها. |
+| `.rjust()` | محاذاة السلسلة النصية إلى اليمين داخل عرض حقل محدد. |
+| `.ljust()` | محاذاة السلسلة النصية إلى اليسار داخل عرض حقل محدد. |
+| `.swapcase()` | تبديل حالة الأحرف في السلسلة النصية. |
+| `.title()` | تحويل السلسلة النصية إلى حالة عنوان. |
+| `.zfill()` | ملء السلسلة النصية بالأصفار على اليسار إلى عرض محدد. |
+| `.splitlines()` | تقسيم السلسلة النصية إلى قائمة من الأسطر. |
+| `.partition()` | تقسيم السلسلة النصية إلى ثلاثة أجزاء بناءً على فاصل. |
 
-### Built-in Functions Working with Strings
+## المجموعة الرابعة: طرق مضافة نادرة الاستعمال
 
-| Function | Description |
+| الدالة المضافة | الوصف |
 |---|---|
-| `len()` | Returns the length of a string. |
-| `ascii()` | Returns a string representation of an object, escaping non-ASCII characters. |
-| `bool()` | Converts an object to a Boolean value. |
-| `bytearray()` | Creates a bytearray object from a string. |
-| `bytes()` | Creates a bytes object from a string. |
-| `ord()` | Returns the Unicode code point of a character. |
-| `enumerate()` | Creates an iterator that produces tuples of indices and values from a sequence. |
-| `float()` | Converts a string to a floating-point number. |
-| `hash()` | Returns the hash value of a string. |
-| `id()` | Returns the unique identifier of an object. |
-| `int()` | Converts a string to an integer. |
-| `map()` | Applies a function to each element of an iterable. |
-| `print()` | Prints a value to the console. |
-| `slice()` | Creates a slice object representing a range of indices. |
-| `type()` | Returns the type of an object. |
+| `.isalnum()` | التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف أبجدية رقمية. |
+| `.isalpha()` | التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف أبجدية. |
+| `.isdecimal()` | التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف عشرية. |
+| `.isdigit()` | التحقق مما إذا كانت السلسلة النصية تتكون فقط من أرقام. |
+| `.isidentifier()` | التحقق مما إذا كانت السلسلة النصية معرف بايثون صالح. |
+| `.islower()` | التحقق مما إذا كانت جميع الأحرف المكونة في السلسلة النصية صغيرة. |
+| `.isnumeric()` | التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف رقمية. |
+| `.isprintable()` | التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف قابلة للطباعة. |
+| `.isspace()` | التحقق مما إذا كانت السلسلة النصية تتكون فقط من مسافات بيضاء. |
+| `.istitle()` | التحقق مما إذا كانت السلسلة النصية في حالة عنوان. |
+| `.isupper()` | التحقق مما إذا كانت جميع الأحرف المكونة في السلسلة النصية كبيرة. |
