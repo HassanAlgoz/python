@@ -3,9 +3,21 @@ title: المتتاليات
 jupyter: python3
 ---
 
-There are three basic sequence types: lists, tuples, and range objects. Additional sequence types tailored for processing of [binary data](https://docs.python.org/3/library/stdtypes.html#binaryseq) and [text strings](https://docs.python.org/3/library/stdtypes.html#textseq) are described in dedicated sections.
+عندما نقول أن `s` هي **متتالية** (Sequence)، فهذا يعني أنها تدعم:
+
+- الفهرسة: `s[i]`
+- الطول: `len(s)`
+- البحث: `s.index(x)`
+- العد: `s.count(x)`
+- التكرار: `for x in s`
+- العضوية: `x in s`
+- العكس: `reversed(s)`
+
+نحن في الواقع نحدد هذا السلوك في بايثون باستخدام بنية `class`. سيأتي الحديث عنه إن شاء الله.
 
 ```{mermaid}
+%% | fig-cap: شجرة المتتاليات في بايثون توضح اشتراك القوائم والجموع والسلاسل النصية في كونها متتاليات.
+%% | label: fig-sequences-tree
 graph TD
     A[Object]
 
@@ -16,15 +28,22 @@ graph TD
     A321 --> A3211[List]
     A321 --> A3212[Bytearray]
     
-    A322 --> A3221[Tuple]
     A322 --> A3222[Range]
+    A322 --> A3221[Tuple]
     A322 --> A3223[String]
     A322 --> A3224[Bytes]
 ```
 
-## Lists
+في هذا الفصل، سنلقي نظرة على بعض أنواع المتتاليات (sequences) المدمجة شائعة الاستخدام:
 
-A list is a mutable sequence.
+- [`list`](https://docs.python.org/3/library/stdtypes.html#list)
+- [`range`](https://docs.python.org/3/library/stdtypes.html#range)
+- [`tuple`](https://docs.python.org/3/library/stdtypes.html#tuple)
+- [`str`](https://docs.python.org/3/library/stdtypes.html#str)
+
+## القوائم (Lists)
+
+القائمة تسلسل متغيِّر.
 
 ```{python}
 l1 = []        # empty list
@@ -33,10 +52,10 @@ l3 = [1, 2, 3] # list with three items
 l4 = ['abb', 1, 2.0, True] # list with different types
 ```
 
-Lists can also be constructed by means of:
+يمكن أيضًا تركيب القوائم عن طريق:
 
-- concatenation: using the `+` operator
-- repetition: using the `*` operator
+- الدمج: باستخدام معامل `+`
+- التكرار: باستخدام معامل `*`
 
 ```{python}
 l5 = [1, 2, 3] + [4, 5]
@@ -45,27 +64,27 @@ print(l5)
 print(l6)
 ```
 
-Try the following:
-- `len(l3)` to get the length of the list `l3`
-- `'abb' in l4` to check if `'abb'` is an item in the list `l4`
-    - Next, try `'abb' not in l4`
-- Try `min(l3)`, `max(l3)`, `sum(l3)` and see what happens
+جرب ما يلي:
+
+- `len(l3)` للحصول على طول القائمة `l3`
+- `'abb' in l4` للتحقق مما إذا كانت `'abb'` عنصرًا في القائمة `l4`
+    - بعد ذلك، جرب `'abb' not in l4`
+- جرب `min(l3)`, `max(l3)`, `sum(l3)` وانظر ماذا يحدث
 
 ```{python}
 # try it
 ```
 
-### Indexing
+### الفهرسة (Indexing)
 
-- Items in a sequence can be accessed by an integer index.
-- Remember that in Python indices start at 0 and ends at `len(sequence) - 1`.
+للوصول إلى عنصر من القائمة، استخدم معامل الفهرسة `[]`. يجب أن يكون مفتاح الفهرسة عددًا صحيحًا (`int`) في النطاق `0 <= index < len(s) - 1`.
 
 ```{python}
 l1 = [10, 20, 30, 40, 50]
 print(l1[0])
 ```
 
-Like wise, try `l1[1]`, `l1[2]`, and `l1[3]`.
+كذلك، جرب `l1[1]`, `l1[2]`, و `l1[3]`.
 
 ```{python}
 # try it
@@ -75,7 +94,7 @@ Like wise, try `l1[1]`, `l1[2]`, and `l1[3]`.
 l2 = ["Apple", "Banana", "Orange", "Lemon"]
 ```
 
-In the list `l2`, the indices are as follows:
+في القائمة `l2`، الفهرس على النحو التالي:
 
 ```
 0       1       2       3       4
@@ -87,27 +106,27 @@ In the list `l2`, the indices are as follows:
 
 Try `l2[1]`, `l2[2]`, and `l2[3]`.
 
-Also try indexing at:
+جرب أيضًا الفهرسة عند:
 
-- `l[4]` (why is this an error?)
-- `l[-1]` and `l[len(l) - 1]`; are they the same?
+- `l[4]` (لماذا هذا خطأ؟)
+- `l[-1]` و `l[len(l) - 1]`; هل هما نفس الشيء؟
 - `l[-2]`
 
 ```{python}
 # try it
 ```
 
-#### `list.index()`
+#### البحث `.index()`
 
-The `index()` method returns the index of the first occurrence of the specified value.
+طريق `.index()` تخرج موقع أول ظهور للقيمة المحددة.
 
 ```{python}
-l1 = [10, 20, 30, 40, 50]
-idx = l1.index(30)
+l1 = ['A', 'A', 'B', 'A', 'B']
+idx = l1.index('B')
 print(l1[idx], 'is at index', idx)
 ```
 
-If the item is not in the list, it raises a `ValueError`.
+إذا لم يكن العنصر موجودًا في القائمة، فإنه يخرج خطأ.
 
 ```{python}
 #| error: true
@@ -115,7 +134,7 @@ l1 = [10, 20, 30, 40, 50]
 l1.index(4444)
 ```
 
-The error message tells us that `4444` is not in the list. Let's handle the case in an `else` block, rather than letting the program crash due to an unhandled exception (error).
+رسالة الخطأ تخبرنا أن `4444` غير موجود في القائمة. دعنا نتعامل مع هذه الحالة في لبنة `else`، بدلاً من ترك البرنامج أن يتعطل.
 
 ```{python}
 l1 = [10, 20, 30, 40, 50]
@@ -126,20 +145,20 @@ else:
     print('Item not found')
 ```
 
-### Slicing
+### التقطيع (Slicing)
 
-- Slicing takes the form `seq[start:end:step]`
-- Default values when omitted are:
-    - `start=0`
-    - `end=len(list)`
-    - `step=1`
+- يأخذ التقطيع الشكل `s[start : end : step]`
+- القيم الافتراضية عند الإغفال هي:
+    - `start = 0`
+    - `end = len(list)`
+    - `step = 1`
 
 ```{python}
 l1 = [10, 20, 30, 40, 50]
 print(l1[1:3])
 ```
 
-Try the following:
+جرب ما يلي:
 
 - `l1[1:4]`
 - `l1[1:]`
@@ -152,25 +171,41 @@ Try the following:
 # try it
 ```
 
-### Mutation
+### التغيير (Mutation)
 
-- Lists are mutable, meaning they can be changed after they are created.
-- You can change, add, and remove items in a list.
+القوائم (Lists) قابلة للتغيير، مما يعني أنه يمكن تعديلها بعد إنشائها. يشمل التغيير:
+
+1. الإضافة: `l.append(x)` لإضافة عنصر إلى نهاية القائمة
+2. الإزالة: `l.remove(x)`
+3. الإدراج: `l.insert(i, x)` لإدراج عنصر في موضع محدد
+4. الاستبدال: `l[i] = x`
+5. الترتيب: `l.sort()`
+
+ولأن القائمة متتالية قابلة للتغيير فهي تحقق جميع عمليات المتتاليات. [راجع ملحق عمليات المتتاليات](sequence_operations.qmd).
 
 ```{python}
 l1 = [10, 20, 30, 40, 50]
-l1[0] = 100
+l1[0] = 100 # replace the first element
 print(l1)
 ```
 
-Try the following:
+جرب ما يلي:
 
-- two assigned to two: `l1[1:3] = [200, 300]`
-- two assigned to three: `l1[1:3] = [200, 300, 400]`
-- two assigned to one: `l1[1:3] = [200]`
-- two assigend to zero: `l1[1:3] = []`
+- `l1.append(60)`
+- `l1.remove(10)`
+- `l1.insert(2, 300)`
+- `l1.sort()`
 
-Two assigned to two:
+### استبدال المقاطع (Slices Replacement)
+
+جرب ما يلي:
+
+- استبدال عنصرين بعنصرين: `l1[1:3] = [200, 300]`
+- استبدال عنصرين بثلاثة عناصر: `l1[1:3] = [200, 300, 400]`
+- استبدال عنصرين بعنصر واحد: `l1[1:3] = [200]`
+- استبدال عنصرين بصفر عناصر: `l1[1:3] = []`
+
+استبدال عنصرين بعنصرين:
 
 ```{python}
 # SOLVED
@@ -179,15 +214,7 @@ l1[1:3] = [200, 300]
 print(l1)
 ```
 
-Other mutation operations include:
-
-- `l1.append(60)` to add an item to the end of the list
-- `l1.insert(2, 25)` to insert an item at a specific index
-- `l1.remove(40)` to remove an item by value
-
-Lists implement all of the common and mutable sequence operations. Checkout the appendix for more on [sequence operations](sequence_operations.qmd).
-
-Lists provide the `.sort()` method which does the sorting in-place. If you want to create a new list, use the `sorted()` function instead. Example:
+توفر القوائم طريقة `.sort()` التي تقوم بالترتيب في مكانها. إذا كنت تريد إنشاء قائمة جديدة، استخدم الدالة `sorted()` بدلاً من ذلك. مثال:
 
 ```{python}
 l1 = [10, 20, 50, 40, 30]
@@ -196,9 +223,9 @@ print(l1)
 print(l2)
 ```
 
-Notice they are different.
+لاحظ أنها مختلفة.
 
-Whereas:
+بينما:
 
 ```{python}
 l1 = [10, 20, 50, 40, 30]
@@ -206,13 +233,19 @@ l1.sort()
 print(l1)
 ```
 
-Notice that `l1` is sorted in-place, and doesn't even return a new list to be assigned.
+لاحظ أن `l1` يتم ترتيبها في مكانها، ولا تنشئ قائمة.
 
-## Iterating over sequences
+## قراءة المتتاليات (Iterating over sequences)
 
-To do something to each item in sequences (such as: `list`, `tuple`, `range`, and `str`), you can use the syntax: `for <item> in <sequence>`.
+نستخدم الجملة: `for <item> in <sequence>` لقراءة المتتاليات. على سبيل المثال، يمكنك استخدام البرنامج التالي لطباعة كل عنصر في القائمة:
 
-The following program filters out a list of numbers into two lists: one for even numbers and the other for odd numbers.
+```{python}
+numbers = [10, 20, 30, 40, 50]
+for x in numbers:
+    print(x)
+```
+
+وهذا البرنامج يصفي قائمة أرقام إلى قائمتين: إحداها زوجية والأخرى فدرية:
 
 ```{python}
 numbers = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
@@ -230,65 +263,66 @@ print('list of odds:', odds)
 ```
 
 Line 5-8
-Inside the loop, think of `x` as each item in the list `numbers`, one at a time.
+داخل الحلقة، فكر في `x` ككل عنصر في قائمة `numbers`، واحدًا تلو الآخر.
 
 Line 4
-Think of this as `x = numbers[0]` in the first iteration, `x = numbers[1]` in the second iteration, and so on, until `x = numbers[-1]` (the last item).
+فكر في هذا كـ `x = numbers[0]` في التكرار الأول، `x = numbers[1]` في التكرار الثاني، وهكذا، حتى `x = numbers[-1]` (العنصر الأخير).
 
-## Ranges
+## النطاقات (Ranges)
 
-The [`range`](https://docs.python.org/3/library/stdtypes.html#range) type represents an immutable sequence of numbers and is commonly used for looping a specific number of times in [`for`](https://docs.python.org/3/reference/compound_stmts.html#for) loops.
+نوع [`range`](https://docs.python.org/3/library/stdtypes.html#range) يمثل تسلسلًا غير قابل للتغيير من الأرقام.
 
-Per Python docs, [`range`](https://docs.python.org/3/library/stdtypes.html#ranges) has two forms:
+ويستخدم عادةً للتكرار عددًا محددًا من المرات في حلقات [`for`](https://docs.python.org/3/reference/compound_stmts.html#for).
+
+وفقًا لوثائق بايثون فإن النطاق له شكلان:
+
 - `class range(stop)`
 - `class range(start, stop[, step])`
 
-Let's break down the parameters first:
-- `start`: the starting number (inclusive)
-- `stop`: the stopping number (exclusive)
-- `step`: the increment (default is 1)
+دعونا نفصل المحددات أولاً:
 
-The two forms above means if you specify only one argument, it will be considered as:
-- 1st argument = `stop`.
+- `start`: موضع الابتداء، وهو مشمول في النطاق. (القيمة الافتراضية هي 0)
+- `stop`: موضع الانتهاء، وهو غير مشمول في النطاق.
+- `step`: مقدار الزياة أو النقص بعد كل كرة (القيمة الافتراضية هي 1)
+
+فإذا قمت بتعيين محدد واحد فسيكون هو `stop`:
 
 ```{python}
 for i in range(5):
     print(i)
 ```
 
-If you specify two arguments, they will be considered as:
-- 1st argument = `start` and
-- 2nd argument = `stop`.
+وإذا قمت بتعيين محددين، فسيكون الأول `start` والثاني `stop`:
 
 ```{python}
 for i in range(5, 10):
     print(i)
 ```
 
-If you specify three arguments, they will be considered as 1st=`start`, 2nd=`stop`, and 3rd=`step`.
+أما إذا حددتها ثلاثة، فسيكون الأول `start` والثاني `stop` والثالث `step`:
 
 ```{python}
 for i in range(0, 10, 2):
     print(i)
 ```
 
-We can also use a negative step:
+ولك أن تعكس النطاق بتحديد `step` بقيمة سالبة، وتقلب البداية والنهاية:
 
 ```{python}
-for i in range(0, 10, -1):
+for i in range(10, 0, -1):
     print(i)
 ```
 
-### Convert `range -> list`
+### تحويل `range` إلى `list`
 
-The call to `range()` can be passed to a call to `list()` to convert it. Here we generate a list of numbers from 1,000 to 100 (in reverse order).
+يمكن تمرير الاستدعاء إلى `range()` إلى استدعاء `list()` لتحويله. هنا
 
 ```{python}
 numbers = list(range(1000, 0, -100))
 print(numbers)
 ```
 
-Another example is to generate two lists; of even and odd numbers, again, using the `list(range())` composition.
+مثال آخر هو إنشاء قائمتين؛ واحدة للأرقام الزوجية والأخرى للأرقام الفردية، مرة أخرى، باستخدام تركيب `list(range())`.
 
 ```{python}
 evens = list(range(0, 10, 2))
@@ -297,13 +331,13 @@ print(evens)
 print(odds)
 ```
 
-## Tuples
+## الجموع (Tuples)
 
-Unlike lists, tuples are immutable; That is, once created, it cannot be changed.
+على عكس القوائم، الجموع غير قابلة للتغيير (immutable) ؛ أي أنه بمجرد إنشائها، لا يمكن تغييرها.
 
-Other than that, everything we said about lists applies to tuples as well; since both share the property of being **sequences**.
+بخلاف ذلك، كل ما قلناه عن القوائم ينطبق على الجموع أيضًا؛ إذ كلاهما يشتركان في خاصية كونهما **متتاليات** (sequences).
 
-For example, we can construct tuples in the following ways:
+على سبيل المثال، يمكننا إنشاء الجموع بالطرق التالية:
 
 ```{python}
 t1 = ()        # empty tuple
@@ -312,10 +346,10 @@ t3 = (1, 2, 3) # tuple with three items
 t4 = ('abb', 1, 2.0, True) # tuple with different types
 ```
 
-Tuples can also be constructed by means of:
+يمكن أيضًا إنشاء الجموع بوسائل:
 
-- concatenation: using the `+` operator
-- repetition: using the `*` operator
+- الدمج: باستخدام معامل `+`
+- التكرار: باستخدام معامل `*`
 
 ```{python}
 t5 = (1, 2, 3) + (4, 5)
@@ -324,11 +358,12 @@ print(t5)
 print(t6)
 ```
 
-Tuples implement all of the common [sequence operations](sequence_operations.qmd).
+ولأن الجموع متتالية جامدة فهي تحقق عمليات المتتاليات عدا التغيير. [راجع ملحق عمليات المتتاليات](sequence_operations.qmd).
 
-### Mutation
 
-However, when we come to mutation, we find that tuples are immutable:
+### التغيير (Mutation)
+
+الجموع لا تقبل التغيير.
 
 ```{python}
 #| error: true
@@ -336,11 +371,11 @@ t1 = (10, 20, 30, 40, 50)
 t1[0] = 100
 ```
 
-The error message tells us that we can't change the value of an item in a tuple.
+رسالة الخطأ تخبرنا أننا لا نستطيع تغيير قيمة عنصر في هذا الجمع.
 
-### Convert `list <-> tuple`
+### تحويل `list <-> tuple`
 
-Lists can be converted to tuples and vice-versa using the `list()` and `tuple()` functions.
+يمكن تحويل القوائم إلى جموع والعكس باستخدام الدوال `list()` و `tuple()`.
 
 ```{python}
 l1 = [10, 20, 30, 40, 50]
@@ -350,17 +385,19 @@ print(t1)
 print(l2)
 ```
 
-It is important to note that the `tuple()` and the `list()` functions return a new object, and doesn't actually convert the object in-place. So, `l1` remains a list and `t1` remains a tuple.
+من المهم ملاحظة أن الدوال `tuple()` و `list()` تُنشئ كائنًا جديدًا، ولا تقوم فعليًا بتحويل الكائن في مكانه. لذا، تبقى `l1` قائمة وتبقى `t1` صفًا.
 
-### Why use tuples?
+### أين نستخدم الجموع؟
 
-Lists are more capable, so why use tuples? Programmers use immutable types when they want to explicitly communicate that the data should not be changed. This is especially useful when passing data around in a program, as it can be passed around without fear of being changed.
+القوائم (Lists) أكثر قدرة، فأين نستخدم الجموع؟ يستخدم المبرمجون الأنواع غير القابلة للتغيير عندما يريدون توصيل أن البيانات لا ينبغي تغييرها. هذا مفيد بشكل خاص عند تمرير البيانات في البرنامج، حيث يمكن تمريرها دون الخوف من تغييرها.
 
-## Text Sequence Type
+## المتتالية النصية (String)
 
-Just like `list`s `str`ings are also immutable [sequences](https://docs.python.org/3/library/stdtypes.html#typesseq), but of Unicode code points, rather than arbitray objects.
+سبق وأن استكشفنا السلاسل النصية في فصلٍ سابق (انظر [فصل السلاسل](04_strings.qmd)). لكننا الآن ننظر من جانب أنها متتالية. فالسلسلة النصية ما هي إلا متتالية جامدة من رموز اليونيكود (Unicode). ونقصد بالجمود أنها لا تقبل التغيير (immutable sequence).
 
-Thus, `str` type implements all of the [common sequence operations](sequence_operations.qmd). Meaning you can do things like:
+@fig-sequences-tree يوضح العلاقة بين السلاسل النصية والمتتاليات.
+
+تشترك السلاسل النصية مع القوائم والجموع في خاصية كونها متتاليات. وبالتالي يمكننا استخدام العديد من العمليات المشتركة على السلاسل النصية. راجع [ملحق عمليات المتتاليات](sequence_operations.qmd).
 
 ```{python}
 s1 = 'Hello, World!'
@@ -368,7 +405,7 @@ print(s1[0])
 print(s1 * 2)
 ```
 
-Try the following:
+جرب ما يلي:
 
 - `s1[1:5]`
 - `s1[1:5:2]`
@@ -380,42 +417,29 @@ Try the following:
 ```
 
 
-#### Exercise
+#### تمرين
 
-Write a program that takes a string and prints the string in reverse.
-
-```{python}
-# try it
-```
-
-#### Exercise
-
-Write a program that takes a string and prints every other character in the string. Example: `abcdef` -> `bdf`
+اكتب برنامجًا يأخذ سلسلة نصية ويطبعها بترتيب عكسي.
 
 ```{python}
 # try it
 ```
 
-#### Exercise
+#### تمرين
 
-Write a program that takes a string and prints the string in reverse order, but only every other character. It also must capitalize it. Example: `abcdef` -> `ECA`
-
-```{python}
-# try it
-```
-
-#### Exercise
-
-Count the number of `o` in the string `hello world`. Hint: use the `.count()` method.
+اكتب برنامجًا يأخذ سلسلة نصية ويطبع كل حرف ثاني في السلسلة النصية. مثال: `abcdef` -> `bdf`
 
 ```{python}
 # try it
 ```
 
-## Binary Sequence Types
 
-Python provides two built-in types for binary sequences: `bytes` and `bytearray`.
+#### تمرين
 
-Discussion on binary sequences is beyond the scope of this book, but you can read more about them in the [Python documentation](https://docs.python.org/3/library/stdtypes.html#binaryseq).
+عد عدد الأحرف `a` في السلسلة النصية `Adam Ibraheem`. تلميح: استخدم طريقة `.count()`.
 
-Visit the appendix for more on [sequence tricks](sequence_operations.qmd).
+```{python}
+# try it
+```
+
+لمعرفة المزيد راجع [ملحق علميات المتتاليات](sequence_operations.qmd).
