@@ -1,60 +1,88 @@
-# Common Sequence Operations
+# عمليات المتتاليات
 
+```{mermaid}
+%% | fig-cap: شجرة المتتاليات في بايثون توضح اشتراك القوائم والجموع والسلاسل النصية في كونها متتاليات.
+%% | label: fig-sequences-tree
+graph TD
+    A[Object]
 
-## Common Sequence Operations [🔗](https://docs.python.org/3/library/stdtypes.html#common-sequence-operations)
+    A --> A3[Sequence]
+    A3 --> A321[Mutable Sequence]
+    A3 --> A322[Immutable Sequence]
+    
+    A321 --> A3211[List]
+    A321 --> A3212[Bytearray]
+    
+    A322 --> A3222[Range]
+    A322 --> A3221[Tuple]
+    A322 --> A3223[String]
+    A322 --> A3224[Bytes]
+```
 
-This table lists the sequence operations sorted in ascending priority. In the table:
+## العمليات المشتركة
 
-- `s` and `t` are sequences of the same type
-- `n`, `i`, `j` and `k` are integers
-- `x` is an arbitrary object that meets any type and value restrictions imposed by the sequence `s`.
+وهي التي توجَد في كلا قسمي المتتاليات:
 
-| **Operation**            | **Result**                                                                   |
+1. المتغيرة (mutable sequence)
+2. والجامدة (immutable sequence)
+
+نسرد في الجدول العمليات على المتتاليات مرتبةً حسب الصيرورة تصاعديًّا (order of evaluation).
+
+لاحظ أن ما ببين القوسين `[` و `]` يشير لعناصر اختيارية.
+
+- `s` و `t` متتاليتان من نفس النوع (sequence)
+- `n`، `i`، `j` و `k` أعداد صحيحة (integers)
+- `x` كائن (object)
+
+| **العملية**              | **النتيجة**                                                                   |
 |--------------------------|-------------------------------------------------------------------------------|
-| `x in s`                 | True if an item of `s` is equal to `x`, else False                            |
-| `x not in s`             | False if an item of `s` is equal to `x`, else True                            |
-| `s + t`                  | The concatenation of `s` and `t`                                              |
-| `s * n` or `n * s`       | Equivalent to adding `s` to itself `n` times                                  |
-| `s[i]`                   | `i`-th item of `s`, origin 0                                                  |
-| `s[i:j]`                 | Slice of `s` from `i` to `j`                                                  |
-| `s[i:j:k]`               | Slice of `s` from `i` to `j` with step `k`                                    |
-| `len(s)`                 | Length of `s`                                                                 |
-| `min(s)`                 | Smallest item of `s`                                                          |
-| `max(s)`                 | Largest item of `s`                                                           |
-| `s.index(x[, i[, j]])`   | Index of the first occurrence of `x` in `s` (at or after index `i` and before `j`) |
-| `s.count(x)`             | Total number of occurrences of `x` in `s`                                     |
+| `x in s`                 | صحيح إذا كان هناك عنصر من خصائص `s` يساوي `x`، وإلا خطأ                        |
+| `x not in s`             | خطأ إذا كان هناك عنصر من خصائص `s` يساوي `x`، وإلا صحيح                        |
+| `s + t`                  | دمج `s` و `t`                                                                  |
+| `s * n` أو `n * s`       | يعادل إضافة `s` إلى نفسها `n` مرات                                            |
+| `s[i]`                   | العنصر `i` من `s`، الأصل 0                                                    |
+| `s[i:j]`                 | شريحة من `s` من `i` إلى `j`                                                   |
+| `s[i:j:k]`               | شريحة من `s` من `i` إلى `j` بخطوة `k`                                         |
+| `len(s)`                 | طول `s`                                                                        |
+| `min(s)`                 | أصغر عنصر من `s`                                                              |
+| `max(s)`                 | أكبر عنصر من `s`                                                              |
+| `s.index(x[, i[, j]])`   | فهرس أول ظهور لـ `x` في `s` (عند أو بعد الفهرس `i` وقبل `j`)                  |
+| `s.count(x)`             | العدد الإجمالي لظهور `x` في `s`                                               |
+
+انظر: https://docs.python.org/3/library/stdtypes.html#common-sequence-operations
+
+## عمليات المتتاليات المتغيرة
+
+في الجدول:
+- `s` متتالية قابلة للتغيير (mutable sequence)
+- `t` كائن قابل للتكرار (iterable)
+- `x` كائن (object)
+
+| **العملية**              | **النتيجة**                                                                 |
+|--------------------------|-------------------------------------------------------------------------------|
+| `s[i] = x`               | يتم استبدال العنصر `i` من `s` بـ `x`                                         |
+| `s[i:j] = t`             | يتم استبدال الشريحة من `s` من `i` إلى `j` بمحتويات الكائن القابل للتكرار `t` |
+| `del s[i:j]`             | نفس الشيء مثل `s[i:j] = []`                                                  |
+| `s[i:j:k] = t`           | يتم استبدال عناصر `s[i:j:k]` بعناصر `t`                                      |
+| `del s[i:j:k]`           | يتم إزالة عناصر `s[i:j:k]` من القائمة                                         |
+| `s.append(x)`            | يتم إضافة `x` إلى نهاية التسلسل (نفس الشيء مثل `s[len(s):len(s)] = [x]`)     |
+| `s.clear()`              | يتم إزالة جميع العناصر من `s` (نفس الشيء مثل `del s[:]`)                     |
+| `s.copy()`               | يتم إنشاء نسخة سطحية من `s` (نفس الشيء مثل `s[:]`)                          |
+| `s.extend(t)` أو `s += t`| يتم تمديد `s` بمحتويات `t`                                                   |
+| `s *= n`                 | يتم تحديث `s` بمحتوياتها مكررة `n` مرات                                     |
+| `s.insert(i, x)`         | يتم إدراج `x` في `s` عند الفهرس المحدد بـ `i` (نفس الشيء مثل `s[i:i] = [x]`) |
+| `s.pop()` أو `s.pop(i)`  | يتم استرجاع العنصر عند `i` وإزالته من `s`                                    |
+| `s.remove(x)`            | يتم إزالة أول عنصر من `s` حيث `s[i]` يساوي `x`                               |
+| `s.reverse()`            | يتم عكس عناصر `s` في مكانها                                                  |
+
+انظر: https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types
 
 
-## Mutable Sequence Operations [🔗](https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types)
+## عمليات أخرى للمتتاليات
 
-In the table
-- `s` is a mutable sequence
-- `t` is any iterable object
-- `x` is an arbitrary object that meets any type and value restrictions imposed by the sequence `s` (for example, bytearray only accepts integers that meet the value restriction 0 <= x <= 255).
+### العد باستخدام `enumerate()`
 
-| **Operation**            | **Result**                                                                 |
-|--------------------------|---------------------------------------------------------------------------|
-| `s[i] = x`               | Item `i` of `s` is replaced by `x`                                         |
-| `s[i:j] = t`             | Slice of `s` from `i` to `j` is replaced by the contents of the iterable `t` |
-| `del s[i:j]`             | Same as `s[i:j] = []`                                                      |
-| `s[i:j:k] = t`           | The elements of `s[i:j:k]` are replaced by those of `t`                    |
-| `del s[i:j:k]`           | Removes the elements of `s[i:j:k]` from the list                           |
-| `s.append(x)`            | Appends `x` to the end of the sequence (same as `s[len(s):len(s)] = [x]`)  |
-| `s.clear()`              | Removes all items from `s` (same as `del s[:]`)                            |
-| `s.copy()`               | Creates a shallow copy of `s` (same as `s[:]`)                             |
-| `s.extend(t)` or `s += t`| Extends `s` with the contents of `t`                                       |
-| `s *= n`                 | Updates `s` with its contents repeated `n` times                           |
-| `s.insert(i, x)`         | Inserts `x` into `s` at the index given by `i` (same as `s[i:i] = [x]`)    |
-| `s.pop()` or `s.pop(i)`  | Retrieves the item at `i` and also removes it from `s`                     |
-| `s.remove(x)`            | Removes the first item from `s` where `s[i]` is equal to `x`               |
-| `s.reverse()`            | Reverses the items of `s` in place                                         |
-
-
-## More tricks with sequences
-
-### Counting with `enumerate()`
-
-We use the built-in [`enumerate(iterable, start=0)`](https://docs.python.org/3/library/functions.html#enumerate) function to iterate over a list and have access to the index of each element.
+نستخدم الدالة المدمجة [`enumerate(iterable, start=0)`](https://docs.python.org/3/library/functions.html#enumerate) لقراءة قائمة مع معرفة رقم كل عنصر. ويمكننا تحديد بداية العد بواسطة `start` (الافتراضي هو 0).
 
 ```{python}
 seasons = ['Spring', 'Summer', 'Fall', 'Winter']
@@ -62,9 +90,10 @@ for i, s in enumerate(seasons, start=1):
     print(i, s)
 ```
 
-### Associating with `zip()`
 
-The built-in [`zip(*iterables, strict=False)`](https://docs.python.org/3/library/functions.html#zip) Iterates over several iterables in parallel, producing tuples with an item from each one.
+### الربط باستخدام `zip()`
+
+تستخدم الدالة المدمجة [`zip(*iterables, strict=False)`](https://docs.python.org/3/library/functions.html#zip) للمرور عبر عدة متتاليات بالتوازي، منتجةً جموعًا بحجم عددها تحتوي على عنصر من كل واحدة منها.
 
 ```{python}
 names = ['Adam', 'Belal', 'Camal']
@@ -74,7 +103,8 @@ for name, lvl in zip(names, level, strict=True):
     print(name, 'is at level', lvl)
 ```
 
-Recommended: `strict=True` raises a `ValueError` if the iterables are of different lengths. Without the strict=True argument, any bug that results in iterables of different lengths will be silenced, possibly manifesting as a hard-to-find bug in another part of the program.
+يستحب استعمال `strict=True` حتى يخرج خطأ من نوع `ValueError` إذا كان القابلة للتكرار (iterables) مختلفة في عدد العناصر.
+
 
 ### Comparison
 
@@ -117,6 +147,7 @@ name2 = 'adam'
 assert name1.lower() == name2.lower()
 ```
 
+
 ### Unpacking
 
 Sequences can be unpacked into multiple variables.
@@ -132,6 +163,7 @@ l = [10, 20, 30]
 a, b, c = l
 print(a, b, c)
 ```
+
 
 ### membership operator: `in`
 
