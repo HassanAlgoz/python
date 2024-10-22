@@ -1,0 +1,332 @@
+---
+title: المجموعة والقاموس
+jupyter: python3
+---
+
+```{mermaid}
+%% | fig-cap: شجرة التجميعات
+%% | label: fig-collections-tree
+graph TD
+    A(Object)
+    A --> A4(Iterable)
+        A4 --> A3(Collection)
+            A3 --> A321(Mapping)
+                A321 --> A3211[Mutable Mapping]
+                    A3211 --> A32111[dict]
+            A3 --> A322(Set)
+                A322 --> A3221[frozenset]
+                A322 --> A3222[Mutable Set]
+                    A3222 --> A32221[set]
+            A3 --> A323(Sequence)
+```
+
+
+## Set
+
+A `set` object is an unordered collection of distinct **hashable** objects.
+
+Like other [`collections`](https://docs.python.org/3/library/collections.html#module-collections) (`list`, `range`, `tuple`, `str`, [`dict`]()), sets support `x in set`, `len(set)`, and `for x in set`.
+
+```{python}
+xs = {10, 20, 30}
+
+# Check if an element is in the set
+assert 20 in xs
+
+# Get the number of elements in the set
+assert len(xs) == 3
+
+# Iterate over the elements of the set
+for x in xs:
+    print(x)
+```
+
+Common uses include membership testing, removing duplicates from a sequence, and computing mathematical operations such as intersection, union, difference, and symmetric difference.
+
+### Membership testing
+
+```{python}
+languages = {"Arabic", "English"}
+if 'Python' not in languages:
+    print('you need to add Python to your languages!')
+```
+
+### Removing duplicates from a sequence
+
+```{python}
+numbers = [1, 2, 2, 3, 4, 4, 5]
+unique_numbers = set(numbers)
+print(unique_numbers)
+```
+
+### Unordered collection
+
+Being an unordered collection, sets do not record element position or order of insertion. Accordingly, sets do not support indexing (`xs[i]`), slicing (`xs[i:j]`), or other sequence-like behavior.
+
+```{python}
+#| error: true
+xs = {10, 20, 30}
+xs[0]
+```
+
+### Mathematical operations
+
+![Python set mathematical operations. [Source: www.datacamp.com](https://www.datacamp.com/tutorial/sets-in-python)](https://res.cloudinary.com/dyd911kmh/image/upload/f_auto,q_auto:best/v1526998740/15_union_intersection_difference_symmetric.png)
+
+Intersection, union, difference, and symmetric difference:
+
+```{python}
+set1 = {1, 2, 3, 4, 5}
+set2 =          {4, 5, 6, 7, 8}
+
+union = set1 | set2
+assert union == {1, 2, 3, 4, 5, 6, 7, 8}
+
+intersection = set1 & set2
+assert intersection == {4, 5}
+
+difference = set1 - set2
+assert difference == {1, 2, 3}
+
+symmetric_difference = set1 ^ set2
+assert symmetric_difference == {1, 2, 3, 6, 7, 8}
+```
+
+Note, it is better to actually use:
+
+- `set1.union(set2)` instead of the operator version `set1 | set2`
+- `set1.intersection(set2)` instead of the operator version `set1 & set2`
+- `set1.difference(set2)` instead of the operator version `set1 - set2`
+- `set1.symmetric_difference(set2)` instead of the operator version `set1 ^ set2`
+
+Since the latter methods can accept any iterable as an argument, not just sets.
+
+Other methods include: 
+
+- `set1.issubset(set2)` instead of `set1 <= set2`
+- `set1.issuperset(set2)` instead of `set1 >= set2`
+- `set1.isdisjoint(set2)` to check if two sets have no elements in common
+
+### Set items must be hashable
+
+Set elements, like dictionary keys, must be hashable.
+
+```{python}
+#| error: true
+l1 = [1, 2, 3]
+l2 = [4, 5, 6]
+s = {l1, l2}
+s
+```
+
+```{python}
+t1 = (1, 2, 3)
+t2 = (4, 5, 6)
+s = {t1, t2}
+s
+```
+
+### Mutable set
+
+The `set` type is mutable, but the `frozenset` type is immutable.
+
+```{python}
+set1 = {1, 2, 3}
+
+set1.add(4)
+set1.update({5, 6})
+set1.discard(2)
+set1
+```
+
+Refer to [Python docs for all mutable set operations](https://docs.python.org/3/library/stdtypes.html#frozenset.update).
+
+#### Exercise
+
+Given the following two sets:
+
+```{python}
+student_ids = {101, 102, 103}
+enrollment_ids = {101, 102, 104}
+```
+
+1. Find the elements that are present in both sets.
+2. Find the elements that are only in the first set. 
+3. Find the elements that are only in the second set.
+4. Add an element to the first set and print it.
+5. Remove an element from the second set and print it.
+6. Check if a given element is present in the first set.
+7. Find the length of the second set.
+
+```{python}
+# try it
+```
+
+
+## Mapping
+
+A [mapping](https://docs.python.org/3/glossary.html#term-mapping) object maps [hashable](https://docs.python.org/3/glossary.html#term-hashable) values (like: `str`, `int` and `tuple`) to objects. Mappings are mutable objects. 
+
+**Hashable** objects are immutable objects that are compared by identity (`id()`) not by value. This is why mutable types like lists can't be used as keys. Whereas, tuples are allowed.
+
+The only standard mapping type is, **Dictionary**; `dict` is an ordered (as of Python 3.7), mutable collection of key-value pairs.
+
+Each pair is written as a `key: value`, separated by a colon (`:`). The pairs are separated by commas (`,`), and the whole collection is enclosed in curly braces (`{}`). They may span multiple lines.
+
+```{python}
+d = {'one': 10, 'two': 20, 'three': 30}
+
+d2 = {
+    'three': 30,
+    'two': 20,
+    'one': 10,
+}
+
+d3 = dict(one=10, two=20, three=30)
+
+assert d == d2 == d3
+```
+
+Dictionaries compare equal if and only if they have the same (key, value) pairs (regardless of ordering).
+
+You can also construct a dictionary from two lists (iterables) with `zip`, like so:
+
+```{python}
+students = ['Ahmad', 'Belal', 'Careem', 'Darwish']
+marks = [90, 80, 75, 85]
+data = dict(zip(students, marks, strict=True))
+data
+```
+
+### Access
+
+You can get the number of pairs using the `len()` function.
+
+```{python}
+len(data)
+```
+
+The index operator (`[]`) is used to access the value associated with a given `key`. Like so: `dict[key]`.
+
+```{python}
+d["one"] == d.get('one')
+```
+
+The `.get(key, default=None)` method returns `None` or a default value provided in the 2nd argument.
+
+```{python}
+assert 'five' not in d
+d.get("five", 5000)
+```
+
+Three ways to iterate over a `dict`:
+
+- Iterate over keys: `for key in d.keys()`
+- Iterate over values: `for value in d.values()`
+- Iterate over key-value pairs: `for key, value in d.items()`
+
+```{python}
+d = {
+    "Saudi Arabia": "Riyadh",
+    "Turkey": "Ankara",
+    "Indonesia": "Jakarta",
+    "Pakistan": "Islamabad",
+    "Egypt": "Cairo"
+}
+```
+
+```{python}
+for key in d.keys():
+    print(key)
+```
+
+```{python}
+for value in d.values():
+    print(value)
+```
+
+```{python}
+for key, value in d.items():
+    print(key, value)
+```
+
+
+### Mutation
+
+You can update dictionary values by simply assigning a new value to a key.
+
+```{python}
+d["one"] = 1000
+d
+```
+
+Or you may want to update using another dictionary.
+
+```{python}
+u = {
+    'three': 3000,
+    'four': 40,
+}
+
+d.update(u)
+d
+```
+
+You may take out a value:
+
+```{python}
+d = {'one': 100, 'two': 200}
+value = d.pop('two')
+assert 'two' not in d
+assert value == 200
+```
+
+You may want to just delete a pair.
+
+```{python}
+if 'two' in d:
+    del d['two']
+assert 'two' not in d
+```
+
+
+#### Exercise
+
+Create a dictionary of fruits and prices:
+
+- Add a new item to the dictionary: `bananas` with a price of `3.5`.
+- Using the `update` method, add a new item to the dictionary: `apples` with a price of `4.5`.
+- Using the `update` method, change the price of `bananas` to `5.5` and also add `hazelnuts` with a price of `12.5`
+- Using the `pop` method, remove the item `bananas` from the dictionary.
+
+```{python}
+#| tags: []
+fruits_and_prices = {
+  "apple": 1.00,
+  "orange": 2.50,
+  # Add your own fruits and prices here ...
+}
+```
+
+#### Exercise
+
+Print the value of key `"history"` from the below by traversing the nested dictionary one key at a time.
+
+```{python}
+my_dict = {
+    "class": {
+        "president": {
+            "name": "Malik",
+            "marks": {
+                "physics": 70,
+                "history": 80
+            }
+        }
+    }
+}
+```
+
+## References
+
+- [Python docs: `set` type](https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset)
+- https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
