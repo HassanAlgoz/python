@@ -19,19 +19,13 @@ jupyter: python3
 %% | fig-cap: شجرة المتتاليات في بايثون توضح اشتراك القوائم والجموع والسلاسل النصية في كونها متتاليات.
 %% | label: fig-sequences-tree
 graph TD
-    A[Object]
-
-    A --> A3[Sequence]
-    A3 --> A321[Mutable Sequence]
-    A3 --> A322[Immutable Sequence]
-    
-    A321 --> A3211[List]
-    A321 --> A3212[Bytearray]
-    
-    A322 --> A3222[Range]
-    A322 --> A3221[Tuple]
-    A322 --> A3223[String]
-    A322 --> A3224[Bytes]
+    A(Object)
+    A --> B1(Sequence)
+        B1 --> C5(Mutable Sequence)
+            C5 --> D1[List]
+        B1 --> C1[Range]
+        B1 --> C2[Tuple]
+        B1 --> C3[String]
 ```
 
 في هذا الفصل، سنلقي نظرة على بعض أنواع المتتاليات (sequences) المدمجة شائعة الاستخدام:
@@ -101,7 +95,7 @@ l2 = ["Apple", "Banana", "Orange", "Lemon"]
 +-------+-------+-------+-------+
 | Apple | Banana| Orange| Lemon |
 +-------+-------+-------+-------+
--4      -3      -2      -1    None
+-4      -3      -2      -1
 ```
 
 Try `l2[1]`, `l2[2]`, and `l2[3]`.
@@ -400,9 +394,17 @@ print(l2)
 تشترك السلاسل النصية مع القوائم والجموع في خاصية كونها متتاليات. وبالتالي يمكننا استخدام العديد من العمليات المشتركة على السلاسل النصية. راجع [ملحق عمليات المتتاليات](sequence_operations.qmd).
 
 ```{python}
-s1 = 'Hello, World!'
+s1 = 'Pythonista'
 print(s1[0])
 print(s1 * 2)
+```
+
+```
+ 0   1   2   3   4   5   6   7   8   9
+ +---+---+---+---+---+---+---+---+---+
+ | P | y | h | o | n | i | s | t | a |
+ +---+---+---+---+---+---+---+---+---+
+-9  -8  -7  -6  -5  -4  -3  -2  -1
 ```
 
 جرب ما يلي:
@@ -410,7 +412,7 @@ print(s1 * 2)
 - `s1[1:5]`
 - `s1[1:5:2]`
 - `s1[::2]`
-- `s1 + ' How are you?'[::-1])`
+- `s1 + ' Booking'[::-1])`
 
 ```{python}
 # try it
@@ -442,4 +444,25 @@ print(s1 * 2)
 # try it
 ```
 
-لمعرفة المزيد راجع [ملحق علميات المتتاليات](sequence_operations.qmd).
+
+#### Exercise
+
+Functions may also have multiple parameters (separated by commas) and may return multiple values (as a tuple).
+
+Implement the function `train_test_split` to split a list into two parts based on the split ratio. The function should return two lists:
+1. the first part should contain the first `split_ratio` elements, and
+2. the second part should contain the remaining elements.
+
+```python
+def split_data(lst, split_ratio):
+    # your code here
+
+
+# test case 1:
+my_data = list(range(10 + 1))
+d1, d2 = split_data(my_data, 0.80)
+assert d1 == [0, 1, 2, 3, 4, 5, 6, 7, 8]
+assert d2 == [9, 10]
+```
+
+لمعرفة المزيد راجع [ملحق عمليات المتتاليات](sequence_operations.qmd).
