@@ -32,21 +32,6 @@ jupyter: python3
 ![تدفق التحكم في الهياكل الأساسية للتحكم. 
 ](https://www.researchgate.net/profile/Kay-Smarsly/publication/322509045/figure/fig1/AS:583153716215809@1516046088625/Control-flow-of-elementary-control-structures.png)
 
-ولك أن تتصور **البرنامج المتوازي**: له مجموعة تدفقات تحكم متوازية. وعادة ما تجعل للتنفيذ المتوازي نقطة تلاقي لاعتبار الناتج من جميع خطوط التنفيذ المتوازية.
-
-```{mermaid}
-%%| fig-cap: "مثال لتدفقي تحكُّم متوازية"
-graph LR
-    A(Start)
-    A -->|Task 1| B[Execution]
-    A -->|Task 2| C[Execution]
-    A -->|Task 3| D[Execution]
-    B --> E[Join/Sync Point]
-    C --> E
-    D --> E
-    E --> F[End]
-```
-
 ## ترتيب التنفيذ
 
 بايثون هي لغة برمجة ***إجرائية (Procedural)*** على عكس ***الوصفية (Declarative)***. هذا يعني أن الكود يُنفذ بالترتيب الذي يُكتب به. على سبيل المثال، إذا كتبنا الكود التالي:
