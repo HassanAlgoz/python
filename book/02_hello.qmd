@@ -12,10 +12,7 @@ jupyter: python3
 2 + 10
 ```
 
-
-
-الحساب أمر أساسي في أي لغة برمجة.
-جرب عمليات حسابية في الخلية أدناه:
+الحساب أمر أساسي في أي لغة برمجة. جرب عمليات حسابية في الخلية أدناه:
 
 - الجمع: `5 + 5`
 - الطرح: `9 - 4`
@@ -254,56 +251,29 @@ print(pay)
 النتيجة واحدة لكن الكود الثاني أسهل قراءة وفهمًا.
 
 ### الأنواع في بايثون
+
+[الأنواع المدمجة الرئيسية](https://docs.python.org/3/library/stdtypes.html#built-in-types) ستة:
+
+1. **الأعداد (numerics)**
+2. **المتتاليات (sequences)**
+3. **الربط (mappings)**
+4. **الفئات (classes)**
+5. **الكائنات (instances)**
+6. **والاستثناءات (exceptions)**
+
 أضع بين يديك الجدوَل التالي والشجرة لتكوين تصوُّر عام ، وليس الغرض منه القراءة بتمعُّن. إليك جدول بأكثر أنواع البيانات شيوعًا في بايثون (Python):
 
-| التصنيف | الأنواع | مثال |
-|---|---|---|
-| **نص (Text)** | `str` | `message = "Hello, world!"` |
-| **رقمي (Numeric)** | `int`, `float`, `complex` | `number = 10`, `pi = 3.14`, `complex_number = 1 + 2j` |
-| **تسلسل (Sequence)** | `list`, `tuple`, `range` | `my_list = [1, 2, 3, 4, 5]`, `my_tuple = (1, 2, 3, 4, 5)`, `my_range = range(10)` |
-| **ربط (Mapping)** | `dict` | `my_dict = {"name": "Adam", "age": 25}` |
-| **مجموعة (Set)** | `set`, `frozenset` | `my_set = {1, 2, 3, 4, 5}`, `my_frozenset = frozenset({1, 2, 3, 4, 5})` |
-| **بولي (Boolean)** | `bool` | `is_true = True`, `is_false = False` |
-| **ثنائي (Binary)** | `bytes`, `bytearray`, `memoryview` | `my_bytes = b"Hello, world!"`, `my_bytearray = bytearray(b"Hello, world!")`, `my_memoryview = memoryview(b"Hello, world!")` |
-| **لا شيء (None)** | `NoneType` | `none = None` |
+| التصنيف | الأنواع |
+|---|---|
+| **لا شيء (None)** | `NoneType` |
+| **بولي (Boolean)** | `bool` |
+| **رقمي (Numeric)** | `int`, `float`, `complex` |
+| **متتالية (Sequence)** | `list`, `tuple`, `range` |
+| **نص (Text)** | `str` |
+| **مجموعة (Set)** | `set`, `frozenset` |
+| **ربط (Mapping)** | `dict` |
 
-وهذا تشجير غير مستوفي لأنواع البيانات في بايثون:
-
-```{mermaid}
-graph LR
-    A[Object]
-    
-    A --> A1[None]
-
-    A --> A2[numbers.Number]
-    A2 --> A21[numbers.Integral]
-    A21 --> A211[Integers: int]
-    A21 --> A212[Booleans: bool]
-    A2 --> A22[numbers.Real: float]
-    A2 --> A23[numbers.Complex: complex]
-    
-    A --> A3[Sequences]
-    A3 --> A31[Immutable Sequences]
-    A31 --> A311[Strings]
-    A31 --> A312[Tuples]
-    A31 --> A313[Bytes]
-    A3 --> A32[Mutable Sequences]
-    A32 --> A321[Lists]
-    A32 --> A322[Byte Arrays]
-    
-    A --> A4[Set Types]
-    A4 --> A41[Sets]
-    A4 --> A42[Frozen Sets]
-
-    A --> A5[Mappings]
-    A5 --> A51[dict]
-
-    A --> A6[Callable Types]
-    A6 --> A61[Functions]
-    A6 --> A62[Classes]
-    A62 --> A7[Instances]
-```
 
 ## المراجع
 
-- [توثيق أنواع البيانات](https://docs.python.org/3/library/datatypes.html)
+- https://docs.python.org/3/library/datatypes.html
