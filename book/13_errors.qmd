@@ -1,0 +1,353 @@
+# Errors and Exceptions
+
+## Syntax Errors
+
+Syntax errors, also known as parsing errors, are perhaps the most common kind of complaint you get while you are still learning Python. They occur when the code does not follow the correct syntax (grammar) of the programming language.
+
+```{python}
+#|error: true
+if (x > 5)
+    print("x")
+```
+
+Unbalanced quotes:
+
+```{python}
+#|error: true
+print("x
+```
+
+Invalid variable name:
+
+```{python}
+#| error: true
+my-variable = 10
+```
+
+### Indentation Errors
+
+Mixing tabs and spaces: Python is strict about using either spaces or tabs, but not both, for indentation. Thankfully, VS Code and other code editors can be configured to automatically convert tabs to spaces or vice-versa.
+
+However, you might face indentation errors when copying and pasting code from different sources. Or when rewriting some code.
+
+No indentation:
+
+```{python}
+#| error: true
+if True:
+print("x")
+```
+
+Extra indentation:
+
+```{python}
+#| error: true
+if True:
+    print("x")
+     print('y')
+```
+
+
+## Exceptions
+
+Even if a statement or expression is syntactically correct, it may cause an error when an attempt is made to execute it. Errors detected during execution are called exceptions and are conditionally fatal: you will soon learn how to handle them in Python programs. **Most exceptions are not handled by programs**, however, and result in error messages as shown here:
+
+Divisoin by zero:
+
+```{python}
+#| error: true
+10 / 0
+```
+
+Using the wrong data type:
+
+```{python}
+#| error: true
+x = 10 + '5'
+```
+
+### Exception handling
+
+Some exceptions are not caused by bugs, and need to be handled by the code.
+
+Exceptions are called as such because they interrupt the ideal, happy control-flow of the program. The word exception is a misnomer. Normal programs should expect very specific exceptions to be raised based on the functions they call. For example, when reading a file, we expect a `FileNotFoundError` if the file does not exist. Modern programming languages like Go (2009) and Rust (2015) simply return errors instead of raising/throwing exceptions. Ancient languages Python (1991) and JavaScript (1995) can't simply drop exceptions because it would break backward compatability, so we are stuck.
+
+Let's take an example. Suppose at the start of the program, we read a configuration file `config.json` to initialize the state of our program:
+
+```{python}
+#| error: true
+from pathlib import Path
+file = Path('config.json').open()
+```
+
+The file doesn't exist so the exception is **raised** by the function `open()` and since it is unhandled, the program simply crashes. We can handle this exception using a `try-except` block.
+
+Let's decide what happens of the exception `FileNotFoundError` was raised: let's print a message telling the user to create the file. Or better yet, we let's just refer to a default configuration file: `default.json`:
+
+```{python}
+DEFAULT_CONFIG_PATH = 'default.json'
+try:
+    file = Path('config.json').open()
+    # code that does something ...
+    # ...
+except FileNotFoundError:
+    file = Path(DEFAULT_CONFIG_PATH).open()
+except Exception as e:
+    print("something unexpected happened:", e)
+```
+
+The last `except Exception as e` is a catch-all, which is not recommended. Rather, it is better to catch specific exceptions and handle them accordingly. Here, it has the effect of not crashing the program if an unexpected exception is raised, which might be useful in some cases.
+
+**Anticipating exceptions**. Just like the return value type, we should be able to find out from the documentation of the function what exceptions are possibly raised in each case.
+
+```{python}
+help(Path.open)
+```
+
+Sometimes, like this one, we find the docs for `Path.open()` refers to the built-in `open()` function. So, we actually need to look at the docs for `open()`:
+
+```{python}
+help(open)
+```
+
+Relevant lines are:
+
+- First line: "Open file and return a stream.  **Raise `OSError` upon failure**."
+- Some line below the `mode` table: "The 'x' mode implies 'w' and **raises an `FileExistsError`** if the file already exists"
+- Finally: "**Pass 'strict' to raise a ValueError exception if there is an encoding error**"
+
+Python error handling is not the best. Unfortunately, the documentation is not always clear about what exceptions are raised. I couldn't find the `FileNotFoundError` exception. However, we found it through trial and error (looking at the error message).
+
+Let's take a look at another example, where we must handle the exception.
+
+```python
+choices = ['bus', 'train', 'plane', 'boat']
+print("""Choose an option:
+1. Go by bus
+2. Go by train
+3. Go by plane
+4. Go by boat
+""")
+choice = input("Enter your choice: ")
+```
+
+Exceptions are about handling unhappy paths. In this case:
+
+- the user might enter a number that is out of range: `0` or `9`
+- the user might enter a non-integer value: `three`
+
+We need to handle these exceptions. We can use a `try-except` block to handle the exceptions.
+
+Let's see what exception is raised for the first case:
+
+```{python}
+#| error: true
+choices[9]
+```
+
+The exception is `IndexError`.
+
+What about the second case? Let's see:
+
+```{python}
+choices['three']
+```
+
+The exception is `TypeError`.
+
+Now that we know the cases, let's handle them.
+
+```{python}
+# c = input("Enter your choice: ")
+c = '9'
+
+retry_message = "Please enter a digit between 1 and 4"
+
+try:
+    c = int(c)
+    print('User chooses to:', choices[c-1])
+except IndexError:
+    print(retry_message)
+except ValueError:
+    print(retry_message)
+```
+
+Let's group the exceptions (since the handling code is the same):
+
+```{python}
+try:
+    c = int(c)
+    print('User chooses to:', choices[c-1])
+except (IndexError, ValueError):
+    print(retry_message)
+```
+
+### Raising exceptions
+
+When in Python, do what the Pythonistas do. If you want to raise an exception, you can use the `raise` keyword. You can raise any exception you want, but it is recommended to raise built-in exceptions.
+
+If the type of the argument is wrong, you should raise a `TypeError`. Otherwise, check the `value`. If it is out of acceptable input domain, raise a `ValueError`.
+
+```{python}
+import numbers
+
+def square_root(x):
+    # Validation
+    if not isinstance(x, numbers.Number):
+        raise TypeError("Argument must be a number")
+    if x < 0:
+        raise ValueError("Cannot calculate square root of a negative number")
+    # Now that we have checked the input, we can calculate the square root
+    result = x ** 0.5
+    return result
+```
+
+Let's test the two error cases:
+
+```{python}
+#| error: true
+square_root('16')
+```
+
+```{python}
+#| error: true
+square_root(-99)
+```
+
+Let's now test the happy path:
+
+```{python}
+square_root(16)
+```
+
+
+### Common errors and how to fix them
+
+Here are some common error types and how to fix them:
+
+| **Error Type**  | **Cause**                                                                                  | **Fix**                                                                                   |
+|-----------------|---------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| `TypeError`     | Happens when an operation is performed on an object of an inappropriate type, or a function is called with the wrong number/type of arguments. | Use `type()` or `isinstance()` to check the data types used match the operation requirements (e.g., `int+int` is valid whereas `str+int` is not). |
+| `ValueError`    | Raised when a function receives an argument of the correct type but with an inappropriate value (e.g., passing a negative number where only positive numbers are valid). | Ensure the values passed to functions are valid and match the expected range or domain.    |
+| `IndexError`    | Triggered when trying to access an index that is outside the range of a list or sequence.     | Check the length of the sequence (e.g., using `len()`) before accessing indices. You can also use `try-except` blocks to handle potential IndexError exceptions safely. Consider iterating over the list or using bounds-safe methods like `enumerate()`. |
+| `KeyError`      | Raised when trying to access a key that does not exist in a dictionary.                       | Check for the key’s existence using `in` before accessing it (e.g., `if key in dict`). Alternatively, use the `.get()` method, which returns `None` (or a default value) if the key is not found, instead of raising an error. |
+| `AttributeError`| Happens when an invalid attribute or method is accessed for an object (e.g., calling a method that doesn’t exist for a certain object). | Verify that the object has the attribute or method you're trying to use. Check for typos or wrong types. |
+| `ModuleNotFoundError` | Happens when Python cannot find the module you are trying to import.                        | Check the module name for typos. Ensure the module is installed in your Python environment. |
+| `SyntaxError`   | Occurs when the Python parser encounters a syntax error.                                      | Check the code for missing or extra characters, incorrect indentation, or other syntax issues. |
+| `NamedError`    | Happens when a variable is used before it is defined.                                        | Ensure the variable is defined before using it. Also, check for typos in the variable name. |
+
+
+### How to fix more complex errors?
+
+More complex errors may require further debugging and understanding of the code. Hence, it is important to learn how to read an error message produced by Python. An error consists of three parts: **error type**, **error message**, and **stack trace**.
+
+First, read the last line. It tells you two things:
+
+1. `ErrorType` which you can use in the `try-catch` block if necessary
+2. followed by an error message in simple English of what happened
+
+The stack trace lists the calls (functions calling functions). Thus, the code that raised the error would be last (bottom), whereas the function that started it would be first (top).
+
+Consider the call chain where `func_app` calls `func_library_1` which calls `func_library_2`. The two other library functions are assumed to be imported libraries. Example: we define functions in our app which call `pandas` library which calls `numpy` library.
+
+An exception might be raised somewhere, and we want to apply what we learned above to read it to fix it.
+
+```{python}
+#|error: true
+
+def func_library_2(c):
+    if len(c) == 0:
+        raise ValueError("Empty input")
+    z = c
+    return z
+
+def func_library_1(b, c):
+    if not isinstance(c, str):
+        raise TypeError("c must be a string")
+    y = func_library_2(c)
+    return b + y
+
+def func_app(a, b, c):
+    x = func_library_1(b, c)
+    return a + x
+
+func_app('a', 'b', '')
+```
+
+Let's read the error message. It says: `"ValueError: Empty input"`. Okay, what caused it? let's looks at the stack stace from the top (to find our own functions). We find:
+
+```
+File c:\Users\thund\OneDrive\3-Teach\DS-AI\2. Py\book\11_errors.qmd:17
+     14     x = func_library_1(b, c)
+     15     return a + x
+---> 17 func_app('a', 'b', '')
+```
+Wwich is the first call in the causal chain. Let's read what comes after that:
+
+```
+File c:\Users\thund\OneDrive\3-Teach\DS-AI\2. Py\book\11_errors.qmd:14
+     13 def func_app(a, b, c):
+---> 14     x = func_library_1(b, c)
+     15     return a + x
+```
+
+Now this is the second call, and the last one in our application. Beyond this point is out of our control. Since we maintain our own code `func_app`, and it is more likely that we made the mistake. We can fix it by checking the input before it leaves our code into `func_library_1`.
+
+```{python}
+func_app('a', 'b', 'c')
+```
+
+Fixed. Done.
+
+If however, the error was, in fact, in `func_library_1`, then we need to communicate with the maintainers of the library to fix it. Perhaps, we can fix it ourselves and submit a pull request on GitHub. This is how open-source software improves.
+
+
+## Logical errors
+
+Logical errors are silent. They are not detected by the interpreter, yet they cause the program to behave incorrectly. Logical errors are the hardest to find and fix because they are not always obvious. They can be caused by incorrect assumptions, incorrect algorithm implementation, or incorrect data processing.
+
+### Using the wrong function for the job:
+
+```{python}
+square = math.sqrt(4) # should use math.pow(4, 2) instead
+```
+
+### Checking for equality with a string literal:
+
+```{python}
+x = 16
+if (x == "16"):
+    print('equal')
+```
+
+### Wrong indentation level. Here the `print(j)` was meant to be inside the inner loop:
+
+```{python}
+for i in range(10):
+    for j in range(10):
+        print(i)   
+    print(j)
+
+```
+
+### Off-by-one error:
+
+This is perhaps the most common error in programming.
+
+The intent here is to print numbers from 10 to 0 including 0, but the loop stops at 1.
+
+```{python}
+for i in range(10, 0, -1):
+    print(i)
+```
+
+### How to solve logical errors?
+
+**Execute and Review**. The best way to solve logical errors is to execute the code and review the output. You can use print statements to debug and understand the flow of the program.
+
+You may be able to write simple test cases using `assert` statements, to verify the correctness of the code. You may also want to apply a test suite for bigger tests. Either way, testing is not 100% proof against errors either, but it helps.
+
+
+### References
+
+https://docs.python.org/3.13/tutorial/errors.html
