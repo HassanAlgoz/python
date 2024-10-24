@@ -1,0 +1,90 @@
+# Map-filter-reduce Pattern
+
+[Lambda ($\lambda$)](https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions) expressions are used to create anonymous functions. The expression `lambda parameters: expression` yields a function object.
+
+Lambda functions are small one-time use functions that are usually passed as arguments to other (higher-order) functions. Let's take an example:
+
+It is common to apply function over each item in a sequence. Let's define a function that takes a function and a sequence and applies the function to each item in the sequence. Sounds mouthful, but it is simple to implement in Python.
+
+```{python}
+def apply(func, items):
+    return [func(i) for i in items]
+
+squared = apply(lambda x: x ** 2, range(1, 5+1))
+squared
+```
+
+In this case, `apply` is a **higher-order function** because it takes a function as an argument.
+
+Python already has the [built-in `map` function](https://docs.python.org/3/library/functions.html#map) that does this. The signature of `map` is `map(function, iterable, ...)`. It applies `function` to each item of `iterable` and returns an iterator. Refer to [this chapter for more details on iterators](xx_iterator.qmd).
+
+```{python}
+squared = map(lambda x: x ** 2, range(1, 5+1))
+squared
+```
+
+Notice, the output is a map object. This is because maps are lazily evaluated; i.e., they are not computed until you need them (e.g., when you convert them to a list or iterate over them).
+
+We can convert it to a list to see the results.
+
+```{python}
+list(squared)
+```
+
+The map-filter-reduce pattern is a common pattern in functional programming. Python provides the `map`, `filter`, and `reduce` functions to support this pattern. We can compose functions using `map` and [`filter`](https://docs.python.org/3/library/functions.html#filter) to make a pipeline of computations. For example, let's say we want to square the numbers and then add 100 to each of them, and finally filter out the even numbers.
+
+```{python}
+step_0 = range(1, 5+1)
+step_1 = map(lambda x: x ** 2, step_0)
+step_2 = map(lambda x: x + 100, step_1)
+step_3 = filter(lambda x: x % 2 == 0, step_2)
+step_3
+```
+
+This time, let's iterate over it to access the results:
+
+```{python}
+for result in step_3:
+    print(result)
+```
+
+If you rerun the loop again, you won't get any output. This is expected because computation progresses throughout the pipeline one item at a time. Once you consume an item, it is gone.
+
+Finally, we talke about [`reduce` from the `functools` module](https://docs.python.org/3/library/functools.html#functools.reduce). 
+The signature says: `functools.reduce(function, iterable, [initial, ]/)`
+
+> Apply *function* of two arguments cumulatively to the items of *iterable*, from left to right, so as to reduce the iterable to a single value.
+
+For example, to sum all the numbers in a list:
+
+```{python}
+from functools import reduce
+
+numbers = [1, 2, 3, 4, 5]
+total = reduce(lambda x, y: x + y, numbers)
+total
+```
+
+It is common to combine `map`, `filter`, and `reduce` to create a pipeline of computations. For example, let's take the following steps:
+
+First: `map` transforms each item in a collection
+
+Secondly, `filter` filters out some items after said transformation
+
+We may interleave more `map` and `filter` operations as needed. And each item is processed without any dependency on the others. However, the final `reduce` step is dependent on all the items.
+
+In this examlpe, we are using `reduce` to sum the numbers after applying the transformations using `map` and `filter`.
+
+```{python}
+step_0 = range(1, 5+1)
+step_1 = map(lambda x: x ** 2, step_0)
+step_2 = map(lambda x: x + 100, step_1)
+step_3 = filter(lambda x: x % 2 == 0, step_2)
+
+total = reduce(lambda x, y: x + y, step_3)
+total
+```
+
+The `reduce` function may also produce more or less items than there are in the input collection. It is not necesserily a single value as in this case.
+
+In summary, lambda functions are small anonymous functions that can be used to create higher-order functions. They are used to create functions that are passed as arguments to other functions. Lambda functions are used in conjunction with functions like `map`, `filter`, and `reduce` to create pipelines of computations.

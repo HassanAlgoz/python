@@ -1,0 +1,129 @@
+# Data Serialization
+
+Data *serialization* is the process of converting complex data structures, such as objects, dictionaries, and lists, into a format that can be easily stored and transmitted. The serialized data can be stored in a file, sent over a network, or saved in a database. The process of converting serialized data back into its original form is called *deserialization*.
+
+
+## Tabular Data
+
+Tabular data come in many formats, such as CSV, TSV, Excel, and SQL. In this section, we will focus on CSV files. The `csv` module provides functionality to both read from and write to CSV files.
+
+The [`csv`](https://docs.python.org/3/library/csv.html) module’s reader and writer objects read and write sequences.
+
+```{python}
+import csv
+from pathlib import Path
+```
+
+The [`csv`](https://docs.python.org/3/library/csv.html#module-csv) module’s [`reader`](https://docs.python.org/3/library/csv.html#csv.reader) and [`writer`](https://docs.python.org/3/library/csv.html#csv.writer) objects read and write sequences.
+
+Let's write a list of students to a CSV file. Notice, we have a list of lists, where each inner list represents a row.
+
+```{python}
+header = ['Name', 'Age', 'Grade']
+rows = [
+    ['Adam', 22, 90],
+    ['Belal', 23, 92],
+    ['Camal', 24, 91],
+]
+```
+
+Now, let's actually write the data to a CSV (Comma Separated Values) file.
+
+```{python}
+with Path('datasets/students.csv').open(mode='w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(header)
+    writer.writerows(rows)
+```
+
+Note, you can try opening the file directly from the file explorer. Try opening it with Excel, Google Sheet, or any other spreadsheet software. If you open it with a text editor, you will see the data as a CSV; literally comma separated values.
+
+Now, let's read it as a Python data structure: as a list of lists.
+
+```{python}
+with Path('datasets/students.csv').open() as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)
+```
+
+Let's try to calculate the average grade of the students.
+
+```{python}
+students = []
+with Path('datasets/students.csv').open() as file:
+    reader = csv.reader(file)
+    next(reader) # skip the header
+    for row in reader:
+        students.append(row)
+```
+
+Now that we have it save in the list `students`, let's do some math.
+
+```{python}
+#| error: true
+grades = [s[2] for s in students]
+avg = sum(grades) / len(grades)
+```
+
+This error is expected, because when we read files, we always get `str` as the datatype for all values. We need to convert the grades to `int` before doing any math.
+
+```{python}
+grades = [int(s[2]) for s in students]
+avg = sum(grades) / len(grades)
+avg
+```
+
+You can also read and write data in dictionary form using the [`DictReader`](https://docs.python.org/3/library/csv.html#csv.DictReader) and [`DictWriter`](https://docs.python.org/3/library/csv.html#csv.DictWriter) classes.
+
+```{python}
+with Path('datasets/students.csv').open() as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        print(row)
+```
+
+The recommended approach to deal with tabular data (like CSV files) is to use the the pandas library. It provides a fast and flexible data structure for data manipulation and analysis. **At this level, I encourage you to go through the [getting started tutorial for pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html) on your own**.
+
+
+## Document Data
+
+Document data come in many formats, such as XML, JSON, and YAML. In this section, we will focus on JSON files. The [`json` module](https://docs.python.org/3/library/json.html) provides functionality to both read from and write to JSON files.
+
+```{python}
+import json
+from pathlib import Path
+```
+
+Suppose we have `user_preferences` saved in a dictionary, and we want to save it to a JSON file.
+
+```{python}
+user_preferences = {
+    'theme': 'dark',
+    'language': 'Arabic',
+    'notifications': {
+        'email': True,
+        'sms': False,
+        'push': True
+    },
+    'last_updated': '2021-09-01',
+    'emails': ['example1@domain.com', 'example2@domain.com']
+}
+```
+
+Let's write it to a JSON file.
+
+```{python}
+with Path('datasets/user_preferences.json').open(mode='w') as file:
+    json.dump(user_preferences, file)
+```
+
+Later when we want to load it, we can do the following.
+
+```{python}
+with Path('datasets/user_preferences.json').open() as file:
+    data = json.load(file)
+print(data)
+```
+
+If you are dealing with other formats, checkout: [the built-in `xml` module documenation](https://docs.python.org/3/library/xml.html) for XML documents, or the [`pyyaml` library](https://pyyaml.org/wiki/PyYAMLDocumentation) for YAML documents.

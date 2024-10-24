@@ -1,0 +1,173 @@
+# Comprehension
+
+Suppose we have the following code that computes squares of a list:
+
+```{python}
+squares = []
+for x in range(10):
+    squares.append(x ** 2)
+squares
+```
+
+Notice the input to this code is a list, and the output is also a list. We can write this in a single line using [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions). A list comprehension consists of brackets containing an expression followed by a `for` clause, then zero or more `for` or `if` clauses.
+
+```{python}
+squares = [x ** 2 for x in range(10)]
+```
+
+Say we want a condition to filter out only the even numbers. We can use the `if` clause in the list comprehension, like so:
+
+```{python}
+numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+evens = [x for x in numbers if x % 2 == 0]
+```
+
+Let's comine the two to get the squares of even numbers:
+
+```{python}
+squared_evens = [x ** 2 for x in numbers if x % 2 == 0]
+```
+
+There are three parts to this:
+
+1. expression: `x ** 2` in this case
+2. `for` clause: `for x in numbers`
+3. `if` clause: `if x % 2 == 0`
+
+Here are some examples, taken from the [Python documentation of list comprehensions](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions):
+
+```{python}
+vec = [-4, -2, 0, 2, 4]
+```
+
+filter the list to exclude negative numbers
+
+```{python}
+[x for x in vec if x >= 0]
+```
+
+apply a function to all the elements
+
+```{python}
+[abs(x) for x in vec]
+```
+
+call a method on each element
+
+```{python}
+freshfruit = ['  banana', '  loganberry ', 'passion fruit  ']
+[weapon.strip() for weapon in freshfruit]
+```
+
+filter the list to exclude negative numbers
+
+```{python}
+[x for x in vec if x >= 0]
+```
+
+create a list of 2-tuples like (number, square)
+
+```{python}
+[(x, x ** 2) for x in range(6)]
+```
+
+Note that the tuple must be parenthesized, otherwise an error is raised.
+
+```{python}
+#| error: true
+[x, x ** 2 for x in range(6)]
+```
+
+If we have nested loops, we can write **nested comprehensions**.
+
+flatten a list using a listcomp with two 'for'
+
+```{python}
+vec = [[1,2,3], [4,5,6], [7,8,9]]
+[num for elem in vec for num in elem]
+```
+
+get the Cartesian product of two sets:
+
+```{python}
+colors = ['red', 'green']
+shapes = ['circle', 'square']
+cartesian_product = [(color, shape) for color in colors for shape in shapes]
+cartesian_product
+```
+
+
+Python also allows comprehension for sets and dictionaries as well.
+
+extracting unique words from a dictionary of documents
+
+```{python}
+stopwords = {'is', 'and', 'the', 'be', 'not'}
+documents = {
+    'Python': "python is great and Python is easy",
+    'Java': "Java is verbose and java is popular",
+    'JavaScript': "JavaScript is for the web and javascript is everywhere"
+}
+
+unique_words = {word.lower() for doc in documents.values() for word in doc.split()}
+unique_words - stopwords
+```
+
+inverting a dictionary
+
+```{python}
+idx2label = {
+    0: 'cat',
+    1: 'dog',
+    2: 'bird',
+}
+
+label2idx = {label: idx for idx, label in idx2label.items()}
+label2idx
+```
+
+filter out fruits that cost more than 50
+
+```{python}
+menu = {
+    'apple': 15,
+    'banana': 10,
+    'orange': 5,
+    'cantaloupe': 40
+}
+
+filtered_menu = {key: value for key, value in menu.items() if value < 20}
+filtered_menu
+```
+
+
+apply `20%` discount only to items whoose price is above average, while keeping the rest of prices the same. Notice, the expression here is a ternary operator: `value * (1 - discount) if value > avg_price else value`. It is not the same as the `if` clause that filters out items; that comes at the end of the comprehension, after the `for` clause.
+
+```{python}
+menu = {
+    'apple': 15,
+    'banana': 10,
+    'orange': 5,
+    'cantaloupe': 40
+}
+
+avg_price = sum(menu.values()) / len(menu)
+discount = 0.20
+
+discounted_menu = {
+    key: value * (1 - discount) if value > avg_price else value
+    for key, value in menu.items()
+}
+discounted_menu
+```
+
+In summary, list comprehensions provide a concise way to create lists. Common applications are to make new lists where each element is the result of some operation applied to each member of another sequence or iterable, or to create a subsequence of those elements that satisfy a certain condition.
+
+Set and dictionary comprehensions are similar to list comprehensions, but produce sets and dictionaries instead of lists.
+
+Syntax is as follows:
+
+- List comprehension: `[expression for item in iterable if condition]`
+- Set comprehension: `{expression for item in iterable if condition}`
+- Dictionary comprehension: `{key: value for item in iterable if condition}`
+
