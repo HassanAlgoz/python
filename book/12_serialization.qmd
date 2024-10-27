@@ -3,6 +3,111 @@
 Data *serialization* is the process of converting complex data structures, such as objects, dictionaries, and lists, into a format that can be easily stored and transmitted. The serialized data can be stored in a file, sent over a network, or saved in a database. The process of converting serialized data back into its original form is called *deserialization*.
 
 
+## Python Objects
+
+The [`pickle`](https://docs.python.org/3/library/pickle.html#module-pickle) module implements binary protocols for serializing and de-serializing a Python object structure. With pickle can save and load things like: lists, dictionaries, and custom objects, through the [`pickle`](https://docs.python.org/3/library/pickle.html) module.
+
+Example:
+
+```{python}
+import pickle
+from pathlib import Path
+```
+
+Let's say we have an instance of a class `Person` that we want to save to a file.
+
+```{python}
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+person = Person('Adam', 22)
+```
+
+Now, let's save it to a file using the `pickle` module.
+
+```{python}
+with Path('datasets/person.pickle').open(mode='wb') as file:
+    pickle.dump(person, file)
+```
+
+Later, when we want to load it, we can do the following.
+
+```{python}
+with Path('datasets/person.pickle').open(mode='rb') as file:
+    person = pickle.load(file)
+print(person.name, person.age)
+```
+
+Notice that to load a pickled object, we need to have the class definition available. Try restarting the kernel and running the loading code without the class definition. You will get an error.
+
+
+### What can be pickled and unpickled?
+
+Almost all data types in Python are picklable: integers, floats, complex numbers, strings, tuples, lists, sets, dictionaries, functions, classes, instances of classes, and more. However, there are some limitations. For example, lambda functions, functions defined inside functions, and functions defined inside classes cannot be pickled. Also, pickling and unpickling are not secure operations.
+
+See: [What can be pickled and unpickled? | Python Docs](https://docs.python.org/3/library/pickle.html#pickle-picklable)
+
+::: {.callout-danger}
+It is possible to construct malicious pickle data which will execute arbitrary code during unpickling. Never unpickle data that could have come from an untrusted source, or that could have been tampered with.
+:::
+
+Safer serialization formats such as [`json`](https://docs.python.org/3/library/json.html#module-json) may be more appropriate if you are processing untrusted data. See [Comparison with json](https://docs.python.org/3/library/pickle.html#comparison-with-json).
+
+
+### Comparison with `json`
+
+There are fundamental differences between the pickle protocols and [JSON (JavaScript Object Notation)](https://json.org/):
+
+- JSON is a text serialization format (it outputs unicode text, although most of the time it is then encoded to `utf-8`), while pickle is a binary serialization format;
+- JSON is human-readable, while pickle is not;
+- JSON is interoperable and widely used outside of the Python ecosystem, while pickle is Python-specific;
+- JSON, by default, can only represent a subset of the Python built-in types, and no custom classes; pickle can represent an extremely large number of Python types (many of them automatically, by clever usage of Python’s introspection facilities; complex cases can be tackled by implementing [specific object APIs](https://docs.python.org/3/library/pickle.html#pickle-inst));
+- Unlike pickle, deserializing untrusted JSON does not in itself create an arbitrary code execution vulnerability.
+
+## Document Data
+
+Document data come in many formats, such as XML, JSON, and YAML. In this section, we will focus on JSON files. The [`json` module](https://docs.python.org/3/library/json.html) provides functionality to both read from and write to JSON files.
+
+```{python}
+import json
+from pathlib import Path
+```
+
+Suppose we have `user_preferences` saved in a dictionary, and we want to save it to a JSON file.
+
+```{python}
+user_preferences = {
+    'theme': 'dark',
+    'language': 'Arabic',
+    'notifications': {
+        'email': True,
+        'sms': False,
+        'push': True
+    },
+    'last_updated': '2021-09-01',
+    'emails': ['example1@domain.com', 'example2@domain.com']
+}
+```
+
+Let's write it to a JSON file.
+
+```{python}
+with Path('datasets/user_preferences.json').open(mode='w') as file:
+    json.dump(user_preferences, file)
+```
+
+Later when we want to load it, we can do the following.
+
+```{python}
+with Path('datasets/user_preferences.json').open() as file:
+    data = json.load(file)
+print(data)
+```
+
+If you are dealing with other formats, checkout: [the built-in `xml` module documenation](https://docs.python.org/3/library/xml.html) for XML documents, or the [`pyyaml` library](https://pyyaml.org/wiki/PyYAMLDocumentation) for YAML documents.
+
 ## Tabular Data
 
 Tabular data come in many formats, such as CSV, TSV, Excel, and SQL. In this section, we will focus on CSV files. The `csv` module provides functionality to both read from and write to CSV files.
@@ -85,45 +190,3 @@ with Path('datasets/students.csv').open() as file:
 
 The recommended approach to deal with tabular data (like CSV files) is to use the the pandas library. It provides a fast and flexible data structure for data manipulation and analysis. **At this level, I encourage you to go through the [getting started tutorial for pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html) on your own**.
 
-
-## Document Data
-
-Document data come in many formats, such as XML, JSON, and YAML. In this section, we will focus on JSON files. The [`json` module](https://docs.python.org/3/library/json.html) provides functionality to both read from and write to JSON files.
-
-```{python}
-import json
-from pathlib import Path
-```
-
-Suppose we have `user_preferences` saved in a dictionary, and we want to save it to a JSON file.
-
-```{python}
-user_preferences = {
-    'theme': 'dark',
-    'language': 'Arabic',
-    'notifications': {
-        'email': True,
-        'sms': False,
-        'push': True
-    },
-    'last_updated': '2021-09-01',
-    'emails': ['example1@domain.com', 'example2@domain.com']
-}
-```
-
-Let's write it to a JSON file.
-
-```{python}
-with Path('datasets/user_preferences.json').open(mode='w') as file:
-    json.dump(user_preferences, file)
-```
-
-Later when we want to load it, we can do the following.
-
-```{python}
-with Path('datasets/user_preferences.json').open() as file:
-    data = json.load(file)
-print(data)
-```
-
-If you are dealing with other formats, checkout: [the built-in `xml` module documenation](https://docs.python.org/3/library/xml.html) for XML documents, or the [`pyyaml` library](https://pyyaml.org/wiki/PyYAMLDocumentation) for YAML documents.
