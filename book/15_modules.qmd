@@ -1,0 +1,198 @@
+# Modules
+
+As our codebase gets bigger, it becomes harder to manage all the code in a single file. We can split our code into multiple files on any basis we deem appropriate to make it easier to maintain.
+
+We may also want to reuse some code written in one file, across multiple projects.
+
+Both of the above scenarios can be addressed by using modules in Python.
+
+A **Module** is simply a file containing Python definitions and statements:
+
+- *Definitions* can be imported into other modules
+- *Statements* initialize the module. They are executed only the first time the module name is encountered in an import statement
+
+**Packages** are folders that contain modules. However, to indicate to Python they are packages, they must contain a special file named `__init__.py`. This file can be empty, or may include statements to initialize the package. Any import statement that imports any package will execute all `__init__.py` files along the way to that package, alibet only the first-time the package is imported.
+
+Example of a package structure:
+
+```
+my_package/
+    __init__.py
+    sub_package_A/
+        __init__.py
+        module_A1.py
+        module_A2.py
+    sub_package_B/
+        __init__.py
+        module_B1.py
+        module_B2.py
+        module_B3.py
+```
+
+Some packages are built-in, such as `os`, `sys`, `math`, `random`, etc. And some are packages you create yourself, which you may want to share. 
+
+To install packages shared by others, you can use the `pip` command:
+
+```bash
+pip install pandas
+```
+
+Note, **Python Package Index ([PyPI](https://pypi.org/))**  is the default Package Index for the Python community. It is open to all Python developers to consume and distribute their distributions.
+
+You can then import the module in another using the `import` statement in three variants:
+
+1. `import module_name`
+
+Basic example:
+
+```{python}
+import math
+
+print(math.pi) # access the variable pi from the math module
+print(math.sqrt(16)) # access the function sqrt from the math module
+```
+
+
+### Creating and importing your own modules
+
+Try creating another file named `mymod.py` with the following content:
+
+```python
+def my_function():
+    print("Hello from mymod.py")
+```
+
+Now, import the module in another file:
+
+```python
+import mymod
+
+mymod.my_function()
+```
+
+When a module named `mymod` is imported, the interpreter first searches for a built-in module with that name. These module names are listed in [`sys.builtin_module_names`](https://docs.python.org/3/library/sys.html#sys.builtin_module_names). If not found, it then searches for a file named `mymod.py`. For more details: [6.1.2. The Module Search Path](https://docs.python.org/3/tutorial/modules.html#the-module-search-path).
+
+You can also use the `from module_name` variant to import specific names from a module:
+
+2. `from module_name import function_name1, function_name2`
+3. `from module_name import *` (imports all names defined in the module)
+
+Example using an alias:
+
+```{python}
+from math import pi, sqrt as square_root
+
+print(pi)
+print(square_root(16)) # using the aliased function name
+```
+
+Using the `*` variant:
+
+```{python}
+from math import *
+
+print(pi) # access the variable pi from the math module
+print(sqrt(16)) # access the function sqrt from the math module
+```
+
+This imports all names except those beginning with an underscore (`_`). 
+
+::: {.callout-warning}
+Note that in general the practice of importing `*` from a module or package is frowned upon. In most cases Python programmers do not use this facility since it introduces an unknown set of names into the interpreter, possibly hiding some things you have already defined, meaking the code difficult to read. However, it is okay to use it to save typing in interactive sessions.
+:::
+
+### The `dir()` function
+
+The built-in function [`dir()`](https://docs.python.org/3/library/functions.html#dir) is used to find out which names a module defines. It returns a sorted list of strings:
+
+```{python}
+import math
+dir(math)
+```
+
+Without arguments, [`dir()`](https://docs.python.org/3/library/functions.html#dir) lists the names you have defined currently:
+
+```{python}
+dir()
+```
+
+If you want a list built-in functions, they are actually defined in the standard module [**`builtins`](https://docs.python.org/3/library/builtins.html#module-builtins).**
+
+```{python}
+import builtins
+dir(builtins)  
+```
+
+For efficiency reasons, each module is only imported once per interpreter session. Therefore, if you change your modules, you must restart the interpreter  – or, if it’s just one module you want to test interactively, use [`importlib.reload()`](https://docs.python.org/3/library/importlib.html#importlib.reload), e.g. `import importlib; importlib.reload(modulename)`.
+
+So if we import the same module multiple times, Python will not load it multiple times. It will just load it once and use the same instance.
+
+```{python}
+import math
+import math
+```
+
+### Executing modules as scripts
+
+When you run a Python module with:
+
+```bash
+python mymodule.py <arguments>
+```
+
+the code in the module will be executed, just as if you imported it, but with the `__name__` set to `"__main__"`. That means that by adding this code at the end of your module:
+
+```python
+if __name__ == "__main__":
+    import sys
+    fib(int(sys.argv[1]))
+```
+
+you can make the file usable as a script as well as an importable module, because the code that parses the command line only runs if the module is executed as the “main” file:
+
+```bash
+python fibo.py 50
+0 1 1 2 3 5 8 13 21 34
+```
+
+If the module is imported, the code is not run:
+
+```python
+import fibo
+```
+
+This is often used either to provide a convenient user interface to a module, or for testing purposes (running the module as a script executes a test suite).
+
+### Relative imports
+
+```python
+from . import echo
+from .. import formats
+from ..filters import equalizer
+```
+
+Note that relative imports are based on the name of the current module. Since the name of the main module is always `"__main__"`, modules intended for use as the main module of a Python application must always use absolute imports. See: [Intra-package references.](https://docs.python.org/3/tutorial/modules.html#intra-package-references)
+
+### Few things to keep in mind about imports
+
+It is customary (but not required) to place all [`import`](https://docs.python.org/3/reference/simple_stmts.html#import) statements at the beginning of a module.
+
+It’s good practice if you import modules in the following order:
+
+1. standard library modules – e.g. [`sys`](https://docs.python.org/3/library/sys.html#module-sys), [`os`](https://docs.python.org/3/library/os.html#module-os), [`argparse`](https://docs.python.org/3/library/argparse.html#module-argparse), [`re`](https://docs.python.org/3/library/re.html#module-re)
+2. third-party library modules (anything installed in Python’s site-packages directory) – e.g. `dateutil`, `requests`, `PIL.Image`
+3. locally developed modules
+
+### Sharing your packages as installable libraries
+
+The [Packaging Python Projects Tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/) walks you through how to package a simple Python project. It will show you how to add the necessary files and structure to create the package, how to build the package, and how to upload it to the Python Package Index (PyPI) so that it can be installed using `pip install your-package`.
+
+Summary of terms
+
+| Term | Definition | Example |
+| --- | --- | --- |
+| **Module** | A single `.py` file with Python code | `math_utils.py` |
+| **Package** | A directory with multiple modules, marked by `__init__.py` | `mypackage/` |
+| **Subpackage** | A package within a package, allowing for a nested structure | `mypackage/utils/` |
+| **Library** | A normal package | `numpy` and `pandas` |
+| **Framework** | A package, tools, and imposed structure | `django` and `fastapi` |
