@@ -80,20 +80,28 @@ p
 
 It is common to have methods that operate between objects of the same type. Let's define a `distance` method that calculates the distance between two points.
 
+However, this time, it will be defined as a **class method** rather than an *instance methdod*. To do that, we need to use the `@staticmethod` decorator.
+
 ```{python}
-def distance(self, other):
-    return ((self.x - other.x)**2 + (self.y - other.y)**2)**0.5
+@staticmethod
+def distance(p1, p2):
+    if Point.distance_type == 'euclidean':
+        return ((p1.x - p2.x)**2 + (p1.y - p2.y)**2)**0.5
+    elif Point.distance_type == 'manhattan':
+        return abs(p1.x - p2.x) + abs(p1.y - p2.y)
 
 # Assign the function to be a method of the class
+Point.distance_type = 'euclidean'
 Point.distance = distance
 ```
 
 Now we can calculate the distance between two points:
 
 ```{python}
-p1 = Point(0, 1)
-p2 = Point(1, 0)
-p1.distance(p2)
+a = Point(0, 1)
+b = Point(1, 0)
+
+Point.distance(a, b)
 ```
 
 Let's also define operations like `+` and `-`:
@@ -113,6 +121,8 @@ The full class definition looks like this now:
 
 ```{python}
 class Point:
+    distance_type = 'euclidean' #<1>
+
     def __init__(self, x, y):
         self.x = x
         self.y = y
@@ -124,15 +134,23 @@ class Point:
     def __repr__(self):
         return f"Point({self.x}, {self.y})"
     
-    def distance(self, other):
-    return ((self.x - other.x)**2 + (self.y - other.y)**2)**0.5
+    @staticmethod #<2>
+    def distance(p1, p2):
+        if Point.distance_type == 'euclidean':
+            return ((p1.x - p2.x)**2 + (p1.y - p2.y)**2)**0.5
+        elif Point.distance_type == 'manhattan':
+            return abs(p1.x - p2.x) + abs(p1.y - p2.y)
     
-    def __add__(self, other):
-    return Point(self.x + other.x, self.y + other.y)
+    def __add__(self, other): #<3>
+        return Point(self.x + other.x, self.y + other.y)
 
-    def __sub__(self, other):
+    def __sub__(self, other): #<4>
         return Point(self.x - other.x, self.y - other.y)
 ```
+1. `distance_type` is said to be a *class attribute* because it is defined directly under the class definition (outside of any method)
+2. `distance` is a *class method* because of the `@staticmethod` decorator
+3. `__add__` is a *special method* that is called when the `+` operator is used between two objects of the class
+4. `__sub__` is also a *special method* that is called when the `-` operator is used between two objects of the class
 
 Now, let's try it:
 
