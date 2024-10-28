@@ -1,137 +1,35 @@
-# Environment Setup
+# إعداد بيئة التطوير
 
+**بيئة التطوير** هي الأدوات البرمجية الأساسية والمساعدة لعمليات كتابة الكود وتنفيذه واختباره ونحو ذلك.
 
-## 1. Install VS Code
+يشيع استخدام **محرر أكواد مايكروسوفت** مفتوح المصدر (Visual Studio Code) -وهو مختلف عن بيئة تطوير فيجوال ستوديو (Visual Studio)- لسهولة استخدامه للمبتدئين ، وتنوُّع مميزاته الأساسية (التي اعتنت بها شركة مايكروسوفت)، وحجم الاهتمام الكبير في معالجة الأخطاء وإضافة الملحقات له ومشاركتها مع الجميع (من قِبل المجتمع المستفيد منه).
 
-Go to [Visual Studio Code](https://code.visualstudio.com/) and download the installer for your operating system.
+كما يشيع بين علماء البيانات استعمال **دفتر جوبيتر (Jupyter Notebook)** بصيغة `.ipynb` لتجربة الأكواد بسرعة ثم يتم نقلها في ملفات سكربت بصيغة (`.py`) وهي ملفات البايثون المعروفة.
 
-Install the [Python Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+نحتاج لهذين في الدروس القادمة ، ولذا نأتي الآن على كيفية تثبيتها.
 
-See also: [Python in Visual Studio Code
-](https://code.visualstudio.com/docs/languages/python).
+1. اذهب إلى [Visual Studio Code](https://code.visualstudio.com/) وقم بتنزيل المثبت لنظام التشغيل الخاص بك (ويندوس أو ماك أو لينكس).
 
-To enable Python support for [Jupyter notebook](https://jupyter.org/) files (`.ipynb`) in VS Code, you can install the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). The Python and Jupyter extensions work together to give you a great Notebook experience in VS Code, providing you the ability to directly view and modify code cells with IntelliSense support, as well as run and debug them.
+2. كذلك قم بتثبيت [ملحق Python لـ Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) وذلك لربط لغة البايثون في محرر الكود.
 
+3. لتمكين دعم بايثون لملفات [دفتر Jupyter](https://jupyter.org/) (`.ipynb`) في المحرر قم بتثبيت [ملحق Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). يعمل ملحقا بايثون وجوبيتر معًا لتقديم تجربة دفتر رائعة في المحرر مما يوفر لك القدرة على عرض وتعديل خلايا الكود مباشرةً مع دعم **التحرير الذكي (IntelliSense)**، وكذلك تشغيلها وتصحيحها.
 
-## 2. Install Miniconda
-
-> [Miniconda](https://docs.anaconda.com/miniconda/) is a free, miniature installation of Anaconda Distribution that includes only conda, Python, the packages they both depend on, and a small number of other useful packages.
-
-We often need to install packages (libraries) to extend the functionality of our Python program. There are several ways to install packages in Python, but the most common are using `pip` and `conda`. We like to use `conda` to manage both:
-
-1. **dependencies**: package versions and the packages they need
-2. **environments**: creating isolated namespaces for different projects, with different Python versions and packages
-
-Note that you can still use `pip`, inside Conda environments where a library or tools are not already packaged for conda.
-
-Notice how `python` is a dependency, and we specify the version we want. This is a simple way to ensure that the environment is reproducible across different machines.
-
-You can read more about [the difference between `conda` and `pip`](https://numpy.org/install/#pip--conda) in the Numpy documentation.
-
-Follow the [Latest Miniconda installer links](https://docs.anaconda.com/miniconda/#latest-miniconda-installer-links) to install Miniconda on your system.
-
-## 3. Managing environments
-
-### Creating an environment with commands
-
-Let's create an environment, activate it (switch to it), and install packages in it.
+4. قم بتثبيت `ipykernel` وذلك لتتمكن من تشغيل دفاتر جوبتر ، عن طريق `pip` هكذا:
 
 ```bash
-conda create --name envtest python=3.10
+pip install ipykernel
 ```
 
-- Replace `envtest` with any name you like
-- When conda asks you to proceed, type `y`
+5. يمكنك إنشاء دفتر Jupyter عن طريق تشغيل الأمر **Create: New Jupyter Notebook** من لوحة الأوامر (`Ctrl+Shift+P`) أو عن طريق إنشاء ملف جديد بامتداد `.ipynb` في مساحة العمل الخاصة بك.
 
-To activate the environment, use the following command:
+الفرق المهم بين المفسر (Interpreter) والنواة (Kernel):
 
-```bash
-conda activate envtest
-```
+1. **المفسر (Interpreter)**: يُستخدم للتحقق من صحة بناء الجملة للكود
+2. **النواة (Kernel)**: تُستخدم لتنفيذ الكود في الدفتر
 
-To deactivate the environment, use the following command:
+يجب أن يشير كلاهما إلى نفس ملف بايثون الثنائي. وإلا، قد تواجه أخطاء غريبة. وللقيام بذلك:
 
-```bash
-conda deactivate
-```
+- اختر الأمر **Python: Select Interpreter** من لوحة الأوامر (`Ctrl+Shift+P`).
+- لاختيار نواة، انقر على اسم النواة في الزاوية العلوية اليمنى من الدفتر، ثم اختر النواة التي تريد استخدامها.
 
-To install a package in the environment (with a specific version), use the following command:
-
-```bash
-conda install scipy=0.17.3
-```
-
-You could also install a package using `pip`. It actually works just fine with `conda`:
-
-```bash
-pip install scipy==0.17.3
-```
-
-### Creating an environment from an `environment.yml` file
-
-A simple `environment.yml` file looks like this:
-
-In this tutorial, we provide an [`environment.yml` file](../environment.yml) that contains the list of packages needed throughout the book. You can create an environment from this file on your local machine using the following command:
-
-```bash
-conda env create -f environment.yml
-```
-
-Note, you have to activate the environment after creating it:
-
-```bash
-conda activate <env_name>
-```
-
-Replace the `<env_name>` with the name of the environment you see in the terminal after creating the environment, or by looking inside the `environment.yml` file for the `name` field.
-
-```yaml
-name: bookenv #<1>
-channels: #<2>
-  - conda-forge
-  - defaults
-dependencies:
-  - python=3.9 #<3>
-  - ipykernel #<4>
-```
-1. The name of the environment.
-2. Channels are locations where packages are stored.
-    - The `conda-forge` channel is a community-driven collection of conda packages. See [Is Miniconda free for me?](https://docs.anaconda.com/miniconda/) to understand how Conda makes money.
-3. The version of Python to install.
-4. The `ipykernel` package is needed for Jupyter notebooks to run Python code.
-
-Note `.yml` and `.yaml` are the same file format.
-
-### Exporting an environment (optional)
-
-If you want to [create your own `environment.yml` file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#sharing-an-environment) based on whatever environment you are currently using, you can use the following command:
-
-```bash
-conda env export --from-history > environment.yml
-```
-
-The flag `--from-history` makes it [more portable across platforms](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-an-environment-file-across-platforms) since it only includes packages that you’ve explicitly asked for, as opposed to including every package (implicit dependencies) in your environment.
-
-## 4. Create a Jupyter Notebook
-
-You can create a Jupyter Notebook by running the **Create: New Jupyter Notebook** command from the Command Palette (`Ctrl+Shift+P`) or by creating a new `.ipynb` file in your workspace.
-
-Important difference between Interpreter and Kernel:
-
-1. **Interpreter**: is used to check the syntax of the code
-2. **Kernel**: is used to execute the code in the notebook
-
-They both have to point to the same Python binary (`bookenv`, the one we created using `conda`). Otherwise, you might see weired errors. To do that:
-
-- Select the **Python: Select Interpreter** command from the Command Palette (`Ctrl+Shift+P`).
-- To select a kernel, click on the kernel name in the top right corner of the notebook, then, select the kernel you want to use.
-
-Now we are ready to [start hacking](./02_hello.qmd)!
-
-
-### References
-
-- https://code.visualstudio.com/docs/languages/python
-- https://code.visualstudio.com/docs/datascience/jupyter-notebooks
-- https://docs.python.org/3/tutorial/venv.html
-- https://docs.anaconda.com/miniconda/
+الآن نحن جاهزون للبدء في [البرمجة](./02_hello.qmd)!
