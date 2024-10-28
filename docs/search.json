@@ -1,0 +1,463 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "العشرون البايثونية",
+    "section": "",
+    "text": "تمهيد\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
+    "crumbs": [
+      "تمهيد"
+    ]
+  },
+  {
+    "objectID": "01_setup.html",
+    "href": "01_setup.html",
+    "title": "1  إعداد بيئة التطوير",
+    "section": "",
+    "text": "بيئة التطوير هي الأدوات البرمجية الأساسية والمساعدة لعمليات كتابة الكود وتنفيذه واختباره ونحو ذلك.\nيشيع استخدام محرر أكواد مايكروسوفت مفتوح المصدر (Visual Studio Code) -وهو مختلف عن بيئة تطوير فيجوال ستوديو (Visual Studio)- لسهولة استخدامه للمبتدئين ، وتنوُّع مميزاته الأساسية (التي اعتنت بها شركة مايكروسوفت)، وحجم الاهتمام الكبير في معالجة الأخطاء وإضافة الملحقات له ومشاركتها مع الجميع (من قِبل المجتمع المستفيد منه).\nكما يشيع بين علماء البيانات استعمال دفتر جوبيتر (Jupyter Notebook) بصيغة .ipynb لتجربة الأكواد بسرعة ثم يتم نقلها في ملفات سكربت بصيغة (.py) وهي ملفات البايثون المعروفة.\nنحتاج لهذين في الدروس القادمة ، ولذا نأتي الآن على كيفية تثبيتها.\n\nاذهب إلى Visual Studio Code وقم بتنزيل المثبت لنظام التشغيل الخاص بك (ويندوس أو ماك أو لينكس).\nكذلك قم بتثبيت ملحق Python لـ Visual Studio Code وذلك لربط لغة البايثون في محرر الكود.\nلتمكين دعم بايثون لملفات دفتر Jupyter (.ipynb) في المحرر قم بتثبيت ملحق Jupyter. يعمل ملحقا بايثون وجوبيتر معًا لتقديم تجربة دفتر رائعة في المحرر مما يوفر لك القدرة على عرض وتعديل خلايا الكود مباشرةً مع دعم التحرير الذكي (IntelliSense)، وكذلك تشغيلها وتصحيحها.\nقم بتثبيت ipykernel وذلك لتتمكن من تشغيل دفاتر جوبتر ، عن طريق pip هكذا:\n\npip install ipykernel\n\nيمكنك إنشاء دفتر Jupyter عن طريق تشغيل الأمر Create: New Jupyter Notebook من لوحة الأوامر (Ctrl+Shift+P) أو عن طريق إنشاء ملف جديد بامتداد .ipynb في مساحة العمل الخاصة بك.\n\nالفرق المهم بين المفسر (Interpreter) والنواة (Kernel):\n\nالمفسر (Interpreter): يُستخدم للتحقق من صحة بناء الجملة للكود\nالنواة (Kernel): تُستخدم لتنفيذ الكود في الدفتر\n\nيجب أن يشير كلاهما إلى نفس ملف بايثون الثنائي. وإلا، قد تواجه أخطاء غريبة. وللقيام بذلك:\n\nاختر الأمر Python: Select Interpreter من لوحة الأوامر (Ctrl+Shift+P).\nلاختيار نواة، انقر على اسم النواة في الزاوية العلوية اليمنى من الدفتر، ثم اختر النواة التي تريد استخدامها.\n\nالآن نحن جاهزون للبدء في البرمجة!",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>إعداد بيئة التطوير</span>"
+    ]
+  },
+  {
+    "objectID": "02_hello.html",
+    "href": "02_hello.html",
+    "title": "2  أول سطر",
+    "section": "",
+    "text": "2.1 أنواع البيانات",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>أول سطر</span>"
+    ]
+  },
+  {
+    "objectID": "02_hello.html#أنواع-البيانات",
+    "href": "02_hello.html#أنواع-البيانات",
+    "title": "2  أول سطر",
+    "section": "",
+    "text": "2.1.1 القيم والأنواع\nقاعدة: لكل قيمة نوع. (Every value has a type)\n\n10 يعتبر قيمة من نوع int\n\"Adam\" تعتبر قيمة من نوع str\n\n\ntype(10)\n\nint\n\n\n\ntype(\"Adam\")\n\nstr\n\n\n\n2.1.1.1 تمرين\n\nما نوع 3.14؟\nما نوع \"5\" + \"5\"؟\n\n\n# try it\n\nقاعدة: كل تعبير يُنتِج قيمة. (Expressions evaluates to a value)\nوسبق أن قلنا أن لكل قيمة نوعًا. لاحظ أننا يمكن أن نسأل عن نوع التعبيرات التالية:\n\ntype(4 + 2)\n\nint\n\n\n\ntype(\"Adam\" + \" \" + \"Basel\")\n\nstr\n\n\n\ntype(9 &gt; 5)\n\nbool\n\n\n\n\n2.1.1.2 تمرين\nما نوع التعبيرات التالية؟\n\n10 + 5\n\"Adam\" + \"Basel\"\nTrue or False\n\n\n# try it",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>أول سطر</span>"
+    ]
+  },
+  {
+    "objectID": "02_hello.html#المتغيرات",
+    "href": "02_hello.html#المتغيرات",
+    "title": "2  أول سطر",
+    "section": "2.2 المتغيرات",
+    "text": "2.2 المتغيرات\nقاعدة: المتغير اسمٌ يشير إلى قيمة. (A variable references a value)\nنخزن القيم في متغيرات. والتعليمة أدناه تستخدم عملية = لتعيين قيمة لمتغير.\n\nx = 10\n\nقلنا أن لكل قيمة نوعًا؛ وقد عيَّنا للمتغير قيمةً؛ فإذا سألنا ما نوع المتغير فإننا في الحقيقة نسأل عن نوع القيمة التي يشير إليها:\n\ntype(x)\n\nint\n\n\nيأخذ التعيين القيم والتعبيرات (ويُقِّمُها) ويعينها لمتغير:\n\nnum = 10\nname = \"Adam\" + \" \" + \"Basel\"\nb = 9 &gt; 5\n\nprint(type(num))   # int\nprint(type(name))  # str\nprint(type(b))     # bool\n\n&lt;class 'int'&gt;\n&lt;class 'str'&gt;\n&lt;class 'bool'&gt;\n\n\nيُظهر الكود التالي تعيين متغير:\n\nx هو متغير (variable)\n5 هو قيمة (value)\n= هو عامل التعيين (assignment operator)\n\n\nx = 5\n\nالقيمة 5 مخزنة في عنوان ذاكري (memory address) x حتى نتمكن من الوصول إليه لاحقًا.\n\nprint(x)\n\n5\n\n\n\n2.2.1 ماذا ينبني على اختلاف الأنواع؟\nقاعدة: اختلاف الأنواع يحدد ماهية العمليات الممكنة فيها وبينها:\n\nالرقم 20 هو قيمة من نوع int يُمكن جمعه وطرحه وقسمته ونحو ذلك.\nالسلسلة النصية \"20\" هي قيمة من نوع str لا يتيح الحساب الرياضي ، وإنما يمكن دمجه وفصله ونحو ذلك؛ لأنه في الحقيقة حرفان وليس عددًا.\n\nتبيَّن بذلك قولُنا (بينَها) ، أما قولُنا (فيها) فنقصد بها مثلاً: str.uppercase() في دالَّة متعلِّقة بالكائن إذا كان نوعه نصًّا فتعملُ فيه (انظر باب السلسلة النصية).\nملاحظة جانبية: التنصيص المفرد ('A') والتنصيص المزدوج (\"A\") متكافئة في بايثون (Python).\n\nx = 20 + 20 # جمع\ny = '20' + \"20\" # دمج\n\nprint(x, type(x))\nprint(y, type(y))\n\n40 &lt;class 'int'&gt;\n2020 &lt;class 'str'&gt;\n\n\n\nprint(x + y) # غير ممكن\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[18], line 1\n----&gt; 1 print(x + y) # غير ممكن\n\nTypeError: unsupported operand type(s) for +: 'int' and 'str'\n\n\n\nنتوقع حدوث خطأ وراء هذا السطر لأننا نحاول إضافة سلسلة نصية (str) إلى أحد أنواع الأعداد (مثل: int). (انظر باب الأعداد) حتى يُفهَم العامل + أنه عامل جمعٍ بين عددين.\n\nz = int(y)\nprint(z, type(z))\nprint(x + z)\n\n2020 &lt;class 'int'&gt;\n2060\n\n\n\n\n2.2.2 تغيير النوع بعد التعيين\nمن تسهيل بايثون أنها تسمح بتغيير النوع الذي يشير إليه المتغير بعد تعيينه المرة الأولى. وهذا ما يُعرف بنظام التنويع الديناميكي (Dynamic Typing System). بالمقارنة فإن لغة سي وجافا لا تسمحان بذلك؛ فهما على نظام التنويع الثابت (Static Typing System).\n\nx = 1         # int\nx = 'hello'   # -&gt; str\nx = [1, 2, 3] # -&gt; list\n\n\ntype(x)\n\nlist",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>أول سطر</span>"
+    ]
+  },
+  {
+    "objectID": "02_hello.html#قواعد-في-تسمية-المتغيرات",
+    "href": "02_hello.html#قواعد-في-تسمية-المتغيرات",
+    "title": "2  أول سطر",
+    "section": "2.3 قواعد في تسمية المتغيرات",
+    "text": "2.3 قواعد في تسمية المتغيرات\nالقاعدة الأولى: المتغيرات حساسة لحالة الأحرف (case-sensitive). مثال:\nmy_variable = 5\nMy_Variable = 10\nالقاعدة الثانية: لا يمكن أن تبدأ أسماء المتغيرات برقم. مثال:\n\n2my_variable = 5\n\n\n  Cell In[22], line 1\n    2my_variable = 5\n    ^\nSyntaxError: invalid decimal literal\n\n\n\n\nالقاعدة الثالثة: لا يمكنك استخدام الكلمات المحجوزة (reserved keywords). مثال:\n\nclass = 5\nTrue = 1\nbreak = True\n\n\n  Cell In[23], line 1\n    class = 5\n          ^\nSyntaxError: invalid syntax\n\n\n\n\n\n2.3.1 الكلمات المحجوزة في بايثون\n\n\n\n\n\n\n\n\nالفئة\nالكلمة المحجوزة\nالوصف\n\n\n\n\nعوامل منطقية (Logical operators)\nand, or, not, is\nعوامل تستخدم لدمج التعبيرات البوليانية (Boolean expressions).\n\n\nعبارات شرطية (Conditional statements)\nif, elif, else\nكلمات محجوزة تستخدم لإنشاء عبارات شرطية.\n\n\nالحلقات (Loops)\nwhile, for, break, continue\nكلمات محجوزة تستخدم لإنشاء الحلقات.\n\n\nمعالجة الاستثناءات (Exception handling)\ntry, except, finally\nكلمات محجوزة تستخدم لمعالجة الاستثناءات.\n\n\nالدوال والفئات (Functions and classes)\ndef, class, return, yield, lambda\nكلمات محجوزة تستخدم لتعريف الدوال والفئات.\n\n\nأنواع البيانات (Data types)\nNone, True, False\nكلمات محجوزة تستخدم لتمثيل أنواع بيانات خاصة.\n\n\nأخرى (Other)\nimport, from, as, assert, global, nonlocal, with, pass\nكلمات محجوزة أخرى تستخدم لأغراض متنوعة.\n\n\n\nالقاعدة الرابعة: يُكره استخدام أسماء دوال تم تعريفها سابقًا. مثال:\nsum = 5\nmax = 10\nlist = [10, 20, 30]\nيسبب هذا ما يُعرف بـ تعارض الأسماء (naming conflict)، وهو يجعل الكود أقل فهمًا وأقل قابلية للصيانة. وهو سبب لنوع من أخطر أنواع الأخطاء وهي الأخطاء الصامتة (silent errors) ، إذ لا تظهر رسالة الخطأ وإن ظهرت فإنها غير دالة على السبب الحقيقي للخطأ.\nالقاعدة الخامسة: نؤكِّد على استحباب أن تدلَّ أسماء المتغيرات والدوالّ على وظيفتها.\nمثال سيء: الخلية التالية تحتوي على أسماء متغيرات لا معنى لها.\n\nr = 50\nhpd = 6\nd = 5\np = r * hpd * d\nprint(p)\n\n1500\n\n\nتصحيح الخطأ باتباع القاعدة السابقة:\n\nrate = 50\nhours_per_day = 6\ndays = 5\npay = rate * hours_per_day * days\nprint(pay)\n\n1500\n\n\nالنتيجة واحدة لكن الكود الثاني أسهل قراءة وفهمًا.\n\n\n2.3.2 الأنواع في بايثون\nالأنواع المدمجة الرئيسية ستة:\n\nالأعداد (numerics)\nالمتتاليات (sequences)\nالربط (mappings)\nالفئات (classes)\nالكائنات (instances)\nوالاستثناءات (exceptions)\n\nأضع بين يديك الجدوَل التالي والشجرة لتكوين تصوُّر عام ، وليس الغرض منه القراءة بتمعُّن. إليك جدول بأكثر أنواع البيانات شيوعًا في بايثون (Python):\n\n\n\nالتصنيف\nالأنواع\n\n\n\n\nلا شيء (None)\nNoneType\n\n\nبولي (Boolean)\nbool\n\n\nرقمي (Numeric)\nint, float, complex\n\n\nمتتالية (Sequence)\nlist, tuple, range\n\n\nنص (Text)\nstr\n\n\nمجموعة (Set)\nset, frozenset\n\n\nربط (Mapping)\ndict",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>أول سطر</span>"
+    ]
+  },
+  {
+    "objectID": "02_hello.html#المراجع",
+    "href": "02_hello.html#المراجع",
+    "title": "2  أول سطر",
+    "section": "2.4 المراجع",
+    "text": "2.4 المراجع\n\nhttps://docs.python.org/3/library/datatypes.html",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>أول سطر</span>"
+    ]
+  },
+  {
+    "objectID": "03_numbers.html",
+    "href": "03_numbers.html",
+    "title": "3  الأعداد",
+    "section": "",
+    "text": "3.1 وظيفة الأعداد في لغة البرمجة\nx = 5\ny = 3.0\nz = -10\nb = True\nc = 1 + 2j\nprint(type(x))\nprint(type(y))\nprint(type(z))\nprint(type(b))\nprint(type(c))\n\n&lt;class 'int'&gt;\n&lt;class 'float'&gt;\n&lt;class 'int'&gt;\n&lt;class 'bool'&gt;\n&lt;class 'complex'&gt;",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>الأعداد</span>"
+    ]
+  },
+  {
+    "objectID": "03_numbers.html#وظيفة-الأعداد-في-لغة-البرمجة",
+    "href": "03_numbers.html#وظيفة-الأعداد-في-لغة-البرمجة",
+    "title": "3  الأعداد",
+    "section": "",
+    "text": "الأعداد الصحيحة (Integers) للفهرسة والعد والترتيب: ..., -2, -1, 0, 1, 2, ...\nالأعداد العشرية (Floats) لتمثيل الكميات مثل المال، المسافة، والوقت: 3.14, 2.718, 0.0, 15.0\nالأعداد المركبة (Complex) في الرياضيات والهندسة: (1 + 2j), (1.0 - 2.0j)\nالقيم المنطقية (Booleans) لتمثيل قيم الحقيقة: True, False\n\n\n\n\n3.1.1 العمليات الحسابية (Arithmetic operations)\n\nprint(x + y) # الجمع (Addition)\nprint(x - y) # الطرح (Subtraction)\nprint(x * y) # الضرب (Multiplication)\nprint(x / y) # القسمة (Division)\nprint(x % y) # باقي القسمة (Remainder)\nprint(x ** y) # الأس (Exponentiation)\n\n8.0\n2.0\n15.0\n1.6666666666666667\n2.0\n125.0\n\n\n\n\n3.1.2 ماذا تعني صفة العددية؟\nالاشتراك في صفة العددية يعني أنها تقبل العمليات الحسابية ، مع ملاحظة أن النوع الأقل دقة يتحول إلى النوع الأعلى دقة:\n\nفمثلاً: int + float = float\nوكذلك: int / int = float\nوأيضًا: bool * int = int\nوهكذا: int * complex = complex\n\n\nprint(x + z)\nprint(x + y)\nprint(y * z)\nprint(b * x)\nprint(c + x)\n\n-5\n8.0\n-30.0\n5\n(6+2j)\n\n\nلاحظ أن قسمة الصحيح تقوم بتقريب النتيجة إلى الأقرب:\n\nprint(7 / 2)  # قسمة صحيحٍ تنتج عشريًا\nprint(7 // 2) # قسمة صحيح تنتج صحيحًا\n\n3.5\n3\n\n\n\n3.1.2.1 تمرين\nتحقق من نوع كل من التعبيرين السابقين باستخدام الدالة type(). هل يمكنك استخراج قاعدة من هذه الأمثلة؟\n\n7 / 2\n7 // 2\n7.0 / 2\n7 / 2.0\n\n# try it\nجرب الآتي حتى تستكشف ماذا يحصل لو:\n\nint + bool\nint * str\nstr * int\nstr + str\nint + str (لاحظ أن هذه العملية ستفشل)\n\n\ni = 5\nb = True\ns1 = '5'\ns2 = '11'\n\nprint(i + b)  # int + bool\n# ... أكمل البقية ...\n\n6\n\n\n\n\n\n3.1.3 تعليمات التعيين المعززة (Augmented assignment statements)\n\ni = i + 1 تعادل i += 1\ni = i - 1 تعادل i -= 1\ni = i * 2 تعادل i *= 2\ni = i / 2 تعادل i /= 2\n\nملاحظة جانبية: انظر تعليمات التعيين المعززة (Augmented assignment statements) للتفاصيل التي تختلف فيها فعليًا.\nجرب الكود أدناه لترى النتيجة:\n\ni = 0\nprint(i)\n\n0\n\n\n\ni = i + 1\nprint(i)\n\n1\n\n\n\ni += 1\nprint(i)\n\n2\n\n\nلاحظ أن i++ غير صالح في بايثون. الكود التالي سيؤدي إلى خطأ:\n\ni++\nprint(i)\n\n\n  Cell In[10], line 1\n    i++\n       ^\nSyntaxError: invalid syntax\n\n\n\n\n\n\n3.1.4 جملة التوكيد (assert statement)\nتُدرَج جُملَ التوكيد في ثنايا الكود للتحقق من صحَّة التسلسل المنطقي. فالتوكيد يُحدثُ خطأ إذا كانت القيمة التي نؤكدها خاطئة. مثلاً:\n\nassert False\n\n\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\nCell In[11], line 1\n----&gt; 1 assert False\n\nAssertionError: \n\n\n\nكما تُسحتب الكتابة بلغة البشر لما يجب أن يكون ، بعد الفاصلة، هكذا ، لتظهر في رسالة الخطأ واضحة:\n\nx = 10\ny = 20\nassert x &gt; y, 'x should be greater than y'\n\n\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\nCell In[12], line 3\n      1 x = 10\n      2 y = 20\n----&gt; 3 assert x &gt; y, 'x should be greater than y'\n\nAssertionError: x should be greater than y\n\n\n\nأما إذا كانت العبارة صحيحة فلا خطأ:\n\nassert True\n\n\nx = 2 ** 4\ny = pow(2, 4)\nassert x == x, 'x should be equal to x'\n\nهذه الجُمَل البسيطة تساعد في اختبار الكود وكشف الأخطاء في وقتٍ مبكِّر ، كما أنها تساعد في التعلُّم كما سنستخدمها الآن لأنها تحقق ما نحن بصدد التحقق منه. وهي تغنينا عن كثيرٍ من جُمَل print().\n\n\n3.1.5 ترتيب العمليات (Operator precedence)\nترتيب العمليات هو نفسه كما في الرياضيات:\n\nالأقواس: ()\nالأسس: **\nالضرب والقسمة: * و /\nالجمع والطرح: + و -\n\nللتفصيل الشامل انظر: ترتيب التقييم\n\n3.1.5.1 تمرين\nأضف أقواس لتغيير النتيجة لتطابق التوكيد:\n\nassert 3 + 2 * 5 == 25\n\n\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\nCell In[15], line 1\n----&gt; 1 assert 3 + 2 * 5 == 25\n\nAssertionError: \n\n\n\nالحل:\n\nassert (3 + 2) * 5 == 25\n\nمثال آخر:\n\nassert 8 - 4 / 2 == 2\n\n\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\nCell In[17], line 1\n----&gt; 1 assert 8 - 4 / 2 == 2\n\nAssertionError: \n\n\n\nما هو الحل؟ ضع الأقواس في مكانها الصحيح.\n# try it\nمثال أخير:\n\nassert 2 ** 3 * 4 == 4096\n\n\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\nCell In[18], line 1\n----&gt; 1 assert 2 ** 3 * 4 == 4096\n\nAssertionError: \n\n\n\nما هو الحل؟ ضع الأقواس في مكانها الصحيح.\n# try it",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>الأعداد</span>"
+    ]
+  },
+  {
+    "objectID": "03_numbers.html#الدوال-المدمجة-ودوال-المكتبة-الأساسية-built-in-and-standard-library-functions",
+    "href": "03_numbers.html#الدوال-المدمجة-ودوال-المكتبة-الأساسية-built-in-and-standard-library-functions",
+    "title": "3  الأعداد",
+    "section": "3.2 الدوال المدمجة ودوال المكتبة الأساسية (Built-in and Standard Library Functions)",
+    "text": "3.2 الدوال المدمجة ودوال المكتبة الأساسية (Built-in and Standard Library Functions)\nتتضمن لغات البرمجة دوال مساعدة مكتوبة من قِبل فريق اللغة ومضمَّنة مع حزمة تثبيت اللغة؛ أي أنها لا تستدعي من المبرمج تثبيت حِزَم إضافية. وهي على قسمين:\n\nدوال مدمجة (Built-in functions)\nدوال المكتبة الأساسية ، وتسمى (Standard Library) وتختصر stdlib\n\n\n3.2.1 دوال مدمجة\nوهي الدوال المتاحة المعرَّفة من غير أن نعرِّفها نحن. مثلاً:\n\nprint(abs(-99)) # القيمة المطلقة\nprint(pow(2, 4)) # القوة\nprint(max(10, 20)) # القيمة العظمى\nprint(min(10, 20)) # القيمة الصغرى\n\n99\n16\n20\n10\n\n\nوهنا قائمة بجميع الدوال المدمجة.\n\n\n3.2.2 دوال المكتبة الأساسية\nوهي دوالّ متوفِّرة لكن يجب استيرادها من المكتبة الأساسية بجملة import.\nفمثلاً للوصول إلى دوال رياضية إضافية: import math، ثم نستخدم البادئة math. للوصول إلى الدوال.\nفي هذا المثال نعرف نقطتين ثم نحسب المسافة بينهما. والمسافة الإقليدية بين نقطتين \\((x_1, y_1)\\) و \\((x_2, y_2)\\) تُحسب باستخدام الصيغة التالية:\n\\[\n\\text{distance} = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\n\\]\n\nimport math\n\nx1, y1 = 0, 0\nx2, y2 = 3, 4\ndistance = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)\nprint(distance)\n\n5.0\n\n\n\nimport math\n\nx = 5.4\nprint(math.floor(x)) # تقريب لأقرب عدد صحيح أصغر\nprint(math.ceil(x)) # تقريب لأقرب عدد صحيح أكبر\nprint(math.trunc(x)) # حذف ما بعد الفاصلة\nprint(round(x, 2)) # تقريب إلى رقمين بعد الفاصلة\n\n5\n6\n5\n5.4\n\n\nملاحظة: الدالة الأخيرة round ليست مستوردة من math وإنما هي مُدمجة.\nوهنا مرجع المكتبة الأساسية لبايثون.\n\n3.2.2.1 تمرين\nاكتب برنامجًا ليعرف رقمين ثم اطبع مجموعهما، الفرق بينهما، حاصل ضربهما، خارج القسمة، وباقي القسمة. استخدم أسماء متغيرات وتعليقات مناسبة.\n# try it\n\n\n3.2.2.2 تمرين\nاحسب مساحة المكعب باستخدام الصيغة التالية:\n\\[\n\\text{area} = \\text{width} \\times \\text{length} \\times \\text{height}\n\\]\n\nقم بتعيين العرض (width)، الطول (length)، والارتفاع (height) إلى متغيرات.\nاحسب المساحة باستخدام الصيغة.\nاطبع النتيجة.\n\n# try it\n\n\n3.2.2.3 تمرين\nاكتب برنامجًا يطلب من المستخدم إدخال عدد الساعات (hours) ومعدل الأجر لكل ساعة (rate per hour) لحساب الأجر الإجمالي (gross pay).\n# your code here\n\n\n3.2.2.4 تمرين\nاكتب برنامجًا يحسب مساحة الدائرة باستخدام الصيغة التالية:\n\\[\n\\text{area} = \\pi \\times \\text{radius}^2\n\\]\n\nقم بتعيين نصف القطر إلى متغير.\nاحسب المساحة باستخدام الصيغة.\nاطبع النتيجة.\n\nتلميح: يمكنك استخدام الثابت math.pi للحصول على قيمة \\(\\pi\\).\n# your code here\n\n\n3.2.2.5 تمرين\nاكتب برنامجًا لتحويل درجة الحرارة من السيليلوس إلى الفهرنهايت استخدم معادلة التحويل التالية:\n\\[\nF = \\frac{9}{5} \\times C + 32\n\\]\n# your code here",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>الأعداد</span>"
+    ]
+  },
+  {
+    "objectID": "03_numbers.html#المراجع",
+    "href": "03_numbers.html#المراجع",
+    "title": "3  الأعداد",
+    "section": "3.3 المراجع",
+    "text": "3.3 المراجع\n\nhttps://docs.python.org/3/reference/simple_stmts.html",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>الأعداد</span>"
+    ]
+  },
+  {
+    "objectID": "04_strings.html",
+    "href": "04_strings.html",
+    "title": "4  النصوص",
+    "section": "",
+    "text": "4.1 ترميز الحروف\nترميز الحروف هي عملية تعيين أرقام للأحرف الرسومية مما يسمح بتخزينها ونقلها وتحويلها باستخدام الحواسيب الرقمية.\nرموز ASCII تحتوي على 128 حرف للغة الإنجليزية وبعض علامات الترقيم. منها 95 فقط هي أحرف قابلة للطباعة أما البقية فتسمى أحرف تحكُّم (مثل حرف السطر الجديد \\n ، وحرف الرجوع لبداية السطر \\r).\nثم امتدت عن طريق رموز ANSII لتغطي أحرف إضافية (من 128 إلى 255) وهي الأحرف الاتينية للغات الأخرى.\nلنستكشف السلاسل عن طريق حزمة من المكتبة الأساسية string. الآتي الأحرف اللاتينية الكبيرة والصغيرة، وعلامات الترقيم:\nimport string\n\nprint(string.ascii_letters)\nprint(string.punctuation)\n\nabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\n!\"#$%&'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>النصوص</span>"
+    ]
+  },
+  {
+    "objectID": "04_strings.html#ترميز-الحروف",
+    "href": "04_strings.html#ترميز-الحروف",
+    "title": "4  النصوص",
+    "section": "",
+    "text": "4.1.1 ترميز Unicode\nواليوم رموز Unicode تحتوي على أكثر من مليون حرف لتغطية لغات العالم كافة: اللاتينية، اليونانية، السيريلية، الأرمنية، العبرية، العربية، السريانية، الثانا، الديفاناغارية، البنغالية، الجورموخية، الأورية، التاميلية، التيلوغوية، الكانادية، المالايالامية، السنهالية، التايلاندية، اللاوية، التبتية، الميانمارية، الجورجية، الهانغول، الإثيوبية، الشيروكية، الرموز الكندية الأصلية، الخميرية، المنغولية، الهان (الأيدوغراف الياباني، الصيني، الكوري)، الهيراغانا، الكاتاكانا، واليي. المصدر. وما يزال أول 128 حرف منها متطابق مع رموز ASCII.\n\n4.1.1.1 مثال\nماذا يحصل لو كتبنا حروف عربية ثم حاولنا حفظ الملف بترميز ASCII ولم نحفظه بترميز Unicode؟\n\n\n\nبرنامج نوتباد في وندوز بكلام عربي يظهر بشكل استفهامات\n\n\nالخطأ يقول: “This file contains characters in Unicode format which will be lost if you save this file as an ANSI encoded text file. To keep the Unicode information, click Cancel below and then select one of the Unicode options from the Encoding drop down list. Continue?”",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>النصوص</span>"
+    ]
+  },
+  {
+    "objectID": "04_strings.html#كيف-يتم-تمثيل-النصوص-في-بايثون",
+    "href": "04_strings.html#كيف-يتم-تمثيل-النصوص-في-بايثون",
+    "title": "4  النصوص",
+    "section": "4.2 كيف يتم تمثيل النصوص في بايثون؟",
+    "text": "4.2 كيف يتم تمثيل النصوص في بايثون؟\nتمثيل النصوص في بايثون يكون عن طريق النوع str؛ يُعرَّف بكتابة سلسلة من الأحرف لكن في الواقع تتحول إلى سلسلة من رموز Unicode (أي: أرقام). هذا يعني أنها قد تكون سلسلة رموز لاتينية أو عربية أو صينية أو غير ذلك مما تحويه رموز Unicode.\nالدالة المدمجة ord() تقوم بتحويل الحرف إلى رقم الرمز. بينما chr() تعكس ذلك (من الرمز إلى الحرف).\nعلى النقيض من سي وجافا؛ لا يوجد نوع خاص بالحرف الواحد (char) في بايثون.\n\nprint(ord(\"A\"), ord(\"Z\"))\nprint(chr(65), chr(90))\nprint(ord(\"a\"), ord(\"z\"))\nprint(ord(\"0\"), ord(\"9\"))\n\n65 90\nA Z\n97 122\n48 57\n\n\nماذا عن الحروف العربية؟ أين تقع في أرقام ترميز Unicode؟\n\n# Arabic Unicode points are between 1536 and 1791\nprint(ord(\"أ\"), hex(ord(\"أ\")))\nprint(ord(\"ب\"), hex(ord(\"ب\")))\nprint(ord(\"ي\"), hex(ord(\"ي\")))\nprint(ord('َ'), hex(ord('َ')))\nprint(ord('ُ'), hex(ord('ُ')))\n\n1571 0x623\n1576 0x628\n1610 0x64a\n1614 0x64e\n1615 0x64f\n\n\nراجع ويكيبيديا: النص العربي في Unicode لمزيد من التفاصيل.",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>النصوص</span>"
+    ]
+  },
+  {
+    "objectID": "04_strings.html#السلاسل-النصية-strings",
+    "href": "04_strings.html#السلاسل-النصية-strings",
+    "title": "4  النصوص",
+    "section": "4.3 السلاسل النصية (Strings)",
+    "text": "4.3 السلاسل النصية (Strings)\nالسلسلة النصية هي متتالية من أحرف بترميز Unicode.\nتُستخدم غالباً مع البيانات النصية مثل:\n\nالأسماء\nالعناوين\nالرسائل\nالبيانات النصية شبه المهيكلة مثل: CSV, JSON, XML, …وغيرها\n\n\nname = 'Adam' # String literals can use single quotes\naddress = \"Riyadh, Saudi Arabia\" # or double quotes; it does not matter\n\n\n# Triple quoted strings may span multiple lines.\n# All associated whitespace will be included in the string literal.\nmessage = \"\"\"Hello everyone,\nI hope you are enjoying the course,\n\nThank you.\n\"\"\"\nprint(message)\n\nHello everyone,\nI hope you are enjoying the course,\n\nThank you.\n\n\n\nلمعرفة طول السلسلة:\n\nphone = \"123456789\"\nlen(phone)\n\n9",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>النصوص</span>"
+    ]
+  },
+  {
+    "objectID": "04_strings.html#دوال-السلاسل-النصية",
+    "href": "04_strings.html#دوال-السلاسل-النصية",
+    "title": "4  النصوص",
+    "section": "4.4 دوال السلاسل النصية",
+    "text": "4.4 دوال السلاسل النصية\n\nالسلاسل النصية هي كائنات، مثل أي شيء في بايثون.\nالكائنات لديها دوال مضافة (Methods) يمكن استدعاؤها باستخدام المعامل . متبوعًا بـ () (قوسين):\n\n… سنتناول هذا بمزيد من التفصيل في الدروس القادمة.\nهناك العديد من الدوال المتاحة للعمل على السلاسل النصية في بايثون. الجدول أدناه يعطي نظرة عامة على أكثر دوال السلاسل النصية استخدامًا:\nدوال السلاسل النصية الأساسية\n\n\n\n\n\n\n\nالدالة\nالوصف\n\n\n\n\n.upper()\nتحويل السلسلة النصية إلى أحرف كبيرة.\n\n\n.lower()\nتحويل السلسلة النصية إلى أحرف صغيرة.\n\n\n.find()\nإيجاد فهرس (index) سلسلة فرعية داخل سلسلة نصية.\n\n\n.replace()\nاستبدال تكرارات سلسلة فرعية داخل سلسلة نصية.\n\n\n.startswith()\nالتحقق مما إذا كانت السلسلة النصية تبدأ بمقدمة محددة.\n\n\n.endswith()\nالتحقق مما إذا كانت السلسلة النصية تنتهي بنهاية محددة.\n\n\n.count()\nعد عدد تكرارات سلسلة فرعية داخل سلسلة نصية.\n\n\n.split()\nتقسيم السلسلة النصية إلى قائمة من السلاسل الفرعية بناءً على محدد.\n\n\n.join()\nدمج عناصر قابل للتكرار في سلسلة نصية باستخدام فاصل.\n\n\n.strip()\nإزالة المسافات البيضاء من بداية ونهاية السلسلة النصية.\n\n\n\nراجع ملحق دوال السلاسل لمزيد من التفاصيل.\nلنستكشف بعض دوال السلاسل النصية:\n\nprint(\"hello\".upper())\nprint(\"HeLLO\".lower())\n\nHELLO\nhello\n\n\n\nname = \"adam ibraheem\"\n\nprint(name.capitalize())\nprint(name.title())\n\nAdam ibraheem\nAdam Ibraheem\n\n\nيمكن التعرف على الدوال المدمجة للسلسلة عن طريق الدالة help:\n\nhelp(str.title)\n# str.title? # in Jupyter\n\nHelp on method_descriptor:\n\ntitle(self, /) unbound builtins.str method\n    Return a version of the string where each word is titlecased.\n\n    More specifically, words start with uppercased characters and all remaining\n    cased characters have lower case.\n\n\n\n\n4.4.1 count, find, and replace\n\nname = \"Adam Ibraheem\"\n\nprint(name.count('a'))\nprint(name.find('a'))\nprint(name.replace('a', 'x'))\n\n2\n2\nAdxm Ibrxheem\n\n\n\n\n4.4.2 الأحرف البيضاء (Whitespace Characters)\nالأحرف في الأجهزة الرقمية على نوعين: 1. أحرف مطبوعة (مثلاً: الأحرف اللاتينية والأرقام وعلامات الترقيم) 2. أحرف تحكُّم (مخفيَّة؛ والغرض منها التحكم بمعالج هذا النص)\n\nimport string\nstring.printable\n\n'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!\"#$%&\\'()*+,-./:;&lt;=&gt;?@[\\\\]^_`{|}~ \\t\\n\\r\\x0b\\x0c'\n\n\nكانت أحرف التحكُّم تستخدم لرن جرس الآلة الطابعة ، والتحكم بها ، لكن اليوم الذي يُستخدم منها غالبًا هو الأحرف البيضاء ويشمل ذلك الأحرف التالية: 1. space ويمثل المسافة كالتي بين الكلمات 2. tab ويمثل المسافة كالتي بين أعمدة الجداول 3. linefeed تعليمة سطر جديد 4. return تعليمة العودة لبداية السطر الجديد 5. formfeed تعليمة الصفحة الجديدة 6. vertical tab تعليمة العمود الجديد\n\nimport string\nstring.whitespace\n\n' \\t\\n\\r\\x0b\\x0c'\n\n\nلنلقي نظرة على ثلاثة من الأحرف البيضاء: المسافة (space)، التبويب (tab)، وتعليمة السطر الجديد (linefeed).\n\n# Tab character: \"\\t\"\nprint('A\\tB')\n\nA   B\n\n\n\n# Newline character: '\\n'\nprint('A\\nB')\n\nA\nB\n\n\nلاحظ أن طول السلسلة النصية هو عدد الأحرف في السلسلة، سواء كانت قابلة للطباعة (printable) أو أحرف بيضاء (whitespace).\n\nprint(len('A B'))\nprint(len('A\\tB'))\nprint(len('A\\nB'))\n\n3\n3\n3\n\n\nبشكل عام، إذا أخذنا سلسلة نصية وأضفنا إليها هذه الأحرف، نحصل على نفس الطول زائد 3:\n\ns = 'Salam'\nassert len(s + '\\n\\t ') == len(s) + 3\n\n\n\n4.4.3 .strip()\nلاحظ أن هذه الدالة ستزيل الأحرف البيضاء من بداية ونهاية السلسلة النصية، ولكن ليس الأحرف البيضاء في منتصف السلسلة\nقبل:\n\ntext = '\\t hello    world \\n\\n\\n'\nprint(text)\n\n     hello    world \n\n\n\n\n\nبعد:\n\nprint(text.strip())\n\nhello    world\n\n\n\n\n4.4.4 .split()\nانظر: Splitlines\n\ntext = '''\nHello\nWorld\n\nHow are you?\n'''\n\nإذا تركنا الكود كما هو في السطر من غير print فإن ذلك يعرض السلسلة النصية كما هي (بما في ذلك أحرف المسافات البيضاء)\n\ntext\n\n'\\nHello\\nWorld\\n\\nHow are you?\\n'\n\n\nأما إذا وضعنا print فإنه يطبع الأحرف المرئية ، وينسِّقُ المظهر بناءً على أحرف التحكُّم المخفية:\n\nprint(text)\n\n\nHello\nWorld\n\nHow are you?\n\n\n\n\ntext.splitlines()\n\n['', 'Hello', 'World', '', 'How are you?']\n\n\nإذا لم نحدد محدد الفاصل فإن الفاصل الافتراضي هو المسافة.\n\nprint(\"Hello, world\".split())\n\n['Hello,', 'world']\n\n\nهنا نحدد الفاصل أنه الحرف \"l\":\n\nprint(\"Hello, world\".split(\"l\"))\n\n['He', '', 'o, wor', 'd']\n\n\n\n\n4.4.5 .join()\nهذه الدالة تدمج عناصر في متتالية مع وضع فاصل بينها.\n\nnames = [\"Adam\", \"Belal\", \"Camal\"]\nseperator = ','\nprint(seperator.join(names)) \nprint(''.join(names))\nprint(' + '.join(names))\n\nAdam,Belal,Camal\nAdamBelalCamal\nAdam + Belal + Camal",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>النصوص</span>"
+    ]
+  },
+  {
+    "objectID": "04_strings.html#repetition",
+    "href": "04_strings.html#repetition",
+    "title": "4  النصوص",
+    "section": "4.5 Repetition",
+    "text": "4.5 Repetition\nيمكن تكرار السلسلة النصية باستخدام العامل *:\n\ns = \"Salam \" * 3\nprint(s)\n\nSalam Salam Salam \n\n\nكذلك يمكنك وضعه مع الأحرف التي تمثل الأرقام:\n\nzeros = \"0\" * 3\nx = \"1\" + zeros\nprint(x)\n\n1000\n\n\nلكن لاحظ الآتي:\n\nx + x\n\n'10001000'\n\n\n\nتوقعنا 1000، لكن حصلنا على 10001000. لماذا؟\nلأن x هي سلسلة نصية (string)، وعامل + يقوم بدمج السلاسل النصية.\n\nلنقم بتحويل x إلى عدد صحيح باستخدام int():\n\nz = int(x)\nz + z\n\n2000",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>النصوص</span>"
+    ]
+  },
+  {
+    "objectID": "04_strings.html#concatenation",
+    "href": "04_strings.html#concatenation",
+    "title": "4  النصوص",
+    "section": "4.6 Concatenation",
+    "text": "4.6 Concatenation\nنريد أن نكون قادرين على كتابة:\n\nlvl = 20\nsentence = \"I want to reach level \" + lvl\nprint(sentence)\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[30], line 2\n      1 lvl = 20\n----&gt; 2 sentence = \"I want to reach level \" + lvl\n      3 print(sentence)\n\nTypeError: can only concatenate str (not \"int\") to str\n\n\n\nيظهر خطأ! لماذا؟ .. رسالة الخطأ تخبرنا أنه لا يمكننا دمج سلسلة نصية مع عدد صحيح.\nكيف نحل هذه المشكلة؟ نقوم بتحويل العدد الصحيح إلى سلسلة نصية باستخدام str():\n\nage = 40\nsentence = \"My name is Adam and I am \" + str(age) + \" years old.\"\nprint(sentence)\n\nMy name is Adam and I am 40 years old.\n\n\nلاحظ أننا نضيف حرفي مسافة، واحدة بعد “am” وواحدة قبل “years” لجعل الجملة قابلة للقراءة.\nحاول القيام بذلك للجملة السابقة مع lvl:\n\n# try it",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>النصوص</span>"
+    ]
+  },
+  {
+    "objectID": "04_strings.html#تنسيق-السلاسل-النصية",
+    "href": "04_strings.html#تنسيق-السلاسل-النصية",
+    "title": "4  النصوص",
+    "section": "4.7 تنسيق السلاسل النصية",
+    "text": "4.7 تنسيق السلاسل النصية\nنستعرض ثلاث طرق لدمج السلاسل النصية في بايثون:\nأولاً، دمج السلاسل النصية الفردية باستخدام عامل + (كما فعلنا سابقًا).\n\nبسيط، ولكن لا يوفر تحكمًا في التنسيق\nكما يجب عليك تحويل الأرقام إلى سلاسل نصية باستخدام الدالة المُضافَة str()\n\nثانيًا، استخدام الدالة المُضافَة .format().\nحيث يتم تحديد حقول الاستبدال بواسطة الأقواس {}. يحتوي كل حقل استبدال على:\n\nالفهرس الرقمي للمعامل الموضعي (يبدأ من 0)، أو\nاسم المعامل بالكلمة المفتاحية (إذا كان المعامل قاموسًا).\n\nثالثًا، استخدام f-strings.\n\nسلسلة نصية مهيكلة أو f-string هي سلسلة نصية مسبوقة بالحرف ‘f’ أو ‘F’. قد تحتوي هذه السلاسل على حقول استبدال، وهي تعبيرات محددة بواسطة الأقواس المعقوفة {}. بينما تحتوي السلاسل النصية الأخرى دائمًا على قيمة ثابتة، فإن السلاسل النصية المهيكلة هي تعبيرات يتم تقييمها في وقت التشغيل. المستندات\n\n\nname = \"John\"\nlvl = 300\n\nx1 = \"My name is \" + name + \" and I want to reach level \" + str(lvl) # + operator\nx2 = \"My name is {} and I want to reach level {}\".format(name, lvl)  # .format() method\nx3 = f\"My name is {name} and I want to reach level {lvl}\"            # f-strings\nassert x1 == x2 == x3\nprint(x1)\n\nMy name is John and I want to reach level 300\n\n\n\n4.7.0.1 تمرين\nاطبع الجملة \"Hello, my name is John Doe. and I am 30 years old\". باستخدام المتغيرات first_name، last_name، و age عبر الطرق الثلاث المذكورة آنفًا:\n\n# try it\n\n\n\n4.7.1 المحاذاة والحشو (Alignment and Padding)\n\nprint(name.ljust(15)) \nprint(name.center(15))\n\nJohn           \n      John     \n\n\nطريقة ممتعة لتزيين سلسلة نصية باستخدام دالة center:\n\nprint('*' * 20)\nprint('Adam'.center(20, \"*\"))\nprint('*' * 20)\n\n********************\n********Adam********\n********************\n\n\n\n4.7.1.1 Exercise\nقم بصياغة الكود السابق لتعريف ثلاثة متغيرات واستخدامها في تزيين الاسم:\n\nname\nwidth\ndecorator\n\n\n# try it\nname = 'Adam'",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>النصوص</span>"
+    ]
+  },
+  {
+    "objectID": "04_strings.html#تنسيق-الأرقام",
+    "href": "04_strings.html#تنسيق-الأرقام",
+    "title": "4  النصوص",
+    "section": "4.8 تنسيق الأرقام",
+    "text": "4.8 تنسيق الأرقام\n\n4.8.1 محاذاة الأرقام\n\nprint(f'{100:10}')\nprint(f'{1000:10}')\nprint(f'{10000:10}')\n\n       100\n      1000\n     10000\n\n\nيمكننا أيضًا جعل كل من العدد n والتعبئة p متغيرات:\n\nn = 100\np = 5\nprint(f'{n:{p}}')\n\n  100\n\n\nبشكل افتراضي، يتم محاذاة الرقم إلى اليمين. يمكننا محاذاته إلى اليسار بإضافة &lt;. لاحظ الفرق بين التعبيرين أدناه:\n\nprint(f'{n:&gt;{p}}')\nprint(f'{n:&lt;{p}}')\n\n  100\n100  \n\n\n\n\n4.8.2 فاصل الآلاف\n\nbig_num = 10000\nprint(f'{big_num}')\nprint(f'{big_num:,}')\n\n10000\n10,000\n\n\n\n\n4.8.3 الترميز العلمي (Scientific Notation)\n\nsmall_num = 1e-4\nprint(f\"{small_num:.2e}\")\n\n1.00e-04\n\n\n\n\n4.8.4 الأعداد العشرية (Decimals)\n\nnum = 10.5689\nprint(f'{num}')\nprint(f'{num:.4f}')\nprint(f'{num:.2f}')\nprint(f'{num:.0f}')\n\n10.5689\n10.5689\n10.57\n11\n\n\n\n4.8.4.1 مثال: تنسيق الكم المالي\nهنا نستخدم مكونين داخل الأقواس المعقوفة وعلامة $ في البداية: - يتم إضافة علامة $ قبل الرقم (ليست جزءًا من الرقم المنسق على الإطلاق) - , تضيف فاصل الآلاف - .2f يقوم بتقريب الرقم إلى منزلتين عشريتين\n\nprice = 2978.95\nprint(f\"${price:,.2f}\")\n\n$2,978.95\n\n\n\n\n\n4.8.5 تنسيق كتابة القيَم العددية الثابتة (Number literal formats)\nالحروفيَّة هي رموز للقيم الثابتة لبعض الأنواع المدمجة. مثال: 42 هو حرفيُّ عدد صحيح و 3.14 هو حرفيُّ عدد عشري.\nتسمح بايثون بطرق أكثر قابلية للقراءة في كتابة الحروفية العددية:\n\nيمكن استخدام الشرطة السفلية _ في الأرقام لفصلها لتحسين القراءة\nيمكن استخدام e أو E لتمثيل الترميز العلمي\n0b أو 0B للأرقام الثنائية\n0o أو 0O للأرقام الثمانية\n0x أو 0X للأرقام الست عشرية\nj أو J للأعداد المركبة\n\nوإليك تطبيق ذلك:\n\nassert 1e-4 == 0.0001\nassert 1_000_000 == 1000000\nassert 0b1010 == 10\nassert 0o10 == 8\nassert 0x10 == 16\nassert 1 + 2j == 2j + 1",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>النصوص</span>"
+    ]
+  },
+  {
+    "objectID": "04_strings.html#المراجع",
+    "href": "04_strings.html#المراجع",
+    "title": "4  النصوص",
+    "section": "4.9 المراجع",
+    "text": "4.9 المراجع\n\nText Sequence Type — str\nString methods\nText Processing Services\nCommon string operations\nprintf-style String Formatting\nPyFormat",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>النصوص</span>"
+    ]
+  },
+  {
+    "objectID": "05_control_flow.html",
+    "href": "05_control_flow.html",
+    "title": "5  تدفق التحكم",
+    "section": "",
+    "text": "5.1 الخوارزميات\nالخوارزمية (Algorithm) تسلسل من التعليمات تعمل على مدخلات، تعالجها، وتنتج مخرجات.\nيمكن وصف الخوارزميات باستخدام الأشكال؛ وتسمى هذه خريطة التدفق (flowchart).",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>تدفق التحكم</span>"
+    ]
+  },
+  {
+    "objectID": "05_control_flow.html#الخوارزميات",
+    "href": "05_control_flow.html#الخوارزميات",
+    "title": "5  تدفق التحكم",
+    "section": "",
+    "text": "5.1.1 شبيه الكود (Pseudocode)\nتوصف الخوارزمية كذلك بكود غير حقيقي وهذا ما نسميه شبيه الكود (pseudocode). وسبب التسمية أنه لا يوجَد مفسِّر له لتنفيذه.\nوالذكاء الصطناعي اليوم قادر على ترجمته إلى كود بايثون! أو إلى لغات برمجية أخرى أعقد منها. ### كيف يتم تنفيذ الخوارزميات؟\nالبرنامج الحاسوبي ما هو إلا خوارزمية؛ لكنها مكتوبة بالمستوى التنفيذي للحاسوب؛ فهو مستوىً لا يحتاج لمزيد ترجمة.\nفلغات البرمجة مثل بايثون لا تُفهم مباشرة من قبل مكونات الحاسوب الصلبة (الكهربائية). بل يتم ترجمة الكود بواسطة برنامج آخر إلى سلسلة من التعليمات ذات المستوى الأدنى والأكثر تفصيلاً حتى تتواءم مع بنية مكونات الحاسوب، ليتم فيما بعد تحميلها في وحدة المعالجة المركزية (CPU) وتنفيذها.\nهذا ما يحدث خلف الكواليس عند تشغيل الكود.",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>تدفق التحكم</span>"
+    ]
+  },
+  {
+    "objectID": "05_control_flow.html#تدفق-التحكم-control-flow",
+    "href": "05_control_flow.html#تدفق-التحكم-control-flow",
+    "title": "5  تدفق التحكم",
+    "section": "5.2 تدفق التحكم (Control Flow)",
+    "text": "5.2 تدفق التحكم (Control Flow)\nمصطلح التحكم هنا يشير للسطر أو رقم التعليمة التي نحن بصدد تشغيلها. فالتحكم قد يتدفق بشكل تسلسلي (تعليمات متوالية: الواحدة تلو الأخرى: 1 ، 2 ، 3 …)، أو يختار من بين طريقين (أو أكثر)، أو يعود لرقم تعليمة سابقة (وهذا الذي يعطيه خاصية التكرار، لأنها متسلسلة). فنخلص من هذا أن تدفق التحكم في الخورازمية له ثلاثة عناصِر: 1. التسلسل (sequencing) 2. الاختيار (selection) التكرار (iteration)\n\n\n\nتدفق التحكم في الهياكل الأساسية للتحكم.",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>تدفق التحكم</span>"
+    ]
+  },
+  {
+    "objectID": "05_control_flow.html#ترتيب-التنفيذ",
+    "href": "05_control_flow.html#ترتيب-التنفيذ",
+    "title": "5  تدفق التحكم",
+    "section": "5.3 ترتيب التنفيذ",
+    "text": "5.3 ترتيب التنفيذ\nبايثون هي لغة برمجة إجرائية (Procedural) على عكس الوصفية (Declarative). هذا يعني أن الكود يُنفذ بالترتيب الذي يُكتب به. على سبيل المثال، إذا كتبنا الكود التالي:\n\nx = 5\nx = 2\n\nفالتعيين اللاحق ناسخٌ (ماحٍ) لما قبله.",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>تدفق التحكم</span>"
+    ]
+  },
+  {
+    "objectID": "05_control_flow.html#علاقة-الإدخال-بتدفق-التحكم",
+    "href": "05_control_flow.html#علاقة-الإدخال-بتدفق-التحكم",
+    "title": "5  تدفق التحكم",
+    "section": "5.4 علاقة الإدخال بتدفق التحكُّم",
+    "text": "5.4 علاقة الإدخال بتدفق التحكُّم\nنستخدم دالة input() حيث تقطَع تدفق البرنامج (Interrupt) فيتوقَّف لتمنح التحكم للمستخدم لتقديم بعض المدخلات، وتنتظر حتى يتم الضغط على مفتاح Enter للإشارة إلى أن الإدخال اكتمل ، ليعود التحكم للبرنامج كي يُكمِل تدفقه.\nname = input(\"What's your name? \")\nprint(f\"Salam, {name}!\")\n\n\n\n\n\n\nNote\n\n\n\nملاحظة جانبية: قِس على هذا المدخلات الأخرى وكذلك المُخرجات. فعند أي مُدخَل (سواءً ملفٌّ يُقرأ ، أو بيانات قادمة من الشَّبكة أو من قاعدة بيانات محليَّة) فإنه يقطَعُ تدفُّقَ البرنامج لحين يتم تسجيله في الذاكرة (RAM) ، ثم يُتِمُّ البرنامج سيرَه. وكذلك الأمر عند أي عملية إنتاج مُخرجات؛ فهي عمليَّة كتابة تحتاج من البرنامج أن يجعل التحكم في يدِ نظام التشغيل لأنه المخوَّل بعمليَّات كهذه. ثم قد يعود على البرنامج برسالة خطأ، أو بالتمام إن تم كل شيء على أحسن حال. وهذا تفصيله يكون في تعدد خيوط التنفيذ (Multi-processing).\n\n\n\n5.4.0.1 تمرين\nاطلب من المستخدم إدخال الاسم والعمر ثم أخبره كم سيكون عمره بعد 10 سنوات مناديًا له باسمه.\nملاحظة: استخدم دالة int() لتحويل المدخل إلى عدد صحيح قبل أن تتمكن من إجراء العمليات الحسابية عليه.\nتلميح: تحقق من أن type() لمتغير العمر هو من نوع int قبل إجراء العمليات الحسابية.\n\n# try it",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>تدفق التحكم</span>"
+    ]
+  },
+  {
+    "objectID": "05_control_flow.html#التعبيرات-المنطقية-boolean-expressions",
+    "href": "05_control_flow.html#التعبيرات-المنطقية-boolean-expressions",
+    "title": "5  تدفق التحكم",
+    "section": "5.5 التعبيرات المنطقية (Boolean Expressions)",
+    "text": "5.5 التعبيرات المنطقية (Boolean Expressions)\nالتعبيرات المنطقية هي تعبيرات تؤول إما إلى True أو False. يتم استخدام العلامات التالية للمقارنة:\n\n\n\nالعلامة\nالوصف\n\n\n\n\n==\nيساوي\n\n\n!=\nلا يساوي\n\n\n&gt;\nأكبر من\n\n\n&lt;\nأصغر من\n\n\n&gt;=\nأكبر من أو يساوي\n\n\n&lt;=\nأصغر من أو يساوي\n\n\n\nلنستكشف سويًّا التعبيرات المنطقية وما يمكن بينها:\n\nb1 = 5 &gt; 9\nprint(b1)\n\nFalse\n\n\n\nb2 = len('12345') &gt; len('123456789')\nprint(b2)\n\nFalse\n\n\nيمكن دمج التعبيرات المنطقية باستخدام العوامل and، or، و not:\n\nb3 = b1 and b2\nprint(b3)\n\nFalse\n\n\n\nb4 = b1 or b2 or b3\nprint(b4)\n\nFalse\n\n\n\nb5 = not b1\nprint(b5)\n\nTrue",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>تدفق التحكم</span>"
+    ]
+  },
+  {
+    "objectID": "05_control_flow.html#العبارات-الشرطية-conditional-statements",
+    "href": "05_control_flow.html#العبارات-الشرطية-conditional-statements",
+    "title": "5  تدفق التحكم",
+    "section": "5.6 العبارات الشرطية (Conditional Statements)",
+    "text": "5.6 العبارات الشرطية (Conditional Statements)\nتُستخدم العبارات الشرطية لتنفيذ أجزاء مختلفة من الكود بناءً على قيمة تعبير منطقي (boolean expression). مثال:\n\nif b5:\n    print('Inside')\nprint('Outside')\n\nInside\nOutside\n\n\n\n5.6.1 المسافة البادئة (Indentation)\nلاحظ أن المسافة البادئة (المسافات البيضاء أسفل كلمة if) في الكود أعلاه ليست لمجرد تسهيل قراءة الكود، بل هي التي تحدد التعليمات المشروطة. عادةً ما تكون المسافة البادئة عبارة عن 4 مسافات أو 2 أو أكثر، لكن لابد أن تكون موحَّدة طوال الكود.\nلاحظ: بدون المسافة البادئة الصحيحة، سيظهر خطأ في الكود:\n\nif b5:\nprint('Inside')\nprint('Outside')\n\n\n  Cell In[9], line 2\n    print('Inside')\n    ^\nIndentationError: expected an indented block after 'if' statement on line 1\n\n\n\n\nإذا قمت بزيادة المسافة البادئة لكل من جملتي print()، فسوف يعمل الكود بتدفِّقٍ غيرِ الذي قصدناه ابتداءً. أي أنه سيطبع Outside عندما يكون في الواقع داخل اللَّبِنَة الشرطية.\n\nif b5:\n    print('Inside')\n    print('Outside')\n\nInside\nOutside\n\n\nيؤدي الكود السابق إلى خطأ منطقي لن يظهر أبدًا كخطأ ولن يوقف البرنامج. لذا كن حذرًا مع المسافة البادئة في كتابة كود بايثون!\n\n\n5.6.2 تركيب الشروط\nيمكنك دمج شروط متعددة باستخدام العوامل and، or، و not، لأنها تنتج قيمة منطقية (boolean value). على سبيل المثال:\n\nage = 20\nheight = 175\n\nif age &gt; 18 and height &gt; 170:\n  print(\"You are eligible to donate blood\")\n\nYou are eligible to donate blood\n\n\nيمكننا استخدام الأقواس لتجميع الشروط معًا. كما أنها تزيل أي غموض في ترتيب العمليات:\n\nage = 16\ntemperature = 15\nis_wearing_coat = True\nrain = False\n\nif age &lt; 16 or (temperature &lt; 20 and not is_wearing_coat):\n  print(\"I suggest you don't go outside\")\n\nيُنظَر للشرط بأكمله كقيمة منطقية واحدة تكون True أو False ولا بأس بتجزئته حينما يسهل بذلك الفهم:\n\nis_minor = age &lt; 16\nis_cold = temperature &lt; 20\nb = is_minor or (is_cold and not is_wearing_coat)\n\nif b:\n  print(\"I suggest you don't go outside\")\n\n\n5.6.2.1 تمرين\n\nاطلب عرض (width) و ارتفاع (height) المستطيل من المستخدم عن طريق دالة input()\nاحسب مساحة المستطيل وخزنها في متغير area\nإذا كانت area أكبر من 100 و width أكبر من height، اطبع: \"المستطيل كبير وعريض\"\nإذا كانت area أكبر من 100 و width أقل من أو يساوي height، اطبع: \"المستطيل كبير وطويل\"\n\n\n# try it\n\n\n\n\n5.6.3 if، elif، و else\nالصيغة الكاملة لجملة الشرط هي كما يلي:\nif &lt;boolean expression&gt;:\n    &lt;code&gt;\nelif &lt;boolean expression&gt;:\n    &lt;code&gt;\nelse:\n    &lt;code&gt;\nقد يوجد elif واحدة أو أكثر، وقد توجد else واحدة فقط. أما الكلمة elif فهي اختصار لـ else if. تسلسل if … elif … elif … هو بديل لجمل switch أو case الموجودة في لغات أخرى.\nجرب الكود التالي بقيم مختلفة لـ x وحاول تتبع تدفق التحكم:\n\nx = -5\nx = 0\nx = 1\nx = 5\n\n\nx = -5\n\nif x &lt; 0:\n    x = 0\n    print('Negative changed to zero')\nelif x == 0:\n    print('Zero')\nelif x == 1:\n    print('Single')\nelse:\n    print('More')\n\nprint(\"Always:\", x)\n\nNegative changed to zero\nAlways: 0\n\n\nلاحظ أن العبارة الأخيرة خارج كل اللَّبِنات الشرطية لذا يتم تنفيذها دائمًا.\n\n5.6.3.1 تمرين\n\nاستخدم دالة input() لطلب اسم المستخدم (username) و كلمة المرور (password) من المستخدم وخزن كل منهما في متغير مناسب\nإذا كان اسم المستخدم هو \"admin\" وكلمة المرور هي \"abc123\"، اطبع: \"Welcome admin\"\nأو إذا كان اسم المستخدم هو \"backdoor\" وكلمة المرور هي \"let me in\"، اطبع: \"Nobody knows!\"\nخلاف ذلك، اطبع: \"Access denied!\"\n\n\npassword = \n\n\n\n5.6.3.2 تمرين\nنريد تعيين درجة لطالب بناءً على نتيجته، وفقًا للجدول التالي:\n\n\n\nMark\nGrade\n\n\n\n\n90-100\nA\n\n\n80-89\nB\n\n\n70-79\nC\n\n\n60-69\nD\n\n\n0-59\nF\n\n\n\nابحث عن الخطأ (أو الأخطاء) في الكود التالي وأصلحه. اختبره بدرجات (score) مختلفة للتأكد من صحته:\n\nscore = input(\"Enter your exam score: \")\nscore = int(score)\n\nif score &gt;= 90:\n  print(\"A\")\nif score &gt;= 80:\n  print(\"B\")  \nif score &gt;= 70:\n  print(\"C\")\nif score &gt;= 60:\n  print(\"D\")\nprint(\"F\")\n\nتلميحات:\n\nقد تجد أنه من المفيد تعليق السطرين الأولين (بعلامة التعليق: #) وتعيين قيمة score مباشرة لاختبار الكود بسرعة.\nالكود يفتقد إلى عبارات elif و else.\nلا تحتاج إلى إزالة أي عبارة print.\n\n\n\n5.6.3.3 تمرين\n\nاطلب من المستخدم إدخال عمره\nحوّل المدخل إلى عدد صحيح باستخدام دالة int()\nإذا كان العمر أقل من 5، اطبع: \"Child\"\nإذا كان العمر بين 5 و 12، اطبع: \"Kid\"\nإذا كان العمر بين 12 و 18، اطبع: \"Adolesence\"\nإذا كان العمر بين 18 و 65، اطبع: \"Adult\"\nخلاف ذلك، اطبع: \"Senior\"\n\nملاحظة: استخدام elif يعلق الشرط بانتفاء الذي قبله.\n\n# try it\n\n\n\n\n5.6.4 التداخل في جمل الشرط\nجمل الشرط المتداخلة (Nested if statements) هي جمل if داخل جمل if أخرى. على سبيل المثال:\nif &lt;boolean expression&gt;:\n    if &lt;boolean expression&gt;:\n        &lt;code&gt;\n    else:\n        &lt;code&gt;\nelse:\n    &lt;code&gt;\n\nلاحظ أيضًا أن المسافة البادئة مهمة. يجب أن تكون جملة if الداخلية ذات مسافة بادئة أكثر من جملة if الخارجية.\n\n\n5.6.4.1 مثال\nافترض أننا نريد تعيين درجة لطالب بناءً على نتيجته، وفقًا للجدول التالي:\n\n\n\nMark\nGrade\n\n\n\n\n95-100\nA+\n\n\n90-94\nA\n\n\n85-89\nB+\n\n\n80-84\nB\n\n\n70-79\nC\n\n\n60-69\nD\n\n\n0-59\nF\n\n\n\n\nscore = 95\n\nif score &gt;= 90:\n  if score &gt;= 95:\n    print(\"Outstanding: A+\")\n  else:\n    print(\"Excellent: A\")\n\nelif score &gt;= 80:\n  if score &gt;= 85:\n    print(\"Very Good: B+\") \n  else:\n    print(\"Good: B\")\n\nelif score &gt;= 70:\n  print(\"Okay: C\")\n\nelif score &gt;= 60:\n  print(\"Poor: D\")\n\nelse:\n  print(\"Failed: F\")\n\nOutstanding: A+",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>تدفق التحكم</span>"
+    ]
+  },
+  {
+    "objectID": "05_control_flow.html#الحلقة-المطلقة-indefinite-loop",
+    "href": "05_control_flow.html#الحلقة-المطلقة-indefinite-loop",
+    "title": "5  تدفق التحكم",
+    "section": "5.7 الحلقة المُطْلقة (Indefinite loop)",
+    "text": "5.7 الحلقة المُطْلقة (Indefinite loop)\nالحلقة المُطْلقة (وتُنشأ باستخدام while) هي حلقة لا تحتوي على نهاية محددة مسبقًا في الشرط نفسه ، بل يتم تحديدها في سطر آخر ، فتستمر في التكرار حتى يُستوفى شرطها.\nصيغة حلقة while كما يلي:\nwhile &lt;boolean expression&gt;:\n    &lt;code&gt;\nيتم تكرار اللبنة الواقعة في نطاق جملة الشرط ما بقي الشرط (True). وإذا انتفى الشرط (False) في البداية، فلن يتم الدخول في اللبنة أصلاً.\ni = 0\nwhile i &lt; 5:\n    print(i)\n    i += 1\nprint('Done')\nونلاحظ هنا أنك إذا نسيت زيادة قيمة i، فإن الحلقة لن تنتهي أبدًا؛ وهذا ما يسمى حلقة لانهائية (infinite loop).\nلنقم بتتبع الخطوات عندما تكون i = 0:\n\n0 &lt; 5 تؤول True، فنطبع 0 ونزيد i لتصبح 1\n1 &lt; 5 تؤول True، فنطبع 1 ونزيد i لتصبح 2\n2 &lt; 5 تؤول True، فنطبع 2 ونزيد i لتصبح 3\n3 &lt; 5 تؤول True، فنطبع 3 ونزيد i لتصبح 4\n4 &lt; 5 تؤول True، فنطبع 4 ونزيد i لتصبح 5\n5 &lt; 5 تؤول False،فنخرج من الحلقة\nنطبع Done\n\n\n5.7.0.1 تمرين\n\nاطلب من المستخدم إدخال رقم\nإذا كان الرقم الذي أدخله المستخدم أقل من 1، اطبع: \"الرقم يجب أن يكون أكبر من 1\" ثم اطلب من المستخدم إعادة الإدخال\nأخيرًا اطبع مجموع الأرقام من 1 إلى الرقم الذي أدخله المستخدم\n\n\n# try it\n\n\n\n5.7.1 عبارات break و continue\n\ni = 0\nwhile i &lt; 5:\n    if i == 3:\n        break\n    print(i)\n    i += 1\nprint('Done')\n\n0\n1\n2\nDone\n\n\nعبارة continue تقفز للتكرار القادم متخطِّيةً بقية خطوات التكرار الحالي.\n\ni = 0\nwhile i &lt; 5:\n    if i == 3:\n        i += 1\n        continue\n    print(i)\n    i += 1\nprint('Done')\n\n0\n1\n2\n4\nDone\n\n\nأما عبارة break فتوقِف التكرار تمامًا. وإن كان لدينا تكرار متداخل (تكرار داخل تكرار) فإن الذي يتوقف هو التكرار الداخلي.\n\ni = 0\nwhile i &lt; 3:\n    j = 0\n    while j &lt; 3:\n        if i == 1:\n            break\n        print(i, j)\n        j += 1\n    i += 1\nprint('Done')\n\n0 0\n0 1\n0 2\n2 0\n2 1\n2 2\nDone",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>تدفق التحكم</span>"
+    ]
+  },
+  {
+    "objectID": "06_functions.html",
+    "href": "06_functions.html",
+    "title": "6  الدوال",
+    "section": "",
+    "text": "6.1 Why use functions?\nCore ideas behind using functions are:\nFirstly, Abstraction: hiding low-level details behind a simpler, higher-level idea with a name.\nSecondly, Modularity: dividing a system into components, each of which can be designed, implemented, tested, reasoned about, and reused separately from the rest of the system.\nThirdly, Composition: combining these modular abstractions in various ways to create higher-level abstractions.\nPython provides other constructs related to these ideas: functions (our topic today), classes, modules, and packages. We will cover these in later chapters.",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>الدوال</span>"
+    ]
+  },
+  {
+    "objectID": "06_functions.html#function-definition",
+    "href": "06_functions.html#function-definition",
+    "title": "6  الدوال",
+    "section": "6.2 Function definition",
+    "text": "6.2 Function definition\nLet’s define a function that does something useful.\n\ndef check_password_strength(password):\n    if len(password) &lt; 8:\n        return \"Weak\"\n    else:\n        return \"Strong\"\n\nNow let’s call the function. Notice, the returned value is stored in the result variable.\n\nresult = check_password_strength(\"shorty\")\nprint('password is:', result)\n\nresult = check_password_strength('verylongpassword')\nprint('password is:', result)\n\npassword is: Weak\npassword is: Strong\n\n\nThe keyword def introduces a function definition. It must be followed by the function name and the parenthesized list of formal parameters (password here is a parameter). The statements that form the body of the function start at the next line, and must be indented.\nWhen we call the function, we input the actual parameters (also called arguments). In the example above, \"shorty\" and 'verylongpassword' are the arguments in the first and second calls to the same function. The return statement is used to output a value from the function.",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>الدوال</span>"
+    ]
+  },
+  {
+    "objectID": "06_functions.html#return-statement-exits-the-function",
+    "href": "06_functions.html#return-statement-exits-the-function",
+    "title": "6  الدوال",
+    "section": "6.3 Return statement exits the function",
+    "text": "6.3 Return statement exits the function\nIf we have multiple return statements, only one of them will be executed. Once a return statement is executed, the function will exit immediately. Example:\ndef function_name(parameters):\n    if cond == True:\n        return 'A'\n    else:\n        return 'B'\n    # any code inside the function after the return statement will never be executed",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>الدوال</span>"
+    ]
+  },
+  {
+    "objectID": "06_functions.html#variable-scope",
+    "href": "06_functions.html#variable-scope",
+    "title": "6  الدوال",
+    "section": "6.4 Variable Scope",
+    "text": "6.4 Variable Scope\nLet’s make our function more complete by adding a translation feature. We will define a dictionary that maps the strength of the password to different languages.\n\nLANGUAGE = 'AR'\n\ntranslation = {\n    'Weak': {\n        'AR': 'ضعيفة',\n        'CN': '弱'\n    },\n    'Strong': {\n        'AR': 'قوية',\n        'CN': '强'\n    }\n}\n\ndef check_password_strength(password):\n1    minimum_length = 8\n2    if len(password) &lt; minimum_length:\n3        return translation['Weak'][LANGUAGE]\n    else:\n        return translation['Strong'][LANGUAGE]\n\n\n1\n\nminimum_length is a variable local to the function: local variable.\n\n2\n\nThe function can access len() because it is built-in. And it can access minimum_length since it is a local variable.\n\n3\n\nThe function can also access LANGUAGE and translation since both are global variables (not within any function)\n\n\n\n\nIf we try to access the local variable minimum_length outside the function, we will get an error:\n\nprint(minimum_length)\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[4], line 1\n----&gt; 1 print(minimum_length)\n\nNameError: name 'minimum_length' is not defined\n\n\n\nIf you prefer mneumonics, then, LEGB (Local, Enclosing, Global, Built-in) is a good one to remember to determine which variable to access when a name is encountered. It searches for variables in the following order:\n\nLocal scope: The current function’s code block.\nEnclosing scopes: Any functions or loops enclosing the current function.\nGlobal scope: The module’s global namespace. That is, code not inside any of the functions.\nBuilt-in names: Python’s predefined functions and variables.\n\nSee 9.2.1. Scopes and Namespaces Example | Python Docs for more details on how to reference the different scopes and namespaces, and how global and nonlocal affect variable binding\nSee: https://docs.python.org/3.13/tutorial/classes.html#scopes-and-namespaces-example &gt; A special quirk of Python is that – if no global or nonlocal statement is in effect – assignments to names always go into the innermost scope. &gt; The global statement can be used to indicate that particular variables live in the global scope and should be rebound there; the nonlocal statement indicates that particular variables live in an enclosing scope and should be rebound there.",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>الدوال</span>"
+    ]
+  },
+  {
+    "objectID": "06_functions.html#default-arguments",
+    "href": "06_functions.html#default-arguments",
+    "title": "6  الدوال",
+    "section": "6.5 Default arguments",
+    "text": "6.5 Default arguments\nWe can also define functions that have default values for some parameters. These are called default arguments.\n\ndef greet(name, greeting='Hello'):\n    return f'{greeting.upper()}, {name}!'\n\nprint(greet('Adam'))\nprint(greet('Belal', 'good morning'))\n\nHELLO, Adam!\nGOOD MORNING, Belal!\n\n\nNotice, how in the first call to greet(), we only passed one argument, so the default value for greeting was used. But, in the second call, we passed both arguments, so the default value was overridden.",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>الدوال</span>"
+    ]
+  },
+  {
+    "objectID": "06_functions.html#positional-and-keyword-arguments",
+    "href": "06_functions.html#positional-and-keyword-arguments",
+    "title": "6  الدوال",
+    "section": "6.6 Positional and keyword arguments",
+    "text": "6.6 Positional and keyword arguments\nWe say that arguments are the values passed to a function’s parameters. It may be provided either:\n\nby positional order\nby keyword (name)\nfirst by positional order and then by keyword\n\nThe function signature pow(base, exp, mod=None) tells us that it has three parameters: base, exp, and mod in that order. Note that the mod parameter is optional. If we don’t provide it, the function will use the default value None. Thus, we can call it in different ways:\n1pow(2, 4)\n2pow(2, exp=4)\n3pow(base=2, exp=4)\n4pow(exp=4, base=2)\n\n1\n\nPositional arguments passed in order. Here: 2 is base and 4 is exp\n\n2\n\n1st is positional argument (2 is base) and the 2nd is a keyword argument (exp = 4)\n\n3\n\nJust keyword arguments\n\n4\n\nKeyword arguments in a different order\n\n\nLikewise, we can call our own functions postionally or by keywords.\nLet’s first define a function.\n\ndef calculate_bmi(weight, height, unit='metric'):\n    \"\"\" Calculate the Body Mass Index (BMI)\n        \n        weight and height must be of the same unit.\n\n        unit is either 'metric' or 'imperial'.\n    \"\"\"\n    if unit == 'imperial':\n        weight *= 0.453592\n        height *= 0.0254\n    bmi = weight / (height ** 2)\n    return round(bmi, 2)\n\nNow we can call the function in different ways. Note the assert here is used to check that the function returns the same value regardless of how the arguments are passed.\n\nw = 70   # kg\nh = 1.75 # meters\n\nprint(calculate_bmi(w, h))\n\nassert (\n    calculate_bmi(w, h) ==\n    calculate_bmi(w, height=h) ==\n    calculate_bmi(weight=w, height=h) ==\n    calculate_bmi(height=h, weight=w)\n)\n\n22.86\n\n\nLikewise, for imperial units:\n\nw = 154 # pounds\nh = 70  # inches\n\nprint(calculate_bmi(w, h, 'imperial'))\n\nassert (\n    calculate_bmi(w, h, 'imperial') ==\n    calculate_bmi(w, h, unit='imperial')\n)\n\n22.1",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>الدوال</span>"
+    ]
+  },
+  {
+    "objectID": "06_functions.html#docstrings",
+    "href": "06_functions.html#docstrings",
+    "title": "6  الدوال",
+    "section": "6.7 Docstrings",
+    "text": "6.7 Docstrings\nPython has a built-in function called help() that can be used to get information about a function. Let’s ask for help on the pow() (power) built-in function. What we see is the signature (name and parameter list) as well as the docstring of the pow() function.\n\nhelp(pow)\n\nHelp on built-in function pow in module builtins:\n\npow(base, exp, mod=None)\n    Equivalent to base**exp with 2 arguments or base**exp % mod with 3 arguments\n\n    Some types, such as ints, are able to use a more efficient algorithm when\n    invoked using the three argument form.\n\n\n\nWe can do the same for our functions. A function’s first statement can be a string literal known as a docstring, used for documentation. Tools can process these to create automated documentation or allow interactive browsing of code. Including docstrings is a good habit for better maintainability and usability.\n\nhelp(calculate_bmi)\n\nHelp on function calculate_bmi in module __main__:\n\ncalculate_bmi(weight, height, unit='metric')\n    Calculate the Body Mass Index (BMI)\n\n    weight and height must be of the same unit.\n\n    unit is either 'metric' or 'imperial'.",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>الدوال</span>"
+    ]
+  },
+  {
+    "objectID": "07_sequences.html",
+    "href": "07_sequences.html",
+    "title": "7  المتتاليات",
+    "section": "",
+    "text": "7.1 القوائم (Lists)\nالقائمة تسلسل متغيِّر.\nl1 = []        # empty list\nl2 = [1]       # list with one item\nl3 = [1, 2, 3] # list with three items\nl4 = ['abb', 1, 2.0, True] # list with different types\nيمكن أيضًا تركيب القوائم عن طريق:\nl5 = [1, 2, 3] + [4, 5]\nl6 = l5 * 2\nprint(l5)\nprint(l6)\n\n[1, 2, 3, 4, 5]\n[1, 2, 3, 4, 5, 1, 2, 3, 4, 5]\nجرب ما يلي:\n# try it",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>المتتاليات</span>"
+    ]
+  },
+  {
+    "objectID": "07_sequences.html#القوائم-lists",
+    "href": "07_sequences.html#القوائم-lists",
+    "title": "7  المتتاليات",
+    "section": "",
+    "text": "الدمج: باستخدام معامل +\nالتكرار: باستخدام معامل *\n\n\n\n\nlen(l3) للحصول على طول القائمة l3\n'abb' in l4 للتحقق مما إذا كانت 'abb' عنصرًا في القائمة l4\n\nبعد ذلك، جرب 'abb' not in l4\n\nجرب min(l3), max(l3), sum(l3) وانظر ماذا يحدث\n\n\n\n7.1.1 الفهرسة (Indexing)\nللوصول إلى عنصر من القائمة، استخدم معامل الفهرسة []. يجب أن يكون مفتاح الفهرسة عددًا صحيحًا (int) في النطاق 0 &lt;= index &lt; len(s) - 1.\n\nl1 = [10, 20, 30, 40, 50]\nprint(l1[0])\n\n10\n\n\nكذلك، جرب l1[1], l1[2], و l1[3].\n\n# try it\n\n\nl2 = [\"Apple\", \"Banana\", \"Orange\", \"Lemon\"]\n\nفي القائمة l2، الفهرس على النحو التالي:\n0       1       2       3       4\n+-------+-------+-------+-------+\n| Apple | Banana| Orange| Lemon |\n+-------+-------+-------+-------+\n-4      -3      -2      -1\nTry l2[1], l2[2], and l2[3].\nجرب أيضًا الفهرسة عند:\n\nl[4] (لماذا هذا خطأ؟)\nl[-1] و l[len(l) - 1]; هل هما نفس الشيء؟\nl[-2]\n\n\n# try it\n\n\n7.1.1.1 البحث .index()\nطريق .index() تخرج موقع أول ظهور للقيمة المحددة.\n\nl1 = ['A', 'A', 'B', 'A', 'B']\nidx = l1.index('B')\nprint(l1[idx], 'is at index', idx)\n\nB is at index 2\n\n\nإذا لم يكن العنصر موجودًا في القائمة، فإنه يخرج خطأ.\n\nl1 = [10, 20, 30, 40, 50]\nl1.index(4444)\n\n\n---------------------------------------------------------------------------\nValueError                                Traceback (most recent call last)\nCell In[9], line 2\n      1 l1 = [10, 20, 30, 40, 50]\n----&gt; 2 l1.index(4444)\n\nValueError: 4444 is not in list\n\n\n\nرسالة الخطأ تخبرنا أن 4444 غير موجود في القائمة. دعنا نتعامل مع هذه الحالة في لبنة else، بدلاً من ترك البرنامج أن يتعطل.\n\nl1 = [10, 20, 30, 40, 50]\nif 4444 in l1:\n    idx = l1.index(4444)\n    print(l1[idx], 'is at index', idx)\nelse:\n    print('Item not found')\n\nItem not found\n\n\n\n\n\n7.1.2 التقطيع (Slicing)\n\nيأخذ التقطيع الشكل s[start : end : step]\nالقيم الافتراضية عند الإغفال هي:\n\nstart = 0\nend = len(list)\nstep = 1\n\n\n\nl1 = [10, 20, 30, 40, 50]\nprint(l1[1:3])\n\n[20, 30]\n\n\nجرب ما يلي:\n\nl1[1:4]\nl1[1:]\nl1[:3]\nl1[:]\nl1[::2]\nl1[::-1]\n\n\n# try it\n\n\n\n7.1.3 التغيير (Mutation)\nالقوائم (Lists) قابلة للتغيير، مما يعني أنه يمكن تعديلها بعد إنشائها. يشمل التغيير:\n\nالإضافة: l.append(x) لإضافة عنصر إلى نهاية القائمة\nالإزالة: l.remove(x)\nالإدراج: l.insert(i, x) لإدراج عنصر في موضع محدد\nالاستبدال: l[i] = x\nالترتيب: l.sort()\n\nولأن القائمة متتالية قابلة للتغيير فهي تحقق جميع عمليات المتتاليات. راجع ملحق عمليات المتتاليات.\n\nl1 = [10, 20, 30, 40, 50]\nl1[0] = 100 # replace the first element\nprint(l1)\n\n[100, 20, 30, 40, 50]\n\n\nجرب ما يلي:\n\nl1.append(60)\nl1.remove(10)\nl1.insert(2, 300)\nl1.sort()\n\n\n\n7.1.4 استبدال المقاطع (Slices Replacement)\nجرب ما يلي:\n\nاستبدال عنصرين بعنصرين: l1[1:3] = [200, 300]\nاستبدال عنصرين بثلاثة عناصر: l1[1:3] = [200, 300, 400]\nاستبدال عنصرين بعنصر واحد: l1[1:3] = [200]\nاستبدال عنصرين بصفر عناصر: l1[1:3] = []\n\nاستبدال عنصرين بعنصرين:\n\n# SOLVED\nl1 = [10, 20, 30, 40, 50]\nl1[1:3] = [200, 300]\nprint(l1)\n\n[10, 200, 300, 40, 50]\n\n\nتوفر القوائم طريقة .sort() التي تقوم بالترتيب في مكانها. إذا كنت تريد إنشاء قائمة جديدة، استخدم الدالة sorted() بدلاً من ذلك. مثال:\n\nl1 = [10, 20, 50, 40, 30]\nl2 = sorted(l1)\nprint(l1)\nprint(l2)\n\n[10, 20, 50, 40, 30]\n[10, 20, 30, 40, 50]\n\n\nلاحظ أنها مختلفة.\nبينما:\n\nl1 = [10, 20, 50, 40, 30]\nl1.sort()\nprint(l1)\n\n[10, 20, 30, 40, 50]\n\n\nلاحظ أن l1 يتم ترتيبها في مكانها، ولا تنشئ قائمة.",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>المتتاليات</span>"
+    ]
+  },
+  {
+    "objectID": "07_sequences.html#قراءة-المتتاليات-iterating-over-sequences",
+    "href": "07_sequences.html#قراءة-المتتاليات-iterating-over-sequences",
+    "title": "7  المتتاليات",
+    "section": "7.2 قراءة المتتاليات (Iterating over sequences)",
+    "text": "7.2 قراءة المتتاليات (Iterating over sequences)\nنستخدم الجملة: for &lt;item&gt; in &lt;sequence&gt; لقراءة المتتاليات. على سبيل المثال، يمكنك استخدام البرنامج التالي لطباعة كل عنصر في القائمة:\n\nnumbers = [10, 20, 30, 40, 50]\nfor x in numbers:\n    print(x)\n\n10\n20\n30\n40\n50\n\n\nوهذا البرنامج يصفي قائمة أرقام إلى قائمتين: إحداها زوجية والأخرى فدرية:\n\nnumbers = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]\nevens = []\nodds = []\n\nfor x in numbers:\n    if x % 2 == 0:\n        evens.append(x)\n    else:\n        odds.append(x)\n\nprint('list of evens:', evens)\nprint('list of odds:', odds)\n\nlist of evens: [12, 14, 16, 18, 20]\nlist of odds: [11, 13, 15, 17, 19]\n\n\nLine 5-8 داخل الحلقة، فكر في x ككل عنصر في قائمة numbers، واحدًا تلو الآخر.\nLine 4 فكر في هذا كـ x = numbers[0] في التكرار الأول، x = numbers[1] في التكرار الثاني، وهكذا، حتى x = numbers[-1] (العنصر الأخير).",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>المتتاليات</span>"
+    ]
+  },
+  {
+    "objectID": "07_sequences.html#النطاقات-ranges",
+    "href": "07_sequences.html#النطاقات-ranges",
+    "title": "7  المتتاليات",
+    "section": "7.3 النطاقات (Ranges)",
+    "text": "7.3 النطاقات (Ranges)\nنوع range يمثل تسلسلًا غير قابل للتغيير من الأرقام.\nويستخدم عادةً للتكرار عددًا محددًا من المرات في حلقات for.\nوفقًا لوثائق بايثون فإن النطاق له شكلان:\n\nclass range(stop)\nclass range(start, stop[, step])\n\nدعونا نفصل المحددات أولاً:\n\nstart: موضع الابتداء، وهو مشمول في النطاق. (القيمة الافتراضية هي 0)\nstop: موضع الانتهاء، وهو غير مشمول في النطاق.\nstep: مقدار الزياة أو النقص بعد كل كرة (القيمة الافتراضية هي 1)\n\nفإذا قمت بتعيين محدد واحد فسيكون هو stop:\n\nfor i in range(5):\n    print(i)\n\n0\n1\n2\n3\n4\n\n\nوإذا قمت بتعيين محددين، فسيكون الأول start والثاني stop:\n\nfor i in range(5, 10):\n    print(i)\n\n5\n6\n7\n8\n9\n\n\nأما إذا حددتها ثلاثة، فسيكون الأول start والثاني stop والثالث step:\n\nfor i in range(0, 10, 2):\n    print(i)\n\n0\n2\n4\n6\n8\n\n\nولك أن تعكس النطاق بتحديد step بقيمة سالبة، وتقلب البداية والنهاية:\n\nfor i in range(10, 0, -1):\n    print(i)\n\n10\n9\n8\n7\n6\n5\n4\n3\n2\n1\n\n\n\n7.3.1 تحويل range إلى list\nيمكن تمرير الاستدعاء إلى range() إلى استدعاء list() لتحويله. هنا\n\nnumbers = list(range(1000, 0, -100))\nprint(numbers)\n\n[1000, 900, 800, 700, 600, 500, 400, 300, 200, 100]\n\n\nمثال آخر هو إنشاء قائمتين؛ واحدة للأرقام الزوجية والأخرى للأرقام الفردية، مرة أخرى، باستخدام تركيب list(range()).\n\nevens = list(range(0, 10, 2))\nodds = list(range(1, 10, 2))\nprint(evens)\nprint(odds)\n\n[0, 2, 4, 6, 8]\n[1, 3, 5, 7, 9]",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>المتتاليات</span>"
+    ]
+  },
+  {
+    "objectID": "07_sequences.html#الجموع-tuples",
+    "href": "07_sequences.html#الجموع-tuples",
+    "title": "7  المتتاليات",
+    "section": "7.4 الجموع (Tuples)",
+    "text": "7.4 الجموع (Tuples)\nعلى عكس القوائم، الجموع غير قابلة للتغيير (immutable) ؛ أي أنه بمجرد إنشائها، لا يمكن تغييرها.\nبخلاف ذلك، كل ما قلناه عن القوائم ينطبق على الجموع أيضًا؛ إذ كلاهما يشتركان في خاصية كونهما متتاليات (sequences).\nعلى سبيل المثال، يمكننا إنشاء الجموع بالطرق التالية:\n\nt1 = ()        # empty tuple\nt2 = (1,)      # tuple with one item\nt3 = (1, 2, 3) # tuple with three items\nt4 = ('abb', 1, 2.0, True) # tuple with different types\n\nيمكن أيضًا إنشاء الجموع بوسائل:\n\nالدمج: باستخدام معامل +\nالتكرار: باستخدام معامل *\n\n\nt5 = (1, 2, 3) + (4, 5)\nt6 = t5 * 2\nprint(t5)\nprint(t6)\n\n(1, 2, 3, 4, 5)\n(1, 2, 3, 4, 5, 1, 2, 3, 4, 5)\n\n\nولأن الجموع متتالية جامدة فهي تحقق عمليات المتتاليات عدا التغيير. راجع ملحق عمليات المتتاليات.\n\n7.4.1 التغيير (Mutation)\nالجموع لا تقبل التغيير.\n\nt1 = (10, 20, 30, 40, 50)\nt1[0] = 100\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[27], line 2\n      1 t1 = (10, 20, 30, 40, 50)\n----&gt; 2 t1[0] = 100\n\nTypeError: 'tuple' object does not support item assignment\n\n\n\nرسالة الخطأ تخبرنا أننا لا نستطيع تغيير قيمة عنصر في هذا الجمع.\n\n\n7.4.2 تحويل list &lt;-&gt; tuple\nيمكن تحويل القوائم إلى جموع والعكس باستخدام الدوال list() و tuple().\n\nl1 = [10, 20, 30, 40, 50]\nt1 = tuple(l1)\nl2 = list(t1)\nprint(t1)\nprint(l2)\n\n(10, 20, 30, 40, 50)\n[10, 20, 30, 40, 50]\n\n\nمن المهم ملاحظة أن الدوال tuple() و list() تُنشئ كائنًا جديدًا، ولا تقوم فعليًا بتحويل الكائن في مكانه. لذا، تبقى l1 قائمة وتبقى t1 صفًا.\n\n\n7.4.3 أين نستخدم الجموع؟\nالقوائم (Lists) أكثر قدرة، فأين نستخدم الجموع؟ يستخدم المبرمجون الأنواع غير القابلة للتغيير عندما يريدون توصيل أن البيانات لا ينبغي تغييرها. هذا مفيد بشكل خاص عند تمرير البيانات في البرنامج، حيث يمكن تمريرها دون الخوف من تغييرها.",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>المتتاليات</span>"
+    ]
+  },
+  {
+    "objectID": "07_sequences.html#المتتالية-النصية-string",
+    "href": "07_sequences.html#المتتالية-النصية-string",
+    "title": "7  المتتاليات",
+    "section": "7.5 المتتالية النصية (String)",
+    "text": "7.5 المتتالية النصية (String)\nسبق وأن استكشفنا السلاسل النصية في فصلٍ سابق (انظر فصل السلاسل). لكننا الآن ننظر من جانب أنها متتالية. فالسلسلة النصية ما هي إلا متتالية جامدة من رموز اليونيكود (Unicode). ونقصد بالجمود أنها لا تقبل التغيير (immutable sequence).\n?fig-sequences-tree يوضح العلاقة بين السلاسل النصية والمتتاليات.\nتشترك السلاسل النصية مع القوائم والجموع في خاصية كونها متتاليات. وبالتالي يمكننا استخدام العديد من العمليات المشتركة على السلاسل النصية. راجع ملحق عمليات المتتاليات.\n\ns1 = 'Pythonista'\nprint(s1[0])\nprint(s1 * 2)\n\nP\nPythonistaPythonista\n\n\n 0   1   2   3   4   5   6   7   8   9\n +---+---+---+---+---+---+---+---+---+\n | P | y | h | o | n | i | s | t | a |\n +---+---+---+---+---+---+---+---+---+\n-9  -8  -7  -6  -5  -4  -3  -2  -1\nجرب ما يلي:\n\ns1[1:5]\ns1[1:5:2]\ns1[::2]\ns1 + ' Booking'[::-1])\n\n\n# try it\n\n\n7.5.0.1 تمرين\nاكتب برنامجًا يأخذ سلسلة نصية ويطبعها بترتيب عكسي.\n\n# try it\n\n\n\n7.5.0.2 تمرين\nاكتب برنامجًا يأخذ سلسلة نصية ويطبع كل حرف ثاني في السلسلة النصية. مثال: abcdef -&gt; bdf\n\n# try it\n\n\n\n7.5.0.3 تمرين\nعد عدد الأحرف a في السلسلة النصية Adam Ibraheem. تلميح: استخدم طريقة .count().\n\n# try it\n\n\n\n7.5.0.4 Exercise\nFunctions may also have multiple parameters (separated by commas) and may return multiple values (as a tuple).\nImplement the function train_test_split to split a list into two parts based on the split ratio. The function should return two lists: 1. the first part should contain the first split_ratio elements, and 2. the second part should contain the remaining elements.\ndef split_data(lst, split_ratio):\n    # your code here\n\n\n# test case 1:\nmy_data = list(range(10 + 1))\nd1, d2 = split_data(my_data, 0.80)\nassert d1 == [0, 1, 2, 3, 4, 5, 6, 7, 8]\nassert d2 == [9, 10]\nلمعرفة المزيد راجع ملحق عمليات المتتاليات.",
+    "crumbs": [
+      "المنهج",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>المتتاليات</span>"
+    ]
+  }
+]
