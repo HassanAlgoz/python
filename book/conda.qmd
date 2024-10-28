@@ -1,0 +1,99 @@
+
+وبالنسبة لتثبيت المكتبات؛ فإنَّ مدير الحزم البرمجية **كوندا (Conda)** هو من أشهرها وأشملها من حيث المميزات.
+
+## 2. تثبيت Miniconda
+[Miniconda](https://docs.anaconda.com/miniconda/) هو إصدار مجاني ومصغر من Anaconda Distribution يتضمن فقط كوندا وبايثون والحزم التي يعتمدان عليها وعدد قليل من الحزم الأخرى المفيدة.
+
+نحتاج غالبًا إلى تثبيت الحزم (المكتبات) لتوسيع وظائف برنامجنا. وتتنوع طرق تثبيت الحزم في بايثون ولكن الأكثر شيوعًا هي استخدام `pip` و`conda`. نفضل استخدام `conda` لإدارة كل من:
+
+1. **التبعيات**: نُسخ الحزم ، ونُسخ الحزم التي تعتمد عليها
+2. **البيئات**: عزل الحزم للمشاريع المختلفة وذلك لتجنب التعارض بينها
+
+لا تقلق ، يمكن استخدام `pip` داخل بيئات كوندا؛ فليس هناك تعارض بينها.
+
+
+يمكنك قراءة المزيد عن [الفرق بين `conda` و`pip`](https://numpy.org/install/#pip--conda) في وثائق Numpy.
+
+اتبع [روابط المثبت الأحدث لـ Miniconda](https://docs.anaconda.com/miniconda/#latest-miniconda-installer-links) لتثبيت Miniconda على نظامك. اضغط على الكلام الملوَّن في عمود `Name` المقابل لنظام التشغيل لديك (ويندوز أو ماك أو لينكس).
+
+## 3. إدارة البيئات
+
+### إنشاء بيئة باستخدام الأوامر
+
+لنقم بإنشاء بيئة، تفعيلها (التبديل إليها)، وتثبيت الحزم فيها.
+
+```bash
+conda create --name envtest python=3.10
+```
+
+- يمكن استبدال `envtest` بأي اسم تفضله
+- عندما يسألك كوندا إذا كنت تريد المتابعة، اكتب `y` واضغط `Enter`
+
+لتفعيل البيئة، استخدم الأمر التالي:
+
+```bash
+conda activate envtest
+```
+
+لإلغاء تفعيل البيئة، استخدم الأمر التالي:
+
+```bash
+conda deactivate
+```
+
+لتثبيت حزمة في البيئة (بإصدار محدد)، استخدم الأمر التالي:
+
+```bash
+conda install scipy=0.17.3
+```
+
+يمكنك أيضًا تثبيت حزمة باستخدام `pip` ، وذلك إن لم تكن الحزمة متوفرة عن طريق `conda`:
+
+```bash
+pip install scipy==0.17.3
+```
+
+### إنشاء بيئة من ملف `environment.yml`
+
+ملف `environment.yml` يبدو كالتالي:
+
+في هذا الدرس، نوفر [ملف `environment.yml`](../environment.yml) الذي يحتوي على قائمة الحزم المطلوبة طوال الكتاب. يمكنك إنشاء بيئة من هذا الملف على جهازك المحلي باستخدام الأمر التالي:
+
+```bash
+conda env create -f environment.yml
+```
+
+ملاحظة، يجب عليك تفعيل البيئة بعد إنشائها:
+
+```bash
+conda activate <env_name>
+```
+
+استبدل `<env_name>` باسم البيئة الذي تراه في الطرفية بعد إنشاء البيئة، أو من خلال النظر داخل ملف `environment.yml` لحقل `name`.
+
+```yaml
+name: bookenv #<1>
+channels: #<2>
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9 #<3>
+  - ipykernel #<4>
+```
+1. اسم البيئة.
+2. القنوات هي مواقع تخزين الحزم.
+  - قناة `conda-forge` هي مجموعة من حزم conda التي يقودها المجتمع. انظر [هل Miniconda مجاني بالنسبة لي؟](https://docs.anaconda.com/miniconda/) لفهم كيفية تحقيق Conda للأرباح.
+3. إصدار Python الذي سيتم تثبيته.
+4. حزمة `ipykernel` مطلوبة لتشغيل أكواد Python في دفاتر Jupyter.
+
+لاحظ أن `.yml` و `.yaml` هما نفس تنسيق الملف.
+
+### تصدير البيئة (اختياري)
+
+إذا كنت ترغب في [إنشاء ملف `environment.yml` الخاص بك](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#sharing-an-environment) بناءً على البيئة التي تستخدمها حاليًا، يمكنك استخدام الأمر التالي:
+
+```bash
+conda env export --from-history > environment.yml
+```
+
+العلم `--from-history` يجعله [أكثر قابلية للنقل عبر الأنظمة](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-an-environment-file-across-platforms) لأنه يتضمن فقط الحزم التي طلبتها صراحةً، بدلاً من تضمين كل حزمة (التبعيات الضمنية) في بيئتك.
