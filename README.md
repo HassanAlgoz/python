@@ -1,17 +1,15 @@
-# Python in 20 Tutorials
+# كتاب البايثونية
 
-- Your first steps to becoming a Python master is finshing the [20 Tutorials](./tutorials/).
+اضغط على رابط [كتاب البايثونبية](https://hassanalgoz.github.io/) للتصفح.
 
-### Extra Python Exercises
+**⚠️: لا تزال النسخة تحت الإنشاء.**
 
-- HackerRank: https://www.hackerrank.com/domains/python
-- **PyNative:** https://pynative.com/python-exercises-with-solutions/
-- Tutorials Point: https://www.tutorialspoint.com/python/python_string_exercises.htm
-- W3 Resource: https://www.w3resource.com/python-exercises/string/
+## تدريبات
 
-Online Python Tutorials:
+- [منصة كودر هَب](https://coderhub.sa/)
+- [Hacker Rank](https://www.hackerrank.com/interview/preparation-kits/one-week-preparation-kit/one-week-day-one/challenges)
 
-- [Codeacdemy](https://www.codecademy.com/learn/learn-python-3)
-- [W3Schools](https://www.w3schools.com/python/)
-- [BroCode](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOkUQbat8LyQii36cJf2SWT) (video): Python tutorial for beginners
-- [Mosh](https://www.youtube.com/watch?v=kqtD5dpn9C8) (video): Python for Beginners - Learn Python in 1 Hour
+## شرح فيديو
+
+- [BroCode](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOkUQbat8LyQii36cJf2SWT)
+- [Mosh](https://www.youtube.com/watch?v=kqtD5dpn9C8)
