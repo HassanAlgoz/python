@@ -1,26 +1,34 @@
 project:
   type: book
+  output-dir: ../docs
   preview:
     port: 4200
     browser: true
     navigate: false
-  
 
 execute:
-  daemon: true
+  # https://quarto.org/docs/computations/python.html#kernel-daemon
+  daemon: true 
+
+  # https://quarto.org/docs/computations/caching.html#jupyter-cache
+  cache: true
+
+  # https://quarto.org/docs/publishing/github-pages.html#freezing-computations
+  freeze: auto
+
+code-line-numbers: true
 
 book:
-  title: "العشرون البايثونية"
+  title: "البايثونية"
   image: cover.png
   author: "حسان القوز"
   date: "17/10/2024"
   chapters:
     - index.qmd
-    - intro.qmd
     - part: المنهج
       chapters:
         - 01_setup.qmd
-        - 02_hello.qmd
+        - 02_intro.qmd
         - 03_numbers.qmd
         - 04_strings.qmd
         - 05_control_flow.qmd
@@ -35,15 +43,17 @@ book:
   appendices:
     - string_methods.qmd
     - sequence_operations.qmd
+    # - summary.qmd
+  #   - part: المساعدة
+  #     chapters:
+  #       - references.qmd
+  #       - glossary.qmd
+  # appendices:
+  #   - string_methods.qmd
+  #   - sequence_operations.qmd
 
 bibliography: references.bib
 
 format:
   html:
     theme: custom.scss
-
-  pdf:
-    documentclass: scrreprt
-
-
-
