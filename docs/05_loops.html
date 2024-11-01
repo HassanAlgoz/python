@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; العمليات – البايثونية</title>
+<title>5&nbsp; الحلقات – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./05_loops.html" rel="next">
-<link href="./03_control-flow.html" rel="prev">
+<link href="./zz_numbers.html" rel="next">
+<link href="./04_functions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_setup.html">المنهج</a></li><li class="breadcrumb-item"><a href="./04_functions.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">العمليات</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_setup.html">المنهج</a></li><li class="breadcrumb-item"><a href="./05_loops.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الحلقات</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -175,13 +175,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_functions.html" class="sidebar-item-text sidebar-link active">
+  <a href="./04_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">العمليات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="./05_loops.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الحلقات</span></span></a>
   </div>
 </li>
@@ -214,17 +214,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#العوامل-بين-الترتيب-والتسمية" id="toc-العوامل-بين-الترتيب-والتسمية" class="nav-link active" data-scroll-target="#العوامل-بين-الترتيب-والتسمية"><span class="header-section-number">4.1</span> العوامل بين الترتيب والتسمية</a></li>
-  <li><a href="#التعليق-في-مقدمة-العملية" id="toc-التعليق-في-مقدمة-العملية" class="nav-link" data-scroll-target="#التعليق-في-مقدمة-العملية"><span class="header-section-number">4.2</span> التعليق في مقدمة العملية</a></li>
+  <li><a href="#التعيين-النسبي" id="toc-التعيين-النسبي" class="nav-link active" data-scroll-target="#التعيين-النسبي"><span class="header-section-number">5.1</span> التعيين النسبي</a></li>
+  <li><a href="#الحلقة-المطلقة" id="toc-الحلقة-المطلقة" class="nav-link" data-scroll-target="#الحلقة-المطلقة"><span class="header-section-number">5.2</span> الحلقة المُطْلقة</a>
+  <ul class="collapse">
+  <li><a href="#تكرار-القطع-البرمجية" id="toc-تكرار-القطع-البرمجية" class="nav-link" data-scroll-target="#تكرار-القطع-البرمجية"><span class="header-section-number">5.2.1</span> تكرار القطع البرمجية</a></li>
+  </ul></li>
+  <li><a href="#المتتالية" id="toc-المتتالية" class="nav-link" data-scroll-target="#المتتالية"><span class="header-section-number">5.3</span> المتتالية</a></li>
+  <li><a href="#النطاق-range" id="toc-النطاق-range" class="nav-link" data-scroll-target="#النطاق-range"><span class="header-section-number">5.4</span> النطاق (<code>range</code>)</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_setup.html">المنهج</a></li><li class="breadcrumb-item"><a href="./04_functions.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">العمليات</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_setup.html">المنهج</a></li><li class="breadcrumb-item"><a href="./05_loops.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الحلقات</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">العمليات</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الحلقات</span></h1>
 </div>
 
 
@@ -241,161 +246,260 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>استعملنا في دروس سابقة <strong>عمليَّات أساسية</strong> مثل: <code>print()</code>, <code>input()</code>, و <code>int()</code>. وأيضًا من <strong>المكتبة الأساسية</strong> <a href="https://docs.python.org/3/library/math.html"><code>math</code></a> مثل: <code>math.sqrt()</code> و <code>math.pow()</code>. فإن نتيجة هذه العمليات يكون بحسب المدخلات. والآن جاء دورُنا لنضيف عمليات نحن نعرفها. فـ<strong>العملية المعرَّفة</strong> هي قطعة كود لها اسم. مخرجاتها مبنية على مدخلاتها.</p>
-<p>ولكن قد تتساءل: ما هي الفائدة من تعريف عمليات إضافية؟ فنقول: قابلية العمليَّة للتعريف ثم الاستدعاء لاحقًا يعطيها خواص أساسية في البناء التراكمي للمنطق. منها ثلاثة عناصر:</p>
-<p><strong>التفكيك</strong>: وهو ضروري للتعامل مع المنطق المعقد، نفككه إلى أجزاء، ونربطها بعد برمجة كل جزء واختباره وإتقانه.</p>
-<p><strong>التجريد</strong>: يتم تركيب المكونات على نسق جديد. قد يكون بإخفاء تفاصيل كثيرة دقيقة تحت اسم بسيط يتطلب مدخلات ويعطيك مخرجات.</p>
-<p><strong>تعدد الاستعمالات</strong>: فإذا فككنا صار الأمر قابلاً للاستعمال في مواضع متعددة، ومن المتخصص وغير المتخصص. وهذا يختصر كثيرًا من التكرار، ويسهل التعامل مع الكود، ويقلل الأخطاء، ويسرع الإنتاج.</p>
-<p>وتوجد في بايثون إلى جانب تعريف العمليات، تعريف الأشياء وهي: عمليات مع بيانات. وهذا يعني أننا نستطيع تعريف أشياء جديدة تحتوي على بيانات وعمليات تعمل على تلك البيانات. وهذا يعطينا قدرة أكبر على التجريد والتفكيك وتعدد الاستعمالات.</p>
-<p>يكون تعريف العملية بكلمة <code>def</code> يتبعها اسم العملية، ثم بين الأقواس تكون المدخلات. أما المُخرجات فهي ما يتبع كلمة <code>return</code>. ولاحظ أن البرنامج بتنفيذ هذه العبارة سوف يخرج من نطاق العمليَّة.</p>
-<p>وهذا مثال لعملية تحكم على قوة كلمة المرور:</p>
-<div id="313776d2" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> check_password_strength(password):</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">if</span> <span class="bu">len</span>(password) <span class="op">&gt;</span> <span class="dv">8</span>:</span>
-<span id="cb1-3"><a href="#cb1-3"></a>        <span class="cf">return</span> <span class="st">"Strong"</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>    <span class="cf">elif</span> <span class="bu">len</span>(password) <span class="op">&gt;</span> <span class="dv">4</span>:</span>
-<span id="cb1-5"><a href="#cb1-5"></a>        <span class="cf">return</span> <span class="st">"Medium"</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>    <span class="cf">else</span>:</span>
-<span id="cb1-7"><a href="#cb1-7"></a>        <span class="cf">return</span> <span class="st">"Weak"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>بعد التعريف، نريد استعمالها فنضع اسمها ثم بين القوسين نمرر المدخلات التي نريد، ونحصل على النتيجة مباشرة، فنعينها للمُعرَّف <code>result</code> في هذه الحالة:</p>
-<div id="6757a584" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>result <span class="op">=</span> check_password_strength(<span class="st">"shorty"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="bu">print</span>(<span class="st">'password is:'</span>, result)</span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a>result <span class="op">=</span> check_password_strength(<span class="st">'verylongpassword'</span>)</span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="bu">print</span>(<span class="st">'password is:'</span>, result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="التعيين-النسبي" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="التعيين-النسبي"><span class="header-section-number">5.1</span> التعيين النسبي</h2>
+<ul>
+<li><code>i = i + 1</code> تعادل <code>i += 1</code></li>
+<li><code>i = i - 1</code> تعادل <code>i -= 1</code></li>
+<li><code>i = i * 2</code> تعادل <code>i *= 2</code></li>
+<li><code>i = i / 2</code> تعادل <code>i /= 2</code></li>
+</ul>
+<p>ملاحظة جانبية: انظر <a href="https://docs.python.org/3/reference/simple_stmts.html#augmented-assignment-statements">التعيين النسبي (Augmented assignment statements)</a> فإنها عند التدقيق تختلف.</p>
+<p>جرب الكود أدناه لترى النتيجة:</p>
+<div id="077ce4a5" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>password is: Medium
-password is: Strong</code></pre>
+<pre><code>0</code></pre>
 </div>
 </div>
-<p>العمليات لديها نطاقها الخاص. أي أن المعرَّفات المضمَّنة فيها غير معروفة إلا في نطاقها. ونحن حين نستدعي العملية باسمها فإن التنفيذ يقفز من السطر الذي نحن فيه ليدخل في نطاق العمليَّة، وينفذ الأوامر التي فيه حتى تنتهي أو حتى يرى كلمة <code>return</code> فيخرج التنفيذ ومعه النتيجة إلى النطاق السابق الذي استدعاها.</p>
-<p>مثلاً هنا مُعرَّف داخل العمليَّة، وإذا حاولنا طباعته خارج نطاقها فإننا سنحصل على خطأ:</p>
-<div id="52514d5d" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> check_password_strength(password):</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    minimum_password_length <span class="op">=</span> <span class="dv">8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1515d7a0" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1</code></pre>
 </div>
-<div id="1bcc54f3" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="bu">print</span>(minimum_password_length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="c814ba05" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2</code></pre>
+</div>
+</div>
+<p>لاحظ أن <code>i++</code> تعبير غير صالح في لغة بايثون، ليس مثل سي وجافا. فالكود التالي سيؤدي إلى خطأ:</p>
+<div id="c56cc6f5" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>i<span class="op">++</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg ansi-bold">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg ansi-bold">In[4], line 1</span>
-<span class="ansi-green-fg ansi-bold">----&gt; 1</span> <span style="color:rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">minimum_password_length</span>)
-
-<span class="ansi-red-fg ansi-bold">NameError</span>: name 'minimum_password_length' is not defined</pre>
+<pre><span class="ansi-cyan-fg ansi-bold">  Cell </span><span class="ansi-green-fg ansi-bold">In[19], line 1</span>
+<span class="ansi-yellow-fg ansi-bold">    i++</span>
+<span class="ansi-white-fg ansi-bold">       ^</span>
+<span class="ansi-red-fg ansi-bold">SyntaxError</span><span class="ansi-red-fg ansi-bold">:</span> invalid syntax
+</pre>
 </div>
-</div>
-</div>
-<p>وهذا أمرٌ جيِّد لأننا سنستخدم عمليات كثيرة ويرد كثيرًا أننا نستخدم أسماء متشابهة ولا نريدها أن تختلط. فكل عملية لها مهمة محددة ويجب أن تركز على تلك المهمة فقط.</p>
-<p>الأمر الآخر فيما يخصُّ نطاق المُعرَّفات هو أن النطاق الأخص (داخل العملية) يجد المعرَّفات في النطاق الأعم معروفة لديه. وذلك يتيح لنا استعمال دوال في النطاق العام مثل: <code>len</code> و <code>int</code> و <code>type</code> ونحوها.</p>
-<p>يمكننا تعيين قيَم افتراضية للعوامل هكذا:</p>
-<div id="df6b5e13" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> greet(name, greeting<span class="op">=</span><span class="st">'Hello'</span>):</span>
-<span id="cb6-2"><a href="#cb6-2"></a>    <span class="cf">return</span> greeting.upper() <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">"!"</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="bu">print</span>(greet(<span class="st">'Adam'</span>))</span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="bu">print</span>(greet(<span class="st">'Belal'</span>, <span class="st">'good morning'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>HELLO Adam!
-GOOD MORNING Belal!</code></pre>
-</div>
-</div>
-<p>لاحظ كيف أنه في الاستدعاء الأول للعملية <code>greet()</code>، قمنا بتمرير عامل واحد فقط، لذلك تم استخدام القيمة الافتراضية لـ <code>greeting</code>. ولكن، في الاستدعاء الثاني، قمنا بتمرير كلا العاملين فنسخت القيمة الافتراضية.</p>
-<section id="العوامل-بين-الترتيب-والتسمية" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="العوامل-بين-الترتيب-والتسمية"><span class="header-section-number">4.1</span> العوامل بين الترتيب والتسمية</h2>
-<p>نفهم من تعريف العملية <a href="https://docs.python.org/3/library/functions.html#pow"><code>pow(base, exp, mod=None)</code></a> أن لديها ثلاثة عوامل: <code>base</code>، <code>exp</code>، و <code>mod</code> بهذا الترتيب. لاحظ أن العامل <code>mod</code> اختياري (لوجود التعيين الافتراضي <code>mode=None</code>). هذا يعني أن العملية يمكن استعمالها بطرق مختلفة:</p>
-<div id="5f3f2bc9" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">print</span>(<span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">4</span>))</span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="bu">print</span>(<span class="bu">pow</span>(<span class="dv">2</span>, exp<span class="op">=</span><span class="dv">4</span>))</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="bu">print</span>(<span class="bu">pow</span>(base<span class="op">=</span><span class="dv">2</span>, exp<span class="op">=</span><span class="dv">4</span>))</span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="bu">print</span>(<span class="bu">pow</span>(exp<span class="op">=</span><span class="dv">4</span>, base<span class="op">=</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>16
-16
-16
-16</code></pre>
-</div>
-</div>
-<p>فإن أردنا تعريف عوامل تستعمل بهذه الطريقة، فإننا نضعها في التعريف على النحو التالي:</p>
-<div id="b20e4543" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">def</span> calculate_bmi(weight, height, unit<span class="op">=</span><span class="st">'metric'</span>):</span>
-<span id="cb10-2"><a href="#cb10-2"></a>    <span class="co">""" Calculate the Body Mass Index (BMI)</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="co">        </span></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="co">        weight and height must be of the same unit.</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="co">        unit is either 'metric' or 'imperial'.</span></span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="co">    """</span></span>
-<span id="cb10-8"><a href="#cb10-8"></a>    <span class="cf">if</span> unit <span class="op">==</span> <span class="st">'imperial'</span>:</span>
-<span id="cb10-9"><a href="#cb10-9"></a>        weight <span class="op">*=</span> <span class="fl">0.453592</span></span>
-<span id="cb10-10"><a href="#cb10-10"></a>        height <span class="op">*=</span> <span class="fl">0.0254</span></span>
-<span id="cb10-11"><a href="#cb10-11"></a>    bmi <span class="op">=</span> weight <span class="op">/</span> (height <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb10-12"><a href="#cb10-12"></a>    <span class="cf">return</span> <span class="bu">round</span>(bmi, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>الآن يمكننا استعمال العملية بطرق مختلفة. لاحظ أن استخدام <code>assert</code> هنا للتحقق من أن العملية تنتج نفس القيمة بغض النظر عن كيفية تمرير العوامل.</p>
-<div id="78074aa2" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>w <span class="op">=</span> <span class="dv">70</span>   <span class="co"># kg</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>h <span class="op">=</span> <span class="fl">1.75</span> <span class="co"># meters</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="bu">print</span>(calculate_bmi(w, h))</span>
-<span id="cb11-5"><a href="#cb11-5"></a></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="cf">assert</span> (</span>
-<span id="cb11-7"><a href="#cb11-7"></a>    calculate_bmi(w, h) <span class="op">==</span></span>
-<span id="cb11-8"><a href="#cb11-8"></a>    calculate_bmi(w, height<span class="op">=</span>h) <span class="op">==</span></span>
-<span id="cb11-9"><a href="#cb11-9"></a>    calculate_bmi(weight<span class="op">=</span>w, height<span class="op">=</span>h) <span class="op">==</span></span>
-<span id="cb11-10"><a href="#cb11-10"></a>    calculate_bmi(height<span class="op">=</span>h, weight<span class="op">=</span>w)</span>
-<span id="cb11-11"><a href="#cb11-11"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>22.86</code></pre>
-</div>
-</div>
-<p>ونفس الأمر بالنسبة للعامل الذي عينت له قيمة افتراضية <code>units='imperial'</code>:</p>
-<div id="41633200" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>w <span class="op">=</span> <span class="dv">154</span> <span class="co"># pounds</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>h <span class="op">=</span> <span class="dv">70</span>  <span class="co"># inches</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a></span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="bu">print</span>(calculate_bmi(w, h, <span class="st">'imperial'</span>))</span>
-<span id="cb13-5"><a href="#cb13-5"></a></span>
-<span id="cb13-6"><a href="#cb13-6"></a><span class="cf">assert</span> (</span>
-<span id="cb13-7"><a href="#cb13-7"></a>    calculate_bmi(w, h, <span class="st">'imperial'</span>) <span class="op">==</span></span>
-<span id="cb13-8"><a href="#cb13-8"></a>    calculate_bmi(w, h, unit<span class="op">=</span><span class="st">'imperial'</span>)</span>
-<span id="cb13-9"><a href="#cb13-9"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>22.1</code></pre>
 </div>
 </div>
 </section>
-<section id="التعليق-في-مقدمة-العملية" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="التعليق-في-مقدمة-العملية"><span class="header-section-number">4.2</span> التعليق في مقدمة العملية</h2>
-<p>تحتوي بايثون على عملية أساسية تسمى <code>help()</code> تظهر معلومات عن عملية ما:</p>
-<div id="2007f10a" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">help</span>(<span class="bu">pow</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="الحلقة-المطلقة" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="الحلقة-المطلقة"><span class="header-section-number">5.2</span> الحلقة المُطْلقة</h2>
+<p><strong>الحلقة المُطْلقة</strong> (لها كلمة <code>while</code>) هي مثل <code>if</code> لكن مكررة، فكلما انتهت العبارات المضمَّنة داخلها، تعود لسطر الشرط وتنفذه مرة أخرى؛ إلى حين انتفاء الشرط (<code>False</code>).</p>
+<p>أما كونُها مطقلة يعني أن الكود المضمَّن داخل الحلقة هو الذي يحدد متى تتوقف. بينما المقيَّدة يكون التكرار فيها مُحددًّا بعدد معيَّن في نفس الجُملة، وهو على النحو التالي: (<code>for x in items</code>) سيأتي الحديث عنه إن شاء الله في درس قادم.</p>
+<p>صيغة حلقة <code>while</code> كما يلي:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="cf">while</span> <span class="op">&lt;</span>boolean expression<span class="op">&gt;</span>:</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    <span class="op">&lt;</span>code<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>يتم تكرار اللبنة الواقعة في نطاق جملة الشرط ما بقي الشرط (<code>True</code>). وإذا انتفى الشرط (<code>False</code>) في البداية، فلن يتم الدخول في اللبنة أصلاً.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    <span class="bu">print</span>(i)</span>
+<span id="cb9-4"><a href="#cb9-4"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ونلاحظ هنا أنك إذا نسيت زيادة قيمة <code>i</code>، فإن الحلقة لن تنتهي أبدًا؛ وهذا ما يسمى <strong>حلقة لانهائية (infinite loop)</strong>.</p>
+<p>لنقم بتتبع الخطوات عندما تكون <code>i = 0</code>:</p>
+<ol type="1">
+<li><code>0 &lt; 5</code> تؤول <code>True</code>، فنطبع <code>0</code> ونزيد <code>i</code> لتصبح 1</li>
+<li><code>1 &lt; 5</code> تؤول <code>True</code>، فنطبع <code>1</code> ونزيد <code>i</code> لتصبح 2</li>
+<li><code>2 &lt; 5</code> تؤول <code>True</code>، فنطبع <code>2</code> ونزيد <code>i</code> لتصبح 3</li>
+<li><code>3 &lt; 5</code> تؤول <code>True</code>، فنطبع <code>3</code> ونزيد <code>i</code> لتصبح 4</li>
+<li><code>4 &lt; 5</code> تؤول <code>True</code>، فنطبع <code>4</code> ونزيد <code>i</code> لتصبح 5</li>
+<li><code>5 &lt; 5</code> تؤول <code>False</code>،فنخرج من الحلقة</li>
+<li>نطبع <code>Done</code></li>
+</ol>
+<p>نستخدم دالة <code>input()</code> حيث <strong>تقطَع سير البرنامج (Interrupt)</strong> فيتوقَّف لتمنح التحكم للمستخدم لتقديم بعض المدخلات، وتنتظر حتى يتم الضغط على مفتاح <code>Enter</code> للإشارة إلى أن الإدخال اكتمل ، ليعود التحكم للبرنامج كي يُكمِل سيره.</p>
+<p>يمكن استعمال الحلقة المطلقة مثلاً لتكرار السؤال عن رقم حتى يتم تخمينه بشكل صحيح:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>num <span class="op">=</span> <span class="st">"9"</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>guess <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Guess the number (0-9): "</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="cf">while</span> guess <span class="op">!=</span> num:</span>
+<span id="cb10-4"><a href="#cb10-4"></a>    guess <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Try again: "</span>)</span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="bu">print</span>(<span class="st">"You guessed it!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>وهكذا معظم البرامج كالخوادم (Servers) يكون في داخلها حلقة مطلقة وذلك لاستقبال طلبات المتسفيدين من البرنامج.</p>
+<section id="تكرار-القطع-البرمجية" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="تكرار-القطع-البرمجية"><span class="header-section-number">5.2.1</span> تكرار القطع البرمجية</h3>
+<ul>
+<li>تستخدم كلمة <a href="https://docs.python.org/3/reference/simple_stmts.html#break"><code>break</code></a> لإيقاف التكرار تمامًا.</li>
+<li>تستخدم كلمة <a href="https://docs.python.org/3/reference/simple_stmts.html#continue"><code>continue</code></a> للانتقال إلى التكرار التالي متخطيةً بقية الخطوات في التكرار الحالي.</li>
+</ul>
+<div id="3c21a493" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb11-3"><a href="#cb11-3"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb11-4"><a href="#cb11-4"></a>        <span class="cf">break</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>    <span class="bu">print</span>(i)</span>
+<span id="cb11-6"><a href="#cb11-6"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Help on built-in function pow in module builtins:
-
-pow(base, exp, mod=None)
-    Equivalent to base**exp with 2 arguments or base**exp % mod with 3 arguments
-
-    Some types, such as ints, are able to use a more efficient algorithm when
-    invoked using the three argument form.
-</code></pre>
+<pre><code>0
+1
+2
+Done</code></pre>
 </div>
 </div>
-<p>كذلك يمكن استعمالها في أي عملية مُعرَّفة، فهي تأخذ التعليق الذي يبدأ بثلاثة علامات تنصيص (<code>"""</code>) بداية العملية (انظر كيف استعملناها في العملية <code>calculate_bmi</code>):</p>
-<div id="7356b219" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="bu">help</span>(calculate_bmi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>وهذا مثال لاستخدام <code>continue</code>:</p>
+<div id="c68b360a" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb13-3"><a href="#cb13-3"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb13-4"><a href="#cb13-4"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>        <span class="cf">continue</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>    <span class="bu">print</span>(i)</span>
+<span id="cb13-7"><a href="#cb13-7"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Help on function calculate_bmi in module __main__:
-
-calculate_bmi(weight, height, unit='metric')
-    Calculate the Body Mass Index (BMI)
-
-    weight and height must be of the same unit.
-
-    unit is either 'metric' or 'imperial'.
-</code></pre>
+<pre><code>0
+1
+2
+4
+Done</code></pre>
+</div>
+</div>
+<p>أما عبارة <code>break</code> المضمنة تحت طبقتين من التكرار فإن الذي يتوقف هو التكرار الداخلي فقط. وهذا مثال:</p>
+<div id="5ee99c3b" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    j <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>    <span class="cf">while</span> j <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb15-5"><a href="#cb15-5"></a>        <span class="cf">if</span> i <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb15-6"><a href="#cb15-6"></a>            <span class="cf">break</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a>        <span class="bu">print</span>(i, j)</span>
+<span id="cb15-8"><a href="#cb15-8"></a>        j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb15-9"><a href="#cb15-9"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0 0
+0 1
+0 2
+2 0
+2 1
+2 2
+Done</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="المتتالية" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="المتتالية"><span class="header-section-number">5.3</span> المتتالية</h2>
+<p>نستخدم الجملة: <code>for item in iterable</code> لقراءة <strong>متتالية</strong> (<a href="https://docs.python.org/3/glossary.html#term-iterable">Iterable</a>). والتي تتضمن <strong>المجموعات</strong> (Collections) وهي معظم الكائنات الحاوية للبيانات. (وسيأتي الحديث عنها في درس قادم).</p>
+<div id="88b7879b" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="cf">for</span> x <span class="kw">in</span> (<span class="dv">1</span>, <span class="dv">20</span>, <span class="st">'ABB'</span>, <span class="va">True</span>, <span class="va">False</span>, <span class="fl">1.234</span>):</span>
+<span id="cb17-2"><a href="#cb17-2"></a>    <span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1
+20
+ABB
+True
+False
+1.234</code></pre>
+</div>
+</div>
+<p>وهذا البرنامج يصفي قائمة أرقام إلى قائمتين: إحداها زوجية والأخرى فدرية. ملاحظة: علامة <code>%</code> تعني باقي القسمة. فإذا كان الباقي يساوي صفر، فهذا يعني أن العدد زوجي:</p>
+<div id="40557647" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>numbers <span class="op">=</span> [<span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>]</span>
+<span id="cb19-2"><a href="#cb19-2"></a>evens <span class="op">=</span> []</span>
+<span id="cb19-3"><a href="#cb19-3"></a>odds <span class="op">=</span> []</span>
+<span id="cb19-4"><a href="#cb19-4"></a></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="cf">for</span> x <span class="kw">in</span> numbers:</span>
+<span id="cb19-6"><a href="#cb19-6"></a>    <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb19-7"><a href="#cb19-7"></a>        evens.append(x)</span>
+<span id="cb19-8"><a href="#cb19-8"></a>    <span class="cf">else</span>:</span>
+<span id="cb19-9"><a href="#cb19-9"></a>        odds.append(x)</span>
+<span id="cb19-10"><a href="#cb19-10"></a></span>
+<span id="cb19-11"><a href="#cb19-11"></a><span class="bu">print</span>(<span class="st">'list of evens:'</span>, evens)</span>
+<span id="cb19-12"><a href="#cb19-12"></a><span class="bu">print</span>(<span class="st">'list of odds:'</span>, odds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>list of evens: [12, 14, 16, 18, 20]
+list of odds: [11, 13, 15, 17, 19]</code></pre>
+</div>
+</div>
+</section>
+<section id="النطاق-range" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="النطاق-range"><span class="header-section-number">5.4</span> النطاق (<code>range</code>)</h2>
+<p>نوع <a href="https://docs.python.org/3/library/stdtypes.html#range"><code>range</code></a> يمثل تسلسلًا غير قابل للتغيير من الأرقام. ويستخدم عادةً للتكرار عددًا محددًا من المرات في حلقات <a href="https://docs.python.org/3/reference/compound_stmts.html#for"><code>for</code></a>.</p>
+<p>وفقًا لوثائق بايثون فإن النطاق له شكلان:</p>
+<ul>
+<li><code>class range(stop)</code></li>
+<li><code>class range(start, stop[, step])</code></li>
+</ul>
+<p>نشرح العوامل:</p>
+<ul>
+<li><code>start</code>: <strong>موضع الابتداء</strong> (وهو مشمول في النطاق). (القيمة الافتراضية 0)</li>
+<li><code>stop</code>: <strong>موضع الانتهاء</strong> (وهو غير مشمول في النطاق).</li>
+<li><code>step</code>: <strong>الخطوة</strong>، أي: مقدار الزياة أو النقص بعد كل كرة (القيمة الافتراضية 1)</li>
+</ul>
+<p>فإذا قمت بتعيين عامل واحد فسيكون هو <code>stop</code>:</p>
+<div id="3c5c08a9" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb21-2"><a href="#cb21-2"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0
+1
+2
+3
+4</code></pre>
+</div>
+</div>
+<p>وإذا قمت بتعيين عاملين فسيكون الأول <code>start</code> والثاني <code>stop</code>:</p>
+<div id="b6675137" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>, <span class="dv">10</span>):</span>
+<span id="cb23-2"><a href="#cb23-2"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5
+6
+7
+8
+9</code></pre>
+</div>
+</div>
+<p>أما إذا عينت الثلاثة جميعًا فسيكون الأول <code>start</code> والثاني <code>stop</code> والثالث <code>step</code>:</p>
+<div id="ac9757e9" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>):</span>
+<span id="cb25-2"><a href="#cb25-2"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0
+2
+4
+6
+8</code></pre>
+</div>
+</div>
+<p>ولك أن تعكس النطاق بتعيين <code>step</code> بقيمة سالبة، مع قلب البداية والنهاية:</p>
+<div id="15923dff" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb27-2"><a href="#cb27-2"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>10
+9
+8
+7
+6
+5
+4
+3
+2
+1</code></pre>
+</div>
+</div>
+<p>التكرار على قوائم باستخدام النطاق:</p>
+<div id="0fdb5e2e" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>numbers <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">90</span>, <span class="dv">100</span>]</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(numbers), <span class="dv">2</span>):</span>
+<span id="cb29-3"><a href="#cb29-3"></a>    <span class="bu">print</span>(numbers[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>20
+40
+60
+80
+100</code></pre>
 </div>
 </div>
 
@@ -825,13 +929,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03_control-flow.html" class="pagination-link" aria-label="التحكم في سير الأوامر">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">التحكم في سير الأوامر</span></span>
+      <a href="./04_functions.html" class="pagination-link" aria-label="العمليات">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">العمليات</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05_loops.html" class="pagination-link" aria-label="الحلقات">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الحلقات</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./zz_numbers.html" class="pagination-link" aria-label="الأعداد">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">الأعداد</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
