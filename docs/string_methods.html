@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; إعداد بيئة التطوير – البايثونية</title>
+<title>Appendix C — الدوال المدمجة والطرق المضافة للسلاسل النصية – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02_intro.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./sequence_operations.html" rel="next">
+<link href="./zz_strings.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +81,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_setup.html">المنهج</a></li><li class="breadcrumb-item"><a href="./01_setup.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">إعداد بيئة التطوير</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./zz_numbers.html">Appendices</a></li><li class="breadcrumb-item"><a href="./string_methods.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">الدوال المدمجة والطرق المضافة للسلاسل النصية</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -157,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_setup.html" class="sidebar-item-text sidebar-link active">
+  <a href="./01_setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">إعداد بيئة التطوير</span></span></a>
   </div>
 </li>
@@ -169,8 +135,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_control-flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">التحكم في سير الأوامر</span></span></a>
+  <a href="./03_conditional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">التنفيذ المشروط</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الدوال</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_iterations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">تدفق التحكم</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">النصوص</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_sequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">المتتاليات</span></span></a>
   </div>
 </li>
       </ul>
@@ -190,6 +180,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">الأعداد</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./zz_strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">النصوص</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./string_methods.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">الدوال المدمجة والطرق المضافة للسلاسل النصية</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sequence_operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">عمليات المتتاليات</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -197,15 +205,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#المجموعة-الأولى-دوال-مدمجة" id="toc-المجموعة-الأولى-دوال-مدمجة" class="nav-link active" data-scroll-target="#المجموعة-الأولى-دوال-مدمجة"><span class="header-section-number">C.1</span> المجموعة الأولى: دوال مدمجة</a></li>
+  <li><a href="#المجموعة-الثانية-طرق-مضافة-شائعة-الاستعمال" id="toc-المجموعة-الثانية-طرق-مضافة-شائعة-الاستعمال" class="nav-link" data-scroll-target="#المجموعة-الثانية-طرق-مضافة-شائعة-الاستعمال"><span class="header-section-number">C.2</span> المجموعة الثانية: طرق مضافة شائعة الاستعمال</a></li>
+  <li><a href="#المجموعة-الثالثة-طرق-مضافة-متداولة" id="toc-المجموعة-الثالثة-طرق-مضافة-متداولة" class="nav-link" data-scroll-target="#المجموعة-الثالثة-طرق-مضافة-متداولة"><span class="header-section-number">C.3</span> المجموعة الثالثة: طرق مضافة متداولة</a></li>
+  <li><a href="#المجموعة-الرابعة-طرق-مضافة-نادرة-الاستعمال" id="toc-المجموعة-الرابعة-طرق-مضافة-نادرة-الاستعمال" class="nav-link" data-scroll-target="#المجموعة-الرابعة-طرق-مضافة-نادرة-الاستعمال"><span class="header-section-number">C.4</span> المجموعة الرابعة: طرق مضافة نادرة الاستعمال</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_setup.html">المنهج</a></li><li class="breadcrumb-item"><a href="./01_setup.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">إعداد بيئة التطوير</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./zz_numbers.html">Appendices</a></li><li class="breadcrumb-item"><a href="./string_methods.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">الدوال المدمجة والطرق المضافة للسلاسل النصية</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">إعداد بيئة التطوير</span></h1>
+<h1 class="title">Appendix C — الدوال المدمجة والطرق المضافة للسلاسل النصية</h1>
 </div>
 
 
@@ -222,35 +239,236 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>نبدأ بالتعرف على بيئة التطوير ، وتثبيتها في جهازك؛ وذلك أنني أؤمن بضرورة إكساب الفرد أعلى قدر من التحكم في أدواته حتى يتمكن منها ومن تطويعها لعمل ما يريد بالشكل الأمثل.</p>
-<p><strong>بيئة التطوير</strong> هي الأدوات البرمجية الأساسية والمساعدة لعمليات كتابة الكود وتنفيذه واختباره ونحو ذلك.</p>
-<p>أول ما نحتاج إليه هو حزمة برمجيات <strong>بايثون</strong> التي تتضمَّن الأداة التي تترجم ما نكتبه من كود بلغة بايثون لأوامِر ثنائية (صفر وواحد) لتكون مفهومة على مستوى نظام التشغيل ومعمارية الحاسب (إذ هي مستويات أكثر تفصيلاً)؛ ونسميه <strong>المُفَسِّر (Interpreter)</strong> وإن شئت قُل مترجم.</p>
-<p>كما تتضمن هذه الحزمة برنامج <code>pip</code> المسؤول عن تثبيت الحِزَم البرمجية المكتوبة بلغة بايثون؛ وذلك حتى تتمكن من البناء عليها عند كتابة أكواد بايثون (وبهذا الاعتبار تسمى <strong>مكتبات</strong>)، أو فقط لاستعمال برمجيات مكتوبة ببايثون (وبهذا الاعتبار تسمى <strong>برمجيات</strong>).</p>
-<p>أما محرر الكود فسنختار استوديو البرمجة المرئية (Visual Studio Code) (وهو مختلف عن بيئة تطوير فيجوال ستوديو (Visual Studio)) ولعلنا نسميه <strong>محرر أكواد مايكروسوفت</strong> (الذي يستعمله 73.6% من 58,121 متجاوب في <a href="https://survey.stackoverflow.co/2024/technology#1-integrated-development-environment">استبيان StackOverFlow 2024</a>) لأن الشركة أسسته ثم فتحت للمجتمع البرمجي أكواده. وما يميزه أنه سهل بالنسبة للمبتدئ، وقوي بالنسبة للمتمكن. وتعني الشركة بدعمه وصيانته باستمرار وتطويره، كما أتيح بفتح أكواده سهولة كشف الأخطاء فيه، وأتيح بفضل تصميمه لأن يُخصص وتمتد إمكانياته بإضافات برمجيَّة قابلة للتثبيت يقوم بتزويدها لبعضهم البعض المجتمع البرمجي على مختلف لغاته واستعمالاته.</p>
-<p>ونرى أن التعلم يكون أسهل على <strong>دفتر جوبيتر (Jupyter Notebook)</strong> داخل محرر الأكواد ، وذلك لأنه يتيح تجربة قطع الكود بطريقة مباشرة ومنفصلة سنراها في حينها بدل تنفيذ الكود كملف كامل.</p>
-<p>نأتي الآن على كيفية تثبيت هذه المكونات في الجهاز.</p>
-<ol type="1">
-<li>تنزيل مثبِّت حزمة برمجيات بايثون؛ بالذهاب لصفحة <a href="https://www.python.org/">https://www.python.org/</a> والضغط على زر (Download).</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/python_download.png" class="img-fluid figure-img"></p>
-<figcaption>How to download Python from https://www.python.org/</figcaption>
-</figure>
-</div>
-<ol start="2" type="1">
-<li><p>تنزيل مثبِّت محرر الأكواد من: <a href="https://code.visualstudio.com/">Visual Studio Code</a></p></li>
-<li><p>لربط لغة البايثون في محرر الكود .. قم بتثبيت <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python Extension</a>.</p></li>
-<li><p>ولربط المحرر بدفتر جوبيتر ، قم بتثبيت <a href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Jupyter Extension</a>.</p></li>
-<li><p>قم بتثبيت حزمة <code>ipykernel</code> عن طريق <code>pip</code> وذلك لتتمكن من تنفيذ قطع الكود الواقعة في دفتر جوبيتر. يستلزم ذلك أن تفتح <strong>نافذة الأوامر (Terminal)</strong> ثم تكتب فيها هذا السطر:</p></li>
-</ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">pip</span> install ipykernel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="6" type="1">
-<li>أنشئ دفتر جوبيتر، وذلك بإنشاء ملف جديد بصيغة <code>ipynb.</code> عن طريق محرر الكود.</li>
-</ol>
-<p>بعد ذلك تكون جاهزًا للبدء في <a href="./02_intro.html">الدرس الأول</a>!</p>
+<section id="المجموعة-الأولى-دوال-مدمجة" class="level2" data-number="C.1">
+<h2 data-number="C.1" class="anchored" data-anchor-id="المجموعة-الأولى-دوال-مدمجة"><span class="header-section-number">C.1</span> المجموعة الأولى: دوال مدمجة</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>الدالة</th>
+<th>الوصف</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>len()</code></td>
+<td>لمعرفة الطول.</td>
+</tr>
+<tr class="even">
+<td><code>print()</code></td>
+<td>طباعة.</td>
+</tr>
+<tr class="odd">
+<td><code>ord()</code></td>
+<td>لمعرفة رمز Unicode لحرف.</td>
+</tr>
+<tr class="even">
+<td><code>int()</code></td>
+<td>تحويل سلسلة نصية إلى عدد صحيح.</td>
+</tr>
+<tr class="odd">
+<td><code>float()</code></td>
+<td>تحويل سلسلة نصية إلى عدد عشري.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="المجموعة-الثانية-طرق-مضافة-شائعة-الاستعمال" class="level2" data-number="C.2">
+<h2 data-number="C.2" class="anchored" data-anchor-id="المجموعة-الثانية-طرق-مضافة-شائعة-الاستعمال"><span class="header-section-number">C.2</span> المجموعة الثانية: طرق مضافة شائعة الاستعمال</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>الدالة المضافة</th>
+<th>الوصف</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.upper()</code></td>
+<td>تحويل السلسلة النصية إلى أحرف كبيرة.</td>
+</tr>
+<tr class="even">
+<td><code>.lower()</code></td>
+<td>تحويل السلسلة النصية إلى أحرف صغيرة.</td>
+</tr>
+<tr class="odd">
+<td><code>.find()</code></td>
+<td>إيجاد فهرس (index) سلسلة نصية فرعية داخل سلسلة نصية.</td>
+</tr>
+<tr class="even">
+<td><code>.replace()</code></td>
+<td>استبدال تكرارات سلسلة نصية فرعية داخل سلسلة نصية.</td>
+</tr>
+<tr class="odd">
+<td><code>.split()</code></td>
+<td>تقسيم السلسلة النصية إلى قائمة من السلاسل النصية الفرعية بناءً على محدد.</td>
+</tr>
+<tr class="even">
+<td><code>.join()</code></td>
+<td>دمج عناصر من iterable إلى سلسلة نصية باستخدام فاصل.</td>
+</tr>
+<tr class="odd">
+<td><code>.strip()</code></td>
+<td>إزالة المسافات البيضاء من بداية ونهاية السلسلة النصية.</td>
+</tr>
+<tr class="even">
+<td><code>.startswith()</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تبدأ بمقدمة محددة.</td>
+</tr>
+<tr class="odd">
+<td><code>.endswith()</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تنتهي بنهاية محددة.</td>
+</tr>
+<tr class="even">
+<td><code>.count()</code></td>
+<td>عد عدد تكرارات سلسلة نصية فرعية داخل سلسلة نصية.</td>
+</tr>
+<tr class="odd">
+<td><code>.format()</code></td>
+<td>إنشاء سلسلة نصية منسقة باستخدام عناصر نائبة.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="المجموعة-الثالثة-طرق-مضافة-متداولة" class="level2" data-number="C.3">
+<h2 data-number="C.3" class="anchored" data-anchor-id="المجموعة-الثالثة-طرق-مضافة-متداولة"><span class="header-section-number">C.3</span> المجموعة الثالثة: طرق مضافة متداولة</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>الدالة المضافة</th>
+<th>الوصف</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.encode()</code></td>
+<td>ترميز السلسلة النصية باستخدام ترميز محدد.</td>
+</tr>
+<tr class="even">
+<td><code>.casefold()</code></td>
+<td>تحويل السلسلة النصية إلى نسخة casefold للمقارنات غير الحساسة لحالة الأحرف.</td>
+</tr>
+<tr class="odd">
+<td><code>.capitalize()</code></td>
+<td>تحويل الحرف الأول من السلسلة النصية إلى حرف كبير.</td>
+</tr>
+<tr class="even">
+<td><code>.center()</code></td>
+<td>توسيط السلسلة النصية داخل عرض حقل محدد.</td>
+</tr>
+<tr class="odd">
+<td><code>.translate()</code></td>
+<td>استبدال الأحرف في السلسلة النصية باستخدام جدول ترجمة.</td>
+</tr>
+<tr class="even">
+<td><code>.expandtabs()</code></td>
+<td>توسيع أحرف الجدولة في السلسلة النصية.</td>
+</tr>
+<tr class="odd">
+<td><code>.index()</code></td>
+<td>إيجاد فهرس سلسلة نصية فرعية داخل سلسلة نصية، وإثارة استثناء إذا لم يتم العثور عليها.</td>
+</tr>
+<tr class="even">
+<td><code>.rjust()</code></td>
+<td>محاذاة السلسلة النصية إلى اليمين داخل عرض حقل محدد.</td>
+</tr>
+<tr class="odd">
+<td><code>.ljust()</code></td>
+<td>محاذاة السلسلة النصية إلى اليسار داخل عرض حقل محدد.</td>
+</tr>
+<tr class="even">
+<td><code>.swapcase()</code></td>
+<td>تبديل حالة الأحرف في السلسلة النصية.</td>
+</tr>
+<tr class="odd">
+<td><code>.title()</code></td>
+<td>تحويل السلسلة النصية إلى حالة عنوان.</td>
+</tr>
+<tr class="even">
+<td><code>.zfill()</code></td>
+<td>ملء السلسلة النصية بالأصفار على اليسار إلى عرض محدد.</td>
+</tr>
+<tr class="odd">
+<td><code>.splitlines()</code></td>
+<td>تقسيم السلسلة النصية إلى قائمة من الأسطر.</td>
+</tr>
+<tr class="even">
+<td><code>.partition()</code></td>
+<td>تقسيم السلسلة النصية إلى ثلاثة أجزاء بناءً على فاصل.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="المجموعة-الرابعة-طرق-مضافة-نادرة-الاستعمال" class="level2" data-number="C.4">
+<h2 data-number="C.4" class="anchored" data-anchor-id="المجموعة-الرابعة-طرق-مضافة-نادرة-الاستعمال"><span class="header-section-number">C.4</span> المجموعة الرابعة: طرق مضافة نادرة الاستعمال</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>الدالة المضافة</th>
+<th>الوصف</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.isalnum()</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف أبجدية رقمية.</td>
+</tr>
+<tr class="even">
+<td><code>.isalpha()</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف أبجدية.</td>
+</tr>
+<tr class="odd">
+<td><code>.isdecimal()</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف عشرية.</td>
+</tr>
+<tr class="even">
+<td><code>.isdigit()</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أرقام.</td>
+</tr>
+<tr class="odd">
+<td><code>.isidentifier()</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية معرف بايثون صالح.</td>
+</tr>
+<tr class="even">
+<td><code>.islower()</code></td>
+<td>التحقق مما إذا كانت جميع الأحرف المكونة في السلسلة النصية صغيرة.</td>
+</tr>
+<tr class="odd">
+<td><code>.isnumeric()</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف رقمية.</td>
+</tr>
+<tr class="even">
+<td><code>.isprintable()</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف قابلة للطباعة.</td>
+</tr>
+<tr class="odd">
+<td><code>.isspace()</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من مسافات بيضاء.</td>
+</tr>
+<tr class="even">
+<td><code>.istitle()</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية في حالة عنوان.</td>
+</tr>
+<tr class="odd">
+<td><code>.isupper()</code></td>
+<td>التحقق مما إذا كانت جميع الأحرف المكونة في السلسلة النصية كبيرة.</td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -675,13 +893,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="فاتحة">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">فاتحة</span>
+      <a href="./zz_strings.html" class="pagination-link" aria-label="النصوص">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">النصوص</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02_intro.html" class="pagination-link" aria-label="مقدمة">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">مقدمة</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./sequence_operations.html" class="pagination-link" aria-label="عمليات المتتاليات">
+        <span class="nav-page-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">عمليات المتتاليات</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; الأعداد – البايثونية</title>
+<title>4&nbsp; الأعداد – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04_strings.html" rel="next">
-<link href="./02_intro.html" rel="prev">
+<link href="./05_strings.html" rel="next">
+<link href="./03_control_flow.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -144,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_setup.html">المنهج</a></li><li class="breadcrumb-item"><a href="./03_numbers.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الأعداد</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_setup.html">المنهج</a></li><li class="breadcrumb-item"><a href="./04_numbers.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الأعداد</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -198,20 +198,20 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_numbers.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الأعداد</span></span></a>
+  <a href="./03_control_flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">تدفق التحكم</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_strings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">النصوص</span></span></a>
+  <a href="./04_numbers.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الأعداد</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_control_flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">تدفق التحكم</span></span></a>
+  <a href="./05_strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">النصوص</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -238,27 +238,27 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#وظيفة-الأعداد-في-لغة-البرمجة" id="toc-وظيفة-الأعداد-في-لغة-البرمجة" class="nav-link active" data-scroll-target="#وظيفة-الأعداد-في-لغة-البرمجة"><span class="header-section-number">3.1</span> وظيفة الأعداد في لغة البرمجة</a>
+  <li><a href="#وظيفة-الأعداد-في-لغة-البرمجة" id="toc-وظيفة-الأعداد-في-لغة-البرمجة" class="nav-link active" data-scroll-target="#وظيفة-الأعداد-في-لغة-البرمجة"><span class="header-section-number">4.1</span> وظيفة الأعداد في لغة البرمجة</a>
   <ul class="collapse">
-  <li><a href="#العمليات-الحسابية-arithmetic-operations" id="toc-العمليات-الحسابية-arithmetic-operations" class="nav-link" data-scroll-target="#العمليات-الحسابية-arithmetic-operations"><span class="header-section-number">3.1.1</span> العمليات الحسابية (Arithmetic operations)</a></li>
-  <li><a href="#ماذا-تعني-صفة-العددية" id="toc-ماذا-تعني-صفة-العددية" class="nav-link" data-scroll-target="#ماذا-تعني-صفة-العددية"><span class="header-section-number">3.1.2</span> ماذا تعني صفة العددية؟</a></li>
-  <li><a href="#ترتيب-العمليات-operator-precedence" id="toc-ترتيب-العمليات-operator-precedence" class="nav-link" data-scroll-target="#ترتيب-العمليات-operator-precedence"><span class="header-section-number">3.1.3</span> ترتيب العمليات (Operator precedence)</a></li>
+  <li><a href="#العمليات-الحسابية-arithmetic-operations" id="toc-العمليات-الحسابية-arithmetic-operations" class="nav-link" data-scroll-target="#العمليات-الحسابية-arithmetic-operations"><span class="header-section-number">4.1.1</span> العمليات الحسابية (Arithmetic operations)</a></li>
+  <li><a href="#ماذا-تعني-صفة-العددية" id="toc-ماذا-تعني-صفة-العددية" class="nav-link" data-scroll-target="#ماذا-تعني-صفة-العددية"><span class="header-section-number">4.1.2</span> ماذا تعني صفة العددية؟</a></li>
+  <li><a href="#ترتيب-العمليات-operator-precedence" id="toc-ترتيب-العمليات-operator-precedence" class="nav-link" data-scroll-target="#ترتيب-العمليات-operator-precedence"><span class="header-section-number">4.1.3</span> ترتيب العمليات (Operator precedence)</a></li>
   </ul></li>
-  <li><a href="#الدوال-المدمجة-ودوال-المكتبة-الأساسية-built-in-and-standard-library-functions" id="toc-الدوال-المدمجة-ودوال-المكتبة-الأساسية-built-in-and-standard-library-functions" class="nav-link" data-scroll-target="#الدوال-المدمجة-ودوال-المكتبة-الأساسية-built-in-and-standard-library-functions"><span class="header-section-number">3.2</span> الدوال المدمجة ودوال المكتبة الأساسية (Built-in and Standard Library Functions)</a>
+  <li><a href="#الدوال-المدمجة-ودوال-المكتبة-الأساسية-built-in-and-standard-library-functions" id="toc-الدوال-المدمجة-ودوال-المكتبة-الأساسية-built-in-and-standard-library-functions" class="nav-link" data-scroll-target="#الدوال-المدمجة-ودوال-المكتبة-الأساسية-built-in-and-standard-library-functions"><span class="header-section-number">4.2</span> الدوال المدمجة ودوال المكتبة الأساسية (Built-in and Standard Library Functions)</a>
   <ul class="collapse">
-  <li><a href="#دوال-مدمجة" id="toc-دوال-مدمجة" class="nav-link" data-scroll-target="#دوال-مدمجة"><span class="header-section-number">3.2.1</span> دوال مدمجة</a></li>
-  <li><a href="#دوال-المكتبة-الأساسية" id="toc-دوال-المكتبة-الأساسية" class="nav-link" data-scroll-target="#دوال-المكتبة-الأساسية"><span class="header-section-number">3.2.2</span> دوال المكتبة الأساسية</a></li>
+  <li><a href="#دوال-مدمجة" id="toc-دوال-مدمجة" class="nav-link" data-scroll-target="#دوال-مدمجة"><span class="header-section-number">4.2.1</span> دوال مدمجة</a></li>
+  <li><a href="#دوال-المكتبة-الأساسية" id="toc-دوال-المكتبة-الأساسية" class="nav-link" data-scroll-target="#دوال-المكتبة-الأساسية"><span class="header-section-number">4.2.2</span> دوال المكتبة الأساسية</a></li>
   </ul></li>
-  <li><a href="#المراجع" id="toc-المراجع" class="nav-link" data-scroll-target="#المراجع"><span class="header-section-number">3.3</span> المراجع</a></li>
+  <li><a href="#المراجع" id="toc-المراجع" class="nav-link" data-scroll-target="#المراجع"><span class="header-section-number">4.3</span> المراجع</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_setup.html">المنهج</a></li><li class="breadcrumb-item"><a href="./03_numbers.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الأعداد</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_setup.html">المنهج</a></li><li class="breadcrumb-item"><a href="./04_numbers.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الأعداد</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الأعداد</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الأعداد</span></h1>
 </div>
 
 
@@ -275,22 +275,22 @@ window.Quarto = {
 </header>
 
 
-<section id="وظيفة-الأعداد-في-لغة-البرمجة" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="وظيفة-الأعداد-في-لغة-البرمجة"><span class="header-section-number">3.1</span> وظيفة الأعداد في لغة البرمجة</h2>
+<section id="وظيفة-الأعداد-في-لغة-البرمجة" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="وظيفة-الأعداد-في-لغة-البرمجة"><span class="header-section-number">4.1</span> وظيفة الأعداد في لغة البرمجة</h2>
 <ul>
 <li>الأعداد الصحيحة (<a href="https://docs.python.org/3/library/functions.html#int">Integers</a>) للفهرسة والعد والترتيب: <code>..., -2, -1, 0, 1, 2, ...</code></li>
 <li>الأعداد العشرية (<a href="https://docs.python.org/3/library/functions.html#float">Floats</a>) لتمثيل الكميات مثل المال، المسافة، والوقت: <code>3.14, 2.718, 0.0, 15.0</code></li>
 <li>الأعداد المركبة (<a href="https://docs.python.org/3/library/functions.html#complex">Complex</a>) في الرياضيات والهندسة: <code>(1 + 2j), (1.0 - 2.0j)</code></li>
 <li>القيم المنطقية (<a href="https://docs.python.org/3/library/stdtypes.html#boolean-type-bool">Booleans</a>) لتمثيل قيم الحقيقة: <code>True, False</code></li>
 </ul>
-<div id="b6c237ba" class="cell" data-execution_count="1">
+<div id="b6c237ba" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>y <span class="op">=</span> <span class="fl">3.0</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>z <span class="op">=</span> <span class="op">-</span><span class="dv">10</span></span>
 <span id="cb1-4"><a href="#cb1-4"></a>b <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb1-5"><a href="#cb1-5"></a>c <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="ot">2j</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="8f5ee902" class="cell" data-execution_count="2">
+<div id="8f5ee902" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">print</span>(<span class="bu">type</span>(x))</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="bu">print</span>(<span class="bu">type</span>(y))</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="bu">print</span>(<span class="bu">type</span>(z))</span>
@@ -304,9 +304,9 @@ window.Quarto = {
 &lt;class 'complex'&gt;</code></pre>
 </div>
 </div>
-<section id="العمليات-الحسابية-arithmetic-operations" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="العمليات-الحسابية-arithmetic-operations"><span class="header-section-number">3.1.1</span> العمليات الحسابية (Arithmetic operations)</h3>
-<div id="d5d7cdfc" class="cell" data-execution_count="3">
+<section id="العمليات-الحسابية-arithmetic-operations" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="العمليات-الحسابية-arithmetic-operations"><span class="header-section-number">4.1.1</span> العمليات الحسابية (Arithmetic operations)</h3>
+<div id="d5d7cdfc" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="bu">print</span>(x <span class="op">+</span> y) <span class="co"># الجمع (Addition)</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(x <span class="op">-</span> y) <span class="co"># الطرح (Subtraction)</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="bu">print</span>(x <span class="op">*</span> y) <span class="co"># الضرب (Multiplication)</span></span>
@@ -323,8 +323,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="ماذا-تعني-صفة-العددية" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="ماذا-تعني-صفة-العددية"><span class="header-section-number">3.1.2</span> ماذا تعني صفة العددية؟</h3>
+<section id="ماذا-تعني-صفة-العددية" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="ماذا-تعني-صفة-العددية"><span class="header-section-number">4.1.2</span> ماذا تعني صفة العددية؟</h3>
 <p>الاشتراك في صفة العددية يعني أنها تقبل العمليات الحسابية ، مع ملاحظة أن النوع الأقل دقة يتحول إلى النوع الأعلى دقة:</p>
 <ul>
 <li>فمثلاً: <code>int + float = float</code></li>
@@ -332,7 +332,7 @@ window.Quarto = {
 <li>وأيضًا: <code>bool * int = int</code></li>
 <li>وهكذا: <code>int * complex = complex</code></li>
 </ul>
-<div id="a8fd5107" class="cell" data-execution_count="4">
+<div id="a8fd5107" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="bu">print</span>(x <span class="op">+</span> z)</span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="bu">print</span>(x <span class="op">+</span> y)</span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="bu">print</span>(y <span class="op">*</span> z)</span>
@@ -347,7 +347,7 @@ window.Quarto = {
 </div>
 </div>
 <p>لاحظ أن قسمة الصحيح تقوم بتقريب النتيجة إلى الأقرب:</p>
-<div id="a7c8ab10" class="cell" data-execution_count="5">
+<div id="a7c8ab10" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">print</span>(<span class="dv">7</span> <span class="op">/</span> <span class="dv">2</span>)  <span class="co"># قسمة صحيحٍ تنتج عشريًا</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="bu">print</span>(<span class="dv">7</span> <span class="op">//</span> <span class="dv">2</span>) <span class="co"># قسمة صحيح تنتج صحيحًا</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -355,8 +355,8 @@ window.Quarto = {
 3</code></pre>
 </div>
 </div>
-<section id="تمرين" class="level4" data-number="3.1.2.1">
-<h4 data-number="3.1.2.1" class="anchored" data-anchor-id="تمرين"><span class="header-section-number">3.1.2.1</span> تمرين</h4>
+<section id="تمرين" class="level4" data-number="4.1.2.1">
+<h4 data-number="4.1.2.1" class="anchored" data-anchor-id="تمرين"><span class="header-section-number">4.1.2.1</span> تمرين</h4>
 <p>تحقق من نوع كل من التعبيرين السابقين باستخدام الدالة <code>type()</code>. هل يمكنك استخراج قاعدة من هذه الأمثلة؟</p>
 <ul>
 <li><code>7 / 2</code></li>
@@ -373,7 +373,7 @@ window.Quarto = {
 <li><label><input type="checkbox"><code>str + str</code></label></li>
 <li><label><input type="checkbox"><code>int + str</code> (لاحظ أن هذه العملية ستفشل)</label></li>
 </ul>
-<div id="517fb43e" class="cell" data-execution_count="6">
+<div id="517fb43e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>i <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a>b <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb11-3"><a href="#cb11-3"></a>s1 <span class="op">=</span> <span class="st">'5'</span></span>
@@ -387,8 +387,8 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="ترتيب-العمليات-operator-precedence" class="level3" data-number="3.1.3">
-<h3 data-number="3.1.3" class="anchored" data-anchor-id="ترتيب-العمليات-operator-precedence"><span class="header-section-number">3.1.3</span> ترتيب العمليات (Operator precedence)</h3>
+<section id="ترتيب-العمليات-operator-precedence" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="ترتيب-العمليات-operator-precedence"><span class="header-section-number">4.1.3</span> ترتيب العمليات (Operator precedence)</h3>
 <p>ترتيب العمليات هو نفسه كما في الرياضيات:</p>
 <ol type="1">
 <li>الأقواس: <code>()</code></li>
@@ -397,10 +397,10 @@ window.Quarto = {
 <li>الجمع والطرح: <code>+</code> و <code>-</code></li>
 </ol>
 <p>للتفصيل الشامل انظر: <a href="https://docs.python.org/3/reference/expressions.html#evaluation-order">ترتيب التقييم</a></p>
-<section id="تمرين-1" class="level4" data-number="3.1.3.1">
-<h4 data-number="3.1.3.1" class="anchored" data-anchor-id="تمرين-1"><span class="header-section-number">3.1.3.1</span> تمرين</h4>
+<section id="تمرين-1" class="level4" data-number="4.1.3.1">
+<h4 data-number="4.1.3.1" class="anchored" data-anchor-id="تمرين-1"><span class="header-section-number">4.1.3.1</span> تمرين</h4>
 <p>أضف أقواس لتغيير النتيجة لتطابق التوكيد:</p>
-<div id="83b7d429" class="cell" data-execution_count="7">
+<div id="83b7d429" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="cf">assert</span> <span class="dv">3</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -414,11 +414,11 @@ Cell <span class="ansi-green-fg ansi-bold">In[7], line 1</span>
 </div>
 </div>
 <p>الحل:</p>
-<div id="7ec6c03a" class="cell" data-execution_count="8">
+<div id="7ec6c03a" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="cf">assert</span> (<span class="dv">3</span> <span class="op">+</span> <span class="dv">2</span>) <span class="op">*</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>مثال آخر:</p>
-<div id="bc0f879e" class="cell" data-execution_count="9">
+<div id="bc0f879e" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="cf">assert</span> <span class="dv">8</span> <span class="op">-</span> <span class="dv">4</span> <span class="op">/</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -434,7 +434,7 @@ Cell <span class="ansi-green-fg ansi-bold">In[9], line 1</span>
 <p>ما هو الحل؟ ضع الأقواس في مكانها الصحيح.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># try it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>مثال أخير:</p>
-<div id="7f3e73d1" class="cell" data-execution_count="10">
+<div id="7f3e73d1" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="cf">assert</span> <span class="dv">2</span> <span class="op">**</span> <span class="dv">3</span> <span class="op">*</span> <span class="dv">4</span> <span class="op">==</span> <span class="dv">4096</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -452,17 +452,17 @@ Cell <span class="ansi-green-fg ansi-bold">In[10], line 1</span>
 </section>
 </section>
 </section>
-<section id="الدوال-المدمجة-ودوال-المكتبة-الأساسية-built-in-and-standard-library-functions" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="الدوال-المدمجة-ودوال-المكتبة-الأساسية-built-in-and-standard-library-functions"><span class="header-section-number">3.2</span> الدوال المدمجة ودوال المكتبة الأساسية (Built-in and Standard Library Functions)</h2>
+<section id="الدوال-المدمجة-ودوال-المكتبة-الأساسية-built-in-and-standard-library-functions" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="الدوال-المدمجة-ودوال-المكتبة-الأساسية-built-in-and-standard-library-functions"><span class="header-section-number">4.2</span> الدوال المدمجة ودوال المكتبة الأساسية (Built-in and Standard Library Functions)</h2>
 <p>تتضمن لغات البرمجة دوال مساعدة مكتوبة من قِبل فريق اللغة ومضمَّنة مع حزمة تثبيت اللغة؛ أي أنها لا تستدعي من المبرمج تثبيت حِزَم إضافية. وهي على قسمين:</p>
 <ol type="1">
 <li><strong>دوال مدمجة</strong> (Built-in functions)</li>
 <li><strong>دوال المكتبة الأساسية</strong> ، وتسمى (Standard Library) وتختصر stdlib</li>
 </ol>
-<section id="دوال-مدمجة" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="دوال-مدمجة"><span class="header-section-number">3.2.1</span> دوال مدمجة</h3>
+<section id="دوال-مدمجة" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="دوال-مدمجة"><span class="header-section-number">4.2.1</span> دوال مدمجة</h3>
 <p>وهي الدوال المتاحة المعرَّفة من غير أن نعرِّفها نحن. مثلاً:</p>
-<div id="de0e2093" class="cell" data-execution_count="11">
+<div id="de0e2093" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="bu">print</span>(<span class="bu">abs</span>(<span class="op">-</span><span class="dv">99</span>)) <span class="co"># القيمة المطلقة</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="bu">print</span>(<span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">4</span>)) <span class="co"># القوة</span></span>
 <span id="cb19-3"><a href="#cb19-3"></a><span class="bu">print</span>(<span class="bu">max</span>(<span class="dv">10</span>, <span class="dv">20</span>)) <span class="co"># القيمة العظمى</span></span>
@@ -476,15 +476,15 @@ Cell <span class="ansi-green-fg ansi-bold">In[10], line 1</span>
 </div>
 <p>وهنا <a href="https://docs.python.org/3/library/functions.html">قائمة بجميع الدوال المدمجة</a>.</p>
 </section>
-<section id="دوال-المكتبة-الأساسية" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="دوال-المكتبة-الأساسية"><span class="header-section-number">3.2.2</span> دوال المكتبة الأساسية</h3>
+<section id="دوال-المكتبة-الأساسية" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="دوال-المكتبة-الأساسية"><span class="header-section-number">4.2.2</span> دوال المكتبة الأساسية</h3>
 <p>وهي دوالّ متوفِّرة لكن يجب استيرادها من المكتبة الأساسية بجملة <code>import</code>.</p>
 <p>فمثلاً للوصول إلى دوال رياضية إضافية: <a href="https://docs.python.org/3/library/math.html"><code>import math</code></a>، ثم نستخدم البادئة <code>math.</code> للوصول إلى الدوال.</p>
 <p>في هذا المثال نعرف نقطتين ثم نحسب المسافة بينهما. والمسافة الإقليدية بين نقطتين <span class="math inline">\((x_1, y_1)\)</span> و <span class="math inline">\((x_2, y_2)\)</span> تُحسب باستخدام الصيغة التالية:</p>
 <p><span class="math display">\[
 \text{distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
 \]</span></p>
-<div id="589c198c" class="cell" data-execution_count="12">
+<div id="589c198c" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="im">import</span> math</span>
 <span id="cb21-2"><a href="#cb21-2"></a></span>
 <span id="cb21-3"><a href="#cb21-3"></a>x1, y1 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
@@ -495,7 +495,7 @@ Cell <span class="ansi-green-fg ansi-bold">In[10], line 1</span>
 <pre><code>5.0</code></pre>
 </div>
 </div>
-<div id="752e0b78" class="cell" data-execution_count="13">
+<div id="752e0b78" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="im">import</span> math</span>
 <span id="cb23-2"><a href="#cb23-2"></a></span>
 <span id="cb23-3"><a href="#cb23-3"></a>x <span class="op">=</span> <span class="fl">5.4</span></span>
@@ -512,13 +512,13 @@ Cell <span class="ansi-green-fg ansi-bold">In[10], line 1</span>
 </div>
 <p>ملاحظة: الدالة الأخيرة <code>round</code> ليست مستوردة من <code>math</code> وإنما هي مُدمجة.</p>
 <p>وهنا <a href="https://docs.python.org/3/library/index.html">مرجع المكتبة الأساسية لبايثون</a>.</p>
-<section id="تمرين-2" class="level4" data-number="3.2.2.1">
-<h4 data-number="3.2.2.1" class="anchored" data-anchor-id="تمرين-2"><span class="header-section-number">3.2.2.1</span> تمرين</h4>
+<section id="تمرين-2" class="level4" data-number="4.2.2.1">
+<h4 data-number="4.2.2.1" class="anchored" data-anchor-id="تمرين-2"><span class="header-section-number">4.2.2.1</span> تمرين</h4>
 <p>اكتب برنامجًا ليعرف رقمين ثم اطبع مجموعهما، الفرق بينهما، حاصل ضربهما، خارج القسمة، وباقي القسمة. استخدم أسماء متغيرات وتعليقات مناسبة.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># try it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="تمرين-3" class="level4" data-number="3.2.2.2">
-<h4 data-number="3.2.2.2" class="anchored" data-anchor-id="تمرين-3"><span class="header-section-number">3.2.2.2</span> تمرين</h4>
+<section id="تمرين-3" class="level4" data-number="4.2.2.2">
+<h4 data-number="4.2.2.2" class="anchored" data-anchor-id="تمرين-3"><span class="header-section-number">4.2.2.2</span> تمرين</h4>
 <p>احسب مساحة المكعب باستخدام الصيغة التالية:</p>
 <p><span class="math display">\[
 \text{area} = \text{width} \times \text{length} \times \text{height}
@@ -530,13 +530,13 @@ Cell <span class="ansi-green-fg ansi-bold">In[10], line 1</span>
 </ul>
 <div class="sourceCode" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># try it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="تمرين-4" class="level4" data-number="3.2.2.3">
-<h4 data-number="3.2.2.3" class="anchored" data-anchor-id="تمرين-4"><span class="header-section-number">3.2.2.3</span> تمرين</h4>
+<section id="تمرين-4" class="level4" data-number="4.2.2.3">
+<h4 data-number="4.2.2.3" class="anchored" data-anchor-id="تمرين-4"><span class="header-section-number">4.2.2.3</span> تمرين</h4>
 <p>اكتب برنامجًا يطلب من المستخدم إدخال عدد الساعات (hours) ومعدل الأجر لكل ساعة (rate per hour) لحساب الأجر الإجمالي (gross pay).</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="تمرين-5" class="level4" data-number="3.2.2.4">
-<h4 data-number="3.2.2.4" class="anchored" data-anchor-id="تمرين-5"><span class="header-section-number">3.2.2.4</span> تمرين</h4>
+<section id="تمرين-5" class="level4" data-number="4.2.2.4">
+<h4 data-number="4.2.2.4" class="anchored" data-anchor-id="تمرين-5"><span class="header-section-number">4.2.2.4</span> تمرين</h4>
 <p>اكتب برنامجًا يحسب مساحة الدائرة باستخدام الصيغة التالية:</p>
 <p><span class="math display">\[
 \text{area} = \pi \times \text{radius}^2
@@ -549,8 +549,8 @@ Cell <span class="ansi-green-fg ansi-bold">In[10], line 1</span>
 <p>تلميح: يمكنك استخدام الثابت <code>math.pi</code> للحصول على قيمة <span class="math inline">\(\pi\)</span>.</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="تمرين-6" class="level4" data-number="3.2.2.5">
-<h4 data-number="3.2.2.5" class="anchored" data-anchor-id="تمرين-6"><span class="header-section-number">3.2.2.5</span> تمرين</h4>
+<section id="تمرين-6" class="level4" data-number="4.2.2.5">
+<h4 data-number="4.2.2.5" class="anchored" data-anchor-id="تمرين-6"><span class="header-section-number">4.2.2.5</span> تمرين</h4>
 <p>اكتب برنامجًا لتحويل درجة الحرارة من السيليلوس إلى الفهرنهايت استخدم معادلة التحويل التالية:</p>
 <p><span class="math display">\[
 F = \frac{9}{5} \times C + 32
@@ -559,8 +559,8 @@ F = \frac{9}{5} \times C + 32
 </section>
 </section>
 </section>
-<section id="المراجع" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="المراجع"><span class="header-section-number">3.3</span> المراجع</h2>
+<section id="المراجع" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="المراجع"><span class="header-section-number">4.3</span> المراجع</h2>
 <ul>
 <li><a href="https://docs.python.org/3/reference/simple_stmts.html#augmented-assignment-statements">https://docs.python.org/3/reference/simple_stmts.html</a></li>
 </ul>
@@ -991,13 +991,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02_intro.html" class="pagination-link" aria-label="مقدمة">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">مقدمة</span></span>
+      <a href="./03_control_flow.html" class="pagination-link" aria-label="تدفق التحكم">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">تدفق التحكم</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04_strings.html" class="pagination-link" aria-label="النصوص">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">النصوص</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./05_strings.html" class="pagination-link" aria-label="النصوص">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">النصوص</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

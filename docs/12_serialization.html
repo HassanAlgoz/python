@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Data Serialization – البايثونية</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./13_errors.html" rel="next">
+<link href="./11_io.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_setup.html">المنهج</a></li><li class="breadcrumb-item"><a href="./12_serialization.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Serialization</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">البايثونية</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">فاتحة</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">المنهج</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">إعداد بيئة التطوير</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">مقدمة</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_conditional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">التنفيذ المشروط</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الدوال</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_iterations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">تدفق التحكم</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">النصوص</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_io.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">File I/O with pathlib</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_serialization.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Serialization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_errors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Errors and Exceptions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_sequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">المتتاليات</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./zz_numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">الأعداد</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./zz_strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">النصوص</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./string_methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">الدوال المدمجة والطرق المضافة للسلاسل النصية</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sequence_operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">عمليات المتتاليات</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#python-objects" id="toc-python-objects" class="nav-link active" data-scroll-target="#python-objects"><span class="header-section-number">8.1</span> Python Objects</a>
+  <ul class="collapse">
+  <li><a href="#what-can-be-pickled-and-unpickled" id="toc-what-can-be-pickled-and-unpickled" class="nav-link" data-scroll-target="#what-can-be-pickled-and-unpickled"><span class="header-section-number">8.1.1</span> What can be pickled and unpickled?</a></li>
+  <li><a href="#comparison-with-json" id="toc-comparison-with-json" class="nav-link" data-scroll-target="#comparison-with-json"><span class="header-section-number">8.1.2</span> Comparison with&nbsp;<code>json</code></a></li>
+  </ul></li>
+  <li><a href="#document-data" id="toc-document-data" class="nav-link" data-scroll-target="#document-data"><span class="header-section-number">8.2</span> Document Data</a></li>
+  <li><a href="#tabular-data" id="toc-tabular-data" class="nav-link" data-scroll-target="#tabular-data"><span class="header-section-number">8.3</span> Tabular Data</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_setup.html">المنهج</a></li><li class="breadcrumb-item"><a href="./12_serialization.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Serialization</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Serialization</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Data <em>serialization</em> is the process of converting complex data structures, such as objects, dictionaries, and lists, into a format that can be easily stored and transmitted. The serialized data can be stored in a file, sent over a network, or saved in a database. The process of converting serialized data back into its original form is called <em>deserialization</em>.</p>
+<section id="python-objects" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="python-objects"><span class="header-section-number">8.1</span> Python Objects</h2>
+<p>The&nbsp;<a href="https://docs.python.org/3/library/pickle.html#module-pickle"><code>pickle</code></a>&nbsp;module implements binary protocols for serializing and de-serializing a Python object structure. With pickle can save and load things like: lists, dictionaries, and custom objects, through the <a href="https://docs.python.org/3/library/pickle.html"><code>pickle</code></a> module.</p>
+<p>Example:</p>
+<div id="62302252" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pickle</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s say we have an instance of a class <code>Person</code> that we want to save to a file.</p>
+<div id="fdbf0b57" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">class</span> Person:</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, age):</span>
+<span id="cb2-3"><a href="#cb2-3"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb2-4"><a href="#cb2-4"></a>        <span class="va">self</span>.age <span class="op">=</span> age</span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a>person <span class="op">=</span> Person(<span class="st">'Adam'</span>, <span class="dv">22</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, let’s save it to a file using the <code>pickle</code> module.</p>
+<div id="18d42dc0" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">with</span> Path(<span class="st">'datasets/person.pickle'</span>).<span class="bu">open</span>(mode<span class="op">=</span><span class="st">'wb'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    pickle.dump(person, <span class="bu">file</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Later, when we want to load it, we can do the following.</p>
+<div id="08b01881" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">with</span> Path(<span class="st">'datasets/person.pickle'</span>).<span class="bu">open</span>(mode<span class="op">=</span><span class="st">'rb'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    person <span class="op">=</span> pickle.load(<span class="bu">file</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="bu">print</span>(person.name, person.age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Adam 22</code></pre>
+</div>
+</div>
+<p>Notice that to load a pickled object, we need to have the class definition available. Try restarting the kernel and running the loading code without the class definition. You will get an error.</p>
+<section id="what-can-be-pickled-and-unpickled" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="what-can-be-pickled-and-unpickled"><span class="header-section-number">8.1.1</span> What can be pickled and unpickled?</h3>
+<p>Almost all data types in Python are picklable: integers, floats, complex numbers, strings, tuples, lists, sets, dictionaries, functions, classes, instances of classes, and more. However, there are some limitations. For example, lambda functions, functions defined inside functions, and functions defined inside classes cannot be pickled. Also, pickling and unpickling are not secure operations.</p>
+<p>See: <a href="https://docs.python.org/3/library/pickle.html#pickle-picklable">What can be pickled and unpickled? | Python Docs</a></p>
+<div class="callout-danger">
+<p>It is possible to construct malicious pickle data which will execute arbitrary code during unpickling. Never unpickle data that could have come from an untrusted source, or that could have been tampered with.</p>
+</div>
+<p>Safer serialization formats such as&nbsp;<a href="https://docs.python.org/3/library/json.html#module-json"><code>json</code></a>&nbsp;may be more appropriate if you are processing untrusted data. See&nbsp;<a href="https://docs.python.org/3/library/pickle.html#comparison-with-json">Comparison with json</a>.</p>
+</section>
+<section id="comparison-with-json" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="comparison-with-json"><span class="header-section-number">8.1.2</span> Comparison with&nbsp;<code>json</code></h3>
+<p>There are fundamental differences between the pickle protocols and&nbsp;<a href="https://json.org/">JSON (JavaScript Object Notation)</a>:</p>
+<ul>
+<li>JSON is a text serialization format (it outputs unicode text, although most of the time it is then encoded to&nbsp;<code>utf-8</code>), while pickle is a binary serialization format;</li>
+<li>JSON is human-readable, while pickle is not;</li>
+<li>JSON is interoperable and widely used outside of the Python ecosystem, while pickle is Python-specific;</li>
+<li>JSON, by default, can only represent a subset of the Python built-in types, and no custom classes; pickle can represent an extremely large number of Python types (many of them automatically, by clever usage of Python’s introspection facilities; complex cases can be tackled by implementing&nbsp;<a href="https://docs.python.org/3/library/pickle.html#pickle-inst">specific object APIs</a>);</li>
+<li>Unlike pickle, deserializing untrusted JSON does not in itself create an arbitrary code execution vulnerability.</li>
+</ul>
+</section>
+</section>
+<section id="document-data" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="document-data"><span class="header-section-number">8.2</span> Document Data</h2>
+<p>Document data come in many formats, such as XML, JSON, and YAML. In this section, we will focus on JSON files. The <a href="https://docs.python.org/3/library/json.html"><code>json</code> module</a> provides functionality to both read from and write to JSON files.</p>
+<div id="f0bdb8d5" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> json</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Suppose we have <code>user_preferences</code> saved in a dictionary, and we want to save it to a JSON file.</p>
+<div id="a1fa28d0" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>user_preferences <span class="op">=</span> {</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="st">'theme'</span>: <span class="st">'dark'</span>,</span>
+<span id="cb7-3"><a href="#cb7-3"></a>    <span class="st">'language'</span>: <span class="st">'Arabic'</span>,</span>
+<span id="cb7-4"><a href="#cb7-4"></a>    <span class="st">'notifications'</span>: {</span>
+<span id="cb7-5"><a href="#cb7-5"></a>        <span class="st">'email'</span>: <span class="va">True</span>,</span>
+<span id="cb7-6"><a href="#cb7-6"></a>        <span class="st">'sms'</span>: <span class="va">False</span>,</span>
+<span id="cb7-7"><a href="#cb7-7"></a>        <span class="st">'push'</span>: <span class="va">True</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a>    },</span>
+<span id="cb7-9"><a href="#cb7-9"></a>    <span class="st">'last_updated'</span>: <span class="st">'2021-09-01'</span>,</span>
+<span id="cb7-10"><a href="#cb7-10"></a>    <span class="st">'emails'</span>: [<span class="st">'example1@domain.com'</span>, <span class="st">'example2@domain.com'</span>]</span>
+<span id="cb7-11"><a href="#cb7-11"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s write it to a JSON file.</p>
+<div id="0546c8d8" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="cf">with</span> Path(<span class="st">'datasets/user_preferences.json'</span>).<span class="bu">open</span>(mode<span class="op">=</span><span class="st">'w'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    json.dump(user_preferences, <span class="bu">file</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Later when we want to load it, we can do the following.</p>
+<div id="5378b41e" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="cf">with</span> Path(<span class="st">'datasets/user_preferences.json'</span>).<span class="bu">open</span>() <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    data <span class="op">=</span> json.load(<span class="bu">file</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="bu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'theme': 'dark', 'language': 'Arabic', 'notifications': {'email': True, 'sms': False, 'push': True}, 'last_updated': '2021-09-01', 'emails': ['example1@domain.com', 'example2@domain.com']}</code></pre>
+</div>
+</div>
+<p>If you are dealing with other formats, checkout: <a href="https://docs.python.org/3/library/xml.html">the built-in <code>xml</code> module documenation</a> for XML documents, or the <a href="https://pyyaml.org/wiki/PyYAMLDocumentation"><code>pyyaml</code> library</a> for YAML documents.</p>
+</section>
+<section id="tabular-data" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="tabular-data"><span class="header-section-number">8.3</span> Tabular Data</h2>
+<p>Tabular data come in many formats, such as CSV, TSV, Excel, and SQL. In this section, we will focus on CSV files. The <code>csv</code> module provides functionality to both read from and write to CSV files.</p>
+<p>The <a href="https://docs.python.org/3/library/csv.html"><code>csv</code></a> module’s reader and writer objects read and write sequences.</p>
+<div id="6b14c48e" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="im">import</span> csv</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The&nbsp;<a href="https://docs.python.org/3/library/csv.html#module-csv"><code>csv</code></a>&nbsp;module’s&nbsp;<a href="https://docs.python.org/3/library/csv.html#csv.reader"><code>reader</code></a>&nbsp;and&nbsp;<a href="https://docs.python.org/3/library/csv.html#csv.writer"><code>writer</code></a>&nbsp;objects read and write sequences.</p>
+<p>Let’s write a list of students to a CSV file. Notice, we have a list of lists, where each inner list represents a row.</p>
+<div id="e5f6af0e" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>header <span class="op">=</span> [<span class="st">'Name'</span>, <span class="st">'Age'</span>, <span class="st">'Grade'</span>]</span>
+<span id="cb12-2"><a href="#cb12-2"></a>rows <span class="op">=</span> [</span>
+<span id="cb12-3"><a href="#cb12-3"></a>    [<span class="st">'Adam'</span>, <span class="dv">22</span>, <span class="dv">90</span>],</span>
+<span id="cb12-4"><a href="#cb12-4"></a>    [<span class="st">'Belal'</span>, <span class="dv">23</span>, <span class="dv">92</span>],</span>
+<span id="cb12-5"><a href="#cb12-5"></a>    [<span class="st">'Camal'</span>, <span class="dv">24</span>, <span class="dv">91</span>],</span>
+<span id="cb12-6"><a href="#cb12-6"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, let’s actually write the data to a CSV (Comma Separated Values) file.</p>
+<div id="d43fff7e" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="cf">with</span> Path(<span class="st">'datasets/students.csv'</span>).<span class="bu">open</span>(mode<span class="op">=</span><span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb13-2"><a href="#cb13-2"></a>    writer <span class="op">=</span> csv.writer(<span class="bu">file</span>)</span>
+<span id="cb13-3"><a href="#cb13-3"></a>    writer.writerow(header)</span>
+<span id="cb13-4"><a href="#cb13-4"></a>    writer.writerows(rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note, you can try opening the file directly from the file explorer. Try opening it with Excel, Google Sheet, or any other spreadsheet software. If you open it with a text editor, you will see the data as a CSV; literally comma separated values.</p>
+<p>Now, let’s read it as a Python data structure: as a list of lists.</p>
+<div id="821d788c" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="cf">with</span> Path(<span class="st">'datasets/students.csv'</span>).<span class="bu">open</span>() <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb14-2"><a href="#cb14-2"></a>    reader <span class="op">=</span> csv.reader(<span class="bu">file</span>)</span>
+<span id="cb14-3"><a href="#cb14-3"></a>    <span class="cf">for</span> row <span class="kw">in</span> reader:</span>
+<span id="cb14-4"><a href="#cb14-4"></a>        <span class="bu">print</span>(row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['Name', 'Age', 'Grade']
+['Adam', '22', '90']
+['Belal', '23', '92']
+['Camal', '24', '91']</code></pre>
+</div>
+</div>
+<p>Let’s try to calculate the average grade of the students.</p>
+<div id="6394b428" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>students <span class="op">=</span> []</span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="cf">with</span> Path(<span class="st">'datasets/students.csv'</span>).<span class="bu">open</span>() <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb16-3"><a href="#cb16-3"></a>    reader <span class="op">=</span> csv.reader(<span class="bu">file</span>)</span>
+<span id="cb16-4"><a href="#cb16-4"></a>    <span class="bu">next</span>(reader) <span class="co"># skip the header</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a>    <span class="cf">for</span> row <span class="kw">in</span> reader:</span>
+<span id="cb16-6"><a href="#cb16-6"></a>        students.append(row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now that we have it save in the list <code>students</code>, let’s do some math.</p>
+<div id="03b0e955" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>grades <span class="op">=</span> [s[<span class="dv">2</span>] <span class="cf">for</span> s <span class="kw">in</span> students]</span>
+<span id="cb17-2"><a href="#cb17-2"></a>avg <span class="op">=</span> <span class="bu">sum</span>(grades) <span class="op">/</span> <span class="bu">len</span>(grades)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg ansi-bold">In[14], line 2</span>
+<span class="ansi-green-fg">      1</span> grades <span style="color:rgb(98,98,98)">=</span> [s[<span style="color:rgb(98,98,98)">2</span>] <span style="font-weight:bold;color:rgb(0,135,0)">for</span> s <span style="font-weight:bold;color:rgb(175,0,255)">in</span> students]
+<span class="ansi-green-fg ansi-bold">----&gt; 2</span> avg <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">sum</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">grades</span><span class="ansi-yellow-bg">)</span> <span style="color:rgb(98,98,98)">/</span> <span style="color:rgb(0,135,0)">len</span>(grades)
+
+<span class="ansi-red-fg ansi-bold">TypeError</span>: unsupported operand type(s) for +: 'int' and 'str'</pre>
+</div>
+</div>
+</div>
+<p>This error is expected, because when we read files, we always get <code>str</code> as the datatype for all values. We need to convert the grades to <code>int</code> before doing any math.</p>
+<div id="293e355d" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>grades <span class="op">=</span> [<span class="bu">int</span>(s[<span class="dv">2</span>]) <span class="cf">for</span> s <span class="kw">in</span> students]</span>
+<span id="cb18-2"><a href="#cb18-2"></a>avg <span class="op">=</span> <span class="bu">sum</span>(grades) <span class="op">/</span> <span class="bu">len</span>(grades)</span>
+<span id="cb18-3"><a href="#cb18-3"></a>avg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>91.0</code></pre>
+</div>
+</div>
+<p>You can also read and write data in dictionary form using the&nbsp;<a href="https://docs.python.org/3/library/csv.html#csv.DictReader"><code>DictReader</code></a>&nbsp;and&nbsp;<a href="https://docs.python.org/3/library/csv.html#csv.DictWriter"><code>DictWriter</code></a>&nbsp;classes.</p>
+<div id="0863df97" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="cf">with</span> Path(<span class="st">'datasets/students.csv'</span>).<span class="bu">open</span>() <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb20-2"><a href="#cb20-2"></a>    reader <span class="op">=</span> csv.DictReader(<span class="bu">file</span>)</span>
+<span id="cb20-3"><a href="#cb20-3"></a>    <span class="cf">for</span> row <span class="kw">in</span> reader:</span>
+<span id="cb20-4"><a href="#cb20-4"></a>        <span class="bu">print</span>(row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'Name': 'Adam', 'Age': '22', 'Grade': '90'}
+{'Name': 'Belal', 'Age': '23', 'Grade': '92'}
+{'Name': 'Camal', 'Age': '24', 'Grade': '91'}</code></pre>
+</div>
+</div>
+<p>The recommended approach to deal with tabular data (like CSV files) is to use the the pandas library. It provides a fast and flexible data structure for data manipulation and analysis. <strong>At this level, I encourage you to go through the <a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">getting started tutorial for pandas</a> on your own</strong>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./11_io.html" class="pagination-link" aria-label="File I/O with pathlib">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">File I/O with pathlib</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./13_errors.html" class="pagination-link" aria-label="Errors and Exceptions">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Errors and Exceptions</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

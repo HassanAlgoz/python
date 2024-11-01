@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; النصوص – البايثونية</title>
+<title>5&nbsp; النصوص – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./05_control_flow.html" rel="next">
-<link href="./03_numbers.html" rel="prev">
+<link href="./06_functions.html" rel="next">
+<link href="./03_control_flow.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_setup.html">المنهج</a></li><li class="breadcrumb-item"><a href="./04_strings.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">النصوص</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_setup.html">المنهج</a></li><li class="breadcrumb-item"><a href="./05_strings.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">النصوص</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -169,20 +169,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_numbers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الأعداد</span></span></a>
+  <a href="./03_control_flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">تدفق التحكم</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04_strings.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">النصوص</span></span></a>
-  </div>
-</li>
+ <span class="menu-text">04_numbers.qmd</span>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_control_flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">تدفق التحكم</span></span></a>
+  <a href="./05_strings.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">النصوص</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -209,44 +206,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#ترميز-الحروف" id="toc-ترميز-الحروف" class="nav-link active" data-scroll-target="#ترميز-الحروف"><span class="header-section-number">4.1</span> ترميز الحروف</a>
+  <li><a href="#ترميز-الحروف" id="toc-ترميز-الحروف" class="nav-link active" data-scroll-target="#ترميز-الحروف"><span class="header-section-number">5.1</span> ترميز الحروف</a>
   <ul class="collapse">
-  <li><a href="#ترميز-unicode" id="toc-ترميز-unicode" class="nav-link" data-scroll-target="#ترميز-unicode"><span class="header-section-number">4.1.1</span> ترميز Unicode</a></li>
+  <li><a href="#ترميز-unicode" id="toc-ترميز-unicode" class="nav-link" data-scroll-target="#ترميز-unicode"><span class="header-section-number">5.1.1</span> ترميز Unicode</a></li>
   </ul></li>
-  <li><a href="#كيف-يتم-تمثيل-النصوص-في-بايثون" id="toc-كيف-يتم-تمثيل-النصوص-في-بايثون" class="nav-link" data-scroll-target="#كيف-يتم-تمثيل-النصوص-في-بايثون"><span class="header-section-number">4.2</span> كيف يتم تمثيل النصوص في بايثون؟</a></li>
-  <li><a href="#السلاسل-النصية-strings" id="toc-السلاسل-النصية-strings" class="nav-link" data-scroll-target="#السلاسل-النصية-strings"><span class="header-section-number">4.3</span> السلاسل النصية (Strings)</a></li>
-  <li><a href="#دوال-السلاسل-النصية" id="toc-دوال-السلاسل-النصية" class="nav-link" data-scroll-target="#دوال-السلاسل-النصية"><span class="header-section-number">4.4</span> دوال السلاسل النصية</a>
+  <li><a href="#كيف-يتم-تمثيل-النصوص-في-بايثون" id="toc-كيف-يتم-تمثيل-النصوص-في-بايثون" class="nav-link" data-scroll-target="#كيف-يتم-تمثيل-النصوص-في-بايثون"><span class="header-section-number">5.2</span> كيف يتم تمثيل النصوص في بايثون؟</a></li>
+  <li><a href="#السلاسل-النصية-strings" id="toc-السلاسل-النصية-strings" class="nav-link" data-scroll-target="#السلاسل-النصية-strings"><span class="header-section-number">5.3</span> السلاسل النصية (Strings)</a></li>
+  <li><a href="#دوال-السلاسل-النصية" id="toc-دوال-السلاسل-النصية" class="nav-link" data-scroll-target="#دوال-السلاسل-النصية"><span class="header-section-number">5.4</span> دوال السلاسل النصية</a>
   <ul class="collapse">
-  <li><a href="#count-find-and-replace" id="toc-count-find-and-replace" class="nav-link" data-scroll-target="#count-find-and-replace"><span class="header-section-number">4.4.1</span> <code>count</code>, <code>find</code>, and <code>replace</code></a></li>
-  <li><a href="#الأحرف-البيضاء-whitespace-characters" id="toc-الأحرف-البيضاء-whitespace-characters" class="nav-link" data-scroll-target="#الأحرف-البيضاء-whitespace-characters"><span class="header-section-number">4.4.2</span> الأحرف البيضاء (Whitespace Characters)</a></li>
-  <li><a href="#strip" id="toc-strip" class="nav-link" data-scroll-target="#strip"><span class="header-section-number">4.4.3</span> <code>.strip()</code></a></li>
-  <li><a href="#split" id="toc-split" class="nav-link" data-scroll-target="#split"><span class="header-section-number">4.4.4</span> <code>.split()</code></a></li>
-  <li><a href="#join" id="toc-join" class="nav-link" data-scroll-target="#join"><span class="header-section-number">4.4.5</span> <code>.join()</code></a></li>
+  <li><a href="#count-find-and-replace" id="toc-count-find-and-replace" class="nav-link" data-scroll-target="#count-find-and-replace"><span class="header-section-number">5.4.1</span> <code>count</code>, <code>find</code>, and <code>replace</code></a></li>
+  <li><a href="#الأحرف-البيضاء-whitespace-characters" id="toc-الأحرف-البيضاء-whitespace-characters" class="nav-link" data-scroll-target="#الأحرف-البيضاء-whitespace-characters"><span class="header-section-number">5.4.2</span> الأحرف البيضاء (Whitespace Characters)</a></li>
+  <li><a href="#strip" id="toc-strip" class="nav-link" data-scroll-target="#strip"><span class="header-section-number">5.4.3</span> <code>.strip()</code></a></li>
+  <li><a href="#split" id="toc-split" class="nav-link" data-scroll-target="#split"><span class="header-section-number">5.4.4</span> <code>.split()</code></a></li>
+  <li><a href="#join" id="toc-join" class="nav-link" data-scroll-target="#join"><span class="header-section-number">5.4.5</span> <code>.join()</code></a></li>
   </ul></li>
-  <li><a href="#repetition" id="toc-repetition" class="nav-link" data-scroll-target="#repetition"><span class="header-section-number">4.5</span> Repetition</a></li>
-  <li><a href="#concatenation" id="toc-concatenation" class="nav-link" data-scroll-target="#concatenation"><span class="header-section-number">4.6</span> Concatenation</a></li>
-  <li><a href="#تنسيق-السلاسل-النصية" id="toc-تنسيق-السلاسل-النصية" class="nav-link" data-scroll-target="#تنسيق-السلاسل-النصية"><span class="header-section-number">4.7</span> تنسيق السلاسل النصية</a>
+  <li><a href="#repetition" id="toc-repetition" class="nav-link" data-scroll-target="#repetition"><span class="header-section-number">5.5</span> Repetition</a></li>
+  <li><a href="#concatenation" id="toc-concatenation" class="nav-link" data-scroll-target="#concatenation"><span class="header-section-number">5.6</span> Concatenation</a></li>
+  <li><a href="#تنسيق-السلاسل-النصية" id="toc-تنسيق-السلاسل-النصية" class="nav-link" data-scroll-target="#تنسيق-السلاسل-النصية"><span class="header-section-number">5.7</span> تنسيق السلاسل النصية</a>
   <ul class="collapse">
-  <li><a href="#المحاذاة-والحشو-alignment-and-padding" id="toc-المحاذاة-والحشو-alignment-and-padding" class="nav-link" data-scroll-target="#المحاذاة-والحشو-alignment-and-padding"><span class="header-section-number">4.7.1</span> المحاذاة والحشو (Alignment and Padding)</a></li>
+  <li><a href="#المحاذاة-والحشو-alignment-and-padding" id="toc-المحاذاة-والحشو-alignment-and-padding" class="nav-link" data-scroll-target="#المحاذاة-والحشو-alignment-and-padding"><span class="header-section-number">5.7.1</span> المحاذاة والحشو (Alignment and Padding)</a></li>
   </ul></li>
-  <li><a href="#تنسيق-الأرقام" id="toc-تنسيق-الأرقام" class="nav-link" data-scroll-target="#تنسيق-الأرقام"><span class="header-section-number">4.8</span> تنسيق الأرقام</a>
+  <li><a href="#تنسيق-الأرقام" id="toc-تنسيق-الأرقام" class="nav-link" data-scroll-target="#تنسيق-الأرقام"><span class="header-section-number">5.8</span> تنسيق الأرقام</a>
   <ul class="collapse">
-  <li><a href="#محاذاة-الأرقام" id="toc-محاذاة-الأرقام" class="nav-link" data-scroll-target="#محاذاة-الأرقام"><span class="header-section-number">4.8.1</span> محاذاة الأرقام</a></li>
-  <li><a href="#فاصل-الآلاف" id="toc-فاصل-الآلاف" class="nav-link" data-scroll-target="#فاصل-الآلاف"><span class="header-section-number">4.8.2</span> فاصل الآلاف</a></li>
-  <li><a href="#الترميز-العلمي-scientific-notation" id="toc-الترميز-العلمي-scientific-notation" class="nav-link" data-scroll-target="#الترميز-العلمي-scientific-notation"><span class="header-section-number">4.8.3</span> الترميز العلمي (Scientific Notation)</a></li>
-  <li><a href="#الأعداد-العشرية-decimals" id="toc-الأعداد-العشرية-decimals" class="nav-link" data-scroll-target="#الأعداد-العشرية-decimals"><span class="header-section-number">4.8.4</span> الأعداد العشرية (Decimals)</a></li>
-  <li><a href="#تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats" id="toc-تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats" class="nav-link" data-scroll-target="#تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats"><span class="header-section-number">4.8.5</span> تنسيق كتابة القيَم العددية الثابتة (Number literal formats)</a></li>
+  <li><a href="#محاذاة-الأرقام" id="toc-محاذاة-الأرقام" class="nav-link" data-scroll-target="#محاذاة-الأرقام"><span class="header-section-number">5.8.1</span> محاذاة الأرقام</a></li>
+  <li><a href="#فاصل-الآلاف" id="toc-فاصل-الآلاف" class="nav-link" data-scroll-target="#فاصل-الآلاف"><span class="header-section-number">5.8.2</span> فاصل الآلاف</a></li>
+  <li><a href="#الترميز-العلمي-scientific-notation" id="toc-الترميز-العلمي-scientific-notation" class="nav-link" data-scroll-target="#الترميز-العلمي-scientific-notation"><span class="header-section-number">5.8.3</span> الترميز العلمي (Scientific Notation)</a></li>
+  <li><a href="#الأعداد-العشرية-decimals" id="toc-الأعداد-العشرية-decimals" class="nav-link" data-scroll-target="#الأعداد-العشرية-decimals"><span class="header-section-number">5.8.4</span> الأعداد العشرية (Decimals)</a></li>
+  <li><a href="#تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats" id="toc-تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats" class="nav-link" data-scroll-target="#تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats"><span class="header-section-number">5.8.5</span> تنسيق كتابة القيَم العددية الثابتة (Number literal formats)</a></li>
   </ul></li>
-  <li><a href="#المراجع" id="toc-المراجع" class="nav-link" data-scroll-target="#المراجع"><span class="header-section-number">4.9</span> المراجع</a></li>
+  <li><a href="#المراجع" id="toc-المراجع" class="nav-link" data-scroll-target="#المراجع"><span class="header-section-number">5.9</span> المراجع</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_setup.html">المنهج</a></li><li class="breadcrumb-item"><a href="./04_strings.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">النصوص</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_setup.html">المنهج</a></li><li class="breadcrumb-item"><a href="./05_strings.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">النصوص</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">النصوص</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">النصوص</span></h1>
 </div>
 
 
@@ -263,13 +260,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="ترميز-الحروف" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="ترميز-الحروف"><span class="header-section-number">4.1</span> ترميز الحروف</h2>
+<section id="ترميز-الحروف" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="ترميز-الحروف"><span class="header-section-number">5.1</span> ترميز الحروف</h2>
 <p><strong>ترميز الحروف</strong> هي عملية تعيين أرقام للأحرف الرسومية مما يسمح بتخزينها ونقلها وتحويلها باستخدام الحواسيب الرقمية.</p>
 <p><strong>رموز ASCII</strong> تحتوي على <code>128</code> حرف للغة الإنجليزية وبعض علامات الترقيم. منها <code>95</code> فقط هي أحرف قابلة للطباعة أما البقية فتسمى أحرف تحكُّم (مثل حرف السطر الجديد <code>\n</code> ، وحرف الرجوع لبداية السطر <code>\r</code>).</p>
 <p>ثم امتدت عن طريق <strong>رموز ANSII</strong> لتغطي أحرف إضافية (من <code>128</code> إلى <code>255</code>) وهي الأحرف الاتينية للغات الأخرى.</p>
 <p>لنستكشف السلاسل عن طريق حزمة من المكتبة الأساسية <code>string</code>. الآتي الأحرف اللاتينية الكبيرة والصغيرة، وعلامات الترقيم:</p>
-<div id="dc935c45" class="cell" data-execution_count="1">
+<div id="dc935c45" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> string</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="bu">print</span>(string.ascii_letters)</span>
@@ -279,11 +276,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 !"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</code></pre>
 </div>
 </div>
-<section id="ترميز-unicode" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="ترميز-unicode"><span class="header-section-number">4.1.1</span> ترميز Unicode</h3>
+<section id="ترميز-unicode" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="ترميز-unicode"><span class="header-section-number">5.1.1</span> ترميز Unicode</h3>
 <p>واليوم <strong>رموز Unicode</strong> تحتوي على أكثر من <strong>مليون حرف</strong> لتغطية لغات العالم كافة: اللاتينية، اليونانية، السيريلية، الأرمنية، العبرية، <strong>العربية</strong>، السريانية، الثانا، الديفاناغارية، البنغالية، الجورموخية، الأورية، التاميلية، التيلوغوية، الكانادية، المالايالامية، السنهالية، التايلاندية، اللاوية، التبتية، الميانمارية، الجورجية، الهانغول، الإثيوبية، الشيروكية، الرموز الكندية الأصلية، الخميرية، المنغولية، الهان (الأيدوغراف الياباني، الصيني، الكوري)، الهيراغانا، الكاتاكانا، واليي. <a href="https://www.unicode.org/faq/basic_q.html#:~:text=The%20simplest%20answer%20is%20that,%2C%20Myanmar%2C%20Georgian%2C%20Hangul%2C">المصدر</a>. وما يزال أول <code>128</code> حرف منها متطابق مع رموز ASCII.</p>
-<section id="مثال" class="level4" data-number="4.1.1.1">
-<h4 data-number="4.1.1.1" class="anchored" data-anchor-id="مثال"><span class="header-section-number">4.1.1.1</span> مثال</h4>
+<section id="مثال" class="level4" data-number="5.1.1.1">
+<h4 data-number="5.1.1.1" class="anchored" data-anchor-id="مثال"><span class="header-section-number">5.1.1.1</span> مثال</h4>
 <p>ماذا يحصل لو كتبنا حروف عربية ثم حاولنا حفظ الملف بترميز ASCII ولم نحفظه بترميز Unicode؟</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -295,12 +292,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 </section>
-<section id="كيف-يتم-تمثيل-النصوص-في-بايثون" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="كيف-يتم-تمثيل-النصوص-في-بايثون"><span class="header-section-number">4.2</span> كيف يتم تمثيل النصوص في بايثون؟</h2>
+<section id="كيف-يتم-تمثيل-النصوص-في-بايثون" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="كيف-يتم-تمثيل-النصوص-في-بايثون"><span class="header-section-number">5.2</span> كيف يتم تمثيل النصوص في بايثون؟</h2>
 <p>تمثيل النصوص في بايثون يكون عن طريق النوع <code>str</code>؛ يُعرَّف بكتابة سلسلة من الأحرف لكن في الواقع تتحول إلى سلسلة من رموز Unicode (أي: أرقام). هذا يعني أنها قد تكون سلسلة رموز لاتينية أو عربية أو صينية أو غير ذلك مما تحويه رموز Unicode.</p>
 <p>الدالة المدمجة <strong>ord()</strong> تقوم بتحويل الحرف إلى رقم الرمز. بينما <strong>chr()</strong> تعكس ذلك (من الرمز إلى الحرف).</p>
 <p>على النقيض من سي وجافا؛ لا يوجد نوع خاص بالحرف الواحد (<code>char</code>) في بايثون.</p>
-<div id="9b1f7fa4" class="cell" data-execution_count="2">
+<div id="9b1f7fa4" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"A"</span>), <span class="bu">ord</span>(<span class="st">"Z"</span>))</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="bu">print</span>(<span class="bu">chr</span>(<span class="dv">65</span>), <span class="bu">chr</span>(<span class="dv">90</span>))</span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"a"</span>), <span class="bu">ord</span>(<span class="st">"z"</span>))</span>
@@ -313,7 +310,7 @@ A Z
 </div>
 </div>
 <p>ماذا عن الحروف العربية؟ أين تقع في أرقام ترميز Unicode؟</p>
-<div id="ce0e52d7" class="cell" data-execution_count="3">
+<div id="ce0e52d7" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Arabic Unicode points are between 1536 and 1791</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"أ"</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">"أ"</span>)))</span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"ب"</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">"ب"</span>)))</span>
@@ -330,8 +327,8 @@ A Z
 </div>
 <p>راجع <a href="https://en.wikipedia.org/wiki/Arabic_script_in_Unicode">ويكيبيديا: النص العربي في Unicode</a> لمزيد من التفاصيل.</p>
 </section>
-<section id="السلاسل-النصية-strings" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="السلاسل-النصية-strings"><span class="header-section-number">4.3</span> السلاسل النصية (Strings)</h2>
+<section id="السلاسل-النصية-strings" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="السلاسل-النصية-strings"><span class="header-section-number">5.3</span> السلاسل النصية (Strings)</h2>
 <p>السلسلة النصية هي متتالية من أحرف بترميز Unicode.</p>
 <p>تُستخدم غالباً مع البيانات النصية مثل:</p>
 <ul>
@@ -340,11 +337,11 @@ A Z
 <li>الرسائل</li>
 <li>البيانات النصية شبه المهيكلة مثل: CSV, JSON, XML, …وغيرها</li>
 </ul>
-<div id="ce8b575c" class="cell" data-execution_count="4">
+<div id="ce8b575c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>name <span class="op">=</span> <span class="st">'Adam'</span> <span class="co"># String literals can use single quotes</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>address <span class="op">=</span> <span class="st">"Riyadh, Saudi Arabia"</span> <span class="co"># or double quotes; it does not matter</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="2eabbde7" class="cell" data-execution_count="5">
+<div id="2eabbde7" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Triple quoted strings may span multiple lines.</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="co"># All associated whitespace will be included in the string literal.</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a>message <span class="op">=</span> <span class="st">"""Hello everyone,</span></span>
@@ -362,7 +359,7 @@ Thank you.
 </div>
 </div>
 <p>لمعرفة طول السلسلة:</p>
-<div id="ad486da8" class="cell" data-execution_count="6">
+<div id="ad486da8" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>phone <span class="op">=</span> <span class="st">"123456789"</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="bu">len</span>(phone)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -370,8 +367,8 @@ Thank you.
 </div>
 </div>
 </section>
-<section id="دوال-السلاسل-النصية" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="دوال-السلاسل-النصية"><span class="header-section-number">4.4</span> دوال السلاسل النصية</h2>
+<section id="دوال-السلاسل-النصية" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="دوال-السلاسل-النصية"><span class="header-section-number">5.4</span> دوال السلاسل النصية</h2>
 <ul>
 <li>السلاسل النصية هي <strong>كائنات</strong>، مثل أي شيء في بايثون.</li>
 <li>الكائنات لديها <strong>دوال مضافة (Methods)</strong> يمكن <strong>استدعاؤها</strong> باستخدام المعامل <code>.</code> متبوعًا بـ <code>()</code> (قوسين):</li>
@@ -435,7 +432,7 @@ Thank you.
 </table>
 <p>راجع <a href="string_methods.qmd">ملحق دوال السلاسل</a> لمزيد من التفاصيل.</p>
 <p>لنستكشف بعض دوال السلاسل النصية:</p>
-<div id="99fa2a91" class="cell" data-execution_count="7">
+<div id="99fa2a91" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="bu">print</span>(<span class="st">"hello"</span>.upper())</span>
 <span id="cb12-2"><a href="#cb12-2"></a><span class="bu">print</span>(<span class="st">"HeLLO"</span>.lower())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -443,7 +440,7 @@ Thank you.
 hello</code></pre>
 </div>
 </div>
-<div id="cd6ebc70" class="cell" data-execution_count="8">
+<div id="cd6ebc70" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>name <span class="op">=</span> <span class="st">"adam ibraheem"</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a></span>
 <span id="cb14-3"><a href="#cb14-3"></a><span class="bu">print</span>(name.capitalize())</span>
@@ -454,7 +451,7 @@ Adam Ibraheem</code></pre>
 </div>
 </div>
 <p>يمكن التعرف على الدوال المدمجة للسلسلة عن طريق الدالة <code>help</code>:</p>
-<div id="379f9514" class="cell" data-execution_count="9">
+<div id="379f9514" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="bu">help</span>(<span class="bu">str</span>.title)</span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="co"># str.title? # in Jupyter</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -468,9 +465,9 @@ title(self, /) unbound builtins.str method
 </code></pre>
 </div>
 </div>
-<section id="count-find-and-replace" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="count-find-and-replace"><span class="header-section-number">4.4.1</span> <code>count</code>, <code>find</code>, and <code>replace</code></h3>
-<div id="74679adc" class="cell" data-execution_count="10">
+<section id="count-find-and-replace" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="count-find-and-replace"><span class="header-section-number">5.4.1</span> <code>count</code>, <code>find</code>, and <code>replace</code></h3>
+<div id="74679adc" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>name <span class="op">=</span> <span class="st">"Adam Ibraheem"</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a></span>
 <span id="cb18-3"><a href="#cb18-3"></a><span class="bu">print</span>(name.count(<span class="st">'a'</span>))</span>
@@ -483,10 +480,10 @@ Adxm Ibrxheem</code></pre>
 </div>
 </div>
 </section>
-<section id="الأحرف-البيضاء-whitespace-characters" class="level3" data-number="4.4.2">
-<h3 data-number="4.4.2" class="anchored" data-anchor-id="الأحرف-البيضاء-whitespace-characters"><span class="header-section-number">4.4.2</span> الأحرف البيضاء (Whitespace Characters)</h3>
+<section id="الأحرف-البيضاء-whitespace-characters" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="الأحرف-البيضاء-whitespace-characters"><span class="header-section-number">5.4.2</span> الأحرف البيضاء (Whitespace Characters)</h3>
 <p>الأحرف في الأجهزة الرقمية على نوعين: 1. <strong>أحرف مطبوعة</strong> (مثلاً: الأحرف اللاتينية والأرقام وعلامات الترقيم) 2. <strong>أحرف تحكُّم</strong> (مخفيَّة؛ والغرض منها التحكم بمعالج هذا النص)</p>
-<div id="73c9cef9" class="cell" data-execution_count="11">
+<div id="73c9cef9" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="im">import</span> string</span>
 <span id="cb20-2"><a href="#cb20-2"></a>string.printable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
@@ -494,7 +491,7 @@ Adxm Ibrxheem</code></pre>
 </div>
 </div>
 <p>كانت أحرف التحكُّم تستخدم لرن جرس الآلة الطابعة ، والتحكم بها ، لكن اليوم الذي يُستخدم منها غالبًا هو <a href="https://docs.python.org/3/library/string.html#string.whitespace"><strong>الأحرف البيضاء</strong></a> ويشمل ذلك الأحرف التالية: 1. space ويمثل المسافة كالتي بين الكلمات 2. tab ويمثل المسافة كالتي بين أعمدة الجداول 3. linefeed تعليمة سطر جديد 4. return تعليمة العودة لبداية السطر الجديد 5. formfeed تعليمة الصفحة الجديدة 6. vertical tab تعليمة العمود الجديد</p>
-<div id="2589cc22" class="cell" data-execution_count="12">
+<div id="2589cc22" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="im">import</span> string</span>
 <span id="cb22-2"><a href="#cb22-2"></a>string.whitespace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
@@ -502,14 +499,14 @@ Adxm Ibrxheem</code></pre>
 </div>
 </div>
 <p>لنلقي نظرة على ثلاثة من الأحرف البيضاء: المسافة (space)، التبويب (tab)، وتعليمة السطر الجديد (linefeed).</p>
-<div id="1f1a8570" class="cell" data-execution_count="13">
+<div id="1f1a8570" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Tab character: "\t"</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="bu">print</span>(<span class="st">'A</span><span class="ch">\t</span><span class="st">B'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>A   B</code></pre>
 </div>
 </div>
-<div id="0b9070d3" class="cell" data-execution_count="14">
+<div id="0b9070d3" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Newline character: '\n'</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="bu">print</span>(<span class="st">'A</span><span class="ch">\n</span><span class="st">B'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -518,7 +515,7 @@ B</code></pre>
 </div>
 </div>
 <p>لاحظ أن طول السلسلة النصية هو عدد الأحرف في السلسلة، سواء كانت <strong>قابلة للطباعة</strong> (printable) أو <strong>أحرف بيضاء</strong> (whitespace).</p>
-<div id="d07f7d14" class="cell" data-execution_count="15">
+<div id="d07f7d14" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="bu">print</span>(<span class="bu">len</span>(<span class="st">'A B'</span>))</span>
 <span id="cb28-2"><a href="#cb28-2"></a><span class="bu">print</span>(<span class="bu">len</span>(<span class="st">'A</span><span class="ch">\t</span><span class="st">B'</span>))</span>
 <span id="cb28-3"><a href="#cb28-3"></a><span class="bu">print</span>(<span class="bu">len</span>(<span class="st">'A</span><span class="ch">\n</span><span class="st">B'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -529,16 +526,16 @@ B</code></pre>
 </div>
 </div>
 <p>بشكل عام، إذا أخذنا سلسلة نصية وأضفنا إليها هذه الأحرف، نحصل على نفس الطول زائد 3:</p>
-<div id="be5aa2f6" class="cell" data-execution_count="16">
+<div id="be5aa2f6" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>s <span class="op">=</span> <span class="st">'Salam'</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a><span class="cf">assert</span> <span class="bu">len</span>(s <span class="op">+</span> <span class="st">'</span><span class="ch">\n\t</span><span class="st"> '</span>) <span class="op">==</span> <span class="bu">len</span>(s) <span class="op">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="strip" class="level3" data-number="4.4.3">
-<h3 data-number="4.4.3" class="anchored" data-anchor-id="strip"><span class="header-section-number">4.4.3</span> <code>.strip()</code></h3>
+<section id="strip" class="level3" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="strip"><span class="header-section-number">5.4.3</span> <code>.strip()</code></h3>
 <p>لاحظ أن هذه الدالة ستزيل الأحرف البيضاء من بداية ونهاية السلسلة النصية، ولكن ليس الأحرف البيضاء في منتصف السلسلة</p>
 <p>قبل:</p>
-<div id="bdcfd5fe" class="cell" data-execution_count="17">
+<div id="bdcfd5fe" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>text <span class="op">=</span> <span class="st">'</span><span class="ch">\t</span><span class="st"> hello    world </span><span class="ch">\n\n\n</span><span class="st">'</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="bu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -549,17 +546,17 @@ B</code></pre>
 </div>
 </div>
 <p>بعد:</p>
-<div id="55037266" class="cell" data-execution_count="18">
+<div id="55037266" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="bu">print</span>(text.strip())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>hello    world</code></pre>
 </div>
 </div>
 </section>
-<section id="split" class="level3" data-number="4.4.4">
-<h3 data-number="4.4.4" class="anchored" data-anchor-id="split"><span class="header-section-number">4.4.4</span> <code>.split()</code></h3>
+<section id="split" class="level3" data-number="5.4.4">
+<h3 data-number="5.4.4" class="anchored" data-anchor-id="split"><span class="header-section-number">5.4.4</span> <code>.split()</code></h3>
 <p>انظر: <a href="https://docs.python.org/3/library/stdtypes.html#str.splitlines">Splitlines</a></p>
-<div id="cdd92429" class="cell" data-execution_count="19">
+<div id="cdd92429" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>text <span class="op">=</span> <span class="st">'''</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a><span class="st">Hello</span></span>
 <span id="cb35-3"><a href="#cb35-3"></a><span class="st">World</span></span>
@@ -568,14 +565,14 @@ B</code></pre>
 <span id="cb35-6"><a href="#cb35-6"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>إذا تركنا الكود كما هو في السطر من غير <code>print</code> فإن ذلك يعرض السلسلة النصية كما هي (بما في ذلك أحرف المسافات البيضاء)</p>
-<div id="c5262db5" class="cell" data-execution_count="20">
+<div id="c5262db5" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>'\nHello\nWorld\n\nHow are you?\n'</code></pre>
 </div>
 </div>
 <p>أما إذا وضعنا <code>print</code> فإنه يطبع الأحرف المرئية ، وينسِّقُ المظهر بناءً على أحرف التحكُّم المخفية:</p>
-<div id="c1fe02e8" class="cell" data-execution_count="21">
+<div id="c1fe02e8" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="bu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -586,31 +583,31 @@ How are you?
 </code></pre>
 </div>
 </div>
-<div id="b7c1db98" class="cell" data-execution_count="22">
+<div id="b7c1db98" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>text.splitlines()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>['', 'Hello', 'World', '', 'How are you?']</code></pre>
 </div>
 </div>
 <p>إذا لم نحدد محدد الفاصل فإن الفاصل الافتراضي هو المسافة.</p>
-<div id="2a8b2897" class="cell" data-execution_count="23">
+<div id="2a8b2897" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="bu">print</span>(<span class="st">"Hello, world"</span>.split())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Hello,', 'world']</code></pre>
 </div>
 </div>
 <p>هنا نحدد الفاصل أنه الحرف <code>"l"</code>:</p>
-<div id="855b9eef" class="cell" data-execution_count="24">
+<div id="855b9eef" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="bu">print</span>(<span class="st">"Hello, world"</span>.split(<span class="st">"l"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['He', '', 'o, wor', 'd']</code></pre>
 </div>
 </div>
 </section>
-<section id="join" class="level3" data-number="4.4.5">
-<h3 data-number="4.4.5" class="anchored" data-anchor-id="join"><span class="header-section-number">4.4.5</span> <code>.join()</code></h3>
+<section id="join" class="level3" data-number="5.4.5">
+<h3 data-number="5.4.5" class="anchored" data-anchor-id="join"><span class="header-section-number">5.4.5</span> <code>.join()</code></h3>
 <p>هذه الدالة تدمج عناصر في متتالية مع وضع فاصل بينها.</p>
-<div id="356e8771" class="cell" data-execution_count="25">
+<div id="356e8771" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>names <span class="op">=</span> [<span class="st">"Adam"</span>, <span class="st">"Belal"</span>, <span class="st">"Camal"</span>]</span>
 <span id="cb46-2"><a href="#cb46-2"></a>seperator <span class="op">=</span> <span class="st">','</span></span>
 <span id="cb46-3"><a href="#cb46-3"></a><span class="bu">print</span>(seperator.join(names)) </span>
@@ -624,10 +621,10 @@ Adam + Belal + Camal</code></pre>
 </div>
 </section>
 </section>
-<section id="repetition" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="repetition"><span class="header-section-number">4.5</span> Repetition</h2>
+<section id="repetition" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="repetition"><span class="header-section-number">5.5</span> Repetition</h2>
 <p>يمكن تكرار السلسلة النصية باستخدام العامل <code>*</code>:</p>
-<div id="0e446fea" class="cell" data-execution_count="26">
+<div id="0e446fea" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>s <span class="op">=</span> <span class="st">"Salam "</span> <span class="op">*</span> <span class="dv">3</span></span>
 <span id="cb48-2"><a href="#cb48-2"></a><span class="bu">print</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -635,7 +632,7 @@ Adam + Belal + Camal</code></pre>
 </div>
 </div>
 <p>كذلك يمكنك وضعه مع الأحرف التي تمثل الأرقام:</p>
-<div id="288c0861" class="cell" data-execution_count="27">
+<div id="288c0861" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>zeros <span class="op">=</span> <span class="st">"0"</span> <span class="op">*</span> <span class="dv">3</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a>x <span class="op">=</span> <span class="st">"1"</span> <span class="op">+</span> zeros</span>
 <span id="cb50-3"><a href="#cb50-3"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -644,7 +641,7 @@ Adam + Belal + Camal</code></pre>
 </div>
 </div>
 <p>لكن لاحظ الآتي:</p>
-<div id="be191958" class="cell" data-execution_count="28">
+<div id="be191958" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>x <span class="op">+</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>'10001000'</code></pre>
@@ -655,7 +652,7 @@ Adam + Belal + Camal</code></pre>
 <li>لأن <code>x</code> هي سلسلة نصية (string)، وعامل <code>+</code> يقوم بدمج السلاسل النصية.</li>
 </ul>
 <p>لنقم بتحويل <code>x</code> إلى عدد صحيح باستخدام <code>int()</code>:</p>
-<div id="ebebff80" class="cell" data-execution_count="29">
+<div id="ebebff80" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>z <span class="op">=</span> <span class="bu">int</span>(x)</span>
 <span id="cb54-2"><a href="#cb54-2"></a>z <span class="op">+</span> z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
@@ -663,10 +660,10 @@ Adam + Belal + Camal</code></pre>
 </div>
 </div>
 </section>
-<section id="concatenation" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="concatenation"><span class="header-section-number">4.6</span> Concatenation</h2>
+<section id="concatenation" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="concatenation"><span class="header-section-number">5.6</span> Concatenation</h2>
 <p>نريد أن نكون قادرين على كتابة:</p>
-<div id="dbdce425" class="cell" data-execution_count="30">
+<div id="dbdce425" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>lvl <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a>sentence <span class="op">=</span> <span class="st">"I want to reach level "</span> <span class="op">+</span> lvl</span>
 <span id="cb56-3"><a href="#cb56-3"></a><span class="bu">print</span>(sentence)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -685,7 +682,7 @@ Cell <span class="ansi-green-fg ansi-bold">In[30], line 2</span>
 </div>
 <p>يظهر خطأ! لماذا؟ .. رسالة الخطأ تخبرنا أنه لا يمكننا دمج سلسلة نصية مع عدد صحيح.</p>
 <p>كيف نحل هذه المشكلة؟ نقوم بتحويل العدد الصحيح إلى سلسلة نصية باستخدام <code>str()</code>:</p>
-<div id="93ceb81b" class="cell" data-execution_count="31">
+<div id="93ceb81b" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>age <span class="op">=</span> <span class="dv">40</span></span>
 <span id="cb57-2"><a href="#cb57-2"></a>sentence <span class="op">=</span> <span class="st">"My name is Adam and I am "</span> <span class="op">+</span> <span class="bu">str</span>(age) <span class="op">+</span> <span class="st">" years old."</span></span>
 <span id="cb57-3"><a href="#cb57-3"></a><span class="bu">print</span>(sentence)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -695,12 +692,12 @@ Cell <span class="ansi-green-fg ansi-bold">In[30], line 2</span>
 </div>
 <p>لاحظ أننا نضيف حرفي مسافة، واحدة بعد “am” وواحدة قبل “years” لجعل الجملة قابلة للقراءة.</p>
 <p>حاول القيام بذلك للجملة السابقة مع <code>lvl</code>:</p>
-<div id="0f64929e" class="cell" data-execution_count="32">
+<div id="0f64929e" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># try it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="تنسيق-السلاسل-النصية" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="تنسيق-السلاسل-النصية"><span class="header-section-number">4.7</span> تنسيق السلاسل النصية</h2>
+<section id="تنسيق-السلاسل-النصية" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="تنسيق-السلاسل-النصية"><span class="header-section-number">5.7</span> تنسيق السلاسل النصية</h2>
 <p>نستعرض ثلاث طرق لدمج السلاسل النصية في بايثون:</p>
 <p><strong>أولاً</strong>، دمج السلاسل النصية الفردية باستخدام عامل <code>+</code> (كما فعلنا سابقًا).</p>
 <ul>
@@ -717,7 +714,7 @@ Cell <span class="ansi-green-fg ansi-bold">In[30], line 2</span>
 <blockquote class="blockquote">
 <p>سلسلة نصية مهيكلة أو f-string هي سلسلة نصية مسبوقة بالحرف ‘f’ أو ‘F’. قد تحتوي هذه السلاسل على حقول استبدال، وهي تعبيرات محددة بواسطة الأقواس المعقوفة {}. بينما تحتوي السلاسل النصية الأخرى دائمًا على قيمة ثابتة، فإن السلاسل النصية المهيكلة هي تعبيرات يتم تقييمها في وقت التشغيل. <a href="https://docs.python.org/3/reference/lexical_analysis.html#formatted-string-literals">المستندات</a></p>
 </blockquote>
-<div id="1a8cc449" class="cell" data-execution_count="33">
+<div id="1a8cc449" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>name <span class="op">=</span> <span class="st">"John"</span></span>
 <span id="cb60-2"><a href="#cb60-2"></a>lvl <span class="op">=</span> <span class="dv">300</span></span>
 <span id="cb60-3"><a href="#cb60-3"></a></span>
@@ -730,16 +727,16 @@ Cell <span class="ansi-green-fg ansi-bold">In[30], line 2</span>
 <pre><code>My name is John and I want to reach level 300</code></pre>
 </div>
 </div>
-<section id="تمرين" class="level4" data-number="4.7.0.1">
-<h4 data-number="4.7.0.1" class="anchored" data-anchor-id="تمرين"><span class="header-section-number">4.7.0.1</span> تمرين</h4>
+<section id="تمرين" class="level4" data-number="5.7.0.1">
+<h4 data-number="5.7.0.1" class="anchored" data-anchor-id="تمرين"><span class="header-section-number">5.7.0.1</span> تمرين</h4>
 <p>اطبع الجملة <code>"Hello, my name is John Doe. and I am 30 years old"</code>. باستخدام المتغيرات <code>first_name</code>، <code>last_name</code>، و <code>age</code> عبر الطرق الثلاث المذكورة آنفًا:</p>
-<div id="c977eeae" class="cell" data-execution_count="34">
+<div id="c977eeae" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># try it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="المحاذاة-والحشو-alignment-and-padding" class="level3" data-number="4.7.1">
-<h3 data-number="4.7.1" class="anchored" data-anchor-id="المحاذاة-والحشو-alignment-and-padding"><span class="header-section-number">4.7.1</span> المحاذاة والحشو (Alignment and Padding)</h3>
-<div id="80d04774" class="cell" data-execution_count="35">
+<section id="المحاذاة-والحشو-alignment-and-padding" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="المحاذاة-والحشو-alignment-and-padding"><span class="header-section-number">5.7.1</span> المحاذاة والحشو (Alignment and Padding)</h3>
+<div id="80d04774" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a><span class="bu">print</span>(name.ljust(<span class="dv">15</span>)) </span>
 <span id="cb63-2"><a href="#cb63-2"></a><span class="bu">print</span>(name.center(<span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -748,7 +745,7 @@ Cell <span class="ansi-green-fg ansi-bold">In[30], line 2</span>
 </div>
 </div>
 <p>طريقة ممتعة لتزيين سلسلة نصية باستخدام دالة <code>center</code>:</p>
-<div id="73fcc328" class="cell" data-execution_count="36">
+<div id="73fcc328" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a><span class="bu">print</span>(<span class="st">'*'</span> <span class="op">*</span> <span class="dv">20</span>)</span>
 <span id="cb65-2"><a href="#cb65-2"></a><span class="bu">print</span>(<span class="st">'Adam'</span>.center(<span class="dv">20</span>, <span class="st">"*"</span>))</span>
 <span id="cb65-3"><a href="#cb65-3"></a><span class="bu">print</span>(<span class="st">'*'</span> <span class="op">*</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -758,26 +755,26 @@ Cell <span class="ansi-green-fg ansi-bold">In[30], line 2</span>
 ********************</code></pre>
 </div>
 </div>
-<section id="exercise" class="level4" data-number="4.7.1.1">
-<h4 data-number="4.7.1.1" class="anchored" data-anchor-id="exercise"><span class="header-section-number">4.7.1.1</span> Exercise</h4>
+<section id="exercise" class="level4" data-number="5.7.1.1">
+<h4 data-number="5.7.1.1" class="anchored" data-anchor-id="exercise"><span class="header-section-number">5.7.1.1</span> Exercise</h4>
 <p>قم بصياغة الكود السابق لتعريف ثلاثة متغيرات واستخدامها في تزيين الاسم:</p>
 <ul>
 <li><code>name</code></li>
 <li><code>width</code></li>
 <li><code>decorator</code></li>
 </ul>
-<div id="1328c131" class="cell" data-execution_count="37">
+<div id="1328c131" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># try it</span></span>
 <span id="cb67-2"><a href="#cb67-2"></a>name <span class="op">=</span> <span class="st">'Adam'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 </section>
-<section id="تنسيق-الأرقام" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="تنسيق-الأرقام"><span class="header-section-number">4.8</span> تنسيق الأرقام</h2>
-<section id="محاذاة-الأرقام" class="level3" data-number="4.8.1">
-<h3 data-number="4.8.1" class="anchored" data-anchor-id="محاذاة-الأرقام"><span class="header-section-number">4.8.1</span> محاذاة الأرقام</h3>
-<div id="7fec39d6" class="cell" data-execution_count="38">
+<section id="تنسيق-الأرقام" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="تنسيق-الأرقام"><span class="header-section-number">5.8</span> تنسيق الأرقام</h2>
+<section id="محاذاة-الأرقام" class="level3" data-number="5.8.1">
+<h3 data-number="5.8.1" class="anchored" data-anchor-id="محاذاة-الأرقام"><span class="header-section-number">5.8.1</span> محاذاة الأرقام</h3>
+<div id="7fec39d6" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="dv">100</span><span class="sc">:10}</span><span class="ss">'</span>)</span>
 <span id="cb68-2"><a href="#cb68-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="dv">1000</span><span class="sc">:10}</span><span class="ss">'</span>)</span>
 <span id="cb68-3"><a href="#cb68-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="dv">10000</span><span class="sc">:10}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -788,7 +785,7 @@ Cell <span class="ansi-green-fg ansi-bold">In[30], line 2</span>
 </div>
 </div>
 <p>يمكننا أيضًا جعل كل من العدد <code>n</code> والتعبئة <code>p</code> متغيرات:</p>
-<div id="8cf81e08" class="cell" data-execution_count="39">
+<div id="8cf81e08" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb70-2"><a href="#cb70-2"></a>p <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb70-3"><a href="#cb70-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -797,7 +794,7 @@ Cell <span class="ansi-green-fg ansi-bold">In[30], line 2</span>
 </div>
 </div>
 <p>بشكل افتراضي، يتم محاذاة الرقم إلى اليمين. يمكننا محاذاته إلى اليسار بإضافة <code>&lt;</code>. لاحظ الفرق بين التعبيرين أدناه:</p>
-<div id="b9044b1a" class="cell" data-execution_count="40">
+<div id="b9044b1a" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span><span class="op">&gt;</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb72-2"><a href="#cb72-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span><span class="op">&lt;</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -806,9 +803,9 @@ Cell <span class="ansi-green-fg ansi-bold">In[30], line 2</span>
 </div>
 </div>
 </section>
-<section id="فاصل-الآلاف" class="level3" data-number="4.8.2">
-<h3 data-number="4.8.2" class="anchored" data-anchor-id="فاصل-الآلاف"><span class="header-section-number">4.8.2</span> فاصل الآلاف</h3>
-<div id="8511e6c2" class="cell" data-execution_count="41">
+<section id="فاصل-الآلاف" class="level3" data-number="5.8.2">
+<h3 data-number="5.8.2" class="anchored" data-anchor-id="فاصل-الآلاف"><span class="header-section-number">5.8.2</span> فاصل الآلاف</h3>
+<div id="8511e6c2" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>big_num <span class="op">=</span> <span class="dv">10000</span></span>
 <span id="cb74-2"><a href="#cb74-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>big_num<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb74-3"><a href="#cb74-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>big_num<span class="sc">:,}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -818,9 +815,9 @@ Cell <span class="ansi-green-fg ansi-bold">In[30], line 2</span>
 </div>
 </div>
 </section>
-<section id="الترميز-العلمي-scientific-notation" class="level3" data-number="4.8.3">
-<h3 data-number="4.8.3" class="anchored" data-anchor-id="الترميز-العلمي-scientific-notation"><span class="header-section-number">4.8.3</span> الترميز العلمي (Scientific Notation)</h3>
-<div id="b2bb0af4" class="cell" data-execution_count="42">
+<section id="الترميز-العلمي-scientific-notation" class="level3" data-number="5.8.3">
+<h3 data-number="5.8.3" class="anchored" data-anchor-id="الترميز-العلمي-scientific-notation"><span class="header-section-number">5.8.3</span> الترميز العلمي (Scientific Notation)</h3>
+<div id="b2bb0af4" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a>small_num <span class="op">=</span> <span class="fl">1e-4</span></span>
 <span id="cb76-2"><a href="#cb76-2"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>small_num<span class="sc">:.2e}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -828,9 +825,9 @@ Cell <span class="ansi-green-fg ansi-bold">In[30], line 2</span>
 </div>
 </div>
 </section>
-<section id="الأعداد-العشرية-decimals" class="level3" data-number="4.8.4">
-<h3 data-number="4.8.4" class="anchored" data-anchor-id="الأعداد-العشرية-decimals"><span class="header-section-number">4.8.4</span> الأعداد العشرية (Decimals)</h3>
-<div id="83667819" class="cell" data-execution_count="43">
+<section id="الأعداد-العشرية-decimals" class="level3" data-number="5.8.4">
+<h3 data-number="5.8.4" class="anchored" data-anchor-id="الأعداد-العشرية-decimals"><span class="header-section-number">5.8.4</span> الأعداد العشرية (Decimals)</h3>
+<div id="83667819" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a>num <span class="op">=</span> <span class="fl">10.5689</span></span>
 <span id="cb78-2"><a href="#cb78-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb78-3"><a href="#cb78-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
@@ -843,10 +840,10 @@ Cell <span class="ansi-green-fg ansi-bold">In[30], line 2</span>
 11</code></pre>
 </div>
 </div>
-<section id="مثال-تنسيق-الكم-المالي" class="level4" data-number="4.8.4.1">
-<h4 data-number="4.8.4.1" class="anchored" data-anchor-id="مثال-تنسيق-الكم-المالي"><span class="header-section-number">4.8.4.1</span> مثال: تنسيق الكم المالي</h4>
+<section id="مثال-تنسيق-الكم-المالي" class="level4" data-number="5.8.4.1">
+<h4 data-number="5.8.4.1" class="anchored" data-anchor-id="مثال-تنسيق-الكم-المالي"><span class="header-section-number">5.8.4.1</span> مثال: تنسيق الكم المالي</h4>
 <p>هنا نستخدم مكونين داخل الأقواس المعقوفة وعلامة <code>$</code> في البداية: - يتم إضافة علامة <code>$</code> قبل الرقم (ليست جزءًا من الرقم المنسق على الإطلاق) - <code>,</code> تضيف فاصل الآلاف - <code>.2f</code> يقوم بتقريب الرقم إلى منزلتين عشريتين</p>
-<div id="9e123722" class="cell" data-execution_count="44">
+<div id="9e123722" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a>price <span class="op">=</span> <span class="fl">2978.95</span></span>
 <span id="cb80-2"><a href="#cb80-2"></a><span class="bu">print</span>(<span class="ss">f"$</span><span class="sc">{</span>price<span class="sc">:,.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -855,8 +852,8 @@ Cell <span class="ansi-green-fg ansi-bold">In[30], line 2</span>
 </div>
 </section>
 </section>
-<section id="تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats" class="level3" data-number="4.8.5">
-<h3 data-number="4.8.5" class="anchored" data-anchor-id="تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats"><span class="header-section-number">4.8.5</span> تنسيق كتابة القيَم العددية الثابتة (Number literal formats)</h3>
+<section id="تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats" class="level3" data-number="5.8.5">
+<h3 data-number="5.8.5" class="anchored" data-anchor-id="تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats"><span class="header-section-number">5.8.5</span> تنسيق كتابة القيَم العددية الثابتة (Number literal formats)</h3>
 <p><a href="https://docs.python.org/3/reference/lexical_analysis.html#literals"><strong>الحروفيَّة</strong></a> هي رموز للقيم الثابتة لبعض الأنواع المدمجة. مثال: <code>42</code> هو حرفيُّ عدد صحيح و <code>3.14</code> هو حرفيُّ عدد عشري.</p>
 <p>تسمح بايثون بطرق أكثر قابلية للقراءة في كتابة الحروفية العددية:</p>
 <ul>
@@ -868,7 +865,7 @@ Cell <span class="ansi-green-fg ansi-bold">In[30], line 2</span>
 <li><code>j</code> أو <code>J</code> للأعداد المركبة</li>
 </ul>
 <p>وإليك تطبيق ذلك:</p>
-<div id="ef3b841b" class="cell" data-execution_count="45">
+<div id="ef3b841b" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a><span class="cf">assert</span> <span class="fl">1e-4</span> <span class="op">==</span> <span class="fl">0.0001</span></span>
 <span id="cb82-2"><a href="#cb82-2"></a><span class="cf">assert</span> <span class="dv">1_000_000</span> <span class="op">==</span> <span class="dv">1000000</span></span>
 <span id="cb82-3"><a href="#cb82-3"></a><span class="cf">assert</span> <span class="bn">0b1010</span> <span class="op">==</span> <span class="dv">10</span></span>
@@ -878,8 +875,8 @@ Cell <span class="ansi-green-fg ansi-bold">In[30], line 2</span>
 </div>
 </section>
 </section>
-<section id="المراجع" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="المراجع"><span class="header-section-number">4.9</span> المراجع</h2>
+<section id="المراجع" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="المراجع"><span class="header-section-number">5.9</span> المراجع</h2>
 <ul>
 <li><a href="https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str">Text Sequence Type — str</a></li>
 <li><a href="https://docs.python.org/3/library/stdtypes.html#string-methods">String methods</a></li>
@@ -1315,13 +1312,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03_numbers.html" class="pagination-link" aria-label="الأعداد">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الأعداد</span></span>
+      <a href="./03_control_flow.html" class="pagination-link" aria-label="تدفق التحكم">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">تدفق التحكم</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05_control_flow.html" class="pagination-link" aria-label="تدفق التحكم">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">تدفق التحكم</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./06_functions.html" class="pagination-link" aria-label="الدوال">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الدوال</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

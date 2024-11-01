@@ -1,0 +1,276 @@
+# Classes
+
+Just like we have `int`, `str`, and `list` types. We can create new types using classes. [Classes](https://docs.python.org/3.13/tutorial/classes.html) provide a means of bundling data and functionality together. Creating a new class creates a new type of object, allowing new instances of that type to be made.
+
+Each class instance can have:
+
+- **attributes** attached to it for maintaining its state
+- **methods** for modifying its state
+
+A class **instance** is initialized by calling the class (like a function), however, the arguments are actually passed to the [`__init__` method](https://docs.python.org/3/reference/datamodel.html#object.__init__) (also called the *constructor*).
+
+```{python}
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def move(self, dx, dy):
+        return f"({self.x}, {self.y})"
+```
+
+Note that all methods are indented under the class definition.
+
+Here, `self.x` and `self.y` refer to the instance's attributes. That is, are unique to each instance of the class.
+
+Let's instantiate two objects of the `Point` class:
+
+```{python}
+p1 = Point(3, 4)
+p2 = Point(7, 1)
+```
+
+We can access the attributes (`x` and `y`) of each object:
+
+```{python}
+x_diff = abs(p1.x - p2.x)
+y_diff = abs(p1.y - p2.y)
+print(f"The difference between the x-coordinates is {x_diff} and between the y-coordinates is {y_diff}.")
+```
+
+We can also call methods on the object:
+
+```{python}
+p1.move(4, 4)
+p1
+```
+
+We want a way to show the object in a more readable format. We can do this by defining a [`__repr__` method](https://docs.python.org/3/reference/datamodel.html#object.__repr__). Note that we are adding a method to the class after it has been defined. This is to show this capability in Python.
+
+```{python}
+def __repr__(self):
+    return f"Point({self.x}, {self.y})"
+
+Point.__repr__ = __repr__
+```
+
+But, we could've also defined it within the class definition.
+
+```{python}
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def move(self, dx, dy):
+        self.x += dx
+        self.y += dy
+    
+    def __repr__(self):
+        return f"Point({self.x}, {self.y})"
+```
+
+Now we can do this:
+
+```{python}
+p = Point(3, 4)
+p.move(7, 6)
+p
+```
+
+It is common to have methods that operate between objects of the same type. Let's define a `distance` method that calculates the distance between two points.
+
+However, this time, it will be defined as a **class method** rather than an *instance methdod*. To do that, we need to use the `@staticmethod` decorator.
+
+```{python}
+@staticmethod
+def distance(p1, p2):
+    if Point.distance_type == 'euclidean':
+        return ((p1.x - p2.x)**2 + (p1.y - p2.y)**2)**0.5
+    elif Point.distance_type == 'manhattan':
+        return abs(p1.x - p2.x) + abs(p1.y - p2.y)
+
+# Assign the function to be a method of the class
+Point.distance_type = 'euclidean'
+Point.distance = distance
+```
+
+Now we can calculate the distance between two points:
+
+```{python}
+a = Point(0, 1)
+b = Point(1, 0)
+
+Point.distance(a, b)
+```
+
+Let's also define operations like `+` and `-`:
+
+```{python}
+def __add__(self, other):
+    return Point(self.x + other.x, self.y + other.y)
+
+def __sub__(self, other):
+    return Point(self.x - other.x, self.y - other.y)
+
+Point.__add__ = __add__
+Point.__sub__ = __sub__
+```
+
+The full class definition looks like this now:
+
+```{python}
+class Point:
+    distance_type = 'euclidean' #<1>
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def move(self, dx, dy):
+        self.x += dx
+        self.y += dy
+    
+    def __repr__(self):
+        return f"Point({self.x}, {self.y})"
+    
+    @staticmethod #<2>
+    def distance(p1, p2):
+        if Point.distance_type == 'euclidean':
+            return ((p1.x - p2.x)**2 + (p1.y - p2.y)**2)**0.5
+        elif Point.distance_type == 'manhattan':
+            return abs(p1.x - p2.x) + abs(p1.y - p2.y)
+    
+    def __add__(self, other): #<3>
+        return Point(self.x + other.x, self.y + other.y)
+
+    def __sub__(self, other): #<4>
+        return Point(self.x - other.x, self.y - other.y)
+```
+1. `distance_type` is said to be a *class attribute* because it is defined directly under the class definition (outside of any method)
+2. `distance` is a *class method* because of the `@staticmethod` decorator
+3. `__add__` is a *special method* that is called when the `+` operator is used between two objects of the class
+4. `__sub__` is also a *special method* that is called when the `-` operator is used between two objects of the class
+
+Now, let's try it:
+
+```{python}
+p1 = Point(0, 1)
+p2 = Point(1, 0)
+print(p1 + p2)
+print(p1 - p2)
+```
+
+If you are interested in implementing operators such as these, checkout the [official documentation on emulating numeric types](https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types).
+
+A perhaps common example for classes is implementing a data structure. Let's implement a `Queue`; a data structure that follows the First-In-First-Out (FIFO) principle.
+
+![[Representation of a FIFO (first in, first out) queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type))
+](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Data_Queue.svg/330px-Data_Queue.svg.png)
+
+```{python}
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def enqueue(self, item):
+        """Add an item to the end of the queue"""
+        self.items.append(item)
+
+    def dequeue(self):
+        """Remove an item from the front of the queue"""
+        if not self.is_empty():
+            return self.items.pop(0)
+        return None
+
+    def peek(self):
+        """Return the item at the front without removing it"""
+        if not self.is_empty():
+            return self.items[0]
+        return None
+
+    def is_empty(self):
+        """Check if the queue is empty"""
+        return len(self.items) == 0
+
+    def __repr__(self):
+        """Return the underlying list representation"""
+        return repr(self.items)
+```
+
+Let's test it:
+
+```{python}
+
+q = Queue()
+
+q.enqueue(1)
+q.enqueue(2)
+q.enqueue(3)
+
+print(q)
+```
+
+```{python}
+
+q.dequeue()
+print(q)
+```
+
+Indeed it works!
+
+Let's check the length of the queue:
+
+```{python}
+#| error: true
+len(q)
+```
+
+Indeed it has no length. To add it, we can implement the `__len__` method.
+
+```{python}
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def enqueue(self, item):
+        """Add an item to the end of the queue"""
+        self.items.append(item)
+
+    def dequeue(self):
+        """Remove an item from the front of the queue"""
+        if not self.is_empty():
+            return self.items.pop(0)
+        return None
+
+    def peek(self):
+        """Return the item at the front without removing it"""
+        if not self.is_empty():
+            return self.items[0]
+        return None
+
+    def is_empty(self):
+        """Check if the queue is empty"""
+        return len(self.items) == 0
+
+    def __repr__(self):
+        """Return the underlying list representation"""
+        return repr(self.items)
+    
+    def __len__(self):
+        return len(self.items)
+```
+
+Now, we can check the length of the queue:
+
+```{python}
+len(q)
+```
+
+This is how the same `len` function works with various types like `list`, `set`, `tuple`, `str`, and `dict`. 
+
+The property of having the function look the same while being having different implementations is called [*polymorphism*](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)).
+
+If you are interested in implementing more container methods, checkout the [official documentation on emulating container types](https://docs.python.org/3/reference/datamodel.html#emulating-container-types).
+
+In a way, the `list` type is more capable. It can do everything a `Queue` can do and more. But, the `Queue` class is more readable and easier to understand. It is also more restrictive, which can be a good thing in some cases.
