@@ -229,7 +229,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#mutable-sequence-operations" id="toc-mutable-sequence-operations" class="nav-link" data-scroll-target="#mutable-sequence-operations"><span class="header-section-number">6.4</span> Mutable Sequence Operations</a></li>
   <li><a href="#الفهرسة-indexing" id="toc-الفهرسة-indexing" class="nav-link" data-scroll-target="#الفهرسة-indexing"><span class="header-section-number">6.5</span> الفهرسة (Indexing)</a></li>
   <li><a href="#البحث-.index" id="toc-البحث-.index" class="nav-link" data-scroll-target="#البحث-.index"><span class="header-section-number">6.6</span> البحث <code>.index()</code></a></li>
-  <li><a href="#التقطيع-slicing" id="toc-التقطيع-slicing" class="nav-link" data-scroll-target="#التقطيع-slicing"><span class="header-section-number">6.7</span> التقطيع (Slicing)</a></li>
+  <li><a href="#التقطيع-slicing" id="toc-التقطيع-slicing" class="nav-link" data-scroll-target="#التقطيع-slicing"><span class="header-section-number">6.7</span> التقطيع (Slicing)</a>
+  <ul class="collapse">
+  <li><a href="#التغيير-mutation" id="toc-التغيير-mutation" class="nav-link" data-scroll-target="#التغيير-mutation"><span class="header-section-number">6.7.1</span> التغيير (Mutation)</a></li>
+  <li><a href="#استبدال-المقاطع-slices-replacement" id="toc-استبدال-المقاطع-slices-replacement" class="nav-link" data-scroll-target="#استبدال-المقاطع-slices-replacement"><span class="header-section-number">6.7.2</span> استبدال المقاطع (Slices Replacement)</a></li>
+  </ul></li>
   <li><a href="#متسلسلة-النطاق-range" id="toc-متسلسلة-النطاق-range" class="nav-link" data-scroll-target="#متسلسلة-النطاق-range"><span class="header-section-number">6.8</span> متسلسلة النطاق (<code>range</code>)</a>
   <ul class="collapse">
   <li><a href="#تحويل-range-إلى-list" id="toc-تحويل-range-إلى-list" class="nav-link" data-scroll-target="#تحويل-range-إلى-list"><span class="header-section-number">6.8.1</span> تحويل <code>range</code> إلى <code>list</code></a></li>
@@ -247,7 +251,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#access" id="toc-access" class="nav-link" data-scroll-target="#access"><span class="header-section-number">6.11.1</span> Access</a></li>
   <li><a href="#mutation" id="toc-mutation" class="nav-link" data-scroll-target="#mutation"><span class="header-section-number">6.11.2</span> Mutation</a></li>
   </ul></li>
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">6.12</span> Examples</a></li>
   </ul>
 </nav>
     </div>
@@ -290,11 +293,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Let’s see what this means in practice.</p>
 <p>Let’s say we have a list of objects which we want to calculate some statistics on. We can use the following list as an example:</p>
-<div id="c1d7f256" class="cell" data-execution_count="2">
+<div id="00ac7515" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>things <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="st">'abb'</span>, <span class="fl">2.0</span>, <span class="va">True</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can get the length of the list using the <code>len</code> function. For example:</p>
-<div id="58a7efda" class="cell" data-execution_count="3">
+<div id="2f1a3be5" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>length <span class="op">=</span> <span class="bu">len</span>(things)</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="bu">print</span>(length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -302,7 +305,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We can loop over the list using a <code>for</code> loop. For example:</p>
-<div id="c6a0db29" class="cell" data-execution_count="4">
+<div id="f886bb6b" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">for</span> t <span class="kw">in</span> things:</span>
 <span id="cb4-2"><a href="#cb4-2"></a>    <span class="bu">print</span>(t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -316,7 +319,7 @@ True</code></pre>
 </div>
 </div>
 <p>We can check for the presence of an item in the list using the <code>in</code> operator. For example:</p>
-<div id="bec52e6e" class="cell" data-execution_count="5">
+<div id="33f2fe1f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>check1 <span class="op">=</span> <span class="dv">30</span> <span class="kw">in</span> things</span>
 <span id="cb6-2"><a href="#cb6-2"></a>check2 <span class="op">=</span> <span class="dv">100</span> <span class="kw">in</span> things</span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="bu">print</span>(check1)</span>
@@ -525,7 +528,7 @@ False</code></pre>
 <section id="الفهرسة-indexing" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="الفهرسة-indexing"><span class="header-section-number">6.5</span> الفهرسة (Indexing)</h2>
 <p>للوصول إلى عنصر من القائمة، استخدم معامل الفهرسة <code>[]</code>. يجب أن يكون مفتاح الفهرسة عددًا صحيحًا (<code>int</code>) في النطاق <code>0 &lt;= index &lt; len(s) - 1</code>.</p>
-<div id="c1f4451e" class="cell" data-execution_count="6">
+<div id="9c9a813c" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>l1 <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="bu">print</span>(l1[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -533,10 +536,10 @@ False</code></pre>
 </div>
 </div>
 <p>كذلك، جرب <code>l1[1]</code>, <code>l1[2]</code>, و <code>l1[3]</code>.</p>
-<div id="e6528808" class="cell" data-execution_count="7">
+<div id="891854f7" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># try it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="357e240e" class="cell" data-execution_count="8">
+<div id="d7a2fd5e" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>l2 <span class="op">=</span> [<span class="st">"Apple"</span>, <span class="st">"Banana"</span>, <span class="st">"Orange"</span>, <span class="st">"Lemon"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>في القائمة <code>l2</code>، الفهرس على النحو التالي:</p>
@@ -552,14 +555,14 @@ False</code></pre>
 <li><code>l[-1]</code> و <code>l[len(l) - 1]</code>; هل هما نفس الشيء؟</li>
 <li><code>l[-2]</code></li>
 </ul>
-<div id="fa304b18" class="cell" data-execution_count="9">
+<div id="046fec60" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># try it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="البحث-.index" class="level2" data-number="6.6">
 <h2 data-number="6.6" class="anchored" data-anchor-id="البحث-.index"><span class="header-section-number">6.6</span> البحث <code>.index()</code></h2>
 <p>طريق <code>.index()</code> تخرج موقع أول ظهور للقيمة المحددة.</p>
-<div id="b4d4fb0d" class="cell" data-execution_count="10">
+<div id="5418c070" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>l1 <span class="op">=</span> [<span class="st">'A'</span>, <span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'A'</span>, <span class="st">'B'</span>]</span>
 <span id="cb14-2"><a href="#cb14-2"></a>idx <span class="op">=</span> l1.index(<span class="st">'B'</span>)</span>
 <span id="cb14-3"><a href="#cb14-3"></a><span class="bu">print</span>(l1[idx], <span class="st">'is at index'</span>, idx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -568,7 +571,7 @@ False</code></pre>
 </div>
 </div>
 <p>إذا لم يكن العنصر موجودًا في القائمة، فإنه يخرج خطأ.</p>
-<div id="6fdfed6f" class="cell" data-execution_count="11">
+<div id="f77a7ce3" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>l1 <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
 <span id="cb16-2"><a href="#cb16-2"></a>l1.index(<span class="dv">4444</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -584,7 +587,7 @@ Cell <span class="ansi-green-fg ansi-bold">In[10], line 2</span>
 </div>
 </div>
 <p>رسالة الخطأ تخبرنا أن <code>4444</code> غير موجود في القائمة. دعنا نتعامل مع هذه الحالة في لبنة <code>else</code>، بدلاً من ترك البرنامج أن يتعطل.</p>
-<div id="2a80d9cb" class="cell" data-execution_count="12">
+<div id="00b2a120" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>l1 <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
 <span id="cb17-2"><a href="#cb17-2"></a><span class="cf">if</span> <span class="dv">4444</span> <span class="kw">in</span> l1:</span>
 <span id="cb17-3"><a href="#cb17-3"></a>    idx <span class="op">=</span> l1.index(<span class="dv">4444</span>)</span>
@@ -607,7 +610,7 @@ Cell <span class="ansi-green-fg ansi-bold">In[10], line 2</span>
 <li><code>step = 1</code></li>
 </ul></li>
 </ul>
-<div id="8952029b" class="cell" data-execution_count="13">
+<div id="5491b27d" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>l1 <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="bu">print</span>(l1[<span class="dv">1</span>:<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -615,7 +618,7 @@ Cell <span class="ansi-green-fg ansi-bold">In[10], line 2</span>
 </div>
 </div>
 <p>دعم اللغة لكتابة <code>:</code> هو في الأصل عملية <code>slice</code>، والتي تنتج كائن <code>slice</code> يمكن استخدامه للتحكم في التقطيع.</p>
-<div id="aafbb36d" class="cell" data-execution_count="14">
+<div id="212b68e4" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>s <span class="op">=</span> <span class="bu">slice</span>(<span class="dv">1</span>, <span class="dv">3</span>)</span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="bu">print</span>(l1[s])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -631,40 +634,109 @@ Cell <span class="ansi-green-fg ansi-bold">In[10], line 2</span>
 <li><code>l1[::2]</code></li>
 <li><code>l1[::-1]</code></li>
 </ul>
-<div id="53928141" class="cell" data-execution_count="15">
+<div id="0abc603d" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># try it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="التغيير-mutation" class="level3" data-number="6.7.1">
+<h3 data-number="6.7.1" class="anchored" data-anchor-id="التغيير-mutation"><span class="header-section-number">6.7.1</span> التغيير (Mutation)</h3>
+<p>القوائم (Lists) قابلة للتغيير، مما يعني أنه يمكن تعديلها بعد إنشائها. يشمل التغيير:</p>
+<ol type="1">
+<li>الإضافة: <code>l.append(x)</code> لإضافة عنصر إلى نهاية القائمة</li>
+<li>الإزالة: <code>l.remove(x)</code></li>
+<li>الإدراج: <code>l.insert(i, x)</code> لإدراج عنصر في موضع محدد</li>
+<li>الاستبدال: <code>l[i] = x</code></li>
+<li>الترتيب: <code>l.sort()</code></li>
+</ol>
+<p>ولأن القائمة متتالية قابلة للتغيير فهي تحقق جميع عمليات المتتاليات. <a href="sequence_operations.qmd">راجع ملحق عمليات المتتاليات</a>.</p>
+<div id="45a6633f" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>l1 <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
+<span id="cb24-2"><a href="#cb24-2"></a>l1[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">100</span> <span class="co"># replace the first element</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="bu">print</span>(l1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[100, 20, 30, 40, 50]</code></pre>
+</div>
+</div>
+<p>جرب ما يلي:</p>
+<ul>
+<li><code>l1.append(60)</code></li>
+<li><code>l1.remove(10)</code></li>
+<li><code>l1.insert(2, 300)</code></li>
+<li><code>l1.sort()</code></li>
+</ul>
+</section>
+<section id="استبدال-المقاطع-slices-replacement" class="level3" data-number="6.7.2">
+<h3 data-number="6.7.2" class="anchored" data-anchor-id="استبدال-المقاطع-slices-replacement"><span class="header-section-number">6.7.2</span> استبدال المقاطع (Slices Replacement)</h3>
+<p>جرب ما يلي:</p>
+<ul>
+<li>استبدال عنصرين بعنصرين: <code>l1[1:3] = [200, 300]</code></li>
+<li>استبدال عنصرين بثلاثة عناصر: <code>l1[1:3] = [200, 300, 400]</code></li>
+<li>استبدال عنصرين بعنصر واحد: <code>l1[1:3] = [200]</code></li>
+<li>استبدال عنصرين بصفر عناصر: <code>l1[1:3] = []</code></li>
+</ul>
+<p>استبدال عنصرين بعنصرين:</p>
+<div id="ab83a7b2" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># SOLVED</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>l1 <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
+<span id="cb26-3"><a href="#cb26-3"></a>l1[<span class="dv">1</span>:<span class="dv">3</span>] <span class="op">=</span> [<span class="dv">200</span>, <span class="dv">300</span>]</span>
+<span id="cb26-4"><a href="#cb26-4"></a><span class="bu">print</span>(l1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[10, 200, 300, 40, 50]</code></pre>
+</div>
+</div>
+<p>توفر القوائم طريقة <code>.sort()</code> التي تقوم بالترتيب في مكانها. إذا كنت تريد إنشاء قائمة جديدة، استخدم الدالة <code>sorted()</code> بدلاً من ذلك. مثال:</p>
+<div id="2588aa55" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>l1 <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">40</span>, <span class="dv">30</span>]</span>
+<span id="cb28-2"><a href="#cb28-2"></a>l2 <span class="op">=</span> <span class="bu">sorted</span>(l1)</span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="bu">print</span>(l1)</span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="bu">print</span>(l2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[10, 20, 50, 40, 30]
+[10, 20, 30, 40, 50]</code></pre>
+</div>
+</div>
+<p>لاحظ أنها مختلفة.</p>
+<p>بينما:</p>
+<div id="18da719a" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>l1 <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">40</span>, <span class="dv">30</span>]</span>
+<span id="cb30-2"><a href="#cb30-2"></a>l1.sort()</span>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="bu">print</span>(l1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[10, 20, 30, 40, 50]</code></pre>
+</div>
+</div>
+<p>لاحظ أن <code>l1</code> يتم ترتيبها في مكانها، ولا تنشئ قائمة.</p>
+</section>
 </section>
 <section id="متسلسلة-النطاق-range" class="level2" data-number="6.8">
 <h2 data-number="6.8" class="anchored" data-anchor-id="متسلسلة-النطاق-range"><span class="header-section-number">6.8</span> متسلسلة النطاق (<code>range</code>)</h2>
 <p>نوع <a href="https://docs.python.org/3/library/stdtypes.html#range"><code>range</code></a> يمثل تسلسلًا غير قابل للتغيير من الأرقام. ويستخدم عادةً للتكرار عددًا محددًا من المرات في حلقات <a href="https://docs.python.org/3/reference/compound_stmts.html#for"><code>for</code></a>.</p>
 <p>وقد تقدم الكلام عنه في <a href="./05_loops.html">باب الحلقات</a>. لكننا هنا نعيد النظر من زاوية أنه متسلسلة</p>
 <p>الميزة في نوع <code>range</code> على المتسلسلة هي أن كائن <code>range</code> سيأخذ دائمًا نفس (الصغيرة) كمية الذاكرة، بغض النظر عن حجم النطاق الذي يمثله (حيث يخزن فقط قيم البداية والنهاية والخطوة، ويحسب العناصر الفردية والنطاقات الفرعية حسب الحاجة).</p>
-<div id="65bf5a17" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>r <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span>
-<span id="cb24-2"><a href="#cb24-2"></a>r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div id="183feb35" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>r <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span>
+<span id="cb32-2"><a href="#cb32-2"></a>r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>range(0, 20, 2)</code></pre>
 </div>
 </div>
-<div id="9e52703c" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="bu">print</span>(<span class="dv">11</span> <span class="kw">in</span> r)</span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="bu">print</span>(<span class="dv">10</span> <span class="kw">in</span> r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f75eacb3" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="bu">print</span>(<span class="dv">11</span> <span class="kw">in</span> r)</span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="bu">print</span>(<span class="dv">10</span> <span class="kw">in</span> r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>False
 True</code></pre>
 </div>
 </div>
-<div id="0c41d3a0" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="bu">print</span>(r.index(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="47a67be7" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="bu">print</span>(r.index(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>5</code></pre>
 </div>
 </div>
-<div id="9e1fef01" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="bu">print</span>(r[<span class="dv">5</span>])</span>
-<span id="cb30-2"><a href="#cb30-2"></a><span class="bu">print</span>(r[:<span class="dv">5</span>])</span>
-<span id="cb30-3"><a href="#cb30-3"></a><span class="bu">print</span>(r[<span class="op">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9a1a12bb" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="bu">print</span>(r[<span class="dv">5</span>])</span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="bu">print</span>(r[:<span class="dv">5</span>])</span>
+<span id="cb38-3"><a href="#cb38-3"></a><span class="bu">print</span>(r[<span class="op">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>10
 range(0, 10, 2)
@@ -674,19 +746,19 @@ range(0, 10, 2)
 <section id="تحويل-range-إلى-list" class="level3" data-number="6.8.1">
 <h3 data-number="6.8.1" class="anchored" data-anchor-id="تحويل-range-إلى-list"><span class="header-section-number">6.8.1</span> تحويل <code>range</code> إلى <code>list</code></h3>
 <p>يمكن تمرير الاستدعاء إلى <code>range()</code> إلى استدعاء <code>list()</code> لتحويله. هنا</p>
-<div id="338ffb0b" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>numbers <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1000</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">100</span>))</span>
-<span id="cb32-2"><a href="#cb32-2"></a><span class="bu">print</span>(numbers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7fcf7e3d" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>numbers <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1000</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">100</span>))</span>
+<span id="cb40-2"><a href="#cb40-2"></a><span class="bu">print</span>(numbers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1000, 900, 800, 700, 600, 500, 400, 300, 200, 100]</code></pre>
 </div>
 </div>
 <p>مثال آخر هو إنشاء قائمتين؛ واحدة للأرقام الزوجية والأخرى للأرقام الفردية، مرة أخرى، باستخدام تركيب <code>list(range())</code>.</p>
-<div id="9e8ffe22" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>evens <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>))</span>
-<span id="cb34-2"><a href="#cb34-2"></a>odds <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">2</span>))</span>
-<span id="cb34-3"><a href="#cb34-3"></a><span class="bu">print</span>(evens)</span>
-<span id="cb34-4"><a href="#cb34-4"></a><span class="bu">print</span>(odds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5fb217ad" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>evens <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>))</span>
+<span id="cb42-2"><a href="#cb42-2"></a>odds <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">2</span>))</span>
+<span id="cb42-3"><a href="#cb42-3"></a><span class="bu">print</span>(evens)</span>
+<span id="cb42-4"><a href="#cb42-4"></a><span class="bu">print</span>(odds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[0, 2, 4, 6, 8]
 [1, 3, 5, 7, 9]</code></pre>
@@ -697,26 +769,26 @@ range(0, 10, 2)
 <section id="tuples" class="level2" data-number="6.9">
 <h2 data-number="6.9" class="anchored" data-anchor-id="tuples"><span class="header-section-number">6.9</span> Tuples</h2>
 <p>In cases where we need to use a sequence that should not be changed, we can use a <code>tuple</code>. A <code>tuple</code> is just a <code>Sequence</code>, not a <code>MutableSequence</code>. It is defined using parentheses <code>()</code>, like so:</p>
-<div id="020270c1" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>t <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)</span>
-<span id="cb36-2"><a href="#cb36-2"></a>check1 <span class="op">=</span> <span class="dv">30</span> <span class="kw">in</span> t</span>
-<span id="cb36-3"><a href="#cb36-3"></a>check2 <span class="op">=</span> <span class="dv">100</span> <span class="kw">in</span> t</span>
-<span id="cb36-4"><a href="#cb36-4"></a><span class="bu">print</span>(check1)</span>
-<span id="cb36-5"><a href="#cb36-5"></a><span class="bu">print</span>(check2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="06bf1b9c" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>t <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)</span>
+<span id="cb44-2"><a href="#cb44-2"></a>check1 <span class="op">=</span> <span class="dv">30</span> <span class="kw">in</span> t</span>
+<span id="cb44-3"><a href="#cb44-3"></a>check2 <span class="op">=</span> <span class="dv">100</span> <span class="kw">in</span> t</span>
+<span id="cb44-4"><a href="#cb44-4"></a><span class="bu">print</span>(check1)</span>
+<span id="cb44-5"><a href="#cb44-5"></a><span class="bu">print</span>(check2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>True
 False</code></pre>
 </div>
 </div>
 <p>If you try to change an item in a tuple, you will get an error:</p>
-<div id="77a9e9fd" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>t1 <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)</span>
-<span id="cb38-2"><a href="#cb38-2"></a>t1[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fb2b9f12" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>t1 <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)</span>
+<span id="cb46-2"><a href="#cb46-2"></a>t1[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg ansi-bold">In[22], line 2</span>
+Cell <span class="ansi-green-fg ansi-bold">In[26], line 2</span>
 <span class="ansi-green-fg">      1</span> t1 <span style="color:rgb(98,98,98)">=</span> (<span style="color:rgb(98,98,98)">10</span>, <span style="color:rgb(98,98,98)">20</span>, <span style="color:rgb(98,98,98)">30</span>, <span style="color:rgb(98,98,98)">40</span>, <span style="color:rgb(98,98,98)">50</span>)
 <span class="ansi-green-fg ansi-bold">----&gt; 2</span> <span class="ansi-yellow-bg">t1</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">0</span><span class="ansi-yellow-bg">]</span> <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(98,98,98)">100</span>
 
@@ -740,10 +812,10 @@ Cell <span class="ansi-green-fg ansi-bold">In[22], line 2</span>
 <p>Common uses for a <code>set</code> include: membership testing, removing duplicates from a sequence, and computing mathematical operations such as intersection, union, difference, and symmetric difference.</p>
 <section id="membership-testing" class="level3" data-number="6.10.1">
 <h3 data-number="6.10.1" class="anchored" data-anchor-id="membership-testing"><span class="header-section-number">6.10.1</span> Membership testing</h3>
-<div id="932fc3fe" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>languages <span class="op">=</span> {<span class="st">"Arabic"</span>, <span class="st">"English"</span>}</span>
-<span id="cb39-2"><a href="#cb39-2"></a><span class="cf">if</span> <span class="st">'Python'</span> <span class="kw">not</span> <span class="kw">in</span> languages:</span>
-<span id="cb39-3"><a href="#cb39-3"></a>    <span class="bu">print</span>(<span class="st">'you need to add Python to your languages!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1732a88d" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>languages <span class="op">=</span> {<span class="st">"Arabic"</span>, <span class="st">"English"</span>}</span>
+<span id="cb47-2"><a href="#cb47-2"></a><span class="cf">if</span> <span class="st">'Python'</span> <span class="kw">not</span> <span class="kw">in</span> languages:</span>
+<span id="cb47-3"><a href="#cb47-3"></a>    <span class="bu">print</span>(<span class="st">'you need to add Python to your languages!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>you need to add Python to your languages!</code></pre>
 </div>
@@ -751,10 +823,10 @@ Cell <span class="ansi-green-fg ansi-bold">In[22], line 2</span>
 </section>
 <section id="removing-duplicates-from-a-sequence" class="level3" data-number="6.10.2">
 <h3 data-number="6.10.2" class="anchored" data-anchor-id="removing-duplicates-from-a-sequence"><span class="header-section-number">6.10.2</span> Removing duplicates from a sequence</h3>
-<div id="b2debd69" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
-<span id="cb41-2"><a href="#cb41-2"></a>unique_numbers <span class="op">=</span> <span class="bu">list</span>(<span class="bu">set</span>(numbers))</span>
-<span id="cb41-3"><a href="#cb41-3"></a><span class="bu">print</span>(unique_numbers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="89ae75ec" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb49-2"><a href="#cb49-2"></a>unique_numbers <span class="op">=</span> <span class="bu">list</span>(<span class="bu">set</span>(numbers))</span>
+<span id="cb49-3"><a href="#cb49-3"></a><span class="bu">print</span>(unique_numbers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1, 2, 3, 4, 5]</code></pre>
 </div>
@@ -763,14 +835,14 @@ Cell <span class="ansi-green-fg ansi-bold">In[22], line 2</span>
 <section id="unordered-collection" class="level3" data-number="6.10.3">
 <h3 data-number="6.10.3" class="anchored" data-anchor-id="unordered-collection"><span class="header-section-number">6.10.3</span> Unordered collection</h3>
 <p>Being an unordered collection, sets do not record element position or order of insertion. Accordingly, sets do not support indexing (<code>xs[i]</code>), slicing (<code>xs[i:j]</code>), or other sequence-like behavior.</p>
-<div id="9a82237b" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>xs <span class="op">=</span> {<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>}</span>
-<span id="cb43-2"><a href="#cb43-2"></a>xs[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="04501235" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>xs <span class="op">=</span> {<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>}</span>
+<span id="cb51-2"><a href="#cb51-2"></a>xs[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg ansi-bold">In[25], line 2</span>
+Cell <span class="ansi-green-fg ansi-bold">In[29], line 2</span>
 <span class="ansi-green-fg">      1</span> xs <span style="color:rgb(98,98,98)">=</span> {<span style="color:rgb(98,98,98)">10</span>, <span style="color:rgb(98,98,98)">20</span>, <span style="color:rgb(98,98,98)">30</span>}
 <span class="ansi-green-fg ansi-bold">----&gt; 2</span> <span class="ansi-yellow-bg">xs</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">0</span><span class="ansi-yellow-bg">]</span>
 
@@ -788,21 +860,21 @@ Cell <span class="ansi-green-fg ansi-bold">In[25], line 2</span>
 </figure>
 </div>
 <p>Intersection, union, difference, and symmetric difference:</p>
-<div id="4aff7c60" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>set1 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span>
-<span id="cb44-2"><a href="#cb44-2"></a>set2 <span class="op">=</span>          {<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span>
-<span id="cb44-3"><a href="#cb44-3"></a></span>
-<span id="cb44-4"><a href="#cb44-4"></a>union <span class="op">=</span> set1 <span class="op">|</span> set2</span>
-<span id="cb44-5"><a href="#cb44-5"></a><span class="cf">assert</span> union <span class="op">==</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span>
-<span id="cb44-6"><a href="#cb44-6"></a></span>
-<span id="cb44-7"><a href="#cb44-7"></a>intersection <span class="op">=</span> set1 <span class="op">&amp;</span> set2</span>
-<span id="cb44-8"><a href="#cb44-8"></a><span class="cf">assert</span> intersection <span class="op">==</span> {<span class="dv">4</span>, <span class="dv">5</span>}</span>
-<span id="cb44-9"><a href="#cb44-9"></a></span>
-<span id="cb44-10"><a href="#cb44-10"></a>difference <span class="op">=</span> set1 <span class="op">-</span> set2</span>
-<span id="cb44-11"><a href="#cb44-11"></a><span class="cf">assert</span> difference <span class="op">==</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
-<span id="cb44-12"><a href="#cb44-12"></a></span>
-<span id="cb44-13"><a href="#cb44-13"></a>symmetric_difference <span class="op">=</span> set1 <span class="op">^</span> set2</span>
-<span id="cb44-14"><a href="#cb44-14"></a><span class="cf">assert</span> symmetric_difference <span class="op">==</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b1a3ec86" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>set1 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span>
+<span id="cb52-2"><a href="#cb52-2"></a>set2 <span class="op">=</span>          {<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span>
+<span id="cb52-3"><a href="#cb52-3"></a></span>
+<span id="cb52-4"><a href="#cb52-4"></a>union <span class="op">=</span> set1 <span class="op">|</span> set2</span>
+<span id="cb52-5"><a href="#cb52-5"></a><span class="cf">assert</span> union <span class="op">==</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span>
+<span id="cb52-6"><a href="#cb52-6"></a></span>
+<span id="cb52-7"><a href="#cb52-7"></a>intersection <span class="op">=</span> set1 <span class="op">&amp;</span> set2</span>
+<span id="cb52-8"><a href="#cb52-8"></a><span class="cf">assert</span> intersection <span class="op">==</span> {<span class="dv">4</span>, <span class="dv">5</span>}</span>
+<span id="cb52-9"><a href="#cb52-9"></a></span>
+<span id="cb52-10"><a href="#cb52-10"></a>difference <span class="op">=</span> set1 <span class="op">-</span> set2</span>
+<span id="cb52-11"><a href="#cb52-11"></a><span class="cf">assert</span> difference <span class="op">==</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
+<span id="cb52-12"><a href="#cb52-12"></a></span>
+<span id="cb52-13"><a href="#cb52-13"></a>symmetric_difference <span class="op">=</span> set1 <span class="op">^</span> set2</span>
+<span id="cb52-14"><a href="#cb52-14"></a><span class="cf">assert</span> symmetric_difference <span class="op">==</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note, it is better to actually use:</p>
 <ul>
@@ -842,50 +914,50 @@ Cell <span class="ansi-green-fg ansi-bold">In[25], line 2</span>
 </ul>
 <p>Update (Python 3.7): Dictionaries are now ordered. In Python 3.6 and earlier, dictionaries are unordered.</p>
 <p>There are different ways to create a dictionary. Dictionaries compare equal if and only if they have the same (key, value) pairs (regardless of ordering).</p>
-<div id="86d55102" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>d <span class="op">=</span> {<span class="st">'foo'</span>: <span class="dv">10</span>, <span class="st">'two'</span>: <span class="dv">20</span>, <span class="st">'three'</span>: <span class="dv">30</span>}</span>
-<span id="cb45-2"><a href="#cb45-2"></a></span>
-<span id="cb45-3"><a href="#cb45-3"></a>d2 <span class="op">=</span> {</span>
-<span id="cb45-4"><a href="#cb45-4"></a>    <span class="st">'three'</span>: <span class="dv">30</span>,</span>
-<span id="cb45-5"><a href="#cb45-5"></a>    <span class="st">'two'</span>: <span class="dv">20</span>,</span>
-<span id="cb45-6"><a href="#cb45-6"></a>    <span class="st">'foo'</span>: <span class="dv">10</span>,</span>
-<span id="cb45-7"><a href="#cb45-7"></a>}</span>
-<span id="cb45-8"><a href="#cb45-8"></a></span>
-<span id="cb45-9"><a href="#cb45-9"></a>d3 <span class="op">=</span> <span class="bu">dict</span>(foo<span class="op">=</span><span class="dv">10</span>, two<span class="op">=</span><span class="dv">20</span>, three<span class="op">=</span><span class="dv">30</span>)</span>
-<span id="cb45-10"><a href="#cb45-10"></a></span>
-<span id="cb45-11"><a href="#cb45-11"></a><span class="cf">assert</span> d <span class="op">==</span> d2 <span class="op">==</span> d3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a2f8f0e4" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>d <span class="op">=</span> {<span class="st">'foo'</span>: <span class="dv">10</span>, <span class="st">'two'</span>: <span class="dv">20</span>, <span class="st">'three'</span>: <span class="dv">30</span>}</span>
+<span id="cb53-2"><a href="#cb53-2"></a></span>
+<span id="cb53-3"><a href="#cb53-3"></a>d2 <span class="op">=</span> {</span>
+<span id="cb53-4"><a href="#cb53-4"></a>    <span class="st">'three'</span>: <span class="dv">30</span>,</span>
+<span id="cb53-5"><a href="#cb53-5"></a>    <span class="st">'two'</span>: <span class="dv">20</span>,</span>
+<span id="cb53-6"><a href="#cb53-6"></a>    <span class="st">'foo'</span>: <span class="dv">10</span>,</span>
+<span id="cb53-7"><a href="#cb53-7"></a>}</span>
+<span id="cb53-8"><a href="#cb53-8"></a></span>
+<span id="cb53-9"><a href="#cb53-9"></a>d3 <span class="op">=</span> <span class="bu">dict</span>(foo<span class="op">=</span><span class="dv">10</span>, two<span class="op">=</span><span class="dv">20</span>, three<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb53-10"><a href="#cb53-10"></a></span>
+<span id="cb53-11"><a href="#cb53-11"></a><span class="cf">assert</span> d <span class="op">==</span> d2 <span class="op">==</span> d3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can also construct a dictionary from two lists (iterables) with <code>zip</code>, like so:</p>
-<div id="907fe25f" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>students <span class="op">=</span> [<span class="st">'Ahmad'</span>, <span class="st">'Belal'</span>, <span class="st">'Careem'</span>, <span class="st">'David'</span>]</span>
-<span id="cb46-2"><a href="#cb46-2"></a>marks <span class="op">=</span> [<span class="dv">90</span>, <span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">85</span>]</span>
-<span id="cb46-3"><a href="#cb46-3"></a>data <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(students, marks, strict<span class="op">=</span><span class="va">True</span>))</span>
-<span id="cb46-4"><a href="#cb46-4"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div id="7200e5cb" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>students <span class="op">=</span> [<span class="st">'Ahmad'</span>, <span class="st">'Belal'</span>, <span class="st">'Careem'</span>, <span class="st">'David'</span>]</span>
+<span id="cb54-2"><a href="#cb54-2"></a>marks <span class="op">=</span> [<span class="dv">90</span>, <span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">85</span>]</span>
+<span id="cb54-3"><a href="#cb54-3"></a>data <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(students, marks, strict<span class="op">=</span><span class="va">True</span>))</span>
+<span id="cb54-4"><a href="#cb54-4"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>{'Ahmad': 90, 'Belal': 80, 'Careem': 75, 'David': 85}</code></pre>
 </div>
 </div>
 <section id="access" class="level3" data-number="6.11.1">
 <h3 data-number="6.11.1" class="anchored" data-anchor-id="access"><span class="header-section-number">6.11.1</span> Access</h3>
 <p>You can get the number of pairs using the <code>len()</code> function.</p>
-<div id="e3e97f0b" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="bu">len</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="29">
+<div id="df6b7f9d" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="bu">len</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>4</code></pre>
 </div>
 </div>
 <p>The index operator (<code>[]</code>) is used to access the value associated with a given <code>key</code>. Like so: <code>dict[key]</code>.</p>
-<div id="418c4724" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>d[<span class="st">"foo"</span>] <span class="op">==</span> d.get(<span class="st">'foo'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div id="71d03782" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>d[<span class="st">"foo"</span>] <span class="op">==</span> d.get(<span class="st">'foo'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>True</code></pre>
 </div>
 </div>
 <p>The <code>.get(key, default=None)</code> method returns <code>None</code> or a default value provided in the 2nd argument.</p>
-<div id="c92a9e97" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="cf">assert</span> <span class="st">'five'</span> <span class="kw">not</span> <span class="kw">in</span> d</span>
-<span id="cb52-2"><a href="#cb52-2"></a>d.get(<span class="st">"five"</span>, <span class="dv">5000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div id="acf5f99a" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a><span class="cf">assert</span> <span class="st">'five'</span> <span class="kw">not</span> <span class="kw">in</span> d</span>
+<span id="cb60-2"><a href="#cb60-2"></a>d.get(<span class="st">"five"</span>, <span class="dv">5000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>5000</code></pre>
 </div>
 </div>
@@ -895,18 +967,18 @@ Cell <span class="ansi-green-fg ansi-bold">In[25], line 2</span>
 <li>Iterate over values: <code>for value in d.values()</code></li>
 <li>Iterate over key-value pairs: <code>for key, value in d.items()</code></li>
 </ul>
-<div id="f410cb2b" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>d <span class="op">=</span> {</span>
-<span id="cb54-2"><a href="#cb54-2"></a>    <span class="st">"Saudi Arabia"</span>: <span class="st">"Riyadh"</span>,</span>
-<span id="cb54-3"><a href="#cb54-3"></a>    <span class="st">"Egypt"</span>: <span class="st">"Cairo"</span>,</span>
-<span id="cb54-4"><a href="#cb54-4"></a>    <span class="st">"Turkey"</span>: <span class="st">"Ankara"</span>,</span>
-<span id="cb54-5"><a href="#cb54-5"></a>    <span class="st">"Indonesia"</span>: <span class="st">"Jakarta"</span>,</span>
-<span id="cb54-6"><a href="#cb54-6"></a>    <span class="st">"Pakistan"</span>: <span class="st">"Islamabad"</span>,</span>
-<span id="cb54-7"><a href="#cb54-7"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3a86607c" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>d <span class="op">=</span> {</span>
+<span id="cb62-2"><a href="#cb62-2"></a>    <span class="st">"Saudi Arabia"</span>: <span class="st">"Riyadh"</span>,</span>
+<span id="cb62-3"><a href="#cb62-3"></a>    <span class="st">"Egypt"</span>: <span class="st">"Cairo"</span>,</span>
+<span id="cb62-4"><a href="#cb62-4"></a>    <span class="st">"Turkey"</span>: <span class="st">"Ankara"</span>,</span>
+<span id="cb62-5"><a href="#cb62-5"></a>    <span class="st">"Indonesia"</span>: <span class="st">"Jakarta"</span>,</span>
+<span id="cb62-6"><a href="#cb62-6"></a>    <span class="st">"Pakistan"</span>: <span class="st">"Islamabad"</span>,</span>
+<span id="cb62-7"><a href="#cb62-7"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="1c7cc7b0" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a><span class="cf">for</span> key <span class="kw">in</span> d.keys():</span>
-<span id="cb55-2"><a href="#cb55-2"></a>    <span class="bu">print</span>(key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e9b01fa5" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a><span class="cf">for</span> key <span class="kw">in</span> d.keys():</span>
+<span id="cb63-2"><a href="#cb63-2"></a>    <span class="bu">print</span>(key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Saudi Arabia
 Egypt
@@ -915,9 +987,9 @@ Indonesia
 Pakistan</code></pre>
 </div>
 </div>
-<div id="2a5b95b4" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="cf">for</span> value <span class="kw">in</span> d.values():</span>
-<span id="cb57-2"><a href="#cb57-2"></a>    <span class="bu">print</span>(value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6a58d12c" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a><span class="cf">for</span> value <span class="kw">in</span> d.values():</span>
+<span id="cb65-2"><a href="#cb65-2"></a>    <span class="bu">print</span>(value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Riyadh
 Cairo
@@ -926,9 +998,9 @@ Jakarta
 Islamabad</code></pre>
 </div>
 </div>
-<div id="57b38dcb" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> d.items():</span>
-<span id="cb59-2"><a href="#cb59-2"></a>    <span class="bu">print</span>(key, value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fc9b0ce2" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> d.items():</span>
+<span id="cb67-2"><a href="#cb67-2"></a>    <span class="bu">print</span>(key, value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Saudi Arabia Riyadh
 Egypt Cairo
@@ -941,10 +1013,10 @@ Pakistan Islamabad</code></pre>
 <section id="mutation" class="level3" data-number="6.11.2">
 <h3 data-number="6.11.2" class="anchored" data-anchor-id="mutation"><span class="header-section-number">6.11.2</span> Mutation</h3>
 <p>You can update dictionary values by simply assigning a new value to a key.</p>
-<div id="7c7c9f9d" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>d[<span class="st">"one"</span>] <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb61-2"><a href="#cb61-2"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="36">
+<div id="92c4094b" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>d[<span class="st">"one"</span>] <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb69-2"><a href="#cb69-2"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
 <pre><code>{'Saudi Arabia': 'Riyadh',
  'Egypt': 'Cairo',
  'Turkey': 'Ankara',
@@ -954,15 +1026,15 @@ Pakistan Islamabad</code></pre>
 </div>
 </div>
 <p>Or you may want to update using another dictionary.</p>
-<div id="c1c6a8a3" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>u <span class="op">=</span> {</span>
-<span id="cb63-2"><a href="#cb63-2"></a>    <span class="st">'three'</span>: <span class="dv">3000</span>,</span>
-<span id="cb63-3"><a href="#cb63-3"></a>    <span class="st">'four'</span>: <span class="dv">40</span>,</span>
-<span id="cb63-4"><a href="#cb63-4"></a>}</span>
-<span id="cb63-5"><a href="#cb63-5"></a></span>
-<span id="cb63-6"><a href="#cb63-6"></a>d.update(u)</span>
-<span id="cb63-7"><a href="#cb63-7"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div id="b3fdf4c7" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>u <span class="op">=</span> {</span>
+<span id="cb71-2"><a href="#cb71-2"></a>    <span class="st">'three'</span>: <span class="dv">3000</span>,</span>
+<span id="cb71-3"><a href="#cb71-3"></a>    <span class="st">'four'</span>: <span class="dv">40</span>,</span>
+<span id="cb71-4"><a href="#cb71-4"></a>}</span>
+<span id="cb71-5"><a href="#cb71-5"></a></span>
+<span id="cb71-6"><a href="#cb71-6"></a>d.update(u)</span>
+<span id="cb71-7"><a href="#cb71-7"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>{'Saudi Arabia': 'Riyadh',
  'Egypt': 'Cairo',
  'Turkey': 'Ankara',
@@ -974,50 +1046,21 @@ Pakistan Islamabad</code></pre>
 </div>
 </div>
 <p>You may take out a value:</p>
-<div id="0f3a4975" class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a>d <span class="op">=</span> {<span class="st">'one'</span>: <span class="dv">100</span>, <span class="st">'two'</span>: <span class="dv">200</span>}</span>
-<span id="cb65-2"><a href="#cb65-2"></a>value <span class="op">=</span> d.pop(<span class="st">'two'</span>)</span>
-<span id="cb65-3"><a href="#cb65-3"></a><span class="cf">assert</span> <span class="st">'two'</span> <span class="kw">not</span> <span class="kw">in</span> d</span>
-<span id="cb65-4"><a href="#cb65-4"></a><span class="cf">assert</span> value <span class="op">==</span> <span class="dv">200</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="54c21243" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>d <span class="op">=</span> {<span class="st">'one'</span>: <span class="dv">100</span>, <span class="st">'two'</span>: <span class="dv">200</span>}</span>
+<span id="cb73-2"><a href="#cb73-2"></a>value <span class="op">=</span> d.pop(<span class="st">'two'</span>)</span>
+<span id="cb73-3"><a href="#cb73-3"></a><span class="cf">assert</span> <span class="st">'two'</span> <span class="kw">not</span> <span class="kw">in</span> d</span>
+<span id="cb73-4"><a href="#cb73-4"></a><span class="cf">assert</span> value <span class="op">==</span> <span class="dv">200</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You may want to just delete a pair.</p>
-<div id="fb92879c" class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a><span class="cf">if</span> <span class="st">'two'</span> <span class="kw">in</span> d:</span>
-<span id="cb66-2"><a href="#cb66-2"></a>    <span class="kw">del</span> d[<span class="st">'two'</span>]</span>
-<span id="cb66-3"><a href="#cb66-3"></a><span class="cf">assert</span> <span class="st">'two'</span> <span class="kw">not</span> <span class="kw">in</span> d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="examples" class="level2" data-number="6.12">
-<h2 data-number="6.12" class="anchored" data-anchor-id="examples"><span class="header-section-number">6.12</span> Examples</h2>
-<div id="9c23df1a" class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>numbers <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
-<span id="cb67-2"><a href="#cb67-2"></a></span>
-<span id="cb67-3"><a href="#cb67-3"></a>total <span class="op">=</span> <span class="bu">sum</span>(numbers)</span>
-<span id="cb67-4"><a href="#cb67-4"></a>count <span class="op">=</span> <span class="bu">len</span>(numbers)</span>
-<span id="cb67-5"><a href="#cb67-5"></a>avg <span class="op">=</span> total <span class="op">/</span> count</span>
-<span id="cb67-6"><a href="#cb67-6"></a>maximum <span class="op">=</span> <span class="bu">max</span>(numbers)</span>
-<span id="cb67-7"><a href="#cb67-7"></a>minimum <span class="op">=</span> <span class="bu">min</span>(numbers)</span>
-<span id="cb67-8"><a href="#cb67-8"></a></span>
-<span id="cb67-9"><a href="#cb67-9"></a><span class="bu">print</span>(<span class="st">'Total:'</span>, total)</span>
-<span id="cb67-10"><a href="#cb67-10"></a><span class="bu">print</span>(<span class="st">'Count:'</span>, count)</span>
-<span id="cb67-11"><a href="#cb67-11"></a><span class="bu">print</span>(<span class="st">'Average:'</span>, avg)</span>
-<span id="cb67-12"><a href="#cb67-12"></a><span class="bu">print</span>(<span class="st">'Maximum:'</span>, maximum)</span>
-<span id="cb67-13"><a href="#cb67-13"></a><span class="bu">print</span>(<span class="st">'Minimum:'</span>, minimum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Total: 150
-Count: 5
-Average: 30.0
-Maximum: 50
-Minimum: 10</code></pre>
-</div>
-</div>
-<p>Let’s say we have collected a list of names and we want to find the most occurring name in the list.</p>
-<div id="c65cbe65" class="cell" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>names <span class="op">=</span> [<span class="st">'Adam'</span>, <span class="st">'Belal'</span>, <span class="st">'Belal'</span>, <span class="st">'Belal'</span>, <span class="st">'Belal'</span>, <span class="st">'Camal'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="197b8821" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a><span class="cf">if</span> <span class="st">'two'</span> <span class="kw">in</span> d:</span>
+<span id="cb74-2"><a href="#cb74-2"></a>    <span class="kw">del</span> d[<span class="st">'two'</span>]</span>
+<span id="cb74-3"><a href="#cb74-3"></a><span class="cf">assert</span> <span class="st">'two'</span> <span class="kw">not</span> <span class="kw">in</span> d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

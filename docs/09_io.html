@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; دقائق النصوص – البايثونية</title>
+<title>10&nbsp; File I/O with pathlib – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./glossary.html" rel="next">
-<link href="./zz_pipelines.html" rel="prev">
+<link href="./zz_set.html" rel="next">
+<link href="./08_strings.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./zz_set.html">فروع</a></li><li class="breadcrumb-item"><a href="./zz_strings.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">دقائق النصوص</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_setup.html">الأصل</a></li><li class="breadcrumb-item"><a href="./09_io.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O with pathlib</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -182,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">العمليات</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الإجراءات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -211,7 +211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_io.html" class="sidebar-item-text sidebar-link">
+  <a href="./09_io.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O with pathlib</span></span></a>
   </div>
 </li>
@@ -242,12 +242,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./zz_pipelines.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Pipelines</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./zz_strings.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">دقائق النصوص</span></span></a>
   </div>
 </li>
       </ul>
@@ -285,31 +279,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#ترميز-الحروف" id="toc-ترميز-الحروف" class="nav-link active" data-scroll-target="#ترميز-الحروف"><span class="header-section-number">14.1</span> ترميز الحروف</a></li>
-  <li><a href="#ترميز-unicode" id="toc-ترميز-unicode" class="nav-link" data-scroll-target="#ترميز-unicode"><span class="header-section-number">14.2</span> ترميز Unicode</a>
-  <ul class="collapse">
-  <li><a href="#مثال" id="toc-مثال" class="nav-link" data-scroll-target="#مثال">مثال</a></li>
-  </ul></li>
-  <li><a href="#كيف-يتم-تمثيل-النصوص-في-بايثون" id="toc-كيف-يتم-تمثيل-النصوص-في-بايثون" class="nav-link" data-scroll-target="#كيف-يتم-تمثيل-النصوص-في-بايثون"><span class="header-section-number">14.3</span> كيف يتم تمثيل النصوص في بايثون؟</a></li>
-  <li><a href="#المحاذاة-والحشو-alignment-and-padding" id="toc-المحاذاة-والحشو-alignment-and-padding" class="nav-link" data-scroll-target="#المحاذاة-والحشو-alignment-and-padding"><span class="header-section-number">14.4</span> المحاذاة والحشو (Alignment and Padding)</a></li>
-  <li><a href="#تنسيق-الأرقام" id="toc-تنسيق-الأرقام" class="nav-link" data-scroll-target="#تنسيق-الأرقام"><span class="header-section-number">14.5</span> تنسيق الأرقام</a>
-  <ul class="collapse">
-  <li><a href="#محاذاة-الأرقام" id="toc-محاذاة-الأرقام" class="nav-link" data-scroll-target="#محاذاة-الأرقام">محاذاة الأرقام</a></li>
-  <li><a href="#فاصل-الآلاف" id="toc-فاصل-الآلاف" class="nav-link" data-scroll-target="#فاصل-الآلاف">فاصل الآلاف</a></li>
-  <li><a href="#الترميز-العلمي-scientific-notation" id="toc-الترميز-العلمي-scientific-notation" class="nav-link" data-scroll-target="#الترميز-العلمي-scientific-notation">الترميز العلمي (Scientific Notation)</a></li>
-  <li><a href="#الأعداد-العشرية-decimals" id="toc-الأعداد-العشرية-decimals" class="nav-link" data-scroll-target="#الأعداد-العشرية-decimals">الأعداد العشرية (Decimals)</a></li>
-  <li><a href="#تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats" id="toc-تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats" class="nav-link" data-scroll-target="#تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats">تنسيق كتابة القيَم العددية الثابتة (Number literal formats)</a></li>
-  </ul></li>
-  <li><a href="#المراجع" id="toc-المراجع" class="nav-link" data-scroll-target="#المراجع"><span class="header-section-number">14.6</span> المراجع</a></li>
+  <li><a href="#reading-and-writing-files" id="toc-reading-and-writing-files" class="nav-link active" data-scroll-target="#reading-and-writing-files">Reading and writing files</a></li>
+  <li><a href="#reading-directories" id="toc-reading-directories" class="nav-link" data-scroll-target="#reading-directories">Reading directories</a></li>
+  <li><a href="#listing-files-in-all-subdirectories-with-glob" id="toc-listing-files-in-all-subdirectories-with-glob" class="nav-link" data-scroll-target="#listing-files-in-all-subdirectories-with-glob">Listing files in all subdirectories with <code>glob</code></a></li>
+  <li><a href="#directory-tree-traversal-with-walk" id="toc-directory-tree-traversal-with-walk" class="nav-link" data-scroll-target="#directory-tree-traversal-with-walk">Directory tree traversal with <code>walk</code></a></li>
+  <li><a href="#pathlib-methods" id="toc-pathlib-methods" class="nav-link" data-scroll-target="#pathlib-methods"><span class="header-section-number">10.1</span> <code>pathlib</code> methods</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./zz_set.html">فروع</a></li><li class="breadcrumb-item"><a href="./zz_strings.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">دقائق النصوص</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_setup.html">الأصل</a></li><li class="breadcrumb-item"><a href="./09_io.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O with pathlib</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">دقائق النصوص</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O with pathlib</span></h1>
 </div>
 
 
@@ -326,220 +309,356 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="ترميز-الحروف" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="ترميز-الحروف"><span class="header-section-number">14.1</span> ترميز الحروف</h2>
-<p><strong>ترميز الحروف</strong> هي عملية تعيين أرقام للأحرف الرسومية مما يسمح بتخزينها ونقلها وتحويلها باستخدام الحواسيب الرقمية.</p>
-<p><strong>رموز ASCII</strong> تحتوي على <code>128</code> حرف للغة الإنجليزية وبعض علامات الترقيم. منها <code>95</code> فقط هي أحرف قابلة للطباعة أما البقية فتسمى أحرف تحكُّم (مثل حرف السطر الجديد <code>\n</code> ، وحرف الرجوع لبداية السطر <code>\r</code>).</p>
-<p>ثم امتدت عن طريق <strong>رموز ANSII</strong> لتغطي أحرف إضافية (من <code>128</code> إلى <code>255</code>) وهي الأحرف الاتينية للغات الأخرى.</p>
-<p>لنستكشف السلاسل عن طريق حزمة من المكتبة الأساسية <code>string</code>. الآتي الأحرف اللاتينية الكبيرة والصغيرة، وعلامات الترقيم:</p>
-<div id="727d85e8" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> string</span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">print</span>(string.ascii_letters)</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="bu">print</span>(string.punctuation)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This module offers classes representing filesystem paths with semantics appropriate for different operating systems. Path classes are divided between&nbsp;<a href="https://docs.python.org/3/library/pathlib.html#pure-paths">pure paths</a>, which provide purely computational operations without I/O, and&nbsp;<a href="https://docs.python.org/3/library/pathlib.html#concrete-paths">concrete paths</a>, which inherit from pure paths but also provide I/O operations.</p>
+<p>If you’ve never used this module before or just aren’t sure which class is right for your task, Path is most likely what you need. It instantiates a concrete path for the platform the code is running on.</p>
+<blockquote class="blockquote">
+<p><a href="https://docs.python.org/3/library/pathlib.html#comparison-to-the-os-and-os-path-modules">Comparison to the <code>os</code> and <code>os.path</code> modules</a>: pathlib implements path operations using PurePath and Path objects, and so it’s said to be object-oriented. On the other hand, the os and os.path modules supply functions that work with low-level str and bytes objects, which is a more procedural approach. Some users consider the object-oriented style to be more readable.</p>
+</blockquote>
+<div id="39c840a2" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fc58af40" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">assert</span> (</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    Path(<span class="st">'datasets/pathlib/a/a.txt'</span>) <span class="op">==</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    Path(<span class="vs">r'datasets\pathlib\a\a.txt'</span>) <span class="op">==</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>    Path(<span class="st">'datasets'</span>) <span class="op">/</span> <span class="st">'pathlib'</span> <span class="op">/</span> <span class="st">'a'</span> <span class="op">/</span> <span class="st">'a.txt'</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note, when copying Windows paths, you should either replace backslashes <code>\</code> with forward slashes <code>/</code> or use raw strings <code>r''</code> to avoid escaping issues (as we did above).</p>
+<section id="reading-and-writing-files" class="level3">
+<h3 class="anchored" data-anchor-id="reading-and-writing-files"><a href="https://docs.python.org/3/library/pathlib.html#reading-and-writing-files">Reading and writing files</a></h3>
+<p>Note, <a href="https://docs.python.org/3/glossary.html#term-file-object">file objects</a> implement methods such as <code>.read()</code>&nbsp;and&nbsp;<code>.write()</code>. They mediate access to a real on-disk file or to another type of storage or communication device (for example standard input/output/error, in-memory buffers, network sockets, etc.).</p>
+<div id="bdfabd2e" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>p <span class="op">=</span> Path(<span class="st">'datasets/pathlib/a/a.txt'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a>f <span class="op">=</span> p.<span class="bu">open</span>()</span>
+<span id="cb3-4"><a href="#cb3-4"></a>content <span class="op">=</span> f.read()</span>
+<span id="cb3-5"><a href="#cb3-5"></a>f.close()</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="bu">print</span>(content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
-!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</code></pre>
+<pre><code>lorem ipsum dolfet
+weilfur badem zelfur</code></pre>
 </div>
 </div>
-</section>
-<section id="ترميز-unicode" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="ترميز-unicode"><span class="header-section-number">14.2</span> ترميز Unicode</h2>
-<p>واليوم <strong>رموز Unicode</strong> تحتوي على أكثر من <strong>مليون حرف</strong> لتغطية لغات العالم كافة: اللاتينية، اليونانية، السيريلية، الأرمنية، العبرية، <strong>العربية</strong>، السريانية، الثانا، الديفاناغارية، البنغالية، الجورموخية، الأورية، التاميلية، التيلوغوية، الكانادية، المالايالامية، السنهالية، التايلاندية، اللاوية، التبتية، الميانمارية، الجورجية، الهانغول، الإثيوبية، الشيروكية، الرموز الكندية الأصلية، الخميرية، المنغولية، الهان (الأيدوغراف الياباني، الصيني، الكوري)، الهيراغانا، الكاتاكانا، واليي. <a href="https://www.unicode.org/faq/basic_q.html#:~:text=The%20simplest%20answer%20is%20that,%2C%20Myanmar%2C%20Georgian%2C%20Hangul%2C">المصدر</a>. وما يزال أول <code>128</code> حرف منها متطابق مع رموز ASCII.</p>
-<section id="مثال" class="level3">
-<h3 class="anchored" data-anchor-id="مثال">مثال</h3>
-<p>ماذا يحصل لو كتبنا حروف عربية ثم حاولنا حفظ الملف بترميز ASCII ولم نحفظه بترميز Unicode؟</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/save_ascii_arabic.png" class="img-fluid figure-img"></p>
-<figcaption>برنامج نوتباد في وندوز بكلام عربي يظهر بشكل استفهامات</figcaption>
-</figure>
-</div>
-<p>الخطأ يقول: “This file contains characters in Unicode format which will be lost if you save this file as an ANSI encoded text file. To keep the Unicode information, click Cancel below and then select one of the Unicode options from the Encoding drop down list. Continue?”</p>
-</section>
-</section>
-<section id="كيف-يتم-تمثيل-النصوص-في-بايثون" class="level2" data-number="14.3">
-<h2 data-number="14.3" class="anchored" data-anchor-id="كيف-يتم-تمثيل-النصوص-في-بايثون"><span class="header-section-number">14.3</span> كيف يتم تمثيل النصوص في بايثون؟</h2>
-<p>تمثيل النصوص في بايثون يكون عن طريق النوع <code>str</code>؛ يُعرَّف بكتابة سلسلة من الأحرف لكن في الواقع تتحول إلى سلسلة من رموز Unicode (أي: أرقام). هذا يعني أنها قد تكون سلسلة رموز لاتينية أو عربية أو صينية أو غير ذلك مما تحويه رموز Unicode.</p>
-<p>الدالة المدمجة <strong>ord()</strong> تقوم بتحويل الحرف إلى رقم الرمز. بينما <strong>chr()</strong> تعكس ذلك (من الرمز إلى الحرف).</p>
-<p>على النقيض من سي وجافا؛ لا يوجد نوع خاص بالحرف الواحد (<code>char</code>) في بايثون.</p>
-<div id="08a948ed" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"A"</span>), <span class="bu">ord</span>(<span class="st">"Z"</span>))</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="bu">print</span>(<span class="bu">chr</span>(<span class="dv">65</span>), <span class="bu">chr</span>(<span class="dv">90</span>))</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"a"</span>), <span class="bu">ord</span>(<span class="st">"z"</span>))</span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"0"</span>), <span class="bu">ord</span>(<span class="st">"9"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here, we read a text file using the <code>.open()</code> method with read mode <code>'r'</code> (default). To ensure we never forget to close resources, like a file (which could lead to memroy leaks), Python provides the <code>with</code> statement.</p>
+<p>The <code>with</code> statement can only be used with <a href="https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers">Context Manager</a> types (such as a file object) to lock and unlock resources automatically. In this case, the file object is opened at the entry of the <code>with</code> block and is closed when exited.</p>
+<p><a href="https://en.wikipedia.org/wiki/Lock_(computer_science)">Locking</a> also makes sure only one process can access the resource (file) at a time, thus prevent invalid state caused by concurrent writes to the same resource (race condition). Unlocking releases the resource for other processes to use.</p>
+<div id="80b2517c" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>p <span class="op">=</span> Path(<span class="st">'datasets/pathlib/a/a.txt'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="cf">with</span> p.<span class="bu">open</span>(mode<span class="op">=</span><span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    contents <span class="op">=</span> <span class="bu">file</span>.read()</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    <span class="bu">print</span>(contents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>65 90
-A Z
-97 122
-48 57</code></pre>
+<pre><code>lorem ipsum dolfet
+weilfur badem zelfur</code></pre>
 </div>
 </div>
-<p>ماذا عن الحروف العربية؟ أين تقع في أرقام ترميز Unicode؟</p>
-<div id="82409bb3" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Arabic Unicode points are between 1536 and 1791</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"أ"</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">"أ"</span>)))</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"ب"</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">"ب"</span>)))</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"ي"</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">"ي"</span>)))</span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">'َ'</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">'َ'</span>)))</span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">'ُ'</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">'ُ'</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The following table specify what <code>mode</code> characters mean:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Character</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>'r'</code></td>
+<td>open for reading (default)</td>
+</tr>
+<tr class="even">
+<td><code>'w'</code></td>
+<td>open for writing, truncating the file first</td>
+</tr>
+<tr class="odd">
+<td><code>'x'</code></td>
+<td>open for exclusive creation, failing if the file already exists</td>
+</tr>
+<tr class="even">
+<td><code>'a'</code></td>
+<td>open for writing, appending to the end of file if it exists</td>
+</tr>
+<tr class="odd">
+<td><code>'b'</code></td>
+<td>binary mode</td>
+</tr>
+<tr class="even">
+<td><code>'t'</code></td>
+<td>text mode (default)</td>
+</tr>
+<tr class="odd">
+<td><code>'+'</code></td>
+<td>open for updating (reading and writing)</td>
+</tr>
+</tbody>
+</table>
+<p>Read more about the built-in <a href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a> function.</p>
+<p>The <code>.read()</code> method reads the entire file, but we can also read line by line using the <code>.readline()</code> method.</p>
+<div id="0f0540d0" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-5-1"><a href="#annotated-cell-5-1"></a>p <span class="op">=</span> Path(<span class="st">'datasets/pathlib/a/a.txt'</span>)</span>
+<span id="annotated-cell-5-2"><a href="#annotated-cell-5-2"></a></span>
+<span id="annotated-cell-5-3"><a href="#annotated-cell-5-3"></a><span class="cf">with</span> p.<span class="bu">open</span>(mode<span class="op">=</span><span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="annotated-cell-5-4"><a href="#annotated-cell-5-4"></a>    <span class="cf">for</span> i, line <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">file</span>, start<span class="op">=</span><span class="dv">1</span>):</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-5" class="code-annotation-target"><a href="#annotated-cell-5-5"></a>        line <span class="op">=</span> line.rstrip()</span>
+<span id="annotated-cell-5-6"><a href="#annotated-cell-5-6"></a>        <span class="bu">print</span>(<span class="ss">f'Line </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>line<span class="sc">}</span><span class="ss">'</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-lines="5" data-code-annotation="1">Using <code>.rstrip</code> to remove the ‘’ (newline character)</span>
+</dd>
+</dl>
+</div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1571 0x623
-1576 0x628
-1610 0x64a
-1614 0x64e
-1615 0x64f</code></pre>
+<pre><code>Line 1: lorem ipsum dolfet
+Line 2: weilfur badem zelfur</code></pre>
 </div>
 </div>
-<p>راجع <a href="https://en.wikipedia.org/wiki/Arabic_script_in_Unicode">ويكيبيديا: النص العربي في Unicode</a> لمزيد من التفاصيل.</p>
-</section>
-<section id="المحاذاة-والحشو-alignment-and-padding" class="level2" data-number="14.4">
-<h2 data-number="14.4" class="anchored" data-anchor-id="المحاذاة-والحشو-alignment-and-padding"><span class="header-section-number">14.4</span> المحاذاة والحشو (Alignment and Padding)</h2>
-<div id="824f23b0" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>name <span class="op">=</span> <span class="st">'Adam'</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="bu">print</span>(name.ljust(<span class="dv">15</span>)) </span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="bu">print</span>(name.center(<span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Adam           
-      Adam     </code></pre>
-</div>
-</div>
-<p>طريقة ممتعة لتزيين سلسلة نصية باستخدام دالة <code>center</code>:</p>
-<div id="1d294c10" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="bu">print</span>(<span class="st">'*'</span> <span class="op">*</span> <span class="dv">20</span>)</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="bu">print</span>(<span class="st">'Adam'</span>.center(<span class="dv">20</span>, <span class="st">"*"</span>))</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="bu">print</span>(<span class="st">'*'</span> <span class="op">*</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>********************
-********Adam********
-********************</code></pre>
-</div>
-</div>
-<section id="جرب" class="level4">
-<h4 class="anchored" data-anchor-id="جرب">جرب</h4>
-<p>قم بصياغة الكود السابق لتعريف ثلاثة متغيرات واستخدامها في تزيين الاسم:</p>
-<ul>
-<li><code>name</code></li>
-<li><code>width</code></li>
-<li><code>decorator</code></li>
-</ul>
-</section>
-</section>
-<section id="تنسيق-الأرقام" class="level2" data-number="14.5">
-<h2 data-number="14.5" class="anchored" data-anchor-id="تنسيق-الأرقام"><span class="header-section-number">14.5</span> تنسيق الأرقام</h2>
-<section id="محاذاة-الأرقام" class="level3">
-<h3 class="anchored" data-anchor-id="محاذاة-الأرقام">محاذاة الأرقام</h3>
-<div id="518c378d" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="dv">100</span><span class="sc">:10}</span><span class="ss">'</span>)</span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="dv">1000</span><span class="sc">:10}</span><span class="ss">'</span>)</span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="dv">10000</span><span class="sc">:10}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       100
-      1000
-     10000</code></pre>
-</div>
-</div>
-<p>يمكننا أيضًا جعل كل من العدد <code>n</code> والتعبئة <code>p</code> متغيرات:</p>
-<div id="f75efe08" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>p <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  100</code></pre>
-</div>
-</div>
-<p>بشكل افتراضي، يتم محاذاة الرقم إلى اليمين. يمكننا محاذاته إلى اليسار بإضافة <code>&lt;</code>. لاحظ الفرق بين التعبيرين أدناه:</p>
-<div id="99e4c8ab" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span><span class="op">&gt;</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span><span class="op">&lt;</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  100
-100  </code></pre>
+<p>We can also write to a file using the <code>.write()</code> method:</p>
+<div id="a6c42f75" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="annotated-cell-6"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1"></a>p <span class="op">=</span> Path(<span class="st">'datasets/pathlib/a/zzz.txt'</span>)</span>
+<span id="annotated-cell-6-2"><a href="#annotated-cell-6-2"></a></span>
+<span id="annotated-cell-6-3"><a href="#annotated-cell-6-3"></a><span class="cf">with</span> p.<span class="bu">open</span>(mode<span class="op">=</span><span class="st">'w'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-6-4" class="code-annotation-target"><a href="#annotated-cell-6-4"></a>    <span class="bu">file</span>.write(<span class="st">'Hello, World!</span><span class="ch">\n</span><span class="st">'</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-6" data-code-lines="4" data-code-annotation="1">The <code>.write()</code> method does not add a newline character, so we need to add it manually.</span>
+</dd>
+</dl>
 </div>
 </div>
 </section>
-<section id="فاصل-الآلاف" class="level3">
-<h3 class="anchored" data-anchor-id="فاصل-الآلاف">فاصل الآلاف</h3>
-<div id="1c9e0fc2" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>big_num <span class="op">=</span> <span class="dv">10000</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>big_num<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>big_num<span class="sc">:,}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="reading-directories" class="level3">
+<h3 class="anchored" data-anchor-id="reading-directories"><a href="https://docs.python.org/3/library/pathlib.html#reading-directories">Reading directories</a></h3>
+<div id="ea26b041" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>p <span class="op">=</span> Path(<span class="st">'datasets/pathlib/'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>dirs <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> p.iterdir() <span class="cf">if</span> x.is_dir()]</span>
+<span id="cb8-3"><a href="#cb8-3"></a>dirs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>[WindowsPath('datasets/pathlib/a'),
+ WindowsPath('datasets/pathlib/b'),
+ WindowsPath('datasets/pathlib/c')]</code></pre>
+</div>
+</div>
+<p>A fun exercise is to find out how big is your Downloads folder. We can use the <code>stat()</code> method to get the file system metadata of a file or directory. The <code>st_size</code> attribute of the <code>stat()</code> object gives the size of the file in bytes.</p>
+<div id="c22dd70c" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>p <span class="op">=</span> Path.home() <span class="op">/</span> <span class="st">'Downloads'</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>size <span class="op">=</span> p.stat().st_size</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="bu">print</span>(size, <span class="st">'bytes'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>10000
-10,000</code></pre>
+<pre><code>655360 bytes</code></pre>
 </div>
 </div>
-</section>
-<section id="الترميز-العلمي-scientific-notation" class="level3">
-<h3 class="anchored" data-anchor-id="الترميز-العلمي-scientific-notation">الترميز العلمي (Scientific Notation)</h3>
-<div id="b7df5838" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>small_num <span class="op">=</span> <span class="fl">1e-4</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>small_num<span class="sc">:.2e}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s format the size in a human-readable format.</p>
+<div id="64a66432" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">def</span> format_size(size):</span>
+<span id="cb12-2"><a href="#cb12-2"></a>    size_kb <span class="op">=</span> size <span class="op">/</span> <span class="dv">1024</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>    size_mb <span class="op">=</span> size_kb <span class="op">/</span> <span class="dv">1024</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>    size_gb <span class="op">=</span> size_mb <span class="op">/</span> <span class="dv">1024</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a>    <span class="cf">if</span> size_gb <span class="op">&gt;</span> <span class="fl">0.1</span>:</span>
+<span id="cb12-6"><a href="#cb12-6"></a>        <span class="cf">return</span> <span class="ss">f'</span><span class="sc">{</span>size_gb<span class="sc">:.2f}</span><span class="ss"> GB'</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a>    <span class="cf">elif</span> size_mb <span class="op">&gt;</span> <span class="fl">0.1</span>:</span>
+<span id="cb12-8"><a href="#cb12-8"></a>        <span class="cf">return</span> <span class="ss">f'</span><span class="sc">{</span>size_mb<span class="sc">:.2f}</span><span class="ss"> MB'</span></span>
+<span id="cb12-9"><a href="#cb12-9"></a>    <span class="cf">return</span> <span class="ss">f'</span><span class="sc">{</span>size_kb<span class="sc">:.2f}</span><span class="ss"> KB'</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a></span>
+<span id="cb12-11"><a href="#cb12-11"></a><span class="bu">print</span>(format_size(size))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1.00e-04</code></pre>
+<pre><code>0.62 MB</code></pre>
 </div>
 </div>
 </section>
-<section id="الأعداد-العشرية-decimals" class="level3">
-<h3 class="anchored" data-anchor-id="الأعداد-العشرية-decimals">الأعداد العشرية (Decimals)</h3>
-<div id="d67a2c79" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>num <span class="op">=</span> <span class="fl">10.5689</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
-<span id="cb21-4"><a href="#cb21-4"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.0f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="listing-files-in-all-subdirectories-with-glob" class="level3">
+<h3 class="anchored" data-anchor-id="listing-files-in-all-subdirectories-with-glob">Listing files in all subdirectories with <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob"><code>glob</code></a></h3>
+<p>Let’s say we are interested in the total size images only, in a directory tree. We can use the <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob"><code>glob</code></a> to utilize a <a href="https://docs.python.org/3/library/pathlib.html#pathlib-pattern-language">Pattern language</a> like so:</p>
+<div id="55af974c" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>total_size <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="cf">for</span> p <span class="kw">in</span> Path(<span class="st">'datasets/pathlib/'</span>).glob(<span class="st">'**/*.jpg'</span>):</span>
+<span id="cb14-3"><a href="#cb14-3"></a>    total_size <span class="op">+=</span> p.stat().st_size</span>
+<span id="cb14-4"><a href="#cb14-4"></a></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="bu">print</span>(<span class="st">'Total size:'</span>, total_size, <span class="st">'bytes'</span>)</span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="bu">print</span>(<span class="st">'Total size:'</span>, format_size(total_size))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>10.5689
-10.5689
-10.57
-11</code></pre>
+<pre><code>Total size: 999702 bytes
+Total size: 0.95 MB</code></pre>
 </div>
 </div>
-<section id="مثال-تنسيق-الكم-المالي" class="level4">
-<h4 class="anchored" data-anchor-id="مثال-تنسيق-الكم-المالي">مثال: تنسيق الكم المالي</h4>
-<p>هنا نستخدم مكونين داخل الأقواس المعقوفة وعلامة <code>$</code> في البداية: - يتم إضافة علامة <code>$</code> قبل الرقم (ليست جزءًا من الرقم المنسق على الإطلاق) - <code>,</code> تضيف فاصل الآلاف - <code>.2f</code> يقوم بتقريب الرقم إلى منزلتين عشريتين</p>
-<div id="9e10ee6b" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>price <span class="op">=</span> <span class="fl">2978.95</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="bu">print</span>(<span class="ss">f"$</span><span class="sc">{</span>price<span class="sc">:,.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="directory-tree-traversal-with-walk" class="level3">
+<h3 class="anchored" data-anchor-id="directory-tree-traversal-with-walk">Directory tree traversal with <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk"><code>walk</code></a></h3>
+<p>Walk the directory tree either top-down or bottom-up.</p>
+<div id="fb134a76" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>p <span class="op">=</span> Path(<span class="st">'datasets/pathlib/'</span>)</span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="cf">for</span> dirpath, dirnames, filenames <span class="kw">in</span> p.walk(top_down<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb16-3"><a href="#cb16-3"></a>    <span class="bu">print</span>(dirpath)</span>
+<span id="cb16-4"><a href="#cb16-4"></a>    <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> filenames:</span>
+<span id="cb16-5"><a href="#cb16-5"></a>        <span class="bu">print</span>(<span class="ss">f'</span><span class="ch">\t</span><span class="sc">{</span><span class="bu">file</span><span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb16-6"><a href="#cb16-6"></a>        <span class="co"># print('\tFULL PATH:', Path(dirpath) / file)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>$2,978.95</code></pre>
+<pre><code>datasets\pathlib
+    something.txt
+datasets\pathlib\a
+    a.txt
+    A_domestic_cat.jpg
+    A_domestic_cat.jpgZone.Identifier
+    zzz.txt
+datasets\pathlib\b
+    A_yellow_and_white_cat.jpg
+    A_yellow_and_white_cat.jpgZone.Identifier
+    b.txt
+    DSC0532_(9120523417).jpg
+    DSC0532_(9120523417).jpgZone.Identifier
+datasets\pathlib\c
+    c.txt
+datasets\pathlib\c\c_inner
+    inner.txt</code></pre>
 </div>
 </div>
+<p>You can uncomment the last line to see that we have the full path.</p>
 </section>
-</section>
-<section id="تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats" class="level3">
-<h3 class="anchored" data-anchor-id="تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats">تنسيق كتابة القيَم العددية الثابتة (Number literal formats)</h3>
-<p><a href="https://docs.python.org/3/reference/lexical_analysis.html#literals"><strong>الحروفيَّة</strong></a> هي رموز للقيم الثابتة لبعض الأنواع المدمجة. مثال: <code>42</code> هو حرفيُّ عدد صحيح و <code>3.14</code> هو حرفيُّ عدد عشري.</p>
-<p>تسمح بايثون بطرق أكثر قابلية للقراءة في كتابة الحروفية العددية:</p>
-<ul>
-<li>يمكن استخدام الشرطة السفلية <code>_</code> في الأرقام لفصلها لتحسين القراءة</li>
-<li>يمكن استخدام <code>e</code> أو <code>E</code> لتمثيل الترميز العلمي</li>
-<li><code>0b</code> أو <code>0B</code> للأرقام الثنائية</li>
-<li><code>0o</code> أو <code>0O</code> للأرقام الثمانية</li>
-<li><code>0x</code> أو <code>0X</code> للأرقام الست عشرية</li>
-<li><code>j</code> أو <code>J</code> للأعداد المركبة</li>
-</ul>
-<p>وإليك تطبيق ذلك:</p>
-<div id="5613db9e" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="cf">assert</span> <span class="fl">1e-4</span> <span class="op">==</span> <span class="fl">0.0001</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="cf">assert</span> <span class="dv">1_000_000</span> <span class="op">==</span> <span class="dv">1000000</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a><span class="cf">assert</span> <span class="bn">0b1010</span> <span class="op">==</span> <span class="dv">10</span></span>
-<span id="cb25-4"><a href="#cb25-4"></a><span class="cf">assert</span> <span class="bn">0o10</span> <span class="op">==</span> <span class="dv">8</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a><span class="cf">assert</span> <span class="bn">0x10</span> <span class="op">==</span> <span class="dv">16</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a><span class="cf">assert</span> <span class="dv">1</span> <span class="op">+</span> <span class="ot">2j</span> <span class="op">==</span> <span class="ot">2j</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="المراجع" class="level2" data-number="14.6">
-<h2 data-number="14.6" class="anchored" data-anchor-id="المراجع"><span class="header-section-number">14.6</span> المراجع</h2>
-<ul>
-<li><a href="https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str">Text Sequence Type — str</a></li>
-<li><a href="https://docs.python.org/3/library/stdtypes.html#string-methods">String methods</a></li>
-<li><a href="https://docs.python.org/3/library/text.html#textservices">Text Processing Services</a></li>
-<li><a href="https://docs.python.org/3/library/string.html">Common string operations</a></li>
-<li><a href="https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting"><code>printf</code>-style String Formatting</a></li>
-<li><a href="https://pyformat.info/">PyFormat</a></li>
-</ul>
+<section id="pathlib-methods" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="pathlib-methods"><span class="header-section-number">10.1</span> <code>pathlib</code> methods</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><a href="https://docs.python.org/3/library/pathlib.html#module-pathlib"><code>pathlib</code></a></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.parent"><code>PurePath.parent</code></a></td>
+<td>Returns the parent directory of the path.</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.name"><code>PurePath.name</code></a></td>
+<td>Retrieves the last component (file or directory name) of the path.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.stem"><code>PurePath.stem</code></a>,&nbsp;<a href="https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.suffix"><code>PurePath.suffix</code></a></td>
+<td><code>stem</code>: Returns the file name without extension. <code>suffix</code>: Returns the file extension (with dot).</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.joinpath"><code>PurePath.joinpath()</code></a></td>
+<td>Combines multiple path components.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.is_absolute"><code>PurePath.is_absolute()</code></a></td>
+<td>Checks if the path is absolute.</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.relative_to"><code>PurePath.relative_to()</code></a>&nbsp;</td>
+<td>Returns a version of the path relative to another path.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.expanduser"><code>Path.expanduser()</code></a></td>
+<td>Expands <code>~</code> to the current user’s home directory.</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.resolve"><code>Path.resolve()</code></a></td>
+<td>Returns the absolute path by resolving symbolic links.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.absolute"><code>Path.absolute()</code></a></td>
+<td>Returns the absolute version of the path (without resolving symlinks).</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.exists"><code>Path.exists()</code></a></td>
+<td>Checks if the path exists.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_file"><code>Path.is_file()</code></a></td>
+<td>Checks if the path points to a regular file.</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_dir"><code>Path.is_dir()</code></a></td>
+<td>Checks if the path points to a directory.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_symlink"><code>Path.is_symlink()</code></a></td>
+<td>Checks if the path points to a symbolic link.</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_junction"><code>Path.is_junction()</code></a></td>
+<td>Windows-specific: checks if the path points to a junction.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_mount"><code>Path.is_mount()</code></a></td>
+<td>Checks if the path is a mount point.</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.samefile"><code>Path.samefile()</code></a></td>
+<td>Checks if two paths refer to the same file.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.cwd"><code>Path.cwd()</code></a></td>
+<td>Returns the current working directory.</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.stat"><code>Path.stat()</code></a></td>
+<td>Returns file system metadata.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.lstat"><code>Path.lstat()</code></a></td>
+<td>Like <code>stat()</code> but does not follow symlinks.</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.iterdir"><code>Path.iterdir()</code></a></td>
+<td>Returns an iterator over the directory contents.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk"><code>Path.walk()</code></a>&nbsp;</td>
+<td>Recursively walks through a directory tree.</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.mkdir"><code>Path.mkdir()</code></a></td>
+<td>Creates a new directory.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.hardlink_to"><code>Path.hardlink_to()</code></a></td>
+<td>Creates a hard link pointing to the path.</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.symlink_to"><code>Path.symlink_to()</code></a></td>
+<td>Creates a symbolic link pointing to the path.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.readlink"><code>Path.readlink()</code></a></td>
+<td>Returns the path the symlink points to.</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.rename"><code>Path.rename()</code></a></td>
+<td>Renames the file or directory.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.replace"><code>Path.replace()</code></a></td>
+<td>Renames the file or directory, overwriting if necessary.</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.unlink"><code>Path.unlink()</code></a></td>
+<td>Removes a file.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.rmdir"><code>Path.rmdir()</code></a></td>
+<td>Removes an empty directory.</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.chmod"><code>Path.chmod()</code></a></td>
+<td>Changes file mode and permissions.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.lchmod"><code>Path.lchmod()</code></a></td>
+<td>Like <code>chmod()</code> but does not follow symlinks.</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
@@ -967,13 +1086,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./zz_pipelines.html" class="pagination-link" aria-label="Pipelines">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Pipelines</span></span>
+      <a href="./08_strings.html" class="pagination-link" aria-label="النصوص">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">النصوص</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./glossary.html" class="pagination-link" aria-label="الأعداد">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">الأعداد</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./zz_set.html" class="pagination-link" aria-label="المجموعة الرياضية">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">المجموعة الرياضية</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

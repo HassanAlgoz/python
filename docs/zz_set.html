@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="حسان القوز">
-<meta name="dcterms.date" content="2025-05-10">
 
-<title>البايثونية</title>
+<title>11&nbsp; المجموعة الرياضية – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,7 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./00_setup.html" rel="next">
+<link href="./zz_comprehension.html" rel="next">
+<link href="./09_io.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -82,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">فاتحة</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./zz_set.html">فروع</a></li><li class="breadcrumb-item"><a href="./zz_set.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">المجموعة الرياضية</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -109,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">فاتحة</span></a>
   </div>
 </li>
@@ -195,7 +228,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./zz_set.html" class="sidebar-item-text sidebar-link">
+  <a href="./zz_set.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">المجموعة الرياضية</span></span></a>
   </div>
 </li>
@@ -246,38 +279,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#فاتحة" id="toc-فاتحة" class="nav-link active" data-scroll-target="#فاتحة">فاتحة</a>
-  <ul class="collapse">
-  <li><a href="#تمهيد" id="toc-تمهيد" class="nav-link" data-scroll-target="#تمهيد">تمهيد</a></li>
-  </ul></li>
+  <li><a href="#المجموعة-الرياضية-set" id="toc-المجموعة-الرياضية-set" class="nav-link active" data-scroll-target="#المجموعة-الرياضية-set"><span class="header-section-number">11.1</span> المجموعة الرياضية (Set)</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./zz_set.html">فروع</a></li><li class="breadcrumb-item"><a href="./zz_set.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">المجموعة الرياضية</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">البايثونية</h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">المجموعة الرياضية</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>حسان القوز </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">May 10, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -287,26 +305,188 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="فاتحة" class="level1 unnumbered">
-<h1 class="unnumbered">فاتحة</h1>
-<p>بسم الله الرحمن الرحيم. والحمد لله والصلاة والسلام على رسول الله وآله وصحبه ومن والاه. أما بعد.</p>
-<p>كتبت هذا الكتاب لمن أراد تعلم البرمجة بلغة عربية سهلة ، وبطريقة منهجية مرتبة مع مراعاة الجانبين: النظري والعملي. وليس الهدف منه تعلم طريقة التفكير، فهذا يُدرس في الخوارزميات وهياكل البيانات، ولكن الهدف هو التعرف على الأدوات البرمجية نفسها عن طريق طرح مسائل نستعمل فيها هذه الأدوات.</p>
-<p>ولم يكن الهدف من الكتاب ترجمة كتب علمية أو مقالات برمجية إلى اللغة العربية؛ بل الهدف هو تعلم البرمجة. فحرصت على أن يكون الكلام متداولاً ولو لم تكن المصطلحات قاموسية. واخترت من الاصطلاح ما يزول به الغموض مراعيًا السياقات المختلفة لتكون أقرب لفهم المتعلم العربي.</p>
-<p>واخترت لغة بايثون لتعليم البرمجة لسهولتها وشهرتها مما يجعل كثيرًا من التطبيقات في المتناول، إذ الجهود متظافرة على خدمةمكتباتها من المجتمعات التي تتمحور حول صنف ما من التطبيقات. وقد نقسم أنواع التطبيقات إلى ثلاثة:</p>
-<p><strong>أنظمة تحاكي الواقع</strong>: مثلاً برنامج لمحاكاة القوى المؤثرة وتوزيع الأحمال على جسر (أو عمارة أو باخرة أو طائرة) يساعد المهندسين على بناء الجسر (وربما خطة تفصيلية متدرِّجة).</p>
-<p><strong>أنظمة فاعلة في الواقع</strong>: مثلاً في المصنع: الذراع الآلية ، وآلة القص ، وآلة الكبس ، …إلخ. من الآلات التي تعمل ضمن مجموعة متسقة لتنتج ما تنتج على خط الإنتاج.</p>
-<p><strong>أنظمة المعلومات</strong>: تُعنى بجمع المعلومات وحفظها وفهرستها وترتيبها وتقسيمها وعرضها وتسهيل الحصول عليها بالسؤال المباشر وغير المباشر، والتحقق منها وتوفيرها والاستفادة منها وترجمتها ونحو ذلك. وهذا النوع هو الأغلب. مثل: محرك بحث قوقل (يعمل على ترتيب شبكة الإنترنت) ، ونظام الدفع عبر البطاقة ، والبرمجيات المكتيبة (تقارير ، محاسبة ، تخطيط، …إلخ) ، ونحو ذلك .</p>
-<section id="تمهيد" class="level2">
-<h2 class="anchored" data-anchor-id="تمهيد">تمهيد</h2>
-<p>ظل الذكاء الاصطناعي طموحًا عاليًا منذ بزوغ فجر علوم الحاسب (1953). وما زال هذا الهدف دافعًا قويًّا لكل من فهم أننا باختراع الحاسب (1833 - 1871) استطعنا محاكاة المنطق في آلات صماء. ولا حد لإمكانيَّة هذا المعالِج الآلي إلا تعبيرك اللغوي أيها الناطق البشري. فهذا جانب المعالجة.</p>
-<p>وجانب الإدراك فيه:</p>
-<p>أدوات <strong>الإحساس</strong> التي تُدخِلُ المرئيات والمسموعات ونحوها ؛ وقد تم محاكاتها بآلة التصوير (كاميرا) ولاقط الصوت (مايكروفون). وكذلك أجهزة استشعار دقيقة مثل مستشعر الحرارة أو الرطوبة أو أجهزة قياس المسافة أو ماسحات البصمة أو الرنين المغناطيسي (MRI) أو الموجات الكهرومغناطيسية في الأقمار الصناعية وأجهزة الملاحة الجوية والبحرية والبوصلة أو ميزان التسوية الأفقية (Gyroscope) وغيرها كثير.</p>
-<p>ومنها ما يُسجل يدويًّا كما يكون في المستشفى: العمر والوزن والطول، أو بيانات الحضور والانصراف أو المبيعات اليومية، أو بيانات طلاب أو متدربين في دورة تدريبية أو سجلات المخزون ونحو ذلك. وهي كثيرة جدًّا.</p>
-<p>وأدوات <strong>الاستيعاب</strong> وهي التي تجمع المحسوسات في وعاءٍ واحدٍ للاعتبار جُملةً واحدة، وقد تم محاكاتهُا بما نسميه الذاكرة (وهي على مراحل تَبعُد وتَقترب من مركز المعالجة). وتشبه الذاكرة في الجهاز ما يراه الشخص في الوقت الواحد أو يمكن تصوُّرُه في الذهن وتخيله في لحظة واحدة. أما الذكريات المخزنة لدينا ، وما نكتبه في مذكرات فيكون مسجلاً في أجهزة الحفظ.</p>
-<p>ثم تأتي أدوات <strong>المعالجة</strong> وهي الآلات القابلة للبرمجة؛ مثل وحدة المعالجة المركزية (CPU) ووحدة المعالجة الرسومية (GPU) وغيرها؛ حيث يوضَع المنطق المترجَم من لغات البرمجة المتعددة.</p>
+<section id="المجموعة-الرياضية-set" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="المجموعة-الرياضية-set"><span class="header-section-number">11.1</span> المجموعة الرياضية (Set)</h2>
+<p>المجموعة الرياضية (<code>set</code>) تحوي أشياء فريدة بغير ترتيب معيَّن. أما نظيرها غير القابلة للتغيير فهو: (<code>frozenset</code>).</p>
+<p>تدعم المجموعة الرياضة لكونها مجموعة (<a href="https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes">Collection</a>) العمليات التالية:</p>
+<ul>
+<li>معرفة الطول: <code>len(s)</code></li>
+<li>التكرار: <code>for x in s</code></li>
+<li>العضوية: <code>x not in s</code></li>
+</ul>
+<p>باعتبارها مجموعة غير مرتبة، فإن <code>set</code> لا تسجل موقع العنصر أو ترتيب إدراجه. وبالتالي، فإنها لا تدعم الإشارة (<code>xs[i]</code>) أو التقطيع (<code>xs[i:j]</code>) أو أي سلوك يشبه المتسلسلات. لاحظ الخطأ التالي:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#| error: true</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>xs <span class="op">=</span> {<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>}</span>
+<span id="cb1-3"><a href="#cb1-3"></a>xs[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>مثال لاستعمال العضوية:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>languages <span class="op">=</span> {<span class="st">"Arabic"</span>, <span class="st">"English"</span>}</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="cf">if</span> <span class="st">'Python'</span> <span class="kw">not</span> <span class="kw">in</span> languages:</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="bu">print</span>(<span class="st">'you need to add Python to your languages!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>باعتبارها مجموعة قابلة للتغيير (Mutable Set)، فهي تدعم <a href="https://docs.python.org/3/library/stdtypes.html#frozenset.update">الإجراءات</a> التالية:</p>
+<ul>
+<li>الإضافة: <code>add</code></li>
+<li>الحذف: <code>discard</code></li>
+<li>أخذ عنصر عشوائي: <code>pop</code></li>
+<li>المحو: <code>clear</code></li>
+</ul>
+<p>سميناها رياضية لأنها تدعم عمليات:</p>
+<ul>
+<li>التقاطع والاتحاد والفرق، والفرق التماثلي</li>
+<li>وكذلك تحقق: (الجزئية والشمول والانفاصل) .. المعروفة في الرياضيات.</li>
+</ul>
+<p>وهذا الكود مثال لجميع هذه العمليات:</p>
+<div id="c320fbe3" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>set1 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span>
+<span id="cb3-2"><a href="#cb3-2"></a>set2 <span class="op">=</span>          {<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a>union <span class="op">=</span> set1 <span class="op">|</span> set2</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="cf">assert</span> union <span class="op">==</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a>intersection <span class="op">=</span> set1 <span class="op">&amp;</span> set2</span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="cf">assert</span> intersection <span class="op">==</span> {<span class="dv">4</span>, <span class="dv">5</span>}</span>
+<span id="cb3-9"><a href="#cb3-9"></a></span>
+<span id="cb3-10"><a href="#cb3-10"></a>diff1 <span class="op">=</span> set1 <span class="op">-</span> set2</span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="cf">assert</span> diff1 <span class="op">==</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
+<span id="cb3-12"><a href="#cb3-12"></a></span>
+<span id="cb3-13"><a href="#cb3-13"></a>diff2 <span class="op">=</span> set2 <span class="op">-</span> set1</span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="cf">assert</span> diff2 <span class="op">==</span> {<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span>
+<span id="cb3-15"><a href="#cb3-15"></a></span>
+<span id="cb3-16"><a href="#cb3-16"></a>symmetric_difference <span class="op">=</span> set1 <span class="op">^</span> set2</span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="cf">assert</span> symmetric_difference <span class="op">==</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>نصيحة: من الأفضل استعمال اسم الإجراء بدلاً من العلامة التي تقابله حيث أنها تقبل أي نوع من المتكررات (Iterables) وليس المجموعات الرياضية فقط (<code>set</code>).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 39%">
+<col style="width: 19%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>العملية</th>
+<th>العلامة</th>
+<th>الإجراء المكافئ</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>الاتحاد</td>
+<td><code>set1 | set2</code></td>
+<td><code>set1.union(set2)</code></td>
+</tr>
+<tr class="even">
+<td>التقاطع</td>
+<td><code>set1 &amp; set2</code></td>
+<td><code>set1.intersection(set2)</code></td>
+</tr>
+<tr class="odd">
+<td>الفرق</td>
+<td><code>set1 - set2</code></td>
+<td><code>set1.difference(set2)</code></td>
+</tr>
+<tr class="even">
+<td>الفرق التماثلي</td>
+<td><code>set1 ^ set2</code></td>
+<td><code>set1.symmetric_difference(set2)</code></td>
+</tr>
+</tbody>
+</table>
+<p>وكذلك لدينا إجراءات تحقق الجزئية والشمول والانفصال:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 39%">
+<col style="width: 19%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>العملية</th>
+<th>العلامة</th>
+<th>الإجراء المكافئ</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>تحقق الجزئية</td>
+<td><code>set1 &lt;= set2</code></td>
+<td><code>set1.issubset(set2)</code></td>
+</tr>
+<tr class="even">
+<td>تحقق الشمول</td>
+<td><code>set1 &gt;= set2</code></td>
+<td><code>set1.issuperset(set2)</code></td>
+</tr>
+<tr class="odd">
+<td>تحقق الانفصال</td>
+<td><code>len(set1 &amp; set2) == 0</code></td>
+<td><code>set1.isdisjoint(set2)</code></td>
+</tr>
+</tbody>
+</table>
+<p>وهذا مثال لاستعمالها:</p>
+<div id="55d9fd62" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>set1 <span class="op">=</span> {<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>}</span>
+<span id="cb4-2"><a href="#cb4-2"></a>set2 <span class="op">=</span> {<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>, <span class="st">'D'</span>, <span class="st">'E'</span>}</span>
+<span id="cb4-3"><a href="#cb4-3"></a>set3 <span class="op">=</span> {<span class="st">'سين'</span>, <span class="st">'جيم'</span>, <span class="st">'قاف'</span>}</span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="cf">assert</span> (set1 <span class="op">&lt;=</span> set2) <span class="op">==</span> set1.issubset(set2)</span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="cf">assert</span> (set2 <span class="op">&gt;=</span> set1) <span class="op">==</span> set2.issuperset(set1)</span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="cf">assert</span> (</span>
+<span id="cb4-8"><a href="#cb4-8"></a>    set3.isdisjoint(set1 <span class="op">|</span> set2) <span class="op">==</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>    (<span class="bu">len</span>(set3 <span class="op">&amp;</span> (set1 <span class="op">|</span> set2)) <span class="op">==</span> <span class="dv">0</span>)</span>
+<span id="cb4-10"><a href="#cb4-10"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>وتستعمل كذلك لإزالة العناصر المتكررة في أي مجموعة، نحو الكود التالي. فإننا نحول القائمة إلى مجموعة رياضية فتزول تلك العناصر تلقائيًّا، ثم نعيدها كما كانت:</p>
+<div id="7032a75e" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb5-2"><a href="#cb5-2"></a>unique_numbers <span class="op">=</span> <span class="bu">list</span>(<span class="bu">set</span>(numbers))</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="bu">print</span>(unique_numbers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1, 2, 3, 4, 5]</code></pre>
+</div>
+</div>
+<p>وكذلك من الصف:</p>
+<div id="dc593602" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>t <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a>unique_t <span class="op">=</span> <span class="bu">tuple</span>(<span class="bu">set</span>(t))</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="bu">print</span>(unique_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1, 2, 3, 4, 5)</code></pre>
+</div>
+</div>
+<p>وكذلك لمعرفة الكلمات الفريدة في النص. فمعالجة النصوص أمر لابد منه لتحليلها، وهذا مثال على كيفية استخدام المجموعة الرياضية للعثور على الكلمات الفريدة في النص. كذلك نستعمل مجموعة الكلمات الوقفية (<code>stop_words</code>) لإزالتها من النص. ونقوم بتنظيف النص من العلامات الترقيمية باستعمال الإجراء <code>.replace()</code>. ونقوم بتحويل النص إلى حروف صغيرة بواسطة الإجراء <code>.lower()</code>:</p>
+<div id="c2c5f522" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>stop_words <span class="op">=</span> {<span class="st">'is'</span>, <span class="st">'a'</span>, <span class="st">'to'</span>, <span class="st">'so'</span>, <span class="st">'can'</span>, <span class="st">'it'</span>, <span class="st">'the'</span>, <span class="st">'be'</span>, <span class="st">'not'</span>}</span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a>text <span class="op">=</span> <span class="st">"Python is a high-level computer programming language. Compared to human language, Python is unambiguous so a computer can interpret it one way."</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co"># clean the text</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a>xs <span class="op">=</span> text.lower()</span>
+<span id="cb9-7"><a href="#cb9-7"></a>xs <span class="op">=</span> xs.replace(<span class="st">'.'</span>, <span class="st">''</span>)</span>
+<span id="cb9-8"><a href="#cb9-8"></a>xs <span class="op">=</span> xs.replace(<span class="st">','</span>, <span class="st">''</span>)</span>
+<span id="cb9-9"><a href="#cb9-9"></a>clean_text <span class="op">=</span> xs</span>
+<span id="cb9-10"><a href="#cb9-10"></a></span>
+<span id="cb9-11"><a href="#cb9-11"></a>unique_words <span class="op">=</span> <span class="bu">set</span>(clean_text.split())</span>
+<span id="cb9-12"><a href="#cb9-12"></a>important_words <span class="op">=</span> unique_words <span class="op">-</span> stop_words</span>
+<span id="cb9-13"><a href="#cb9-13"></a></span>
+<span id="cb9-14"><a href="#cb9-14"></a><span class="cf">for</span> w <span class="kw">in</span> <span class="bu">sorted</span>(important_words):</span>
+<span id="cb9-15"><a href="#cb9-15"></a>    <span class="bu">print</span>(w)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>compared
+computer
+high-level
+human
+interpret
+language
+one
+programming
+python
+unambiguous
+way</code></pre>
+</div>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -732,10 +912,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./09_io.html" class="pagination-link" aria-label="File I/O with pathlib">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O with pathlib</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./00_setup.html" class="pagination-link" aria-label="إعداد بيئة التطوير">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">إعداد بيئة التطوير</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./zz_comprehension.html" class="pagination-link" aria-label="Comprehension">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Comprehension</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

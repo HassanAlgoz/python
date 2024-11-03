@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="حسان القوز">
-<meta name="dcterms.date" content="2025-05-10">
 
-<title>البايثونية</title>
+<title>Appendix A — الأعداد – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,17 +20,52 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./00_setup.html" rel="next">
+<link href="./appendix_collections.html" rel="next">
+<link href="./zz_pipelines.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,6 +102,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -82,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">فاتحة</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./glossary.html">Appendices</a></li><li class="breadcrumb-item"><a href="./glossary.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">الأعداد</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -109,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">فاتحة</span></a>
   </div>
 </li>
@@ -224,7 +260,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">الأعداد</span></span></a>
   </div>
 </li>
@@ -246,9 +282,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#فاتحة" id="toc-فاتحة" class="nav-link active" data-scroll-target="#فاتحة">فاتحة</a>
+  <li><a href="#قاموس-المصطلحات" id="toc-قاموس-المصطلحات" class="nav-link active" data-scroll-target="#قاموس-المصطلحات"><span class="header-section-number">B</span> قاموس المصطلحات</a>
   <ul class="collapse">
-  <li><a href="#تمهيد" id="toc-تمهيد" class="nav-link" data-scroll-target="#تمهيد">تمهيد</a></li>
+  <li><a href="#tuple" id="toc-tuple" class="nav-link" data-scroll-target="#tuple"><span class="header-section-number">B.1</span> Tuple</a></li>
+  <li><a href="#parameter" id="toc-parameter" class="nav-link" data-scroll-target="#parameter"><span class="header-section-number">B.2</span> Parameter</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -256,28 +293,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./glossary.html">Appendices</a></li><li class="breadcrumb-item"><a href="./glossary.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">الأعداد</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">البايثونية</h1>
+<h1 class="title">Appendix A — الأعداد</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>حسان القوز </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">May 10, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -287,23 +312,262 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="فاتحة" class="level1 unnumbered">
-<h1 class="unnumbered">فاتحة</h1>
-<p>بسم الله الرحمن الرحيم. والحمد لله والصلاة والسلام على رسول الله وآله وصحبه ومن والاه. أما بعد.</p>
-<p>كتبت هذا الكتاب لمن أراد تعلم البرمجة بلغة عربية سهلة ، وبطريقة منهجية مرتبة مع مراعاة الجانبين: النظري والعملي. وليس الهدف منه تعلم طريقة التفكير، فهذا يُدرس في الخوارزميات وهياكل البيانات، ولكن الهدف هو التعرف على الأدوات البرمجية نفسها عن طريق طرح مسائل نستعمل فيها هذه الأدوات.</p>
-<p>ولم يكن الهدف من الكتاب ترجمة كتب علمية أو مقالات برمجية إلى اللغة العربية؛ بل الهدف هو تعلم البرمجة. فحرصت على أن يكون الكلام متداولاً ولو لم تكن المصطلحات قاموسية. واخترت من الاصطلاح ما يزول به الغموض مراعيًا السياقات المختلفة لتكون أقرب لفهم المتعلم العربي.</p>
-<p>واخترت لغة بايثون لتعليم البرمجة لسهولتها وشهرتها مما يجعل كثيرًا من التطبيقات في المتناول، إذ الجهود متظافرة على خدمةمكتباتها من المجتمعات التي تتمحور حول صنف ما من التطبيقات. وقد نقسم أنواع التطبيقات إلى ثلاثة:</p>
-<p><strong>أنظمة تحاكي الواقع</strong>: مثلاً برنامج لمحاكاة القوى المؤثرة وتوزيع الأحمال على جسر (أو عمارة أو باخرة أو طائرة) يساعد المهندسين على بناء الجسر (وربما خطة تفصيلية متدرِّجة).</p>
-<p><strong>أنظمة فاعلة في الواقع</strong>: مثلاً في المصنع: الذراع الآلية ، وآلة القص ، وآلة الكبس ، …إلخ. من الآلات التي تعمل ضمن مجموعة متسقة لتنتج ما تنتج على خط الإنتاج.</p>
-<p><strong>أنظمة المعلومات</strong>: تُعنى بجمع المعلومات وحفظها وفهرستها وترتيبها وتقسيمها وعرضها وتسهيل الحصول عليها بالسؤال المباشر وغير المباشر، والتحقق منها وتوفيرها والاستفادة منها وترجمتها ونحو ذلك. وهذا النوع هو الأغلب. مثل: محرك بحث قوقل (يعمل على ترتيب شبكة الإنترنت) ، ونظام الدفع عبر البطاقة ، والبرمجيات المكتيبة (تقارير ، محاسبة ، تخطيط، …إلخ) ، ونحو ذلك .</p>
-<section id="تمهيد" class="level2">
-<h2 class="anchored" data-anchor-id="تمهيد">تمهيد</h2>
-<p>ظل الذكاء الاصطناعي طموحًا عاليًا منذ بزوغ فجر علوم الحاسب (1953). وما زال هذا الهدف دافعًا قويًّا لكل من فهم أننا باختراع الحاسب (1833 - 1871) استطعنا محاكاة المنطق في آلات صماء. ولا حد لإمكانيَّة هذا المعالِج الآلي إلا تعبيرك اللغوي أيها الناطق البشري. فهذا جانب المعالجة.</p>
-<p>وجانب الإدراك فيه:</p>
-<p>أدوات <strong>الإحساس</strong> التي تُدخِلُ المرئيات والمسموعات ونحوها ؛ وقد تم محاكاتها بآلة التصوير (كاميرا) ولاقط الصوت (مايكروفون). وكذلك أجهزة استشعار دقيقة مثل مستشعر الحرارة أو الرطوبة أو أجهزة قياس المسافة أو ماسحات البصمة أو الرنين المغناطيسي (MRI) أو الموجات الكهرومغناطيسية في الأقمار الصناعية وأجهزة الملاحة الجوية والبحرية والبوصلة أو ميزان التسوية الأفقية (Gyroscope) وغيرها كثير.</p>
-<p>ومنها ما يُسجل يدويًّا كما يكون في المستشفى: العمر والوزن والطول، أو بيانات الحضور والانصراف أو المبيعات اليومية، أو بيانات طلاب أو متدربين في دورة تدريبية أو سجلات المخزون ونحو ذلك. وهي كثيرة جدًّا.</p>
-<p>وأدوات <strong>الاستيعاب</strong> وهي التي تجمع المحسوسات في وعاءٍ واحدٍ للاعتبار جُملةً واحدة، وقد تم محاكاتهُا بما نسميه الذاكرة (وهي على مراحل تَبعُد وتَقترب من مركز المعالجة). وتشبه الذاكرة في الجهاز ما يراه الشخص في الوقت الواحد أو يمكن تصوُّرُه في الذهن وتخيله في لحظة واحدة. أما الذكريات المخزنة لدينا ، وما نكتبه في مذكرات فيكون مسجلاً في أجهزة الحفظ.</p>
-<p>ثم تأتي أدوات <strong>المعالجة</strong> وهي الآلات القابلة للبرمجة؛ مثل وحدة المعالجة المركزية (CPU) ووحدة المعالجة الرسومية (GPU) وغيرها؛ حيث يوضَع المنطق المترجَم من لغات البرمجة المتعددة.</p>
+<section id="قاموس-المصطلحات" class="level1" data-number="B">
+<h1 data-number="B"><span class="header-section-number">B</span> قاموس المصطلحات</h1>
+<div id="0b7a18e3" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, HTML</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Read the CSV file</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'assets/glossary.csv'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># Replace NaN values in the 'comment' column with empty strings</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>df[<span class="st">'comment'</span>] <span class="op">=</span> df[<span class="st">'comment'</span>].fillna(<span class="st">''</span>)</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a>df.rename(columns<span class="op">=</span>{</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    <span class="st">'ar'</span>: <span class="st">'عربي'</span>,</span>
+<span id="cb1-12"><a href="#cb1-12"></a>    <span class="st">'en'</span>: <span class="st">'English'</span>,</span>
+<span id="cb1-13"><a href="#cb1-13"></a>    <span class="st">'comment'</span>: <span class="st">'تعليق'</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-15"><a href="#cb1-15"></a></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="co"># Display the dataframe as an HTML table</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a>df.to_html(index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb1-18"><a href="#cb1-18"></a>display(HTML(df.to_html(index<span class="op">=</span><span class="va">False</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">English</th>
+<th data-quarto-table-cell-role="th">عربي</th>
+<th data-quarto-table-cell-role="th">تعليق</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Variable</td>
+<td>مُعرَّف</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Value</td>
+<td>قيمة</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Expression</td>
+<td>تعبير</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Statement</td>
+<td>عبارة</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Clause</td>
+<td>جملة</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Block</td>
+<td>لبنة</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Cell</td>
+<td>قطعة</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Snippet</td>
+<td>قصاصة</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Code</td>
+<td>كود</td>
+<td>معربة</td>
+</tr>
+<tr class="even">
+<td>Operation</td>
+<td>عملية</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Procedure</td>
+<td>إجراء</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Function</td>
+<td>إجراء</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Method</td>
+<td>إجراء متعلق بكائن</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Object</td>
+<td>كائن</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Class</td>
+<td>صنف</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Type</td>
+<td>نوع</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Conatiner</td>
+<td>حاوية</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Iterable</td>
+<td>قابل للتكرار</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Iterator</td>
+<td>مكرر</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Reversible</td>
+<td>قابل للعكس</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Generator</td>
+<td>مولد</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Sized</td>
+<td>محدد الحجم</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Callable</td>
+<td>قابل للنداء</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Collection</td>
+<td>مجموعة</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Sequence</td>
+<td>تسلسل</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Index</td>
+<td>فهرس أو مؤشر</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Mutable Sequence</td>
+<td>تسلسل قابل للتعديل</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Sequence</td>
+<td>تسلسل</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>String</td>
+<td>نص</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>List</td>
+<td>قائمة</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Dict (Mapping)</td>
+<td>دالة</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>View</td>
+<td>عرض</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Tuple</td>
+<td>صف</td>
+<td>فرد، زوج) صف ثلاثي، صف رباعي، ...إلخ</td>
+</tr>
+<tr class="even">
+<td>Set</td>
+<td>مجموعة رياضية</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Parameter</td>
+<td>معامل</td>
+<td>وهي المتغيرات في التعريف</td>
+</tr>
+<tr class="even">
+<td>Argument</td>
+<td>معامل</td>
+<td>وهي القيَم المُمَرَّرَة</td>
+</tr>
+<tr class="odd">
+<td>File</td>
+<td>ملف</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Module</td>
+<td>وحدة</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Package</td>
+<td>حزمة</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Library</td>
+<td>مكتبة</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Framework</td>
+<td>إطار عمل</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Built-in</td>
+<td>مدمج</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="tuple" class="level2" data-number="B.1">
+<h2 data-number="B.1" class="anchored" data-anchor-id="tuple"><span class="header-section-number">B.1</span> Tuple</h2>
+<blockquote class="blockquote">
+<p>Etymology. The term originated as an abstraction of the sequence: single, couple/double, triple, quadruple, quintuple, sextuple, septuple, octuple, …, n‑tuple, …, where the prefixes are taken from the Latin names of the numerals. The unique 0-tuple is called the null tuple or empty tuple. <a href="https://en.wikipedia.org/wiki/Tuple">Wikipedia</a></p>
+</blockquote>
+</section>
+<section id="parameter" class="level2" data-number="B.2">
+<h2 data-number="B.2" class="anchored" data-anchor-id="parameter"><span class="header-section-number">B.2</span> Parameter</h2>
+<blockquote class="blockquote">
+<p>A parameter (from Ancient Greek παρά (pará) ‘beside, subsidiary’ and μέτρον (métron) ‘measure’), generally, is any characteristic that can help in defining or classifying a particular system (meaning an event, project, object, situation, etc.). <a href="https://en.wikipedia.org/wiki/Parameter">Wikipedia</a></p>
+</blockquote>
 
 
 </section>
@@ -732,10 +996,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./zz_pipelines.html" class="pagination-link" aria-label="Pipelines">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Pipelines</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./00_setup.html" class="pagination-link" aria-label="إعداد بيئة التطوير">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">إعداد بيئة التطوير</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./appendix_collections.html" class="pagination-link" aria-label="المجموعات">
+        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">المجموعات</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
