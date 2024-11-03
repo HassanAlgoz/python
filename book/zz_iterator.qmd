@@ -1,0 +1,59 @@
+# Iterators and Generators
+
+## Iterators
+
+An [**iterator**](https://docs.python.org/3/tutorial/classes.html#iterators) is an object representing a stream of data. Repeated calls to the iterator's `__next__()` method is done when we iterate over an iterator (using a `for loop). Lists, tuples, dictionaries, and sets are all iterable objects (@fig-collections-tree).
+
+```{python}
+for element in [1, 2, 3]:
+    print(element)
+
+for element in (1, 2, 3):
+    print(element)
+
+for key in {'one':1, 'two':2}:
+    print(key)
+
+for char in "123":
+    print(char)
+
+for line in open("myfile.txt"):
+    print(line, end='')
+```
+
+
+
+### Generator expression
+
+A generator expression yields a new **generator object**. Its syntax is the same as for comprehensions, except that it is enclosed in parentheses instead of brackets or curly braces.
+
+```{python}
+squared = (x ** 2 for x in range(1, 5+1))
+squared
+```
+
+Notice, the output is a generator object. Variables used in the generator expression are evaluated lazily. That is, the expression `x ** 2` is not actually evaluated until it is accessed.
+
+**Lazy evaluation** is a technique where the evaluation of an expression is delayed until its value is actually needed. Using it with generators is useful when:
+
+1. Evaluating all items at once is slow. But, we can make it seem like we have all the items at once by computing them one by one as needed, yet not sacrificing speed.
+2. Results won't fit in memory. Hence, we avoid storing all the results at once.
+
+Let's make use of the generator object. We can either:
+
+1. loop over the items one by one, in which case, the expression `x ** 2` is computed on the fly as we iterate or
+2. convert the generator object to a list, in which case, the expression `x ** 2` is computed for all items at once.
+
+```{python}
+for s in squared:
+    print(s)
+```
+
+```{python}
+list(squared)
+```
+
+Notice, the generator object is exhausted after the iteration. The loop is said to have **consumed** the values **produced** by the generator. This is why converting it with `list(squared)` yielded an empty list.
+
+In our simple example, the generator object is not very useful. But, in cases where the computation is expensive, or the results are large, generators can be very useful. However, libraries that deal with big data often use generators, under the hood, to avoid loading all the data into memory at once.
+

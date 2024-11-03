@@ -18,6 +18,8 @@ execute:
 
 code-line-numbers: true
 
+number-depth: 2
+
 book:
   title: "البايثونية"
   image: cover.png
@@ -25,32 +27,26 @@ book:
   date: "17/10/2024"
   chapters:
     - index.qmd
-    - part: المنهج
+    - part: الأصل
       chapters:
-        - 01_setup.qmd
-        - 02_intro.qmd
+        - 00_setup.qmd
+        - 01_intro.qmd
+        - 02_numbers.qmd
         - 03_control-flow.qmd
         - 04_functions.qmd
         - 05_loops.qmd
-        # - 06_containers.qmd
-        # - 06_strings.qmd
-        # - 11_io.qmd
-        # - 12_serialization.qmd
-        # - 13_errors.qmd
-        # - 07_sequences.qmd
-        # - 08_collections.qmd
-        # - 09_comprehension.qmd
-        # - 10_map_filter_reduce.qmd
-        # - 14_classes.qmd
-        # - 15_modules.qmd
-        # - 16_testing.qmd
-    # # - summary.qmd
-    # - part: المساعدة
-    #   chapters:
-    #     - glossary.qmd
-    #     - references.qmd
+        - 06_sequences.qmd
+        - 07_mapping.qmd
+        - 08_strings.qmd
+        - 09_io.qmd
+    - part: فروع
+      chapters:
+        - zz_set.qmd
+        - zz_comprehension.qmd
+        - zz_pipelines.qmd
   appendices:
-    - zz_numbers.qmd
+    - glossary.qmd
+    - appendix_collections.qmd
 
 bibliography: references.bib
 

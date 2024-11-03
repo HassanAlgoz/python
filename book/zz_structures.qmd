@@ -1,0 +1,41 @@
+---
+title: أشكال البيانات
+jupyter: python3
+---
+
+يمكن صياعة البيانات بأشكال مختلفة تكون أسهل لتطبيقات معينة دون أخرى. مثلاً: قد نريدها أن تكون مرتبة بحيث يمكن الوصول إليها برقم الموضع، أو قد نريدها أن تكون مرتبطة باسم يشير إليها بحيث يمكن الوصول إليها بالاسم. كذلك فإنها قد تكون مصفوفة ثناية الأبعاد أو ثلاثية الأبعاد أو أكثر من ذلك لتكون ملائمة لتطبيقات الجبر الخطي. وقد نريدها أن تكون شجرية بحيث تكون ملائمة لتطبيقات البحث والتصفح. وهكذا.
+
+نستعرض في هذا الفصل بعض [الأشكال](https://docs.python.org/3/tutorial/datastructures.html)  الشائعة:
+
+- القائمة
+- الكومة
+- الطابور
+- القاموس
+
+لمعالجة تفصيلية راجع [ملحق أنواع الحاويات للبيانات](appendix_collections.qmd).
+
+القائمة: 
+
+ويمكن استخدام السلسلة لتمثيل [الكومة](https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-stacks) (يخرج أولا ما دخل أخيرًا):
+
+```{python}
+stack = []
+stack.append('A')
+stack.append('B')
+stack.append('C')
+stack.append('D')
+stack.pop()
+assert stack == ['A', 'B', 'C']
+```
+
+وباعتبار الإضافة والحذف، تستخدم السلسلة لتمثيل [الطابور](https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-queues) (يخرج أولاً ما دخل أولاً).
+
+```{python}
+queue = []
+queue.append('A')
+queue.append('B')
+queue.append('C')
+queue.append('D')
+queue.pop(0)
+assert queue == ['B', 'C', 'D']
+```

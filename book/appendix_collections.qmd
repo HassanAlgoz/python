@@ -1,0 +1,830 @@
+---
+title: المجموعات
+jupyter: python3
+---
+
+## المجموعة
+
+```{mermaid}
+%% | fig-cap: شجرة المتتاليات في بايثون توضح اشتراك القوائم والجموع والسلاسل النصية في كونها متتاليات.
+%% | label: fig-sequences-tree
+classDiagram
+    class Container {
+        <<abstract>>
+        +__contains__()
+    }
+
+    class Iterable {
+        <<abstract>>
+        +__iter__()
+    }
+
+    class Iterator {
+        <<abstract>>
+        +__next__()
+        +__iter__()
+    }
+
+    class Reversible {
+        <<abstract>>
+        +__reversed__()
+    }
+
+    class Sized {
+        <<abstract>>
+        +__len__()
+    }
+
+    class Collection {
+        <<abstract>>
+        +__contains__()
+        +__iter__()
+        +__len__()
+    }
+
+    class Sequence {
+        <<abstract>>
+        +__getitem__()
+        +__len__()
+        +__contains__()
+        +__iter__()
+        +__reversed__()
+        +index()
+        +count()
+    }
+
+    class MutableSequence {
+        <<abstract>>
+        +__getitem__()
+        +__setitem__()
+        +__delitem__()
+        +__len__()
+        +insert()
+        +append()
+        +clear()
+        +reverse()
+        +extend()
+        +pop()
+        +remove()
+        +__iadd__()
+    }
+
+    class Set {
+        <<abstract>>
+        +__contains__()
+        +__iter__()
+        +__len__()
+        +__le__()
+        +__lt__()
+        +__eq__()
+        +__ne__()
+        +__gt__()
+        +__ge__()
+        +__and__()
+        +__or__()
+        +__sub__()
+        +__xor__()
+        +isdisjoint()
+    }
+
+    class MutableSet {
+        <<abstract>>
+        +__contains__()
+        +__iter__()
+        +__len__()
+        +add()
+        +discard()
+        +clear()
+        +pop()
+        +remove()
+        +__ior__()
+        +__iand__()
+        +__ixor__()
+        +__isub__()
+    }
+
+    class Mapping {
+        <<abstract>>
+        +__getitem__()
+        +__iter__()
+        +__len__()
+        +__contains__()
+        +keys()
+        +items()
+        +values()
+        +get()
+        +__eq__()
+        +__ne__()
+    }
+
+    class MutableMapping {
+        <<abstract>>
+        +__getitem__()
+        +__setitem__()
+        +__delitem__()
+        +__iter__()
+        +__len__()
+        +pop()
+        +popitem()
+        +clear()
+        +update()
+        +setdefault()
+    }
+
+    Iterable <|-- Iterator
+    Iterable <|-- Reversible
+    Sized <|-- Collection
+    Iterable <|-- Collection
+    Container <|-- Collection
+    Reversible <|-- Sequence
+    Collection <|-- Sequence
+    Sequence <|-- MutableSequence
+    Collection <|-- Set
+    Set <|-- MutableSet
+    Collection <|-- Mapping
+    Mapping <|-- MutableMapping
+```
+
+
+نعرض هنا لأربعة أنواع أساسية في بايثون كلها من صنف **مجموعة** (`Collection`):
+
+- **القائمة** (`list`) وهي متتالية قابلة للتغيير (`Mutable Sequence`)
+- **الصف** (`tuple`) وهو متتالية غير قابلة للتغيير (`Immutable Sequence`)
+- **المجموعة الرياضية** (`set`) وهي مجموعة غير مرتبة (Unordered `Collection`)
+- **القاموس** (`dict`) وهو دالة روابط فردية (`MutableMapping`)
+
+عرفت بايثون **المجموعة** أنها حاوية محجَّمة قابلة للتكرار.
+
+- **الحاوية** (`Container`): تقبل استعلام `in`
+- **المحجَّمة** (`Sized`): تقبل `len()`
+- **القابلة للتكرار** (`Iterable`): تقبل `for`
+
+1. `Sized.__len__()`: get the length of the collection using the `len` function
+2. `Iterable.__iter__()`: loop over the collection using a `for` loop
+3. `Container.__contains__()`: use the `in` operator to check if an item is in the collection
+
+The use of the two underscores (`__`) before and after the operation name is a Python convention that indicates that the operation is supported with language syntax: `+`, `in`, `for`, and so on.
+
+See:
+
+- [collections.abc](https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes)
+- [`collections`](https://docs.python.org/3/library/collections.html#module-collections)
+
+Let's see what this means in practice.
+
+Let's say we have a list of objects which we want to calculate some statistics on. We can use the following list as an example:
+
+```{python}
+things = [10, 20, 30, 40, 'abb', 2.0, True]
+```
+
+We can get the length of the list using the `len` function. For example:
+
+```{python}
+length = len(things)
+print(length)
+```
+
+We can loop over the list using a `for` loop. For example:
+
+```{python}
+for t in things:
+    print(t)
+```
+
+We can check for the presence of an item in the list using the `in` operator. For example:
+
+```{python}
+check1 = 30 in things
+check2 = 100 in things
+print(check1)
+print(check2)
+```
+
+These were just to illustrate what it means for an Object to implement the Collection Abstract Base Class (ABC). Let's turn our attention to a concrete built-in implementation of a widely used type of collection: the `list`.
+
+## List
+
+A `list` is a `Mutable Sequence`. Which is a `Reversible`, `Collection`. This means that it supports the following operations:
+
+From being a `Collection`, it supports:
+
+1. `__len__`: get the length of the list using the `len` function
+2. `__iter__`: loop over the list using a `for` loop
+3. `__contains__`: use the `in` operator to check if an item is in the list
+
+From being a `Reversible`, it further supports:
+
+1. `__reversed__`: reverse the list using the `reversed` function
+
+From being a `Sequence`, it further supports:
+
+1. `__getitem__`: get an item from the list using the `[]` operator
+2. `index`: get the index of an item in the list
+3. `count`: count the number of occurrences of an item in the list
+
+From being a `MutableSequence`, it further supports:
+
+1. `__setitem__`: set an item in the list using the `[]` operator
+2. `insert`: insert an item into the list at a specific index
+3. `append`: add an item to the end of the list
+4. `extend`: add all items from another list to the end of the list
+5. `__delitem__`: delete an item from the list using the `del` operator
+6. `pop`: remove and return an item from the end of the list
+7. `remove`: remove the first occurrence of an item from the list
+8. `clear`: remove all items from the list
+
+This is the full specification of the [`list`](https://docs.python.org/3/library/stdtypes.html#list) class as inferred from the [ABC](https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes).
+
+### Note on Mutability
+
+A crucial distinction is made in programming on where objects are **mutable** or **immutable**. This is important when we have multiple references to the same object. If the object is mutable, we have to synchronize the reads/writes to the object. However, if such synchronization is error-prone, then we can fix this by changing the design of the program, to make the object immutable and avoid the need for synchronization. This is a fundamental concept in concurrent programming (when multiple threads are reading/writing to the same object). A topic for another day.
+
+## عمليات السلسلة
+
+في هذا الفصل، سنلقي نظرة على بعض أنواع المتتاليات (sequences) المدمجة شائعة الاستخدام:
+
+- [`list`](https://docs.python.org/3/library/stdtypes.html#list)
+- [`range`](https://docs.python.org/3/library/stdtypes.html#range)
+- [`tuple`](https://docs.python.org/3/library/stdtypes.html#tuple)
+- [`str`](https://docs.python.org/3/library/stdtypes.html#str)
+
+نسرد في الجدول العمليات على المتتاليات مرتبةً حسب الصيرورة تصاعديًّا (order of evaluation).
+
+لاحظ أن ما ببين القوسين `[` و `]` يشير لعناصر اختيارية.
+
+- `s` و `t` متتاليتان من نفس النوع (sequence)
+- `n`، `i`، `j` و `k` أعداد صحيحة (integers)
+- `x` كائن (object)
+
+| **العملية**              | **النتيجة**                                                                   |
+|--------------------------|-------------------------------------------------------------------------------|
+| `x in s`                 | صحيح إذا كان هناك عنصر من خصائص `s` يساوي `x`، وإلا خطأ                        |
+| `x not in s`             | خطأ إذا كان هناك عنصر من خصائص `s` يساوي `x`، وإلا صحيح                        |
+| `s + t`                  | دمج `s` و `t`                                                                  |
+| `s * n` أو `n * s`       | يعادل إضافة `s` إلى نفسها `n` مرات                                            |
+| `s[i]`                   | العنصر `i` من `s`، الأصل 0                                                    |
+| `s[i:j]`                 | شريحة من `s` من `i` إلى `j`                                                   |
+| `s[i:j:k]`               | شريحة من `s` من `i` إلى `j` بخطوة `k`                                         |
+| `len(s)`                 | طول `s`                                                                        |
+| `min(s)`                 | أصغر عنصر من `s`                                                              |
+| `max(s)`                 | أكبر عنصر من `s`                                                              |
+| `s.index(x[, i[, j]])`   | فهرس أول ظهور لـ `x` في `s` (عند أو بعد الفهرس `i` وقبل `j`)                  |
+| `s.count(x)`             | العدد الإجمالي لظهور `x` في `s`                                               |
+
+انظر: https://docs.python.org/3/library/stdtypes.html#common-sequence-operations
+
+## عمليات تعديل السلسلة
+
+- [`list`](https://docs.python.org/3/library/stdtypes.html#list)
+
+في الجدول:
+- `s` متتالية قابلة للتغيير (mutable sequence)
+- `t` كائن قابل للتكرار (iterable)
+- `x` كائن (object)
+
+| **العملية**              | **النتيجة**                                                                 |
+|--------------------------|-------------------------------------------------------------------------------|
+| `s[i] = x`               | يتم استبدال العنصر `i` من `s` بـ `x`                                         |
+| `s[i:j] = t`             | يتم استبدال الشريحة من `s` من `i` إلى `j` بمحتويات الكائن القابل للتكرار `t` |
+| `del s[i:j]`             | نفس الشيء مثل `s[i:j] = []`                                                  |
+| `s[i:j:k] = t`           | يتم استبدال عناصر `s[i:j:k]` بعناصر `t`                                      |
+| `del s[i:j:k]`           | يتم إزالة عناصر `s[i:j:k]` من القائمة                                         |
+| `s.append(x)`            | يتم إضافة `x` إلى نهاية التسلسل (نفس الشيء مثل `s[len(s):len(s)] = [x]`)     |
+| `s.clear()`              | يتم إزالة جميع العناصر من `s` (نفس الشيء مثل `del s[:]`)                     |
+| `s.copy()`               | يتم إنشاء نسخة سطحية من `s` (نفس الشيء مثل `s[:]`)                          |
+| `s.extend(t)` أو `s += t`| يتم تمديد `s` بمحتويات `t`                                                   |
+| `s *= n`                 | يتم تحديث `s` بمحتوياتها مكررة `n` مرات                                     |
+| `s.insert(i, x)`         | يتم إدراج `x` في `s` عند الفهرس المحدد بـ `i` (نفس الشيء مثل `s[i:i] = [x]`) |
+| `s.pop()` أو `s.pop(i)`  | يتم استرجاع العنصر عند `i` وإزالته من `s`                                    |
+| `s.remove(x)`            | يتم إزالة أول عنصر من `s` حيث `s[i]` يساوي `x`                               |
+| `s.reverse()`            | يتم عكس عناصر `s` في مكانها                                                  |
+
+انظر: https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types
+
+
+### الإشارة (Indexing)
+
+نمثل بسلسلة من الأعداد:
+
+```{python}
+xs = [10, 20, 30, 40, 50]
+```
+
+للوصول إلى عنصر من القائمة، استخدم عملية الإشارة `[]`. يجب أن يكون المؤئر عددًا صحيحًا (`int`) في النطاق `0 <= index < len(s) - 1`.
+
+```{python}
+assert xs[0] == 10
+assert xs[-1] == 50
+assert xs[len(xs) // 2] == 30
+```
+
+وإليك تصويرًا لشكل سلسلة من سلالة الأحرف:
+
+```{python}
+fruits = ["Apple", "Banana", "Orange", "Lemon"]
+```
+
+```
+0       1        2        3       4
++-------+--------+--------+-------+
+| Apple | Banana | Orange | Lemon |
++-------+--------+--------+-------+
+-4      -3       -2       -1
+```
+
+```{python}
+assert fruits[0] == "Apple"
+assert fruits[1] == "Banana"
+assert fruits[-1] == "Lemon"
+```
+
+كما أن العنصر الواحد في السلسلة قد يكون هو مجموعة. بمعنى أننا يمكننان تمثيل مصفوفة مثلاً
+
+```{python}
+matrix = [
+    [10, 20, 30],
+    [40, 50, 60],
+    [70, 80, 90]
+]
+
+assert matrix[0] == [10, 20, 30]
+assert matrix[-1] == [70, 80, 90]
+assert matrix[1][1] == 50
+```
+
+
+### التقطيع
+
+- يأخذ التقطيع الشكل `s[start : end : step]`
+- القيم الافتراضية عند الإغفال هي:
+    - `start = 0`
+    - `end = len(list)`
+    - `step = 1`
+
+دعم اللغة لكتابة `:` هو في الأصل عملية `slice`، والتي تنتج كائن `slice` يمكن استخدامه للتحكم في التقطيع.
+
+```{python}
+assert (
+    ["Banana", "Orange"] ==
+    fruits[slice(1, 3)] ==
+    fruits[1:3] ==
+    fruits[-3:-1] ==
+    fruits[-3:3] ==
+    fruits[1:-1] ==
+    fruits[-3:-1]
+)
+```
+
+وإن أردت القفز بين العناصر فهكذا:
+
+```{python}
+assert fruits[::2] == ["Apple", "Orange"]
+assert fruits[1::2] == ["Banana", "Lemon"]
+assert fruits[::-1] == ["Lemon", "Orange", "Banana", "Apple"]
+assert fruits[::-2] == ["Lemon", "Banana"]
+```
+
+
+### البحث
+
+إجراء `.index()` تنتج موقع أول ظهور للقيمة المحددة.
+
+```{python}
+l1 = ['A', 'A', 'B', 'A', 'B']
+idx = l1.index('B')
+print(l1[idx], 'is at index', idx)
+```
+
+إذا لم يكن العنصر موجودًا في القائمة، فإنه يخرج خطأ.
+
+```{python}
+#| error: true
+l1 = [10, 20, 30, 40, 50]
+l1.index(4444)
+```
+
+رسالة الخطأ تخبرنا أن `4444` غير موجود في القائمة. دعنا نتعامل مع هذه الحالة في لبنة `else`، بدلاً من ترك البرنامج أن يتعطل.
+
+```{python}
+l1 = [10, 20, 30, 40, 50]
+if 4444 in l1:
+    idx = l1.index(4444)
+    print(l1[idx], 'is at index', idx)
+else:
+    print('Item not found')
+```
+
+### التغيير
+
+السلاسل قابلة للتغيير، مما يعني أنه يمكن تعديلها بعد إنشائها. يشمل ذلك:
+
+1. الإضافة: `l.append(x)` لإضافة عنصر إلى نهاية القائمة
+2. الإزالة: `l.remove(x)`
+3. الإدراج: `l.insert(i, x)` لإدراج عنصر في موضع محدد
+4. الاستبدال: `l[i] = x`
+5. الترتيب: `l.sort()`
+
+ولأن القائمة متتالية قابلة للتغيير فهي تحقق جميع عمليات المتتاليات. [راجع ملحق عمليات المتتاليات](sequence_operations.qmd).
+
+```{python}
+l1 = [10, 20, 30, 40, 50]
+l1[0] = 100 # replace the first element
+print(l1)
+```
+
+جرب ما يلي:
+
+- `l1.append(60)`
+- `l1.remove(10)`
+- `l1.insert(2, 300)`
+
+### الترتيب والعكس
+
+ملاخظة: `reversed` تنتج مولدًا للقيم، لا سلسلة جديدة.
+
+```{python}
+xs = [10, -90, 20, 30, 40, -40, -50, 60]
+print(sorted(xs))
+print(list(reversed(xs)))
+print(xs)
+```
+
+أما الإجراء المتعلق بالسلسلة نفسها فهو الذي يُحدث تغييرًا في السلسلة نفسها بدل أن يُنتج نسخة معدلة:
+
+```{python}
+xs.sort()
+xs.reverse()
+```
+
+```{python}
+xs
+```
+
+### استبدال المقاطع
+
+جرب ما يلي:
+
+- استبدال عنصرين بعنصرين: `l1[1:3] = [200, 300]`
+- استبدال عنصرين بثلاثة عناصر: `l1[1:3] = [200, 300, 400]`
+- استبدال عنصرين بعنصر واحد: `l1[1:3] = [200]`
+- استبدال عنصرين بصفر عناصر: `l1[1:3] = []`
+
+استبدال عنصرين بعنصرين:
+
+```{python}
+# SOLVED
+l1 = [10, 20, 30, 40, 50]
+l1[1:3] = [200, 300]
+print(l1)
+```
+
+توفر القوائم طريقة `.sort()` التي تقوم بالترتيب في مكانها. إذا كنت تريد إنشاء قائمة جديدة، استخدم الدالة `sorted()` بدلاً من ذلك. مثال:
+
+```{python}
+l1 = [10, 20, 50, 40, 30]
+l2 = sorted(l1)
+print(l1)
+print(l2)
+```
+
+لاحظ أنها مختلفة.
+
+بينما:
+
+```{python}
+l1 = [10, 20, 50, 40, 30]
+l1.sort()
+print(l1)
+```
+
+لاحظ أن `l1` يتم ترتيبها في مكانها، ولا تنشئ قائمة.
+
+### التكرار
+
+هذه متسلسلتان:
+
+```{python}
+students = ['Ahmad', 'Belal', 'Camal', 'Dawud', 'Emad']
+marks = [90, 80, 75, 85, 95]
+```
+
+تقبل علمية التكرار:
+
+```{python}
+for s in students:
+    print(s)
+```
+
+لو أردنا أن نمر على المتسلسلتين في نفس الوقت:
+
+```{python}
+for s, m in zip(students, marks):
+    print(s, m)
+```
+
+## النطاق (`range`)
+
+نوع [`range`](https://docs.python.org/3/library/stdtypes.html#range) يمثل تسلسلًا غير قابل للتغيير من الأرقام. ويستخدم عادةً للتكرار عددًا محددًا من المرات في حلقات [`for`](https://docs.python.org/3/reference/compound_stmts.html#for).
+
+وقد تقدم الكلام عنه في [باب الحلقات](05_loops.qmd). لكننا هنا نعيد النظر من زاوية أنه تسلسل
+
+الميزة في نوع `range` على التسلسل هي أن كائن `range` سيأخذ دائمًا نفس (الصغيرة) كمية الذاكرة، بغض النظر عن حجم النطاق الذي يمثله (حيث يخزن فقط قيم البداية والنهاية والخطوة، ويحسب العناصر الفردية والنطاقات الفرعية حسب الحاجة).
+
+```{python}
+r = range(0, 20, 2)
+r
+```
+
+```{python}
+print(11 in r)
+print(10 in r)
+```
+
+```{python}
+print(r.index(10))
+```
+
+```{python}
+print(r[5])
+print(r[:5])
+print(r[-1])
+```
+
+
+### تحويل `range` إلى `list`
+
+يمكن تمرير الاستدعاء إلى `range()` إلى استدعاء `list()` لتحويله. هنا
+
+```{python}
+numbers = list(range(1000, 0, -100))
+print(numbers)
+```
+
+مثال آخر هو إنشاء قائمتين؛ واحدة للأرقام الزوجية والأخرى للأرقام الفردية، مرة أخرى، باستخدام تركيب `list(range())`.
+
+```{python}
+evens = list(range(0, 10, 2))
+odds = list(range(1, 10, 2))
+print(evens)
+print(odds)
+```
+
+
+## Tuple
+
+In cases where we need to use a sequence that should not be changed, we can use a `tuple`. A `tuple` is just a `Sequence`, not a `MutableSequence`. It is defined using parentheses `()`, like so:
+
+```{python}
+t = (10, 20, 30, 40, 50)
+check1 = 30 in t
+check2 = 100 in t
+print(check1)
+print(check2)
+```
+
+If you try to change an item in a tuple, you will get an error:
+
+```{python}
+#| error: true
+t1 = (10, 20, 30, 40, 50)
+t1[0] = 100
+```
+
+## Set
+
+المجموعة [`set`](https://docs.python.org/3/library/stdtypes.html#set) هي من صفن (`Collection`) وهي غير مرتبة ولا قابلة للتغيير. ويمتنع أن تجد عنصرين متماثلين فيها.
+
+وكذلك: يجب أن تكون عناصرها قابلة للتجزئة ([hashable](https://docs.python.org/3/glossary.html#term-hashable)) مثل: `str`, `int` و `tuple` إذ هي الأنواع غير القابلة للتغيير.
+
+Being a `Mutable Set`, it futher supports:
+
+- `add`: add an element to the set
+- `discard`: remove an element from the set if it is a member
+- `remove`: remove an element from the set; raises a KeyError if not a member
+- `pop`: remove and return an arbitrary element from the set
+- `clear`: remove all elements from the set
+
+Refer to [Python docs for all mutable set operations](https://docs.python.org/3/library/stdtypes.html#frozenset.update). The `frozenset` type is the immutable variant.
+
+Common uses for a `set` include: membership testing, removing duplicates from a sequence, and computing mathematical operations such as intersection, union, difference, and symmetric difference.
+
+### Membership testing
+
+```{python}
+languages = {"Arabic", "English"}
+if 'Python' not in languages:
+    print('you need to add Python to your languages!')
+```
+
+### Removing duplicates from a sequence
+
+```{python}
+numbers = [1, 2, 2, 3, 4, 4, 5]
+unique_numbers = list(set(numbers))
+print(unique_numbers)
+```
+
+### Unordered collection
+
+Being an unordered collection, sets do not record element position or order of insertion. Accordingly, sets do not support indexing (`xs[i]`), slicing (`xs[i:j]`), or other sequence-like behavior.
+
+```{python}
+#| error: true
+xs = {10, 20, 30}
+xs[0]
+```
+
+### Mathematical operations
+
+![Python set mathematical operations. [Source: www.datacamp.com](https://www.datacamp.com/tutorial/sets-in-python)](https://res.cloudinary.com/dyd911kmh/image/upload/f_auto,q_auto:best/v1526998740/15_union_intersection_difference_symmetric.png)
+
+Intersection, union, difference, and symmetric difference:
+
+```{python}
+set1 = {1, 2, 3, 4, 5}
+set2 =          {4, 5, 6, 7, 8}
+
+union = set1 | set2
+assert union == {1, 2, 3, 4, 5, 6, 7, 8}
+
+intersection = set1 & set2
+assert intersection == {4, 5}
+
+difference = set1 - set2
+assert difference == {1, 2, 3}
+
+symmetric_difference = set1 ^ set2
+assert symmetric_difference == {1, 2, 3, 6, 7, 8}
+```
+
+Note, it is better to actually use:
+
+- `set1.union(set2)` instead of the operator version `set1 | set2`
+- `set1.intersection(set2)` instead of the operator version `set1 & set2`
+- `set1.difference(set2)` instead of the operator version `set1 - set2`
+- `set1.symmetric_difference(set2)` instead of the operator version `set1 ^ set2`
+
+Since the latter methods can accept any iterable as an argument, not just sets.
+
+Other methods include: 
+
+- `set1.issubset(set2)` instead of `set1 <= set2`
+- `set1.issuperset(set2)` instead of `set1 >= set2`
+- `set1.isdisjoint(set2)` to check if two sets have no elements in common
+
+## Mapping
+
+A [`dict`](https://docs.python.org/3/library/stdtypes.html#dict) is a mutable collection of key-value pairs. The keys must be [hashable](https://docs.python.org/3/glossary.html#term-hashable) (like: `str`, `int` and `tuple`), and the values can be any object. It is a `MutableMapping`. It supports:
+
+- `__len__`: get the number of key-value pairs
+- `__iter__`: iterate over the keys
+- `__contains__`: check if a key is in the dictionary
+- `__getitem__`: get the value associated with a key
+- `__setitem__`: set the value associated with a key
+- `__delitem__`: delete a key-value pair
+- `get`: get the value associated with a key, or a default value
+- `pop`: remove a key-value pair and return the value
+- `popitem`: remove and return an arbitrary key-value pair
+- `clear`: remove all key-value pairs
+- `update`: update the dictionary with another dictionary
+- `setdefault`: get the value associated with a key, or set it to a default value
+- `keys`: get a view of the keys
+- `values`: get a view of the values
+- `items`: get a view of the key-value pairs
+
+Update (Python 3.7): Dictionaries are now ordered. In Python 3.6 and earlier, dictionaries are unordered.
+
+يعرف القاموس على النحو التالي:
+
+```{python}
+data = {'key1': 'value1', 'key2': 'value2'}
+```
+
+لكن حين تكثر القيم نفردها على الأسطر لتكون أوضح للقراءة (وليس هذا بلازم):
+
+```{python}
+data = {
+    'key1': 'value1',
+    'key2': 'value2',
+}
+```
+
+There are different ways to create a dictionary. Dictionaries compare equal if and only if they have the same (key, value) pairs (regardless of ordering).
+
+```{python}
+d = {
+    'foo': 10,
+    'two': 20,
+    'three': 30,
+}
+
+d2 = {
+    'three': 30,
+    'two': 20,
+    'foo': 10,
+}
+
+d3 = dict(foo=10, two=20, three=30)
+
+assert d == d2 == d3
+```
+
+You can also construct a dictionary from two lists (iterables) with `zip`, like so:
+
+```{python}
+students = ['Ahmad', 'Belal', 'Careem', 'David']
+marks = [90, 80, 75, 85]
+data = dict(zip(students, marks, strict=True))
+data
+```
+
+### Access
+
+You can get the number of pairs using the `len()` function.
+
+```{python}
+len(data)
+```
+
+The index operator (`[]`) is used to access the value associated with a given `key`. Like so: `dict[key]`.
+
+```{python}
+d["foo"] == d.get('foo')
+```
+
+The `.get(key, default=None)` method returns `None` or a default value provided in the 2nd argument.
+
+```{python}
+assert 'five' not in d
+d.get("five", 5000)
+```
+
+Three ways to iterate over a `dict`:
+
+- Iterate over keys: `for key in d.keys()`
+- Iterate over values: `for value in d.values()`
+- Iterate over key-value pairs: `for key, value in d.items()`
+
+```{python}
+d = {
+    "Saudi Arabia": "Riyadh",
+    "Egypt": "Cairo",
+    "Turkey": "Ankara",
+    "Indonesia": "Jakarta",
+    "Pakistan": "Islamabad",
+}
+```
+
+```{python}
+for key in d.keys():
+    print(key)
+```
+
+```{python}
+for value in d.values():
+    print(value)
+```
+
+```{python}
+for key, value in d.items():
+    print(key, value)
+```
+
+### Mutation
+
+You can update dictionary values by simply assigning a new value to a key.
+
+```{python}
+d["one"] = 1000
+d
+```
+
+Or you may want to update using another dictionary.
+
+```{python}
+u = {
+    'three': 3000,
+    'four': 40,
+}
+
+d.update(u)
+d
+```
+
+You may take out a value:
+
+```{python}
+d = {'one': 100, 'two': 200}
+value = d.pop('two')
+assert 'two' not in d
+assert value == 200
+```
+
+You may want to just delete a pair.
+
+```{python}
+if 'two' in d:
+    del d['two']
+assert 'two' not in d
+```
