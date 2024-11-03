@@ -1,0 +1,143 @@
+---
+title: القاموس
+jupyter: python3
+---
+
+**القاموس** ([`dict`](https://docs.python.org/3/library/stdtypes.html#dict)) هو مجموعة مرتبة من المؤشرات الفريدة الدالة على أشياء. يمكن أن تكون المؤشرات من نوع: سلسلة نصية، أو رقم، أو صف وما هو قابل للتجزئة (Hashable). أما القيَم فتكون من أي نوع.
+
+يدعم القاموس العمليات التالية:
+
+- معرفة عدد المؤشرات: `len(dict)`
+- التكرار: `for key in dict`
+- العضوية: `key not in dict`
+- الإشارة: `dict[key]` أو `dict.get(key)`
+- نزع قيمة: `dict.pop(key)`
+- إضافة أو تعديل رابط: `dict[key] = value`
+- إضافة أو تعديل مجموعة روابط: `dict.update(new_data)`
+- الحذف: `del dict[key]`
+
+يعرف القاموس على النحو التالي:
+
+```{python}
+data = {'key1': 'value1', 'key2': 'value2'}
+```
+
+لكن حين تكثر القيم نفردها على الأسطر لتكون أوضح للقراءة (وليس هذا بلازم):
+
+```{python}
+data = {
+    'key1': 'value1',
+    'key2': 'value2',
+}
+```
+
+وهنا نمثل لبعض العمليات:
+
+```{python}
+assert data['key1'] == 'value1'
+del data['key1']
+assert 'key1' not in data
+```
+
+وهنا نستعرض مجموعة من الاستعمالات لشكل القاموس. أولاً كقاموس بالمعنى الذي يشير إليه اللفظ (الكلمة ومعناها).
+
+### الكلمة ومعناها
+
+نفترض أن لدينا قاموسًا يحتوي على ترجمة بعض الكلمات من الإنجليزية إلى العربية:
+
+```{python}
+english_to_arabic = {
+    'apple': 'تفاحة',
+    'banana': 'موزة',
+    'orange': 'برتقالة',
+}
+```
+
+أو الاختصارات إلى الكلمة التامة:
+
+```{python}
+abbreviations = {
+    'SAR': 'Saudi Riyal',
+    'KSA': 'Kingdom of Saudi Arabia',
+    'ASAP': 'As Soon As Possible',
+    'FYI': 'For Your Information',
+}
+```
+
+### حفظ معلومات المستخدم
+
+وهذا مثال على استعمال القاموس لتخزين معلومات شخص. لاحظ أن القيمة المقابلة لكل مؤشر قد تكون من أي نوع في بايثون، تمامًا مثل ما تُسنِد قيَم لمعرَّفات. فلدين النص والرقم والقاموس (داخل القاموس) والقيَم الثنائية (`True`, `False`) والقائمة `[ ]` (داخل القاموس).
+
+```{python}
+person = {
+    'name': 'Adam',
+    'language': 'Arabic',
+    'phone': '966xxxxxxxxx',
+    'last_updated': '2021-09-01',
+    'age': 25,
+    'notifications': {
+        'email': True,
+        'sms': False,
+        'push': True
+    },
+    'emails': ['example1@domain.com', 'example2@domain.com']
+}
+```
+
+### سلة المشتريات
+
+نفترض أن لدينا سلة تحتوي على مشتريات العميل (`basket`)، ونريد حساب القيمة الإجمالية لها، ولدينا قائمة بأسعار الفواكه. فنعرف الأسعار على أنها قاموس `prices` بحيث يشير اسم الفاكهة إلى سعرها (قيمتها المالية).
+
+```{python}
+prices = {
+    'apple': 15,
+    'banana': 10,
+    'orange': 5,
+    'cantaloupe': 40
+}
+
+basket = ['apple', 'apple', 'banana', 'orange', 'banana']
+```
+
+نحتاج أن نأتي على السلة عنصرًا عنصرًا، ونجمع قيمة كل فاكهة إلى المجموع الكلي:
+
+```{python}
+total = 0
+
+for fruit in basket:
+    total += prices[fruit]
+
+print(total)
+```
+
+### الذاكرة القريبة (Cache)
+
+وهي الذاكرة التي تحتفظ بنتائج العمليات المتكررة (خصوصًا إذا كانت خوارزميات معقَّدة) حتى لا نحتاج لحسابها كل مرة؛ فنقتصد في موارد المعالجة في مقابل توظيف موارد الذاكرة (والتخزين).
+
+```{python}
+factorial_table = {
+    0: 1,
+    1: 1,
+    2: 2,
+    3: 6,
+}
+
+def factorial(n):
+    if n not in factorial_table:
+        factorial_table[n] = n * factorial(n - 1)
+    return factorial_table[n]
+```
+
+بل إن بايثون توفر هذه الخاصية للدوال عن طريق **المزيِّن** (decorator) [`@functools.lru_cache`](https://docs.python.org/3/library/functools.html#functools.cache)، هكذا:
+
+```{python}
+import functools
+
+@functools.lru_cache
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+```
+
+لاحظ عدم الحاجة لتعريف القاموس `factorial_table`، بل يقوم المزيِّن هو بذلك تلقائيًّا.
