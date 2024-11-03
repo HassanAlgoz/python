@@ -1,0 +1,71 @@
+# Docstrings
+
+
+Python has a built-in function called `help()` that can be used to get information about a function. Let's ask for help on the `pow()` (power) built-in function.
+
+```{python}
+help(pow)
+```
+
+What we see is the **signature** (name and parameter list) as well as the **docstring** of the `pow()` function.
+
+We can write our own docstrings for our functions. A function's first statement can be a string literal known as a *docstring*, used for documentation. Tools can process these to create automated documentation or allow interactive browsing of code. Including docstrings is a good habit for better maintainability and usability.
+
+Let's now define a more complex function, and see what best practices we can apply. Here we are importing the `statistics` module to calculate the mean, median, and mode of a list of numbers. So, we make sure not to name our function `statistics` to avoid conflicts.
+
+```{python}
+import statistics
+
+def stats(numbers):
+    """
+    Calculate the mean, median, and mode of a list of numbers. #<1>
+
+    Args: #<2>
+        numbers (list): A list of numerical values.
+
+    Returns: #<3>
+        tuple: A tuple containing:
+            - mean (float): The average of the numbers.
+            - median (float): The middle value when the numbers are sorted.
+            - mode (int/float): The most frequent number in the list.
+
+    Raises: #<4>
+        ValueError: If the list is empty or the mode cannot be determined.
+
+    Example: #<5>
+        >>> stats([1, 2, 3, 3, 4, 5])
+        (3.0, 3.0, 3)
+
+    """
+    if not numbers:
+        raise ValueError("The list of numbers cannot be empty.")
+    
+    mean = statistics.mean(numbers)
+    median = statistics.median(numbers)
+    mode = statistics.mode(numbers)
+
+    return mean, median, mode #<6>
+```
+1. The first line in the docstring is a brief description of the function.
+2. The `Args` section lists the function's parameters.
+3. The `Returns` section describes the return value(s).
+4. The `Raises` section lists the exceptions (errors) that the function may raise. We will cover exceptions in a later chapter.
+5. The `Example` section shows an example of how to use the function.
+6. The function returns a tuple of the mean, median, and mode.
+
+Let's now ask for help on the `stats()` function:
+
+```{python}
+help(stats)
+```
+
+Finally, let's use it:
+
+```{python}
+# Example usage
+data = [10, 20, 25, 30, 30, 30, 35, 40, 50, 55]
+mean, median, mode = stats(data)
+print(f"Mean: {mean}")
+print(f"Median: {median}")
+print(f"Mode: {mode}")
+```
