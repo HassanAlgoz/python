@@ -1,0 +1,133 @@
+---
+title: المجموعة الرياضية
+jupyter: python3
+---
+
+## المجموعة الرياضية (Set)
+
+المجموعة الرياضية (`set`) تحوي أشياء فريدة بغير ترتيب معيَّن. أما نظيرها غير القابلة للتغيير فهو: (`frozenset`).
+
+تدعم المجموعة الرياضة لكونها مجموعة ([Collection](https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes)) العمليات التالية:
+
+- معرفة الطول: `len(s)`
+- التكرار: `for x in s`
+- العضوية: `x not in s`
+
+باعتبارها مجموعة غير مرتبة، فإن `set` لا تسجل موقع العنصر أو ترتيب إدراجه. وبالتالي، فإنها لا تدعم الإشارة (`xs[i]`) أو التقطيع (`xs[i:j]`) أو أي سلوك يشبه المتسلسلات. لاحظ الخطأ التالي:
+
+```python
+#| error: true
+xs = {10, 20, 30}
+xs[0]
+```
+
+مثال لاستعمال العضوية:
+
+```python
+languages = {"Arabic", "English"}
+if 'Python' not in languages:
+    print('you need to add Python to your languages!')
+```
+
+باعتبارها مجموعة قابلة للتغيير (Mutable Set)، فهي تدعم [الإجراءات](https://docs.python.org/3/library/stdtypes.html#frozenset.update) التالية:
+
+- الإضافة: `add`
+- الحذف: `discard`
+- أخذ عنصر عشوائي: `pop`
+- المحو: `clear`
+
+سميناها رياضية لأنها تدعم عمليات:
+
+- التقاطع والاتحاد والفرق، والفرق التماثلي
+- وكذلك تحقق: (الجزئية والشمول والانفاصل) .. المعروفة في الرياضيات.
+
+وهذا الكود مثال لجميع هذه العمليات:
+
+```{python}
+set1 = {1, 2, 3, 4, 5}
+set2 =          {4, 5, 6, 7, 8}
+
+union = set1 | set2
+assert union == {1, 2, 3, 4, 5, 6, 7, 8}
+
+intersection = set1 & set2
+assert intersection == {4, 5}
+
+diff1 = set1 - set2
+assert diff1 == {1, 2, 3}
+
+diff2 = set2 - set1
+assert diff2 == {6, 7, 8}
+
+symmetric_difference = set1 ^ set2
+assert symmetric_difference == {1, 2, 3, 6, 7, 8}
+```
+
+نصيحة: من الأفضل استعمال اسم الإجراء بدلاً من العلامة التي تقابله حيث أنها تقبل أي نوع من المتكررات (Iterables) وليس المجموعات الرياضية فقط (`set`).
+
+| العملية                        | العلامة        | الإجراء المكافئ                  |
+|--------------------------------|----------------|----------------------------------|
+| الاتحاد                        | `set1 | set2`  | `set1.union(set2)`               |
+| التقاطع                       | `set1 & set2`  | `set1.intersection(set2)`        |
+| الفرق                          | `set1 - set2`  | `set1.difference(set2)`          |
+| الفرق التماثلي                | `set1 ^ set2`  | `set1.symmetric_difference(set2)`|
+
+وكذلك لدينا إجراءات تحقق الجزئية والشمول والانفصال:
+
+| العملية                        | العلامة        | الإجراء المكافئ                  |
+|--------------------------------|----------------|----------------------------------|
+| تحقق الجزئية                   | `set1 <= set2` | `set1.issubset(set2)`            |
+| تحقق الشمول                    | `set1 >= set2` | `set1.issuperset(set2)`          |
+| تحقق الانفصال                  | `len(set1 & set2) == 0` | `set1.isdisjoint(set2)`          |
+
+
+وهذا مثال لاستعمالها:
+
+```{python}
+set1 = {'A', 'B', 'C'}
+set2 = {'A', 'B', 'C', 'D', 'E'}
+set3 = {'سين', 'جيم', 'قاف'}
+
+assert (set1 <= set2) == set1.issubset(set2)
+assert (set2 >= set1) == set2.issuperset(set1)
+assert (
+    set3.isdisjoint(set1 | set2) ==
+    (len(set3 & (set1 | set2)) == 0)
+)
+```
+
+وتستعمل كذلك لإزالة العناصر المتكررة في أي مجموعة، نحو الكود التالي. فإننا نحول القائمة إلى مجموعة رياضية فتزول تلك العناصر تلقائيًّا، ثم نعيدها كما كانت:
+
+```{python}
+numbers = [1, 2, 2, 3, 4, 4, 5]
+unique_numbers = list(set(numbers))
+print(unique_numbers)
+```
+
+وكذلك من الصف:
+
+```{python}
+t = (1, 2, 2, 3, 4, 4, 5)
+unique_t = tuple(set(t))
+print(unique_t)
+```
+
+وكذلك لمعرفة الكلمات الفريدة في النص. فمعالجة النصوص أمر لابد منه لتحليلها، وهذا مثال على كيفية استخدام المجموعة الرياضية للعثور على الكلمات الفريدة في النص. كذلك نستعمل مجموعة الكلمات الوقفية (`stop_words`) لإزالتها من النص. ونقوم بتنظيف النص من العلامات الترقيمية باستعمال الإجراء `.replace()`. ونقوم بتحويل النص إلى حروف صغيرة بواسطة الإجراء `.lower()`:
+
+```{python}
+stop_words = {'is', 'a', 'to', 'so', 'can', 'it', 'the', 'be', 'not'}
+
+text = "Python is a high-level computer programming language. Compared to human language, Python is unambiguous so a computer can interpret it one way."
+
+# clean the text
+xs = text.lower()
+xs = xs.replace('.', '')
+xs = xs.replace(',', '')
+clean_text = xs
+
+unique_words = set(clean_text.split())
+important_words = unique_words - stop_words
+
+for w in sorted(important_words):
+    print(w)
+```
