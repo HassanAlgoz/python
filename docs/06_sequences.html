@@ -176,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_control-flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">التحكم في سير الأوامر</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">سير الأوامر</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -211,8 +211,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_io.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O with pathlib</span></span></a>
+  <a href="./09_files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">الملفات</span></span></a>
   </div>
 </li>
       </ul>
@@ -232,18 +232,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">المجموعة الرياضية</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./zz_comprehension.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Comprehension</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./zz_pipelines.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Pipelines</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -258,13 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./glossary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">الأعداد</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./appendix_collections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">المجموعات</span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">المصطلحات</span></span></a>
   </div>
 </li>
       </ul>
@@ -333,7 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>الصف</strong>: <a href="https://docs.python.org/3/library/stdtypes.html#tuple"><code>tuple</code></a></li>
 <li><strong>النص</strong>: <a href="https://docs.python.org/3/library/stdtypes.html#str"><code>str</code></a> انظر <a href="./08_strings.html">فصل النصوص</a></li>
 </ul>
-<p>انظر ملحق <a href="./appendix_collections.html">مجردات المجموعات</a> للمزيد من التفاصيل</p>
+<p>انظر ملحق <a href="appendix_collections.qmd">مجردات المجموعات</a> للمزيد من التفاصيل</p>
 <p>عندما نقول أن <code>s</code> تسلسل، فهذا يعني أنها تدعم:</p>
 <ul>
 <li>الإشارة: <code>s[i]</code></li>
@@ -737,7 +719,7 @@ list of odds: [11, 13, 15, 17, 19]</code></pre>
 <h2 data-number="7.6" class="anchored" data-anchor-id="الصف-tuple"><span class="header-section-number">7.6</span> الصف (Tuple)</h2>
 <p><strong>الصف</strong> هو مثل القائمة (تسلسل)، لكن يفترق عنها في نقطة واحدة: أنه غير قابل للتغيير.</p>
 <p>عدا ذلك، كل ما ينطبق على القائمة ينطبق أيضًا على الصف؛ إذ كلاهما يشتركان في خاصية كونهما <strong>تسلسل</strong>.</p>
-<p>بدلاً من الأقواس الحادة <code>[]</code>، يستخدم الصف الأقواس المنحنية <code>()</code>:</p>
+<p>بدلاً من الأقواس المربعة <code>[]</code>، يستخدم الصف الأقواس المنحنية <code>()</code>:</p>
 <div id="817bb976" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>t1 <span class="op">=</span> ()        <span class="co"># empty tuple</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a>t2 <span class="op">=</span> (<span class="dv">1</span>,)      <span class="co"># tuple with one item</span></span>

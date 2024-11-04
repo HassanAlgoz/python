@@ -176,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_control-flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">التحكم في سير الأوامر</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">سير الأوامر</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -211,8 +211,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_io.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O with pathlib</span></span></a>
+  <a href="./09_files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">الملفات</span></span></a>
   </div>
 </li>
       </ul>
@@ -232,18 +232,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">المجموعة الرياضية</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./zz_comprehension.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Comprehension</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./zz_pipelines.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Pipelines</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -258,13 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./glossary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">الأعداد</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./appendix_collections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">المجموعات</span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">المصطلحات</span></span></a>
   </div>
 </li>
       </ul>
@@ -282,7 +264,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#التعيين-النسبي" id="toc-التعيين-النسبي" class="nav-link active" data-scroll-target="#التعيين-النسبي"><span class="header-section-number">6.1</span> التعيين النسبي</a></li>
   <li><a href="#الحلقة-المطلقة" id="toc-الحلقة-المطلقة" class="nav-link" data-scroll-target="#الحلقة-المطلقة"><span class="header-section-number">6.2</span> الحلقة المُطْلقة</a>
   <ul class="collapse">
-  <li><a href="#تكرار-القطع-البرمجية" id="toc-تكرار-القطع-البرمجية" class="nav-link" data-scroll-target="#تكرار-القطع-البرمجية">تكرار القطع البرمجية</a></li>
+  <li><a href="#استعمال-input-في-الحلقة-المطلقة" id="toc-استعمال-input-في-الحلقة-المطلقة" class="nav-link" data-scroll-target="#استعمال-input-في-الحلقة-المطلقة">استعمال <code>input()</code> في الحلقة المطلقة</a></li>
+  <li><a href="#الخروج-من-الحلقة" id="toc-الخروج-من-الحلقة" class="nav-link" data-scroll-target="#الخروج-من-الحلقة">الخروج من الحلقة</a></li>
   </ul></li>
   <li><a href="#المتتالية" id="toc-المتتالية" class="nav-link" data-scroll-target="#المتتالية"><span class="header-section-number">6.3</span> المتتالية</a></li>
   <li><a href="#النطاق-range" id="toc-النطاق-range" class="nav-link" data-scroll-target="#النطاق-range"><span class="header-section-number">6.4</span> النطاق (<code>range</code>)</a></li>
@@ -384,6 +367,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>5 &lt; 5</code> تؤول <code>False</code>،فنخرج من الحلقة</li>
 <li>نطبع <code>Done</code></li>
 </ol>
+<p>وهذا تصوير لسير الأوامر لنفس الكود. ملاحظة: اضغط على الزر <code>Prev</code> أو <code>Next</code> للتنقل بين خطوات التنفيذ الفعلية:</p>
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
+</iframe>
+<section id="استعمال-input-في-الحلقة-المطلقة" class="level3">
+<h3 class="anchored" data-anchor-id="استعمال-input-في-الحلقة-المطلقة">استعمال <code>input()</code> في الحلقة المطلقة</h3>
 <p>نستخدم دالة <code>input()</code> حيث <strong>تقطَع سير البرنامج (Interrupt)</strong> فيتوقَّف لتمنح التحكم للمستخدم لتقديم بعض المدخلات، وتنتظر حتى يتم الضغط على مفتاح <code>Enter</code> للإشارة إلى أن الإدخال اكتمل ، ليعود التحكم للبرنامج كي يُكمِل سيره.</p>
 <p>يمكن استعمال الحلقة المطلقة مثلاً لتكرار السؤال عن رقم حتى يتم تخمينه بشكل صحيح:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>num <span class="op">=</span> <span class="st">"9"</span></span>
@@ -392,20 +380,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-4"><a href="#cb10-4"></a>    guess <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Try again: "</span>)</span>
 <span id="cb10-5"><a href="#cb10-5"></a><span class="bu">print</span>(<span class="st">"You guessed it!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>وهكذا معظم البرامج كالخوادم (Servers) يكون في داخلها حلقة مطلقة وذلك لاستقبال طلبات المتسفيدين من البرنامج.</p>
-<section id="تكرار-القطع-البرمجية" class="level3">
-<h3 class="anchored" data-anchor-id="تكرار-القطع-البرمجية">تكرار القطع البرمجية</h3>
+<p>إذا كان المدخل سريًّا تستطيع استعمال <code>getpass</code> لإخفاء الإدخال:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="im">import</span> getpass</span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a>x <span class="op">=</span> getpass.getpass()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>الآن المعرَّف <code>x</code> يحتوي على القيمة المدخلة.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="الخروج-من-الحلقة" class="level3">
+<h3 class="anchored" data-anchor-id="الخروج-من-الحلقة">الخروج من الحلقة</h3>
 <ul>
 <li>تستخدم كلمة <a href="https://docs.python.org/3/reference/simple_stmts.html#break"><code>break</code></a> لإيقاف التكرار تمامًا.</li>
 <li>تستخدم كلمة <a href="https://docs.python.org/3/reference/simple_stmts.html#continue"><code>continue</code></a> للانتقال إلى التكرار التالي متخطيةً بقية الخطوات في التكرار الحالي.</li>
 </ul>
 <div id="3c21a493" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
-<span id="cb11-3"><a href="#cb11-3"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb11-4"><a href="#cb11-4"></a>        <span class="cf">break</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a>    <span class="bu">print</span>(i)</span>
-<span id="cb11-6"><a href="#cb11-6"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb13-3"><a href="#cb13-3"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb13-4"><a href="#cb13-4"></a>        <span class="cf">break</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>    <span class="bu">print</span>(i)</span>
+<span id="cb13-6"><a href="#cb13-6"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0
 1
@@ -413,16 +408,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Done</code></pre>
 </div>
 </div>
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20if%20i%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20break%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
+</iframe>
 <p>وهذا مثال لاستخدام <code>continue</code>:</p>
 <div id="c68b360a" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
-<span id="cb13-3"><a href="#cb13-3"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb13-4"><a href="#cb13-4"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a>        <span class="cf">continue</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a>    <span class="bu">print</span>(i)</span>
-<span id="cb13-7"><a href="#cb13-7"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb13-8"><a href="#cb13-8"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb15-4"><a href="#cb15-4"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a>        <span class="cf">continue</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>    <span class="bu">print</span>(i)</span>
+<span id="cb15-7"><a href="#cb15-7"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb15-8"><a href="#cb15-8"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0
 1
@@ -431,18 +428,20 @@ Done</code></pre>
 Done</code></pre>
 </div>
 </div>
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20if%20i%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20continue%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
+</iframe>
 <p>أما عبارة <code>break</code> المضمنة تحت طبقتين من التكرار فإن الذي يتوقف هو التكرار الداخلي فقط. وهذا مثال:</p>
 <div id="5ee99c3b" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">3</span>:</span>
-<span id="cb15-3"><a href="#cb15-3"></a>    j <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a>    <span class="cf">while</span> j <span class="op">&lt;</span> <span class="dv">3</span>:</span>
-<span id="cb15-5"><a href="#cb15-5"></a>        <span class="cf">if</span> i <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb15-6"><a href="#cb15-6"></a>            <span class="cf">break</span></span>
-<span id="cb15-7"><a href="#cb15-7"></a>        <span class="bu">print</span>(i, j)</span>
-<span id="cb15-8"><a href="#cb15-8"></a>        j <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb15-9"><a href="#cb15-9"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb15-10"><a href="#cb15-10"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb17-3"><a href="#cb17-3"></a>    j <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a>    <span class="cf">while</span> j <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb17-5"><a href="#cb17-5"></a>        <span class="cf">if</span> i <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb17-6"><a href="#cb17-6"></a>            <span class="cf">break</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a>        <span class="bu">print</span>(i, j)</span>
+<span id="cb17-8"><a href="#cb17-8"></a>        j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb17-9"><a href="#cb17-9"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb17-10"><a href="#cb17-10"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0 0
 0 1
@@ -453,14 +452,16 @@ Done</code></pre>
 Done</code></pre>
 </div>
 </div>
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%203%3A%0A%20%20%20%20j%20%3D%200%0A%20%20%20%20while%20j%20%3C%203%3A%0A%20%20%20%20%20%20%20%20if%20i%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20%20%20print%28i,%20j%29%0A%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
+</iframe>
 </section>
 </section>
 <section id="المتتالية" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="المتتالية"><span class="header-section-number">6.3</span> المتتالية</h2>
 <p>نستخدم الجملة: <code>for item in iterable</code> لقراءة <strong>متتالية</strong> (<a href="https://docs.python.org/3/glossary.html#term-iterable">Iterable</a>). والتي تتضمن <strong>المجموعات</strong> (Collections) وهي معظم الكائنات الحاوية للبيانات. (وسيأتي الحديث عنها في درس قادم).</p>
 <div id="88b7879b" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="cf">for</span> x <span class="kw">in</span> (<span class="dv">1</span>, <span class="dv">20</span>, <span class="st">'ABB'</span>, <span class="va">True</span>, <span class="va">False</span>, <span class="fl">1.234</span>):</span>
-<span id="cb17-2"><a href="#cb17-2"></a>    <span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="cf">for</span> x <span class="kw">in</span> (<span class="dv">1</span>, <span class="dv">20</span>, <span class="st">'ABB'</span>, <span class="va">True</span>, <span class="va">False</span>, <span class="fl">1.234</span>):</span>
+<span id="cb19-2"><a href="#cb19-2"></a>    <span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1
 20
@@ -472,18 +473,18 @@ False
 </div>
 <p>وهذا البرنامج يصفي قائمة أرقام إلى قائمتين: إحداها زوجية والأخرى فدرية. ملاحظة: علامة <code>%</code> تعني باقي القسمة. فإذا كان الباقي يساوي صفر، فهذا يعني أن العدد زوجي:</p>
 <div id="40557647" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>numbers <span class="op">=</span> [<span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>]</span>
-<span id="cb19-2"><a href="#cb19-2"></a>evens <span class="op">=</span> []</span>
-<span id="cb19-3"><a href="#cb19-3"></a>odds <span class="op">=</span> []</span>
-<span id="cb19-4"><a href="#cb19-4"></a></span>
-<span id="cb19-5"><a href="#cb19-5"></a><span class="cf">for</span> x <span class="kw">in</span> numbers:</span>
-<span id="cb19-6"><a href="#cb19-6"></a>    <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb19-7"><a href="#cb19-7"></a>        evens.append(x)</span>
-<span id="cb19-8"><a href="#cb19-8"></a>    <span class="cf">else</span>:</span>
-<span id="cb19-9"><a href="#cb19-9"></a>        odds.append(x)</span>
-<span id="cb19-10"><a href="#cb19-10"></a></span>
-<span id="cb19-11"><a href="#cb19-11"></a><span class="bu">print</span>(<span class="st">'list of evens:'</span>, evens)</span>
-<span id="cb19-12"><a href="#cb19-12"></a><span class="bu">print</span>(<span class="st">'list of odds:'</span>, odds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>numbers <span class="op">=</span> [<span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>]</span>
+<span id="cb21-2"><a href="#cb21-2"></a>evens <span class="op">=</span> []</span>
+<span id="cb21-3"><a href="#cb21-3"></a>odds <span class="op">=</span> []</span>
+<span id="cb21-4"><a href="#cb21-4"></a></span>
+<span id="cb21-5"><a href="#cb21-5"></a><span class="cf">for</span> x <span class="kw">in</span> numbers:</span>
+<span id="cb21-6"><a href="#cb21-6"></a>    <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb21-7"><a href="#cb21-7"></a>        evens.append(x)</span>
+<span id="cb21-8"><a href="#cb21-8"></a>    <span class="cf">else</span>:</span>
+<span id="cb21-9"><a href="#cb21-9"></a>        odds.append(x)</span>
+<span id="cb21-10"><a href="#cb21-10"></a></span>
+<span id="cb21-11"><a href="#cb21-11"></a><span class="bu">print</span>(<span class="st">'list of evens:'</span>, evens)</span>
+<span id="cb21-12"><a href="#cb21-12"></a><span class="bu">print</span>(<span class="st">'list of odds:'</span>, odds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>list of evens: [12, 14, 16, 18, 20]
 list of odds: [11, 13, 15, 17, 19]</code></pre>
@@ -506,8 +507,8 @@ list of odds: [11, 13, 15, 17, 19]</code></pre>
 </ul>
 <p>فإذا قمت بتعيين عامل واحد فسيكون هو <code>stop</code>:</p>
 <div id="3c5c08a9" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
-<span id="cb21-2"><a href="#cb21-2"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb23-2"><a href="#cb23-2"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0
 1
@@ -518,8 +519,8 @@ list of odds: [11, 13, 15, 17, 19]</code></pre>
 </div>
 <p>وإذا قمت بتعيين عاملين فسيكون الأول <code>start</code> والثاني <code>stop</code>:</p>
 <div id="b6675137" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>, <span class="dv">10</span>):</span>
-<span id="cb23-2"><a href="#cb23-2"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>, <span class="dv">10</span>):</span>
+<span id="cb25-2"><a href="#cb25-2"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>5
 6
@@ -530,8 +531,8 @@ list of odds: [11, 13, 15, 17, 19]</code></pre>
 </div>
 <p>أما إذا عينت الثلاثة جميعًا فسيكون الأول <code>start</code> والثاني <code>stop</code> والثالث <code>step</code>:</p>
 <div id="ac9757e9" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>):</span>
-<span id="cb25-2"><a href="#cb25-2"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>):</span>
+<span id="cb27-2"><a href="#cb27-2"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0
 2
@@ -542,8 +543,8 @@ list of odds: [11, 13, 15, 17, 19]</code></pre>
 </div>
 <p>ولك أن تعكس النطاق بتعيين <code>step</code> بقيمة سالبة، مع قلب البداية والنهاية:</p>
 <div id="15923dff" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb27-2"><a href="#cb27-2"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb29-2"><a href="#cb29-2"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>10
 9
@@ -559,9 +560,9 @@ list of odds: [11, 13, 15, 17, 19]</code></pre>
 </div>
 <p>التكرار على قوائم باستخدام النطاق:</p>
 <div id="0fdb5e2e" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>numbers <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">90</span>, <span class="dv">100</span>]</span>
-<span id="cb29-2"><a href="#cb29-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(numbers), <span class="dv">2</span>):</span>
-<span id="cb29-3"><a href="#cb29-3"></a>    <span class="bu">print</span>(numbers[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>numbers <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">90</span>, <span class="dv">100</span>]</span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(numbers), <span class="dv">2</span>):</span>
+<span id="cb31-3"><a href="#cb31-3"></a>    <span class="bu">print</span>(numbers[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>20
 40
