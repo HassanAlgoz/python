@@ -79,6 +79,12 @@ print('Done')
 6. `5 < 5` تؤول `False`،فنخرج من الحلقة
 7. نطبع `Done`
 
+وهذا تصوير لسير الأوامر لنفس الكود. ملاحظة: اضغط على الزر `Prev` أو `Next` للتنقل بين خطوات التنفيذ الفعلية:
+
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+
+### استعمال `input()` في الحلقة المطلقة
 
 نستخدم دالة `input()` حيث **تقطَع سير البرنامج (Interrupt)** فيتوقَّف لتمنح التحكم للمستخدم لتقديم بعض المدخلات، وتنتظر حتى يتم الضغط على مفتاح `Enter` للإشارة إلى أن الإدخال اكتمل ، ليعود التحكم للبرنامج كي يُكمِل سيره.
 
@@ -94,7 +100,22 @@ print("You guessed it!")
 
 وهكذا معظم البرامج كالخوادم (Servers) يكون في داخلها حلقة مطلقة وذلك لاستقبال طلبات المتسفيدين من البرنامج.
 
-### تكرار القطع البرمجية
+
+إذا كان المدخل سريًّا تستطيع استعمال `getpass` لإخفاء الإدخال:
+
+```python
+import getpass
+
+x = getpass.getpass()
+```
+
+الآن المعرَّف `x` يحتوي على القيمة المدخلة.
+
+```python
+print(x)
+```
+
+### الخروج من الحلقة
 
 - تستخدم كلمة [`break`](https://docs.python.org/3/reference/simple_stmts.html#break) لإيقاف التكرار تمامًا.
 - تستخدم كلمة [`continue`](https://docs.python.org/3/reference/simple_stmts.html#continue) للانتقال إلى التكرار التالي متخطيةً بقية الخطوات في التكرار الحالي.
@@ -109,6 +130,8 @@ while i < 5:
 print('Done')
 ```
 
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20if%20i%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20break%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
 وهذا مثال لاستخدام `continue`:
 
 ```{python}
@@ -121,6 +144,8 @@ while i < 5:
     i += 1
 print('Done')
 ```
+
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20if%20i%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20continue%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
 أما عبارة `break` المضمنة تحت طبقتين من التكرار فإن الذي يتوقف هو التكرار الداخلي فقط. وهذا مثال:
 
@@ -136,6 +161,8 @@ while i < 3:
     i += 1
 print('Done')
 ```
+
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%203%3A%0A%20%20%20%20j%20%3D%200%0A%20%20%20%20while%20j%20%3C%203%3A%0A%20%20%20%20%20%20%20%20if%20i%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20%20%20print%28i,%20j%29%0A%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
 ## المتتالية
 
