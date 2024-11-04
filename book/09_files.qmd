@@ -1,0 +1,269 @@
+---
+title: الملفات
+jupyter: python3
+---
+
+**الملف هو الوسيط الذي تنتقل من خلاله المعلومات بين البرمجيات والأجهزة والبشر**. لذا من الضروري معرفة كيفية التعامل معها في بايثون. 
+
+## الملف في بايثون
+
+يجرِّد [الملف](https://docs.python.org/3/glossary.html#term-file-object) أمرين أساسيين: القراءة: `.read()` والكتابة: `.write()` وذلك بعد فتحه [`open()`](https://docs.python.org/3/library/functions.html#open) كما يجب بعد الفراغ منه أن تغلقه بالأمر `close()` فهذه الأربعة هي ما يشكل الملف وهي فلسفة نظام يونكس (Unix) الذي حذت حذوه أنظمة التشغيل فيما بعد. والعبارة الشهيرة: ["everything is a file"](https://en.wikipedia.org/wiki/Everything_is_a_file) تعبِّر عن نموذج العالَم بالنسبة لنظام التشغيل.
+
+وقد تقع الكتابة عيْنًا على أحد ثلاثة منافذ يمثلها **الملف**:
+
+1. إلى **منفذ تخزين** وعادة ما يُسمى الملف: فيظهر الكملفات، مثلاً: `data.csv`, `my_code.py`, `configuration.yaml`.
+2. إلى [**مخرَج لوحة الأوامر**](https://docs.python.org/3/library/sys.html#sys.stdout) ليظهر على الشاشة. وهو فرعان:
+	- **منفذ العادة** وهو الذي توجَّه إليه الأحرف عندما نستعمل الإجراء [`print()`](https://docs.python.org/3/library/functions.html#print) (أو عندما تكب اسم المعرَّف كآخر أمر في دفتر جوبتر الذي يستعمل الأمر [`display`](https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html))
+	- **منفذ الأخطاء** وهو الذي توجَّه إليه رسالة الخطأ عادةً
+3. إلى [**منفذ مِقْبَس**](https://en.wikipedia.org/wiki/Unix_domain_socket) (Socket) للتواصل مع برنامج آخر سواءً  كان البرنامج في نفس الجهاز أو عبر الشبكة.
+
+وكذلك عملية القراءة `.read()` من **ملف**؛ تقع عيْنًا:
+1. من منفذ تخزين
+2. من [منفذ مدخلات لوحة الأوامر](https://docs.python.org/3/library/sys.html#sys.stdin) والذي يمكن إدخاله مثلاً عن طريق إجراء [`input()`](https://docs.python.org/3/library/functions.html#input)
+3. من منفذ مقبس
+
+## قراءة الملفات وكتابتها
+
+انظر [توثيق قراءة وكتابة الملفات](https://docs.python.org/3/library/pathlib.html#reading-and-writing-files).
+
+
+أبسط طريقة للتعامل مع الملفات قراءةً وكتابةً هي باستعمال [`open()`](https://docs.python.org/3/library/functions.html#open). فهكذا نقرأ الملف باستعمال `file.read()` بعد فتح الملف بوضع القراءة `'r'` في `open(mode='r')`:
+
+```{python}
+f = open(file='datasets/example_root/a/a.txt', mode='r')
+content = f.read()
+f.close()
+
+print(content)
+```
+
+وهكذا نكتب في الملف باستعمال `file.write()`، بعد فتح الملف بوضع الكتابة `'w'` في `open(mode='w')`:
+
+```{python}
+content = """Salam everyone,
+I hope you are enjoying the course,
+
+Thank you.
+"""
+
+f = open(file='datasets/example_root/a/zzz.txt', mode='w')
+f.write(content)
+f.close()
+
+print(content)
+```
+
+- إذا كنت تريد قراءة الملفات وكتابتها بشكل بسيط انظر: [`open()`](https://docs.python.org/3/library/functions.html#open).
+-وإذا كنت تريد التعامل مع الملفات المؤقتة فانظر: [`tempfile`](https://docs.python.org/3/library/tempfile.html#module-tempfile).
+- وكثير من عمليات التعامل مع الملفات والمجلدات تجدها في: [`shutil`](https://docs.python.org/3/library/shutil.html#module-shutil).
+
+أما الآن فحديثنا عن الوصول إلى الملفات (قراءة المجلدات) ، والبحث عنها ، وتركيب المسار إليها، وهذا ما تحققه مكتبة [`pathlib`](https://docs.python.org/3/library/pathlib.html).
+
+يجدر بالذكر أن مكتبة `pathlib` جاءت متأخرة في إصدار `Python 3.4` لمعالجة الملفات بأسلوب البرمجة الشيئية (OOP)، بينما تستعمل مكتبة `os` التي سبقتها لأغراض متعددة فيما يخص نظام التشغيل (os = Operating System) من ضمنها خُصِّصَت `os.path` للتتعامل مع نظام الملفات إلا أنها كُتِبَت بأسلوب إجرائي تأسيًّا بلغة سي (C)، فهي منخفضة المستوى (تتعامل مباشرة مع `bytes` و `str`) بالمقارنة بالبرمجة الشيئية الأعلى في التجريد؛ وهو ما نفضله. انظر [مقارنة pathlib بوحدات `os` و `os.path`](https://docs.python.org/3/library/pathlib.html#comparison-to-the-os-and-os-path-modules).
+
+لاستعراض عمليات المكتبة، أنشأنا مُسبقًا شجرة تبدأ من مجلد اسمه `example_root` تجدها داخل `datasets` في [مستودع مشروع الكتاب](datasets/example_root) على النحو التالي:
+
+```{mermaid}
+graph LR
+    A[example_root]
+    A --> B[something.txt]
+    A --> C[a]
+    A --> D[b]
+    A --> E[c]
+    C --> F["a.txt"]
+    C --> G["A_domestic_cat.jpg"]
+    C --> I["zzz.txt"]
+    D --> J["A_yellow_and_white_cat.jpg"]
+    D --> L[b.txt]
+    D --> M["DSC0532_(9120523417).jpg"]
+    E --> O["c.txt"]
+    E --> P[c_inner]
+    P --> Q["inner.txt"]
+```
+
+
+
+الشيء الأساسي الذي نتعامل معه في هذه المكتبة هو **المسار** ([`Path`](https://docs.python.org/3/library/pathlib.html#concrete-paths)):
+
+```{python}
+from pathlib import Path
+```
+
+يُنشأ المسار من نص أو مجموعة نصوص بينها علامة `/` (وهي في الأصل علامة قسمة إذا وُضعت بين الأرقام) التي تعني ضم النص إلى المسار.
+
+لاحظ استعمال النص الخام `r''` لكون الحرف `\` له معنىً خاص في نصوص بايثون، فهو يستعمل مثلا `\n` للانتقال لسطر جديد. لكن حين نستعمل `r''` فإن الحرف `\` لا يعني شيئًا خاصًا.
+
+
+```{python}
+assert (
+    Path('datasets/example_root/a/a.txt') ==
+    Path(r'datasets\example_root\a\a.txt') ==
+    Path('datasets') / 'example_root' / 'a' / 'a.txt'
+)
+```
+
+ملاحظة، عند نسخ المسارات في نظام ويندوز (Windows)، يجب عليك إما استبدال الشرطات المائلة العكسية `\` بالشرطات المائلة الأمامية `/` أو استخدام السلاسل النصية الخام `r''` لتجنب المشاكل (كما فعلنا أعلاه).
+
+وهكذا نستطيع استعمال الكائن `Path` في إجراء `open(file=path)` للتعامل مع الملفات:
+
+```{python}
+p = Path('datasets/example_root/a/a.txt')
+
+f = open(file=p, mode='r')
+content = f.read()
+f.close()
+
+print(content)
+```
+
+ولأن الملف يعتبر [مدير سياق (Context Manager)](https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers) فيمكن استعمال قطعة `with` ليتم إغلاق المصدر المفتوح تلقائيًّا عند الخروج من القطعة (المحددة بالمحاذاة). وذلك على النحو التالي:
+
+```{python}
+p = Path('datasets/example_root/a/a.txt')
+
+contents = ''
+with open(file=p, mode='r') as f:
+    contents = f.read()
+print(contents)
+```
+
+بدلاً من قراءة الملف جملة واحدة `.read()` نستطيع القراءة سطرًا بسطر عن طريق الإجراء `.readline()` على النحو التالي:
+
+```{python}
+p = Path('datasets/example_root/a/a.txt')
+
+with open(file=p, mode='r') as f:
+    for i, line in enumerate(f, start=1):
+        line = line.rstrip()
+        print(f'Line {i}: {line}')
+```
+
+تستعمل `.rstrip()` لإزالة حرف انتقال السطر `\n` .
+
+### المجلدات 
+انظر [قراءة المجلدات](https://docs.python.org/3/library/pathlib.html#reading-directories).
+
+لعرض قائمة بمحتوى المجلد، نستعمل المكرر الناتج من إجراء `.iterdir()` ونكرر عليه، وهو بدورِه يُنتج في كل كرةٍ **مساراً** (`x`). وهذا المسار يُمكن التحقق من أنه يشير إلى مجلد أو لا (`x.is_dir()`) على النحو التالي: 
+
+```{python}
+p = Path('datasets/example_root/')
+dirs = [x for x in p.iterdir() if x.is_dir()]
+dirs
+```
+
+#### جرب
+
+هل تريد أن تعرف حجم مجلد التنزيلات (Downloads) في جهازك؟. يمكننا استخدام الإجراء `stat()` للحصول على بيانات عن المجلَّد، والتي من ضمنها الحجم (`st_size`) على النحول التالي:
+
+
+```{python}
+p = Path.home() / 'Downloads'
+size = p.stat().st_size
+print(size, 'bytes')
+```
+
+ثم هذا الإجراء لتحويل الوِحدة من البايت إلى الكيلو والميجا والقيقا:
+
+```{python}
+def format_size(size):
+    size_kb = size / 1024
+    size_mb = size_kb / 1024
+    size_gb = size_mb / 1024
+    if size_gb > 0.1:
+        return f'{size_gb:.2f} GB'
+    elif size_mb > 0.1:
+        return f'{size_mb:.2f} MB'
+    return f'{size_kb:.2f} KB'
+
+print(format_size(size))
+```
+
+### سبر ملفات الشجرة طبقًا لنمط
+
+يستعمل الإجراء [`glob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob) للبحث عن نمط معيَّن بدءًا من **المسار**، وهذا النمط قد يبحث في مستوىً واحد أو يتخلل الشجرة بأي طريقة تريد؛ ليطابق أسماء الملفات بنمط معيَّن فيستخرجها لك.
+
+انظر [لغة الأنماط](https://docs.python.org/3/library/pathlib.html#pathlib-pattern-language).
+
+في هذا المثال نبحث عن ملفات الصُّوَر التي بصيغة `.jpg` لنحسب حجم مجموع ملفات الصور لدينا داخل المسار `datasets/pathlib` وما يتفرع عن هذه الشجرة نزولاً إلى الأبد (وذلك بنمط: `**/*.jpg`):
+
+
+```{python}
+total_size = 0
+for p in Path('datasets/example_root/').glob('**/*.jpg'):
+    total_size += p.stat().st_size
+
+print('Total size:', total_size, 'bytes')
+print('Total size:', format_size(total_size))
+```
+
+### المشي على جميع ملفات الشجرة
+
+نستعمل الإجراء [`walk`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk) للسير على جميع ملفات الشجرة نزولاً أو صعودًا؛ على هذا النحو:
+
+```{python}
+p = Path('datasets/example_root/')
+for dirpath, dirnames, filenames in p.walk(top_down=True):
+    print(dirpath)
+    for file in filenames:
+        print(f'\t{file}')
+        # print('\tFULL PATH:', Path(dirpath) / file)
+```
+
+لاحظ أن `.walk()` تعطينا ثلاثة قيَم في كل كرة:
+
+- `dirpath`: المسار الحالي للمجلد.
+- `dirnames`: قائمة بأسماء المجلدات في المجلد الحالي.
+- `filenames`: قائمة بأسماء الملفات في المجلد الحالي.
+
+لإظهار كامل المسار؛ أزل علامة التعليق `#` لتنفيذ السطر.
+
+## تصنيف عمليات `pathlib` في بايثون
+
+وإليك تصنيف لعمليات مكتبة `pathlib`:
+
+### عمليات المسارات المجرَّدة
+
+- **إنشاء وتعديل المسارات:**
+    - [`.joinpath`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.joinpath): دمج مكونات مسار.
+    - [`.parent`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.parent): استخراج المجلد الأب.
+    - [`.name`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.name): استخراج الاسم الأساسي للملف.
+    - [`.stem`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.stem): استخراج اسم الملف بدون الامتداد.
+    - [`.suffix`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.suffix): استخراج امتداد الملف.
+    - [`.with_name`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.with_name): إنشاء مسار جديد باسم مختلف.
+    - [`.with_suffix`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.with_suffix): إنشاء مسار جديد بامتداد مختلف.
+    - [`relative_to`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.relative_to): إنشاء مسار نسبي.
+
+### عمليات على نظام الملفات
+
+- **استعلام:**
+    - [`is_absolute`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.is_absolute): هل هو مطلق؟.
+    - [`samefile`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.samefile): هل مساران يشيران إلى نفس الملف؟.
+    - [`exists`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.exists): هل هو مسار موجود؟.
+    - [`is_file`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_file): هل هو مسار ملف؟.
+    - [`is_dir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_dir): هل هو مسار مجلد؟.
+    - [`is_symlink`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_symlink): هل هو ارتباط رمزي؟.
+    - [`stat`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.stat): سرد إحصائيات نظام الملفات.
+    - [`lstat`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.lstat): سرد إحصائيات نظام الملفات دون متابعة الارتباطات الرمزية.
+- **عمليات تغيير:**
+    - [`open`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.open): فتح ملف للقراءة أو الكتابة أو الإضافة.
+    - [`mkdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.mkdir): إنشاء مجلد.
+    - [`rmdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rmdir): حذف مجلد فارغ.
+    - [`unlink`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.unlink): حذف ملف.
+    - [`rename`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rename): تعديل اسم ملف أو مجلد.
+    - [`replace`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.replace): تعديل اسم ملف أو مجلد مع الكتابة فوقه إذا لزم الأمر.
+    - [`chmod`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.chmod): تغيير أذونات الملف.
+    - [`lchmod`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.lchmod): تغيير أذونات الملف دون متابعة الارتباطات الرمزية.
+    - [`touch`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.touch): تحديث الطابع الزمني للملف.
+
+### الارتباطات الرمزية والصلبة
+
+- [`symlink_to`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.symlink_to): إنشاء ارتباط رمزي.
+- [`hardlink_to`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.hardlink_to): إنشاء ارتباط صلب.
+- [`readlink`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.readlink): قراءة الهدف من ارتباط رمزي.
+
+### التكرار والبحث
+
+- [`iterdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.iterdir): تكرار على قائمة المجلد.
+- [`glob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob): البحث عن الملفات المطابقة لنمط.
+- [`rglob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob): البحث بشكل متكرر عن الملفات المطابقة لنمط.
+- [`walk`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk): التنقل بشكل متكرر في شجرة المجلدات.
