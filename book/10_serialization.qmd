@@ -1,3 +1,9 @@
+---
+title: حفظ البيانات
+jupyter: python3
+---
+
+
 # Data Serialization
 
 Data *serialization* is the process of converting complex data structures, such as objects, dictionaries, and lists, into a format that can be easily stored and transmitted. The serialized data can be stored in a file, sent over a network, or saved in a database. The process of converting serialized data back into its original form is called *deserialization*.
@@ -95,14 +101,14 @@ Let's write it to a JSON file.
 
 ```{python}
 with Path('datasets/user_preferences.json').open(mode='w') as file:
-    json.dump(user_preferences, file)
+    json.dumps(user_preferences, file)
 ```
 
 Later when we want to load it, we can do the following.
 
 ```{python}
 with Path('datasets/user_preferences.json').open() as file:
-    data = json.load(file)
+    data = json.loads(file)
 print(data)
 ```
 

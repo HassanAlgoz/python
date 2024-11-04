@@ -182,3 +182,26 @@ print("Hello, world".split())
 ```{python}
 print("Hello, world".split("l"))
 ```
+
+## Printing
+
+### Carriage Return `'\r'` Character
+
+The "carriage return" character has that name because it refers to a command to return the (print) carriage to the beginning of the line.
+
+<img src="assets/type-writer.png" width="300">
+
+> You'd start a new paragraph by feeding in the paper and then - with your left hand - shoving the carriage (the part on top that has the paper) all the way to the right so the keys will be hitting the spot on the far left first. Then as you typed, the carriage would advance one space at a time. When it got all the way to the right (usually it went "ding!"), you'd have to push that carriage back again, and if you didn't also hit the line-feed lever, you'd start typing over the same line. So the line-feed lever is right there, mounted in the same spot you'd use to push the carriage back anyway, and you could combine both motions. -- [Answer by **nico** on english.stackexchange.com](https://english.stackexchange.com/a/36082)
+
+```{python}
+print('A', end='\r')
+print('B')
+```
+
+```{python}
+import time
+# progress bar using the Carriage Return "\r" character
+for x in range(10 + 1):
+    time.sleep(0.20)
+    print(f'[{x}/10] ' + '===' * x + '>', end='\r')
+```
