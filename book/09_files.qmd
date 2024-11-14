@@ -3,24 +3,44 @@ title: الملفات
 jupyter: python3
 ---
 
-**الملف هو الوسيط الذي تنتقل من خلاله المعلومات بين البرمجيات والأجهزة والبشر**. لذا من الضروري معرفة كيفية التعامل معها في بايثون. 
+رغم تعقيد الحواسيب اليوم، فهي في الأخير ترجع إلى معمارية فون نويمان (1945) الموضَّحة أدناه:
+
+![نموذج فون نويمان للحاسب الآلي](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Von_Neumann_Architecture-ar.svg/450px-Von_Neumann_Architecture-ar.svg.png)
+
+فكل المنطق الذي أجريناه لا يتعدى الصنودق الأوسط الذي يتكون من وحدة المعالجة المركزية (CPU) ووحدة الذاكرة (Memory). سواءً كان تعريف أو استدعاء أو نحو ذلك فإنه هنا.
+
+أما للاتصال بالعالم، فتتألف العمليات في الأصل من عمليتين أساسيتين: **قراءة وكتابة**.
+
+1. أما علمية `input()` فإنها من جنس عمليات إدخال المعطيات؛ ولا بُدَّ لها من منفذ؛ وهو هنا: لوحة المفاتيح.
+2. أما عملية مثل: `print()` فإنها من جنس عمليات إخراج النتائج؛ ولا بُدَّ لها من مَنفَذ. وفي هذه الحالة هو جهاز العرض (الشاشة).
+
+وحتى لا ننزل إلى مستوى البت والبايت فإن نظام التشغيل يمثِّلُ للغة البرمجة التي تتخاطب معه هذه الأجهزة، سواءً كانت للإدخال أو الإخراج، كأنها ملفات. ويقول: **الملف هو ما يقبل القراءة ويقبل الكتابة**. فهو الوسيط الذي تنتقل من خلاله المعلومات بين البرمجيات والأجهزة وكذلك البشر.
+
+واصطلح الناس على كلمة I/O وتعني (Input / Output) للإشارة إلى معنى عمليات الإدخال والإخراج إلى الأجهزة مثل:
+
+- **أجهزة استشعار**: الحرارة والرطوبة والبعد والميل والاهتزاز والحركة ...إلخ.
+- **أجهزة تحريك**: المفتاح والماطور  والصمام والطنان والسماعات ...إلخ.
+- أجهزة غالبًا هي متصلة بالجهاز المكتبي: لوحة المفاتيح والمؤشر والطابعة والكاميرا والمايكروفون والشاشة ...إلخ.
+
+لذا من الضروري معرفة كيفية التعامل مع الملفات في بايثون. لكننا في هذا الدرس سنقتصر على الملفات المعهودة، وهي أول نوع فيما يأتي: أي: الملفات والمجلدات.
 
 ## الملف في بايثون
 
-يجرِّد [الملف](https://docs.python.org/3/glossary.html#term-file-object) أمرين أساسيين: القراءة: `.read()` والكتابة: `.write()` وذلك بعد فتحه [`open()`](https://docs.python.org/3/library/functions.html#open) كما يجب بعد الفراغ منه أن تغلقه بالأمر `close()` فهذه الأربعة هي ما يشكل الملف وهي فلسفة نظام يونكس (Unix) الذي حذت حذوه أنظمة التشغيل فيما بعد. والعبارة الشهيرة: ["everything is a file"](https://en.wikipedia.org/wiki/Everything_is_a_file) تعبِّر عن نموذج العالَم بالنسبة لنظام التشغيل.
+يجرِّد [الملف](https://docs.python.org/3/glossary.html#term-file-object) أمرين أساسيين: القراءة: `.read()` والكتابة: `.write()` وذلك بعد فتحه [`open()`](https://docs.python.org/3/library/functions.html#open) كما يجب بعد الفراغ منه أن تغلقه بالأمر `close()` فهذه الأربعة هي ما يشكل الملف وهي فلسفة نظام يونكس (Unix) ومن حذا حذوه مثل نظام ماك (MacOS) بخلاف نظام ويندوز (Windows) فإنه لا يلتزم بذلك دائمًا.
 
 وقد تقع الكتابة عيْنًا على أحد ثلاثة منافذ يمثلها **الملف**:
 
-1. إلى **منفذ تخزين** وعادة ما يُسمى الملف: فيظهر الكملفات، مثلاً: `data.csv`, `my_code.py`, `configuration.yaml`.
+1. إلى **منفذ تخزين** وهي الملفات التي اعتدنا رؤيتها والضغط على أشكالها المختلفة بحسب نوعها مثلاً: `data.csv`, `my_code.py`, `configuration.yaml`.
 2. إلى [**مخرَج لوحة الأوامر**](https://docs.python.org/3/library/sys.html#sys.stdout) ليظهر على الشاشة. وهو فرعان:
-	- **منفذ العادة** وهو الذي توجَّه إليه الأحرف عندما نستعمل الإجراء [`print()`](https://docs.python.org/3/library/functions.html#print) (أو عندما تكب اسم المعرَّف كآخر أمر في دفتر جوبتر الذي يستعمل الأمر [`display`](https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html))
-	- **منفذ الأخطاء** وهو الذي توجَّه إليه رسالة الخطأ عادةً
-3. إلى [**منفذ مِقْبَس**](https://en.wikipedia.org/wiki/Unix_domain_socket) (Socket) للتواصل مع برنامج آخر سواءً  كان البرنامج في نفس الجهاز أو عبر الشبكة.
+    - **منفذ العادة** وهو الذي توجَّه إليه الأحرف عندما نستعمل الإجراء [`print()`](https://docs.python.org/3/library/functions.html#print) (أو عندما تكتب اسم المعرَّف كآخر أمر في دفتر جوبتر فهو يستعمل الأمر [`display()`](https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html) ضمنيًّا)
+    - **منفذ الأخطاء** وهو الذي توجَّه إليه رسالة الخطأ عادةً
+3. إلى [**منفذ مِقْبَس**](https://en.wikipedia.org/wiki/Unix_domain_socket) (Socket) **للتواصل مع برنامج آخر** سواءً  كان البرنامج في نفس الجهاز أو عبر الشبكة.
 
-وكذلك عملية القراءة `.read()` من **ملف**؛ تقع عيْنًا:
-1. من منفذ تخزين
+أما عملية القراءة `.read()` فتقع عيْنًا:
+
+1. من منفذ تخزين (قرص تخزين أو ذاكرة دائمة)
 2. من [منفذ مدخلات لوحة الأوامر](https://docs.python.org/3/library/sys.html#sys.stdin) والذي يمكن إدخاله مثلاً عن طريق إجراء [`input()`](https://docs.python.org/3/library/functions.html#input)
-3. من منفذ مقبس
+3. من منفذ مقبس (الشبكة)
 
 ## قراءة الملفات وكتابتها
 
@@ -57,11 +77,13 @@ print(content)
 -وإذا كنت تريد التعامل مع الملفات المؤقتة فانظر: [`tempfile`](https://docs.python.org/3/library/tempfile.html#module-tempfile).
 - وكثير من عمليات التعامل مع الملفات والمجلدات تجدها في: [`shutil`](https://docs.python.org/3/library/shutil.html#module-shutil).
 
-أما الآن فحديثنا عن الوصول إلى الملفات (قراءة المجلدات) ، والبحث عنها ، وتركيب المسار إليها، وهذا ما تحققه مكتبة [`pathlib`](https://docs.python.org/3/library/pathlib.html).
+## الطريق إلى الملف: Path
 
-يجدر بالذكر أن مكتبة `pathlib` جاءت متأخرة في إصدار `Python 3.4` لمعالجة الملفات بأسلوب البرمجة الشيئية (OOP)، بينما تستعمل مكتبة `os` التي سبقتها لأغراض متعددة فيما يخص نظام التشغيل (os = Operating System) من ضمنها خُصِّصَت `os.path` للتتعامل مع نظام الملفات إلا أنها كُتِبَت بأسلوب إجرائي تأسيًّا بلغة سي (C)، فهي منخفضة المستوى (تتعامل مباشرة مع `bytes` و `str`) بالمقارنة بالبرمجة الشيئية الأعلى في التجريد؛ وهو ما نفضله. انظر [مقارنة pathlib بوحدات `os` و `os.path`](https://docs.python.org/3/library/pathlib.html#comparison-to-the-os-and-os-path-modules).
+أما الآن فحديثنا عن الوصول إلى الملفات ، والبحث عنها ، وتركيب المسار إليها، وهذا ما تحققه مكتبة [`pathlib`](https://docs.python.org/3/library/pathlib.html).
 
-لاستعراض عمليات المكتبة، أنشأنا مُسبقًا شجرة تبدأ من مجلد اسمه `example_root` تجدها داخل `datasets` في [مستودع مشروع الكتاب](datasets/example_root) على النحو التالي:
+يجدر بالذكر أن مكتبة `pathlib` جاءت متأخرة في إصدار `Python 3.4` لمعالجة الملفات بأسلوب البرمجة الشيئية (OOP)، بينما تستعمل مكتبة `os` التي سبقتها لأغراض متعددة فيما يخص نظام التشغيل (os = Operating System) من ضمنها خُصِّصَت `os.path` للتتعامل مع نظام الملفات إلا أنها كُتِبَت بأسلوب إجرائي تأسيًّا بلغة سي (C)، فهي منخفضة المستوى (تتعامل مباشرة مع `bytes` و `str`) بالمقارنة بالبرمجة الشيئية الأعلى في التجريد؛ **وهو ما نفضله**. انظر [مقارنة pathlib بوحدات `os` و `os.path`](https://docs.python.org/3/library/pathlib.html#comparison-to-the-os-and-os-path-modules).
+
+لاستعراض عمليات المكتبة، أنشأنا مُسبقًا شجرة تبدأ من مجلد اسمه `example_root` تجدها داخل `datasets` في [مستودع مشروع الكتاب](https://github.com/HassanAlgoz/python/tree/main/book/datasets/example_root) على النحو التالي:
 
 ```{mermaid}
 graph LR
@@ -116,7 +138,7 @@ f.close()
 print(content)
 ```
 
-ولأن الملف يعتبر [مدير سياق (Context Manager)](https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers) فيمكن استعمال قطعة `with` ليتم إغلاق المصدر المفتوح تلقائيًّا عند الخروج من القطعة (المحددة بالمحاذاة). وذلك على النحو التالي:
+ولأن الملف يعتبر [**مدير سياق** (Context Manager)](https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers) فيمكن استعمال قطعة `with` ليتم إغلاق المصدر المفتوح تلقائيًّا عند الخروج من القطعة (المحددة بالمحاذاة). وذلك على النحو التالي:
 
 ```{python}
 p = Path('datasets/example_root/a/a.txt')
@@ -178,11 +200,11 @@ def format_size(size):
 print(format_size(size))
 ```
 
-### سبر ملفات الشجرة طبقًا لنمط
+### البحث في الشجرة
 
 يستعمل الإجراء [`glob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob) للبحث عن نمط معيَّن بدءًا من **المسار**، وهذا النمط قد يبحث في مستوىً واحد أو يتخلل الشجرة بأي طريقة تريد؛ ليطابق أسماء الملفات بنمط معيَّن فيستخرجها لك.
 
-انظر [لغة الأنماط](https://docs.python.org/3/library/pathlib.html#pathlib-pattern-language).
+انظر [لغة الأنماط](https://docs.python.org/3/library/pathlib.html#pathlib-pattern-language) لتتعلم هذه اللغة الصغيرة.
 
 في هذا المثال نبحث عن ملفات الصُّوَر التي بصيغة `.jpg` لنحسب حجم مجموع ملفات الصور لدينا داخل المسار `datasets/pathlib` وما يتفرع عن هذه الشجرة نزولاً إلى الأبد (وذلك بنمط: `**/*.jpg`):
 
@@ -215,13 +237,13 @@ for dirpath, dirnames, filenames in p.walk(top_down=True):
 - `dirnames`: قائمة بأسماء المجلدات في المجلد الحالي.
 - `filenames`: قائمة بأسماء الملفات في المجلد الحالي.
 
-لإظهار كامل المسار؛ أزل علامة التعليق `#` لتنفيذ السطر.
+لإظهار كامل المسار؛ أزل علامة التعليق `#` من السطر الأخير لتنفيذه.
 
 ## تصنيف عمليات `pathlib` في بايثون
 
 وإليك تصنيف لعمليات مكتبة `pathlib`:
 
-### عمليات المسارات المجرَّدة
+### عمليات المسار
 
 - **إنشاء وتعديل المسارات:**
     - [`.joinpath`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.joinpath): دمج مكونات مسار.
@@ -267,3 +289,10 @@ for dirpath, dirnames, filenames in p.walk(top_down=True):
 - [`glob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob): البحث عن الملفات المطابقة لنمط.
 - [`rglob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob): البحث بشكل متكرر عن الملفات المطابقة لنمط.
 - [`walk`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk): التنقل بشكل متكرر في شجرة المجلدات.
+
+## النسخ والحذف والنقل (`shutil`)
+
+- [`shutil.copy2`](https://docs.python.org/3/library/shutil.html#shutil.copy2): نسخ ملف.
+- [`shutil.copytree`](https://docs.python.org/3/library/shutil.html#shutil.copytree): نسخ شجرة المجلدات.
+- [`shutil.rmtree`](https://docs.python.org/3/library/shutil.html#shutil.rmtree): حذف شجرة المجلدات.
+- [`shutil.move`](https://docs.python.org/3/library/shutil.html#shutil.move): نقل ملف أو مجلد.
