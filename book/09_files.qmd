@@ -77,7 +77,7 @@ print(content)
 -وإذا كنت تريد التعامل مع الملفات المؤقتة فانظر: [`tempfile`](https://docs.python.org/3/library/tempfile.html#module-tempfile).
 - وكثير من عمليات التعامل مع الملفات والمجلدات تجدها في: [`shutil`](https://docs.python.org/3/library/shutil.html#module-shutil).
 
-## الطريق إلى الملف: Path
+## المسار
 
 أما الآن فحديثنا عن الوصول إلى الملفات ، والبحث عنها ، وتركيب المسار إليها، وهذا ما تحققه مكتبة [`pathlib`](https://docs.python.org/3/library/pathlib.html).
 
@@ -102,8 +102,6 @@ graph LR
     E --> P[c_inner]
     P --> Q["inner.txt"]
 ```
-
-
 
 الشيء الأساسي الذي نتعامل معه في هذه المكتبة هو **المسار** ([`Path`](https://docs.python.org/3/library/pathlib.html#concrete-paths)):
 
@@ -137,6 +135,12 @@ f.close()
 
 print(content)
 ```
+
+المسار له شكلان: **مسار مطلق** (Absolute Path) و**مسار نسبي** (Relative Path).
+
+أما المسار المطلق فهو الذي يبدأ من الجذر (مثل `/home/user/Downloads` لاحظ علامة الخط المائل في بداية المسار) إذ يحدد المسار بشكل لا يقبل التأويل.
+
+أما المسار النسبي فيعود تأويله للمكان الذي يبتدأ البحث عنه منه (مثل `datasets/example_root/a/a.txt` لاحظ عدم وجود علىامة الخط المائل في بداية المسار)، ومثله. وقد تستعمل علامة `./` للإشارة للمجلد الحالي. أما علامة `../` فتشير إلى المجلد الأب.
 
 ولأن الملف يعتبر [**مدير سياق** (Context Manager)](https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers) فيمكن استعمال قطعة `with` ليتم إغلاق المصدر المفتوح تلقائيًّا عند الخروج من القطعة (المحددة بالمحاذاة). وذلك على النحو التالي:
 
