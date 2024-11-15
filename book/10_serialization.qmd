@@ -3,85 +3,22 @@ title: حفظ البيانات
 jupyter: python3
 ---
 
+تحفظ الملفات بصيغ متعددة حسبما يناسبها وما يتفق عليه الناس. نستعرض في هذا الدرس صيغتين:
 
-# Data Serialization
+- صيغة لحفظ البيانات المرتبطة أو المضمنة، ونمثل لها بصيغة `json` وهي اختصار لكلمة: JavaScript Object Notation.
+- صيغة لحفظ البيانات الجدولية، ونمثل لها بصيغة `csv` وهي اختصار لكلمة Comma-Separated Values. 
 
-Data *serialization* is the process of converting complex data structures, such as objects, dictionaries, and lists, into a format that can be easily stored and transmitted. The serialized data can be stored in a file, sent over a network, or saved in a database. The process of converting serialized data back into its original form is called *deserialization*.
+**سَلْسَلة البيانات** (Data Serialization) تشير لعملية تحويل الهياكل البيانية (مثل القاموس أو القائمة) من تمثيلها في لغة البرمجة (مثلاً: بايثون أو سي أو رَست) إلى صيغة يمكن تخزينها ونقلها بحيث يمكن قراءتها من طرف آخر لإعادتها إلى تمثيل متناسب معه. وعملية تحويل البيانات المسلسلة مرة أخرى إلى شكلها الأصلي تسمى فك التسلسل (Deserialization).
 
+## البيانات المرتبطة أو المضمنة
 
-## Python Objects
-
-The [`pickle`](https://docs.python.org/3/library/pickle.html#module-pickle) module implements binary protocols for serializing and de-serializing a Python object structure. With pickle can save and load things like: lists, dictionaries, and custom objects, through the [`pickle`](https://docs.python.org/3/library/pickle.html) module.
-
-Example:
-
-```{python}
-import pickle
-from pathlib import Path
-```
-
-Let's say we have an instance of a class `Person` that we want to save to a file.
-
-```{python}
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-
-person = Person('Adam', 22)
-```
-
-Now, let's save it to a file using the `pickle` module.
-
-```{python}
-with Path('datasets/person.pickle').open(mode='wb') as file:
-    pickle.dump(person, file)
-```
-
-Later, when we want to load it, we can do the following.
-
-```{python}
-with Path('datasets/person.pickle').open(mode='rb') as file:
-    person = pickle.load(file)
-print(person.name, person.age)
-```
-
-Notice that to load a pickled object, we need to have the class definition available. Try restarting the kernel and running the loading code without the class definition. You will get an error.
-
-
-### What can be pickled and unpickled?
-
-Almost all data types in Python are picklable: integers, floats, complex numbers, strings, tuples, lists, sets, dictionaries, functions, classes, instances of classes, and more. However, there are some limitations. For example, lambda functions, functions defined inside functions, and functions defined inside classes cannot be pickled. Also, pickling and unpickling are not secure operations.
-
-See: [What can be pickled and unpickled? | Python Docs](https://docs.python.org/3/library/pickle.html#pickle-picklable)
-
-::: {.callout-danger}
-It is possible to construct malicious pickle data which will execute arbitrary code during unpickling. Never unpickle data that could have come from an untrusted source, or that could have been tampered with.
-:::
-
-Safer serialization formats such as [`json`](https://docs.python.org/3/library/json.html#module-json) may be more appropriate if you are processing untrusted data. See [Comparison with json](https://docs.python.org/3/library/pickle.html#comparison-with-json).
-
-
-### Comparison with `json`
-
-There are fundamental differences between the pickle protocols and [JSON (JavaScript Object Notation)](https://json.org/):
-
-- JSON is a text serialization format (it outputs unicode text, although most of the time it is then encoded to `utf-8`), while pickle is a binary serialization format;
-- JSON is human-readable, while pickle is not;
-- JSON is interoperable and widely used outside of the Python ecosystem, while pickle is Python-specific;
-- JSON, by default, can only represent a subset of the Python built-in types, and no custom classes; pickle can represent an extremely large number of Python types (many of them automatically, by clever usage of Python’s introspection facilities; complex cases can be tackled by implementing [specific object APIs](https://docs.python.org/3/library/pickle.html#pickle-inst));
-- Unlike pickle, deserializing untrusted JSON does not in itself create an arbitrary code execution vulnerability.
-
-## Document Data
-
-Document data come in many formats, such as XML, JSON, and YAML. In this section, we will focus on JSON files. The [`json` module](https://docs.python.org/3/library/json.html) provides functionality to both read from and write to JSON files.
+صيغ حفظ الروابط كثيرة مثل XML وJSON وYAML. في هذا القسم، سنركز على ملفات JSON. توفر [وحدة `json`](https://docs.python.org/3/library/json.html) وظائف لقراءة وكتابة ملفات JSON.
 
 ```{python}
 import json
-from pathlib import Path
 ```
 
-Suppose we have `user_preferences` saved in a dictionary, and we want to save it to a JSON file.
+لنفترض أن لدينا `user_preferences` محفوظًا في القاموس، ونريد حفظه في ملف JSON:
 
 ```{python}
 user_preferences = {
@@ -97,37 +34,42 @@ user_preferences = {
 }
 ```
 
-Let's write it to a JSON file.
+لنكتبها إلى ملف json:
 
 ```{python}
-with Path('datasets/user_preferences.json').open(mode='w') as file:
-    json.dumps(user_preferences, file)
+with open('datasets/user_preferences.json', mode='w') as file:
+    json.dump(user_preferences, file)
 ```
 
-Later when we want to load it, we can do the following.
+لاحقًا عندما نريد تحميلها، يمكننا القيام بما يلي:
 
 ```{python}
-with Path('datasets/user_preferences.json').open() as file:
-    data = json.loads(file)
+with open('datasets/user_preferences.json') as file:
+    data = json.load(file)
 print(data)
 ```
 
-If you are dealing with other formats, checkout: [the built-in `xml` module documenation](https://docs.python.org/3/library/xml.html) for XML documents, or the [`pyyaml` library](https://pyyaml.org/wiki/PyYAMLDocumentation) for YAML documents.
+إذا كنت تتعامل مع صيغ أخرى، تحقق من: [وثائق وحدة `xml` المدمجة](https://docs.python.org/3/library/xml.html) لوثائق XML، أو [مكتبة `pyyaml`](https://pyyaml.org/wiki/PyYAMLDocumentation) لوثائق YAML.
 
-## Tabular Data
+## البيانات الجدولية
 
-Tabular data come in many formats, such as CSV, TSV, Excel, and SQL. In this section, we will focus on CSV files. The `csv` module provides functionality to both read from and write to CSV files.
+تأتي البيانات الجدولية في صيغ متعددة، مثل CSV وTSV وExcel وSQL. في هذا القسم، سنركز على ملفات CSV. فهي مكونة من ثلاثة أحرف:
+- C: Comma
+- S: Separated
+- V: Values
 
-The [`csv`](https://docs.python.org/3/library/csv.html) module’s reader and writer objects read and write sequences.
+وتعني حرفيًّا: القيَم المفصولة بالفاصلة. وشكلها في الحقيقة عبارة عن صفوف من القيم بحيث يمثل كل سطر في هذا الملف صفًّا واحدًا يتكون من أعمدة بعدد الفواصل + 1، ويحدد ابتداء العمود القادم عند علامة الفاصلة في الصف، وذلك يتبين حينما تفتح الملف باستخدام محرر جداول مثل Excel أو Sheets ونحوهما.
+
+توجد في بايثون وحدة [`csv`](https://docs.python.org/3/library/csv.html) فيها إجراءات للقراءة والكتابة على طريقة csv. فلدينا:
+
+- كائن [`reader`](https://docs.python.org/3/library/csv.html#csv.reader) لعمليات القراءة
+- وكائن آخر منفصل اسمه [`writer`](https://docs.python.org/3/library/csv.html#csv.writer) يحوي عمليات الكتابة
 
 ```{python}
 import csv
-from pathlib import Path
 ```
 
-The [`csv`](https://docs.python.org/3/library/csv.html#module-csv) module’s [`reader`](https://docs.python.org/3/library/csv.html#csv.reader) and [`writer`](https://docs.python.org/3/library/csv.html#csv.writer) objects read and write sequences.
-
-Let's write a list of students to a CSV file. Notice, we have a list of lists, where each inner list represents a row.
+لنكتب قائمة من الطلاب إلى ملف CSV. لاحظ، لدينا قائمة من قوائم، حيث تمثل كل قائمة داخلية صفًا لوحدها:
 
 ```{python}
 header = ['Name', 'Age', 'Grade']
@@ -138,38 +80,38 @@ rows = [
 ]
 ```
 
-Now, let's actually write the data to a CSV (Comma Separated Values) file.
+نكتبها على النحو التالي:
 
 ```{python}
-with Path('datasets/students.csv').open(mode='w', newline='') as file:
+with open('datasets/students.csv', mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(header)
     writer.writerows(rows)
 ```
 
-Note, you can try opening the file directly from the file explorer. Try opening it with Excel, Google Sheet, or any other spreadsheet software. If you open it with a text editor, you will see the data as a CSV; literally comma separated values.
+ملاحظة، يمكنك محاولة فتح الملف مباشرة من مستكشف الملفات. حاول فتحه باستخدام Excel أو Google Sheet أو أي برنامج جداول بيانات آخر. إذا فتحته باستخدام محرر نصوص، سترى البيانات كملف CSV؛ حرفيًا قيم مفصولة بفواصل.
 
-Now, let's read it as a Python data structure: as a list of lists.
+الآن، دعنا نقرأه كهيكل بيانات في بايثون: كقائمة من القوائم.
 
 ```{python}
-with Path('datasets/students.csv').open() as file:
+with open('datasets/students.csv') as file:
     reader = csv.reader(file)
     for row in reader:
         print(row)
 ```
 
-Let's try to calculate the average grade of the students.
+لنحاول حساب متوسط درجات الطلاب.
 
 ```{python}
 students = []
-with Path('datasets/students.csv').open() as file:
+with open('datasets/students.csv') as file:
     reader = csv.reader(file)
     next(reader) # skip the header
     for row in reader:
         students.append(row)
 ```
 
-Now that we have it save in the list `students`, let's do some math.
+الآن بعد أن حفظناها في القائمة `students`، دعونا نقوم ببعض العمليات الحسابية.
 
 ```{python}
 #| error: true
@@ -177,7 +119,8 @@ grades = [s[2] for s in students]
 avg = sum(grades) / len(grades)
 ```
 
-This error is expected, because when we read files, we always get `str` as the datatype for all values. We need to convert the grades to `int` before doing any math.
+هذا الخطأ متوقع عند قراءة الملفات لأنها دائمًا تعتبر من نوع `str`، ولذلك نضطر لتحويل القيَم العددية إلى `int` لإجراء عمليات رياضية:
+
 
 ```{python}
 grades = [int(s[2]) for s in students]
@@ -185,14 +128,14 @@ avg = sum(grades) / len(grades)
 avg
 ```
 
-You can also read and write data in dictionary form using the [`DictReader`](https://docs.python.org/3/library/csv.html#csv.DictReader) and [`DictWriter`](https://docs.python.org/3/library/csv.html#csv.DictWriter) classes.
+يمكنك أيضًا قراءة وكتابة البيانات في شكل قاموس باستخدام الكائنات [`DictReader`](https://docs.python.org/3/library/csv.html#csv.DictReader) و[`DictWriter`](https://docs.python.org/3/library/csv.html#csv.DictWriter).
 
 ```{python}
-with Path('datasets/students.csv').open() as file:
+with open('datasets/students.csv') as file:
     reader = csv.DictReader(file)
     for row in reader:
         print(row)
 ```
 
-The recommended approach to deal with tabular data (like CSV files) is to use the the pandas library. It provides a fast and flexible data structure for data manipulation and analysis. **At this level, I encourage you to go through the [getting started tutorial for pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html) on your own**.
+الطريقة الموصى بها للتعامل مع البيانات الجدولية (مثل ملفات CSV) هي استخدام مكتبة pandas. توفر هذه المكتبة هيكل بيانات سريع ومرن لمعالجة البيانات وتحليلها. **في هذا المستوى، أشجعك على الاطلاع على [دليل البدء السريع لمكتبة pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html) بنفسك**.
 
