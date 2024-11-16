@@ -3,21 +3,32 @@ title: الأخطاء
 jupyter: python3
 ---
 
-In programming, errors are inevitable, especially when dealing with I/O (the world). They can be broadly classified into three categories:
+الخطأ أو الاستثناء هو خروج البرنامج عن المسار المثالي.
 
-1. Syntax errors
-2. Runtime errors
-3. Logical errors
+- فمثلاً: يحدث خطأ إن طُلِب من المستخدم إدخال قيمة عددية فأدخل قيمة حرفية؛ فوجب التعامل مع ذلك.
+- أو: تمت قراءة ملف بصيغة معيَّنة لكن تمّ اكتشاف وجود قيم حرفية في مكان قيم التواريخ.
+- أو: تم طلب معلومات المستخدم من الخادم لكنه لم يُجب.
 
-In this chapter, we will discuss each type of error and how to handle them.
+فكل هذه تعتبر مسارات غير مثالية واقعية وعادةً ما تحصل، بل ويجب اعتبارها من الأساس في صناعة البرنامج.
 
-## Syntax Errors
+فمن الأخطاء ما يمكن التعامل معه، ومنها ما لا يمكن التعامل معه:
 
-Syntax errors, also known as parsing errors, are perhaps the most common kind of complaint you get while you are still learning Python. They occur when the code does not follow the correct syntax (grammar) of the programming language.
+- إذا كانت المشكلة بامتلاء الذاكرة في الجهاز؛ فإن البرنامج ليس له إلا أن يخرج برسالة للمستخدم أو المسؤول عن الجهاز .. وليس للبرنامج الأحقية في مسح بيانات مثلاً.
+- أما إذا كانت المشكلة في تأخر الإجابة من الخادم مثلاً، فقد نعيد المحاول مرة أخرى بعد ثوانٍ، ونعيدها لعددٍ محدد من المرات، أملاً في الحصول على إجابة. ثم نظهر رسالة خطأ إن نفدت جميع المحاولات.
 
-Here are three examples:
+نستطيع أن نصنف الأخطاء إلى ثلاثة، وهي مرتبة من الأسهل إلى الأصعب:
 
-Missing colon `:`:
+1. أخطاء نحوية (Syntax errors)
+2. أخطاء وقت التشغيل (Runtime errors)
+3. أخطاء منطقية (Logical errors)
+
+في هذا الفصل، سنناقش كل نوع من الأخطاء وكيفية التعامل معها.
+
+## الأخطاء النحوية
+
+الأخطاء النحوي تتعلق بتركيب اللغة لا أكثر ولا أقل. إليك ثلاثة أمثلة.
+
+### فقدان النقطتين `:`
 
 ```{python}
 #|error: true
@@ -25,29 +36,29 @@ if (x > 5)
     print("x")
 ```
 
-Unbalanced quotes:
+### علامات اقتباس غير متوازنة
 
 ```{python}
 #|error: true
 print("x
 ```
 
-Invalid variable name:
+### اسم متغير غير صالح
 
 ```{python}
 #| error: true
 my-variable = 10
 ```
 
-### Indentation Errors
+### أخطاء المحاذاة
 
-Mixing tabs and spaces: Python is strict about using either spaces or tabs, but not both, for indentation. Thankfully, VS Code and other code editors can be configured to automatically convert tabs to spaces or vice-versa.
+من الأخطاء النحوية الشائعة في بايثون: أخطاء المحاذاة (Indentation Error).
 
-However, you might face indentation errors when copying and pasting code from different sources. Or when rewriting some code.
+وذلك أن بايثون تقبل نوعين من المسافات البادئة للسطر؛ إما بحرف المسافة التي بين الكلمات `\s` أو بحرف المسافة بين الأعمدة `\t`. وقد يستعمل بعض الناس هذه وبعضهم ذلك، ثم تأخذ كودًا من هنا وكودًا من هناك، فترى الكود عنك لا يعمل، والسبب هو الخلط بينهما في نفس الكود. وبايثون لا تقبل ذلك. فيجب توحيد النوع. إما هذه أو هذه. لذلك يضبط VS Code ومحررات الأكواد الأخرى تحويل البادئة تلقائيًا إلى مسافة أو العكس.
 
-Here are cases in which you would encounter `IndetationError`s:
+إليك بعض الأمثلة لما يحصل من أخطاء في المحاذاة:
 
-No indentation, when it is expected:
+عدم وجود مسافة بادئة، عندما تكون متوقعة:
 
 ```{python}
 #| error: true
@@ -55,7 +66,7 @@ if True:
 print("x")
 ```
 
-Unmatched indentation:
+عدم تطابق المحاذاة:
 
 ```{python}
 #| error: true
@@ -65,51 +76,27 @@ if True:
 ```
 
 
-## Runtime Errors
+## أخطاء وقت التشغيل
 
-Beyond syntactical correctness, code may cause an error when an attempt is made to execute it. Errors detected during execution are called exceptions. Also known as runtime errors.
+**خطأ وقت التشغيل** هو ما يكتشفه البرنامج عند تنفيذه. ويُعرف **بالاستثناء** (Exception).
 
-**When exceptions are not handled, they result in error messages** printed to stderr, as shown here:
+عند إهمال هذه الأخطاء يحصل أمران عند تنفيذ سببها:
 
-Example 1: attempting to divide by zero:
+1. يتوقف البرنامج
+2. تظهر رسالة خطأ عن طريق منفذ الخطأ (stderr)
 
-```{python}
-#| error: true
-y = 0
-# ...
-# ...
-# ...
-x = 10
-z = x / y
-```
+تسمى الاستثناءات بهذا الاسم لأنها تقطع التدفق المثالي السعيد للبرنامج. والحقيقة أنها ليست استثناءات من حيث نُدرتها؛ بل هي شائعة جدًّا ويجب التنبه إليها مثل أي حالة أخرى من البرنامج. مثلاً: عند قراءة ملف، يجب أن نتعامل مع حالة ما لو كان الملف غير موجودًا.
 
-It should be noted that `y = 0` is really obvious. However, in the real-world it may have taken the value zero due to I/O with user or a file or a complex mathematical operation. So, it is not always obvious that `y` is zero. This is why it is important to handle exceptions.
+هناك آليتان في لغات البرمجة للتعبير عن حدوث خطأ:
 
-Example 2: attempting to use the `+` operator on a `str` and an `int`. Such thing is not defined:
+- **الاستثناء (Exceptions)**: لغات مثل C++ (1979)، Java (1998)، Python (1991) و JavaScript (1995) ترمي/ترفع الاستثناءات باستعمال عبارة مثلة `raise` أو عبارة `throw` على حسب اللغة.
+- **الإرجاع (Return)**: اللغات الحديثة مثل Go (2009) و Rust (2015) ببساطة تعيد الخطأ كشيء (قيمة) عند حدوثه باستعمال جملة `return` التي في الإجراء.
 
-```{python}
-#| error: true
-x = 10
-y = '5'
-z = x + y
-```
+لنأخذ مثالًا لنرى كيف يتم التعامل مع الاستثناءات في Python.
 
-Same goes for this as well. When values come from I/O, we can't guarantee their type conversion went as expected. So, we need to handle exceptions.
+#### مثال
 
-## Exception handling
-
-Some exceptions are not bugs. These can be handled by the code itself.
-
-Exceptions are called as such because they interrupt the ideal, happy control-flow of the program. I argue that the word exception is a misnomer. Normal programs should expect very specific exceptions to be raised based on the functions they call. For example, when reading a file, we expect a `FileNotFoundError` if the file does not exist. There are two mechanisms to communicate errors in programming:
-
-- **Exceptions**: languages like C++ (1979), Java (1998), Python (1991) and JavaScript (1995) throw / raise exceptions.
-- **Return values**: modern languages like Go (2009) and Rust (2015) simply return errors instead of throwing exceptions.
-
-Let's take an example to see how Exceptions are handled in Python.
-
-#### Example 1
-
-Suppose at the start of the program, we need to read a configuration file `config.json` to initialize the state of the program:
+افترض في بداية البرنامج، نحتاج إلى قراءة ملف تكوين `config.json` لتهيئة حالة البرنامج:
 
 ```{python}
 #| error: true
@@ -117,10 +104,9 @@ Suppose at the start of the program, we need to read a configuration file `confi
 file = open('config.json')
 ```
 
-The file doesn't exist so the exception is **raised** by the function `open()` and since it is unhandled, the program simply crashes. We can handle this exception using a `try-except` block. Let's print a message telling the user to create the file if we did not find it. Or better yet, let's just refer to a default configuration file: `default.json`:
+الملف غير موجود لذا يعرف إجراء `open()` استثناءً من نوع  `FileNotFoundError`. فنعالج هذا الاستثناء باستخدام جملة `try-except`. دعونا نطبع رسالة تخبر المستخدم بإنشاء الملف. أو الأفضل من ذلك، دعونا نشير إلى ملف تكوين افتراضي: `default.json`:
 
-```{python}
-DEFAULT_CONFIG_PATH = 'default.json'
+```python
 try:
     file = open('config.json')
     # code that does something ...
@@ -131,68 +117,49 @@ except Exception as e:
     print("something unexpected happened:", e)
 ```
 
-The last clause `except Exception as e` is a catch-all clause, which is not recommended. Rather, it is better to catch specific exceptions and handle them accordingly. Here, it has the effect of not crashing the program if an unexpected exception is raised, which might be useful in some cases.
+الفقرة الأخيرة `except Exception as e` هي عبارة عن استثناء شامل، وذلك في حال حصول استثناء آخر لم نتوقعه. والغرض من ذلك ألا يتوقف البرنامج.
 
-**Anticipating exceptions**. Just like the return value type, we should be able to find out from the documentation of the function what exceptions are possibly raised in each case.
+#### مثال آخر
 
-```{python}
-help(Path.open)
-```
-
-We need to look at the docs for `open()`:
+دعونا نلقي نظرة على مثال آخر، قد يحصل فيه حالة خطأ بسبب تنوع مدخلات المستخدم:
 
 ```{python}
-help(open)
-```
-
-Relevant lines are:
-
-- First line: "Open file and return a stream.  **Raise `OSError` upon failure**."
-- Some line below the `mode` table: "The 'x' mode implies 'w' and **raises an `FileExistsError`** if the file already exists"
-- Finally: "**Pass 'strict' to raise a ValueError exception if there is an encoding error**"
-
-Python error handling is not the best. Unfortunately, the documentation is not always clear about what exceptions are raised. I couldn't find the `FileNotFoundError` exception. However, we found it through trial and error (looking at the error message).
-
-#### Example 2
-
-Let's take a look at another example, where we must handle the exception.
-
-```python
-choices = ['bus', 'train', 'plane', 'boat']
+choices = ['bus', 'train', 'plane', 'boat'] 
 print("""Choose an option:
 1. Go by bus
 2. Go by train
 3. Go by plane
 4. Go by boat
 """)
-choice = input("Enter your choice: ")
+# choice = input("Choose a number from 1 to 4: ")
 ```
 
-Exceptions are about handling unhappy paths. In this case:
+ما هي حالات الخطأ الممكنة؟:
 
-- the user might enter a number that is out of range: `0` or `9`
-- the user might enter a non-integer value: `three`
+- قد يدخل المستخدم رقمًا خارج النطاق: `0` أو `9`
+- قد يدخل المستخدم قيمة غير صحيحة: `three`
 
-We need to handle these exceptions. We can use a `try-except` block to handle the exceptions.
+نحتاج إلى التعامل مع هذه الاستثناءات. يمكننا استخدام كتلة `try-except` للتعامل مع الاستثناءات.
 
-Let's see what exception is raised for the first case:
+دعونا نرى ما هو الاستثناء الذي يتم رفعه في الحالة الأولى:
 
 ```{python}
 #| error: true
 choices[9]
 ```
 
-The exception is `IndexError`.
+الاستثناء هو `IndexError`.
 
-What about the second case? Let's see:
+ماذا عن الحالة الثانية؟ لنرى:
 
 ```{python}
+#|error: true
 choices['three']
 ```
 
-The exception is `TypeError`.
+الاستثناء هو `TypeError`.
 
-Now that we know the cases, let's handle them.
+الآن بعد أن عرفنا الحالات، دعونا نتعامل معها.
 
 ```{python}
 c = '9'
@@ -208,7 +175,7 @@ except ValueError:
     print(retry_message)
 ```
 
-Let's group the exceptions (since the handling code is the same):
+يمكن تجميع الاستثناءات على النحو التالي:
 
 ```{python}
 try:
@@ -218,14 +185,14 @@ except (IndexError, ValueError):
     print(retry_message)
 ```
 
-## Raising exceptions
+## رفع الاستثناءات
 
-When in Python, do what the Pythonistas do. If you want to raise an exception, you can use the `raise` keyword. You can raise any exception you want, but it is recommended to raise built-in exceptions, rather than defining your own.
+إذا كنت تريد رفع استثناء، يمكنك استخدام الكلمة `raise`.
 
-- If the type of the argument is wrong, you should raise a `TypeError`
-- Otherwise, check the `value`. If it is out of acceptable input domain, raise a `ValueError`
+- إذا كان نوع العامل خاطئًا، يجب رفع `TypeError`
+- وإلا، فتحقق من القيمة؛ فإن كانت خارج نطاق الإدخال المقبول، يجب رفع `ValueError`
 
-Note: we had to `import numbers` to check the type of the input `x` using the built-in procedure like so: `isinstance(x, numbers.Number)`:
+ملاحظة: كان علينا استيراد `numbers` للتحقق من نوع الإدخال `x` باستخدام الإجراء المضمَّن: `isinstance(x, numbers.Number)` على النحو التالي:
 
 ```{python}
 import numbers
@@ -241,7 +208,7 @@ def square_root(x):
     return result
 ```
 
-Let's test the two error cases:
+لنختبر حالتي الخطأ:
 
 ```{python}
 #| error: true
@@ -253,18 +220,18 @@ square_root('16')
 square_root(-99)
 ```
 
-Let's now test the happy path:
+لنختبر الآن المسار السعيد:
 
 ```{python}
 square_root(16)
 ```
 
 
-## Common errors and how to fix them
+## أنواع الأخطاء الشائعة وأسبابها وحلولها:
 
-Here are some common error types and how to fix them:
+فيما يلي بعض أنواع الأخطاء الشائعة وكيفية إصلاحها:
 
-| **Error Type**  | **Cause**                                                                                  | **Fix**                                                                                   |
+<!-- | **Error Type**  | **Cause**                                                                                  | **Fix**                                                                                   |
 |-----------------|---------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | `TypeError`     | Happens when an operation is performed on an object of an inappropriate type, or a function is called with the wrong number/type of arguments. | Use `type()` or `isinstance()` to check the data types used match the operation requirements (e.g., `int+int` is valid whereas `str+int` is not). |
 | `ValueError`    | Raised when a function receives an argument of the correct type but with an inappropriate value (e.g., passing a negative number where only positive numbers are valid). | Ensure the values passed to functions are valid and match the expected range or domain.    |
@@ -273,23 +240,55 @@ Here are some common error types and how to fix them:
 | `AttributeError`| Happens when an invalid attribute or method is accessed for an object (e.g., calling a method that doesn’t exist for a certain object). | Verify that the object has the attribute or method you're trying to use. Check for typos or wrong types. |
 | `ModuleNotFoundError` | Happens when Python cannot find the module you are trying to import.                        | Check the module name for typos. Ensure the module is installed in your Python environment. |
 | `SyntaxError`   | Occurs when the Python parser encounters a syntax error.                                      | Check the code for missing or extra characters, incorrect indentation, or other syntax issues. |
-| `NamedError`    | Happens when a variable is used before it is defined.                                        | Ensure the variable is defined before using it. Also, check for typos in the variable name. |
+| `NamedError`    | Happens when a variable is used before it is defined.                                        | Ensure the variable is defined before using it. Also, check for typos in the variable name. | -->
+
+1. **`TypeError`**  
+   - **السبب**: يحدث عندما يتم تنفيذ عملية على كائن من نوع غير مناسب، أو عند استدعاء دالة بعدد أو نوع غير صحيح من الوسائط.  
+   - **الحل**: استخدم `type()` أو `isinstance()` للتحقق من تطابق أنواع البيانات المستخدمة مع متطلبات العملية (على سبيل المثال، `int+int` صحيحة بينما `str+int` غير صحيحة).  
+
+2. **`ValueError`**  
+   - **السبب**: يتم رفع هذا الخطأ عندما تستقبل دالة وسيطاً من النوع الصحيح ولكنه ذو قيمة غير مناسبة (مثل تمرير عدد سالب إلى مكان يُتوقع فيه أعداد موجبة فقط).  
+   - **الحل**: تأكد من أن القيم الممررة إلى الدوال صحيحة وتتطابق مع النطاق أو المجال المتوقع.  
+
+3. **`IndexError`**  
+   - **السبب**: يتم رفع هذا الخطأ عند محاولة الوصول إلى عنصر في موقع خارج حدود قائمة أو سلسلة.  
+   - **الحل**: تحقق من طول التسلسل (مثل استخدام `len()`) قبل الوصول إلى الفهارس. يمكنك أيضاً استخدام كتل `try-except` للتعامل مع استثناءات `IndexError` بأمان. فكّر في التكرار على القائمة أو استخدام طرق آمنة مثل `enumerate()`.  
+
+4. **`KeyError`**  
+   - **السبب**: يحدث عند محاولة الوصول إلى مفتاح غير موجود في القاموس.  
+   - **الحل**: تحقق من وجود المفتاح باستخدام `in` قبل الوصول إليه (مثل `if key in dict`). بدلاً من ذلك، يمكنك استخدام الطريقة `.get()` التي تُرجع `None` (أو قيمة افتراضية) إذا لم يتم العثور على المفتاح بدلاً من رفع خطأ.  
+
+5. **`AttributeError`**  
+   - **السبب**: يحدث عند محاولة الوصول إلى خاصية أو دالة غير صالحة لكائن معين (مثل استدعاء دالة غير موجودة على الكائن).  
+   - **الحل**: تحقق مما إذا كان الكائن يحتوي على الخاصية أو الدالة التي تحاول استخدامها. تحقق من وجود أخطاء إملائية أو من كون نوع الكائن صحيحاً.  
+
+6. **`ModuleNotFoundError`**  
+   - **السبب**: يحدث عندما لا يستطيع Python العثور على الوحدة (module) التي تحاول استيرادها.  
+   - **الحل**: تحقق من اسم الوحدة للتأكد من خلوه من الأخطاء الإملائية. تأكد من تثبيت الوحدة في بيئة Python الخاصة بك.  
+
+7. **`SyntaxError`**  
+   - **السبب**: يحدث عندما يعترض المفسّر (Python parser) على خطأ في بناء الجملة.  
+   - **الحل**: تحقق من وجود أي أحرف مفقودة أو زائدة، أو مشاكل في التنسيق، أو أي أخطاء في بناء الجملة.  
+
+8. **`NameError`**  
+   - **السبب**: يحدث عندما يتم استخدام متغير قبل تعريفه.  
+   - **الحل**: تأكد من تعريف المتغير قبل استخدامه. تحقق أيضاً من وجود أخطاء إملائية في اسم المتغير.  
 
 
-### How to fix more complex errors?
+### كيفية إصلاح الأخطاء الأكثر تعقيدًا؟
 
-More complex errors may require further debugging and understanding of the code. Hence, it is important to learn how to read an error message produced by Python. An error consists of three parts: **error type**, **error message**, and **stack trace**.
+قد تتطلب الأخطاء الأكثر تعقيدًا المزيد من التصحيح وفهم الكود. لذا، من المهم تعلم كيفية قراءة رسالة الخطأ التي تنتجها Python. يتكون الخطأ من ثلاثة أجزاء: **نوع الخطأ**، **رسالة الخطأ**، و **سلسلة النداءات** (stack trace).
 
-First, read the last line. It tells you two things:
+أولاً، اقرأ السطر الأخير. فذلك يخبرك بأمرين:
 
-1. `ErrorType` which you can use in the `try-catch` block if necessary
-2. followed by an error message in simple English of what happened
+1. `ErrorType` الذي يمكنك استخدامه في كتلة `try-catch` إذا لزم الأمر
+2. يتبعه رسالة خطأ بلغة إنجليزية بسيطة توضح ما حدث
 
-The stack trace lists the calls (functions calling functions). Thus, the code that raised the error would be last (bottom), whereas the function that started it would be first (top).
+تدرج سلسلة النداءات (stack trace) الاستدعاءات (الدوال التي تستدعي دوال أخرى). وبالتالي، فإن الكود الذي رفع الخطأ سيكون الأخير (في الأسفل)، في حين أن الدالة التي بدأت ذلك ستكون الأولى (في الأعلى).
 
-Consider the call chain where `func_app` calls `func_library_1` which calls `func_library_2`. The two other library functions are assumed to be imported libraries. Example: we define functions in our app which call `pandas` library which calls `numpy` library.
+اعتبر سلسلة الاستدعاءات حيث تستدعي `func_app` الدالة `func_library_1` التي تستدعي الدالة `func_library_2`. يُفترض أن الدالتين الأخريين هما مكتبات مستوردة. مثال: نعرّف دوال في تطبيقنا تستدعي مكتبة `pandas` التي تستدعي مكتبة `numpy`.
 
-An exception might be raised somewhere, and we want to apply what we learned above to read it to fix it.
+قد يتم رفع استثناء في مكان ما، ونريد تطبيق ما تعلمناه أعلاه لقراءته وإصلاحه.
 
 ```{python}
 #|error: true
@@ -313,7 +312,7 @@ def func_app(a, b, c):
 func_app('a', 'b', '')
 ```
 
-Let's read the error message. It says: `"ValueError: Empty input"`. Okay, what caused it? let's looks at the stack stace from the top (to find our own functions). We find:
+لنقرأ رسالة الخطأ. تقول: `"ValueError: Empty input"`. حسنًا، ما الذي تسبب في ذلك؟ دعونا نلقي نظرة على سلسلة النداءات (stack trace) من الأعلى (للعثور على دوالنا الخاصة). نجد:
 
 ```
 File c:\Users\thund\OneDrive\3-Teach\DS-AI\2. Py\book\11_errors.qmd:17
@@ -321,7 +320,7 @@ File c:\Users\thund\OneDrive\3-Teach\DS-AI\2. Py\book\11_errors.qmd:17
      15     return a + x
 ---> 17 func_app('a', 'b', '')
 ```
-Wwich is the first call in the causal chain. Let's read what comes after that:
+هي أول استدعاء في سلسلة السببية. لنقرأ ماذا يأتي بعدها:
 
 ```
 File c:\Users\thund\OneDrive\3-Teach\DS-AI\2. Py\book\11_errors.qmd:14
@@ -330,32 +329,34 @@ File c:\Users\thund\OneDrive\3-Teach\DS-AI\2. Py\book\11_errors.qmd:14
      15     return a + x
 ```
 
-Now this is the second call, and the last one in our application. Beyond this point is out of our control. Since we maintain our own code `func_app`, and it is more likely that we made the mistake. We can fix it by checking the input before it leaves our code into `func_library_1`.
+الآن هذه هي الاستدعاء الثاني، والأخير في تطبيقنا. بعد هذه النقطة، يكون خارج نطاق سيطرتنا. بما أننا نحافظ على كودنا الخاص `func_app`، فمن الأرجح أننا ارتكبنا الخطأ. يمكننا إصلاحه عن طريق التحقق من الإدخال قبل أن يغادر كودنا إلى `func_library_1`.
 
 ```{python}
 func_app('a', 'b', 'c')
 ```
 
-Fixed. Done.
+تم الإصلاح. انتهى.
 
-If however, the error was, in fact, in `func_library_1`, then we need to communicate with the maintainers of the library to fix it. Perhaps, we can fix it ourselves and submit a pull request on GitHub. This is how open-source software improves.
+إذا كان الخطأ في الواقع في `func_library_1`، فعلينا التواصل مع القائمين على صيانة المكتبة لإصلاحه. ربما يمكننا إصلاحه بأنفسنا وتقديم طلب سحب (pull request) على GitHub. هكذا تتحسن البرمجيات مفتوحة المصدر.
 
 
-## Logical errors
+## الأخطاء المنطقية
 
-Logical errors are silent. They are not detected by the interpreter, yet they cause the program to behave incorrectly. Logical errors are the hardest to find and fix because they are not always obvious. They can be caused by:
+الأخطاء المنطقية صامتة. لا يتم اكتشافها بواسطة المترجم، ومع ذلك تتسبب في تصرف البرنامج بشكل غير صحيح. الأخطاء المنطقية هي الأصعب في العثور عليها وإصلاحها لأنها ليست واضحة دائمًا. يمكن أن تكون ناجمة عن:
 
-- incorrect assumptions
-- incorrect algorithm implementation or
-- incorrect data processing
+- افتراضات غير صحيحة
+- تطبيق غير صحيح للخوارزمية أو
+- تحضير غير صحيح للبيانات
 
-### Using the wrong function for the job:
+### استخدام الإجراء الخاطئ
 
 ```{python}
+import math
+
 square = math.sqrt(4) # should use math.pow(4, 2) instead
 ```
 
-### Checking for equality with a string literal:
+### استعمال العامل الخاطئ
 
 ```{python}
 x = 16
@@ -363,36 +364,36 @@ if (x == "16"):
     print('equal')
 ```
 
-### Wrong indentation level. Here the `print(j)` was meant to be inside the inner loop:
+### مستوى محاذاة خاطئ
+
+هنا كانت النية تقتضي أن تكون `print(j)` داخل الحلقة الداخلية:
 
 ```{python}
-for i in range(10):
-    for j in range(10):
-        print(i)   
-    print(j)
-
+for i in range(2):
+    for j in range(3):
+        print(i)  
+    print(j)
 ```
 
-### Off-by-one error:
+### خطأ الحافَّة (Off-by-one error)
 
-This is perhaps the most common error in programming.
+يكاد يكون أشهر الأخطاء في البرمجة: خطأ الحافَّة.
 
-The intent here is to print numbers from 10 to 0 including 0, but the loop stops at 1.
+نشرحه بمثال: النية هنا هي طباعة الأرقام من 5 إلى 0 بما في ذلك 0، ولكن الحلقة تتوقف عند 1.
 
 ```{python}
-for i in range(10, 0, -1):
+for i in range(5, 0, -1):
     print(i)
 ```
 
-## How to solve logical errors?
+## كيفية حل الأخطاء المنطقية؟
 
-**Execute and Review**. The best way to solve logical errors is to execute the code and look at the output, and trace the logic back to the code line by line. You can use print statements to debug and understand the flow of the program.
+قد تستعين بعبارة `assert` هنا وهناك للتحقق من منطق الكود، أو تنتقل **لكتابة مجموعة اختبارات** أكبر. سيأتيي الكلام عن [كتابة الاختبارات](zz_testing.qmd).
 
-You may be able to write simple test cases using `assert` statements, to verify the correctness of the code. You may also want to apply a test suite for bigger tests.
+**التتبع**. أفضل طريقة لحل الأخطاء المنطقية هي تنفيذ الكود والنظر في الناتج، وتتبع المنطق مرة أخرى إلى الكود سطرًا بسطر. يمكنك استخدام عبارات الطباعة `print` لتصحيح الأخطاء وفهم تدفق البرنامج.
 
-Testing is not 100% proof against errors either, but it helps.
+**مراجعة الأقران**: بحيث يطلع على الكود شخص آخر، فإنه قد يرى منه ما لم تر.
 
+## المراجع
 
-## References
-
-https://docs.python.org/3.13/tutorial/errors.html
+- https://docs.python.org/3.13/tutorial/errors.html
