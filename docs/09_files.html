@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="rtl"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./zz_set.html" rel="next">
+<link href="./10_serialization.html" rel="next">
 <link href="./08_strings.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -203,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07_mapping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">القاموس</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">الربط</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -216,6 +216,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./09_files.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">الملفات</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10_serialization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">حفظ البيانات</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_errors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">الأخطاء</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_classes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">الأصناف</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_extend.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">التخصيص والتركيب</span></span></a>
   </div>
 </li>
       </ul>
@@ -232,7 +256,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./zz_set.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">المجموعة الرياضية</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">المجموعة الرياضية</span></span></a>
   </div>
 </li>
       </ul>
@@ -265,19 +289,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#الملف-في-بايثون" id="toc-الملف-في-بايثون" class="nav-link active" data-scroll-target="#الملف-في-بايثون"><span class="header-section-number">10.1</span> الملف في بايثون</a></li>
-  <li><a href="#قراءة-الملفات-وكتابتها" id="toc-قراءة-الملفات-وكتابتها" class="nav-link" data-scroll-target="#قراءة-الملفات-وكتابتها"><span class="header-section-number">10.2</span> قراءة الملفات وكتابتها</a>
+  <li><a href="#قراءة-الملفات-وكتابتها" id="toc-قراءة-الملفات-وكتابتها" class="nav-link" data-scroll-target="#قراءة-الملفات-وكتابتها"><span class="header-section-number">10.2</span> قراءة الملفات وكتابتها</a></li>
+  <li><a href="#المسار" id="toc-المسار" class="nav-link" data-scroll-target="#المسار"><span class="header-section-number">10.3</span> المسار</a>
   <ul class="collapse">
   <li><a href="#المجلدات" id="toc-المجلدات" class="nav-link" data-scroll-target="#المجلدات">المجلدات</a></li>
-  <li><a href="#سبر-ملفات-الشجرة-طبقا-لنمط" id="toc-سبر-ملفات-الشجرة-طبقا-لنمط" class="nav-link" data-scroll-target="#سبر-ملفات-الشجرة-طبقا-لنمط">سبر ملفات الشجرة طبقًا لنمط</a></li>
+  <li><a href="#البحث-في-الشجرة" id="toc-البحث-في-الشجرة" class="nav-link" data-scroll-target="#البحث-في-الشجرة">البحث في الشجرة</a></li>
   <li><a href="#المشي-على-جميع-ملفات-الشجرة" id="toc-المشي-على-جميع-ملفات-الشجرة" class="nav-link" data-scroll-target="#المشي-على-جميع-ملفات-الشجرة">المشي على جميع ملفات الشجرة</a></li>
   </ul></li>
-  <li><a href="#تصنيف-عمليات-pathlib-في-بايثون" id="toc-تصنيف-عمليات-pathlib-في-بايثون" class="nav-link" data-scroll-target="#تصنيف-عمليات-pathlib-في-بايثون"><span class="header-section-number">10.3</span> تصنيف عمليات <code>pathlib</code> في بايثون</a>
+  <li><a href="#تصنيف-عمليات-pathlib-في-بايثون" id="toc-تصنيف-عمليات-pathlib-في-بايثون" class="nav-link" data-scroll-target="#تصنيف-عمليات-pathlib-في-بايثون"><span class="header-section-number">10.4</span> تصنيف عمليات <code>pathlib</code> في بايثون</a>
   <ul class="collapse">
-  <li><a href="#عمليات-المسارات-المجردة" id="toc-عمليات-المسارات-المجردة" class="nav-link" data-scroll-target="#عمليات-المسارات-المجردة">عمليات المسارات المجرَّدة</a></li>
+  <li><a href="#عمليات-المسار" id="toc-عمليات-المسار" class="nav-link" data-scroll-target="#عمليات-المسار">عمليات المسار</a></li>
   <li><a href="#عمليات-على-نظام-الملفات" id="toc-عمليات-على-نظام-الملفات" class="nav-link" data-scroll-target="#عمليات-على-نظام-الملفات">عمليات على نظام الملفات</a></li>
   <li><a href="#الارتباطات-الرمزية-والصلبة" id="toc-الارتباطات-الرمزية-والصلبة" class="nav-link" data-scroll-target="#الارتباطات-الرمزية-والصلبة">الارتباطات الرمزية والصلبة</a></li>
   <li><a href="#التكرار-والبحث" id="toc-التكرار-والبحث" class="nav-link" data-scroll-target="#التكرار-والبحث">التكرار والبحث</a></li>
   </ul></li>
+  <li><a href="#النسخ-والحذف-والنقل-shutil" id="toc-النسخ-والحذف-والنقل-shutil" class="nav-link" data-scroll-target="#النسخ-والحذف-والنقل-shutil"><span class="header-section-number">10.5</span> النسخ والحذف والنقل (<code>shutil</code>)</a></li>
   </ul>
 </nav>
     </div>
@@ -303,27 +329,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>الملف هو الوسيط الذي تنتقل من خلاله المعلومات بين البرمجيات والأجهزة والبشر</strong>. لذا من الضروري معرفة كيفية التعامل معها في بايثون.</p>
+<p>رغم تعقيد الحواسيب اليوم، فهي في الأخير ترجع إلى معمارية فون نويمان (1945) الموضَّحة أدناه:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Von_Neumann_Architecture-ar.svg/450px-Von_Neumann_Architecture-ar.svg.png" class="img-fluid figure-img"></p>
+<figcaption>نموذج فون نويمان للحاسب الآلي</figcaption>
+</figure>
+</div>
+<p>فكل المنطق الذي أجريناه لا يتعدى الصنودق الأوسط الذي يتكون من وحدة المعالجة المركزية (CPU) ووحدة الذاكرة (Memory). سواءً كان تعريف أو استدعاء أو نحو ذلك فإنه هنا.</p>
+<p>أما للاتصال بالعالم، فتتألف العمليات في الأصل من عمليتين أساسيتين: <strong>قراءة وكتابة</strong>.</p>
+<ol type="1">
+<li>أما علمية <code>input()</code> فإنها من جنس عمليات إدخال المعطيات؛ ولا بُدَّ لها من منفذ؛ وهو هنا: لوحة المفاتيح.</li>
+<li>أما عملية مثل: <code>print()</code> فإنها من جنس عمليات إخراج النتائج؛ ولا بُدَّ لها من مَنفَذ. وفي هذه الحالة هو جهاز العرض (الشاشة).</li>
+</ol>
+<p>وحتى لا ننزل إلى مستوى البت والبايت فإن نظام التشغيل يمثِّلُ للغة البرمجة التي تتخاطب معه هذه الأجهزة، سواءً كانت للإدخال أو الإخراج، كأنها ملفات. ويقول: <strong>الملف هو ما يقبل القراءة ويقبل الكتابة</strong>. فهو الوسيط الذي تنتقل من خلاله المعلومات بين البرمجيات والأجهزة وكذلك البشر.</p>
+<p>واصطلح الناس على كلمة I/O وتعني (Input / Output) للإشارة إلى معنى عمليات الإدخال والإخراج إلى الأجهزة مثل:</p>
+<ul>
+<li><strong>أجهزة استشعار</strong>: الحرارة والرطوبة والبعد والميل والاهتزاز والحركة …إلخ.</li>
+<li><strong>أجهزة تحريك</strong>: المفتاح والماطور والصمام والطنان والسماعات …إلخ.</li>
+<li>أجهزة غالبًا هي متصلة بالجهاز المكتبي: لوحة المفاتيح والمؤشر والطابعة والكاميرا والمايكروفون والشاشة …إلخ.</li>
+</ul>
+<p>لذا من الضروري معرفة كيفية التعامل مع الملفات في بايثون. لكننا في هذا الدرس سنقتصر على الملفات المعهودة، وهي أول نوع فيما يأتي: أي: الملفات والمجلدات.</p>
 <section id="الملف-في-بايثون" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="الملف-في-بايثون"><span class="header-section-number">10.1</span> الملف في بايثون</h2>
-<p>يجرِّد <a href="https://docs.python.org/3/glossary.html#term-file-object">الملف</a> أمرين أساسيين: القراءة: <code>.read()</code> والكتابة: <code>.write()</code> وذلك بعد فتحه <a href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a> كما يجب بعد الفراغ منه أن تغلقه بالأمر <code>close()</code> فهذه الأربعة هي ما يشكل الملف وهي فلسفة نظام يونكس (Unix) الذي حذت حذوه أنظمة التشغيل فيما بعد. والعبارة الشهيرة: <a href="https://en.wikipedia.org/wiki/Everything_is_a_file">“everything is a file”</a> تعبِّر عن نموذج العالَم بالنسبة لنظام التشغيل.</p>
+<p>يجرِّد <a href="https://docs.python.org/3/glossary.html#term-file-object">الملف</a> أمرين أساسيين: القراءة: <code>.read()</code> والكتابة: <code>.write()</code> وذلك بعد فتحه <a href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a> كما يجب بعد الفراغ منه أن تغلقه بالأمر <code>close()</code> فهذه الأربعة هي ما يشكل الملف وهي فلسفة نظام يونكس (Unix) ومن حذا حذوه مثل نظام ماك (MacOS) بخلاف نظام ويندوز (Windows) فإنه لا يلتزم بذلك دائمًا.</p>
 <p>وقد تقع الكتابة عيْنًا على أحد ثلاثة منافذ يمثلها <strong>الملف</strong>:</p>
 <ol type="1">
-<li>إلى <strong>منفذ تخزين</strong> وعادة ما يُسمى الملف: فيظهر الكملفات، مثلاً: <code>data.csv</code>, <code>my_code.py</code>, <code>configuration.yaml</code>.</li>
+<li>إلى <strong>منفذ تخزين</strong> وهي الملفات التي اعتدنا رؤيتها والضغط على أشكالها المختلفة بحسب نوعها مثلاً: <code>data.csv</code>, <code>my_code.py</code>, <code>configuration.yaml</code>.</li>
 <li>إلى <a href="https://docs.python.org/3/library/sys.html#sys.stdout"><strong>مخرَج لوحة الأوامر</strong></a> ليظهر على الشاشة. وهو فرعان:
 <ul>
-<li><strong>منفذ العادة</strong> وهو الذي توجَّه إليه الأحرف عندما نستعمل الإجراء <a href="https://docs.python.org/3/library/functions.html#print"><code>print()</code></a> (أو عندما تكب اسم المعرَّف كآخر أمر في دفتر جوبتر الذي يستعمل الأمر <a href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html"><code>display</code></a>)</li>
+<li><strong>منفذ العادة</strong> وهو الذي توجَّه إليه الأحرف عندما نستعمل الإجراء <a href="https://docs.python.org/3/library/functions.html#print"><code>print()</code></a> (أو عندما تكتب اسم المعرَّف كآخر أمر في دفتر جوبتر فهو يستعمل الأمر <a href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html"><code>display()</code></a> ضمنيًّا)</li>
 <li><strong>منفذ الأخطاء</strong> وهو الذي توجَّه إليه رسالة الخطأ عادةً</li>
 </ul></li>
-<li>إلى <a href="https://en.wikipedia.org/wiki/Unix_domain_socket"><strong>منفذ مِقْبَس</strong></a> (Socket) للتواصل مع برنامج آخر سواءً كان البرنامج في نفس الجهاز أو عبر الشبكة.</li>
+<li>إلى <a href="https://en.wikipedia.org/wiki/Unix_domain_socket"><strong>منفذ مِقْبَس</strong></a> (Socket) <strong>للتواصل مع برنامج آخر</strong> سواءً &nbsp;كان البرنامج في نفس الجهاز أو عبر الشبكة.</li>
 </ol>
-<p>وكذلك عملية القراءة <code>.read()</code> من <strong>ملف</strong>؛ تقع عيْنًا: 1. من منفذ تخزين 2. من <a href="https://docs.python.org/3/library/sys.html#sys.stdin">منفذ مدخلات لوحة الأوامر</a> والذي يمكن إدخاله مثلاً عن طريق إجراء <a href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a> 3. من منفذ مقبس</p>
+<p>أما عملية القراءة <code>.read()</code> فتقع عيْنًا:</p>
+<ol type="1">
+<li>من منفذ تخزين (قرص تخزين أو ذاكرة دائمة)</li>
+<li>من <a href="https://docs.python.org/3/library/sys.html#sys.stdin">منفذ مدخلات لوحة الأوامر</a> والذي يمكن إدخاله مثلاً عن طريق إجراء <a href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a></li>
+<li>من منفذ مقبس (الشبكة)</li>
+</ol>
 </section>
 <section id="قراءة-الملفات-وكتابتها" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="قراءة-الملفات-وكتابتها"><span class="header-section-number">10.2</span> قراءة الملفات وكتابتها</h2>
 <p>انظر <a href="https://docs.python.org/3/library/pathlib.html#reading-and-writing-files">توثيق قراءة وكتابة الملفات</a>.</p>
 <p>أبسط طريقة للتعامل مع الملفات قراءةً وكتابةً هي باستعمال <a href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a>. فهكذا نقرأ الملف باستعمال <code>file.read()</code> بعد فتح الملف بوضع القراءة <code>'r'</code> في <code>open(mode='r')</code>:</p>
-<div id="e9165115" class="cell" data-execution_count="2">
+<div id="8c9c1692" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="bu">file</span><span class="op">=</span><span class="st">'datasets/example_root/a/a.txt'</span>, mode<span class="op">=</span><span class="st">'r'</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a>content <span class="op">=</span> f.read()</span>
 <span id="cb1-3"><a href="#cb1-3"></a>f.close()</span>
@@ -335,7 +386,7 @@ weilfur badem zelfur</code></pre>
 </div>
 </div>
 <p>وهكذا نكتب في الملف باستعمال <code>file.write()</code>، بعد فتح الملف بوضع الكتابة <code>'w'</code> في <code>open(mode='w')</code>:</p>
-<div id="6df82748" class="cell" data-execution_count="3">
+<div id="3d83d954" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>content <span class="op">=</span> <span class="st">"""Salam everyone,</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="st">I hope you are enjoying the course,</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a></span>
@@ -359,9 +410,12 @@ Thank you.
 <li>إذا كنت تريد قراءة الملفات وكتابتها بشكل بسيط انظر: <a href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a>. -وإذا كنت تريد التعامل مع الملفات المؤقتة فانظر: <a href="https://docs.python.org/3/library/tempfile.html#module-tempfile"><code>tempfile</code></a>.</li>
 <li>وكثير من عمليات التعامل مع الملفات والمجلدات تجدها في: <a href="https://docs.python.org/3/library/shutil.html#module-shutil"><code>shutil</code></a>.</li>
 </ul>
-<p>أما الآن فحديثنا عن الوصول إلى الملفات (قراءة المجلدات) ، والبحث عنها ، وتركيب المسار إليها، وهذا ما تحققه مكتبة <a href="https://docs.python.org/3/library/pathlib.html"><code>pathlib</code></a>.</p>
-<p>يجدر بالذكر أن مكتبة <code>pathlib</code> جاءت متأخرة في إصدار <code>Python 3.4</code> لمعالجة الملفات بأسلوب البرمجة الشيئية (OOP)، بينما تستعمل مكتبة <code>os</code> التي سبقتها لأغراض متعددة فيما يخص نظام التشغيل (os = Operating System) من ضمنها خُصِّصَت <code>os.path</code> للتتعامل مع نظام الملفات إلا أنها كُتِبَت بأسلوب إجرائي تأسيًّا بلغة سي (C)، فهي منخفضة المستوى (تتعامل مباشرة مع <code>bytes</code> و <code>str</code>) بالمقارنة بالبرمجة الشيئية الأعلى في التجريد؛ وهو ما نفضله. انظر <a href="https://docs.python.org/3/library/pathlib.html#comparison-to-the-os-and-os-path-modules">مقارنة pathlib بوحدات <code>os</code> و <code>os.path</code></a>.</p>
-<p>لاستعراض عمليات المكتبة، أنشأنا مُسبقًا شجرة تبدأ من مجلد اسمه <code>example_root</code> تجدها داخل <code>datasets</code> في <a href="datasets/example_root">مستودع مشروع الكتاب</a> على النحو التالي:</p>
+</section>
+<section id="المسار" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="المسار"><span class="header-section-number">10.3</span> المسار</h2>
+<p>أما الآن فحديثنا عن الوصول إلى الملفات ، والبحث عنها ، وتركيب المسار إليها، وهذا ما تحققه مكتبة <a href="https://docs.python.org/3/library/pathlib.html"><code>pathlib</code></a>.</p>
+<p>يجدر بالذكر أن مكتبة <code>pathlib</code> جاءت متأخرة في إصدار <code>Python 3.4</code> لمعالجة الملفات بأسلوب البرمجة الشيئية (OOP)، بينما تستعمل مكتبة <code>os</code> التي سبقتها لأغراض متعددة فيما يخص نظام التشغيل (os = Operating System) من ضمنها خُصِّصَت <code>os.path</code> للتتعامل مع نظام الملفات إلا أنها كُتِبَت بأسلوب إجرائي تأسيًّا بلغة سي (C)، فهي منخفضة المستوى (تتعامل مباشرة مع <code>bytes</code> و <code>str</code>) بالمقارنة بالبرمجة الشيئية الأعلى في التجريد؛ <strong>وهو ما نفضله</strong>. انظر <a href="https://docs.python.org/3/library/pathlib.html#comparison-to-the-os-and-os-path-modules">مقارنة pathlib بوحدات <code>os</code> و <code>os.path</code></a>.</p>
+<p>لاستعراض عمليات المكتبة، أنشأنا مُسبقًا شجرة تبدأ من مجلد اسمه <code>example_root</code> تجدها داخل <code>datasets</code> في <a href="https://github.com/HassanAlgoz/python/tree/main/book/datasets/example_root">مستودع مشروع الكتاب</a> على النحو التالي:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -389,12 +443,12 @@ Thank you.
 </div>
 </div>
 <p>الشيء الأساسي الذي نتعامل معه في هذه المكتبة هو <strong>المسار</strong> (<a href="https://docs.python.org/3/library/pathlib.html#concrete-paths"><code>Path</code></a>):</p>
-<div id="e2bee1bf" class="cell" data-execution_count="4">
+<div id="a025d0d0" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>يُنشأ المسار من نص أو مجموعة نصوص بينها علامة <code>/</code> (وهي في الأصل علامة قسمة إذا وُضعت بين الأرقام) التي تعني ضم النص إلى المسار.</p>
 <p>لاحظ استعمال النص الخام <code>r''</code> لكون الحرف <code>\</code> له معنىً خاص في نصوص بايثون، فهو يستعمل مثلا <code>\n</code> للانتقال لسطر جديد. لكن حين نستعمل <code>r''</code> فإن الحرف <code>\</code> لا يعني شيئًا خاصًا.</p>
-<div id="f25ac27c" class="cell" data-execution_count="5">
+<div id="11980ceb" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">assert</span> (</span>
 <span id="cb6-2"><a href="#cb6-2"></a>    Path(<span class="st">'datasets/example_root/a/a.txt'</span>) <span class="op">==</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a>    Path(<span class="vs">r'datasets\example_root\a\a.txt'</span>) <span class="op">==</span></span>
@@ -403,7 +457,7 @@ Thank you.
 </div>
 <p>ملاحظة، عند نسخ المسارات في نظام ويندوز (Windows)، يجب عليك إما استبدال الشرطات المائلة العكسية <code>\</code> بالشرطات المائلة الأمامية <code>/</code> أو استخدام السلاسل النصية الخام <code>r''</code> لتجنب المشاكل (كما فعلنا أعلاه).</p>
 <p>وهكذا نستطيع استعمال الكائن <code>Path</code> في إجراء <code>open(file=path)</code> للتعامل مع الملفات:</p>
-<div id="5f7596a5" class="cell" data-execution_count="6">
+<div id="d9708667" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>p <span class="op">=</span> Path(<span class="st">'datasets/example_root/a/a.txt'</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
 <span id="cb7-3"><a href="#cb7-3"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="bu">file</span><span class="op">=</span>p, mode<span class="op">=</span><span class="st">'r'</span>)</span>
@@ -416,8 +470,11 @@ Thank you.
 weilfur badem zelfur</code></pre>
 </div>
 </div>
-<p>ولأن الملف يعتبر <a href="https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers">مدير سياق (Context Manager)</a> فيمكن استعمال قطعة <code>with</code> ليتم إغلاق المصدر المفتوح تلقائيًّا عند الخروج من القطعة (المحددة بالمحاذاة). وذلك على النحو التالي:</p>
-<div id="82275162" class="cell" data-execution_count="7">
+<p>المسار له شكلان: <strong>مسار مطلق</strong> (Absolute Path) و<strong>مسار نسبي</strong> (Relative Path).</p>
+<p>أما المسار المطلق فهو الذي يبدأ من الجذر (مثل <code>/home/user/Downloads</code> لاحظ علامة الخط المائل في بداية المسار) إذ يحدد المسار بشكل لا يقبل التأويل.</p>
+<p>أما المسار النسبي فيعود تأويله للمكان الذي يبتدأ البحث عنه منه (مثل <code>datasets/example_root/a/a.txt</code> لاحظ عدم وجود علىامة الخط المائل في بداية المسار)، ومثله. وقد تستعمل علامة <code>./</code> للإشارة للمجلد الحالي. أما علامة <code>../</code> فتشير إلى المجلد الأب.</p>
+<p>ولأن الملف يعتبر <a href="https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers"><strong>مدير سياق</strong> (Context Manager)</a> فيمكن استعمال قطعة <code>with</code> ليتم إغلاق المصدر المفتوح تلقائيًّا عند الخروج من القطعة (المحددة بالمحاذاة). وذلك على النحو التالي:</p>
+<div id="bd139b41" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>p <span class="op">=</span> Path(<span class="st">'datasets/example_root/a/a.txt'</span>)</span>
 <span id="cb9-2"><a href="#cb9-2"></a></span>
 <span id="cb9-3"><a href="#cb9-3"></a>contents <span class="op">=</span> <span class="st">''</span></span>
@@ -430,7 +487,7 @@ weilfur badem zelfur</code></pre>
 </div>
 </div>
 <p>بدلاً من قراءة الملف جملة واحدة <code>.read()</code> نستطيع القراءة سطرًا بسطر عن طريق الإجراء <code>.readline()</code> على النحو التالي:</p>
-<div id="2e871df8" class="cell" data-execution_count="8">
+<div id="b7e79ae2" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>p <span class="op">=</span> Path(<span class="st">'datasets/example_root/a/a.txt'</span>)</span>
 <span id="cb11-2"><a href="#cb11-2"></a></span>
 <span id="cb11-3"><a href="#cb11-3"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="bu">file</span><span class="op">=</span>p, mode<span class="op">=</span><span class="st">'r'</span>) <span class="im">as</span> f:</span>
@@ -447,7 +504,7 @@ Line 2: weilfur badem zelfur</code></pre>
 <h3 class="anchored" data-anchor-id="المجلدات">المجلدات</h3>
 <p>انظر <a href="https://docs.python.org/3/library/pathlib.html#reading-directories">قراءة المجلدات</a>.</p>
 <p>لعرض قائمة بمحتوى المجلد، نستعمل المكرر الناتج من إجراء <code>.iterdir()</code> ونكرر عليه، وهو بدورِه يُنتج في كل كرةٍ <strong>مساراً</strong> (<code>x</code>). وهذا المسار يُمكن التحقق من أنه يشير إلى مجلد أو لا (<code>x.is_dir()</code>) على النحو التالي:</p>
-<div id="1e3f8b9a" class="cell" data-execution_count="9">
+<div id="82f10401" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>p <span class="op">=</span> Path(<span class="st">'datasets/example_root/'</span>)</span>
 <span id="cb13-2"><a href="#cb13-2"></a>dirs <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> p.iterdir() <span class="cf">if</span> x.is_dir()]</span>
 <span id="cb13-3"><a href="#cb13-3"></a>dirs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -460,7 +517,7 @@ Line 2: weilfur badem zelfur</code></pre>
 <section id="جرب" class="level4">
 <h4 class="anchored" data-anchor-id="جرب">جرب</h4>
 <p>هل تريد أن تعرف حجم مجلد التنزيلات (Downloads) في جهازك؟. يمكننا استخدام الإجراء <code>stat()</code> للحصول على بيانات عن المجلَّد، والتي من ضمنها الحجم (<code>st_size</code>) على النحول التالي:</p>
-<div id="cd6cdf49" class="cell" data-execution_count="10">
+<div id="ad5e56ce" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>p <span class="op">=</span> Path.home() <span class="op">/</span> <span class="st">'Downloads'</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>size <span class="op">=</span> p.stat().st_size</span>
 <span id="cb15-3"><a href="#cb15-3"></a><span class="bu">print</span>(size, <span class="st">'bytes'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -469,7 +526,7 @@ Line 2: weilfur badem zelfur</code></pre>
 </div>
 </div>
 <p>ثم هذا الإجراء لتحويل الوِحدة من البايت إلى الكيلو والميجا والقيقا:</p>
-<div id="dae0886f" class="cell" data-execution_count="11">
+<div id="52bd7e2b" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">def</span> format_size(size):</span>
 <span id="cb17-2"><a href="#cb17-2"></a>    size_kb <span class="op">=</span> size <span class="op">/</span> <span class="dv">1024</span></span>
 <span id="cb17-3"><a href="#cb17-3"></a>    size_mb <span class="op">=</span> size_kb <span class="op">/</span> <span class="dv">1024</span></span>
@@ -487,12 +544,12 @@ Line 2: weilfur badem zelfur</code></pre>
 </div>
 </section>
 </section>
-<section id="سبر-ملفات-الشجرة-طبقا-لنمط" class="level3">
-<h3 class="anchored" data-anchor-id="سبر-ملفات-الشجرة-طبقا-لنمط">سبر ملفات الشجرة طبقًا لنمط</h3>
+<section id="البحث-في-الشجرة" class="level3">
+<h3 class="anchored" data-anchor-id="البحث-في-الشجرة">البحث في الشجرة</h3>
 <p>يستعمل الإجراء <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob"><code>glob</code></a> للبحث عن نمط معيَّن بدءًا من <strong>المسار</strong>، وهذا النمط قد يبحث في مستوىً واحد أو يتخلل الشجرة بأي طريقة تريد؛ ليطابق أسماء الملفات بنمط معيَّن فيستخرجها لك.</p>
-<p>انظر <a href="https://docs.python.org/3/library/pathlib.html#pathlib-pattern-language">لغة الأنماط</a>.</p>
+<p>انظر <a href="https://docs.python.org/3/library/pathlib.html#pathlib-pattern-language">لغة الأنماط</a> لتتعلم هذه اللغة الصغيرة.</p>
 <p>في هذا المثال نبحث عن ملفات الصُّوَر التي بصيغة <code>.jpg</code> لنحسب حجم مجموع ملفات الصور لدينا داخل المسار <code>datasets/pathlib</code> وما يتفرع عن هذه الشجرة نزولاً إلى الأبد (وذلك بنمط: <code>**/*.jpg</code>):</p>
-<div id="167423ab" class="cell" data-execution_count="12">
+<div id="fb40ae9a" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>total_size <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="cf">for</span> p <span class="kw">in</span> Path(<span class="st">'datasets/example_root/'</span>).glob(<span class="st">'**/*.jpg'</span>):</span>
 <span id="cb19-3"><a href="#cb19-3"></a>    total_size <span class="op">+=</span> p.stat().st_size</span>
@@ -508,7 +565,7 @@ Total size: 0.95 MB</code></pre>
 <section id="المشي-على-جميع-ملفات-الشجرة" class="level3">
 <h3 class="anchored" data-anchor-id="المشي-على-جميع-ملفات-الشجرة">المشي على جميع ملفات الشجرة</h3>
 <p>نستعمل الإجراء <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk"><code>walk</code></a> للسير على جميع ملفات الشجرة نزولاً أو صعودًا؛ على هذا النحو:</p>
-<div id="86f18643" class="cell" data-execution_count="13">
+<div id="b3a3d0f7" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>p <span class="op">=</span> Path(<span class="st">'datasets/example_root/'</span>)</span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="cf">for</span> dirpath, dirnames, filenames <span class="kw">in</span> p.walk(top_down<span class="op">=</span><span class="va">True</span>):</span>
 <span id="cb21-3"><a href="#cb21-3"></a>    <span class="bu">print</span>(dirpath)</span>
@@ -541,14 +598,14 @@ datasets\example_root\c\c_inner
 <li><code>dirnames</code>: قائمة بأسماء المجلدات في المجلد الحالي.</li>
 <li><code>filenames</code>: قائمة بأسماء الملفات في المجلد الحالي.</li>
 </ul>
-<p>لإظهار كامل المسار؛ أزل علامة التعليق <code>#</code> لتنفيذ السطر.</p>
+<p>لإظهار كامل المسار؛ أزل علامة التعليق <code>#</code> من السطر الأخير لتنفيذه.</p>
 </section>
 </section>
-<section id="تصنيف-عمليات-pathlib-في-بايثون" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="تصنيف-عمليات-pathlib-في-بايثون"><span class="header-section-number">10.3</span> تصنيف عمليات <code>pathlib</code> في بايثون</h2>
+<section id="تصنيف-عمليات-pathlib-في-بايثون" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="تصنيف-عمليات-pathlib-في-بايثون"><span class="header-section-number">10.4</span> تصنيف عمليات <code>pathlib</code> في بايثون</h2>
 <p>وإليك تصنيف لعمليات مكتبة <code>pathlib</code>:</p>
-<section id="عمليات-المسارات-المجردة" class="level3">
-<h3 class="anchored" data-anchor-id="عمليات-المسارات-المجردة">عمليات المسارات المجرَّدة</h3>
+<section id="عمليات-المسار" class="level3">
+<h3 class="anchored" data-anchor-id="عمليات-المسار">عمليات المسار</h3>
 <ul>
 <li><strong>إنشاء وتعديل المسارات:</strong>
 <ul>
@@ -607,9 +664,18 @@ datasets\example_root\c\c_inner
 <li><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob"><code>rglob</code></a>: البحث بشكل متكرر عن الملفات المطابقة لنمط.</li>
 <li><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk"><code>walk</code></a>: التنقل بشكل متكرر في شجرة المجلدات.</li>
 </ul>
-
-
 </section>
+</section>
+<section id="النسخ-والحذف-والنقل-shutil" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="النسخ-والحذف-والنقل-shutil"><span class="header-section-number">10.5</span> النسخ والحذف والنقل (<code>shutil</code>)</h2>
+<ul>
+<li><a href="https://docs.python.org/3/library/shutil.html#shutil.copy2"><code>shutil.copy2</code></a>: نسخ ملف.</li>
+<li><a href="https://docs.python.org/3/library/shutil.html#shutil.copytree"><code>shutil.copytree</code></a>: نسخ شجرة المجلدات.</li>
+<li><a href="https://docs.python.org/3/library/shutil.html#shutil.rmtree"><code>shutil.rmtree</code></a>: حذف شجرة المجلدات.</li>
+<li><a href="https://docs.python.org/3/library/shutil.html#shutil.move"><code>shutil.move</code></a>: نقل ملف أو مجلد.</li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1040,8 +1106,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./zz_set.html" class="pagination-link" aria-label="المجموعة الرياضية">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">المجموعة الرياضية</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./10_serialization.html" class="pagination-link" aria-label="حفظ البيانات">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">حفظ البيانات</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

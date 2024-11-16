@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; النصوص – البايثونية</title>
+<title>11&nbsp; حفظ البيانات – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./09_files.html" rel="next">
-<link href="./07_mapping.html" rel="prev">
+<link href="./11_errors.html" rel="next">
+<link href="./09_files.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_setup.html">الأصل</a></li><li class="breadcrumb-item"><a href="./08_strings.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">النصوص</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_setup.html">الأصل</a></li><li class="breadcrumb-item"><a href="./10_serialization.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">حفظ البيانات</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -205,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_strings.html" class="sidebar-item-text sidebar-link active">
+  <a href="./08_strings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">النصوص</span></span></a>
   </div>
 </li>
@@ -217,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_serialization.html" class="sidebar-item-text sidebar-link">
+  <a href="./10_serialization.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">حفظ البيانات</span></span></a>
   </div>
 </li>
@@ -285,18 +285,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#تعريف-النصوص" id="toc-تعريف-النصوص" class="nav-link active" data-scroll-target="#تعريف-النصوص"><span class="header-section-number">9.1</span> تعريف النصوص</a></li>
-  <li><a href="#العمليات-الخاصة-بالنصوص" id="toc-العمليات-الخاصة-بالنصوص" class="nav-link" data-scroll-target="#العمليات-الخاصة-بالنصوص"><span class="header-section-number">9.2</span> العمليات الخاصة بالنصوص</a></li>
-  <li><a href="#تنسيق-السلاسل-النصية" id="toc-تنسيق-السلاسل-النصية" class="nav-link" data-scroll-target="#تنسيق-السلاسل-النصية"><span class="header-section-number">9.3</span> تنسيق السلاسل النصية</a></li>
+  <li><a href="#البيانات-المرتبطة-أو-المضمنة" id="toc-البيانات-المرتبطة-أو-المضمنة" class="nav-link active" data-scroll-target="#البيانات-المرتبطة-أو-المضمنة"><span class="header-section-number">11.1</span> البيانات المرتبطة أو المضمنة</a></li>
+  <li><a href="#البيانات-الجدولية" id="toc-البيانات-الجدولية" class="nav-link" data-scroll-target="#البيانات-الجدولية"><span class="header-section-number">11.2</span> البيانات الجدولية</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_setup.html">الأصل</a></li><li class="breadcrumb-item"><a href="./08_strings.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">النصوص</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_setup.html">الأصل</a></li><li class="breadcrumb-item"><a href="./10_serialization.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">حفظ البيانات</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">النصوص</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">حفظ البيانات</span></h1>
 </div>
 
 
@@ -313,254 +312,144 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>النص</strong> (<a href="https://docs.python.org/3/library/stdtypes.html#str"><code>str</code></a>) تسلسل من الأحرف. وإذا أردنا أن نكون أكثر دقَّة فنقول: هو تسلسل من أرقام يونيكود (Unicode) التي تمثل الأحرف، وهو ترميز عالمي يحوي جميع أحرف اللغات بالإضافة إلى علامات الترقيم ورموز الإموجي وغيرها.</p>
-<p>النص يطول ويقصر من الحرف الواحد إلى الكلمة إلى الجملة إلى آخره:</p>
+<p>تحفظ الملفات بصيغ متعددة حسبما يناسبها وما يتفق عليه الناس. نستعرض في هذا الدرس صيغتين:</p>
 <ul>
-<li>محادثات وسائل التواصل الاجتماعي</li>
-<li>رسائل البريد الإلكتروني</li>
-<li>مقالات</li>
-<li>كتب</li>
-<li>موسوعات</li>
+<li>صيغة لحفظ البيانات المرتبطة أو المضمنة، ونمثل لها بصيغة <code>json</code> وهي اختصار لكلمة: JavaScript Object Notation.</li>
+<li>صيغة لحفظ البيانات الجدولية، ونمثل لها بصيغة <code>csv</code> وهي اختصار لكلمة Comma-Separated Values.</li>
 </ul>
-<p>وكذلك يمكن أن تكون له بنية حُرَّة كما هو حال اللغات البشرية وقد يكون له قالب قابت يحدد بنيته مثل: <code>XML</code>, <code>HTML</code>, <code>JSON</code>, <code>CSV</code>، وغيرها. وتلك تستخدم .لتمثيل البيانات بصيغة نصية <strong>مفهومة للبشر وللآلة</strong>. سيأتي الحديث عنها إن شاء الله.</p>
-<p>فتطبيقات العمل على النصوص كثيرة ومتنوعة كثيرة مثل: البحث، الاستبدال، العد، الفهرسة، القولبة، التصنيف، الترتيب، …إلخ.</p>
-<section id="تعريف-النصوص" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="تعريف-النصوص"><span class="header-section-number">9.1</span> تعريف النصوص</h2>
-<p>قيمة النص تحدد:</p>
-<ul>
-<li>بعلامة اقتباس مفردة: <code>'السلام عليكم!'</code></li>
-<li>بعلامة اقتباس مزدوجة: <code>"السلام عليكم!"</code> وليس بينهما فرق تمامًا.</li>
-<li>بعلامة اقتاس مكررة ثلاثة مرات: <code>"""السلام عليكم!"""</code> وذلك للنصوص التي تمتد على أكثر من سطر.</li>
-</ul>
-<p>مثلاً:</p>
-<div id="f5ad326b" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>name <span class="op">=</span> <span class="st">'Adam'</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>address <span class="op">=</span> <span class="st">"Riyadh, Saudi Arabia"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>سَلْسَلة البيانات</strong> (Data Serialization) تشير لعملية تحويل الهياكل البيانية (مثل القاموس أو القائمة) من تمثيلها المترجم من لغة البرمجة إلى صيغة يمكن تخزينها ونقلها بحيث يمكن قراءتها من طرف آخر لإعادتها إلى تمثيل متناسب معه. وعملية تحويل البيانات المسلسلة مرة أخرى إلى شكلها المترجم من لغة البرمجة تسمى فك التسلسل (Deserialization).</p>
+<section id="البيانات-المرتبطة-أو-المضمنة" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="البيانات-المرتبطة-أو-المضمنة"><span class="header-section-number">11.1</span> البيانات المرتبطة أو المضمنة</h2>
+<p>صيغ حفظ الروابط كثيرة مثل XML وJSON وYAML. في هذا القسم، سنركز على ملفات JSON. توفر <a href="https://docs.python.org/3/library/json.html">وحدة <code>json</code></a> وظائف لقراءة وكتابة ملفات JSON.</p>
+<div id="f364e33a" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>ولاحظ هذا النص الذي يبتدئ في السطر الأول ويتمد لأربعة أسطر:</p>
-<div id="0197ec6a" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>message <span class="op">=</span> <span class="st">"""Salam everyone,</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="st">I hope you are enjoying the course,</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="st">Thank you.</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="st">"""</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="bu">print</span>(message)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>لنفترض أن لدينا <code>user_preferences</code> محفوظًا في القاموس، ونريد حفظه في ملف JSON:</p>
+<div id="7d23a5ac" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>user_preferences <span class="op">=</span> {</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="st">'theme'</span>: <span class="st">'dark'</span>,</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="st">'language'</span>: <span class="st">'Arabic'</span>,</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="st">'notifications'</span>: {</span>
+<span id="cb2-5"><a href="#cb2-5"></a>        <span class="st">'email'</span>: <span class="va">True</span>,</span>
+<span id="cb2-6"><a href="#cb2-6"></a>        <span class="st">'sms'</span>: <span class="va">False</span>,</span>
+<span id="cb2-7"><a href="#cb2-7"></a>        <span class="st">'push'</span>: <span class="va">True</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>    },</span>
+<span id="cb2-9"><a href="#cb2-9"></a>    <span class="st">'last_updated'</span>: <span class="st">'2021-09-01'</span>,</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    <span class="st">'emails'</span>: [<span class="st">'example1@domain.com'</span>, <span class="st">'example2@domain.com'</span>]</span>
+<span id="cb2-11"><a href="#cb2-11"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>لنكتبها إلى ملف json:</p>
+<div id="8da5f027" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'datasets/user_preferences.json'</span>, mode<span class="op">=</span><span class="st">'w'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    json.dump(user_preferences, <span class="bu">file</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>لاحقًا عندما نريد تحميلها، يمكننا القيام بما يلي:</p>
+<div id="0e51474b" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'datasets/user_preferences.json'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    data <span class="op">=</span> json.load(<span class="bu">file</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="bu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Salam everyone,
-I hope you are enjoying the course,
-
-Thank you.
-</code></pre>
+<pre><code>{'theme': 'dark', 'language': 'Arabic', 'notifications': {'email': True, 'sms': False, 'push': True}, 'last_updated': '2021-09-01', 'emails': ['example1@domain.com', 'example2@domain.com']}</code></pre>
 </div>
 </div>
-<p>ولكون النص تسلسلاً فإنه يدعم جميع عمليات التسلسل السابقة ذكرها (انظر <a href="./06_sequences.html">فصل التسلسل</a>). وهو فوق ذلك يدعم عمليات خاصلة بتسلسل الأحرف.</p>
+<p>إذا كنت تتعامل مع صيغ أخرى، تحقق من: <a href="https://docs.python.org/3/library/xml.html">وثائق وحدة <code>xml</code> المدمجة</a> لوثائق XML، أو <a href="https://pyyaml.org/wiki/PyYAMLDocumentation">مكتبة <code>pyyaml</code></a> لوثائق YAML.</p>
+</section>
+<section id="البيانات-الجدولية" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="البيانات-الجدولية"><span class="header-section-number">11.2</span> البيانات الجدولية</h2>
+<p>تأتي البيانات الجدولية في صيغ متعددة، مثل CSV وTSV وExcel وSQL. في هذا القسم، سنركز على ملفات CSV. فهي مكونة من ثلاثة أحرف:</p>
 <ul>
-<li>الإشارة: <code>s[i]</code></li>
-<li>معرفة موضع شيء (إن وجد): <code>s.index(x)</code></li>
-<li>عد تكرارات شيء: <code>s.count(x)</code></li>
-<li>معرفة الطول: <code>len(s)</code></li>
-<li>التكرار: <code>for x in s</code></li>
-<li>العضوية: <code>x not in s</code></li>
+<li>C: Comma</li>
+<li>S: Separated</li>
+<li>V: Values</li>
 </ul>
-<div id="e8752fa4" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a>first <span class="op">=</span> s[<span class="dv">0</span>]</span>
-<span id="cb4-4"><a href="#cb4-4"></a>last <span class="op">=</span> s[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="bu">print</span>(first <span class="op">+</span> last)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>An</code></pre>
-</div>
-</div>
-<pre><code> 0   1   2   3   4   5   6   7
- +---+---+---+---+---+---+---+
- | A | r | a | b | i | a | n |
- +---+---+---+---+---+---+---+
--7  -6  -5  -4  -3  -2  -1</code></pre>
-<section id="جرب" class="level4">
-<h4 class="anchored" data-anchor-id="جرب">جرب</h4>
+<p>وتعني حرفيًّا: القيَم المفصولة بالفاصلة. وشكلها في الحقيقة عبارة عن صفوف من القيم بحيث يمثل كل سطر في هذا الملف صفًّا واحدًا يتكون من أعمدة بعدد الفواصل + 1، ويحدد ابتداء العمود القادم عند علامة الفاصلة في الصف، وذلك يتبين حينما تفتح الملف باستخدام محرر جداول مثل Excel أو Sheets ونحوهما.</p>
+<p>توجد في بايثون وحدة <a href="https://docs.python.org/3/library/csv.html"><code>csv</code></a> فيها إجراءات للقراءة والكتابة على طريقة csv. فلدينا:</p>
 <ul>
-<li><code>s[1:5]</code></li>
-<li><code>s[1:5:2]</code></li>
-<li><code>s[::2]</code></li>
-<li><code>s[::-1]</code></li>
+<li>كائن <a href="https://docs.python.org/3/library/csv.html#csv.reader"><code>reader</code></a> لعمليات القراءة</li>
+<li>وكائن آخر منفصل اسمه <a href="https://docs.python.org/3/library/csv.html#csv.writer"><code>writer</code></a> يحوي عمليات الكتابة</li>
 </ul>
-<p>لاحظ أن هذا يتحقق كما لو عرفنا صفًّا بالأحرف هذه نفسها:</p>
-<div id="278b6a75" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>s <span class="op">=</span> (<span class="st">'A'</span>, <span class="st">'r'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'i'</span>, <span class="st">'a'</span>, <span class="st">'n'</span>)</span>
-<span id="cb7-2"><a href="#cb7-2"></a>first <span class="op">=</span> s[<span class="dv">0</span>]</span>
-<span id="cb7-3"><a href="#cb7-3"></a>last <span class="op">=</span> s[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="bu">print</span>(first <span class="op">+</span> last)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="58151073" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>لنكتب قائمة من الطلاب إلى ملف CSV. لاحظ، لدينا قائمة من قوائم، حيث تمثل كل قائمة داخلية صفًا لوحدها:</p>
+<div id="e58d5d9f" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>header <span class="op">=</span> [<span class="st">'Name'</span>, <span class="st">'Age'</span>, <span class="st">'Grade'</span>]</span>
+<span id="cb7-2"><a href="#cb7-2"></a>rows <span class="op">=</span> [</span>
+<span id="cb7-3"><a href="#cb7-3"></a>    [<span class="st">'Adam'</span>, <span class="dv">22</span>, <span class="dv">90</span>],</span>
+<span id="cb7-4"><a href="#cb7-4"></a>    [<span class="st">'Belal'</span>, <span class="dv">23</span>, <span class="dv">92</span>],</span>
+<span id="cb7-5"><a href="#cb7-5"></a>    [<span class="st">'Camal'</span>, <span class="dv">24</span>, <span class="dv">91</span>],</span>
+<span id="cb7-6"><a href="#cb7-6"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>نكتبها على النحو التالي:</p>
+<div id="6772ae27" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'datasets/students.csv'</span>, mode<span class="op">=</span><span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    writer <span class="op">=</span> csv.writer(<span class="bu">file</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a>    writer.writerow(header)</span>
+<span id="cb8-4"><a href="#cb8-4"></a>    writer.writerows(rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>ملاحظة، يمكنك محاولة فتح الملف مباشرة من مستكشف الملفات. حاول فتحه باستخدام Excel أو Google Sheet أو أي برنامج جداول بيانات آخر. إذا فتحته باستخدام محرر نصوص، سترى البيانات كملف CSV؛ حرفيًا قيم مفصولة بفواصل.</p>
+<p>الآن، دعنا نقرأه كهيكل بيانات في بايثون: كقائمة من القوائم.</p>
+<div id="93b5de62" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'datasets/students.csv'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    reader <span class="op">=</span> csv.reader(<span class="bu">file</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    <span class="cf">for</span> row <span class="kw">in</span> reader:</span>
+<span id="cb9-4"><a href="#cb9-4"></a>        <span class="bu">print</span>(row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>An</code></pre>
+<pre><code>['Name', 'Age', 'Grade']
+['Adam', '22', '90']
+['Belal', '23', '92']
+['Camal', '24', '91']</code></pre>
 </div>
 </div>
-<p>فالنص ، مثل الصف وبخلاف القائمة، <strong>غير قابل للتغيير</strong>. فلو حاولت تغيير حرف في النص. ستحصل على خطأ:</p>
-<div id="2d28b39e" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>s[<span class="dv">0</span>] <span class="op">=</span> <span class="st">'a'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>لنحاول حساب متوسط درجات الطلاب.</p>
+<div id="e985b404" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>students <span class="op">=</span> []</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'datasets/students.csv'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb11-3"><a href="#cb11-3"></a>    reader <span class="op">=</span> csv.reader(<span class="bu">file</span>)</span>
+<span id="cb11-4"><a href="#cb11-4"></a>    <span class="bu">next</span>(reader) <span class="co"># skip the header</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>    <span class="cf">for</span> row <span class="kw">in</span> reader:</span>
+<span id="cb11-6"><a href="#cb11-6"></a>        students.append(row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>الآن بعد أن حفظناها في القائمة <code>students</code>، دعونا نقوم ببعض العمليات الحسابية.</p>
+<div id="56e546e8" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>grades <span class="op">=</span> [s[<span class="dv">2</span>] <span class="cf">for</span> s <span class="kw">in</span> students]</span>
+<span id="cb12-2"><a href="#cb12-2"></a>avg <span class="op">=</span> <span class="bu">sum</span>(grades) <span class="op">/</span> <span class="bu">len</span>(grades)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg ansi-bold">In[5], line 2</span>
-<span class="ansi-green-fg">      1</span> s <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Arabian</span><span style="color:rgb(175,0,0)">'</span>
-<span class="ansi-green-fg ansi-bold">----&gt; 2</span> <span class="ansi-yellow-bg">s</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">0</span><span class="ansi-yellow-bg">]</span> <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">a</span><span style="color:rgb(175,0,0)">'</span>
+Cell <span class="ansi-green-fg ansi-bold">In[10], line 2</span>
+<span class="ansi-green-fg">      1</span> grades <span style="color:rgb(98,98,98)">=</span> [s[<span style="color:rgb(98,98,98)">2</span>] <span style="font-weight:bold;color:rgb(0,135,0)">for</span> s <span style="font-weight:bold;color:rgb(175,0,255)">in</span> students]
+<span class="ansi-green-fg ansi-bold">----&gt; 2</span> avg <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">sum</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">grades</span><span class="ansi-yellow-bg">)</span> <span style="color:rgb(98,98,98)">/</span> <span style="color:rgb(0,135,0)">len</span>(grades)
 
-<span class="ansi-red-fg ansi-bold">TypeError</span>: 'str' object does not support item assignment</pre>
+<span class="ansi-red-fg ansi-bold">TypeError</span>: unsupported operand type(s) for +: 'int' and 'str'</pre>
 </div>
 </div>
 </div>
-<p>لكن يمكنك تعديل النص بإنشاء نص جديد:</p>
-<div id="18908049" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>s <span class="op">=</span> <span class="st">'a'</span> <span class="op">+</span> s[<span class="dv">1</span>:]</span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="bu">print</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>arabian</code></pre>
-</div>
-</div>
-<p>لاحظ أننا أسندنا النص الجديد إلى المتغير <code>s</code>، وهذا يعني أننا لم نعدل النص الأصلي بل أنشأنا نصًا جديدًا.</p>
-</section>
-</section>
-<section id="العمليات-الخاصة-بالنصوص" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="العمليات-الخاصة-بالنصوص"><span class="header-section-number">9.2</span> العمليات الخاصة بالنصوص</h2>
-<p>لاستبدال جزء من النص، نستخدم إجراء <code>.replace()</code>:</p>
-<div id="d2d67d42" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>s <span class="op">=</span> s.replace(<span class="st">'ian'</span>, <span class="st">'y'</span>)</span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="bu">print</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Araby</code></pre>
-</div>
-</div>
-<p>كما لدينا علميات <code>.strip()</code> لإزالة المسافات البيضاء من بداية ونهاية النص.</p>
-<div id="59e2a01c" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="cf">assert</span> <span class="st">'  Arabian  '</span>.strip() <span class="op">==</span> <span class="st">'Arabian'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>وكذلك لدينا عمليات <strong>البحث</strong>:</p>
-<ul>
-<li>التحقق من البدء والنهاية وما بينهما: <code>.startswith(prefix)</code> و <code>.endswith(suffix)</code> أو <code>sub in string</code> وهي أعم.</li>
-<li>لمعرفة موضع أول ظهور لسلسلة معيَّنة من الأحرف داخل النص <code>.find()</code></li>
-</ul>
-<div id="b8685655" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="cf">assert</span> s.startswith(<span class="st">'A'</span>)</span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="cf">assert</span> <span class="kw">not</span> s.startswith(<span class="st">'a'</span>)</span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="cf">assert</span> s.endswith(<span class="st">'n'</span>)</span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="cf">assert</span> <span class="st">'rabia'</span> <span class="kw">in</span> s</span>
-<span id="cb15-6"><a href="#cb15-6"></a><span class="cf">assert</span> s.find(<span class="st">'a'</span>) <span class="op">==</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>انظر ملحق <a href="zz_regex.qmd">أنماط السلاسل</a> للتعمق في علميات البحث والاستبدال بأنماط معقدة.</p>
-<p><strong>الفصل والوصل</strong>:</p>
-<ul>
-<li>فصل النص لقائمة: <code>list.split(seperator)</code></li>
-<li>دمج القائمة إلى نص: <code>seperator.join(list)</code></li>
-</ul>
-<div id="12b4a174" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>csv <span class="op">=</span> <span class="st">"Adam,25,Riyadh"</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="cf">assert</span> csv.split(<span class="st">','</span>) <span class="op">==</span> [<span class="st">'Adam'</span>, <span class="st">'25'</span>, <span class="st">'Riyadh'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="d5751332" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>csv <span class="op">=</span> <span class="st">"""name,age,city</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="st">Adam,25,Riyadh</span></span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="st">Belal,30,Jeddah</span></span>
-<span id="cb17-4"><a href="#cb17-4"></a><span class="st">Camal,35,Dammam</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a><span class="st">"""</span></span>
-<span id="cb17-6"><a href="#cb17-6"></a></span>
-<span id="cb17-7"><a href="#cb17-7"></a>csv <span class="op">=</span> csv.strip()</span>
-<span id="cb17-8"><a href="#cb17-8"></a></span>
-<span id="cb17-9"><a href="#cb17-9"></a>data <span class="op">=</span> []</span>
-<span id="cb17-10"><a href="#cb17-10"></a><span class="cf">for</span> line <span class="kw">in</span> csv.split(sep<span class="op">=</span><span class="st">'</span><span class="ch">\n</span><span class="st">'</span>):</span>
-<span id="cb17-11"><a href="#cb17-11"></a>    d <span class="op">=</span> line.split(sep<span class="op">=</span><span class="st">','</span>)</span>
-<span id="cb17-12"><a href="#cb17-12"></a>    data.append(d)</span>
-<span id="cb17-13"><a href="#cb17-13"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>هذا الخطأ متوقع عند قراءة الملفات لأنها دائمًا تعتبر من نوع <code>str</code>، ولذلك نضطر لتحويل القيَم العددية إلى <code>int</code> لإجراء عمليات رياضية:</p>
+<div id="47af904c" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>grades <span class="op">=</span> [<span class="bu">int</span>(s[<span class="dv">2</span>]) <span class="cf">for</span> s <span class="kw">in</span> students]</span>
+<span id="cb13-2"><a href="#cb13-2"></a>avg <span class="op">=</span> <span class="bu">sum</span>(grades) <span class="op">/</span> <span class="bu">len</span>(grades)</span>
+<span id="cb13-3"><a href="#cb13-3"></a>avg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>[['name', 'age', 'city'],
- ['Adam', '25', 'Riyadh'],
- ['Belal', '30', 'Jeddah'],
- ['Camal', '35', 'Dammam']]</code></pre>
+<pre><code>91.0</code></pre>
 </div>
 </div>
-<p>وهذا مثال للوصل:</p>
-<div id="70a4f3cc" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>data <span class="op">=</span> [<span class="st">'Adam'</span>, <span class="st">'25'</span>, <span class="st">'Riyadh'</span>]</span>
-<span id="cb19-2"><a href="#cb19-2"></a>csv <span class="op">=</span> <span class="st">','</span>.join(data)</span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="cf">assert</span> csv <span class="op">==</span> <span class="st">'Adam,25,Riyadh'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>تفسير الأرقام</strong> المكتوبة كسلسلة من الحروف، وهذا تكثر الحاجة إليه عندما نقرأ ملفات أو نتعامل مع بيانات مُدخلة من المستخدم، إذ دائمًا ما يكون الإدخال على شكل نصوص:</p>
-<ul>
-<li><code>int(x)</code> لتحويل سلسلة نصية إلى عدد صحيح.</li>
-<li><code>float(x)</code> لتحويل سلسلة نصية إلى عدد عشري.</li>
-</ul>
-<p>لاحظ ناتج عملية جمع رقمين مكتوبين كنصوص:</p>
-<div id="d7071fff" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>x <span class="op">=</span> <span class="st">'20'</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a>y <span class="op">=</span> <span class="st">'40'</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a><span class="bu">print</span>(x <span class="op">+</span> y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>يمكنك أيضًا قراءة وكتابة البيانات في شكل قاموس باستخدام الكائنات <a href="https://docs.python.org/3/library/csv.html#csv.DictReader"><code>DictReader</code></a> و<a href="https://docs.python.org/3/library/csv.html#csv.DictWriter"><code>DictWriter</code></a>.</p>
+<div id="7fd4c42d" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'datasets/students.csv'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb15-2"><a href="#cb15-2"></a>    reader <span class="op">=</span> csv.DictReader(<span class="bu">file</span>)</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    <span class="cf">for</span> row <span class="kw">in</span> reader:</span>
+<span id="cb15-4"><a href="#cb15-4"></a>        <span class="bu">print</span>(row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>2040</code></pre>
+<pre><code>{'Name': 'Adam', 'Age': '22', 'Grade': '90'}
+{'Name': 'Belal', 'Age': '23', 'Grade': '92'}
+{'Name': 'Camal', 'Age': '24', 'Grade': '91'}</code></pre>
 </div>
 </div>
-<p>الواجب تحويلهما إلى أعداد أولاًً:</p>
-<div id="f275168d" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>x2 <span class="op">=</span> <span class="bu">float</span>(x)</span>
-<span id="cb22-2"><a href="#cb22-2"></a>y2 <span class="op">=</span> <span class="bu">float</span>(y)</span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="bu">print</span>(x2 <span class="op">+</span> y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>60.0</code></pre>
-</div>
-</div>
-<p>وهنا عمليات <strong>خاصة بالنصوص الإنجليزية</strong>:</p>
-<ul>
-<li><code>upper()</code> لتحويل النص إلى حروف كبيرة.</li>
-<li><code>lower()</code> لتحويل النص إلى حروف صغيرة.</li>
-<li><code>capitalize()</code> لتحويل الحرف الأول إلى كبير.</li>
-<li><code>title()</code> لتحويل النص إلى حالة عنوان.</li>
-</ul>
-<div id="33428c9e" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>name <span class="op">=</span> <span class="st">'Adam ibraheeM'</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="bu">print</span>(name.upper())</span>
-<span id="cb24-3"><a href="#cb24-3"></a><span class="bu">print</span>(name.lower())</span>
-<span id="cb24-4"><a href="#cb24-4"></a><span class="bu">print</span>(name.capitalize())</span>
-<span id="cb24-5"><a href="#cb24-5"></a><span class="bu">print</span>(name.title())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>ADAM IBRAHEEM
-adam ibraheem
-Adam ibraheem
-Adam Ibraheem</code></pre>
-</div>
-</div>
-<p>وانظر <a href="https://docs.python.org/3/library/stdtypes.html#string-methods">مستندات النصوص</a> لمعرفة كافة الإجراءات الممكنة على النصوص.</p>
-</section>
-<section id="تنسيق-السلاسل-النصية" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="تنسيق-السلاسل-النصية"><span class="header-section-number">9.3</span> تنسيق السلاسل النصية</h2>
-<p>نستعرض ثلاث طرق لدمج السلاسل النصية في بايثون:</p>
-<ol type="1">
-<li>الأولى: تحويل الشيء إلى نص قبل دمجه مع النص..</li>
-<li>الثانية: استعمال فراغات <code>{}</code> مع الإجراء <code>.format()</code> لتمرير ما يحل فيها.</li>
-<li>الثالثة: استعمال <code>f-string</code> بأن تضع الحرف <code>f</code> قبل علامة التنصيص الأولى، ليقبل النص وضع القيم مباشرة داخل القواس المعكوفة <code>{}</code>. وهي الطريقة التي نفضلها.</li>
-</ol>
-<div id="800fb1fa" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>name <span class="op">=</span> <span class="st">"John"</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a>lvl <span class="op">=</span> <span class="dv">300</span></span>
-<span id="cb26-3"><a href="#cb26-3"></a></span>
-<span id="cb26-4"><a href="#cb26-4"></a>x1 <span class="op">=</span> <span class="st">"I am "</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">" and I want to reach level "</span> <span class="op">+</span> <span class="bu">str</span>(lvl) <span class="co"># + operator</span></span>
-<span id="cb26-5"><a href="#cb26-5"></a>x2 <span class="op">=</span> <span class="st">"I am </span><span class="sc">{}</span><span class="st"> and I want to reach level </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(name, lvl)  <span class="co"># .format() method</span></span>
-<span id="cb26-6"><a href="#cb26-6"></a>x3 <span class="op">=</span> <span class="ss">f"I am </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> and I want to reach level </span><span class="sc">{</span>lvl<span class="sc">}</span><span class="ss">"</span>            <span class="co"># f-strings</span></span>
-<span id="cb26-7"><a href="#cb26-7"></a><span class="cf">assert</span> x1 <span class="op">==</span> x2 <span class="op">==</span> x3</span>
-<span id="cb26-8"><a href="#cb26-8"></a><span class="bu">print</span>(x1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>I am John and I want to reach level 300</code></pre>
-</div>
-</div>
-<section id="جرب-1" class="level4">
-<h4 class="anchored" data-anchor-id="جرب-1">جرب</h4>
-<p>اطبع الجملة <code>"Hello, my name is John Doe. and I am 30 years old"</code>. باستخدام المتغيرات <code>first_name</code>، <code>last_name</code>، و <code>age</code> عبر الطرق الثلاث المذكورة آنفًا:</p>
-<p>انظر <a href="zz_strings.qmd">ملحق دقائق النصوص</a> لمعرفة المزيد عنها.</p>
+<p>الطريقة الموصى بها للتعامل مع البيانات الجدولية (مثل ملفات CSV) هي استخدام مكتبة pandas. توفر هذه المكتبة هيكل بيانات سريع ومرن لمعالجة البيانات وتحليلها. <strong>في هذا المستوى، أشجعك على الاطلاع على <a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">دليل البدء السريع لمكتبة pandas</a> بنفسك</strong>.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -986,13 +875,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07_mapping.html" class="pagination-link" aria-label="الربط">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">الربط</span></span>
+      <a href="./09_files.html" class="pagination-link" aria-label="الملفات">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">الملفات</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./09_files.html" class="pagination-link" aria-label="الملفات">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">الملفات</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./11_errors.html" class="pagination-link" aria-label="الأخطاء">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">الأخطاء</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
