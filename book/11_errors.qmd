@@ -3,12 +3,21 @@ title: الأخطاء
 jupyter: python3
 ---
 
+In programming, errors are inevitable, especially when dealing with I/O (the world). They can be broadly classified into three categories:
 
-# Errors and Exceptions
+1. Syntax errors
+2. Runtime errors
+3. Logical errors
+
+In this chapter, we will discuss each type of error and how to handle them.
 
 ## Syntax Errors
 
 Syntax errors, also known as parsing errors, are perhaps the most common kind of complaint you get while you are still learning Python. They occur when the code does not follow the correct syntax (grammar) of the programming language.
+
+Here are three examples:
+
+Missing colon `:`:
 
 ```{python}
 #|error: true
@@ -36,7 +45,9 @@ Mixing tabs and spaces: Python is strict about using either spaces or tabs, but 
 
 However, you might face indentation errors when copying and pasting code from different sources. Or when rewriting some code.
 
-No indentation:
+Here are cases in which you would encounter `IndetationError`s:
+
+No indentation, when it is expected:
 
 ```{python}
 #| error: true
@@ -44,7 +55,7 @@ if True:
 print("x")
 ```
 
-Extra indentation:
+Unmatched indentation:
 
 ```{python}
 #| error: true
@@ -54,55 +65,73 @@ if True:
 ```
 
 
-## Exceptions
+## Runtime Errors
 
-Even if a statement or expression is syntactically correct, it may cause an error when an attempt is made to execute it. Errors detected during execution are called exceptions and are conditionally fatal: you will soon learn how to handle them in Python programs. **Most exceptions are not handled by programs**, however, and result in error messages as shown here:
+Beyond syntactical correctness, code may cause an error when an attempt is made to execute it. Errors detected during execution are called exceptions. Also known as runtime errors.
 
-Divisoin by zero:
+**When exceptions are not handled, they result in error messages** printed to stderr, as shown here:
 
-```{python}
-#| error: true
-10 / 0
-```
-
-Using the wrong data type:
+Example 1: attempting to divide by zero:
 
 ```{python}
 #| error: true
-x = 10 + '5'
+y = 0
+# ...
+# ...
+# ...
+x = 10
+z = x / y
 ```
 
-### Exception handling
+It should be noted that `y = 0` is really obvious. However, in the real-world it may have taken the value zero due to I/O with user or a file or a complex mathematical operation. So, it is not always obvious that `y` is zero. This is why it is important to handle exceptions.
 
-Some exceptions are not caused by bugs, and need to be handled by the code.
-
-Exceptions are called as such because they interrupt the ideal, happy control-flow of the program. The word exception is a misnomer. Normal programs should expect very specific exceptions to be raised based on the functions they call. For example, when reading a file, we expect a `FileNotFoundError` if the file does not exist. Modern programming languages like Go (2009) and Rust (2015) simply return errors instead of raising/throwing exceptions. Ancient languages Python (1991) and JavaScript (1995) can't simply drop exceptions because it would break backward compatability, so we are stuck.
-
-Let's take an example. Suppose at the start of the program, we read a configuration file `config.json` to initialize the state of our program:
+Example 2: attempting to use the `+` operator on a `str` and an `int`. Such thing is not defined:
 
 ```{python}
 #| error: true
-from pathlib import Path
-file = Path('config.json').open()
+x = 10
+y = '5'
+z = x + y
 ```
 
-The file doesn't exist so the exception is **raised** by the function `open()` and since it is unhandled, the program simply crashes. We can handle this exception using a `try-except` block.
+Same goes for this as well. When values come from I/O, we can't guarantee their type conversion went as expected. So, we need to handle exceptions.
 
-Let's decide what happens of the exception `FileNotFoundError` was raised: let's print a message telling the user to create the file. Or better yet, we let's just refer to a default configuration file: `default.json`:
+## Exception handling
+
+Some exceptions are not bugs. These can be handled by the code itself.
+
+Exceptions are called as such because they interrupt the ideal, happy control-flow of the program. I argue that the word exception is a misnomer. Normal programs should expect very specific exceptions to be raised based on the functions they call. For example, when reading a file, we expect a `FileNotFoundError` if the file does not exist. There are two mechanisms to communicate errors in programming:
+
+- **Exceptions**: languages like C++ (1979), Java (1998), Python (1991) and JavaScript (1995) throw / raise exceptions.
+- **Return values**: modern languages like Go (2009) and Rust (2015) simply return errors instead of throwing exceptions.
+
+Let's take an example to see how Exceptions are handled in Python.
+
+#### Example 1
+
+Suppose at the start of the program, we need to read a configuration file `config.json` to initialize the state of the program:
+
+```{python}
+#| error: true
+
+file = open('config.json')
+```
+
+The file doesn't exist so the exception is **raised** by the function `open()` and since it is unhandled, the program simply crashes. We can handle this exception using a `try-except` block. Let's print a message telling the user to create the file if we did not find it. Or better yet, let's just refer to a default configuration file: `default.json`:
 
 ```{python}
 DEFAULT_CONFIG_PATH = 'default.json'
 try:
-    file = Path('config.json').open()
+    file = open('config.json')
     # code that does something ...
     # ...
 except FileNotFoundError:
-    file = Path(DEFAULT_CONFIG_PATH).open()
+    file = open(DEFAULT_CONFIG_PATH)
 except Exception as e:
     print("something unexpected happened:", e)
 ```
 
-The last `except Exception as e` is a catch-all, which is not recommended. Rather, it is better to catch specific exceptions and handle them accordingly. Here, it has the effect of not crashing the program if an unexpected exception is raised, which might be useful in some cases.
+The last clause `except Exception as e` is a catch-all clause, which is not recommended. Rather, it is better to catch specific exceptions and handle them accordingly. Here, it has the effect of not crashing the program if an unexpected exception is raised, which might be useful in some cases.
 
 **Anticipating exceptions**. Just like the return value type, we should be able to find out from the documentation of the function what exceptions are possibly raised in each case.
 
@@ -110,7 +139,7 @@ The last `except Exception as e` is a catch-all, which is not recommended. Rathe
 help(Path.open)
 ```
 
-Sometimes, like this one, we find the docs for `Path.open()` refers to the built-in `open()` function. So, we actually need to look at the docs for `open()`:
+We need to look at the docs for `open()`:
 
 ```{python}
 help(open)
@@ -123,6 +152,8 @@ Relevant lines are:
 - Finally: "**Pass 'strict' to raise a ValueError exception if there is an encoding error**"
 
 Python error handling is not the best. Unfortunately, the documentation is not always clear about what exceptions are raised. I couldn't find the `FileNotFoundError` exception. However, we found it through trial and error (looking at the error message).
+
+#### Example 2
 
 Let's take a look at another example, where we must handle the exception.
 
@@ -164,7 +195,6 @@ The exception is `TypeError`.
 Now that we know the cases, let's handle them.
 
 ```{python}
-# c = input("Enter your choice: ")
 c = '9'
 
 retry_message = "Please enter a digit between 1 and 4"
@@ -188,11 +218,14 @@ except (IndexError, ValueError):
     print(retry_message)
 ```
 
-### Raising exceptions
+## Raising exceptions
 
-When in Python, do what the Pythonistas do. If you want to raise an exception, you can use the `raise` keyword. You can raise any exception you want, but it is recommended to raise built-in exceptions.
+When in Python, do what the Pythonistas do. If you want to raise an exception, you can use the `raise` keyword. You can raise any exception you want, but it is recommended to raise built-in exceptions, rather than defining your own.
 
-If the type of the argument is wrong, you should raise a `TypeError`. Otherwise, check the `value`. If it is out of acceptable input domain, raise a `ValueError`.
+- If the type of the argument is wrong, you should raise a `TypeError`
+- Otherwise, check the `value`. If it is out of acceptable input domain, raise a `ValueError`
+
+Note: we had to `import numbers` to check the type of the input `x` using the built-in procedure like so: `isinstance(x, numbers.Number)`:
 
 ```{python}
 import numbers
@@ -227,7 +260,7 @@ square_root(16)
 ```
 
 
-### Common errors and how to fix them
+## Common errors and how to fix them
 
 Here are some common error types and how to fix them:
 
@@ -310,7 +343,11 @@ If however, the error was, in fact, in `func_library_1`, then we need to communi
 
 ## Logical errors
 
-Logical errors are silent. They are not detected by the interpreter, yet they cause the program to behave incorrectly. Logical errors are the hardest to find and fix because they are not always obvious. They can be caused by incorrect assumptions, incorrect algorithm implementation, or incorrect data processing.
+Logical errors are silent. They are not detected by the interpreter, yet they cause the program to behave incorrectly. Logical errors are the hardest to find and fix because they are not always obvious. They can be caused by:
+
+- incorrect assumptions
+- incorrect algorithm implementation or
+- incorrect data processing
 
 ### Using the wrong function for the job:
 
@@ -347,13 +384,15 @@ for i in range(10, 0, -1):
     print(i)
 ```
 
-### How to solve logical errors?
+## How to solve logical errors?
 
-**Execute and Review**. The best way to solve logical errors is to execute the code and review the output. You can use print statements to debug and understand the flow of the program.
+**Execute and Review**. The best way to solve logical errors is to execute the code and look at the output, and trace the logic back to the code line by line. You can use print statements to debug and understand the flow of the program.
 
-You may be able to write simple test cases using `assert` statements, to verify the correctness of the code. You may also want to apply a test suite for bigger tests. Either way, testing is not 100% proof against errors either, but it helps.
+You may be able to write simple test cases using `assert` statements, to verify the correctness of the code. You may also want to apply a test suite for bigger tests.
+
+Testing is not 100% proof against errors either, but it helps.
 
 
-### References
+## References
 
 https://docs.python.org/3.13/tutorial/errors.html
