@@ -1,0 +1,294 @@
+---
+title: الوقت
+jupyter: python3
+---
+
+## مقدمة
+
+### الساعات والأيام
+
+تذكر بعض المصادر أن الأولين كانوا يقسمون الوقت على 12 ساعة ليلية (تبدأ بعد غروب الشمس) تتلوها 12 ساعة نهارية (تبدأ بعد شروق الشمس). وهي **ساعات متغيرة**؛ ففي الصيف تزيد طول ساعة النهار لتصل إلى 70 دقيقة معتدلة بينما تقصر ساعة الليل إلى 50 دقيقة معتدلة، ويحصل العكس في الشتاء (فيكون الليل أطول والنهار أقصر). أما عند اعتدال الشمس في أشهر معيَّنة في خط الاستواء فإن ساعات الليل والنهار 60 دقيقة (وهو مقياس الاعتدال). والمرجع في ذلك الساعة الشمسية (المزوَّلة). ولحساب الفترة الزمنية كانوا يستعملون ما يُحرَق كالشمع، أو ثقب في وعاء مدرَّج من ماء أو رمل.
+
+[انظر كتاب فقه اللغة للثعالبي](https://shamela.ws/book/11235/201):
+
+> الفصل السابع عشر "في تَعْدِيدِ سَاعَاتِ النَّهارِ واللَّيل على أربع وعشرين لفظة".
+> 
+> عن حمزة بن الحسن وعليه عهدتها:
+> 
+> سَاعَاتُ النَّهارِ: الشُرُوقُ. ثُمَّ البكورُ. ثُمَّ الغُدْوَةُ. ثُمَّ الضُّحَى. ثُمَّ الهاجِرَةُ. ثُمَّ الظَهِيرَةُ. ثُمَّ الرَّوَاحُ. ثُمَّ العَصْرُ. ثُمَّ القَصْرُ. ثُمَّ الأصِيلُ. ثُمَّ العَشِيُّ. ثُمَّ الغُروبُ. سَاعَاتُ اللَّيلِ: الشَّفَقُ. ثُمَّ الغَسَقُ. ثُمَّ العَتَمَةُ. ثُمَّ السُّدْفَة. ثُمَّ الفَحْمَةُ. ثُمَّ الزُّلَّةُ. ثُمَّ الزُّلْفةُ. ثُمَّ البُهْرَةُ. ثُمَّ السَّحَرُ. ثُمَّ الفَجْرُ. ثُمَّ الصُّبْحُ. ثُمَّ الصَّباحُ 
+
+ثم جاءت **الساعات الميكانيكية الثابتة** التي تعمل وكأن جميع الساعات 60 دقيقة (وكأنها على خط الاستواء وفي وقت اعتدال الشمس عليه)؛ ولا تعتبر شتاءً ولا صيْفًا، ولا نهارًا ولا ليلاً .. لكنها أصبحت هي المتداولة. وقد مرَّ ضبط الساعة (حتى لا تحيد) بمستويات متطورة من الدقة، فبدأت من الساعة المتأرجحة (1657) إلى الكرونومتر (1762) إلى مذبذب الكوارتز (1927) إلى الساعة الذرية (1949) إلى ساعة شعاع السيزيوم (1955) إلى ساعة نافورة السيزيوم (1993) إلى الساعة الضوئية (Optical Clock: 2006) والتي تحيد بمقدار ثانية بعد كل 30 مليار سنة.
+
+### التوقيت العالمي
+
+لتسهيل التعامل بين الدول والتواصل عبر القارات، ظهر نظام **التوقيت العالمي المنسق** (UTC: Coordinated Universal Time) حوالي سنة 1967، يعتمد على خطوط الطول الأرضية، تقسَّم فيه المناطق الزمنية بحسب بعدها عن خط طول جرينيتش وجُعل هو هو نقطة الصفر. فما يكون شرقيها يكون الفارق فيه بالموجب، وما يكون غربيَّها يكون الفارق فيه بالسالب. 
+
+وكل **منطقة زمنية** لها **توقيت محلي** تعتمده في معاملاتها اليومية فيما يتعلق بالوقت من تواصل وتنسيق ومواعيد ونحو ذلك. في الخريطة أدناه نرى تقسيم المناطق الزمنية:
+
+![خريطة تظهر تقسيم المناطق الزمنية](https://upload.wikimedia.org/wikipedia/commons/8/88/World_Time_Zones_Map.png)
+
+لاحظ أولاً أن الخطوط ليست طوليَّة بالفعل، انظر إلى الألوان فليست هي مستطيلات بل تتعرَّج بحسب حدود الدُّول في الغالب. فالأمر ليس بالبساطة التي قد نعتقدها: فليس الوقت المحلي هو فقط زيادة أو نقص من الوقت العالمي .. بل هناك عدة اعتبارات تجعل يجب أن توضع في الحسبان عند التحويل بينهما:
+
+- بعض المناطق الزمنية تقدِّم الوقت ساعة عند الربيع (أو نهاية الشتاء) ثُم تعيدُه في الخريف، وذلك لتنظيم جدوَل الناس بحيث يتعرضوا للشمس أكثر. وهذا يسمونه (Daylight Saving).
+- في سنة من السنين بعض المناطق الزمنية حوَّلت نسبتها من التوقيت العالمي .. فلا يمكن إذاً اعتبار أن المنطقة الزمنية لها نسبة ثابتة عبر كل السنين (فالأمر أصعب عندما نريد حساب تواريخ قديمة).
+- توجد مناطق عريضة جغرافيًّا كالصين فإنها تمتد لتغطي مجموعة خطوط طول أرضية، إلا أنها تعتمد توقيتًا واحدًا (وكأنها منطقة زمنية واحدة)
+- جانب التنسيق في التوقيت العالمي المنسق هو: أنه يضع في الحسبان الاختلاف اليسير بسبب الثواني الكبسية، فتعاد ضبط الأوقات لاعتبارها. 
+
+### بيانات المناطق الزمنية
+
+نخلص من ذلك أن التعامل مع الوقت له اعتبارات كثيرة بسبب ظروف تاريخية وسياسية وليس خاضعًا لقوانين فيزيائية أو أرضية أو فلكية بحتة. ولذلك ظهرت **قاعدة بيانات للمناطق الزمنية** (بمجهود جماعي) تتضمن معلومات الدول بشكل مستمر تسمى: ([tz database](https://en.wikipedia.org/wiki/Tz_database)) وتضمَّن هذه المعلومات في المكتبات التي تعتني بالتعامل مع التواريخ والأوقات عبر السنين، وتتضمن معلومات عن التغييرات التاريخي التي طرأت، ويتم تحديثها عند التغيرات الجديدة.
+
+## الزمن في الحاسوب
+
+يتمثل الزمن في الأنظمة الحاسوبية بطريقتين:
+
+الأولى: **وقت النظام** (system or Unix time) وهو رقم يمثل عدد الثواني منذ نقطة صفرية جُعلت في الساعة 00:00:00 UTC بتاريخ أول يوم من أول شهر (يناير) من سنة 1970 (وذلك لأن نظام Unix كان يطوَّر في تلك الفترة) وسمي ذلك الزمن المرجعي (Unix Epoch).
+
+مثال: لنشير إلى سنة واحدة تمامًا بعد النقطة الصفرية، أي: الساعة 00:00:00 بتاريخ 1 يناير1971 فإن السنة الواحدة `31,536,000` ثانية ، وبالتالي يكون هذا الرقم هو الذي يمثل الوقت.
+
+الثانية: **وقت التقويم** (calendar time) وهو التمثيل الأقرب للقراءة للبشر، ويمكن التحويل بينه وبين وقت النظام. على سبيل المثال، نترجم وقت النظام 1,000,000,000 (ثانية منذ النقطة الصفرية) إلى وقت التقويم 9 سبتمبر 2001 01:46:40 بالتوقيت العالمي المنسق (UTC).
+
+### مشكلة سنة 2038
+
+تمثل التواريخ في الأنظمة ذات 32-بت **برقم 32-بت ذي إشارة** (أي: قد يكون سالبًا للتواريخ السابقة). وهذا يعني:
+
+- فيما يسبق النقطة الصفرية: أقل تاريخ ووقت يمكن تمثيله هو الساعة **20:45:52 UTC بتاريخ 1901-12-13**
+- فيما يلحق النقطة الصفرية: أعلى تاريخ ووقت يمكن تمثيله هو الساعة **03:14:07 UTC بتاريخ 2038-01-19**
+
+ما هو الحل؟ نقل البرنامج لجهاز 64-بت.
+
+## الوقت في بايثون
+ننتقل الآن إلى الوقت والتاريخ في بايثون، حيث يوجد لدينا المفاهيم التالية:
+
+أولاً: [`datetime.date`](https://docs.python.org/3/library/datetime.html#datetime.date) وهو تاريخ مثالي يفترض أن التقويم الغريغوري يمتد إلى ما لا نهاية في المستقبل والماضي (رغم أنه في الحقيقة حل مكان التاريخ الجولياني سنة 1582). سمات هذا الكائن: السنة والشهر واليوم.
+
+ثانيًا: [`datetime.time`](https://docs.python.org/3/library/datetime.html#time-objects) هو وقت مثالي يفترض 86,400 ثانية في اليوم (بدون ثوانٍ كبيسة). سمات هذا الكائن: الساعة والدقيقة والثانية والميكروثانية وtzinfo (معلومات المنطقة الزمنية).
+
+ثالثًا: [`datetime.datetime`](https://docs.python.org/3/library/datetime.html#datetime-objects) وهو التاريخ والوقت معًا؛ فلديه سمات كلا الجزئين.
+
+رابعًا: [`datetime.timedelta`](https://docs.python.org/3/library/datetime.html#timedelta-objects) وهو فترة زمنية. ولكننا سنستبدله بـ [`dateutil.relativedelta`](https://dateutil.readthedocs.io/en/stable/examples.html#relativedelta-examples) إذ هي كذلك فترة زمنية إلا أن نطاقها أوسع (تستوعب السنين والأشهر، وتعتبر السنوات الكبيسة في الحسبان).
+
+الوقت الصحيح **لا بد له من نسبة إلى منطقة زمنيَّة** (كأن تقول الساعة 04:00:00 صباحًا بتوقيت UTC+03)؛ فهذا تسميه بايثون وقت واع (Aware)، وأما الوقت الذي لم تحدد منطقته الزمنية (كما لو قُلت في الساعة 04:00:00 صباحًا) فهذا غير منسوب لمنطقة زمنية وبالتالي فهو ساذج (Naive) على تعبيرهم. 
+
+ويرشدنا توثيق المكتبة للتوسع في استعمال قاعدة بيانات المناطق الزمنية، والقدرة على تفسير التواريخ والأوقات بمرونة لاستخدام مكتبة [`dateutil`](https://dateutil.readthedocs.io/en/stable/) المتوفرة في PyPI.
+
+لتثبيت المكتبة نستعمل `pip` على النحو التالي:
+
+```bash
+pip install python-dateutil
+```
+
+الآن نستورد المكتبة الأساسية `datetime` ومكتبة `dateutil`:
+
+```{python}
+from datetime import date, time, datetime, timedelta
+from dateutil import tz
+```
+
+نريد الآن معرفة الوقت العالمي  والمحلي، وكذلك الوقت في القاهرة، وكذلك الوقت في  لندن ([هنا قائمة بالأسماء](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)):
+
+```{python}
+print(datetime.now(tz=tz.tzutc()))
+print(datetime.now(tz=tz.tzlocal()))
+print(datetime.now(tz=tz.gettz('Africa/Cairo')))
+print(datetime.now(tz=tz.gettz('Europe/London')))
+```
+
+لاحظ أن شكل الوقت كاملاً على النحو التالي:
+
+```
+    2024-11-19 11:32:35.355104+03:00
+    YYYY-MM-DD HH:MM:SS.ssssss+HH:MM
+```
+
+نفكك ذلك:
+
+- `YYYY-MM-DD` هو التاريخ (يبدأ بالسنة ثم الشهر ثم اليوم)
+- `HH:MM:SS.ssssss` هو الوقت (بالساعات والدقائق والثواني والميكروثواني)
+- `+HH:MM` هو الفرق بين الوقت المحلي لتلك المنطقة الزمنية والوقت العالمي المنسق (UTC).
+
+### التفسير: تحويل النص إلى تاريخ ووقت
+
+ومما تدعمه مكتبة `dateutil` أفضل بكثير من المكتبة الأساسية، [قراءة التواريخ](https://dateutil.readthedocs.io/en/stable/examples.html#parse-examples) إذ نحتاج لذلك عند استقبال معلومات من الشبكة أو من ملفات أو من المستخدمين:
+
+```{python}
+from dateutil.parser import parse
+```
+
+هنا نحدد وقتًا افتراضيًّا عند القراءة، بحيث لو لم توجد المعلومة عند القراءة فإنها تستعمل القيم الافتراضية:
+
+```{python}
+DEFAULT = datetime(2003, 9, 25)
+parse("Thu Sep 25 10:36:28", default=DEFAULT)
+```
+
+ونرى كيف أن المفسر يحاول معرفة المعلومات ولو كانت ناقصة:
+
+- دون السنة
+- دون الشهر
+- دون الثواني
+- دون اليوم
+
+```{python}
+print(parse("Thu Sep 10:36:28", default=DEFAULT))
+print(parse("Thu 10:36:28", default=DEFAULT))
+print(parse("Thu 10:36", default=DEFAULT))
+print(parse("10:36", default=DEFAULT))
+```
+
+### الحسابات الزمنية
+
+```{python}
+from dateutil.relativedelta import relativedelta
+from dateutil.rrule import MO, TU, WE, TH, FR, SA, SU
+```
+
+#### حساب الزمن المنقضي
+
+```{python}
+today = datetime.now(tz=tz.tzlocal())
+birthday = datetime(1970, 1, 1, tzinfo=tz.tzlocal())
+age = relativedelta(today, birthday)
+print(f'You are {age.years} years and {age.months} months old')
+```
+
+#### حساب الزمن لموعد
+
+```{python}
+today = datetime.now(tz=tz.tzlocal())
+exam_date = datetime(2025, 1, 15, tzinfo=tz.tzlocal())
+diff = relativedelta(exam_date, today)
+print(f'There are {diff.days} days and {diff.hours} hours remaining')
+```
+
+#### مقارنة الوقت
+
+```{python}
+now = datetime.now(tz=tz.tzlocal())
+exam_date = datetime(2024, 11, 19, hour=9, minute=30, second=0, tzinfo=tz.tzlocal())
+
+if now > exam_date:
+    print('The exam has passed')
+elif now < exam_date:
+    print('The exam is coming')
+```
+
+#### مقارنة الفترة
+
+```{python}
+now = datetime.now(tz=tz.tzlocal())
+exam_date = datetime(2024, 11, 19, hour=15, minute=30, second=0, tzinfo=tz.tzlocal())
+
+if relativedelta(now, exam_date).hours < 1:
+    print('Hurry up!')
+elif relativedelta(now, exam_date).hours < 4:
+    print(f'Remember you have an exam today at {exam_date:%H:%M}')
+else:
+    print(f'You have plenty of time to prepare for the exam')
+```
+
+#### الجمعة القادمة
+
+```{python}
+today = datetime.now(tz=tz.tzlocal())
+next_friday = today + relativedelta(days=+1, weekday=FR)
+print(f'The next Friday is {next_friday:%Y-%m-%d}')
+```
+
+#### الجمعة الفائتة
+
+```{python}
+last_friday = today - relativedelta(days=+1, weekday=FR(-1))
+print(f'The last Friday is {last_friday:%Y-%m-%d}')
+```
+
+#### حساب الوقت باعتبار منطقتين زمنيتين
+
+لديك اجتماع في وقت محدد بتوقيت لندن، وتريد معرفة وقت الوصول بالطائرة إن كانت الرحلة تستغرق 4 ساعات والإقلاع من القاهرة في الساعة 01:00:00 صباحًا والوجهة لندن:
+
+```{python}
+departure_tz = tz.gettz('Africa/Cairo')
+arrival_tz = tz.gettz('Europe/London')
+
+departure_time = datetime(2024, 11, 19, hour=1, tzinfo=departure_tz)
+
+arrival_time = departure_time + relativedelta(hours=4)
+
+print(f'You leave at {departure_time.astimezone(departure_tz)} in Cairo time')
+print(f'You arrive at {arrival_time.astimezone(arrival_tz)} in London time')
+print(f'which corresponds to {arrival_time.astimezone(departure_tz)} in Cairo time')
+```
+
+### تنسيق التاريخ والوقت
+
+وانظر الجدول [لتنسيق مظهر التاريخ والوقت](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes):
+
+```{python}
+print(f'Departure time: {departure_time.astimezone(departure_tz):%d %b, %X %Z} in Cairo time')
+print(f'Arrival time: {arrival_time.astimezone(arrival_tz):%d %b, %X %Z} in London time')
+print(f'which corresponds to {arrival_time.astimezone(departure_tz):%d %b, %X %Z} in Cairo time')
+```
+
+### التكرار
+
+تكرار التواريخ يتم في هذه المكتبة باستعمال [`rrule`](https://dateutil.readthedocs.io/en/stable/examples.html#rrule-examples) ويحدد على النحو التالي:
+
+```{python}
+from dateutil.rrule import rrule
+from dateutil.rrule import DAILY, WEEKLY, MONTHLY, YEARLY, HOURLY, MINUTELY, SECONDLY
+from dateutil.rrule import MO, TU, WE, TH, FR, SA, SU
+```
+
+#### يوم ويوم
+
+تكرار أوقات بأخذ يوم وترك يوم، ابتداءً من وقت معين في الساعة العاشرة صباحًا:
+
+```{python}
+list(
+    rrule(DAILY, interval=2, count=10, dtstart=datetime(2024, 11, 19, hour=10))
+)
+```
+
+#### أسبوعي
+
+```{python}
+list(
+    rrule(WEEKLY, interval=1, count=4, dtstart=datetime(2024, 11, 19, hour=10))
+)
+```
+
+#### شهريًّا إلى وقت محدد
+
+```{python}
+list(
+    rrule(MONTHLY, interval=1,
+        dtstart=datetime(2024, 8, 1),
+        until=datetime(2025, 4, 1),
+    )
+)
+```
+
+
+#### كل 15 دقيقة لمدة 6 مرات
+
+```{python}
+list(
+    rrule(MINUTELY, interval=15, count=6, dtstart=datetime(2024, 11, 19, hour=10))
+)
+```
+
+وندعوك للاطلاع على [المزيد من الأمثلة](https://dateutil.readthedocs.io/en/stable/examples.html) على مكتبة `dateutil`.
+
+## التاريخ الهجري في بايثون
+
+توفر مكتبة [`hijridate`](https://hijridate.readthedocs.io/en/stable/) التعامل مع التاريخ الهجري والتحويل بينه وبين الجريجوري (الميلادي):
+
+```{python}
+from hijridate import Hijri, Gregorian
+
+g = Hijri(1446, 5, 17).to_gregorian()
+h = Gregorian(2024, 11, 19).to_hijri()
+
+print(g)
+print(h)
+```
