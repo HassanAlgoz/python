@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; الربط – البايثونية</title>
+<title>19&nbsp; تنسيق الطباعة – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./09_strings.html" rel="next">
-<link href="./07_sets.html" rel="prev">
+<link href="./glossary.html" rel="next">
+<link href="./zz_time.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_setup.html">الأصل</a></li><li class="breadcrumb-item"><a href="./08_mapping.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الربط</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./zz_time.html">فروع</a></li><li class="breadcrumb-item"><a href="./zz_format.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">تنسيق الطباعة</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -205,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_mapping.html" class="sidebar-item-text sidebar-link active">
+  <a href="./08_mapping.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الربط</span></span></a>
   </div>
 </li>
@@ -276,7 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./zz_format.html" class="sidebar-item-text sidebar-link">
+  <a href="./zz_format.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">تنسيق الطباعة</span></span></a>
   </div>
 </li>
@@ -309,19 +309,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#الكلمة-ومعناها" id="toc-الكلمة-ومعناها" class="nav-link active" data-scroll-target="#الكلمة-ومعناها">الكلمة ومعناها</a></li>
-  <li><a href="#حفظ-معلومات-المستخدم" id="toc-حفظ-معلومات-المستخدم" class="nav-link" data-scroll-target="#حفظ-معلومات-المستخدم">حفظ معلومات المستخدم</a></li>
-  <li><a href="#سلة-المشتريات" id="toc-سلة-المشتريات" class="nav-link" data-scroll-target="#سلة-المشتريات">سلة المشتريات</a></li>
-  <li><a href="#الذاكرة-القريبة-cache" id="toc-الذاكرة-القريبة-cache" class="nav-link" data-scroll-target="#الذاكرة-القريبة-cache">الذاكرة القريبة (Cache)</a></li>
+  <li><a href="#المحاذاة-والحشو-alignment-and-padding" id="toc-المحاذاة-والحشو-alignment-and-padding" class="nav-link active" data-scroll-target="#المحاذاة-والحشو-alignment-and-padding"><span class="header-section-number">19.1</span> المحاذاة والحشو (Alignment and Padding)</a></li>
+  <li><a href="#تنسيق-الأرقام" id="toc-تنسيق-الأرقام" class="nav-link" data-scroll-target="#تنسيق-الأرقام"><span class="header-section-number">19.2</span> تنسيق الأرقام</a>
+  <ul class="collapse">
+  <li><a href="#محاذاة-الأرقام" id="toc-محاذاة-الأرقام" class="nav-link" data-scroll-target="#محاذاة-الأرقام">محاذاة الأرقام</a></li>
+  <li><a href="#فاصل-الآلاف" id="toc-فاصل-الآلاف" class="nav-link" data-scroll-target="#فاصل-الآلاف">فاصل الآلاف</a></li>
+  <li><a href="#الترميز-العلمي-scientific-notation" id="toc-الترميز-العلمي-scientific-notation" class="nav-link" data-scroll-target="#الترميز-العلمي-scientific-notation">الترميز العلمي (Scientific Notation)</a></li>
+  <li><a href="#الأعداد-العشرية-decimals" id="toc-الأعداد-العشرية-decimals" class="nav-link" data-scroll-target="#الأعداد-العشرية-decimals">الأعداد العشرية (Decimals)</a></li>
+  <li><a href="#تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats" id="toc-تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats" class="nav-link" data-scroll-target="#تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats">تنسيق كتابة القيَم العددية الثابتة (Number literal formats)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_setup.html">الأصل</a></li><li class="breadcrumb-item"><a href="./08_mapping.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الربط</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./zz_time.html">فروع</a></li><li class="breadcrumb-item"><a href="./zz_format.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">تنسيق الطباعة</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الربط</span></h1>
+<h1 class="title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">تنسيق الطباعة</span></h1>
 </div>
 
 
@@ -338,130 +343,148 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>القاموس</strong> (<a href="https://docs.python.org/3/library/stdtypes.html#dict"><code>dict</code></a>) هو مجموعة مرتبة من المؤشرات الفريدة الدالة على أشياء. يمكن أن تكون المؤشرات من نوع: سلسلة نصية، أو رقم، أو صف وما هو قابل للتجزئة (Hashable). أما القيَم فتكون من أي نوع.</p>
-<p>يدعم القاموس العمليات التالية:</p>
 <ul>
-<li>معرفة عدد المؤشرات: <code>len(dict)</code></li>
-<li>التكرار: <code>for key in dict</code></li>
-<li>العضوية: <code>key not in dict</code></li>
-<li>الإشارة: <code>dict[key]</code> أو <code>dict.get(key)</code></li>
-<li>نزع قيمة: <code>dict.pop(key)</code></li>
-<li>إضافة أو تعديل رابط: <code>dict[key] = value</code></li>
-<li>إضافة أو تعديل مجموعة روابط: <code>dict.update(new_data)</code></li>
-<li>الحذف: <code>del dict[key]</code></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting"><code>printf</code>-style String Formatting</a></li>
+<li><a href="https://pyformat.info/">PyFormat</a></li>
 </ul>
-<p>يعرف القاموس على النحو التالي:</p>
-<div id="eb276446" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>data <span class="op">=</span> {<span class="st">'key1'</span>: <span class="st">'value1'</span>, <span class="st">'key2'</span>: <span class="st">'value2'</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>لكن حين تكثر القيم نفردها على الأسطر لتكون أوضح للقراءة (وليس هذا بلازم):</p>
-<div id="08e80655" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>data <span class="op">=</span> {</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    <span class="st">'key1'</span>: <span class="st">'value1'</span>,</span>
-<span id="cb2-3"><a href="#cb2-3"></a>    <span class="st">'key2'</span>: <span class="st">'value2'</span>,</span>
-<span id="cb2-4"><a href="#cb2-4"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>وهنا نمثل لبعض العمليات:</p>
-<div id="1b2e35fb" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">assert</span> data[<span class="st">'key1'</span>] <span class="op">==</span> <span class="st">'value1'</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">del</span> data[<span class="st">'key1'</span>]</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="cf">assert</span> <span class="st">'key1'</span> <span class="kw">not</span> <span class="kw">in</span> data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>وهنا نستعرض مجموعة من الاستعمالات لشكل القاموس. أولاً كقاموس بالمعنى الذي يشير إليه اللفظ (الكلمة ومعناها).</p>
-<section id="الكلمة-ومعناها" class="level3">
-<h3 class="anchored" data-anchor-id="الكلمة-ومعناها">الكلمة ومعناها</h3>
-<p>نفترض أن لدينا قاموسًا يحتوي على ترجمة بعض الكلمات من الإنجليزية إلى العربية:</p>
-<div id="ab4b6ada" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>english_to_arabic <span class="op">=</span> {</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    <span class="st">'apple'</span>: <span class="st">'تفاحة'</span>,</span>
-<span id="cb4-3"><a href="#cb4-3"></a>    <span class="st">'banana'</span>: <span class="st">'موزة'</span>,</span>
-<span id="cb4-4"><a href="#cb4-4"></a>    <span class="st">'orange'</span>: <span class="st">'برتقالة'</span>,</span>
-<span id="cb4-5"><a href="#cb4-5"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>أو الاختصارات إلى الكلمة التامة:</p>
-<div id="f2c3ab90" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>abbreviations <span class="op">=</span> {</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    <span class="st">'SAR'</span>: <span class="st">'Saudi Riyal'</span>,</span>
-<span id="cb5-3"><a href="#cb5-3"></a>    <span class="st">'KSA'</span>: <span class="st">'Kingdom of Saudi Arabia'</span>,</span>
-<span id="cb5-4"><a href="#cb5-4"></a>    <span class="st">'ASAP'</span>: <span class="st">'As Soon As Possible'</span>,</span>
-<span id="cb5-5"><a href="#cb5-5"></a>    <span class="st">'FYI'</span>: <span class="st">'For Your Information'</span>,</span>
-<span id="cb5-6"><a href="#cb5-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="حفظ-معلومات-المستخدم" class="level3">
-<h3 class="anchored" data-anchor-id="حفظ-معلومات-المستخدم">حفظ معلومات المستخدم</h3>
-<p>وهذا مثال على استعمال القاموس لتخزين معلومات شخص. لاحظ أن القيمة المقابلة لكل مؤشر قد تكون من أي نوع في بايثون، تمامًا مثل ما تُسنِد قيَم لمعرَّفات. فلدين النص والرقم والقاموس (داخل القاموس) والقيَم الثنائية (<code>True</code>, <code>False</code>) والقائمة <code>[ ]</code> (داخل القاموس).</p>
-<div id="ed618ec9" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>person <span class="op">=</span> {</span>
-<span id="cb6-2"><a href="#cb6-2"></a>    <span class="st">'name'</span>: <span class="st">'Adam'</span>,</span>
-<span id="cb6-3"><a href="#cb6-3"></a>    <span class="st">'language'</span>: <span class="st">'Arabic'</span>,</span>
-<span id="cb6-4"><a href="#cb6-4"></a>    <span class="st">'phone'</span>: <span class="st">'966xxxxxxxxx'</span>,</span>
-<span id="cb6-5"><a href="#cb6-5"></a>    <span class="st">'last_updated'</span>: <span class="st">'2021-09-01'</span>,</span>
-<span id="cb6-6"><a href="#cb6-6"></a>    <span class="st">'age'</span>: <span class="dv">25</span>,</span>
-<span id="cb6-7"><a href="#cb6-7"></a>    <span class="st">'notifications'</span>: {</span>
-<span id="cb6-8"><a href="#cb6-8"></a>        <span class="st">'email'</span>: <span class="va">True</span>,</span>
-<span id="cb6-9"><a href="#cb6-9"></a>        <span class="st">'sms'</span>: <span class="va">False</span>,</span>
-<span id="cb6-10"><a href="#cb6-10"></a>        <span class="st">'push'</span>: <span class="va">True</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a>    },</span>
-<span id="cb6-12"><a href="#cb6-12"></a>    <span class="st">'emails'</span>: [<span class="st">'example1@domain.com'</span>, <span class="st">'example2@domain.com'</span>]</span>
-<span id="cb6-13"><a href="#cb6-13"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="سلة-المشتريات" class="level3">
-<h3 class="anchored" data-anchor-id="سلة-المشتريات">سلة المشتريات</h3>
-<p>نفترض أن لدينا سلة تحتوي على مشتريات العميل (<code>basket</code>)، ونريد حساب القيمة الإجمالية لها، ولدينا قائمة بأسعار الفواكه. فنعرف الأسعار على أنها قاموس <code>prices</code> بحيث يشير اسم الفاكهة إلى سعرها (قيمتها المالية).</p>
-<div id="216b8a4e" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>prices <span class="op">=</span> {</span>
-<span id="cb7-2"><a href="#cb7-2"></a>    <span class="st">'apple'</span>: <span class="dv">15</span>,</span>
-<span id="cb7-3"><a href="#cb7-3"></a>    <span class="st">'banana'</span>: <span class="dv">10</span>,</span>
-<span id="cb7-4"><a href="#cb7-4"></a>    <span class="st">'orange'</span>: <span class="dv">5</span>,</span>
-<span id="cb7-5"><a href="#cb7-5"></a>    <span class="st">'cantaloupe'</span>: <span class="dv">40</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a>}</span>
-<span id="cb7-7"><a href="#cb7-7"></a></span>
-<span id="cb7-8"><a href="#cb7-8"></a>basket <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>, <span class="st">'banana'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>نحتاج أن نأتي على السلة عنصرًا عنصرًا، ونجمع قيمة كل فاكهة إلى المجموع الكلي:</p>
-<div id="80039df1" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="cf">for</span> fruit <span class="kw">in</span> basket:</span>
-<span id="cb8-4"><a href="#cb8-4"></a>    total <span class="op">+=</span> prices[fruit]</span>
-<span id="cb8-5"><a href="#cb8-5"></a></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="bu">print</span>(total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="المحاذاة-والحشو-alignment-and-padding" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="المحاذاة-والحشو-alignment-and-padding"><span class="header-section-number">19.1</span> المحاذاة والحشو (Alignment and Padding)</h2>
+<div id="d62e1ab6" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>name <span class="op">=</span> <span class="st">'Adam'</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="bu">print</span>(name.ljust(<span class="dv">15</span>)) </span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">print</span>(name.center(<span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>55</code></pre>
+<pre><code>Adam           
+      Adam     </code></pre>
+</div>
+</div>
+<p>طريقة ممتعة لتزيين سلسلة نصية باستخدام دالة <code>center</code>:</p>
+<div id="1a710860" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">print</span>(<span class="st">'*'</span> <span class="op">*</span> <span class="dv">20</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="bu">print</span>(<span class="st">'Adam'</span>.center(<span class="dv">20</span>, <span class="st">"*"</span>))</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="bu">print</span>(<span class="st">'*'</span> <span class="op">*</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>********************
+********Adam********
+********************</code></pre>
+</div>
+</div>
+<section id="جرب" class="level4">
+<h4 class="anchored" data-anchor-id="جرب">جرب</h4>
+<p>قم بصياغة الكود السابق لتعريف ثلاثة متغيرات واستخدامها في تزيين الاسم:</p>
+<ul>
+<li><code>name</code></li>
+<li><code>width</code></li>
+<li><code>decorator</code></li>
+</ul>
+</section>
+</section>
+<section id="تنسيق-الأرقام" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="تنسيق-الأرقام"><span class="header-section-number">19.2</span> تنسيق الأرقام</h2>
+<section id="محاذاة-الأرقام" class="level3">
+<h3 class="anchored" data-anchor-id="محاذاة-الأرقام">محاذاة الأرقام</h3>
+<div id="667930e2" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="dv">100</span><span class="sc">:10}</span><span class="ss">'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="dv">1000</span><span class="sc">:10}</span><span class="ss">'</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="dv">10000</span><span class="sc">:10}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       100
+      1000
+     10000</code></pre>
+</div>
+</div>
+<p>يمكننا أيضًا جعل كل من العدد <code>n</code> والتعبئة <code>p</code> متغيرات:</p>
+<div id="e4927d4a" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>p <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  100</code></pre>
+</div>
+</div>
+<p>بشكل افتراضي، يتم محاذاة الرقم إلى اليمين. يمكننا محاذاته إلى اليسار بإضافة <code>&lt;</code>. لاحظ الفرق بين التعبيرين أدناه:</p>
+<div id="e2093371" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span><span class="op">&gt;</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span><span class="op">&lt;</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  100
+100  </code></pre>
 </div>
 </div>
 </section>
-<section id="الذاكرة-القريبة-cache" class="level3">
-<h3 class="anchored" data-anchor-id="الذاكرة-القريبة-cache">الذاكرة القريبة (Cache)</h3>
-<p>وهي الذاكرة التي تحتفظ بنتائج العمليات المتكررة (خصوصًا إذا كانت خوارزميات معقَّدة) حتى لا نحتاج لحسابها كل مرة؛ فنقتصد في موارد المعالجة في مقابل توظيف موارد الذاكرة (والتخزين).</p>
-<div id="ae2339c2" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>factorial_table <span class="op">=</span> {</span>
-<span id="cb10-2"><a href="#cb10-2"></a>    <span class="dv">0</span>: <span class="dv">1</span>,</span>
-<span id="cb10-3"><a href="#cb10-3"></a>    <span class="dv">1</span>: <span class="dv">1</span>,</span>
-<span id="cb10-4"><a href="#cb10-4"></a>    <span class="dv">2</span>: <span class="dv">2</span>,</span>
-<span id="cb10-5"><a href="#cb10-5"></a>    <span class="dv">3</span>: <span class="dv">6</span>,</span>
-<span id="cb10-6"><a href="#cb10-6"></a>}</span>
-<span id="cb10-7"><a href="#cb10-7"></a></span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="kw">def</span> factorial(n):</span>
-<span id="cb10-9"><a href="#cb10-9"></a>    <span class="cf">if</span> n <span class="kw">not</span> <span class="kw">in</span> factorial_table:</span>
-<span id="cb10-10"><a href="#cb10-10"></a>        factorial_table[n] <span class="op">=</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb10-11"><a href="#cb10-11"></a>    <span class="cf">return</span> factorial_table[n]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="فاصل-الآلاف" class="level3">
+<h3 class="anchored" data-anchor-id="فاصل-الآلاف">فاصل الآلاف</h3>
+<div id="02fe7a3e" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>big_num <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>big_num<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>big_num<span class="sc">:,}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>10000
+10,000</code></pre>
 </div>
-<p>بل إن بايثون توفر هذه الخاصية للدوال عن طريق <strong>المزيِّن</strong> (decorator) <a href="https://docs.python.org/3/library/functools.html#functools.cache"><code>@functools.lru_cache</code></a>، هكذا:</p>
-<div id="5639cc41" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="im">import</span> functools</span>
-<span id="cb11-2"><a href="#cb11-2"></a></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="at">@functools.lru_cache</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="kw">def</span> factorial(n):</span>
-<span id="cb11-5"><a href="#cb11-5"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb11-6"><a href="#cb11-6"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a>    <span class="cf">return</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>لاحظ عدم الحاجة لتعريف القاموس <code>factorial_table</code>، بل يقوم المزيِّن هو بذلك تلقائيًّا.</p>
+</section>
+<section id="الترميز-العلمي-scientific-notation" class="level3">
+<h3 class="anchored" data-anchor-id="الترميز-العلمي-scientific-notation">الترميز العلمي (Scientific Notation)</h3>
+<div id="20ac1840" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>small_num <span class="op">=</span> <span class="fl">1e-4</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>small_num<span class="sc">:.2e}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1.00e-04</code></pre>
+</div>
+</div>
+</section>
+<section id="الأعداد-العشرية-decimals" class="level3">
+<h3 class="anchored" data-anchor-id="الأعداد-العشرية-decimals">الأعداد العشرية (Decimals)</h3>
+<div id="0603d19c" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>num <span class="op">=</span> <span class="fl">10.5689</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.0f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>10.5689
+10.5689
+10.57
+11</code></pre>
+</div>
+</div>
+<section id="مثال-تنسيق-الكم-المالي" class="level4">
+<h4 class="anchored" data-anchor-id="مثال-تنسيق-الكم-المالي">مثال: تنسيق الكم المالي</h4>
+<p>هنا نستخدم مكونين داخل الأقواس المعقوفة وعلامة <code>$</code> في البداية: - يتم إضافة علامة <code>$</code> قبل الرقم (ليست جزءًا من الرقم المنسق على الإطلاق) - <code>,</code> تضيف فاصل الآلاف - <code>.2f</code> يقوم بتقريب الرقم إلى منزلتين عشريتين</p>
+<div id="7abc040d" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>price <span class="op">=</span> <span class="fl">2978.95</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="bu">print</span>(<span class="ss">f"$</span><span class="sc">{</span>price<span class="sc">:,.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$2,978.95</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats" class="level3">
+<h3 class="anchored" data-anchor-id="تنسيق-كتابة-القيم-العددية-الثابتة-number-literal-formats">تنسيق كتابة القيَم العددية الثابتة (Number literal formats)</h3>
+<p><a href="https://docs.python.org/3/reference/lexical_analysis.html#literals"><strong>الحروفيَّة</strong></a> هي رموز للقيم الثابتة لبعض الأنواع المدمجة. مثال: <code>42</code> هو حرفيُّ عدد صحيح و <code>3.14</code> هو حرفيُّ عدد عشري.</p>
+<p>تسمح بايثون بطرق أكثر قابلية للقراءة في كتابة الحروفية العددية:</p>
+<ul>
+<li>يمكن استخدام الشرطة السفلية <code>_</code> في الأرقام لفصلها لتحسين القراءة</li>
+<li>يمكن استخدام <code>e</code> أو <code>E</code> لتمثيل الترميز العلمي</li>
+<li><code>0b</code> أو <code>0B</code> للأرقام الثنائية</li>
+<li><code>0o</code> أو <code>0O</code> للأرقام الثمانية</li>
+<li><code>0x</code> أو <code>0X</code> للأرقام الست عشرية</li>
+<li><code>j</code> أو <code>J</code> للأعداد المركبة</li>
+</ul>
+<p>وإليك تطبيق ذلك:</p>
+<div id="5428a49c" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="cf">assert</span> <span class="fl">1e-4</span> <span class="op">==</span> <span class="fl">0.0001</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="cf">assert</span> <span class="dv">1_000_000</span> <span class="op">==</span> <span class="dv">1000000</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="cf">assert</span> <span class="bn">0b1010</span> <span class="op">==</span> <span class="dv">10</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="cf">assert</span> <span class="bn">0o10</span> <span class="op">==</span> <span class="dv">8</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="cf">assert</span> <span class="bn">0x10</span> <span class="op">==</span> <span class="dv">16</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="cf">assert</span> <span class="dv">1</span> <span class="op">+</span> <span class="ot">2j</span> <span class="op">==</span> <span class="ot">2j</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -887,13 +910,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07_sets.html" class="pagination-link" aria-label="المجموعة الرياضية">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">المجموعة الرياضية</span></span>
+      <a href="./zz_time.html" class="pagination-link" aria-label="الوقت">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">الوقت</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./09_strings.html" class="pagination-link" aria-label="النصوص">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">النصوص</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./glossary.html" class="pagination-link" aria-label="المصطلحات">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">المصطلحات</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

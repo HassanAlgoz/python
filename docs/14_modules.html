@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; الربط – البايثونية</title>
+<title>15&nbsp; الوحدات – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,15 +57,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./09_strings.html" rel="next">
-<link href="./07_sets.html" rel="prev">
+<link href="./zz_set.html" rel="next">
+<link href="./13_extend.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -102,6 +102,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 
 
 </head>
@@ -115,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_setup.html">الأصل</a></li><li class="breadcrumb-item"><a href="./08_mapping.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الربط</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_setup.html">الأصل</a></li><li class="breadcrumb-item"><a href="./14_modules.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">الوحدات</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -199,62 +205,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07_sets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">المجموعة الرياضية</span></span></a>
+  <a href="./07_mapping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">الربط</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_mapping.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الربط</span></span></a>
+  <a href="./08_strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">النصوص</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_strings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">النصوص</span></span></a>
+  <a href="./09_files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">الملفات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_comprehension.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">التعبير المختصر</span></span></a>
+  <a href="./10_serialization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">حفظ البيانات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">الملفات</span></span></a>
+  <a href="./11_errors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">الأخطاء</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_serialization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">حفظ البيانات</span></span></a>
+  <a href="./12_classes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">الأصناف</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_errors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">الأخطاء</span></span></a>
+  <a href="./13_extend.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">التخصيص والتركيب</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14_classes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">الأصناف</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./15_extend.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">التخصيص والتركيب</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./16_modules.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">الوحدات</span></span></a>
+  <a href="./14_modules.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">الوحدات</span></span></a>
   </div>
 </li>
       </ul>
@@ -270,14 +264,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./zz_time.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./zz_format.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">تنسيق الطباعة</span></span></a>
+  <a href="./zz_set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">المجموعة الرياضية</span></span></a>
   </div>
 </li>
       </ul>
@@ -309,19 +297,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#الكلمة-ومعناها" id="toc-الكلمة-ومعناها" class="nav-link active" data-scroll-target="#الكلمة-ومعناها">الكلمة ومعناها</a></li>
-  <li><a href="#حفظ-معلومات-المستخدم" id="toc-حفظ-معلومات-المستخدم" class="nav-link" data-scroll-target="#حفظ-معلومات-المستخدم">حفظ معلومات المستخدم</a></li>
-  <li><a href="#سلة-المشتريات" id="toc-سلة-المشتريات" class="nav-link" data-scroll-target="#سلة-المشتريات">سلة المشتريات</a></li>
-  <li><a href="#الذاكرة-القريبة-cache" id="toc-الذاكرة-القريبة-cache" class="nav-link" data-scroll-target="#الذاكرة-القريبة-cache">الذاكرة القريبة (Cache)</a></li>
+  <li><a href="#تثبيت-حزم" id="toc-تثبيت-حزم" class="nav-link active" data-scroll-target="#تثبيت-حزم"><span class="header-section-number">15.1</span> تثبيت حزم</a></li>
+  <li><a href="#تغليف-مشاريع-بايثون" id="toc-تغليف-مشاريع-بايثون" class="nav-link" data-scroll-target="#تغليف-مشاريع-بايثون"><span class="header-section-number">15.2</span> تغليف مشاريع بايثون</a></li>
+  <li><a href="#تنفيذ-الوحدة-بمدخلات" id="toc-تنفيذ-الوحدة-بمدخلات" class="nav-link" data-scroll-target="#تنفيذ-الوحدة-بمدخلات"><span class="header-section-number">15.3</span> تنفيذ الوحدة بمدخلات</a></li>
+  <li><a href="#نقاط-أخيرة" id="toc-نقاط-أخيرة" class="nav-link" data-scroll-target="#نقاط-أخيرة"><span class="header-section-number">15.4</span> نقاط أخيرة</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_setup.html">الأصل</a></li><li class="breadcrumb-item"><a href="./08_mapping.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الربط</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_setup.html">الأصل</a></li><li class="breadcrumb-item"><a href="./14_modules.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">الوحدات</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الربط</span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">الوحدات</span></h1>
 </div>
 
 
@@ -338,128 +326,120 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>القاموس</strong> (<a href="https://docs.python.org/3/library/stdtypes.html#dict"><code>dict</code></a>) هو مجموعة مرتبة من المؤشرات الفريدة الدالة على أشياء. يمكن أن تكون المؤشرات من نوع: سلسلة نصية، أو رقم، أو صف وما هو قابل للتجزئة (Hashable). أما القيَم فتكون من أي نوع.</p>
-<p>يدعم القاموس العمليات التالية:</p>
+<p>عندما يكبر الكود المكتوب ويتعقد، فإننا كثيرًا ما نلجأ لتقسيمه في ملفات منفصلة وذلك ليكون كل ملف مسؤولاً عن جزئية معيَّنة.</p>
+<p>أو قد نرى أن جزءًا من الكود يستحق الاستعمال في مشروع آخر، فنريد أن نلفَّه في حزمة، ونصدِّره ليكون قابلاً للتثبيت في مشاريع أخرى.</p>
+<p>هاتان الحالتان تستوجبان أن نتعرف على مصطلحين في بايثون: الوحدة والحزمة.</p>
+<p><strong>الوِحدة</strong> (Module) هي مجموعة الكود في الملف الواحد (مثل: <code>script.py</code>)</p>
+<p><strong>الحزمة</strong> (Package) هي مجموعة مكوَّنة من وِحدة أو أكثر؛ وتُعرَّف: بمجلَّد يكون فيه ملف خاص باسم <code>__init.py__</code> وهو الكود الذي يعمل عند أمر استيراد الحزمة بالكلمة <code>import</code> (في المرة الأولى فقط).</p>
+<p><a href="./examples/packages/">فيما يلي مثال</a> يوضِّح ترتيب حزمة ما (<code>my_package</code>) مكوَّنة من حزم مضمَّنة، وفي المستوى الأخير نرى الوحدات، على النحو التالي:</p>
+<pre><code>│   main1.py
+│   main2.py
+│
+└───my_package
+    │   __init__.py
+    │
+    ├───pkg1
+    │   │   __init__.py
+    │   │   module_a.py
+    │   │   module_b.py
+    │
+    ├───pkg2
+    │   │   __init__.py
+    │   │   module_a.py
+    │   │   module_b.py
+    │   │   module_c.py</code></pre>
 <ul>
-<li>معرفة عدد المؤشرات: <code>len(dict)</code></li>
-<li>التكرار: <code>for key in dict</code></li>
-<li>العضوية: <code>key not in dict</code></li>
-<li>الإشارة: <code>dict[key]</code> أو <code>dict.get(key)</code></li>
-<li>نزع قيمة: <code>dict.pop(key)</code></li>
-<li>إضافة أو تعديل رابط: <code>dict[key] = value</code></li>
-<li>إضافة أو تعديل مجموعة روابط: <code>dict.update(new_data)</code></li>
-<li>الحذف: <code>del dict[key]</code></li>
+<li>الملف <code>main.py</code> هو المكان الذي سنكتب فيه الكود لتجربة عبارات الاستيراد (<code>import</code>).</li>
+<li>نقول إن المجلدين <code>pkg1</code> و<code>pkg2</code> هما: حزم فرعية من حزمة <code>my_package</code>، ويمكن استيرادهما بشكل مستقل.</li>
+<li>الملفات <code>module_a.py</code> و<code>module_b.py</code> و<code>module_c.py</code> هي وحدات داخل الحزم الفرعية.</li>
+<li>يستخدم الملف <code>__init__.py</code> علامةً للمجلَّد أنه حزمة؛ ولا يلزم أن يتضمن أي كود، ولكنه غالبًا ما يحتوي على كود تهيئة للحزمة.</li>
 </ul>
-<p>يعرف القاموس على النحو التالي:</p>
-<div id="eb276446" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>data <span class="op">=</span> {<span class="st">'key1'</span>: <span class="st">'value1'</span>, <span class="st">'key2'</span>: <span class="st">'value2'</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>دعنا نلقي نظرة على عمليات الاستيراد واحدة تلو الأخرى (انظر <a href="./examples/packages/main1.py"><code>main.py</code></a>):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> my_package</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="im">from</span> my_package.pkg1 <span class="im">import</span> module_a</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="im">from</span> my_package.pkg2.module_a <span class="im">import</span> func_a</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="im">from</span> my_package.pkg2.module_b <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>أولاً، لاحظ أن أمر الاستيراد <code>import my_package</code> يحدد حزمة لا وحدة. وبالتالي، سينفذ الملف <code>__init__.py</code>، الذي يحتوي على عبارات تعيين (مثل <code>__version__</code>، و<code>DEFAULT_TIMEOUT</code>، وما إلى ذلك) سترتبط بمعرف <code>my_package</code>، ويمكن الوصول إليها باستخدام النقطة (<code>.</code>).</p>
+<p>ثانيًا لاحظ العبارة: <code>from my_package.pkg1 import module_a</code> فهي تحدد وحدة (<code>module_a</code>)، وبالتالي، يتم تنفيذ جميع التعليمات البرمجية في <code>module_a.py</code> والتعيينات تُسنَد للمعرف <code>module_a</code> ويمكن الوصول إليها باستخدام النقطة (<code>.</code>).</p>
+<p>ثالثًا استيراد مباشر للإجراء <code>func_a</code> من وحدة <code>module_a</code> في الحزمة الفرعية <code>pkg2</code>.</p>
+<p>أخيرًا الصيغة <code>from ... import *</code> تستورد جميع (<code>*</code>) الأسماء من الوحدة النمطية (باستثناء تلك التي تبدأ بـ <code>__</code>) إلى نطاق التسمية الحالي (في الوحدة التي نحن فيها). بشكل عام، لا ننصح باستعمال هذه الطريقة، حيث قد تؤدي إلى إلغاء أسماء سبق تعريفها لتحل مكانها هذه الأسماء الجديدة، ولكن لا بأس بها لتقليل جهد الكتابةخصوصًا في الجلسات التفاعلية.</p>
+<section id="تثبيت-حزم" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="تثبيت-حزم"><span class="header-section-number">15.1</span> تثبيت حزم</h2>
+<p>لتثبيت حزمة من قاعدة بيانات الحزم <a href="https://pypi.org/">PyPI</a> نستعمل الأمر <code>pip</code> (إذْ تم تثبيته مع حزمة بايثون) على النحو التالي:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">pip</span> install pandas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>وبعد تثبيت الحزمة ، نستوردها هكذا ونستعملها:</p>
+<div id="abd08000" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'datasets/students.csv'</span>)</span>
+<span id="cb4-4"><a href="#cb4-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Adam</td>
+<td>22</td>
+<td>90</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Belal</td>
+<td>23</td>
+<td>92</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Camal</td>
+<td>24</td>
+<td>91</td>
+</tr>
+</tbody>
+</table>
+
 </div>
-<p>لكن حين تكثر القيم نفردها على الأسطر لتكون أوضح للقراءة (وليس هذا بلازم):</p>
-<div id="08e80655" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>data <span class="op">=</span> {</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    <span class="st">'key1'</span>: <span class="st">'value1'</span>,</span>
-<span id="cb2-3"><a href="#cb2-3"></a>    <span class="st">'key2'</span>: <span class="st">'value2'</span>,</span>
-<span id="cb2-4"><a href="#cb2-4"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>وهنا نمثل لبعض العمليات:</p>
-<div id="1b2e35fb" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">assert</span> data[<span class="st">'key1'</span>] <span class="op">==</span> <span class="st">'value1'</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">del</span> data[<span class="st">'key1'</span>]</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="cf">assert</span> <span class="st">'key1'</span> <span class="kw">not</span> <span class="kw">in</span> data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>وهنا نستعرض مجموعة من الاستعمالات لشكل القاموس. أولاً كقاموس بالمعنى الذي يشير إليه اللفظ (الكلمة ومعناها).</p>
-<section id="الكلمة-ومعناها" class="level3">
-<h3 class="anchored" data-anchor-id="الكلمة-ومعناها">الكلمة ومعناها</h3>
-<p>نفترض أن لدينا قاموسًا يحتوي على ترجمة بعض الكلمات من الإنجليزية إلى العربية:</p>
-<div id="ab4b6ada" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>english_to_arabic <span class="op">=</span> {</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    <span class="st">'apple'</span>: <span class="st">'تفاحة'</span>,</span>
-<span id="cb4-3"><a href="#cb4-3"></a>    <span class="st">'banana'</span>: <span class="st">'موزة'</span>,</span>
-<span id="cb4-4"><a href="#cb4-4"></a>    <span class="st">'orange'</span>: <span class="st">'برتقالة'</span>,</span>
-<span id="cb4-5"><a href="#cb4-5"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>أو الاختصارات إلى الكلمة التامة:</p>
-<div id="f2c3ab90" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>abbreviations <span class="op">=</span> {</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    <span class="st">'SAR'</span>: <span class="st">'Saudi Riyal'</span>,</span>
-<span id="cb5-3"><a href="#cb5-3"></a>    <span class="st">'KSA'</span>: <span class="st">'Kingdom of Saudi Arabia'</span>,</span>
-<span id="cb5-4"><a href="#cb5-4"></a>    <span class="st">'ASAP'</span>: <span class="st">'As Soon As Possible'</span>,</span>
-<span id="cb5-5"><a href="#cb5-5"></a>    <span class="st">'FYI'</span>: <span class="st">'For Your Information'</span>,</span>
-<span id="cb5-6"><a href="#cb5-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="حفظ-معلومات-المستخدم" class="level3">
-<h3 class="anchored" data-anchor-id="حفظ-معلومات-المستخدم">حفظ معلومات المستخدم</h3>
-<p>وهذا مثال على استعمال القاموس لتخزين معلومات شخص. لاحظ أن القيمة المقابلة لكل مؤشر قد تكون من أي نوع في بايثون، تمامًا مثل ما تُسنِد قيَم لمعرَّفات. فلدين النص والرقم والقاموس (داخل القاموس) والقيَم الثنائية (<code>True</code>, <code>False</code>) والقائمة <code>[ ]</code> (داخل القاموس).</p>
-<div id="ed618ec9" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>person <span class="op">=</span> {</span>
-<span id="cb6-2"><a href="#cb6-2"></a>    <span class="st">'name'</span>: <span class="st">'Adam'</span>,</span>
-<span id="cb6-3"><a href="#cb6-3"></a>    <span class="st">'language'</span>: <span class="st">'Arabic'</span>,</span>
-<span id="cb6-4"><a href="#cb6-4"></a>    <span class="st">'phone'</span>: <span class="st">'966xxxxxxxxx'</span>,</span>
-<span id="cb6-5"><a href="#cb6-5"></a>    <span class="st">'last_updated'</span>: <span class="st">'2021-09-01'</span>,</span>
-<span id="cb6-6"><a href="#cb6-6"></a>    <span class="st">'age'</span>: <span class="dv">25</span>,</span>
-<span id="cb6-7"><a href="#cb6-7"></a>    <span class="st">'notifications'</span>: {</span>
-<span id="cb6-8"><a href="#cb6-8"></a>        <span class="st">'email'</span>: <span class="va">True</span>,</span>
-<span id="cb6-9"><a href="#cb6-9"></a>        <span class="st">'sms'</span>: <span class="va">False</span>,</span>
-<span id="cb6-10"><a href="#cb6-10"></a>        <span class="st">'push'</span>: <span class="va">True</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a>    },</span>
-<span id="cb6-12"><a href="#cb6-12"></a>    <span class="st">'emails'</span>: [<span class="st">'example1@domain.com'</span>, <span class="st">'example2@domain.com'</span>]</span>
-<span id="cb6-13"><a href="#cb6-13"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="سلة-المشتريات" class="level3">
-<h3 class="anchored" data-anchor-id="سلة-المشتريات">سلة المشتريات</h3>
-<p>نفترض أن لدينا سلة تحتوي على مشتريات العميل (<code>basket</code>)، ونريد حساب القيمة الإجمالية لها، ولدينا قائمة بأسعار الفواكه. فنعرف الأسعار على أنها قاموس <code>prices</code> بحيث يشير اسم الفاكهة إلى سعرها (قيمتها المالية).</p>
-<div id="216b8a4e" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>prices <span class="op">=</span> {</span>
-<span id="cb7-2"><a href="#cb7-2"></a>    <span class="st">'apple'</span>: <span class="dv">15</span>,</span>
-<span id="cb7-3"><a href="#cb7-3"></a>    <span class="st">'banana'</span>: <span class="dv">10</span>,</span>
-<span id="cb7-4"><a href="#cb7-4"></a>    <span class="st">'orange'</span>: <span class="dv">5</span>,</span>
-<span id="cb7-5"><a href="#cb7-5"></a>    <span class="st">'cantaloupe'</span>: <span class="dv">40</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a>}</span>
-<span id="cb7-7"><a href="#cb7-7"></a></span>
-<span id="cb7-8"><a href="#cb7-8"></a>basket <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>, <span class="st">'banana'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>نحتاج أن نأتي على السلة عنصرًا عنصرًا، ونجمع قيمة كل فاكهة إلى المجموع الكلي:</p>
-<div id="80039df1" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="cf">for</span> fruit <span class="kw">in</span> basket:</span>
-<span id="cb8-4"><a href="#cb8-4"></a>    total <span class="op">+=</span> prices[fruit]</span>
-<span id="cb8-5"><a href="#cb8-5"></a></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="bu">print</span>(total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>55</code></pre>
 </div>
 </div>
 </section>
-<section id="الذاكرة-القريبة-cache" class="level3">
-<h3 class="anchored" data-anchor-id="الذاكرة-القريبة-cache">الذاكرة القريبة (Cache)</h3>
-<p>وهي الذاكرة التي تحتفظ بنتائج العمليات المتكررة (خصوصًا إذا كانت خوارزميات معقَّدة) حتى لا نحتاج لحسابها كل مرة؛ فنقتصد في موارد المعالجة في مقابل توظيف موارد الذاكرة (والتخزين).</p>
-<div id="ae2339c2" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>factorial_table <span class="op">=</span> {</span>
-<span id="cb10-2"><a href="#cb10-2"></a>    <span class="dv">0</span>: <span class="dv">1</span>,</span>
-<span id="cb10-3"><a href="#cb10-3"></a>    <span class="dv">1</span>: <span class="dv">1</span>,</span>
-<span id="cb10-4"><a href="#cb10-4"></a>    <span class="dv">2</span>: <span class="dv">2</span>,</span>
-<span id="cb10-5"><a href="#cb10-5"></a>    <span class="dv">3</span>: <span class="dv">6</span>,</span>
-<span id="cb10-6"><a href="#cb10-6"></a>}</span>
-<span id="cb10-7"><a href="#cb10-7"></a></span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="kw">def</span> factorial(n):</span>
-<span id="cb10-9"><a href="#cb10-9"></a>    <span class="cf">if</span> n <span class="kw">not</span> <span class="kw">in</span> factorial_table:</span>
-<span id="cb10-10"><a href="#cb10-10"></a>        factorial_table[n] <span class="op">=</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb10-11"><a href="#cb10-11"></a>    <span class="cf">return</span> factorial_table[n]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>بل إن بايثون توفر هذه الخاصية للدوال عن طريق <strong>المزيِّن</strong> (decorator) <a href="https://docs.python.org/3/library/functools.html#functools.cache"><code>@functools.lru_cache</code></a>، هكذا:</p>
-<div id="5639cc41" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="im">import</span> functools</span>
-<span id="cb11-2"><a href="#cb11-2"></a></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="at">@functools.lru_cache</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="kw">def</span> factorial(n):</span>
-<span id="cb11-5"><a href="#cb11-5"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb11-6"><a href="#cb11-6"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a>    <span class="cf">return</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>لاحظ عدم الحاجة لتعريف القاموس <code>factorial_table</code>، بل يقوم المزيِّن هو بذلك تلقائيًّا.</p>
+<section id="تغليف-مشاريع-بايثون" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="تغليف-مشاريع-بايثون"><span class="header-section-number">15.2</span> تغليف مشاريع بايثون</h2>
+<p>يرشدك <a href="https://packaging.python.org/en/latest/tutorials/packaging-projects/">دليل حزم مشاريع بايثون</a> لكيفية تغليف المشاريع لترفعها في قاعدة بيانات الحزم. فيه توضيح كيفية إضافة الملفات والبنية اللازمة لإنشاء الحزمة، وكيفية بناء الحزمة، وكيفية تحميلها إلى <strong>Python Package Index</strong> (PyPI) حتى يمكن تثبيتها باستخدام <code>pip install your-package</code> كما تفعل مع الحزم الأخرى.</p>
+</section>
+<section id="تنفيذ-الوحدة-بمدخلات" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="تنفيذ-الوحدة-بمدخلات"><span class="header-section-number">15.3</span> تنفيذ الوحدة بمدخلات</h2>
+<p>يمكنك تمرير مدخلات لوحدة مكتوبة بالبايثون عن طريق كتابتها بعد اسم البرنامج، على النحو التالي: <code>python my_program.py arg1 arg2 arg3</code>.</p>
+<p>ستوفر لك مكتبة <code>sys</code> هذه المدخلات في معرَّف <code>sys.argv</code> وهو قائمة من النصوص، حيث أوَّل عنصر هو اسم البرنامج، ويتبعه بعد ذلك المدخلات: <code>arg1, arg2, arg3</code> التي تم تمريرها.</p>
+<p>ألق نظرة على الملف <a href="./examples/packages/main2.py"><code>main2.py</code></a>. تجد إجراء جمع رقمين، نريد أن يكونا من مدخلات المستخدم:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> add_two(a, b):</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>نقوم بتشغيل البرنامج وتمرير المدخلات هكذا:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">python</span> main2.py 10 20</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>بعدها نأخذ المدخلات (بدءًا من العنصر الثاني في القائمة) ، ونحولها إلى عدد ، ثم نمررها للدالة ونعرض النتيجة:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>a <span class="op">=</span> <span class="bu">int</span>(sys.argv[<span class="dv">1</span>])</span>
+<span id="cb7-2"><a href="#cb7-2"></a>b <span class="op">=</span> <span class="bu">int</span>(sys.argv[<span class="dv">2</span>])</span>
+<span id="cb7-3"><a href="#cb7-3"></a>result <span class="op">=</span> add_two(a, b)</span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="bu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="نقاط-أخيرة" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="نقاط-أخيرة"><span class="header-section-number">15.4</span> نقاط أخيرة</h2>
+<p>من المعتاد (ولكن ليس مطلوبًا) وضع جميع عبارات <a href="https://docs.python.org/3/reference/simple_stmts.html#import"><code>import</code></a> في أول الكود.</p>
+<p>من الجيد أن تستورد الوحدات بالترتيب التالي:</p>
+<ol type="1">
+<li>وحدات المكتبة المضمَّنة - على سبيل المثال <a href="https://docs.python.org/3/library/sys.html#module-sys"><code>sys</code></a>،&nbsp;<a href="https://docs.python.org/3/library/os.html#module-os"><code>os</code></a>،&nbsp;<a href="https://docs.python.org/3/library/argparse.html#module-argparse"><code>argparse</code></a>،&nbsp;<a href="https://docs.python.org/3/library/re.html#module-re"><code>re</code></a></li>
+<li>الوحدات التي تم تثبيتها - على سبيل المثال: <code>dateutil</code> و<code>requests</code> و<code>PIL.Image</code></li>
+<li>وحدات محلية</li>
+</ol>
 
 
 </section>
@@ -887,13 +867,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07_sets.html" class="pagination-link" aria-label="المجموعة الرياضية">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">المجموعة الرياضية</span></span>
+      <a href="./13_extend.html" class="pagination-link" aria-label="التخصيص والتركيب">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">التخصيص والتركيب</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./09_strings.html" class="pagination-link" aria-label="النصوص">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">النصوص</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./zz_set.html" class="pagination-link" aria-label="المجموعة الرياضية">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">المجموعة الرياضية</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
