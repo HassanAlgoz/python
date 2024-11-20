@@ -1,5 +1,5 @@
 ---
-title: التسلسل
+title: المجموعة المرتبة
 jupyter: python3
 ---
 
@@ -302,51 +302,6 @@ for x in numbers:
 
 print('list of evens:', evens)
 print('list of odds:', odds)
-```
-
-## النطاق `range`
-
-نوع [`range`](https://docs.python.org/3/library/stdtypes.html#range) يمثل تسلسلًا غير قابل للتغيير من الأرقام.
-
-ويستخدم عادةً للتكرار عددًا محددًا من المرات في حلقات [`for`](https://docs.python.org/3/reference/compound_stmts.html#for).
-
-وفقًا لوثائق بايثون فإن النطاق له شكلان:
-
-- `class range(stop)`
-- `class range(start, stop[, step])`
-
-دعونا نفصل المحددات أولاً:
-
-- `start`: موضع الابتداء، وهو مشمول في النطاق. (القيمة الافتراضية هي 0)
-- `stop`: موضع الانتهاء، وهو غير مشمول في النطاق.
-- `step`: مقدار الزياة أو النقص بعد كل كرة (القيمة الافتراضية هي 1)
-
-فإذا قمت بتعيين محدد واحد فسيكون هو `stop`:
-
-```{python}
-for i in range(5):
-    print(i)
-```
-
-وإذا قمت بتعيين محددين، فسيكون الأول `start` والثاني `stop`:
-
-```{python}
-for i in range(5, 10):
-    print(i)
-```
-
-أما إذا حددتها ثلاثة، فسيكون الأول `start` والثاني `stop` والثالث `step`:
-
-```{python}
-for i in range(0, 10, 2):
-    print(i)
-```
-
-ولك أن تعكس النطاق بتحديد `step` بقيمة سالبة، وتقلب البداية والنهاية:
-
-```{python}
-for i in range(10, 0, -1):
-    print(i)
 ```
 
 ## الصف (Tuple)
