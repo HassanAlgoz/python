@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="حسان القوز">
 
-<title>البايثونية</title>
+<title>6&nbsp; الإجراء – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -31,7 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./setup.html" rel="next">
+<link href="./06_sequences.html" rel="next">
+<link href="./04_iteration.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">فاتحة</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_intro.html">الأصل</a></li><li class="breadcrumb-item"><a href="./05_function.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الإجراء</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -108,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">فاتحة</span></a>
   </div>
 </li>
@@ -153,7 +187,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_function.html" class="sidebar-item-text sidebar-link">
+  <a href="./05_function.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الإجراء</span></span></a>
   </div>
 </li>
@@ -275,38 +309,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#فاتحة" id="toc-فاتحة" class="nav-link active" data-scroll-target="#فاتحة">فاتحة</a>
-  <ul class="collapse">
-  <li><a href="#تمهيد" id="toc-تمهيد" class="nav-link" data-scroll-target="#تمهيد">تمهيد</a></li>
-  </ul></li>
+  <li><a href="#العوامل-بين-الترتيب-والتسمية" id="toc-العوامل-بين-الترتيب-والتسمية" class="nav-link active" data-scroll-target="#العوامل-بين-الترتيب-والتسمية"><span class="header-section-number">6.1</span> العوامل بين الترتيب والتسمية</a></li>
+  <li><a href="#التعليق-في-مقدمة-الإجراء" id="toc-التعليق-في-مقدمة-الإجراء" class="nav-link" data-scroll-target="#التعليق-في-مقدمة-الإجراء"><span class="header-section-number">6.2</span> التعليق في مقدمة الإجراء</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_intro.html">الأصل</a></li><li class="breadcrumb-item"><a href="./05_function.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الإجراء</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">البايثونية</h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الإجراء</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>حسان القوز </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">10 مايو 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -316,26 +336,165 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="فاتحة" class="level1 unnumbered">
-<h1 class="unnumbered">فاتحة</h1>
-<p>بسم الله الرحمن الرحيم. والحمد لله والصلاة والسلام على رسول الله وآله وصحبه ومن والاه. أما بعد.</p>
-<p>كتبت هذا الكتاب لمن أراد تعلم البرمجة بلغة عربية سهلة ، وبطريقة منهجية مرتبة مع مراعاة الجانبين: النظري والعملي. وليس الهدف منه تعلم طريقة التفكير، فهذا يُدرس في الخوارزميات وهياكل البيانات، ولكن الهدف هو التعرف على الأدوات البرمجية نفسها عن طريق طرح مسائل نستعمل فيها هذه الأدوات.</p>
-<p>ولم يكن الهدف من الكتاب ترجمة كتب علمية أو مقالات برمجية إلى اللغة العربية؛ بل الهدف هو تعلم البرمجة. فحرصت على أن يكون الكلام متداولاً ولو لم تكن المصطلحات قاموسية. واخترت من الاصطلاح ما يزول به الغموض مراعيًا السياقات المختلفة لتكون أقرب لفهم المتعلم العربي.</p>
-<p>واخترت لغة بايثون لتعليم البرمجة لسهولتها وشهرتها مما يجعل كثيرًا من التطبيقات في المتناول، إذ الجهود متظافرة على خدمةمكتباتها من المجتمعات التي تتمحور حول صنف ما من التطبيقات. وقد نقسم أنواع التطبيقات إلى ثلاثة:</p>
-<p><strong>أنظمة تحاكي الواقع</strong>: مثلاً برنامج لمحاكاة القوى المؤثرة وتوزيع الأحمال على جسر (أو عمارة أو باخرة أو طائرة) يساعد المهندسين على بناء الجسر (وربما خطة تفصيلية متدرِّجة).</p>
-<p><strong>أنظمة فاعلة في الواقع</strong>: مثلاً في المصنع: الذراع الآلية ، وآلة القص ، وآلة الكبس ، …إلخ. من الآلات التي تعمل ضمن مجموعة متسقة لتنتج ما تنتج على خط الإنتاج.</p>
-<p><strong>أنظمة المعلومات</strong>: تُعنى بجمع المعلومات وحفظها وفهرستها وترتيبها وتقسيمها وعرضها وتسهيل الحصول عليها بالسؤال المباشر وغير المباشر، والتحقق منها وتوفيرها والاستفادة منها وترجمتها ونحو ذلك. وهذا النوع هو الأغلب. مثل: محرك بحث قوقل (يعمل على ترتيب شبكة الإنترنت) ، ونظام الدفع عبر البطاقة ، والبرمجيات المكتيبة (تقارير ، محاسبة ، تخطيط، …إلخ) ، ونحو ذلك .</p>
-<section id="تمهيد" class="level2">
-<h2 class="anchored" data-anchor-id="تمهيد">تمهيد</h2>
-<p>ظل الذكاء الاصطناعي طموحًا عاليًا منذ بزوغ فجر علوم الحاسب (1953). وما زال هذا الهدف دافعًا قويًّا لكل من فهم أننا باختراع الحاسب (1833 - 1871) استطعنا محاكاة المنطق في آلات صماء. ولا حد لإمكانيَّة هذا المعالِج الآلي إلا تعبيرك اللغوي أيها الناطق البشري. فهذا جانب المعالجة.</p>
-<p>وجانب الإدراك فيه:</p>
-<p>أدوات <strong>الإحساس</strong> التي تُدخِلُ المرئيات والمسموعات ونحوها ؛ وقد تم محاكاتها بآلة التصوير (كاميرا) ولاقط الصوت (مايكروفون). وكذلك أجهزة استشعار دقيقة مثل مستشعر الحرارة أو الرطوبة أو أجهزة قياس المسافة أو ماسحات البصمة أو الرنين المغناطيسي (MRI) أو الموجات الكهرومغناطيسية في الأقمار الصناعية وأجهزة الملاحة الجوية والبحرية والبوصلة أو ميزان التسوية الأفقية (Gyroscope) وغيرها كثير.</p>
-<p>ومنها ما يُسجل يدويًّا كما يكون في المستشفى: العمر والوزن والطول، أو بيانات الحضور والانصراف أو المبيعات اليومية، أو بيانات طلاب أو متدربين في دورة تدريبية أو سجلات المخزون ونحو ذلك. وهي كثيرة جدًّا.</p>
-<p>وأدوات <strong>الاستيعاب</strong> وهي التي تجمع المحسوسات في وعاءٍ واحدٍ للاعتبار جُملةً واحدة، وقد تم محاكاتهُا بما نسميه الذاكرة (وهي على مراحل تَبعُد وتَقترب من مركز المعالجة). وتشبه الذاكرة في الجهاز ما يراه الشخص في الوقت الواحد أو يمكن تصوُّرُه في الذهن وتخيله في لحظة واحدة. أما الذكريات المخزنة لدينا ، وما نكتبه في مذكرات فيكون مسجلاً في أجهزة الحفظ.</p>
-<p>ثم تأتي أدوات <strong>المعالجة</strong> وهي الآلات القابلة للبرمجة؛ مثل وحدة المعالجة المركزية (CPU) ووحدة المعالجة الرسومية (GPU) وغيرها؛ حيث يوضَع المنطق المترجَم من لغات البرمجة المتعددة.</p>
+<p>استعملنا في دروس سابقة <strong>إجراءات أساسية</strong> مثل: <code>print()</code>, <code>input()</code>, و <code>int()</code>. وأيضًا من <strong>المكتبة الأساسية</strong> <a href="https://docs.python.org/3/library/math.html"><code>math</code></a> مثل: <code>math.sqrt()</code> و <code>math.pow()</code>. فإن نتيجة هذه الإجراءات يكون بحسب المدخلات. والآن جاء دورُنا لنضيف إجراءات نحن نعرفها. فـ<strong>الإجراء المعرَّفة</strong> هي قطعة كود لها اسم. مخرجاتها مبنية على مدخلاتها.</p>
+<p>ولكن قد تتساءل: ما هي الفائدة من تعريف إجراءات إضافية؟ فنقول: قابلية العمليَّة للتعريف ثم الاستدعاء لاحقًا يعطيها خواص أساسية في البناء التراكمي للمنطق. منها ثلاثة عناصر:</p>
+<p><strong>التفكيك</strong>: وهو ضروري للتعامل مع المنطق المعقد، نفككه إلى أجزاء، ونربطها بعد برمجة كل جزء واختباره وإتقانه.</p>
+<p><strong>التجريد</strong>: يتم تركيب المكونات على نسق جديد. قد يكون بإخفاء تفاصيل كثيرة دقيقة تحت اسم بسيط يتطلب مدخلات ويعطيك مخرجات.</p>
+<p><strong>تعدد الاستعمالات</strong>: فإذا فككنا صار الأمر قابلاً للاستعمال في مواضع متعددة، ومن المتخصص وغير المتخصص. وهذا يختصر كثيرًا من التكرار، ويسهل التعامل مع الكود، ويقلل الأخطاء، ويسرع الإنتاج.</p>
+<p>وتوجد في بايثون إلى جانب تعريف الإجراءات، تعريف الأشياء وهي: إجراءات مع بيانات. وهذا يعني أننا نستطيع تعريف أشياء جديدة تحتوي على بيانات وإجراءات تعمل على تلك البيانات. وهذا يعطينا قدرة أكبر على التجريد والتفكيك وتعدد الاستعمالات.</p>
+<p>يكون تعريف الإجراء بكلمة <code>def</code> يتبعها اسم الإجراء، ثم بين الأقواس تكون المدخلات. أما المُخرجات فهي ما يتبع كلمة <code>return</code>. ولاحظ أن البرنامج بتنفيذ هذه العبارة سوف يخرج من نطاق العمليَّة.</p>
+<p>وهذا مثال لإجراء تحكم على قوة كلمة المرور:</p>
+<div id="9afd208a" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> check_password_strength(password):</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">if</span> <span class="bu">len</span>(password) <span class="op">&gt;</span> <span class="dv">8</span>:</span>
+<span id="cb1-3"><a href="#cb1-3"></a>        <span class="cf">return</span> <span class="st">"Strong"</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="cf">elif</span> <span class="bu">len</span>(password) <span class="op">&gt;</span> <span class="dv">4</span>:</span>
+<span id="cb1-5"><a href="#cb1-5"></a>        <span class="cf">return</span> <span class="st">"Medium"</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-7"><a href="#cb1-7"></a>        <span class="cf">return</span> <span class="st">"Weak"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>بعد التعريف، نريد استعمالها فنضع اسمها ثم بين القوسين نمرر المدخلات التي نريد، ونحصل على النتيجة مباشرة، فنعينها للمُعرَّف <code>result</code> في هذه الحالة:</p>
+<div id="16515cb2" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>result <span class="op">=</span> check_password_strength(<span class="st">"shorty"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="bu">print</span>(<span class="st">'password is:'</span>, result)</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a>result <span class="op">=</span> check_password_strength(<span class="st">'verylongpassword'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="bu">print</span>(<span class="st">'password is:'</span>, result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>password is: Medium
+password is: Strong</code></pre>
+</div>
+</div>
+<p>الإجراءات لديها نطاقها الخاص. أي أن المعرَّفات المضمَّنة فيها غير معروفة إلا في نطاقها. ونحن حين نستدعي الإجراء باسمها فإن التنفيذ يقفز من السطر الذي نحن فيه ليدخل في نطاق العمليَّة، وينفذ الأوامر التي فيه حتى تنتهي أو حتى يرى كلمة <code>return</code> فيخرج التنفيذ ومعه النتيجة إلى النطاق السابق الذي استدعاها.</p>
+<p>مثلاً هنا مُعرَّف داخل العمليَّة، وإذا حاولنا طباعته خارج نطاقها فإننا سنحصل على خطأ:</p>
+<div id="201ee2e4" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> check_password_strength(password):</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    minimum_password_length <span class="op">=</span> <span class="dv">8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="2e23150c" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="bu">print</span>(minimum_password_length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg ansi-bold">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg ansi-bold">In[4], line 1</span>
+<span class="ansi-green-fg ansi-bold">----&gt; 1</span> <span style="color:rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">minimum_password_length</span>)
 
-
+<span class="ansi-red-fg ansi-bold">NameError</span>: name 'minimum_password_length' is not defined</pre>
+</div>
+</div>
+</div>
+<p>وهذا أمرٌ جيِّد لأننا سنستخدم إجراءات كثيرة ويرد كثيرًا أننا نستخدم أسماء متشابهة ولا نريدها أن تختلط. فكل إجراء لها مهمة محددة ويجب أن تركز على تلك المهمة فقط.</p>
+<p>الأمر الآخر فيما يخصُّ نطاق المُعرَّفات هو أن النطاق الأخص (داخل الإجراء) يجد المعرَّفات في النطاق الأعم معروفة لديه. وذلك يتيح لنا استعمال دوال في النطاق العام مثل: <code>len</code> و <code>int</code> و <code>type</code> ونحوها.</p>
+<p>يمكننا تعيين قيَم افتراضية للعوامل هكذا:</p>
+<div id="5074c0c8" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> greet(name, greeting<span class="op">=</span><span class="st">'Hello'</span>):</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="cf">return</span> greeting.upper() <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">"!"</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="bu">print</span>(greet(<span class="st">'Adam'</span>))</span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="bu">print</span>(greet(<span class="st">'Belal'</span>, <span class="st">'good morning'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>HELLO Adam!
+GOOD MORNING Belal!</code></pre>
+</div>
+</div>
+<p>لاحظ كيف أنه في الاستدعاء الأول للإجراء <code>greet()</code>، قمنا بتمرير عامل واحد فقط، لذلك تم استخدام القيمة الافتراضية لـ <code>greeting</code>. ولكن، في الاستدعاء الثاني، قمنا بتمرير كلا العاملين فنسخت القيمة الافتراضية.</p>
+<section id="العوامل-بين-الترتيب-والتسمية" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="العوامل-بين-الترتيب-والتسمية"><span class="header-section-number">6.1</span> العوامل بين الترتيب والتسمية</h2>
+<p>نفهم من تعريف الإجراء <a href="https://docs.python.org/3/library/functions.html#pow"><code>pow(base, exp, mod=None)</code></a> أن لديها ثلاثة عوامل: <code>base</code>، <code>exp</code>، و <code>mod</code> بهذا الترتيب. لاحظ أن العامل <code>mod</code> اختياري (لوجود التعيين الافتراضي <code>mode=None</code>). هذا يعني أن الإجراء يمكن استعمالها بطرق مختلفة:</p>
+<div id="9ee85fe1" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">print</span>(<span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">4</span>))</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="bu">print</span>(<span class="bu">pow</span>(<span class="dv">2</span>, exp<span class="op">=</span><span class="dv">4</span>))</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="bu">print</span>(<span class="bu">pow</span>(base<span class="op">=</span><span class="dv">2</span>, exp<span class="op">=</span><span class="dv">4</span>))</span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="bu">print</span>(<span class="bu">pow</span>(exp<span class="op">=</span><span class="dv">4</span>, base<span class="op">=</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>16
+16
+16
+16</code></pre>
+</div>
+</div>
+<p>فإن أردنا تعريف عوامل تستعمل بهذه الطريقة، فإننا نضعها في التعريف على النحو التالي:</p>
+<div id="4b5048ac" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">def</span> calculate_bmi(weight, height, unit<span class="op">=</span><span class="st">'metric'</span>):</span>
+<span id="cb10-2"><a href="#cb10-2"></a>    <span class="co">""" Calculate the Body Mass Index (BMI)</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co">        </span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co">        weight and height must be of the same unit.</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co">        unit is either 'metric' or 'imperial'.</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co">    """</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>    <span class="cf">if</span> unit <span class="op">==</span> <span class="st">'imperial'</span>:</span>
+<span id="cb10-9"><a href="#cb10-9"></a>        weight <span class="op">*=</span> <span class="fl">0.453592</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a>        height <span class="op">*=</span> <span class="fl">0.0254</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a>    bmi <span class="op">=</span> weight <span class="op">/</span> (height <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb10-12"><a href="#cb10-12"></a>    <span class="cf">return</span> <span class="bu">round</span>(bmi, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>الآن يمكننا استعمال الإجراء بطرق مختلفة. لاحظ أن استخدام <code>assert</code> هنا للتحقق من أن الإجراء تنتج نفس القيمة بغض النظر عن كيفية تمرير العوامل.</p>
+<div id="352383af" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>w <span class="op">=</span> <span class="dv">70</span>   <span class="co"># kg</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>h <span class="op">=</span> <span class="fl">1.75</span> <span class="co"># meters</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="bu">print</span>(calculate_bmi(w, h))</span>
+<span id="cb11-5"><a href="#cb11-5"></a></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="cf">assert</span> (</span>
+<span id="cb11-7"><a href="#cb11-7"></a>    calculate_bmi(w, h) <span class="op">==</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a>    calculate_bmi(w, height<span class="op">=</span>h) <span class="op">==</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a>    calculate_bmi(weight<span class="op">=</span>w, height<span class="op">=</span>h) <span class="op">==</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a>    calculate_bmi(height<span class="op">=</span>h, weight<span class="op">=</span>w)</span>
+<span id="cb11-11"><a href="#cb11-11"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>22.86</code></pre>
+</div>
+</div>
+<p>ونفس الأمر بالنسبة للعامل الذي عينت له قيمة افتراضية <code>units='imperial'</code>:</p>
+<div id="51547cbe" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>w <span class="op">=</span> <span class="dv">154</span> <span class="co"># pounds</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>h <span class="op">=</span> <span class="dv">70</span>  <span class="co"># inches</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="bu">print</span>(calculate_bmi(w, h, <span class="st">'imperial'</span>))</span>
+<span id="cb13-5"><a href="#cb13-5"></a></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="cf">assert</span> (</span>
+<span id="cb13-7"><a href="#cb13-7"></a>    calculate_bmi(w, h, <span class="st">'imperial'</span>) <span class="op">==</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a>    calculate_bmi(w, h, unit<span class="op">=</span><span class="st">'imperial'</span>)</span>
+<span id="cb13-9"><a href="#cb13-9"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>22.1</code></pre>
+</div>
+</div>
 </section>
+<section id="التعليق-في-مقدمة-الإجراء" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="التعليق-في-مقدمة-الإجراء"><span class="header-section-number">6.2</span> التعليق في مقدمة الإجراء</h2>
+<p>تحتوي بايثون على إجراء أساسية تسمى <code>help()</code> تظهر معلومات عن إجراء ما:</p>
+<div id="40520ab2" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">help</span>(<span class="bu">pow</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Help on built-in function pow in module builtins:
+
+pow(base, exp, mod=None)
+    Equivalent to base**exp with 2 arguments or base**exp % mod with 3 arguments
+
+    Some types, such as ints, are able to use a more efficient algorithm when
+    invoked using the three argument form.
+</code></pre>
+</div>
+</div>
+<p>كذلك يمكن استعمالها في أي إجراء مُعرَّفة، فهي تأخذ التعليق الذي يبدأ بثلاثة علامات تنصيص (<code>"""</code>) بداية الإجراء (انظر كيف استعملناها في الإجراء <code>calculate_bmi</code>):</p>
+<div id="b9d307cb" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="bu">help</span>(calculate_bmi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Help on function calculate_bmi in module __main__:
+
+calculate_bmi(weight, height, unit='metric')
+    Calculate the Body Mass Index (BMI)
+
+    weight and height must be of the same unit.
+
+    unit is either 'metric' or 'imperial'.
+</code></pre>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -761,10 +920,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./04_iteration.html" class="pagination-link" aria-label="التكرار">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">التكرار</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./setup.html" class="pagination-link" aria-label="إعداد بيئة التطوير">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">إعداد بيئة التطوير</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./06_sequences.html" class="pagination-link" aria-label="المجموعة المرتبة">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">المجموعة المرتبة</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
