@@ -136,6 +136,23 @@ if is_minor or (is_cold and not is_wearing_coat):
   print("I suggest you don't go outside")
 ```
 
+### تسلسل المقارنات
+
+تفهم بايثون المقارنات المتسلسلة. فعبارة `x < y <= z` تكافئ `x < y and y <= z`:
+
+```{python}
+low = 10
+high = 20
+x = 15
+
+assert (low < x < high) == (low < x and x < high)
+```
+
+كذلك تراها تستعمل في المساواة:
+
+```{python}
+assert 3 == len('123') == len([10, 20, 30]) == len('abc')
+```
 
 ### الجملة الشرطية المتكاملة
 
