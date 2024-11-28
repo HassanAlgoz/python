@@ -110,19 +110,6 @@ cartesian_product
 
 يمكن استعمال التعبيرات المختصرة أيضًا مع المجموعات الرياضية والقواميس!
 
-هذا مثال لاستخراج الكلمات (من غير تكرار) من قاموس من العبارات (ثلاثة عبارات). هذه العملية تستعمل كثيرًا في تحليل النصوص إذ نريد أن نعرف جميع الكلمات الواردة في مجموعة من النصوص، ولا نريد الكلمات المعهودة جدًّا (هنا نسميها `stopwords`)، كما أننا نستعمل `.lower()` في التعبير الناتج حتى لا يفرق بين الحروف في حالتيها الإنجليزية:
-```{python}
-stopwords = {'is', 'and', 'the', 'be', 'not'}
-documents = {
-    'Python': "python is great and Python is easy",
-    'Java': "Java is verbose and java is popular",
-    'JavaScript': "JavaScript is for the web and javascript is everywhere"
-}
-
-unique_words = {word.lower() for doc in documents.values() for word in doc.split()}
-unique_words - stopwords
-```
-
 عكس قاموس بحيث تصبح الدلائل هي القيم والقيم هي الدلائل:
 
 ```{python}
@@ -168,6 +155,20 @@ discounted_menu = {
     for key, value in menu.items()
 }
 discounted_menu
+```
+
+هذا مثال لاستخراج الكلمات (من غير تكرار) من قاموس من العبارات (ثلاثة عبارات). هذه العملية تستعمل كثيرًا في تحليل النصوص إذ نريد أن نعرف جميع الكلمات الواردة في مجموعة من النصوص، ولا نريد الكلمات المعهودة جدًّا (هنا نسميها `stopwords`)، كما أننا نستعمل `.lower()` في التعبير الناتج حتى لا يفرق بين الحروف في حالتيها الإنجليزية:
+
+```{python}
+stopwords = {'is', 'and', 'the', 'be', 'not'}
+documents = {
+    'Python': "python is great and Python is easy",
+    'Java': "Java is verbose and java is popular",
+    'JavaScript': "JavaScript is for the web and javascript is everywhere"
+}
+
+unique_words = {word.lower() for doc in documents.values() for word in doc.split()}
+unique_words - stopwords
 ```
 
 ربما تكون هذه الأمثلة صعبة في البداية ، لكنها مع الممارسة تكون أسهل وأسهل.
