@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_intro.html">الرئيسي</a></li><li class="breadcrumb-item"><a href="./09_strings.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">النص</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_intro.html">الرئيسي</a></li><li class="breadcrumb-item"><a href="./08_string.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">النص</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -200,12 +200,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07_mapping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">الربط</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">المجموعة المرقومة</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_strings.html" class="sidebar-item-text sidebar-link active">
+  <a href="./08_string.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">النص</span></span></a>
   </div>
 </li>
@@ -242,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./16_modules.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">الوحدات</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">الاستيراد والتصدير</span></span></a>
   </div>
 </li>
       </ul>
@@ -271,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix_collections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">المجموعة</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">خريطة المجموعات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -297,7 +297,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#تطبيقات-معالجة-النص-البشري" id="toc-تطبيقات-معالجة-النص-البشري" class="nav-link" data-scroll-target="#تطبيقات-معالجة-النص-البشري">تطبيقات معالجة النص البشري</a></li>
   </ul></li>
   <li><a href="#النص-المقولب" id="toc-النص-المقولب" class="nav-link" data-scroll-target="#النص-المقولب"><span class="header-section-number">8.2</span> النص المُقَوْلَب</a></li>
-  <li><a href="#إنشاء-النص" id="toc-إنشاء-النص" class="nav-link" data-scroll-target="#إنشاء-النص"><span class="header-section-number">8.3</span> إنشاء النص</a></li>
+  <li><a href="#إنشاء-النص" id="toc-إنشاء-النص" class="nav-link" data-scroll-target="#إنشاء-النص"><span class="header-section-number">8.3</span> إنشاء النص</a>
+  <ul class="collapse">
+  <li><a href="#قراءة-الملفات-النصية" id="toc-قراءة-الملفات-النصية" class="nav-link" data-scroll-target="#قراءة-الملفات-النصية">قراءة الملفات النصية</a></li>
+  </ul></li>
   <li><a href="#الإشارة-لجزء-من-النص" id="toc-الإشارة-لجزء-من-النص" class="nav-link" data-scroll-target="#الإشارة-لجزء-من-النص"><span class="header-section-number">8.4</span> الإشارة لجزء من النص</a></li>
   <li><a href="#العمليات-الخاصة-بالنصوص" id="toc-العمليات-الخاصة-بالنصوص" class="nav-link" data-scroll-target="#العمليات-الخاصة-بالنصوص"><span class="header-section-number">8.5</span> العمليات الخاصة بالنصوص</a></li>
   <li><a href="#تنسيق-السلاسل-النصية" id="toc-تنسيق-السلاسل-النصية" class="nav-link" data-scroll-target="#تنسيق-السلاسل-النصية"><span class="header-section-number">8.6</span> تنسيق السلاسل النصية</a></li>
@@ -310,8 +313,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#كيف-يتم-تمثيل-النصوص-في-بايثون" id="toc-كيف-يتم-تمثيل-النصوص-في-بايثون" class="nav-link" data-scroll-target="#كيف-يتم-تمثيل-النصوص-في-بايثون"><span class="header-section-number">8.10</span> كيف يتم تمثيل النصوص في بايثون؟</a>
   <ul class="collapse">
   <li><a href="#الأحرف-البيضاء" id="toc-الأحرف-البيضاء" class="nav-link" data-scroll-target="#الأحرف-البيضاء">الأحرف البيضاء</a></li>
-  <li><a href="#strip" id="toc-strip" class="nav-link" data-scroll-target="#strip"><code>.strip()</code></a></li>
-  <li><a href="#split" id="toc-split" class="nav-link" data-scroll-target="#split"><code>.split()</code></a></li>
+  <li><a href="#الأطراف-الزائدة" id="toc-الأطراف-الزائدة" class="nav-link" data-scroll-target="#الأطراف-الزائدة">الأطراف الزائدة</a></li>
+  <li><a href="#تجزئة-النص" id="toc-تجزئة-النص" class="nav-link" data-scroll-target="#تجزئة-النص">تجزئة النص</a></li>
   </ul></li>
   <li><a href="#الطباعة" id="toc-الطباعة" class="nav-link" data-scroll-target="#الطباعة"><span class="header-section-number">8.11</span> الطباعة</a>
   <ul class="collapse">
@@ -323,7 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_intro.html">الرئيسي</a></li><li class="breadcrumb-item"><a href="./09_strings.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">النص</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_intro.html">الرئيسي</a></li><li class="breadcrumb-item"><a href="./08_string.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">النص</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">النص</span></h1>
 </div>
@@ -345,7 +348,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>النص</strong> (<a href="https://docs.python.org/3/library/stdtypes.html#str"><code>str</code></a>) صف من الأحرف. وهو تسلسل ثابت من أرقام يونيكود (Unicode) التي هي رموز تتبع ترميزًا عالميًا يحوي جميع أحرف اللغات بالإضافة إلى علامات الترقيم والرسوم (مثل: 💡🔍📐) ونحوها.</p>
 <section id="النص-الحر" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="النص-الحر"><span class="header-section-number">8.1</span> النص الحر</h2>
-<p><strong>النص الحر</strong> (الطبيعي البشري) هو ما لا يتبع هيكلاً أو قالبًا يحُكم طريقة كتابته؛ وهو يطول ويقصر من الحرف الواحد إلى مجموعة الأحرف إلى الكلمة إلى الجملة وإلى أكبر من ذلك نحو:</p>
+<p><strong>النص الحر</strong> (الطبيعي البشري) هو ما لا يتبع هيكلاً أو قالبًا يحكم طريقة كتابته؛ وهو يطول ويقصر من الحرف الواحد إلى مجموعة الأحرف إلى الكلمة إلى الجملة وإلى أكبر من ذلك نحو:</p>
 <ul>
 <li>محادثات وسائل التواصل الاجتماعي</li>
 <li>رسائل البريد الإلكتروني</li>
@@ -402,23 +405,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">Name</span><span class="kw">:</span><span class="at"> Adam</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">Age</span><span class="kw">:</span><span class="at"> </span><span class="dv">25</span></span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="fu">City</span><span class="kw">:</span><span class="at"> Riyadh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>صيغ القولبة</strong> كثيرة من أشهرها: <code>XML</code>, <code>YAML</code>, <code>JSON</code>, <code>CSV</code>، سيأتي الحديث عنها إن شاء الله.</p>
+<p><strong>صيغ القولبة</strong> كثيرة من أشهرها: <code>XML</code>, <code>YAML</code>, <code>JSON</code>, <code>CSV</code>.</p>
 </section>
 <section id="إنشاء-النص" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="إنشاء-النص"><span class="header-section-number">8.3</span> إنشاء النص</h2>
 <p>جملة إنشاء النص في بايثون تكون كالتالي:</p>
 <ul>
 <li>بعلامة اقتباس مفردة: <code>'السلام عليكم!'</code></li>
-<li>بعلامة اقتباس مزدوجة: <code>"السلام عليكم!"</code> وليس بينهما فرق تمامًا.</li>
-<li>بعلامة اقتاس مكررة ثلاثة مرات: <code>"""السلام عليكم!"""</code> وذلك للنصوص التي تمتد على أكثر من سطر.</li>
+<li>أو بعلامة اقتباس مزدوجة: <code>"السلام عليكم!"</code> وليس بينهما فرق.</li>
+<li>أو بعلامة اقتاس مكررة ثلاثة مرات: <code>"""السلام عليكم!"""</code> للنص الجاري على أكثر من سطر.</li>
 </ul>
 <p>على سبيل المثال:</p>
-<div id="6ff5f60c" class="cell" data-execution_count="2">
+<div id="e10850b9" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>name <span class="op">=</span> <span class="st">'Adam'</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>address <span class="op">=</span> <span class="st">"Riyadh, Saudi Arabia"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>تأمل إنشاء هذا النص الذي يبتدئ في السطر الأول ويتمد لأربعة أسطر:</p>
-<div id="5362cd0a" class="cell" data-execution_count="3">
+<div id="91ba8276" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>message <span class="op">=</span> <span class="st">"""Salam everyone,</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="st">I hope you are enjoying the course,</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a></span>
@@ -433,16 +436,25 @@ Thank you.
 </code></pre>
 </div>
 </div>
-<p>ولكون النص تسلسلاً ثابتًا فإنه يقبل جميع عمليات التسلسل السابق ذكرها (انظر <a href="./06_sequences.html">باب المجموعة المرتبة</a>).</p>
+<section id="قراءة-الملفات-النصية" class="level3">
+<h3 class="anchored" data-anchor-id="قراءة-الملفات-النصية">قراءة الملفات النصية</h3>
+<p>وكثيرًا ما يكون وجود النص في البرنامج ناتجًا عن قراءة ملف نصي بالإجراء <a href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a> وذلك بإضافة الحرف <code>r</code> ميشرًا إلى أن غرض الفتح القراءة:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'my_file.txt'</span>, <span class="st">'r'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>message <span class="op">=</span> <span class="bu">file</span>.read()</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="bu">file</span>.close()</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="bu">print</span>(message)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>وسيأتي تفصيل كيفية التعامل مع الملفات في <a href="./11_files.html">باب الملفات</a>.</p>
+</section>
 </section>
 <section id="الإشارة-لجزء-من-النص" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="الإشارة-لجزء-من-النص"><span class="header-section-number">8.4</span> الإشارة لجزء من النص</h2>
-<div id="8f895225" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a>first <span class="op">=</span> s[<span class="dv">0</span>]</span>
-<span id="cb5-4"><a href="#cb5-4"></a>last <span class="op">=</span> s[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="bu">print</span>(first <span class="op">+</span> last)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ولكون النص تسلسلاً ثابتًا فإنه يقبل جميع عمليات التسلسل السابق ذكرها (انظر <a href="./06_sequences.html">باب المجموعة المرتبة</a>).</p>
+<div id="1b2f0ebe" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a>first <span class="op">=</span> s[<span class="dv">0</span>]</span>
+<span id="cb6-4"><a href="#cb6-4"></a>last <span class="op">=</span> s[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="bu">print</span>(first <span class="op">+</span> last)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>An</code></pre>
 </div>
@@ -461,11 +473,11 @@ Thank you.
 <li><code>s[::-1]</code></li>
 </ul>
 <p>لاحظ أن هذا يتحقق كما لو عرفنا صفًّا بالأحرف هذه نفسها:</p>
-<div id="5a4f7018" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>s <span class="op">=</span> (<span class="st">'A'</span>, <span class="st">'r'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'i'</span>, <span class="st">'a'</span>, <span class="st">'n'</span>)</span>
-<span id="cb8-2"><a href="#cb8-2"></a>first <span class="op">=</span> s[<span class="dv">0</span>]</span>
-<span id="cb8-3"><a href="#cb8-3"></a>last <span class="op">=</span> s[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="bu">print</span>(first <span class="op">+</span> last)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="70535c70" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>s <span class="op">=</span> (<span class="st">'A'</span>, <span class="st">'r'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'i'</span>, <span class="st">'a'</span>, <span class="st">'n'</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>first <span class="op">=</span> s[<span class="dv">0</span>]</span>
+<span id="cb9-3"><a href="#cb9-3"></a>last <span class="op">=</span> s[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="bu">print</span>(first <span class="op">+</span> last)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>An</code></pre>
 </div>
@@ -476,55 +488,55 @@ Thank you.
 <section id="العمليات-الخاصة-بالنصوص" class="level2" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="العمليات-الخاصة-بالنصوص"><span class="header-section-number">8.5</span> العمليات الخاصة بالنصوص</h2>
 <p>لاستبدال جزء من النص، نستخدم إجراء <code>.replace()</code>:</p>
-<div id="02c982e4" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>s <span class="op">=</span> s.replace(<span class="st">'ian'</span>, <span class="st">'y'</span>)</span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="bu">print</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="59dbfed3" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>s <span class="op">=</span> s.replace(<span class="st">'ian'</span>, <span class="st">'y'</span>)</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="bu">print</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Araby</code></pre>
 </div>
 </div>
 <p>كما لدينا علميات <code>.strip()</code> لإزالة المسافات البيضاء من بداية ونهاية النص.</p>
-<div id="783540b7" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="cf">assert</span> <span class="st">'  Arabian  '</span>.strip() <span class="op">==</span> <span class="st">'Arabian'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="238a229a" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="cf">assert</span> <span class="st">'  Arabian  '</span>.strip() <span class="op">==</span> <span class="st">'Arabian'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وكذلك لدينا عمليات <strong>البحث</strong>:</p>
 <ul>
 <li>التحقق من البدء والنهاية وما بينهما: <code>.startswith(prefix)</code> و <code>.endswith(suffix)</code> أو <code>sub in string</code> وهي أعم.</li>
 <li>لمعرفة موضع أول ظهور لسلسلة معيَّنة من الأحرف داخل النص <code>.find()</code></li>
 </ul>
-<div id="4b6a5192" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="cf">assert</span> s.startswith(<span class="st">'A'</span>)</span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="cf">assert</span> <span class="kw">not</span> s.startswith(<span class="st">'a'</span>)</span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="cf">assert</span> s.endswith(<span class="st">'n'</span>)</span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="cf">assert</span> <span class="st">'rabia'</span> <span class="kw">in</span> s</span>
-<span id="cb13-6"><a href="#cb13-6"></a><span class="cf">assert</span> s.find(<span class="st">'a'</span>) <span class="op">==</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cdee426f" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="cf">assert</span> s.startswith(<span class="st">'A'</span>)</span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="cf">assert</span> <span class="kw">not</span> s.startswith(<span class="st">'a'</span>)</span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="cf">assert</span> s.endswith(<span class="st">'n'</span>)</span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="cf">assert</span> <span class="st">'rabia'</span> <span class="kw">in</span> s</span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="cf">assert</span> s.find(<span class="st">'a'</span>) <span class="op">==</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>الفَصْْل والوَصْل</strong>:</p>
 <ul>
 <li>فصل النص لقائمة: <code>list.split(seperator)</code></li>
 <li>دمج القائمة إلى نص: <code>seperator.join(list)</code></li>
 </ul>
-<div id="d1d257fc" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>csv <span class="op">=</span> <span class="st">"Adam,25,Riyadh"</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="cf">assert</span> csv.split(<span class="st">','</span>) <span class="op">==</span> [<span class="st">'Adam'</span>, <span class="st">'25'</span>, <span class="st">'Riyadh'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="806ac2b9" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>csv <span class="op">=</span> <span class="st">"Adam,25,Riyadh"</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="cf">assert</span> csv.split(<span class="st">','</span>) <span class="op">==</span> [<span class="st">'Adam'</span>, <span class="st">'25'</span>, <span class="st">'Riyadh'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c6618721" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>csv <span class="op">=</span> <span class="st">"""name,age,city</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="st">Adam,25,Riyadh</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="st">Belal,30,Jeddah</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="st">Camal,35,Dammam</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="st">"""</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a></span>
-<span id="cb15-7"><a href="#cb15-7"></a>csv <span class="op">=</span> csv.strip()</span>
-<span id="cb15-8"><a href="#cb15-8"></a></span>
-<span id="cb15-9"><a href="#cb15-9"></a>data <span class="op">=</span> []</span>
-<span id="cb15-10"><a href="#cb15-10"></a><span class="cf">for</span> line <span class="kw">in</span> csv.split(sep<span class="op">=</span><span class="st">'</span><span class="ch">\n</span><span class="st">'</span>):</span>
-<span id="cb15-11"><a href="#cb15-11"></a>    d <span class="op">=</span> line.split(sep<span class="op">=</span><span class="st">','</span>)</span>
-<span id="cb15-12"><a href="#cb15-12"></a>    data.append(d)</span>
-<span id="cb15-13"><a href="#cb15-13"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="49">
+<div id="8cc6c37d" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>csv <span class="op">=</span> <span class="st">"""name,age,city</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="st">Adam,25,Riyadh</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="st">Belal,30,Jeddah</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="st">Camal,35,Dammam</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="st">"""</span></span>
+<span id="cb16-6"><a href="#cb16-6"></a></span>
+<span id="cb16-7"><a href="#cb16-7"></a>csv <span class="op">=</span> csv.strip()</span>
+<span id="cb16-8"><a href="#cb16-8"></a></span>
+<span id="cb16-9"><a href="#cb16-9"></a>data <span class="op">=</span> []</span>
+<span id="cb16-10"><a href="#cb16-10"></a><span class="cf">for</span> line <span class="kw">in</span> csv.split(sep<span class="op">=</span><span class="st">'</span><span class="ch">\n</span><span class="st">'</span>):</span>
+<span id="cb16-11"><a href="#cb16-11"></a>    row <span class="op">=</span> line.split(sep<span class="op">=</span><span class="st">','</span>)</span>
+<span id="cb16-12"><a href="#cb16-12"></a>    data.append(row)</span>
+<span id="cb16-13"><a href="#cb16-13"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>[['name', 'age', 'city'],
  ['Adam', '25', 'Riyadh'],
  ['Belal', '30', 'Jeddah'],
@@ -532,30 +544,30 @@ Thank you.
 </div>
 </div>
 <p>وهذا مثال للوَصْل:</p>
-<div id="370ef5ca" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>data <span class="op">=</span> [<span class="st">'Adam'</span>, <span class="st">'25'</span>, <span class="st">'Riyadh'</span>]</span>
-<span id="cb17-2"><a href="#cb17-2"></a>csv <span class="op">=</span> <span class="st">','</span>.join(data)</span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="cf">assert</span> csv <span class="op">==</span> <span class="st">'Adam,25,Riyadh'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="bea59567" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>data <span class="op">=</span> [<span class="st">'Adam'</span>, <span class="st">'25'</span>, <span class="st">'Riyadh'</span>]</span>
+<span id="cb18-2"><a href="#cb18-2"></a>csv <span class="op">=</span> <span class="st">','</span>.join(data)</span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="cf">assert</span> csv <span class="op">==</span> <span class="st">'Adam,25,Riyadh'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>تفسير الأرقام</strong> المكتوبة كسلسلة من الحروف، وهذا تكثر الحاجة إليه عندما نقرأ ملفات أو نتعامل مع بيانات مُدخلة من المستخدم، إذ دائمًا ما يكون الإدخال على شكل نصوص:</p>
+<p><strong>تفسير الأرقام</strong> المكتوبة نصًّا تكثر الحاجة إليه خصوصًا عند قراءة ملفات أو التعامل مع بيانات من المستخدم، إذ يكون الإدخال نصيًّا:</p>
 <ul>
-<li><code>int(x)</code> لتحويل سلسلة نصية إلى عدد صحيح.</li>
-<li><code>float(x)</code> لتحويل سلسلة نصية إلى عدد عشري.</li>
+<li><code>int(x)</code> لتحويل نص إلى عدد صحيح.</li>
+<li><code>float(x)</code> لتحويل نص إلى عدد عشري.</li>
 </ul>
 <p>لاحظ ناتج عملية جمع رقمين مكتوبين كنصوص:</p>
-<div id="987725e2" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>x <span class="op">=</span> <span class="st">'20'</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>y <span class="op">=</span> <span class="st">'40'</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="bu">print</span>(x <span class="op">+</span> y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d27c98cc" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>x <span class="op">=</span> <span class="st">'20'</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>y <span class="op">=</span> <span class="st">'40'</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="bu">print</span>(x <span class="op">+</span> y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2040</code></pre>
 </div>
 </div>
 <p>الواجب تحويلهما إلى أعداد أولاًً:</p>
-<div id="5585b11e" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>x2 <span class="op">=</span> <span class="bu">float</span>(x)</span>
-<span id="cb20-2"><a href="#cb20-2"></a>y2 <span class="op">=</span> <span class="bu">float</span>(y)</span>
-<span id="cb20-3"><a href="#cb20-3"></a><span class="bu">print</span>(x2 <span class="op">+</span> y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="61e8aed6" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>x2 <span class="op">=</span> <span class="bu">float</span>(x)</span>
+<span id="cb21-2"><a href="#cb21-2"></a>y2 <span class="op">=</span> <span class="bu">float</span>(y)</span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="bu">print</span>(x2 <span class="op">+</span> y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>60.0</code></pre>
 </div>
@@ -567,12 +579,12 @@ Thank you.
 <li><code>capitalize()</code> لتحويل الحرف الأول إلى كبير.</li>
 <li><code>title()</code> لتحويل النص إلى حالة عنوان.</li>
 </ul>
-<div id="719c1fb3" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>name <span class="op">=</span> <span class="st">'Adam ibraheeM'</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="bu">print</span>(name.upper())</span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="bu">print</span>(name.lower())</span>
-<span id="cb22-4"><a href="#cb22-4"></a><span class="bu">print</span>(name.capitalize())</span>
-<span id="cb22-5"><a href="#cb22-5"></a><span class="bu">print</span>(name.title())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="21d6076b" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>name <span class="op">=</span> <span class="st">'Adam ibraheeM'</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="bu">print</span>(name.upper())</span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="bu">print</span>(name.lower())</span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="bu">print</span>(name.capitalize())</span>
+<span id="cb23-5"><a href="#cb23-5"></a><span class="bu">print</span>(name.title())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ADAM IBRAHEEM
 adam ibraheem
@@ -590,15 +602,15 @@ Adam Ibraheem</code></pre>
 <li>الثانية: استعمال فراغات <code>{}</code> مع الإجراء <code>.format()</code> لتمرير ما يحل فيها.</li>
 <li>الثالثة: استعمال <code>f-string</code> بأن تضع الحرف <code>f</code> قبل علامة التنصيص الأولى، ليقبل النص وضع القيم مباشرة داخل القواس المعكوفة <code>{}</code>. وهي الطريقة التي نفضلها.</li>
 </ol>
-<div id="004d4a26" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>name <span class="op">=</span> <span class="st">"John"</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>lvl <span class="op">=</span> <span class="dv">300</span></span>
-<span id="cb24-3"><a href="#cb24-3"></a></span>
-<span id="cb24-4"><a href="#cb24-4"></a>x1 <span class="op">=</span> <span class="st">"I am "</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">" and I want to reach level "</span> <span class="op">+</span> <span class="bu">str</span>(lvl) <span class="co"># + operator</span></span>
-<span id="cb24-5"><a href="#cb24-5"></a>x2 <span class="op">=</span> <span class="st">"I am </span><span class="sc">{}</span><span class="st"> and I want to reach level </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(name, lvl)  <span class="co"># .format() method</span></span>
-<span id="cb24-6"><a href="#cb24-6"></a>x3 <span class="op">=</span> <span class="ss">f"I am </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> and I want to reach level </span><span class="sc">{</span>lvl<span class="sc">}</span><span class="ss">"</span>            <span class="co"># f-strings</span></span>
-<span id="cb24-7"><a href="#cb24-7"></a><span class="cf">assert</span> x1 <span class="op">==</span> x2 <span class="op">==</span> x3</span>
-<span id="cb24-8"><a href="#cb24-8"></a><span class="bu">print</span>(x1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="19ef0a5d" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>name <span class="op">=</span> <span class="st">"John"</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>lvl <span class="op">=</span> <span class="dv">300</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a></span>
+<span id="cb25-4"><a href="#cb25-4"></a>x1 <span class="op">=</span> <span class="st">"I am "</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">" and I want to reach level "</span> <span class="op">+</span> <span class="bu">str</span>(lvl) <span class="co"># + operator</span></span>
+<span id="cb25-5"><a href="#cb25-5"></a>x2 <span class="op">=</span> <span class="st">"I am </span><span class="sc">{}</span><span class="st"> and I want to reach level </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(name, lvl)  <span class="co"># .format() method</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a>x3 <span class="op">=</span> <span class="ss">f"I am </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> and I want to reach level </span><span class="sc">{</span>lvl<span class="sc">}</span><span class="ss">"</span>            <span class="co"># f-strings</span></span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="cf">assert</span> x1 <span class="op">==</span> x2 <span class="op">==</span> x3</span>
+<span id="cb25-8"><a href="#cb25-8"></a><span class="bu">print</span>(x1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>I am John and I want to reach level 300</code></pre>
 </div>
@@ -611,14 +623,14 @@ Adam Ibraheem</code></pre>
 <section id="التعديل-على-النص" class="level2" data-number="8.7">
 <h2 data-number="8.7" class="anchored" data-anchor-id="التعديل-على-النص"><span class="header-section-number">8.7</span> التعديل على النص</h2>
 <p>فالنص تسلسل يشبه الصف في كوْنه <strong>ثابتًا</strong> (أي لا يقبل تعديل عنصر أو إضافته أو حذفه). فلو حاولت تغيير موضعٍ <code>s[i]</code> في النص أو قطعة <code>s[i:j]</code> فإنك ستواجه خطأ:</p>
-<div id="b67c526b" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a>s[<span class="dv">0</span>] <span class="op">=</span> <span class="st">'a'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cf5a91f1" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>s[<span class="dv">0</span>] <span class="op">=</span> <span class="st">'a'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg ansi-bold">In[55], line 2</span>
+Cell <span class="ansi-green-fg ansi-bold">In[18], line 2</span>
 <span class="ansi-green-fg">      1</span> s <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Arabian</span><span style="color:rgb(175,0,0)">'</span>
 <span class="ansi-green-fg ansi-bold">----&gt; 2</span> <span class="ansi-yellow-bg">s</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">0</span><span class="ansi-yellow-bg">]</span> <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">a</span><span style="color:rgb(175,0,0)">'</span>
 
@@ -626,11 +638,11 @@ Cell <span class="ansi-green-fg ansi-bold">In[55], line 2</span>
 </div>
 </div>
 </div>
-<p>لكن يمكنك تعديل النص بإنشاء نص جديد، وإسناده لنفس المعرَّف الذي كان قد أسنِد للنص السابق:</p>
-<div id="938b45eb" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a>s <span class="op">=</span> <span class="st">'a'</span> <span class="op">+</span> s[<span class="dv">1</span>:]</span>
-<span id="cb27-3"><a href="#cb27-3"></a><span class="bu">print</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>لكننا لتعديل النص في الواقع نعيِّنُ إلى نفس المعرَّفِ نصًّا جديدًا منه:</p>
+<div id="412d22f2" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>s <span class="op">=</span> <span class="st">'a'</span> <span class="op">+</span> s[<span class="dv">1</span>:]</span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="bu">print</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>arabian</code></pre>
 </div>
@@ -643,11 +655,11 @@ Cell <span class="ansi-green-fg ansi-bold">In[55], line 2</span>
 <p><strong>رموز ASCII</strong> تحتوي على <code>128</code> حرف للغة الإنجليزية وبعض علامات الترقيم. منها <code>95</code> فقط هي أحرف قابلة للطباعة أما البقية فتسمى أحرف تحكُّم (مثل حرف السطر الجديد <code>\n</code> ، وحرف الرجوع لبداية السطر <code>\r</code>).</p>
 <p>ثم امتدت عن طريق <strong>رموز ANSII</strong> لتغطي أحرف إضافية (من <code>128</code> إلى <code>255</code>) وهي الأحرف الاتينية للغات الأخرى.</p>
 <p>لنستكشف السلاسل عن طريق حزمة من المكتبة الأساسية <code>string</code>. الآتي الأحرف اللاتينية الكبيرة والصغيرة، وعلامات الترقيم:</p>
-<div id="3dbb1060" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="im">import</span> string</span>
-<span id="cb29-2"><a href="#cb29-2"></a></span>
-<span id="cb29-3"><a href="#cb29-3"></a><span class="bu">print</span>(string.ascii_letters)</span>
-<span id="cb29-4"><a href="#cb29-4"></a><span class="bu">print</span>(string.punctuation)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="50bfb52a" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="im">import</span> string</span>
+<span id="cb30-2"><a href="#cb30-2"></a></span>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="bu">print</span>(string.ascii_letters)</span>
+<span id="cb30-4"><a href="#cb30-4"></a><span class="bu">print</span>(string.punctuation)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 !"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</code></pre>
@@ -674,11 +686,11 @@ Cell <span class="ansi-green-fg ansi-bold">In[55], line 2</span>
 <p>تمثيل النصوص في بايثون يكون عن طريق النوع <code>str</code>؛ يُعرَّف بكتابة سلسلة من الأحرف لكن في الواقع تتحول إلى سلسلة من رموز Unicode (أي: أرقام). هذا يعني أنها قد تكون سلسلة رموز لاتينية أو عربية أو صينية أو غير ذلك مما تحويه رموز Unicode.</p>
 <p>الدالة المدمجة <strong>ord()</strong> تقوم بتحويل الحرف إلى رقم الرمز. بينما <strong>chr()</strong> تعكس ذلك (من الرمز إلى الحرف).</p>
 <p>على النقيض من سي وجافا؛ لا يوجد نوع خاص بالحرف الواحد (<code>char</code>) في بايثون.</p>
-<div id="e3e6a028" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"A"</span>), <span class="bu">ord</span>(<span class="st">"Z"</span>))</span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="bu">print</span>(<span class="bu">chr</span>(<span class="dv">65</span>), <span class="bu">chr</span>(<span class="dv">90</span>))</span>
-<span id="cb31-3"><a href="#cb31-3"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"a"</span>), <span class="bu">ord</span>(<span class="st">"z"</span>))</span>
-<span id="cb31-4"><a href="#cb31-4"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"0"</span>), <span class="bu">ord</span>(<span class="st">"9"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1f2f3b32" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"A"</span>), <span class="bu">ord</span>(<span class="st">"Z"</span>))</span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="bu">print</span>(<span class="bu">chr</span>(<span class="dv">65</span>), <span class="bu">chr</span>(<span class="dv">90</span>))</span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"a"</span>), <span class="bu">ord</span>(<span class="st">"z"</span>))</span>
+<span id="cb32-4"><a href="#cb32-4"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"0"</span>), <span class="bu">ord</span>(<span class="st">"9"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>65 90
 A Z
@@ -687,13 +699,13 @@ A Z
 </div>
 </div>
 <p>ماذا عن الحروف العربية؟ أين تقع في أرقام ترميز Unicode؟</p>
-<div id="7716a8b9" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Arabic Unicode points are between 1536 and 1791</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"أ"</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">"أ"</span>)))</span>
-<span id="cb33-3"><a href="#cb33-3"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"ب"</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">"ب"</span>)))</span>
-<span id="cb33-4"><a href="#cb33-4"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"ي"</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">"ي"</span>)))</span>
-<span id="cb33-5"><a href="#cb33-5"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">'َ'</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">'َ'</span>)))</span>
-<span id="cb33-6"><a href="#cb33-6"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">'ُ'</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">'ُ'</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="299e1d2b" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Arabic Unicode points are between 1536 and 1791</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"أ"</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">"أ"</span>)))</span>
+<span id="cb34-3"><a href="#cb34-3"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"ب"</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">"ب"</span>)))</span>
+<span id="cb34-4"><a href="#cb34-4"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"ي"</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">"ي"</span>)))</span>
+<span id="cb34-5"><a href="#cb34-5"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">'َ'</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">'َ'</span>)))</span>
+<span id="cb34-6"><a href="#cb34-6"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">'ُ'</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">'ُ'</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1571 0x623
 1576 0x628
@@ -702,16 +714,16 @@ A Z
 1615 0x64f</code></pre>
 </div>
 </div>
-<p>إذا أردنا أن نعرف أرقام الحروف في نصٍّ ما، فيمكن أن نستعمل التكرار على النحو التالي:</p>
-<div id="63e88161" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="kw">def</span> get_unicode_points(s):</span>
-<span id="cb35-2"><a href="#cb35-2"></a>    codes <span class="op">=</span> []</span>
-<span id="cb35-3"><a href="#cb35-3"></a>    <span class="cf">for</span> c <span class="kw">in</span> s:</span>
-<span id="cb35-4"><a href="#cb35-4"></a>        codes.append(<span class="bu">ord</span>(c))</span>
-<span id="cb35-5"><a href="#cb35-5"></a>    <span class="cf">return</span> codes</span>
-<span id="cb35-6"><a href="#cb35-6"></a></span>
-<span id="cb35-7"><a href="#cb35-7"></a><span class="bu">print</span>(get_unicode_points(<span class="st">'Arabian'</span>))</span>
-<span id="cb35-8"><a href="#cb35-8"></a><span class="bu">print</span>(get_unicode_points(<span class="st">'السَّلَامُ عَلَيْكُمْ'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>لمعرفة أرقام الحروف في نصٍّ ما؛ نستعمل التكرار هكذا:</p>
+<div id="93c1f680" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">def</span> get_unicode_points(s):</span>
+<span id="cb36-2"><a href="#cb36-2"></a>    codes <span class="op">=</span> []</span>
+<span id="cb36-3"><a href="#cb36-3"></a>    <span class="cf">for</span> c <span class="kw">in</span> s:</span>
+<span id="cb36-4"><a href="#cb36-4"></a>        codes.append(<span class="bu">ord</span>(c))</span>
+<span id="cb36-5"><a href="#cb36-5"></a>    <span class="cf">return</span> codes</span>
+<span id="cb36-6"><a href="#cb36-6"></a></span>
+<span id="cb36-7"><a href="#cb36-7"></a><span class="bu">print</span>(get_unicode_points(<span class="st">'Arabian'</span>))</span>
+<span id="cb36-8"><a href="#cb36-8"></a><span class="bu">print</span>(get_unicode_points(<span class="st">'السَّلَامُ عَلَيْكُمْ'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[65, 114, 97, 98, 105, 97, 110]
 [1575, 1604, 1587, 1614, 1617, 1604, 1614, 1575, 1605, 1615, 32, 1593, 1614, 1604, 1614, 1610, 1618, 1603, 1615, 1605, 1618]</code></pre>
@@ -727,10 +739,10 @@ A Z
 <li><strong>أحرف تحكُّم</strong>: مخفيَّة؛ والغرض منها التحكم بمعالج هذا النص</li>
 </ol>
 <p>لعرض الأحرف القابلة للطباعة في محارف آسكي (ASCII)، لدينا المعرَّف <code>printable</code> من مكتبة <code>string</code>:</p>
-<div id="e5e19928" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="im">import</span> string</span>
-<span id="cb37-2"><a href="#cb37-2"></a>string.printable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="61">
+<div id="aedbf7eb" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="im">import</span> string</span>
+<span id="cb38-2"><a href="#cb38-2"></a>string.printable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&amp;\'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~ \t\n\r\x0b\x0c'</code></pre>
 </div>
 </div>
@@ -746,50 +758,50 @@ A Z
 </ol>
 <p>أما الثلاثة الأخيرة فقد كانت تستخدم فيما مضى، لكن اليوم المستخدم هو الأربعة الأولى فقط. ويجدر بالذكر أن ملفات نصوص نظام ويندوز تستعمل <code>\r\n</code> للانتقال لسطر جديد بينما تستعمل الأنظمة الأخرى <code>\n</code> فقط.</p>
 <p>تذكر أن بايثون تعتمد على <code>space</code> و <code>tab</code> للمسافة البادئة للسطر (indentation)، لتحديد نطاقات الكود بحسب المحاذاة العمودية.</p>
-<div id="91ad229d" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="im">import</span> string</span>
-<span id="cb39-2"><a href="#cb39-2"></a>string.whitespace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="62">
+<div id="1a74aac2" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="im">import</span> string</span>
+<span id="cb40-2"><a href="#cb40-2"></a>string.whitespace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>' \t\n\r\x0b\x0c'</code></pre>
 </div>
 </div>
 <p>يهمنا هنا الأحرف البيضاء لأنها تظهر في النصوص وقد تكون مزعجة عند معالجتها. لنلقي نظرة على ثلاثة من الأحرف البيضاء: المسافة (space)، التبويب (tab)، وتعليمة السطر الجديد (linefeed).</p>
-<div id="3b59d6b5" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Tab character: "\t"</span></span>
-<span id="cb41-2"><a href="#cb41-2"></a><span class="bu">print</span>(<span class="st">'A</span><span class="ch">\t</span><span class="st">B'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="78349d37" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Tab character: "\t"</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a><span class="bu">print</span>(<span class="st">'A</span><span class="ch">\t</span><span class="st">B'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>A   B</code></pre>
 </div>
 </div>
-<div id="5a619410" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Space character: " "</span></span>
-<span id="cb43-2"><a href="#cb43-2"></a><span class="bu">print</span>(<span class="st">'   A            B   '</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c86fcace" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Space character: " "</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="bu">print</span>(<span class="st">'   A            B   '</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   A            B   </code></pre>
 </div>
 </div>
-<div id="0e956f30" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># Newline character: '\n'</span></span>
-<span id="cb45-2"><a href="#cb45-2"></a><span class="bu">print</span>(<span class="st">'A</span><span class="ch">\n</span><span class="st">B'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="82101746" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Newline character: '\n'</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="bu">print</span>(<span class="st">'A</span><span class="ch">\n</span><span class="st">B'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>A
 B</code></pre>
 </div>
 </div>
 <p>لاحظ أن طول السلسلة النصية هو عدد الأحرف في السلسلة، سواء كانت <strong>قابلة للطباعة</strong> (printable) أو <strong>أحرف بيضاء</strong> (whitespace).</p>
-<div id="88f585d8" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="cf">assert</span> <span class="bu">len</span>(<span class="st">'A B'</span>) <span class="op">==</span> <span class="dv">3</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a><span class="cf">assert</span> <span class="bu">len</span>(<span class="st">'A</span><span class="ch">\t</span><span class="st">B'</span>) <span class="op">==</span> <span class="dv">3</span></span>
-<span id="cb47-3"><a href="#cb47-3"></a><span class="cf">assert</span> <span class="bu">len</span>(<span class="st">'A</span><span class="ch">\n</span><span class="st">B'</span>) <span class="op">==</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="117c5238" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="cf">assert</span> <span class="bu">len</span>(<span class="st">'A B'</span>) <span class="op">==</span> <span class="dv">3</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a><span class="cf">assert</span> <span class="bu">len</span>(<span class="st">'A</span><span class="ch">\t</span><span class="st">B'</span>) <span class="op">==</span> <span class="dv">3</span></span>
+<span id="cb48-3"><a href="#cb48-3"></a><span class="cf">assert</span> <span class="bu">len</span>(<span class="st">'A</span><span class="ch">\n</span><span class="st">B'</span>) <span class="op">==</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="strip" class="level3">
-<h3 class="anchored" data-anchor-id="strip"><code>.strip()</code></h3>
+<section id="الأطراف-الزائدة" class="level3">
+<h3 class="anchored" data-anchor-id="الأطراف-الزائدة">الأطراف الزائدة</h3>
 <p>لاحظ أن هذه الدالة ستزيل الأحرف البيضاء من بداية ونهاية السلسلة النصية، ولكن ليس الأحرف البيضاء في منتصف السلسلة</p>
 <p>قبل:</p>
-<div id="6896058c" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>text <span class="op">=</span> <span class="st">'</span><span class="ch">\t</span><span class="st"> hello    world </span><span class="ch">\n\n\n</span><span class="st">'</span></span>
-<span id="cb48-2"><a href="#cb48-2"></a><span class="bu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7b15f267" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>text <span class="op">=</span> <span class="st">'</span><span class="ch">\t</span><span class="st"> hello    world </span><span class="ch">\n\n\n</span><span class="st">'</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="bu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     hello    world 
 
@@ -798,34 +810,34 @@ B</code></pre>
 </div>
 </div>
 <p>بعد:</p>
-<div id="2d3f407c" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="bu">print</span>(text.strip())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="eef56a32" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="bu">print</span>(text.strip())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>hello    world</code></pre>
 </div>
 </div>
 </section>
-<section id="split" class="level3">
-<h3 class="anchored" data-anchor-id="split"><code>.split()</code></h3>
+<section id="تجزئة-النص" class="level3">
+<h3 class="anchored" data-anchor-id="تجزئة-النص">تجزئة النص</h3>
 <p>انظر: <a href="https://docs.python.org/3/library/stdtypes.html#str.splitlines">Splitlines</a></p>
-<div id="b8cd44e7" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>text <span class="op">=</span> <span class="st">'''</span></span>
-<span id="cb52-2"><a href="#cb52-2"></a><span class="st">Hello</span></span>
-<span id="cb52-3"><a href="#cb52-3"></a><span class="st">World</span></span>
-<span id="cb52-4"><a href="#cb52-4"></a></span>
-<span id="cb52-5"><a href="#cb52-5"></a><span class="st">How are you?</span></span>
-<span id="cb52-6"><a href="#cb52-6"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b8ccc8b4" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>text <span class="op">=</span> <span class="st">'''</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a><span class="st">Hello</span></span>
+<span id="cb53-3"><a href="#cb53-3"></a><span class="st">World</span></span>
+<span id="cb53-4"><a href="#cb53-4"></a></span>
+<span id="cb53-5"><a href="#cb53-5"></a><span class="st">How are you?</span></span>
+<span id="cb53-6"><a href="#cb53-6"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>إذا تركنا الكود كما هو في السطر من غير <code>print</code> فإن ذلك يعرض السلسلة النصية كما هي (بما في ذلك أحرف المسافات البيضاء)</p>
-<div id="80a50a6a" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="70">
+<div id="daa6712b" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>'\nHello\nWorld\n\nHow are you?\n'</code></pre>
 </div>
 </div>
 <p>أما إذا وضعنا <code>print</code> فإنه يطبع الأحرف المرئية ، وينسِّقُ المظهر بناءً على أحرف التحكُّم المخفية:</p>
-<div id="6d57d974" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a><span class="bu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="289ec355" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="bu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Hello
@@ -835,33 +847,33 @@ How are you?
 </code></pre>
 </div>
 </div>
-<div id="374cda12" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>text.splitlines()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="72">
+<div id="144ce491" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>text.splitlines()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>['', 'Hello', 'World', '', 'How are you?']</code></pre>
 </div>
 </div>
 <p>إذا لم نحدد محدد الفاصل فإن الفاصل الافتراضي هو المسافة.</p>
-<div id="85fc155d" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a><span class="bu">print</span>(<span class="st">"Hello, world"</span>.split())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="104c0c41" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a><span class="bu">print</span>(<span class="st">"Hello, world"</span>.split())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Hello,', 'world']</code></pre>
 </div>
 </div>
 <p>هنا نحدد الفاصل أنه الحرف <code>"l"</code>:</p>
-<div id="8689ce57" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a><span class="bu">print</span>(<span class="st">"Hello, world"</span>.split(<span class="st">"l"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e805c7f2" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a><span class="bu">print</span>(<span class="st">"Hello, world"</span>.split(<span class="st">"l"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['He', '', 'o, wor', 'd']</code></pre>
 </div>
 </div>
-<p>لإزالة الأحرف البيضاء جميعها، يمكن أن نستعمل التكرار على النحو التالي:</p>
-<div id="ccb7f9ee" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>text <span class="op">=</span> <span class="st">'</span><span class="ch">\t</span><span class="st"> hello    world </span><span class="ch">\n\n\n</span><span class="st">'</span></span>
-<span id="cb63-2"><a href="#cb63-2"></a>sp <span class="op">=</span> text.split()</span>
-<span id="cb63-3"><a href="#cb63-3"></a><span class="bu">print</span>(<span class="st">'split:'</span>, sp)</span>
-<span id="cb63-4"><a href="#cb63-4"></a>clean <span class="op">=</span> <span class="st">' '</span>.join(sp)</span>
-<span id="cb63-5"><a href="#cb63-5"></a><span class="bu">print</span>(<span class="st">'clean:'</span>, clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>لإزالة الأحرف البيضاء جميعها؛ نستعمل التكرار هكذا:</p>
+<div id="6f9ba078" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>text <span class="op">=</span> <span class="st">'</span><span class="ch">\t</span><span class="st"> hello    world </span><span class="ch">\n\n\n</span><span class="st">'</span></span>
+<span id="cb64-2"><a href="#cb64-2"></a>sp <span class="op">=</span> text.split()</span>
+<span id="cb64-3"><a href="#cb64-3"></a><span class="bu">print</span>(<span class="st">'split:'</span>, sp)</span>
+<span id="cb64-4"><a href="#cb64-4"></a>clean <span class="op">=</span> <span class="st">' '</span>.join(sp)</span>
+<span id="cb64-5"><a href="#cb64-5"></a><span class="bu">print</span>(<span class="st">'clean:'</span>, clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>split: ['hello', 'world']
 clean: hello world</code></pre>
@@ -882,30 +894,30 @@ clean: hello world</code></pre>
 </ol>
 <p>وهما مستخدمان اليوم فيما يُعرض على الشاشة.</p>
 <p>فإجراء <code>print</code> في الحقيقة يضع سطرًا جديدًا (حرف <code>\n</code>) في الوضع الافتراضي. فإن أردنا ألا يضعه، فنحدد العامل <code>end</code> الذي فيه على النحو التالي:</p>
-<div id="09a2dd4e" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a><span class="bu">print</span>(<span class="st">'Hello'</span>, end<span class="op">=</span><span class="st">''</span>)</span>
-<span id="cb65-2"><a href="#cb65-2"></a><span class="bu">print</span>(<span class="st">'World'</span>, end<span class="op">=</span><span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="41e32b24" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a><span class="bu">print</span>(<span class="st">'Hello'</span>, end<span class="op">=</span><span class="st">''</span>)</span>
+<span id="cb66-2"><a href="#cb66-2"></a><span class="bu">print</span>(<span class="st">'World'</span>, end<span class="op">=</span><span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>HelloWorld</code></pre>
 </div>
 </div>
 <p>لاحظ أننا جعلنا (<code>end=''</code>) أي: لا نريده أن يضع حرفًا بعد طباعة النص. ولذلك ظهرت الكلمتان في نفس السطر.</p>
-<p>ولو أردت أن تعيد الكتابة على نفس السطر، يمكنك أن تضع الحرف (<code>\r</code>) الذي يأمر رأس الطباعة بالرجوع لبداية السطر. على النحو التالي:</p>
-<div id="bd45de91" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="bu">print</span>(<span class="st">'123'</span>, end<span class="op">=</span><span class="st">'</span><span class="ch">\r</span><span class="st">'</span>)</span>
-<span id="cb67-2"><a href="#cb67-2"></a><span class="bu">print</span>(<span class="st">'45'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ولو أردت أن تعيد الكتابة على نفس السطر، يمكنك أن تضع الحرف (<code>\r</code>) الذي يأمر رأس الطباعة بالرجوع لبداية السطر:</p>
+<div id="a0bab866" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a><span class="bu">print</span>(<span class="st">'123'</span>, end<span class="op">=</span><span class="st">'</span><span class="ch">\r</span><span class="st">'</span>)</span>
+<span id="cb68-2"><a href="#cb68-2"></a><span class="bu">print</span>(<span class="st">'45'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>12345</code></pre>
 </div>
 </div>
 <p>لاحظ أن النتيجة هي طباعة الحرفين <code>45</code> فوق الحرفين <code>12</code> مع بقاء الحرف الأخير <code>3</code> في الأخير. وذلك لرجوع رأس الطباعة.</p>
 <p>تستعمل هذه اللطيفة في تحديث العداد حتى يظهر على الشاشة وكأنه يزيد شيئًا فشيئًا. وذلك على النحو التالي (لاحظ أننا نستعمل <code>time.sleep(t)</code> حتى نمثِّل وجود عمليَّة تأخذ وقتًا طويلاً فحسب):</p>
-<div id="953f1d44" class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a><span class="im">import</span> time</span>
-<span id="cb69-2"><a href="#cb69-2"></a></span>
-<span id="cb69-3"><a href="#cb69-3"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span> <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb69-4"><a href="#cb69-4"></a>    time.sleep(<span class="fl">0.20</span>)</span>
-<span id="cb69-5"><a href="#cb69-5"></a>    <span class="bu">print</span>(<span class="ss">f'[</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">/10] '</span> <span class="op">+</span> <span class="st">'==='</span> <span class="op">*</span> x <span class="op">+</span> <span class="st">'&gt;'</span>, end<span class="op">=</span><span class="st">'</span><span class="ch">\r</span><span class="st">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ccb30063" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a><span class="im">import</span> time</span>
+<span id="cb70-2"><a href="#cb70-2"></a></span>
+<span id="cb70-3"><a href="#cb70-3"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span> <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb70-4"><a href="#cb70-4"></a>    time.sleep(<span class="fl">0.20</span>)</span>
+<span id="cb70-5"><a href="#cb70-5"></a>    <span class="bu">print</span>(<span class="ss">f'[</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">/10] '</span> <span class="op">+</span> <span class="st">'==='</span> <span class="op">*</span> x <span class="op">+</span> <span class="st">'&gt;'</span>, end<span class="op">=</span><span class="st">'</span><span class="ch">\r</span><span class="st">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[0/10] &gt;[1/10] ===&gt;[2/10] ======&gt;[3/10] =========&gt;[4/10] ============&gt;[5/10] ===============&gt;[6/10] ==================&gt;[7/10] =====================&gt;[8/10] ========================&gt;[9/10] ===========================&gt;[10/10] ==============================&gt;</code></pre>
 </div>
@@ -1338,8 +1350,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07_mapping.html" class="pagination-link" aria-label="الربط">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">الربط</span></span>
+      <a href="./07_mapping.html" class="pagination-link" aria-label="المجموعة المرقومة">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">المجموعة المرقومة</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

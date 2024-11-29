@@ -280,21 +280,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">تنسيق الطباعة</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_collections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">المجموعات</span></span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./glossary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">المصطلحات</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">المصطلحات</span></span></a>
   </div>
 </li>
       </ul>
@@ -329,17 +324,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>المجموعة الرياضية</strong> (<code>set</code>) تحوي أشياء فريدة بغير ترتيب معيَّن. أما نظيرها غير القابل للتغيير فهو: (<code>frozenset</code>).</p>
-<p>تدعم المجموعة الرياضة لكونها مجموعة (<a href="https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes">Collection</a>) العمليات التالية:</p>
+<p>فمن <strong>خارج جنس التسلسل</strong>:</p>
+<p><strong>المجموعة الرياضية</strong> (<a href="https://docs.python.org/3/library/stdtypes.html#set"><code>set</code></a>) غير مرتبة وتقبل التغيير. ونظيرها الذي لا يقبل التغيير هو المجموعة الرياضية الجامدة (<a href="https://docs.python.org/3/library/stdtypes.html#frozenset"><code>frozenset</code></a>)</p>
+<p><strong>المجموعة الرياضية</strong> (<code>set</code>) تحوي أشياء فريدة بغير ترتيب. أما نظيرها غير القابل للتغيير فهو: (<code>frozenset</code>).</p>
+<p>تقبل المجموعة الرياضة لكونها مجموعة (<a href="https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes">Collection</a>) العمليات التالية:</p>
 <ul>
 <li>معرفة الطول: <code>len(s)</code></li>
 <li>التكرار: <code>for x in s</code></li>
 <li>العضوية: <code>x not in s</code></li>
 </ul>
-<p>باعتبارها مجموعة غير مرتبة، فإن <code>set</code> لا تسجل موقع العنصر أو ترتيب إدراجه. وبالتالي، فإنها لا تدعم الإشارة (<code>xs[i]</code>) أو التقطيع (<code>xs[i:j]</code>) أو أي سلوك يشبه المتسلسلات. لاحظ الخطأ التالي:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#| error: true</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>xs <span class="op">=</span> {<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>}</span>
-<span id="cb1-3"><a href="#cb1-3"></a>xs[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>باعتبارها مجموعة غير مرتبة، فإنها لا تسجل موقع العنصر أو ترتيب إدراجه. وبالتالي، فإنها لا تقبل الإشارة (<code>xs[i]</code>) أو التقطيع (<code>xs[i:j]</code>) أو أي سلوك يشبه المتسلسلات. لاحظ الخطأ التالي:</p>
+<div id="8bbb5e8a" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>xs <span class="op">=</span> {<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>}</span>
+<span id="cb1-2"><a href="#cb1-2"></a>xs[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg ansi-bold">In[1], line 2</span>
+<span class="ansi-green-fg">      1</span> xs <span style="color:rgb(98,98,98)">=</span> {<span style="color:rgb(98,98,98)">10</span>, <span style="color:rgb(98,98,98)">20</span>, <span style="color:rgb(98,98,98)">30</span>}
+<span class="ansi-green-fg ansi-bold">----&gt; 2</span> <span class="ansi-yellow-bg">xs</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">0</span><span class="ansi-yellow-bg">]</span>
+
+<span class="ansi-red-fg ansi-bold">TypeError</span>: 'set' object is not subscriptable</pre>
+</div>
+</div>
+</div>
 <p>مثال لاستعمال العضوية:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>languages <span class="op">=</span> {<span class="st">"Arabic"</span>, <span class="st">"English"</span>}</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="cf">if</span> <span class="st">'Python'</span> <span class="kw">not</span> <span class="kw">in</span> languages:</span>
@@ -357,7 +366,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>وكذلك تحقق: (الجزئية والشمول والانفاصل) .. المعروفة في الرياضيات.</li>
 </ul>
 <p>وهذا الكود مثال لجميع هذه العمليات:</p>
-<div id="2adde729" class="cell" data-execution_count="2">
+<div id="3bf440ad" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>set1 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span>
 <span id="cb3-2"><a href="#cb3-2"></a>set2 <span class="op">=</span>          {<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span>
 <span id="cb3-3"><a href="#cb3-3"></a></span>
@@ -446,7 +455,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p>وهذا مثال لاستعمالها:</p>
-<div id="dcde70e7" class="cell" data-execution_count="3">
+<div id="930c4bb6" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>set1 <span class="op">=</span> {<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>}</span>
 <span id="cb4-2"><a href="#cb4-2"></a>set2 <span class="op">=</span> {<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>, <span class="st">'D'</span>, <span class="st">'E'</span>}</span>
 <span id="cb4-3"><a href="#cb4-3"></a>set3 <span class="op">=</span> {<span class="st">'سين'</span>, <span class="st">'جيم'</span>, <span class="st">'قاف'</span>}</span>
@@ -459,7 +468,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-10"><a href="#cb4-10"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وتستعمل كذلك لإزالة العناصر المتكررة في أي مجموعة، نحو الكود التالي. فإننا نحول القائمة إلى مجموعة رياضية فتزول تلك العناصر تلقائيًّا، ثم نعيدها كما كانت:</p>
-<div id="983b6a94" class="cell" data-execution_count="4">
+<div id="a8d752c3" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb5-2"><a href="#cb5-2"></a>unique_numbers <span class="op">=</span> <span class="bu">list</span>(<span class="bu">set</span>(numbers))</span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="bu">print</span>(unique_numbers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -468,43 +477,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>وكذلك من الصف:</p>
-<div id="7da716e6" class="cell" data-execution_count="5">
+<div id="ace7054b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>t <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a>unique_t <span class="op">=</span> <span class="bu">tuple</span>(<span class="bu">set</span>(t))</span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="bu">print</span>(unique_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(1, 2, 3, 4, 5)</code></pre>
-</div>
-</div>
-<p>وكذلك لمعرفة الكلمات الفريدة في النص. فمعالجة النصوص أمر لابد منه لتحليلها، وهذا مثال على كيفية استخدام المجموعة الرياضية للعثور على الكلمات الفريدة في النص. كذلك نستعمل مجموعة الكلمات الوقفية (<code>stop_words</code>) لإزالتها من النص. ونقوم بتنظيف النص من العلامات الترقيمية باستعمال الإجراء <code>.replace()</code>. ونقوم بتحويل النص إلى حروف صغيرة بواسطة الإجراء <code>.lower()</code>:</p>
-<div id="a42e4e65" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>stop_words <span class="op">=</span> {<span class="st">'is'</span>, <span class="st">'a'</span>, <span class="st">'to'</span>, <span class="st">'so'</span>, <span class="st">'can'</span>, <span class="st">'it'</span>, <span class="st">'the'</span>, <span class="st">'be'</span>, <span class="st">'not'</span>}</span>
-<span id="cb9-2"><a href="#cb9-2"></a></span>
-<span id="cb9-3"><a href="#cb9-3"></a>text <span class="op">=</span> <span class="st">"Python is a high-level computer programming language. Compared to human language, Python is unambiguous so a computer can interpret it one way."</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="co"># clean the text</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a>xs <span class="op">=</span> text.lower()</span>
-<span id="cb9-7"><a href="#cb9-7"></a>xs <span class="op">=</span> xs.replace(<span class="st">'.'</span>, <span class="st">''</span>)</span>
-<span id="cb9-8"><a href="#cb9-8"></a>xs <span class="op">=</span> xs.replace(<span class="st">','</span>, <span class="st">''</span>)</span>
-<span id="cb9-9"><a href="#cb9-9"></a>clean_text <span class="op">=</span> xs</span>
-<span id="cb9-10"><a href="#cb9-10"></a></span>
-<span id="cb9-11"><a href="#cb9-11"></a>unique_words <span class="op">=</span> <span class="bu">set</span>(clean_text.split())</span>
-<span id="cb9-12"><a href="#cb9-12"></a>important_words <span class="op">=</span> unique_words <span class="op">-</span> stop_words</span>
-<span id="cb9-13"><a href="#cb9-13"></a></span>
-<span id="cb9-14"><a href="#cb9-14"></a><span class="cf">for</span> w <span class="kw">in</span> <span class="bu">sorted</span>(important_words):</span>
-<span id="cb9-15"><a href="#cb9-15"></a>    <span class="bu">print</span>(w)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>compared
-computer
-high-level
-human
-interpret
-language
-one
-programming
-python
-unambiguous
-way</code></pre>
 </div>
 </div>
 
