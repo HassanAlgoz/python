@@ -6,6 +6,8 @@ project:
     browser: true
     navigate: false
 
+jupyter: python3
+
 execute:
   # https://quarto.org/docs/computations/python.html#kernel-daemon
   daemon: true 
@@ -30,7 +32,7 @@ book:
   chapters:
     - index.qmd
     - setup.qmd
-    - part: الأصل
+    - part: الرئيسي
       chapters:
         - 01_intro.qmd
         - 02_number.qmd
@@ -38,10 +40,8 @@ book:
         - 04_iteration.qmd
         - 05_function.qmd
         - 06_sequences.qmd
-        - 07_sets.qmd
-        - 08_mapping.qmd
-        - 09_strings.qmd
-        - 10_comprehension.qmd
+        - 07_mapping.qmd
+        - 08_string.qmd
         - 11_files.qmd
         - 12_serialization.qmd
         - 13_errors.qmd
@@ -50,12 +50,10 @@ book:
         - 16_modules.qmd
     - part: فروع
       chapters:
+        - zz_comprehension.qmd
         - zz_time.qmd
-        - zz_format.qmd
-        # - zz_pipelines.qmd
-  appendices:
-    - glossary.qmd
-    # - appendix_collections.qmd
+        - appendix_collections.qmd
+        - glossary.qmd
 
 bibliography: references.bib
 
