@@ -104,7 +104,7 @@ print(content)
 ```
 
 
-ولأن الملف يعتبر [**مدير سياق** (Context Manager)](https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers) فيمكن استعمال جملة السياق `with` ليتم إغلاق الملف تلقائيّا عند نهاية الجملة التي تنتهي بنهاية قطعة الكود المحددة بالمحاذاة. وذلك على النحو التالي:
+ولأن الملف يعتبر [**مدير سياق** (Context Manager)](https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers) فيستحسن الإتيان بجملة السياق `with` إذ تتكفل بإغلاق الملف تلقائيّا عند نهايتها. وذلك على النحو التالي:
 
 ```{python}
 p = Path('datasets/example_root/a/a.txt')
@@ -141,8 +141,7 @@ dirs
 
 #### جرب
 
-هل تريد أن تعرف حجم مجلد التنزيلات (Downloads) في جهازك؟. يمكننا استخدام الإجراء `stat()` للحصول على بيانات عن المجلَّد، والتي من ضمنها الحجم (`st_size`) على النحول التالي:
-
+هل تريد أن تعرف حجم مجلد التنزيلات (Downloads) في جهازك؟. لديك الإجراء `stat()` للحصول على بيانات عن المجلَّد، والتي من ضمنها الحجم (`st_size`) هكذا:
 
 ```{python}
 p = Path.home() / 'Downloads'
