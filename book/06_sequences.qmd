@@ -4,6 +4,8 @@
 
 **التسلسل** ([`Sequence`](https://docs.python.org/3/library/stdtypes.html#common-sequence-operations)) هو أي مجموعة مرتبة من الأشياء. وسوف نرمز للمفرد بـ`x` ولما يدل على التسلسل بـ`s`.
 
+انظر @fig-collections-tree.
+
 يندرج تحت نوع التسلسل أربعة أنواع أساسية كلها تقبل الأفعال التالية:
 
 - الإشارة:
@@ -348,27 +350,6 @@ assert x == 50
 assert 50 not in l
 ```
 
-### تجميع النتائج
-
-ولأن التسلسل نوع من المتوالية، فيجوز التكرار عليه بالجملة: `for item in sequence`.
-
-يكثر استعمال القائمة أنها حاوية لنتائج عملية تكرارية. فهذا البرنامج ينتج من القائمة اثنين: إحداها زوجية والأخرى فردية:
-
-```{python}
-numbers = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-evens = []
-odds = []
-
-for x in numbers:
-    if x % 2 == 0:
-        evens.append(x)
-    else:
-        odds.append(x)
-
-print('list of evens:', evens)
-print('list of odds:', odds)
-```
-
 ## التسلسلات المرتبطة
 
 هذان تسلسلان مرتبطان:
@@ -437,3 +418,54 @@ assert q.popleft() == 10
 تعرفنا على التسلسل باستعراض نوعين منه: القائمة والصف؛ وذلك لتمييز خاصية التغير وأثرها على الأفعال التي يقبلها نوع القائمة ولا يقبلها الصف. كما رأينا أن التسلسل في أصله مجموعة؛ تقبل العضوية والعد والتكرار كغيرها من المجموعات.
 
 سنتعرف فيما يلي على نوعين آخرين من المجموعات: [المجموعة الرياضية والقاموس](07_mapping.qmd).
+
+
+## APPLICATIONS
+
+## تجميع النتائج
+
+ولأن التسلسل نوع من المتوالية، فيجوز التكرار عليه بالجملة: `for item in sequence`.
+
+يكثر استعمال القائمة أنها حاوية لنتائج عملية تكرارية. فهذا البرنامج ينتج من القائمة اثنين: إحداها زوجية والأخرى فردية:
+
+```{python}
+numbers = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+evens = []
+odds = []
+
+for x in numbers:
+    if x % 2 == 0:
+        evens.append(x)
+    else:
+        odds.append(x)
+
+print('list of evens:', evens)
+print('list of odds:', odds)
+```
+
+
+## معرفة النقاط المجاورة
+
+تذكر قانون المسافة الإقليدية بين نقطتين:
+
+$$
+d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+$$
+
+نريد استعماله لقائمة من النقاط لمعرفة النقاط المجاورة.
+
+```{python}
+points = [(1, 2), (3, 4), (5, 6), (7, 8)]
+new_point = (2, 3)
+
+distances = []
+new_x, new_y = new_point
+
+for point in points:
+  x, y = point
+  distance = ((x - new_x) ** 2 + (y - new_y) ** 2) ** 0.5
+  distances.append(distance)
+
+points_sorted_by_distance = [point for _, point in sorted(zip(distances, points))]
+print('nearest points:', points_sorted_by_distance)
+```

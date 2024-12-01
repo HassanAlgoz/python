@@ -1,0 +1,45 @@
+## التكرار بمتوالية
+
+تعرف بايثون **المتوالية** ([`Iterable`](https://docs.python.org/3/glossary.html#term-iterable)) بأنه الشيء الذي يُنتج عنصرًا في كل كرة، وذلك لأنه يطبق عملية `__iter__`. ويندرج تحته في لغة بايثون **المُكَرِّر** ([`Iterator`](https://docs.python.org/3/tutorial/classes.html#iterators)) وهو الشيء الذي يتحكم بعملية التكرار، وذلك لأنه يطبق عملية `__next__` .. وهذا يهمنا حين نريد أصناف تكون من جنس المتوالية أو المكرر. لكن الذي يهمنا الآن معرفة الأنواع الموجودة التي هي من جنسها.
+
+فمن المتوالياتا في المكتبة الأساسية:
+
+1. **المجموعة** ([Collection](https://docs.python.org/3/library/collections.html)) وهي مجموعة محدودة من العناصر.
+2. **المولِّد** ([Generator](https://docs.python.org/3/tutorial/classes.html#generators)) وهو ما يُنتج عناصر (قد يكون محدودًا وقد لا يكون).
+
+المهم أن نعرف أن الشيء الذي يُساق في جملة التكرار المبتدأة بكلمة `for` هو متوالية. وجملة التكرار بمتوالية لها هذا الشكل:
+
+```python
+for item in iterable:
+    ...
+```
+
+
+### نص: متوالية أحرف
+
+```{python}
+my_string = "abc"
+for character in my_string:
+    print(character)
+```
+
+### ملف: متوالية أسطر
+
+```python
+my_file = open("myfile.txt")
+for line in my_file:
+    print(line)
+my_file.close()
+```
+
+### قاموس: متوالية روابط
+
+```{python}
+my_dict = {
+    'one': 100,
+    'two': 200,
+    'three': 300,
+}
+for key, value in my_dict.items():
+    print(key, value)
+```

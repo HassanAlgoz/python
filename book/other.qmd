@@ -7,18 +7,6 @@
 - `os.environ`
 - `python-dotenv`
 
-### Void functions
-
-A **void function** is one that doesn't have a `return` statement, and thus will return `None` by default. Such functiosn usually make their output accessible through **side effects** (like printing to the console, writing to a file, etc.).
-
-```{python}
-def do_some_work(x):
-    # ... some code that does something with x
-    f = open('output.txt', 'w')
-    f.write(str(x))
-    # return None is implicitly added at the end of the function
-```
-
 ### *Args and **Kwargs
 
 ```{python}
@@ -258,4 +246,36 @@ my_dict = {
 
 ```{python}
 # try it
+```
+
+
+
+
+
+### مثال
+
+هذا المثال يستعمل مع المجموعة الرياضية:
+
+- النص: `str`
+- القائمة: `list`
+- التكرار: `for x in xs`
+
+وكذلك لمعرفة الكلمات الفريدة في النص. فمعالجة النصوص أمر لابد منه لتحليلها، وهذا مثال على كيفية استخدام المجموعة الرياضية للعثور على الكلمات الفريدة في النص. كذلك نستعمل مجموعة الكلمات الوقفية (`stop_words`) لإزالتها من النص. ونقوم بتنظيف النص من العلامات الترقيمية باستعمال الإجراء `.replace()`. ونقوم بتحويل النص إلى حروف صغيرة بواسطة الإجراء `.lower()`:
+
+```{python}
+stop_words = {'is', 'a', 'to', 'so', 'can', 'it', 'the', 'be', 'not'}
+
+text = "Python is a high-level computer programming language. Compared to human language, Python is unambiguous so a computer can interpret it one way."
+
+# clean the text
+xs = text.lower()
+xs = xs.replace('.', '')
+xs = xs.replace(',', '')
+clean_text = xs
+
+unique_words = set(clean_text.split())
+important_words = unique_words - stop_words
+
+for w in sorted(important_words):
+    print(w)
 ```

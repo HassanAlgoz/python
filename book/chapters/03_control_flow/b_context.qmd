@@ -1,0 +1,115 @@
+# تطبيقات
+
+
+## تسجيل الدخول
+
+- استخدم دالة `input()` لطلب `اسم المستخدم (username)` و `كلمة المرور (password)` من المستخدم وخزن كل منهما في متغير مناسب
+- إذا كان اسم المستخدم هو `"admin"` وكلمة المرور هي `"abc123"`، اطبع: `"Welcome admin"`
+- أو إذا كان اسم المستخدم هو `"backdoor"` وكلمة المرور هي `"let me in"`، اطبع: `"Nobody knows!"`
+- خلاف ذلك، اطبع: `"Access denied!"`
+
+```python
+import getpass
+
+username = input("Enter your username: ")
+password = getpass.getpass("Enter your password: ")
+
+if username == "admin" and password == "abc123":
+    print("Welcome admin")
+elif username == "backdoor" and password == "let me in":
+    print("Nobody knows!")
+else:
+    print("Access denied!")
+```
+
+## التفاعل مع المستخدم
+
+```python
+inventory = 100
+
+while True:
+  print("\nStore Menu:")
+  print("1. Buy Apples")
+  print("2. Restock Apples")
+  print("3. Exit")
+
+  choice = int(input("Enter your choice: "))
+
+  if choice == 1:
+    quantity = int(input("Enter the quantity of apples to buy: "))
+    if quantity <= inventory:
+      inventory -= quantity
+      print("You bought", quantity, "apples. Remaining inventory:", inventory)
+    else:
+      print("Insufficient stock. Please try again later.")
+  elif choice == 2:
+    quantity = int(input("Enter the quantity of apples to restock: "))
+    inventory += quantity
+    print("Restocked", quantity, "apples. New inventory:", inventory)
+  elif choice == 3:
+    print("Exiting the store...")
+    break
+  else:
+    print("Invalid choice. Please try again.")
+```
+
+قد يبدو الأمر بلا معنى؛ لكن هكذا تعمل برامج الخوادم التي تستقبل الطلبات بشكل مستمر. فإنها تدخل حلقة لانهائية تأخذ فيها الطلبات من المستخدمين ليتم معالجتها والرد عليهم.
+
+## عرض عناصر القائمة
+
+ومن السياقات التي يستعمل فيها النطاق، أن تكرر على قائمة أرقام بخطوة معيَّنة، على النحو التالي:
+
+```{python}
+my_words = [
+  ("أكل", "يأكل"),
+  ("جلس", "يجلس"),
+  ("ذهب", "يذهب")
+]
+
+for (past, present) in my_words:
+  print('الماضي:', past)
+  print("المضارع:", present)
+  print('-' * 50)
+```
+
+## ترشيح الأرقام
+
+تصور أن لدينا قائمة من الأرقام الموجبة والسالبة في مجموعة واحدة، ونريد فصلها لمجموعتين:
+
+```{python}
+numbers = [-11, -12, 13, 14, -15, 16, 17, -18, -19, 20]
+positives = []
+negatives = []
+
+for x in numbers:
+    if x > 0:
+        positives.append(x)
+    else:
+        negatives.append(x)
+
+print('list of positives:', positives)
+print('list of negatives:', negatives)
+```
+
+## حساب مجموع المسافات بين التنبؤ والحقيقة
+
+تستعمل معادلة مجموع القيم المطلقة للفروق بين التنبؤ والحقيقة في الانحدار الخطي الذي يستعمل في تعلم الآلة:
+
+$$
+\text{MAE} = \sum_{i=1}^{n} |y^{(i)}_\text{predicted} - y^{(i)}_\text{actual}|
+$$
+
+فلدينا قائمتان من الأعداد، ما تم التنبؤ به من قبل النموذج، وما هو حقيقي ضمن البيانات، ونريد أن نجد مجموع الفروق المطلقة بينهما.
+
+```{python}
+predictions = [ 1, 2, 3, 4, 5]
+actuals =     [-2, 3, 4, 5, 6]
+errors =      [ 0, 0, 0, 0, 0]
+
+for i in range(len(predictions)):
+  errors[i] = abs(predictions[i] - actuals[i])
+
+print('errors:', errors)
+print('total error:', sum(errors))
+```
+
