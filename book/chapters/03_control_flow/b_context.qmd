@@ -1,4 +1,103 @@
-# تطبيقات
+# تطبيقات {.unnumbered}
+
+## حساب مجموع الأعداد المدخلة
+
+- استخدم الإجراء `input()` لطلب إدخال العدد من المستخدم
+- القيمة المدخلة ستكون من النوع النصي وليس العددي؛ لذا:
+  - حول القيمة المدخلة إلى عدد باستخدام `int()` أو `float()`
+- أضف العدد إلى المجموع الكلي: `total`
+- استمر في الدوران إلى أن يدخل المستخدم العدد `0` .. عندها قم بإنهاء الحلقة بالكلمة `break`
+
+```python
+total = 0
+
+while True:
+  number_in = input("Enter a number: ")
+  number = int(number_in)
+  total += number
+  if number == 0:
+    break
+print(total)
+```
+
+## حجرة ورقة مقص
+
+في هذا المثال بعض الجمل التي لم نتعرف عليها بعد، ولكن لعل السياق يوضح معناها:
+
+- `user_move not in ["rock", "paper", "scissors"]` تغنينا عن جملة شرطية من ثلاثة مقارنات:
+  - `if user_move != "rock" and user_move != "paper" and user_move != "scissors"`
+- `random.choice(["rock", "paper", "scissors"])` تختار عشوائيًا عنصرًا من القائمة وتضعه في المتغير `computer_move`
+- `match` هي جملة تحل محل `if` و`elif` و`else`
+
+```python
+import random
+
+prompt = "Enter your move (rock, paper, scissors): "
+
+user_move = input(prompt)
+
+while user_move not in ["rock", "paper", "scissors"]:
+  print(f"Sorry, I can't understand what \"{user_move}\" is. Check the spelling please.")
+  user_move = input(prompt)
+
+computer_move = random.choice(["rock", "paper", "scissors"])
+
+print("Computer move:", computer_move)
+
+if user_move == computer_move:
+  print("It's a tie!")
+else:
+  match (user_move, computer_move):
+    case ("rock", "scissors") | ("paper", "rock") | ("scissors", "paper"):
+      print("You win!")
+    case _:
+      print("You lose!")
+```
+
+يتبين ما تختصره علينا جملة `match` مقارنة بالشرطية المكافئة التالية (لاحظ وجود علامة `\` لإعلام المترجم أن الجملة تمتد للسطر الذي يليه):
+
+```python
+if user_move == "rock" and computer_move == "scissors" \
+  or user_move == "paper" and computer_move == "rock" \
+  or user_move == "scissors" and computer_move == "paper":
+  print("You win!")
+else:
+  print("You lose!")
+```
+
+ولك أن تختصرها هي كذلك كالتالي:
+
+```python
+if (user_move, computer_move) in [("rock", "scissors"), ("paper", "rock"), ("scissors", "paper")]:
+  print("You win!")
+else:
+  print("You lose!")
+```
+
+
+## حساب مضروب العدد
+
+$$
+!n = n(n-1)(n-2)\cdots 1
+$$
+
+```{python}
+i = 5
+j = i
+while j > 1:
+  j -= 1
+  i *= j
+print(i)
+```
+
+شرح للخطوات التنفيذية التفصيلية:
+
+- أولاً، قم بتعيين المتغير `i` إلى العدد `5`
+- ثانياً، قم بتعيين المتغير `j` إلى العدد `5`
+- ثالثاً، استمر في الدوران إلى أن يصل `j` إلى القيمة `1`
+  - في كل دوران، قم بطرح `1` من `j`
+  - ثم قم بضرب `i` بالقيمة الجديدة لـ `j`: المتحصل هو أن `i = i * (i - 1)
+- أخيراً، قم بطباعة القيمة النهائية لـ `i`
 
 
 ## تسجيل الدخول
@@ -14,102 +113,104 @@ import getpass
 username = input("Enter your username: ")
 password = getpass.getpass("Enter your password: ")
 
-if username == "admin" and password == "abc123":
+max_tries = 3
+tries = 0
+
+while tries < max_tries:
+  if username == "admin" and password == "abc123":
     print("Welcome admin")
-elif username == "backdoor" and password == "let me in":
+    break
+  elif username == "backdoor" and password == "let me in":
     print("Nobody knows!")
-else:
+    break
+  else:
     print("Access denied!")
+    tries += 1
 ```
 
-## التفاعل مع المستخدم
+لاحظ:
+
+- وجود حلقة `while` لإعادة المحاولة ثلاث مرات فقط
+- وجود جملة `break` لإنهاء الحلقة إذا تم التسجيل بنجاح
+  - لا توجد `break` في جزئية `else` الأخيرة وذلك لأن عدد المحاولات يزيد في كل مرة ليؤول الأمر إلى انتفاء شرط الدوران
+
+
+## برنامج تفاعلي
 
 ```python
 inventory = 100
 
 while True:
-  print("\nStore Menu:")
+  print("Store Menu:")
   print("1. Buy Apples")
   print("2. Restock Apples")
   print("3. Exit")
 
-  choice = int(input("Enter your choice: "))
+  choice = input("Enter your choice: ")
 
-  if choice == 1:
-    quantity = int(input("Enter the quantity of apples to buy: "))
-    if quantity <= inventory:
-      inventory -= quantity
-      print("You bought", quantity, "apples. Remaining inventory:", inventory)
-    else:
-      print("Insufficient stock. Please try again later.")
-  elif choice == 2:
-    quantity = int(input("Enter the quantity of apples to restock: "))
-    inventory += quantity
-    print("Restocked", quantity, "apples. New inventory:", inventory)
-  elif choice == 3:
-    print("Exiting the store...")
-    break
-  else:
-    print("Invalid choice. Please try again.")
+  match choice:
+    case "1":
+      quantity = int(input("Enter the quantity of apples to buy: "))
+      if quantity <= inventory:
+        inventory -= quantity
+        print("You bought", quantity, "apples. Remaining inventory:", inventory)
+      else:
+        print("Insufficient stock. Please try again later.")
+    case "2":
+      quantity = int(input("Enter the quantity of apples to restock: "))
+      inventory += quantity
+      print("Restocked", quantity, "apples. New inventory:", inventory)
+    case "3":
+      print("Exiting the store...")
+      break
+    case _:
+      print("Invalid choice. Please try again.")
 ```
 
 قد يبدو الأمر بلا معنى؛ لكن هكذا تعمل برامج الخوادم التي تستقبل الطلبات بشكل مستمر. فإنها تدخل حلقة لانهائية تأخذ فيها الطلبات من المستخدمين ليتم معالجتها والرد عليهم.
 
-## عرض عناصر القائمة
+## برنامج تفاعلي ذو صفحات متعددة
 
-ومن السياقات التي يستعمل فيها النطاق، أن تكرر على قائمة أرقام بخطوة معيَّنة، على النحو التالي:
+```python
+page = "main"
 
-```{python}
-my_words = [
-  ("أكل", "يأكل"),
-  ("جلس", "يجلس"),
-  ("ذهب", "يذهب")
-]
+ADMIN_USERNAME = "admin"
+ADMIN_PASSWORD = "abc123"
 
-for (past, present) in my_words:
-  print('الماضي:', past)
-  print("المضارع:", present)
-  print('-' * 50)
+while True:
+  match page:
+    case "main":
+      print("*** Main menu ***")
+      print("1. Login")
+      print("2. Register")
+      print("3. Exit")
+      choice = input("Where do you want to go?: ")
+      match choice:
+        case "1":
+          page = "login"
+        case "2":
+          page = "register"
+        case _:
+          break
+    
+    case "login":
+      print("*** Login menu ***")
+      username = input("Please enter the username: ")
+      password = getpass.getpass("Please enter the password: ")
+      if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
+        print("Login successful!")
+        page = "admin_panel" # not matched, so it will match "_" and break the loop
+      else:
+        print("Login failed!")
+        page = "main"
+    
+    case "register":
+      print("*** Register menu ***")
+      username = input("Please enter the username: ")
+      password = getpass.getpass("Please enter the password: ")
+      print("Register successful!")
+      page = "main"
+    
+    case _:
+      break
 ```
-
-## ترشيح الأرقام
-
-تصور أن لدينا قائمة من الأرقام الموجبة والسالبة في مجموعة واحدة، ونريد فصلها لمجموعتين:
-
-```{python}
-numbers = [-11, -12, 13, 14, -15, 16, 17, -18, -19, 20]
-positives = []
-negatives = []
-
-for x in numbers:
-    if x > 0:
-        positives.append(x)
-    else:
-        negatives.append(x)
-
-print('list of positives:', positives)
-print('list of negatives:', negatives)
-```
-
-## حساب مجموع المسافات بين التنبؤ والحقيقة
-
-تستعمل معادلة مجموع القيم المطلقة للفروق بين التنبؤ والحقيقة في الانحدار الخطي الذي يستعمل في تعلم الآلة:
-
-$$
-\text{MAE} = \sum_{i=1}^{n} |y^{(i)}_\text{predicted} - y^{(i)}_\text{actual}|
-$$
-
-فلدينا قائمتان من الأعداد، ما تم التنبؤ به من قبل النموذج، وما هو حقيقي ضمن البيانات، ونريد أن نجد مجموع الفروق المطلقة بينهما.
-
-```{python}
-predictions = [ 1, 2, 3, 4, 5]
-actuals =     [-2, 3, 4, 5, 6]
-errors =      [ 0, 0, 0, 0, 0]
-
-for i in range(len(predictions)):
-  errors[i] = abs(predictions[i] - actuals[i])
-
-print('errors:', errors)
-print('total error:', sum(errors))
-```
-

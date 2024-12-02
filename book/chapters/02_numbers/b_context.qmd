@@ -1,4 +1,4 @@
-# تطبيقات
+# تطبيقات {.unnumbered}
 
 ## نتائج الجبر بتعيين المتغيرات في المعادلات الرياضية
 
@@ -73,74 +73,4 @@ x1, y1 = 0, 0
 x2, y2 = 3, 4
 distance = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
 print(distance)
-```
-
-## الإحصاء
-
-### بيانات عدد صفحات القراءة اليومية
-
-تصور أن لديك مجموعة بيانات تمثل عدد صفحات القراءة اليومية لشخص ما خلال شهرين:
-
-```{python}
-first_month = [
-    20, 21, 22, 23, 20, 22, 20, 18, 24, 18, 21, 23, 19, 20,
-    20, 21, 22, 23, 20, 22, 20, 18, 24, 18, 21, 23, 19, 20
-]
-
-second_month = [
-    30, 31, 32, 33, 30, 32, 30, 28, 34, 28, 31, 23, 29, 30,
-    30, 31, 32, 33, 30, 32, 30, 28, 34, 28, 31, 23, 29, 30
-]
-```
-
-```{python}
-import statistics
-```
-
-- متوسط عدد صفحات القراءة في الشهر الأول
-- متوسط عدد صفحات القراءة في الشهر الثاني
-- متوسط عدد صفحات القراءة للشهرين معًا
-
-```{python}
-avg1 = statistics.mean(first_month)
-avg2 = statistics.mean(second_month)
-avg_of_two = statistics.mean(first_month + second_month)
-
-print('first month average reading:', round(avg1, 1))
-print('second month average reading:', round(avg2, 1))
-print('average reading for the two months:', round(avg_of_two, 1))
-```
-
-- إذا كانت عدد صفحات القراءة تتزايد أم تتناقص
-
-```{python}
-if avg2 > avg1:
-    print('number of pages is increasing by', round(avg2 - avg1, 1))
-else:
-    print('number of pages is decreasing by', round(avg1 - avg2, 1))
-```
-
-- أكثر ما تمت قراءته في يوم
-- وأقل ما تمت قراءته في يوم
-
-```{python}
-print('-' * 50)
-print('first month:')
-print('minimum number of pages:', min(first_month))
-print('maximum number of pages:', max(first_month))
-
-print('-' * 50)
-print('second month:')
-print('minimum number of pages:', min(second_month))
-print('maximum number of pages:', max(second_month))
-
-both_months = first_month + second_month
-
-maximum = max(both_months)
-minimum = min(both_months)
-
-print('-' * 50)
-print('both months:')
-print('maximum number of pages:', maximum)
-print('minimum number of pages:', minimum)
 ```
