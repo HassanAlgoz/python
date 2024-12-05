@@ -1,0 +1,111 @@
+# تطبيقات {.unnumbered}
+
+تعريف الإجراء أمر مساعد للبرمجة وليس هو تنفيذيًّا بذاته. لذا ستكون تطبيقات هذا الجزء عبارة عن **قولَبة التطبيقات السابقة** بتعريفها في إجراءات:
+
+### طول الخط المستقيم بين نقطتين
+
+في هذا المثال نعرف نقطتين ثم نحسب المسافة بينهما. **والمسافة الإقليدية** بين نقطتين $(x_1, y_1)$ و $(x_2, y_2)$ تتبع معادلة **فيثاغورس**:
+
+$$
+\text{distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+$$
+
+وتذكر أن:
+
+$$
+\sqrt{x} = x^{1/2}
+$$
+
+
+```{python}
+def euclidean_distance(x1: float, y1: float, x2: float, y2: float) -> float:
+    return ((x2 - x1)**2 + (y2 - y1)**2) ** 0.5
+
+assert euclidean_distance(x1=0, y1=0, x2=3, y2=4) == 5.0
+```
+
+### كم سيكون عمرك عند حصول حدث مستقبلي معيَّن؟
+
+```{python}
+def age_at_future_event(age_now: int, current_year: int, future_year: int) -> int:
+    return age_now + (future_year - current_year)
+
+assert age_at_future_event(age_now=0, current_year=2000, future_year=2010) == 10
+assert age_at_future_event(age_now=20, current_year=2000, future_year=2010) == 30
+```
+
+### حساب الأجر
+
+```{python}
+def gross_pay(hours: float, per_hour_rate: float) -> float:
+    return hours * per_hour_rate
+
+assert gross_pay(10, 10) == 100
+assert gross_pay(40, 10) == 400
+```
+
+### الوزن الطبيعي
+
+هذا هو وزن الجسم الموصى به من قبل منظمة الصحة العالمية (WHO) استنادًا إلى قيم مؤشر كتلة الجسم للبالغين. ويستخدم لكل من الرجال والنساء الذين تبلغ أعمارهم 20 عامًا أو أكثر.
+
+| **التصنيف** | **مدى BMI - kg/m2** |
+| --- | --- |
+| نحف شديد | < 16 |
+| نحف متوسط | 16 - 17 |
+| نحف خفيف | 17 - 18.5 |
+| طبيعي | 18.5 - 25 |
+| زيادة في الوزن | 25 - 30 |
+| سمنة خفيفة | 30 - 35 |
+| سمنة ثانية | 35 - 40 |
+| سمنة ثالثة | > 40 |
+
+[المصدر](https://www.calculator.net/bmi-calculator.html)
+
+لحساب مؤشر كتلة الجسم (BMI)، نستعمل المعادلة التالية:
+
+$$
+BMI = \frac{weight}{height^2}
+$$
+
+```{python}
+def calculate_bmi(weight: float, height: float) -> float:
+    return weight / height**2
+
+def classify_bmi(bmi: float) -> str:
+    if bmi < 16:
+        return 'severe_thinness'
+    elif bmi < 17:
+        return 'moderate_thinness'
+    elif bmi < 18.5:
+        return 'mild_thinness'
+    elif bmi < 25:
+        return 'normal'
+    elif bmi < 30:
+        return 'overweight'
+    elif bmi < 35:
+        return 'obese_class_1'
+    elif bmi < 40:
+        return 'obese_class_2'
+    else:
+        return 'obese_class_3'
+
+assert classify_bmi(bmi=15) == 'severe_thinness'
+assert classify_bmi(bmi=20) == 'normal'
+assert classify_bmi(bmi=40) == 'obese_class_3'
+```
+
+## مجموع الأرقام إلى س
+
+ما نريد صياغته هو هذه المعادلة: مجموع الأرقام من 1 إلى `n`:
+
+$$
+\sum_{i=1}^{n} i = \frac{n(n + 1)}{2}
+$$
+
+```{python}
+def sum_of_numbers(n: int) -> int:
+    return n * (n + 1) // 2
+
+assert sum_of_numbers(n=5) == 1+2+3+4+5 == 15
+assert sum_of_numbers(n=10) == 1+2+3+4+5+6+7+8+9+10 == 55
+```

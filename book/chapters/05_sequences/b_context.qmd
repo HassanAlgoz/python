@@ -1,0 +1,187 @@
+
+## الإحصاء
+
+### بيانات عدد صفحات القراءة اليومية
+
+تصور أن لديك مجموعة بيانات تمثل عدد صفحات القراءة اليومية لشخص ما خلال شهرين:
+
+```{python}
+first_month = [
+    20, 21, 22, 23, 20, 22, 20, 18, 24, 18, 21, 23, 19, 20,
+    20, 21, 22, 23, 20, 22, 20, 18, 24, 18, 21, 23, 19, 20
+]
+
+second_month = [
+    30, 31, 32, 33, 30, 32, 30, 28, 34, 28, 31, 23, 29, 30,
+    30, 31, 32, 33, 30, 32, 30, 28, 34, 28, 31, 23, 29, 30
+]
+```
+
+```{python}
+import statistics
+```
+
+- متوسط عدد صفحات القراءة في الشهر الأول
+- متوسط عدد صفحات القراءة في الشهر الثاني
+- متوسط عدد صفحات القراءة للشهرين معًا
+
+```{python}
+avg1 = statistics.mean(first_month)
+avg2 = statistics.mean(second_month)
+avg_of_two = statistics.mean(first_month + second_month)
+
+print('first month average reading:', round(avg1, 1))
+print('second month average reading:', round(avg2, 1))
+print('average reading for the two months:', round(avg_of_two, 1))
+```
+
+- إذا كانت عدد صفحات القراءة تتزايد أم تتناقص
+
+```{python}
+if avg2 > avg1:
+    print('number of pages is increasing by', round(avg2 - avg1, 1))
+else:
+    print('number of pages is decreasing by', round(avg1 - avg2, 1))
+```
+
+- أكثر ما تمت قراءته في يوم
+- وأقل ما تمت قراءته في يوم
+
+```{python}
+print('-' * 50)
+print('first month:')
+print('minimum number of pages:', min(first_month))
+print('maximum number of pages:', max(first_month))
+
+print('-' * 50)
+print('second month:')
+print('minimum number of pages:', min(second_month))
+print('maximum number of pages:', max(second_month))
+
+both_months = first_month + second_month
+
+maximum = max(both_months)
+minimum = min(both_months)
+
+print('-' * 50)
+print('both months:')
+print('maximum number of pages:', maximum)
+print('minimum number of pages:', minimum)
+```
+
+
+## عرض عناصر القائمة
+
+ومن السياقات التي يستعمل فيها النطاق، أن تكرر على قائمة أرقام بخطوة معيَّنة، على النحو التالي:
+
+```{python}
+my_words = [
+  ("أكل", "يأكل"),
+  ("جلس", "يجلس"),
+  ("ذهب", "يذهب")
+]
+
+for (past, present) in my_words:
+  print('الماضي:', past)
+  print("المضارع:", present)
+  print('-' * 50)
+```
+
+## ترشيح الأرقام
+
+تصور أن لدينا قائمة من الأرقام الموجبة والسالبة في مجموعة واحدة، ونريد فصلها لمجموعتين:
+
+```{python}
+numbers = [-11, -12, 13, 14, -15, 16, 17, -18, -19, 20]
+positives = []
+negatives = []
+
+for x in numbers:
+    if x > 0:
+        positives.append(x)
+    else:
+        negatives.append(x)
+
+print('list of positives:', positives)
+print('list of negatives:', negatives)
+```
+
+## حساب مجموع المسافات بين التنبؤ والحقيقة
+
+تستعمل معادلة مجموع القيم المطلقة للفروق بين التنبؤ والحقيقة في الانحدار الخطي الذي يستعمل في تعلم الآلة:
+
+$$
+\text{MAE} = \sum_{i=1}^{n} |y^{(i)}_\text{predicted} - y^{(i)}_\text{actual}|
+$$
+
+فلدينا قائمتان من الأعداد، ما تم التنبؤ به من قبل النموذج، وما هو حقيقي ضمن البيانات، ونريد أن نجد مجموع الفروق المطلقة بينهما.
+
+```{python}
+predictions = [ 1, 2, 3, 4, 5]
+actuals =     [-2, 3, 4, 5, 6]
+errors =      [ 0, 0, 0, 0, 0]
+
+for i in range(len(predictions)):
+  errors[i] = abs(predictions[i] - actuals[i])
+
+print('errors:', errors)
+print('total error:', sum(errors))
+```
+
+
+## معرفة النقاط المجاورة
+
+تذكر قانون المسافة الإقليدية بين نقطتين:
+
+$$
+d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+$$
+
+نريد استعماله لقائمة من النقاط لمعرفة النقاط المجاورة.
+
+```{python}
+points = [(1, 2), (3, 4), (5, 6), (7, 8)]
+new_point = (2, 3)
+
+distances = []
+new_x, new_y = new_point
+
+for point in points:
+  x, y = point
+  distance = ((x - new_x) ** 2 + (y - new_y) ** 2) ** 0.5
+  distances.append(distance)
+
+points_sorted_by_distance = [point for _, point in sorted(zip(distances, points))]
+print('nearest points:', points_sorted_by_distance)
+```
+
+## القائمة كمكدس
+
+**المكدس** هو عبارة عن مجموعة مرتبة تتراكم عناصرها فوق بعض، بحيث ما يدخل أخيرا هو ما يخرج أولاً.
+
+يتحصل المكدس بفعلين من القائمة:
+
+- الإلحاق (إضافة العنصر في النهاية): `l.append(x)`
+- النزع (إزالة الأخير وإرجاعه): `l.pop()`
+
+ومن تطبيقات المكدس السهلة، استعماله في التحقق من توازن الأقواس:
+
+```{python}
+def is_balanced(text: str) -> bool:
+    """Check if the text has balanced parentheses."""
+    stack = []
+    for character in text:
+        if character == '(':
+            stack.append(character)
+        elif character == ')':
+            if len(stack) == 0:
+                return False
+            stack.pop()    
+    return len(stack) == 0
+
+assert is_balanced('()')
+assert is_balanced('(())')
+assert not is_balanced('(()')
+assert not is_balanced('((()')
+assert not is_balanced('())))')
+```
