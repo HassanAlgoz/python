@@ -1,0 +1,184 @@
+# تطبيقات {.unnumbered}
+
+
+## الكلمة ومعناها
+
+القاموس بالمعنى الذي يشير إليه اللفظ. نفترض أن لدينا قاموسًا يحتوي على ترجمة بعض الكلمات من الإنجليزية إلى العربية:
+
+```{python}
+english_to_arabic = {
+    'apple': 'تفاحة',
+    'banana': 'موزة',
+    'orange': 'برتقالة',
+}
+```
+
+## ربط الأسماء بالأرقام
+
+مثلاً: دليل أرقام الهواتف هو قاموس:
+
+```{python}
+name_to_phone = {
+    'Adam': '966xxxxxxxxx',
+    'Mohammed': '966xxxxxxxxx',
+}
+```
+
+وكذلك دليل أسماء النطاق (DNS: Domain Name System) على شبكة الانرتنت هو قاموس:
+
+```{python}
+domain_to_ip = {
+    'google.com': '172.217.14.206',
+    'wikipedia.org': '103.86.96.10',
+}
+```
+
+## اختصار الروابط الطويلة
+
+من استعمالات القاموس: اختصار الروابط الطويلة في روابط قصيرة.
+
+```{python}
+short_to_full = {
+    'google': 'https://www.google.com',
+    'python': 'https://www.python.org',
+    'wiki': 'https://www.wikipedia.org',
+}
+```
+
+## الاختصارات
+
+أو الاختصارات إلى الكلمة التامة:
+
+```{python}
+abb_to_full = {
+    'ASAP': 'As Soon As Possible',
+    'BRB': 'Be Right Back',
+    'DIY': 'Do It Yourself',
+    'EDA': 'Exploratory Data Analysis',
+    'FYI': 'For Your Information',
+    'SAR': 'Saudi Riyal',
+}
+```
+
+ويمكن عكس القاموس بالطريقة التالية:
+
+```{python}
+full_to_abb = {}
+
+for key, value in abb_to_full.items():
+    full_to_abb[value] = key
+
+print(full_to_abb)
+```
+
+
+## سلة المشتريات
+
+نفترض أن لدينا سلة تحتوي على مشتريات العميل (`basket`)، ونريد حساب القيمة الإجمالية لها، ولدينا قائمة بأسعار الفواكه. فنعرف الأسعار على أنها قاموس `prices` بحيث يشير اسم الفاكهة إلى سعرها (قيمتها المالية).
+
+```{python}
+prices = {
+    'apple': 15.25,
+    'banana': 10.50,
+    'orange': 5.75,
+    'cantaloupe': 40.00
+}
+```
+
+يجوز تحديث الأسعار هكذا:
+
+```{python}
+prices['banana'] = 12
+```
+
+أو بالمجموع هكذا:
+
+```{python}
+prices.update({'banana': 12, 'orange': 15})
+```
+
+والآن نفترض أن لدينا قائمة بالفواكه التي يريدها العميل:
+
+```{python}
+basket = ['apple', 'apple', 'banana', 'orange', 'banana']
+```
+
+نحسب سعر كل فاكهة في السلة بناءً على الأسعار الموجودة في القاموس:
+
+```{python}
+total = 0
+
+for fruit in basket:
+    total += prices[fruit]
+
+print(total)
+```
+
+
+## تسجيل تفضيلات المستخدم
+
+يجوز أن تكون قيمة المرقوم قاموسًا؛ وهذا يعني أن القاموس قد يتضمن قاموسًا.
+
+هذا المثال يوضح استعمالًا شائعًا لذلك، وهو ترتيب معلومات أو تفضيلات المستخدم.
+
+```{python}
+user = {
+    'name': 'Adam',
+    'language': 'Arabic',
+    'phone': '966xxxxxxxxx',
+    'last_updated': '2021-09-01',
+    'age': 25,
+    'notifications': {
+        'email': True,
+        'sms': False,
+        'push': True
+    },
+    'emails': ['example1@domain.com', 'example2@domain.com']
+}
+```
+
+وللوصول إلى قيمة مضمَّنة، نستعمل الإشارة مرتين، هكذا:
+
+```{python}
+user['notifications']['sms']
+```
+
+أما حفظها فسيأتي الكلام عن حفظ البيانات في [باب كتابة الملفات وقراءتها](../07_files/a_files.qmd) إن شاء الله.
+
+
+## الذاكرة القريبة
+
+يجوز أن تسجل نتيجة استدعاء إجراء بمدخلات معيَّنة. حتى إذا ما تكرر الاستدعاء نفس المدخلات؛ توفِّر تكلفة استدعائه بإرجاع النتيجة المحفوظة. وهذا يفيد في أمرين:
+
+1. الاقتصاد في موارد المعالجة، خصوصًا عند تعقد العمليات.
+2. تقليل وقت الاستجابة.
+
+ويشترط أن يكون الإجراء نقيًّا. (انظر [قسم الإجراء النقي في باب الإجراء](../04_functions/a_functions.qmd#الإجراء-النقي)).
+
+```{python}
+factorial_table = {
+    0: 1,
+    1: 1,
+    2: 2,
+    3: 6,
+}
+
+def factorial(n):
+    if n not in factorial_table:
+        factorial_table[n] = n * factorial(n - 1)
+    return factorial_table[n]
+```
+
+بل إن بايثون توفر هذه الخاصية للدوال عن طريق **المزيِّن** (decorator) [`@functools.lru_cache`](https://docs.python.org/3/library/functools.html#functools.cache)، هكذا:
+
+```{python}
+import functools
+
+@functools.lru_cache
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+```
+
+لاحظ عدم الحاجة لتعريف القاموس `factorial_table`، بل يقوم المزيِّن هو بذلك تلقائيًّا.
