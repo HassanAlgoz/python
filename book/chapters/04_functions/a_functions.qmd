@@ -171,8 +171,11 @@ def check_password_strength(password: str) -> str:
 - وبعد ذلك نأتي لكتابة التفاصيل: التي هي قطعة الكود داخل الإجراء.
 - وأثناء كتابة التفاصيل نشغل الاختبارات كي توجِّهنا لما هو غير مطابق للوصف.
 
-- وأحيانًا نحتاج أن نعرِّف الإجراء، لكننا لا نريد كتابة تفاصيله الآن. لذلك نستعمل كلمة `pass` لإرضاء مترجم اللغة.
-- ولاحظ استعمال **docstring** وهو نص يترأس الإجراء (يكون في أول سطر فيه، محاطًا بثلاث علامات تنصيص مزدوجة: `"""`) يصفُه للمستفيد بلغة واضحة. والأصل فيه عدم ذكر تفاصيل التطبيق (ثنايا الإجراء نفسه).
+في المثال التالي لاحظ هذه الأمور:
+
+1. تعريف الإجراء باسم وعوامل وأنواعها.
+2. الوصف المُجمَل باللغة الإنجليزية، ويسمى **docstring**؛ وهو النص الذي يترأس الإجراء (في سطره الأول). والقاعدة العامة فيه: ألا يصف إلا ما يفيد المستفيد من الإجراء. أما التفاصيل التي تفيد مطوِّر الإجراء فإنها تكون تعليقات بعلامة `#` في ثناياه.
+3. كلمة `pass` التي تُستعمل لإرضاء مترجم اللغة. لأننا سنكتب الاختبارات قبل أن نكتب تفاصيله، ولا نريد لمترجم بايثون أن يظهر خطأ بسبب عدم وجود قطعة كود داخل الإجراء.
 
 ```{python}
 def min_max(numbers: list[float]) -> tuple[float, float]:
@@ -194,11 +197,26 @@ help(min_max)
 # assert min_max([10, 10, -900, 10, 10]) == (-900, 10)
 ```
 
-ثم الآن نعدل الإجراء الذي كتبناه في الأعلى:
+ثم الآن نعدل الإجراء الذي كتبناه في الأعلى، ولاحظ استعمال التعليقات `#` لتوضيح التسلسل التنفيذي:
 
 ```{python}
 def min_max(numbers: list[float]) -> tuple[float, float]:
-    return min(numbers), max(numbers)
+    """Return the minimum and maximum values in the list."""
+
+    if len(numbers) == 0:
+        return None, None
+    
+    # Assign the first element to minimum and maximum
+    minimum = numbers[0]
+    maximum = numbers[0]
+    
+    for num in numbers:
+        if num < minimum:
+            minimum = num
+        # elif is used because maximum will never be less than minimum
+        elif num > maximum:
+            maximum = num
+    return minimum, maximum
 ```
 
 ونشغل الاختبارات:
@@ -207,6 +225,7 @@ def min_max(numbers: list[float]) -> tuple[float, float]:
 assert min_max([10, 20, 30, 40, 50]) == (10, 50)
 assert min_max([50, 40, 30, 20, 10]) == (10, 50)
 assert min_max([10, 10, -900, 10, 10]) == (-900, 10)
+assert min_max([]) == (None, None)
 ```
 
 ## الإجراء النقي
