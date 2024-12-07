@@ -1,0 +1,132 @@
+# تمارين {.unnumbered}
+
+
+## سلة مشتريات
+
+لديك قائمة بالفواكه وأسعارها.
+
+ولديك سلة مشتريات تريد أن تحسب مجموعها.
+
+```python
+fruits = ["apple", "banana", "orange"]
+prices = [    1.5,      2.0,      1.0]
+```
+
+اكتب إجراء يحسب مجموع السلة:
+
+```python
+def calculate_total_price(shopping_list):
+    pass
+```
+
+```python
+assert calculate_total_price(["apple", "apple", "apple"]) == 4.5
+assert calculate_total_price(["banana", "apple"]) == 3.5
+assert calculate_total_price([]) == 0.0
+```
+
+
+## متوسط المبيعات اليومية
+
+```python
+daily_sales = [
+    10, 12, 10, 15, 13, 14, 10,
+    19, 14, 12, 8, 10, 11, 12,
+    14, 15, 14, 14, 10, 5, 13,
+    8, 20, 19, 15, 14, 13, 12,
+]
+```
+
+احسب ما يلي:
+
+- عدد الأيام
+    - يمكنك استعمال الدالة `len()`
+- مجموع المبيعات لكل أسبوع على حدة
+    - يمكنك استعمال الدالة `sum()` واستعمال الإشارة بقطعة `[:7]` للأسبوع الأول
+- متوسط المبيعات لكل أسبوع على حدة والانحراف المعياري
+    - يمكنك استعمال الدالة `statistics.mean()` و `statistics.stdev()`
+- متوسط المبيعات خلال الشهر والانحراف المعياري
+
+
+## ضرب متجهين
+
+```python
+def dot_product(v, u):
+    pass
+```
+
+للاختبار سنستعمل ما هو موجود في مكتبة `numpy`:
+
+```python
+import numpy as np
+
+assert dot_product([1, 2, 3], [4, 5, 6]) == np.dot([1, 2, 3], [4, 5, 6])
+assert dot_product([1, 2, 3], [1, 2, 3]) == np.dot([1, 2, 3], [1, 2, 3])
+```
+
+
+## توزيع الفرق
+
+لديك قائمة من الأسماء وتريد توزيعها إلى مجموعات:
+
+1. الحالة الأولى: يتم تعيين حجم المجموعة الواحدة
+2. الحالة الثانية: يتم تعيين عدد المجموعات
+
+```python
+def make_groups1(items: list[str], num_groups: int = None, group_size: int = None) -> list[list[str]]:
+    pass
+```
+
+ويجب أن يكون الترتيب عشوائيًّا. انظر [توثيق مكتبة بايثون عن مكتبة العشواء](https://python.readthedocs.io/en/stable/library/random.html#functions-for-sequences) هذه: `random.choice()`, `random.shuffle()`, `random.sample()`.
+
+افترض أن هذه القائمة التي لديك:
+
+```
+Ahmad
+Mohannad
+Mohammed
+Salem
+Ali
+Samir
+```
+
+الاختبارات
+
+```python
+g1 = make_groups1(["Ahmad", "Mohannad", "Mohammed", "Salem", "Ali", "Samir"], num_groups=2)
+assert len(g1) == 2
+assert len(g1[0]) == 3
+assert len(g1[1]) == 3
+
+g2 = make_groups1(["Ahmad", "Mohannad", "Mohammed", "Salem", "Ali", "Samir"], group_size=2)
+assert len(g2) == 3
+assert len(g2[0]) == 2
+assert len(g2[1]) == 2
+assert len(g2[2]) == 2
+```
+
+### ضم الأقران
+
+تريد الآن أن تزيد شرطًا وهو أن يكون فارق العمر بينهم أقل ما يمكن. وهذه أعمارهم:
+
+```
+Ahmad: 24
+Mohannad: 17
+Mohammed: 16
+Salem: 32
+Ali: 26
+Samir: 31
+```
+
+الاختبارات
+
+```python
+groups = make_groups2(["Ahmad", "Mohannad", "Mohammed", "Salem", "Ali", "Samir"], group_size=2)
+for g in groups:
+    if "Ahmad" in g:
+        assert "Ali" in g
+    if "Mohannad" in g:
+        assert "Mohammed" in g
+    if "Salem" in g:
+        assert "Samir" in g
+```
