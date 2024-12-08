@@ -1,54 +1,25 @@
-# الملفات
+# الدليل
 
-المسار له شكلان:
+أحيانًا نريد التعامل مع مجموعة ملفات، نقلاً أو نسخًا أو حذفًا أو ترتيبًا أو بحثًا. وهذا ما نبحثه في هذا الفصل.
 
-| نوع المسار | الشرح | مثال |
-| --- | --- | --- |
-| **المسار المطلق** (Absolute Path) | يحدد المسار بشكل كامل بدءًا من الجذر، ولا يعتمد على الموقع الحالي. | `/home/user/Downloads` |
-| **المسار النسبي** (Relative Path) | يحدد المسار بالنسبة لموقع الملف الحالي. | `datasets/example_root/a/a.txt` |
+وجب علينا أولاً أن نُدرك أن ثمة نوعان من الملفات في النظام:
 
-وقد تستعمل علامة `./` للإشارة للمجلد الحالي. أما علامة `../` فتشير إلى المجلد الأب.
+1. **دليل**: وهو قائمة من الملفات والأدلة
+	- وهو الذي تراه في الواجهة الرسومية على شكل **مجلَّد**
+	- ولا يحتاج لتحديد صيغة
+2. **ملف**: وهو الذي يحوي بيانات نصية أو ثنائية
+	- وهي الملفات التي تراها داخل المجلد في الواجهة الرسومية
+	- صيغتها هي الحروف بعد آخر نقطة؛ مثل: `my_data.csv` (الصيغة: `csv`)
 
-## قراءة الملفات وكتابتها
+والملف المبتدأُ بالنقطة مثل: `.git` يكون **مخفيًّا**.
 
-انظر [توثيق قراءة وكتابة الملفات](https://docs.python.org/3/library/pathlib.html#reading-and-writing-files).
+و**الطريق** هو الموصل لملفٍّ ما أو دليلٍ ما نحو: `datasets/example_root/a/a.txt`. وسبق أن بينا أنه على نوعين: مُطلَق ونسبي.
 
-أبسط طريقة للتعامل مع الملفات قراءةً وكتابةً هي باستعمال [`open()`](https://docs.python.org/3/library/functions.html#open). فهكذا نقرأ الملف باستعمال `file.read()` بعد فتح الملف بوضع القراءة `'r'` في `open(mode='r')`:
+فحديثنا في هذا الفصل عن الوصول إلى الملفات ، والبحث عنها ، وتركيب المسار إليها، وهذا ما تحققه مكتبة [`pathlib`](https://docs.python.org/3/library/pathlib.html).
 
-```{python}
-f = open(file='datasets/example_root/a/a.txt', mode='r')
-content = f.read()
-f.close()
-
-print(content)
-```
-
-وهكذا نكتب في الملف باستعمال `file.write()`، بعد فتح الملف بوضع الكتابة `'w'` في `open(mode='w')`:
-
-```{python}
-content = """Salam everyone,
-I hope you are enjoying the course,
-
-Thank you.
-"""
-
-f = open(file='datasets/example_root/a/zzz.txt', mode='w')
-f.write(content)
-f.close()
-
-print(content)
-```
-
-
-- إذا كنت تريد قراءة الملفات وكتابتها بشكل بسيط انظر: [`open()`](https://docs.python.org/3/library/functions.html#open).
-- وإذا كنت تريد التعامل مع الملفات المؤقتة فانظر: [`tempfile`](https://docs.python.org/3/library/tempfile.html#module-tempfile).
-- وكثير من عمليات التعامل مع الملفات والمجلدات تجدها في: [`shutil`](https://docs.python.org/3/library/shutil.html#module-shutil).
-
-## المسار
-
-أما الآن فحديثنا عن الوصول إلى الملفات ، والبحث عنها ، وتركيب المسار إليها، وهذا ما تحققه مكتبة [`pathlib`](https://docs.python.org/3/library/pathlib.html).
-
+::: {.callout-note}
 يجدر بالذكر أن مكتبة `pathlib` جاءت متأخرة في إصدار `Python 3.4` لمعالجة الملفات بأسلوب البرمجة الشيئية (OOP)، بينما تستعمل مكتبة `os` التي سبقتها لأغراض متعددة فيما يخص نظام التشغيل (os = Operating System) من ضمنها خُصِّصَت `os.path` للتتعامل مع نظام الملفات إلا أنها كُتِبَت بأسلوب إجرائي تأسيًّا بلغة سي (C)، فهي منخفضة المستوى (تتعامل مباشرة مع `bytes` و `str`) بالمقارنة بالبرمجة الشيئية الأعلى في التجريد؛ **وهو ما نفضله**. انظر [مقارنة pathlib بوحدات `os` و `os.path`](https://docs.python.org/3/library/pathlib.html#comparison-to-the-os-and-os-path-modules).
+:::
 
 لاستعراض عمليات المكتبة، أنشأنا مُسبقًا شجرة تبدأ من مجلد اسمه `example_root` تجدها داخل `datasets` في [مستودع مشروع الكتاب](https://github.com/HassanAlgoz/python/tree/main/book/datasets/example_root) على النحو التالي:
 
@@ -83,9 +54,9 @@ from pathlib import Path
 
 ```{python}
 assert (
-    Path('datasets/example_root/a/a.txt') ==
-    Path(r'datasets\example_root\a\a.txt') ==
-    Path('datasets') / 'example_root' / 'a' / 'a.txt'
+    Path('../../datasets/example_root/a/a.txt') ==
+    Path(r'..\..\datasets\example_root\a\a.txt') ==
+    Path('../../datasets') / 'example_root' / 'a' / 'a.txt'
 )
 ```
 
@@ -94,7 +65,7 @@ assert (
 وهكذا نستطيع استعمال الكائن `Path` في إجراء `open(file=path)` للتعامل مع الملفات:
 
 ```{python}
-p = Path('datasets/example_root/a/a.txt')
+p = Path('../../datasets/example_root/a/a.txt')
 
 f = open(file=p, mode='r')
 content = f.read()
@@ -107,7 +78,7 @@ print(content)
 ولأن الملف يعتبر [**مدير سياق** (Context Manager)](https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers) فيستحسن الإتيان بجملة السياق `with` إذ تتكفل بإغلاق الملف تلقائيّا عند نهايتها. وذلك على النحو التالي:
 
 ```{python}
-p = Path('datasets/example_root/a/a.txt')
+p = Path('../../datasets/example_root/a/a.txt')
 
 contents = ''
 with open(file=p, mode='r') as f:
@@ -118,7 +89,7 @@ print(contents)
 بدلاً من قراءة الملف جملة واحدة `.read()` نستطيع القراءة سطرًا بسطر عن طريق الإجراء `.readline()` على النحو التالي:
 
 ```{python}
-p = Path('datasets/example_root/a/a.txt')
+p = Path('../../datasets/example_root/a/a.txt')
 
 with open(file=p, mode='r') as f:
     for i, line in enumerate(f, start=1):
@@ -128,20 +99,21 @@ with open(file=p, mode='r') as f:
 
 تستعمل `.rstrip()` لإزالة حرف انتقال السطر `\n` .
 
-### المجلدات 
-انظر [قراءة المجلدات](https://docs.python.org/3/library/pathlib.html#reading-directories).
+### الدليل
 
-لعرض قائمة بمحتوى المجلد، نستعمل المكرر الناتج من إجراء `.iterdir()` ونكرر عليه، وهو بدورِه يُنتج في كل كرةٍ **مساراً** (`x`). وهذا المسار يُمكن التحقق من أنه يشير إلى مجلد أو لا (`x.is_dir()`) على النحو التالي: 
+انظر [قراءة الأدلة](https://docs.python.org/3/library/pathlib.html#reading-directories).
+
+لعرض قائمة الدليل، نستعمل المكرر الناتج من إجراء `.iterdir()` ونكرر عليه، وهو بدورِه يُنتج في كل كرةٍ **مساراً** (`x`). وهذا المسار يُمكن التحقق من أنه يشير إلى دليل أو لا (`x.is_dir()`) على النحو التالي: 
 
 ```{python}
-p = Path('datasets/example_root/')
+p = Path('../../datasets/example_root/')
 dirs = [x for x in p.iterdir() if x.is_dir()]
 dirs
 ```
 
 #### جرب
 
-هل تريد أن تعرف حجم مجلد التنزيلات (Downloads) في جهازك؟. لديك الإجراء `stat()` للحصول على بيانات عن المجلَّد، والتي من ضمنها الحجم (`st_size`) هكذا:
+هل تريد أن تعرف حجم دليل التنزيلات (Downloads) في جهازك؟. لديك الإجراء `stat()` للحصول على بيانات عن الدليل، والتي من ضمنها الحجم (`st_size`) هكذا:
 
 ```{python}
 p = Path.home() / 'Downloads'
@@ -165,9 +137,9 @@ def format_size(size):
 print(format_size(size))
 ```
 
-### البحث في الشجرة
+### البحث في شجرة الأدلة
 
-يستعمل الإجراء [`glob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob) للبحث عن نمط معيَّن بدءًا من **المسار**، وهذا النمط قد يبحث في مستوىً واحد أو يتخلل الشجرة بأي طريقة تريد؛ ليطابق أسماء الملفات بنمط معيَّن فيستخرجها لك.
+يستعمل الإجراء [`glob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob) للبحث عن نمط معيَّن بدءًا من **المسار**، وهذا النمط قد يبحث في مستوىً واحد أو يتخلل الشجرة بأي طريقة تريد؛ ليطابق أسماء الملفات والأدلة بنمط معيَّن فيستخرجها لك.
 
 انظر [لغة الأنماط](https://docs.python.org/3/library/pathlib.html#pathlib-pattern-language) لتتعلم هذه اللغة الصغيرة.
 
@@ -176,7 +148,7 @@ print(format_size(size))
 
 ```{python}
 total_size = 0
-for p in Path('datasets/example_root/').glob('**/*.jpg'):
+for p in Path('../../datasets/example_root/').glob('**/*.jpg'):
     total_size += p.stat().st_size
 
 print('Total size:', total_size, 'bytes')
@@ -188,7 +160,7 @@ print('Total size:', format_size(total_size))
 نستعمل الإجراء [`walk`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk) للسير على جميع ملفات الشجرة نزولاً أو صعودًا؛ على هذا النحو:
 
 ```{python}
-p = Path('datasets/example_root/')
+p = Path('../../datasets/example_root/')
 for dirpath, dirnames, filenames in p.walk(top_down=True):
     print(dirpath)
     for file in filenames:
@@ -212,7 +184,7 @@ for dirpath, dirnames, filenames in p.walk(top_down=True):
 
 - **إنشاء وتعديل المسارات:**
     - [`.joinpath`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.joinpath): دمج مكونات مسار.
-    - [`.parent`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.parent): استخراج المجلد الأب.
+    - [`.parent`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.parent): استخراج الدليل الأب.
     - [`.name`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.name): استخراج الاسم الأساسي للملف.
     - [`.stem`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.stem): استخراج اسم الملف بدون الامتداد.
     - [`.suffix`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.suffix): استخراج امتداد الملف.
@@ -227,17 +199,17 @@ for dirpath, dirnames, filenames in p.walk(top_down=True):
     - [`samefile`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.samefile): هل مساران يشيران إلى نفس الملف؟.
     - [`exists`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.exists): هل هو مسار موجود؟.
     - [`is_file`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_file): هل هو مسار ملف؟.
-    - [`is_dir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_dir): هل هو مسار مجلد؟.
+    - [`is_dir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_dir): هل هو مسار دليل؟.
     - [`is_symlink`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_symlink): هل هو ارتباط رمزي؟.
     - [`stat`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.stat): سرد إحصائيات نظام الملفات.
     - [`lstat`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.lstat): سرد إحصائيات نظام الملفات دون متابعة الارتباطات الرمزية.
 - **عمليات تغيير:**
     - [`open`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.open): فتح ملف للقراءة أو الكتابة أو الإضافة.
-    - [`mkdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.mkdir): إنشاء مجلد.
-    - [`rmdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rmdir): حذف مجلد فارغ.
+    - [`mkdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.mkdir): إنشاء دليل.
+    - [`rmdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rmdir): حذف دليل فارغ.
     - [`unlink`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.unlink): حذف ملف.
-    - [`rename`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rename): تعديل اسم ملف أو مجلد.
-    - [`replace`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.replace): تعديل اسم ملف أو مجلد مع الكتابة فوقه إذا لزم الأمر.
+    - [`rename`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rename): تعديل اسم ملف.
+    - [`replace`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.replace): تعديل اسم ملف مع الكتابة فوقه إذا لزم الأمر.
     - [`chmod`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.chmod): تغيير أذونات الملف.
     - [`lchmod`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.lchmod): تغيير أذونات الملف دون متابعة الارتباطات الرمزية.
     - [`touch`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.touch): تحديث الطابع الزمني للملف.
@@ -250,14 +222,14 @@ for dirpath, dirnames, filenames in p.walk(top_down=True):
 
 ### التكرار والبحث
 
-- [`iterdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.iterdir): تكرار على قائمة المجلد.
+- [`iterdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.iterdir): تكرار على قائمة الدليل.
 - [`glob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob): البحث عن الملفات المطابقة لنمط.
 - [`rglob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob): البحث بشكل متكرر عن الملفات المطابقة لنمط.
-- [`walk`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk): التنقل بشكل متكرر في شجرة المجلدات.
+- [`walk`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk): التنقل بشكل متكرر في شجرة الأدلة.
 
 ## النسخ والحذف والنقل (`shutil`)
 
 - [`shutil.copy2`](https://docs.python.org/3/library/shutil.html#shutil.copy2): نسخ ملف.
-- [`shutil.copytree`](https://docs.python.org/3/library/shutil.html#shutil.copytree): نسخ شجرة المجلدات.
-- [`shutil.rmtree`](https://docs.python.org/3/library/shutil.html#shutil.rmtree): حذف شجرة المجلدات.
-- [`shutil.move`](https://docs.python.org/3/library/shutil.html#shutil.move): نقل ملف أو مجلد.
+- [`shutil.copytree`](https://docs.python.org/3/library/shutil.html#shutil.copytree): نسخ شجرة أدلة.
+- [`shutil.rmtree`](https://docs.python.org/3/library/shutil.html#shutil.rmtree): حذف شجرة أدلة.
+- [`shutil.move`](https://docs.python.org/3/library/shutil.html#shutil.move): نقل ملف أو دليل.

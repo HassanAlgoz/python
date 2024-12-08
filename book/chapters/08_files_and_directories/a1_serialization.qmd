@@ -1,0 +1,214 @@
+# حفظ البيانات
+
+
+## قراءة وكتابة الملفات
+
+فيه ثلاثة خطوات:
+
+1. نفتح الملف [`open()`](https://docs.python.org/3/library/functions.html#open): وهذا طلبٌ من نظام التشغيل الإذنَ (بحسب `mode` الإذن بالقراءة `r` أو الإذن بالكتابة `w` أو الإذن بالقراءة والكتابة `rw`)؛ ونحصل في النتيجة على مؤشر يشير إليه.
+2. . نقرأ الملف`file.read()` فيتم نسخ محتواه من التخزين إلى الذاكرة
+3. ولا بُد من تسريحه بعد الفراغ منه باستعمال `file.close()`
+
+وذلك على النحو التالي:
+
+```{python}
+f = open(file='../../datasets/example_root/a/a.txt', mode='r')
+content = f.read()
+f.close()
+
+print(content)
+```
+
+أما **المسار** فله شكلان
+
+| نوع المسار | الشرح | مثال |
+| --- | --- | --- |
+| **المسار المطلق** (Absolute Path) | يحدد المسار بشكل كامل بدءًا من الجذر، ولا يعتمد على الموقع الحالي. | `/home/user/Downloads` |
+| **المسار النسبي** (Relative Path) | يحدد المسار بالنسبة لموقع الملف الحالي. | `../../datasets/example_root/a/a.txt` |
+
+وقد تستعمل علامة `./` للإشارة للدليل الحالي. أما علامة `../` فتشير إلى الدليل الأب.
+
+وهكذا نكتب في الملف باستعمال `file.write()`، بعد فتح الملف بوضع الكتابة `'w'` في `open(mode='w')`:
+
+```{python}
+content = """Salam everyone,
+I hope you are enjoying the course,
+
+Thank you.
+"""
+
+f = open(file='../../datasets/example_root/a/zzz.txt', mode='w')
+f.write(content)
+f.close()
+
+print(content)
+```
+
+انظر [توثيق قراءة وكتابة الملفات](https://docs.python.org/3/library/pathlib.html#reading-and-writing-files).
+
+ولأن الإغلاق ضروري بعد كل فتح؛ فقد وفرت بايثون لذلك مركبًا لغويًّا يُعرف **بإدارة السياق**. فالملف صنفٌ يعتبر [**مدير سياق** (Context Manager)](https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers) فيجوز استعمال `with` وتضمين قطعة الكود في سياقها الذي يتكفل بإغلاق الملف تلقائيّا عند نهاية آخر جملة في قطعة الكود داخلها. وذلك على النحو التالي:
+
+```{python}
+contents = ''
+with open(file='../../datasets/example_root/a/a.txt', mode='r') as f:
+    contents = f.read()
+print(contents)
+```
+
+
+## صياغة البيانات
+
+**سَلْسَلة البيانات** (Data Serialization) تشير لعملية تحويل البيانات في ذاكرة بايثون (مثل القائمة `[]` والقاموس `{}`) من صيغتها الثنائية الخاص باللغة إلى تمثيلٍ ليس خاصًّا بلغةٍ معيَّنة؛ بل يتبع صيغةً متفقًا عليها؛ فإما أن يكون:
+
+1. **تمثيلاً نصيًّا** (Plain Text Serialization) متفقًا عليه مثل: `xml` أو `json` أو `csv` ونحوها (وقد تقدَّم عرضُها في [باب النص]()).
+2. أو **تمثيلاً ثنائيًّا** (Binary Serialization) متفقًا عليه كذلك مثل: `pickle` أو `protobuf` أو `parquet`.
+
+فالتمثيل النصي يتميز بأنه مباشر وواضح بالنسبة للبشر. لكنه أبطأ في المعالجة (سواءً في الكتابة أو في القراءة) وأكبرُ حجمًا في التخزين غالبًا. أما التمثيل الثانئي فهو بعكسه: أقرب للآلة وأصعب في التدقيق عند حدوث الخطأ إلا مع وجود أدوات تساعد في ذلك. لكنه أسرع في المعالجة وأقل حجمًا للتخزين.
+
+وعملية تحويل البيانات المُسَلسَلة (أي المكتوبة بإحدى هذه الصيغ) وقراءَتها في برنامجٍ ما تسمى فك التسلسل (Deserialization). فالتحويل يكون مثلاً  من النصي إلى الثنائي في الذاكرة. أو من الثنائي المسلسل إلى الثنائي في الذاكرة.
+
+فالسلسلة وفكها **ما هي إلا صياغة** لا تغير المكنون بل شكله.
+
+ويختلف شكل البيانات من ثلاثة أوجه:
+
+1. **الصف**: `[1, 2, 3, 4, 5]`
+2. **الربط**: `{key1: value1, key2: value2}`
+3. **التضمين**: فيكون العنصر نفسه سلسلة أو ارتباطًا
+
+فالصفوف تتميز بكون كل صفٍّ فيها تدوينًا لمجموعة خصائص تشترك في العمود كله. أما الارتباط ففيه مرونة؛ فمجموعة الارتباطات لا تُلزِم كل ارتباط أن يكون له ذات خصائص الارتباط الذي قبله. والتقسيمات تُنتج التضمين.
+
+## الارتباط والتضمين
+سنمثل باستعمال [الوحدة المدمجة `json`](https://docs.python.org/3/library/json.html) ذات وظائف القراءة والكتابة لملفات مصاغة على شكل json. فإن كنت تتعامل مع صيغ أخرى انظر في الوثائق:
+
+- [الوحدة المدمجة `xml`](https://docs.python.org/3/library/xml.html) لصيغة `xml`.
+- أو [مكتبة `pyyaml`](https://pyyaml.org/wiki/PyYAMLDocumentation) لصيغة `yaml`.
+
+
+```{python}
+import json
+```
+
+لنفترض أن لدينا `user_preferences` محفوظًا في القاموس، ونريد حفظه في ملف json:
+
+```{python}
+user_preferences = {
+    'theme': 'dark',
+    'language': 'Arabic',
+    'notifications': {
+        'email': True,
+        'sms': False,
+        'push': True
+    },
+    'last_updated': '2021-09-01',
+    'emails': ['example1@domain.com', 'example2@domain.com']
+}
+```
+
+لنكتبها في الملف نستعمال `json.dump` على النحو التالي:
+
+```{python}
+with open('../../datasets/user_preferences.json', mode='w') as file:
+    json.dump(user_preferences, file)
+```
+
+فإذا أردنا قراءتها استعمال `json.load` على النحو التالي:
+
+```{python}
+with open('../../datasets/user_preferences.json') as file:
+    data = json.load(file)
+print(data)
+```
+
+
+## الصف
+
+تأتي البيانات الجدولية في صيغ متعددة، مثل:
+- CSV وهي صيغة يكون فيها الصف في سطر، وتكون عناصره مفصولة بعلامة الفاصلة `","`
+- TSV وهي مثل CSV إلا أن الفاصلة علامة `"\t"`
+
+وغيرها كثير.
+
+في هذا القسم، سنركز على ملفات (Comma Separated Values) CSV؛ وتعني حرفيًّا: القيَم المفصولة بالفاصلة.
+
+توجد في بايثون وحدة [`csv`](https://docs.python.org/3/library/csv.html) فيها إجراءات للقراءة والكتابة على طريقة csv. فلدينا:
+
+- كائن [`reader`](https://docs.python.org/3/library/csv.html#csv.reader) لعمليات القراءة
+- وكائن آخر منفصل اسمه [`writer`](https://docs.python.org/3/library/csv.html#csv.writer) يحوي عمليات الكتابة
+
+```{python}
+import csv
+```
+
+لنكتب قائمة من الطلاب إلى ملف CSV. لاحظ، لدينا قائمة من قوائم، حيث تمثل كل قائمة داخلية صفًا لوحدها:
+
+```{python}
+header = ['Name', 'Age', 'Grade']
+rows = [
+    ['Adam', 22, 90],
+    ['Belal', 23, 92],
+    ['Camal', 24, 91],
+]
+```
+
+نكتبها على النحو التالي:
+
+```{python}
+with open('../../datasets/students.csv', mode='w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(header)
+    writer.writerows(rows)
+```
+
+ملاحظة، يمكنك محاولة فتح الملف مباشرة من مستكشف الملفات. حاول فتحه باستخدام Excel أو Google Sheet أو أي برنامج جداول بيانات آخر. إذا فتحته باستخدام محرر نصوص، سترى البيانات كملف CSV؛ حرفيًا قيم مفصولة بفواصل.
+
+الآن، دعنا نقرأه كهيكل بيانات في بايثون: كقائمة من القوائم.
+
+```{python}
+with open('../../datasets/students.csv') as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)
+```
+
+لنحاول حساب متوسط درجات الطلاب.
+
+```{python}
+students = []
+with open('../../datasets/students.csv') as file:
+    reader = csv.reader(file)
+    next(reader) # skip the header
+    for row in reader:
+        students.append(row)
+```
+
+الآن بعد أن حفظناها في القائمة `students`، دعونا نقوم ببعض العمليات الحسابية.
+
+```{python}
+#| error: true
+grades = [s[2] for s in students]
+avg = sum(grades) / len(grades)
+```
+
+هذا الخطأ متوقع عند قراءة الملفات لأنها دائمًا تعتبر من نوع `str`، ولذلك نضطر لتحويل القيَم العددية إلى `int` لإجراء عمليات رياضية:
+
+
+```{python}
+grades = [int(s[2]) for s in students]
+avg = sum(grades) / len(grades)
+avg
+```
+
+يمكنك أيضًا قراءة وكتابة البيانات في شكل قاموس باستخدام الكائنات [`DictReader`](https://docs.python.org/3/library/csv.html#csv.DictReader) و[`DictWriter`](https://docs.python.org/3/library/csv.html#csv.DictWriter).
+
+```{python}
+with open('../../datasets/students.csv') as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        print(row)
+```
+
+والطريقة الموصى بها للتعامل مع البيانات الجدولية (مثل ملفات CSV) هي استخدام مكتبة مثل pandas. توفر هذه المكتبة هيكل بيانات سريع ومرن لمعالجة البيانات وتحليلها. **ولا بأس أن تطلع على [دليل البداية في مكتبة pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html)**.
+
+- إذا كنت تريد قراءة الملفات وكتابتها بشكل بسيط انظر: [`open()`](https://docs.python.org/3/library/functions.html#open).
+- وإذا كنت تريد التعامل مع الملفات المؤقتة فانظر: [`tempfile`](https://docs.python.org/3/library/tempfile.html#module-tempfile).
+- وكثير من عمليات التعامل مع الملفات والأدلة تجدها في: [`shutil`](https://docs.python.org/3/library/shutil.html#module-shutil).
