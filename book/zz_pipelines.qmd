@@ -6,6 +6,39 @@ Subtitle: The `map-filter-reduce` Pattern
 
 Lambda functions are small one-time use functions that are usually passed as arguments to other (higher-order) functions. Let's take an example:
 
+```{python}
+def square(x):
+    return x * x
+
+sq = lambda x: x * x
+
+assert sq(2) == square(2)
+```
+
+The following is a higher-order function because it returns a function. Effectively, it is a function constructor:
+
+```{python}
+def power(n):
+    return lambda x: x ** n
+
+square = power(2)
+cube = power(3)
+
+assert square(2) == 4
+assert cube(2) == 8
+```
+
+Functions can also recieve functions as arguments:
+
+```{python}
+def apply_list_of_functions(functions, x):
+    for func in functions:
+        x = func(x)
+    return x
+
+assert apply_list_of_functions([square, cube], 2) == 64
+```
+
 It is common to apply function over each item in a sequence. Let's define a function that takes a function and a sequence and applies the function to each item in the sequence. Sounds mouthful, but it is simple to implement in Python.
 
 ```{python}

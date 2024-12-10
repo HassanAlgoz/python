@@ -182,3 +182,57 @@ def factorial(n):
 ```
 
 لاحظ عدم الحاجة لتعريف القاموس `factorial_table`، بل يقوم المزيِّن هو بذلك تلقائيًّا.
+
+
+## استعمال الإنشاء المختصر
+
+تقدم معنا الكلام عن [الإنشاء المختصر](../05_sequences/a_sequences.qmd#الإنشاء-المختصر-الجملة-الثلاثية). وسنستعرضه الآن مع القاموس.
+
+عكس قاموس بحيث تصبح الدلائل هي القيم والقيم هي الدلائل:
+
+```{python}
+idx2label = {
+    0: 'cat',
+    1: 'dog',
+    2: 'bird',
+}
+
+label2idx = {label: idx for idx, label in idx2label.items()}
+label2idx
+```
+
+هنا مثال لقاموس من الفواكه، نريد ترشيح ما قيمته أقل من 20:
+
+```{python}
+menu = {
+    'apple': 15,
+    'banana': 10,
+    'orange': 5,
+    'cantaloupe': 40
+}
+
+filtered_menu = {key: value for key, value in menu.items() if value < 20}
+filtered_menu
+```
+
+وهذا مثال أكثر تعقيدًا. نطبق خصم 20% فقط على العناصر التي يكون سعرها أعلى من المتوسط، مع الحفاظ على بقية الأسعار كما هي. لاحظ أن التعبير هنا هو تعيين شرطي: `value * (1 - discount) if value > avg_price else value` وليس هو قطعة الترشيح (`if`)؛ إذ تلك تأتي في نهاية الجملة، بعد قطعة التكرار (`for`).
+
+```{python}
+menu = {
+    'apple': 15,
+    'banana': 10,
+    'orange': 5,
+    'cantaloupe': 40
+}
+
+avg_price = sum(menu.values()) / len(menu)
+discount = 0.20
+
+discounted_menu = {
+    key: value * (1 - discount) if value > avg_price else value
+    for key, value in menu.items()
+}
+discounted_menu
+```
+
+

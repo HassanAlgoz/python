@@ -102,8 +102,19 @@ for x in numbers:
     else:
         negatives.append(x)
 
-print('list of positives:', positives)
-print('list of negatives:', negatives)
+print('positives:', positives)
+print('negatives:', negatives)
+```
+
+أو باستعمال الإنشاء المختصر:
+
+```{python}
+numbers = [-11, -12, 13, 14, -15, 16, 17, -18, -19, 20]
+positives = [x for x in numbers if x > 0]
+negatives = [x for x in numbers if x < 0]
+
+print('positives:', positives)
+print('negatives:', negatives)
 ```
 
 ## حساب مجموع المسافات بين التنبؤ والحقيقة
@@ -184,4 +195,72 @@ assert is_balanced('(())')
 assert not is_balanced('(()')
 assert not is_balanced('((()')
 assert not is_balanced('())))')
+```
+
+## أمثلة إضافية على الإنشاء المختصر
+
+وإليك بعض [الأمثلة الإضافية](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions):
+
+```{python}
+vec = [-4, -2, 0, 2, 4]
+```
+
+ترشيح الأعداد الموجبة (لاحظ أن عبارة الناتج تأخذ المكرر مثل ما هو: `x` ولا تعدل عليه):
+
+```{python}
+[x for x in vec if x >= 0]
+```
+
+هنا عبارة الناتج تستعمل الإجراء `abs(x)` لأخذ القيمة المطلقة (بحيث تحول السالب إلى رديفه الموجب):
+
+```{python}
+[abs(x) for x in vec]
+```
+
+وفي هذا المثال استعمال الإجراء المتعلق بكل ناتج نصي من التكرار على قائمة من النصوص:
+
+```{python}
+freshfruit = ['  banana', '  loganberry ', 'passion fruit  ']
+[f.strip() for f in freshfruit]
+```
+
+قطعة الناتج هنا هي صفّ مكوَّن من الرقم ومربعه ، وذلك من تكرارٍ على `range(6)` والذي يبدأ من `0` وينتهي عند `5` كما نعرف:
+
+```{python}
+[(x, x ** 2) for x in range(6)]
+```
+
+لاحظ أن العبارة مبهمة إذا لم تحدد القوسين لتحديد الصف في العبارة الناتجة:
+
+```{python}
+#| error: true
+[x, x ** 2 for x in range(6)]
+```
+
+يمكن استعمال اختصار من اختصار على النحو التالي. في هذا المثال نفرد قائمة مكونة من قوائم عددية، فنحوِّلها لتكون قائمة واحدة مكوَّنة من جميع هذه الأرقام:
+
+
+```{python}
+vec = [[1,2,3], [4,5,6], [7,8,9]]
+[num for elem in vec for num in elem]
+```
+
+إذا كتبناها من غير اختصار فشكلها كالتالي (لاحظ استعملنا متغير `flat` لتجميع القيَم المفردة):
+
+
+```{python}
+flat = []
+for elem in vec:
+    for num in elem:
+        flat.append(num)
+flat
+```
+
+وهذا مثال لحاصل الضرب الديكارتي بين مجموعتين رياضيتين:
+
+```{python}
+colors = ['red', 'green']
+shapes = ['circle', 'square']
+cartesian_product = [(color, shape) for color in colors for shape in shapes]
+cartesian_product
 ```
