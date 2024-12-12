@@ -1,117 +1,11 @@
-# التخصيص والتركيب
+# التجريد
 
-نستعرض آليتين للبناء التراكمي من الأنواع:
+تمثل الأصناف في لغة بايثون طريقة لوصف المجردات؛ مثل: النقطة `Point` كما رأينا.
 
-- التخصيص
-- التركيب
+ومن الخصائص الممتعة في بناء البرمجيات: العلاقات بين المجردات في المستويات المختلفة من التجريد. وسنمثل بمثالين:
 
-## التخصيص
-
-يكثر استعمال **الطابور** (Queue) كهيكل بيانات لحل مجموعة من المسائل بطريقة سهلة. نستعرض في هذا المثال كيفية تخصيص القائمة (`list`) حتى نكون منها صنف جديد هو: `queue` حيث تدخل العناصر من "الخلف" وتخرج من "الأمام" دائمًا، ولا يمكن الوصول للعناصر التي بينهما.
-
-![[طابور (الداخل أولاً خارجٌ أولاً)](https://en.wikipedia.org/wiki/Queue_(abstract_data_type))
-](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Data_Queue.svg/330px-Data_Queue.svg.png)
-
-```{python}
-class Queue:
-    def __init__(self):
-        self.items = []
-
-    def enqueue(self, item):
-        """Add an item to the end of the queue"""
-        self.items.append(item)
-
-    def dequeue(self):
-        """Remove an item from the front of the queue"""
-        if not self.is_empty():
-            return self.items.pop(0)
-        return None
-
-    def peek(self):
-        """Return the item at the front without removing it"""
-        if not self.is_empty():
-            return self.items[0]
-        return None
-
-    def is_empty(self):
-        """Check if the queue is empty"""
-        return len(self.items) == 0
-
-    def __repr__(self):
-        """Return the underlying list representation"""
-        return repr(self.items)
-```
-
-- لاحظ الإنشاء بقائمة فارغة
-- ثم الإجراء `enqueue` نطبقه عن طريق الإجراء `list.append` ..
-- والإجراء `dequeue` نطبقه عن طريق الإجراء `list.pop(0)` ..
-
-نختبر ذلك الآن:
-
-```{python}
-
-q = Queue()
-
-q.enqueue(1)
-q.enqueue(2)
-q.enqueue(3)
-
-print(q)
-```
-
-```{python}
-
-q.dequeue()
-print(q)
-```
-
-هل يمكننا معرفة عدد العناصر؟:
-
-```{python}
-#| error: true
-len(q)
-```
-
-لتطبيق هذه العملية، يجب إضافة الإجراء الخاص `__len__` للصنف حتى يقبلها، على النحو التالي (انظر في الأخير):
-
-```{python}
-class Queue:
-    def __init__(self):
-        self.items = []
-
-    def enqueue(self, item):
-        self.items.append(item)
-
-    def dequeue(self):
-        if not self.is_empty():
-            return self.items.pop(0)
-        return None
-
-    def peek(self):
-        if not self.is_empty():
-            return self.items[0]
-        return None
-
-    def is_empty(self):
-        return len(self.items) == 0
-
-    def __repr__(self):
-        return repr(self.items)
-    
-    def __len__(self):
-        return len(self.items)
-```
-
-الآن يمكن معرفة الطول:
-
-```{python}
-q = Queue()
-q.enqueue(10)
-len(q)
-```
-يعمل الطول الآن كما لو أن هذا الصنف الذي عرَّفناه للتو منسجم مع `list` و `set` و `str` وغيرها. وهذه الخاصية تسمى تعدد الأشكال [(Polymorphism)](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)).
-
-صحيح أن القائمة أكثر قدرة (إذْ تتضمن عمليات أكثر)، إلا أن الطابور مخصص لخدمة وظيفة محددة؛ مما يجعل التعامل معه واضحًا. فأحيانًا يكون التقييد مفيدًا.
+1. **التركيب**: حيث نعرِّف صِنف **المضلَّع** أنه مركَّب من **سلسلة + نقاط** ونركِّب من عوامل اللغة ما يجعله يشبه **المجموعات**
+2. **التخصيص**: حيث نخفي إجراءات السلسلة (الحذف والإضافة والتعديل ونحوها) وراء أفعال محددَّة في صنف جديد نسميه **الطابور**
 
 ## التركيب
 
@@ -136,7 +30,7 @@ class Point:
 
 - يأخذ إجراء الإنشاء `__init__` سلسلة من النقاط ويعيِّنُها لمتغير اسمه `points`
 - يعرض إجراء التمثيل `__repr__` كلمة `Polygon` وداخل أقواسها يضع تمثيل النقاط
-- الإجراء الأخير لحساب قُطر المضلَّع، وذلك يعتمد على قياس المسافة بين سلسلة النقاط المتتابعة كما نرى
+- لاحظ أن إجراء `perimeter` يُنتج قُطر المضلَّع؛ وهو مجموع المسافات بين النقاط المتوالية
 
 
 ```{python}
@@ -155,7 +49,7 @@ class Polygon:
         return s
 ```
 
-لاحظ أن إنشاء المضلَّع يتطلَّب إنشاء نقاط. ولاحظ أننا جعلنا كل نقطة في سيطر، لكنها في الحقيقة كلها عناصر لقائمة، وذلك بالنظر إلى القوسين المربعين `[ ]` على النحو التالي:
+لاحظ أن إنشاء المضلَّع يتطلَّب إنشاء نقاط. ولاحظ أننا جعلنا كل نقطة في سطر، لكنها في الحقيقة كلها عناصر لقائمة، وهو واضحٌ بملاحظة القوسين المربعين `[ ]`:
 
 
 ```{python}
@@ -168,18 +62,18 @@ poly = Polygon([
 poly
 ```
 
-المحيط:
+والآن يمكن استعمال إجراء حساب المحيط:
 
 ```{python}
 poly.perimeter()
 ```
 
-ولأن هذا المركَّب مكوَّن من أفراد، فنريد أن يكون لدينا عمليات مثل:
+ولأن هذا المركَّب مكوَّن من أفراد، فنريده أن يُشابه **الأنواع الحاوية**، التي لها أفعال معيَّنة. وذلك ممكنٌ باستعمال الأفعال المخصصة:
 
-- العد: `len(s)`
-- الإشارة: `s[i]`
-- التعيين: `s[i] = p`
-- الحذف: `del s[i]`
+- العد: `len(s)` يُسمَّى فعله: `__len__`
+- الإشارة: `s[i]` يُسمَّى فعله: `__getitem__`
+- التعيين: `s[i] = p` يُسمَّى فعله: `__setitem__`
+- الحذف: `del s[i]` يُسمَّى فعله: `__delitem__`
 
 انظر التوثيق الرسمي لبايثون حول [محاكاة أنواع الحاويات](https://docs.python.org/3/reference/datamodel.html#emulating-container-types) لمزيد من المعلومات.
 
@@ -221,13 +115,27 @@ poly = Polygon([
 poly
 ```
 
-عدد النقاط:
+والآن نستطيع عدَّ النقاط بالإجراء المعروف `len` الذي بدوْره يستدعي الإجراء المتعلق بالشيء `__len__` (فُهما سواء):
 
 ```{python}
+assert len(poly) == poly.__len__()
 len(poly)
 ```
 
-الأخذ بالرقم أو بالشريحة:
+
+بتعريفنا لإجراء معرفة الطول، انسجم هذا الصنف مع المجموعات مثل القائمة ومجموعة الفرائد والروابط والسلسلة النصية وغيرها.
+
+وقد تتساءل: هل أي كلمة أكتبها بين الشرطتين السفليتين استطيع استعماله مثل `len`؟ والجواب: للأسف لا؛ وإنما هي أسماء مخصوصة.
+
+أما قبول الإجراء `len` لأصناف مغايرة عن بعضها فهي خاصيَّة **تعدد الأشكال** [(Polymorphism)](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)): أي أن الإجراء الواحد يقبل أصناف متعددة في الحقيقة لكنَّها في تُظهر نفس السلوك الخارجي. بعبارة أخرى نقول:
+
+- الظاهر: المدخلات والمخرجات واحدة
+- الحقيقة: الخوارزمية قد تختلف اختلافًا جذريًّا !
+
+وهذا كثيرٌ في البرمجيات.
+
+
+ثم الإشارة برقم أو بشريحة:
 
 ```{python}
 print(poly[0])
@@ -236,20 +144,102 @@ print(poly[1:3])
 print(poly[::-1])
 ```
 
-التعيين:
+ثم التعيين:
 
 ```{python}
 poly[0] = Point(10, 10)
 poly
 ```
 
-الحذف:
+وأخيرًا الحذف:
 
 ```{python}
 del poly[0]
 poly
 ```
 
-تبين بهذا محاكاة بعض إجراءات الحاويات الأساسية مثل `list` و`set` و`tuple` و`str` و`dict`.
+تبين بهذا محاكاة بعض إجراءات الحاويات الأساسية مثل `list` و`set` و`tuple` و`str` و`dict`. وقد تقدَّم معنا أن النقطة تستطيع محاكاة الأنواع العددية باستعمال الفعل المخصص للجمع `+` الذي هو `__add__`.
 
+## التخصيص
+
+يكثر استعمال **الطابور** كهيكل بيانات لحل مجموعة من المسائل بطريقة سهلة. نستعرض في هذا المثال كيفية تخصيص القائمة (`list`) ذات الإجراءات الكثيرة من الحذف والإضافة والتعديل، لصنف له إجراءات مختلفة لكنها مبنية عليها.
+
+الطابور يُعرَّف بأمرين أساسيين:
+
+- الإدخال من جهة
+- الإخراج من الجهة المقابلة (بحيث يكون ما دخل أولاً هو الذي يخرج أولاً)
+
+فهو بهذا أخص من القائمة التي تزيد عليه: الإشارة لعنصر برقمٍ وإمكان تعديله أو حذفه أو الإضافة في الوسط، وغيرها.
+
+![[توضيح الطابور](https://en.wikipedia.org/wiki/Queue_(abstract_data_type))
+](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Data_Queue.svg/330px-Data_Queue.svg.png)
+
+فهذا مثال لكتابة صنف الطابور:
+
+```{python}
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def enqueue(self, item):
+        """Add an item to the end of the queue"""
+        self.items.append(item)
+
+    def dequeue(self):
+        """Remove an item from the front of the queue"""
+        if not self.is_empty():
+            return self.items.pop(0)
+        return None
+
+    def peek(self):
+        """Return the item at the front without removing it"""
+        if not self.is_empty():
+            return self.items[0]
+        return None
+
+    def is_empty(self):
+        """Check if the queue is empty"""
+        return len(self.items) == 0
+    
+    def __len__(self):
+        return len(self.items)
+
+    def __repr__(self):
+        """Return the underlying list representation"""
+        return repr(self.items)
+```
+
+- لاحظ أن إجراء الإنشاء `__init__` يعيِّن قائمة فارغة للشيء `self`
+- ثم الإجراء `enqueue` يتم بواسطة إجراء القائمة `append`
+- والإجراء `dequeue` يتم بواسطة إجراء القائمة `pop`
+- وكذلك `peek` باستعمال الإشارة بالرقم للعنصر في الموضع `0`
+- ثم `is_empty` بالنظر لطول القائمة بالإجراء `len`
+
+نختبر ذلك الآن:
+
+```{python}
+
+q = Queue()
+
+q.enqueue(1)
+q.enqueue(2)
+q.enqueue(3)
+
+print(q)
+```
+
+نزيل عُنصرًا:
+
+```{python}
+q.dequeue()
+print(q)
+```
+
+هل يمكننا معرفة عدد العناصر؟:
+
+```{python}
+len(q)
+```
+
+صحيح أن القائمة أكثر قدرة (إذْ تتضمن عمليات أكثر)، إلا أن الطابور مخصص لخدمة وظيفة محددة. وليس يهمنا ما ينطوي خلفه (قائمة أم صف أم غير ذلك)؛ بل يهمنا إجراءاته الظاهرة لنا. أما طريقة عمله فقد تجرَّدنا عنها.
 
