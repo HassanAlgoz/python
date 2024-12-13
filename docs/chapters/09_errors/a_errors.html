@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ar" xml:lang="ar" dir="rtl"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>11&nbsp; الخطأ – البايثونية</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/10_time/a_time.html" rel="next">
+<link href="../../chapters/08_files_and_directories/a2_directories.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/09_errors/a_errors.html">الخطأ</a></li><li class="breadcrumb-item"><a href="../../chapters/09_errors/a_errors.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">الخطأ</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">البايثونية</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">فاتحة</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">إعداد بيئة التطوير</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/01_intro/introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">لغة البرمجة</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">الأعداد</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/a_numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">الأعداد</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/b_context.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تطبيقات</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/c_problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تمارين</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/d_solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">حلول</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">الشرط والتكرار</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/b_context.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تطبيقات</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/c_problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تمارين</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/d_solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">حلول</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">الإجراءات</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/04_functions/a_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الإجراءات</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/04_functions/b_context.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تطبيقات</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">المجموعة المرتبة</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_sequences/a_sequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">المجموعة المرتبة</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_sequences/b_context.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تطبيقات</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_sequences/c_problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تمارين</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">المجموعة الرابطة</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/06_mapping/a_mapping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">المجموعة المرقومة</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/06_mapping/b_context.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تطبيقات</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/06_mapping/c_problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تمارين</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">النص</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/07_strings/a1_strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">النص</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/07_strings/a2_unicode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">تمثيل النص</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/07_strings/b_context.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تطبيقات</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">الملفات</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/08_files_and_directories/a1_serialization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الملف</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/08_files_and_directories/a2_directories.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">الدليل</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">الخطأ</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/09_errors/a_errors.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">الوقت</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/10_time/a_time.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">تعريف المجردات</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/12_oop/a1_classes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">الأصناف</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/12_oop/a2_extend.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">التجريد</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">ملحقات</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../appendix_collections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">خريطة المجموعات</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">المصطلحات</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#الخطأ-النحوي-الخطأ-في-المبنى" id="toc-الخطأ-النحوي-الخطأ-في-المبنى" class="nav-link active" data-scroll-target="#الخطأ-النحوي-الخطأ-في-المبنى"><span class="header-section-number">11.1</span> الخطأ النحوي: الخطأ في المبنى</a>
+  <ul class="collapse">
+  <li><a href="#فقدان-النقطتين" id="toc-فقدان-النقطتين" class="nav-link" data-scroll-target="#فقدان-النقطتين">فقدان النقطتين <code>:</code></a></li>
+  <li><a href="#علامات-اقتباس-غير-متوازنة" id="toc-علامات-اقتباس-غير-متوازنة" class="nav-link" data-scroll-target="#علامات-اقتباس-غير-متوازنة">علامات اقتباس غير متوازنة</a></li>
+  <li><a href="#اسم-متغير-غير-صالح" id="toc-اسم-متغير-غير-صالح" class="nav-link" data-scroll-target="#اسم-متغير-غير-صالح">اسم متغير غير صالح</a></li>
+  <li><a href="#أخطاء-المحاذاة" id="toc-أخطاء-المحاذاة" class="nav-link" data-scroll-target="#أخطاء-المحاذاة">أخطاء المحاذاة</a></li>
+  <li><a href="#تجويد-العبارة" id="toc-تجويد-العبارة" class="nav-link" data-scroll-target="#تجويد-العبارة">تجويد العبارة</a></li>
+  </ul></li>
+  <li><a href="#الخطأ-الواقعي-الاستثناء" id="toc-الخطأ-الواقعي-الاستثناء" class="nav-link" data-scroll-target="#الخطأ-الواقعي-الاستثناء"><span class="header-section-number">11.2</span> الخطأ الواقعي: الاستثناء</a></li>
+  <li><a href="#رفع-الاستثناءات" id="toc-رفع-الاستثناءات" class="nav-link" data-scroll-target="#رفع-الاستثناءات"><span class="header-section-number">11.3</span> رفع الاستثناءات</a></li>
+  <li><a href="#الأخطاء-الشائعة-أسباب-وحلول" id="toc-الأخطاء-الشائعة-أسباب-وحلول" class="nav-link" data-scroll-target="#الأخطاء-الشائعة-أسباب-وحلول"><span class="header-section-number">11.4</span> الأخطاء الشائعة: أسباب وحلول</a>
+  <ul class="collapse">
+  <li><a href="#typeerror" id="toc-typeerror" class="nav-link" data-scroll-target="#typeerror"><code>TypeError</code></a></li>
+  <li><a href="#valueerror" id="toc-valueerror" class="nav-link" data-scroll-target="#valueerror"><code>ValueError</code></a></li>
+  <li><a href="#indexerror-و-keyerror" id="toc-indexerror-و-keyerror" class="nav-link" data-scroll-target="#indexerror-و-keyerror"><code>IndexError</code> و <code>KeyError</code></a></li>
+  <li><a href="#attributeerror-و-nameerror" id="toc-attributeerror-و-nameerror" class="nav-link" data-scroll-target="#attributeerror-و-nameerror"><code>AttributeError</code> و <code>NameError</code></a></li>
+  <li><a href="#modulenotfounderror" id="toc-modulenotfounderror" class="nav-link" data-scroll-target="#modulenotfounderror"><code>ModuleNotFoundError</code></a></li>
+  <li><a href="#syntaxerror" id="toc-syntaxerror" class="nav-link" data-scroll-target="#syntaxerror"><code>SyntaxError</code></a></li>
+  <li><a href="#كيفية-إصلاح-الأخطاء-المقعدة" id="toc-كيفية-إصلاح-الأخطاء-المقعدة" class="nav-link" data-scroll-target="#كيفية-إصلاح-الأخطاء-المقعدة">كيفية إصلاح الأخطاء المقعدة؟</a></li>
+  </ul></li>
+  <li><a href="#الخطأ-المنطقي-الخطأ-في-المعنى" id="toc-الخطأ-المنطقي-الخطأ-في-المعنى" class="nav-link" data-scroll-target="#الخطأ-المنطقي-الخطأ-في-المعنى"><span class="header-section-number">11.5</span> الخطأ المنطقي: الخطأ في المعنى</a>
+  <ul class="collapse">
+  <li><a href="#استعمال-الإجراء-الخاطئ" id="toc-استعمال-الإجراء-الخاطئ" class="nav-link" data-scroll-target="#استعمال-الإجراء-الخاطئ">استعمال الإجراء الخاطئ</a></li>
+  <li><a href="#استعمال-العامل-الخاطئ" id="toc-استعمال-العامل-الخاطئ" class="nav-link" data-scroll-target="#استعمال-العامل-الخاطئ">استعمال العامل الخاطئ</a></li>
+  <li><a href="#مستوى-محاذاة-خاطئ" id="toc-مستوى-محاذاة-خاطئ" class="nav-link" data-scroll-target="#مستوى-محاذاة-خاطئ">مستوى محاذاة خاطئ</a></li>
+  <li><a href="#خطأ-الحافة" id="toc-خطأ-الحافة" class="nav-link" data-scroll-target="#خطأ-الحافة">خطأ الحافَّة</a></li>
+  </ul></li>
+  <li><a href="#معالجة-الخطأ-المنطقي" id="toc-معالجة-الخطأ-المنطقي" class="nav-link" data-scroll-target="#معالجة-الخطأ-المنطقي"><span class="header-section-number">11.6</span> معالجة الخطأ المنطقي</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/09_errors/a_errors.html">الخطأ</a></li><li class="breadcrumb-item"><a href="../../chapters/09_errors/a_errors.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">الخطأ</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">الخطأ</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>ينقسم الخطأ لثلاثة أنواع:</p>
+<ol type="1">
+<li><strong>الخطأ النحوي</strong>: وهو الخطأ في مبنى اللغة؛ أي: مخالفة قواعدها وقوانينها. (Syntactic Error)</li>
+<li><strong>الخطأ في الواقع</strong>: ويسمى <strong>الاستثناء</strong> وهو حالة غير مثالية يجب أن يتعامل معها الرنامج. (Exception)</li>
+<li><strong>الخطأ المنطقي</strong>: وهو التعبير بخطوات صحيحة في ذاتها لكنها لا تؤول للنتيجة التي نهدف إليها. (Logical Error)</li>
+</ol>
+<p><a href="https://docs.python.org/3.13/tutorial/errors.html">الاستثناء</a> هو خروج البرنامج عن المسار المثالي. مثل أن يؤمَر بقراءة ملف .. والواقع أن هذا الملف غير موجود! أو أن يطلب من المستخدم رقمًا فيعطيه كلاماً! أو أن يطلب من الشبكة شيئًا .. فتنقطع الشبكة!</p>
+<p>فكل هذه تعتبر مسارات غير مثالية لكنها تحصل في ظروف واقعيَّة. فيجب كتابة قطع في البرنامج تتعامل معها. ولذا فإن بعض الممارسين لا يفضلون استعمال كلمة استثناء لأنَّه أمرٌ عادي.</p>
+<p>ومنها ما <strong>يتعذر على البرنامج معالجته بنفسه</strong>:</p>
+<ul>
+<li>إذا كانت المشكلة بامتلاء الذاكرة في الجهاز؛ فإن البرنامج ليس له إلا أن يخرج برسالة للمستخدم أو المسؤول عن الجهاز .. وليس للبرنامج أن يمسح بيانات المستخدم!</li>
+<li>أما إذا كانت المشكلة في تأخر الإجابة من الخادم مثلاً، فقد نعيد المحاول مرة أخرى بعد ثوانٍ، ونعيدها لعددٍ محدد من المرات، أملاً في الحصول على إجابة. ثم نظهر رسالة خطأ إن نفدت جميع المحاولات.</li>
+</ul>
+<p>في هذا الفصل، نناقش كل نوع من الأخطاء وكيفية التعامل معها.</p>
+<section id="الخطأ-النحوي-الخطأ-في-المبنى" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="الخطأ-النحوي-الخطأ-في-المبنى"><span class="header-section-number">11.1</span> الخطأ النحوي: الخطأ في المبنى</h2>
+<p>الأخطاء النحوي تتعلق بتركيب اللغة لا أكثر ولا أقل. إليك ثلاثة أمثلة.</p>
+<section id="فقدان-النقطتين" class="level3">
+<h3 class="anchored" data-anchor-id="فقدان-النقطتين">فقدان النقطتين <code>:</code></h3>
+<div id="ee217f7d" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">if</span> (x <span class="op">&gt;</span> <span class="dv">5</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="bu">print</span>(<span class="st">"x"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-cyan-fg ansi-bold">  Cell </span><span class="ansi-green-fg ansi-bold">In[1], line 1</span>
+<span class="ansi-yellow-fg ansi-bold">    if (x &gt; 5)</span>
+<span class="ansi-white-fg ansi-bold">              ^</span>
+<span class="ansi-red-fg ansi-bold">SyntaxError</span><span class="ansi-red-fg ansi-bold">:</span> expected ':'
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section id="علامات-اقتباس-غير-متوازنة" class="level3">
+<h3 class="anchored" data-anchor-id="علامات-اقتباس-غير-متوازنة">علامات اقتباس غير متوازنة</h3>
+<div id="0d66475a" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">print</span>(<span class="st">"x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-cyan-fg ansi-bold">  Cell </span><span class="ansi-green-fg ansi-bold">In[2], line 1</span>
+<span class="ansi-yellow-fg ansi-bold">    print("x</span>
+<span class="ansi-white-fg ansi-bold">          ^</span>
+<span class="ansi-red-fg ansi-bold">SyntaxError</span><span class="ansi-red-fg ansi-bold">:</span> unterminated string literal (detected at line 1)
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section id="اسم-متغير-غير-صالح" class="level3">
+<h3 class="anchored" data-anchor-id="اسم-متغير-غير-صالح">اسم متغير غير صالح</h3>
+<div id="22194405" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>my<span class="op">-</span>variable <span class="op">=</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-cyan-fg ansi-bold">  Cell </span><span class="ansi-green-fg ansi-bold">In[3], line 1</span>
+<span class="ansi-yellow-fg ansi-bold">    my-variable = 10</span>
+<span class="ansi-white-fg ansi-bold">    ^</span>
+<span class="ansi-red-fg ansi-bold">SyntaxError</span><span class="ansi-red-fg ansi-bold">:</span> cannot assign to expression here. Maybe you meant '==' instead of '='?
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section id="أخطاء-المحاذاة" class="level3">
+<h3 class="anchored" data-anchor-id="أخطاء-المحاذاة">أخطاء المحاذاة</h3>
+<p>من الأخطاء النحوية الشائعة في بايثون: أخطاء المحاذاة (Indentation Error).</p>
+<p>وذلك أن بايثون تقبل نوعين من المسافات البادئة للسطر؛ إما بحرف المسافة التي بين الكلمات <code>\s</code> أو بحرف المسافة بين الأعمدة <code>\t</code>. وقد يستعمل بعض الناس هذه وبعضهم ذلك، ثم تأخذ كودًا من هنا وكودًا من هناك، فترى الكود عنك لا يعمل، والسبب هو الخلط بينهما في نفس الكود. وبايثون لا تقبل ذلك. فيجب توحيد النوع. إما هذه أو هذه. لذلك يضبط VS Code ومحررات الأكواد الأخرى تحويل البادئة تلقائيًا إلى مسافة أو العكس.</p>
+<p>إليك بعض الأمثلة لما يحصل من أخطاء في المحاذاة:</p>
+<p>عدم وجود مسافة بادئة، عندما تكون متوقعة:</p>
+<div id="8f86d643" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(<span class="st">"x"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-cyan-fg ansi-bold">  Cell </span><span class="ansi-green-fg ansi-bold">In[4], line 2</span>
+<span class="ansi-yellow-fg ansi-bold">    print("x")</span>
+<span class="ansi-white-fg ansi-bold">    ^</span>
+<span class="ansi-red-fg ansi-bold">IndentationError</span><span class="ansi-red-fg ansi-bold">:</span> expected an indented block after 'if' statement on line 1
+</pre>
+</div>
+</div>
+</div>
+<p>عدم تطابق المحاذاة:</p>
+<div id="9868be17" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="bu">print</span>(<span class="st">"x"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>     <span class="bu">print</span>(<span class="st">'y'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-cyan-fg ansi-bold">  Cell </span><span class="ansi-green-fg ansi-bold">In[5], line 3</span>
+<span class="ansi-yellow-fg ansi-bold">    print('y')</span>
+<span class="ansi-white-fg ansi-bold">    ^</span>
+<span class="ansi-red-fg ansi-bold">IndentationError</span><span class="ansi-red-fg ansi-bold">:</span> unexpected indent
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section id="تجويد-العبارة" class="level3">
+<h3 class="anchored" data-anchor-id="تجويد-العبارة">تجويد العبارة</h3>
+<p>من تجويد العبارة تسمية المتغيرات بما يدل على وظيفتها، مثل:</p>
+<div id="bef75494" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>rate <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>hours_per_day <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>days <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>pay <span class="op">=</span> rate <span class="op">*</span> hours_per_day <span class="op">*</span> days</span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="bu">print</span>(pay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1500</code></pre>
+</div>
+</div>
+<p>وإن كان ليس من الخطأ النحوي كتابتها بطريقة مختلفة وبأسماء غير معبِّرة، إلا أنه أمرٌ غير مستحسن:</p>
+<div id="0ca097bf" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>r, hpd, d <span class="op">=</span> <span class="dv">50</span>, <span class="dv">6</span>, <span class="dv">5</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>p <span class="op">=</span> r <span class="op">*</span> hpd <span class="op">*</span> d</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="bu">print</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1500</code></pre>
+</div>
+</div>
+<p>وفي هذا نصائح كثيرة، يراجع فيها <a href="https://peps.python.org/pep-0008/">دليل أسلوب الكتابة في بايثون</a>.</p>
+</section>
+</section>
+<section id="الخطأ-الواقعي-الاستثناء" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="الخطأ-الواقعي-الاستثناء"><span class="header-section-number">11.2</span> الخطأ الواقعي: الاستثناء</h2>
+<p>وهو ما يكتشفه البرنامج عند تنفيذه. ويُعرف <strong>بالاستثناء</strong> (Exception).</p>
+<p>عند إهمال هذه الأخطاء يحصل أمران عند تنفيذ سببها:</p>
+<ol type="1">
+<li>يتوقف البرنامج</li>
+<li>تظهر رسالة خطأ عن طريق منفذ الخطأ (stderr)</li>
+</ol>
+<p>ولدينا آليتان في لغات البرمجة للتعبير عن حدوث الخطأ الواقعي:</p>
+<ul>
+<li><strong>رفع قيمة الخطأ بالاسثناء</strong>: لغات مثل C++ (1979)، Java (1998)، Python (1991) و JavaScript (1995) ترمي/ترفع الاستثناءات باستعمال عبارة مثلة <code>raise</code> أو عبارة <code>throw</code> على حسب اللغة.</li>
+<li><strong>الرجوع بقيمة الخطأ</strong>: اللغات الحديثة مثل Go (2009) و Rust (2015) ببساطة تعيد الخطأ كشيء (قيمة) عند حدوثه باستعمال جملة <code>return</code> التي في الإجراء.</li>
+</ul>
+<p>لنأخذ مثالًا لنرى كيف يتم التعامل مع الاستثناءات في Python.</p>
+<section id="مثال" class="level4">
+<h4 class="anchored" data-anchor-id="مثال">مثال</h4>
+<p>افترض في بداية البرنامج، نحتاج إلى قراءة ملف تكوين <code>config.json</code> لتهيئة حالة البرنامج:</p>
+<div id="be5e30b2" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'config.json'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg ansi-bold">FileNotFoundError</span>                         Traceback (most recent call last)
+Cell <span class="ansi-green-fg ansi-bold">In[8], line 1</span>
+<span class="ansi-green-fg ansi-bold">----&gt; 1</span> file <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">open</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">config.json</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg ansi-bold">~\miniconda3\envs\bookenv\Lib\site-packages\IPython\core\interactiveshell.py:324</span>, in <span class="ansi-cyan-fg">_modified_open</span><span class="ansi-blue-fg ansi-bold">(file, *args, **kwargs)</span>
+<span class="ansi-green-fg">    317</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> file <span style="font-weight:bold;color:rgb(175,0,255)">in</span> {<span style="color:rgb(98,98,98)">0</span>, <span style="color:rgb(98,98,98)">1</span>, <span style="color:rgb(98,98,98)">2</span>}:
+<span class="ansi-green-fg">    318</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ValueError</span>(
+<span class="ansi-green-fg">    319</span>         <span style="color:rgb(175,0,0)">f</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">IPython won</span><span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">t let you open fd=</span><span style="font-weight:bold;color:rgb(175,95,135)">{</span>file<span style="font-weight:bold;color:rgb(175,95,135)">}</span><span style="color:rgb(175,0,0)"> by default </span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg">    320</span>         <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">as it is likely to crash IPython. If you know what you are doing, </span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg">    321</span>         <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">you can use builtins</span><span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)"> open.</span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg">    322</span>     )
+<span class="ansi-green-fg ansi-bold">--&gt; 324</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">io_open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">file</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-red-fg ansi-bold">FileNotFoundError</span>: [Errno 2] No such file or directory: 'config.json'</pre>
+</div>
+</div>
+</div>
+<p>الملف غير موجود لذا يعرف إجراء <code>open()</code> استثناءً من نوع <code>FileNotFoundError</code>. فنعالج هذا الاستثناء باستخدام جملة <code>try-except</code>. دعونا نطبع رسالة تخبر المستخدم بإنشاء الملف. أو الأفضل من ذلك، دعونا نشير إلى ملف تكوين افتراضي: <code>default.json</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="cf">try</span>:</span>
+<span id="cb11-2"><a href="#cb11-2"></a>    <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'config.json'</span>)</span>
+<span id="cb11-3"><a href="#cb11-3"></a>    <span class="co"># code that does something ...</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>    <span class="co"># ...</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="cf">except</span> <span class="pp">FileNotFoundError</span>:</span>
+<span id="cb11-6"><a href="#cb11-6"></a>    <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(DEFAULT_CONFIG_PATH)</span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb11-8"><a href="#cb11-8"></a>    <span class="bu">print</span>(<span class="st">"something unexpected happened:"</span>, e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>الفقرة الأخيرة <code>except Exception as e</code> هي عبارة عن استثناء شامل، وذلك في حال حصول استثناء آخر لم نتوقعه. والغرض من ذلك ألا يتوقف البرنامج.</p>
+</section>
+<section id="مثال-آخر" class="level4">
+<h4 class="anchored" data-anchor-id="مثال-آخر">مثال آخر</h4>
+<p>دعونا نلقي نظرة على مثال آخر، قد يحصل فيه حالة خطأ بسبب تنوع مدخلات المستخدم:</p>
+<div id="9fd521c7" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>choices <span class="op">=</span> [<span class="st">'bus'</span>, <span class="st">'train'</span>, <span class="st">'plane'</span>, <span class="st">'boat'</span>] </span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="bu">print</span>(<span class="st">"""Choose an option:</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="st">1. Go by bus</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="st">2. Go by train</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="st">3. Go by plane</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="st">4. Go by boat</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="st">"""</span>)</span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="co"># choice = input("Choose a number from 1 to 4: ")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Choose an option:
+1. Go by bus
+2. Go by train
+3. Go by plane
+4. Go by boat
+</code></pre>
+</div>
+</div>
+<p>ما هي حالات الخطأ الممكنة؟:</p>
+<ul>
+<li>قد يدخل المستخدم رقمًا خارج النطاق: <code>0</code> أو <code>9</code></li>
+<li>قد يدخل المستخدم قيمة غير صحيحة: <code>three</code></li>
+</ul>
+<p>نحتاج إلى التعامل مع هذه الاستثناءات. يمكننا استخدام كتلة <code>try-except</code> للتعامل مع الاستثناءات.</p>
+<p>دعونا نرى ما هو الاستثناء الذي يتم رفعه في الحالة الأولى:</p>
+<div id="c589222b" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>choices[<span class="dv">9</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg ansi-bold">IndexError</span>                                Traceback (most recent call last)
+Cell <span class="ansi-green-fg ansi-bold">In[10], line 1</span>
+<span class="ansi-green-fg ansi-bold">----&gt; 1</span> <span class="ansi-yellow-bg">choices</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">9</span><span class="ansi-yellow-bg">]</span>
+
+<span class="ansi-red-fg ansi-bold">IndexError</span>: list index out of range</pre>
+</div>
+</div>
+</div>
+<p>الاستثناء هو <code>IndexError</code>.</p>
+<p>ماذا عن الحالة الثانية؟ لنرى:</p>
+<div id="9ce65960" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>choices[<span class="st">'three'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg ansi-bold">In[11], line 1</span>
+<span class="ansi-green-fg ansi-bold">----&gt; 1</span> <span class="ansi-yellow-bg">choices</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">three</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span class="ansi-yellow-bg">]</span>
+
+<span class="ansi-red-fg ansi-bold">TypeError</span>: list indices must be integers or slices, not str</pre>
+</div>
+</div>
+</div>
+<p>الاستثناء هو <code>TypeError</code>.</p>
+<p>الآن بعد أن عرفنا الحالات، دعونا نتعامل معها.</p>
+<div id="45676f73" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>c <span class="op">=</span> <span class="st">'9'</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a>retry_message <span class="op">=</span> <span class="st">"Please enter a digit between 1 and 4"</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="cf">try</span>:</span>
+<span id="cb16-6"><a href="#cb16-6"></a>    c <span class="op">=</span> <span class="bu">int</span>(c)</span>
+<span id="cb16-7"><a href="#cb16-7"></a>    <span class="bu">print</span>(<span class="st">'User chooses to:'</span>, choices[c<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="cf">except</span> <span class="pp">IndexError</span>:</span>
+<span id="cb16-9"><a href="#cb16-9"></a>    <span class="bu">print</span>(retry_message)</span>
+<span id="cb16-10"><a href="#cb16-10"></a><span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb16-11"><a href="#cb16-11"></a>    <span class="bu">print</span>(retry_message)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Please enter a digit between 1 and 4</code></pre>
+</div>
+</div>
+<p>يمكن تجميع الاستثناءات على النحو التالي:</p>
+<div id="bfa9ab9d" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="cf">try</span>:</span>
+<span id="cb18-2"><a href="#cb18-2"></a>    c <span class="op">=</span> <span class="bu">int</span>(c)</span>
+<span id="cb18-3"><a href="#cb18-3"></a>    <span class="bu">print</span>(<span class="st">'User chooses to:'</span>, choices[c<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="cf">except</span> (<span class="pp">IndexError</span>, <span class="pp">ValueError</span>):</span>
+<span id="cb18-5"><a href="#cb18-5"></a>    <span class="bu">print</span>(retry_message)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Please enter a digit between 1 and 4</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="رفع-الاستثناءات" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="رفع-الاستثناءات"><span class="header-section-number">11.3</span> رفع الاستثناءات</h2>
+<p>إذا كنت تريد رفع استثناء، يمكنك استخدام الكلمة <code>raise</code>.</p>
+<ul>
+<li>إذا كان نوع العامل خاطئًا، يجب رفع <code>TypeError</code></li>
+<li>وإلا، فتحقق من القيمة؛ فإن كانت خارج نطاق الإدخال المقبول، يجب رفع <code>ValueError</code></li>
+</ul>
+<p>ملاحظة: علينا استيراد <code>numbers</code> للتحقق من نوع الإدخال <code>x</code> باستخدام الإجراء المضمَّن: <code>isinstance(x, numbers.Number)</code> على النحو التالي:</p>
+<div id="104d8628" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="im">import</span> numbers</span>
+<span id="cb20-2"><a href="#cb20-2"></a></span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="kw">def</span> square_root(x):</span>
+<span id="cb20-4"><a href="#cb20-4"></a>    <span class="co"># Validation</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(x, numbers.Number):</span>
+<span id="cb20-6"><a href="#cb20-6"></a>        <span class="cf">raise</span> <span class="pp">TypeError</span>(<span class="st">"Argument must be a number"</span>)</span>
+<span id="cb20-7"><a href="#cb20-7"></a>    <span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb20-8"><a href="#cb20-8"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Cannot calculate square root of a negative number"</span>)</span>
+<span id="cb20-9"><a href="#cb20-9"></a>    <span class="co"># Now that we have checked the input, we can calculate the square root</span></span>
+<span id="cb20-10"><a href="#cb20-10"></a>    result <span class="op">=</span> x <span class="op">**</span> <span class="fl">0.5</span></span>
+<span id="cb20-11"><a href="#cb20-11"></a>    <span class="cf">return</span> result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>لنختبر حالتي الخطأ:</p>
+<div id="0de0f2f4" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>square_root(<span class="st">'16'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg ansi-bold">In[15], line 1</span>
+<span class="ansi-green-fg ansi-bold">----&gt; 1</span> <span class="ansi-yellow-bg">square_root</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">16</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span class="ansi-yellow-bg">)</span>
+
+Cell <span class="ansi-green-fg ansi-bold">In[14], line 6</span>, in <span class="ansi-cyan-fg">square_root</span><span class="ansi-blue-fg ansi-bold">(x)</span>
+<span class="ansi-green-fg">      3</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span> <span style="color:rgb(0,0,255)">square_root</span>(x):
+<span class="ansi-green-fg">      4</span>     <span style="font-style:italic;color:rgb(95,135,135)"># Validation</span>
+<span class="ansi-green-fg">      5</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="color:rgb(0,135,0)">isinstance</span>(x, numbers<span style="color:rgb(98,98,98)">.</span>Number):
+<span class="ansi-green-fg ansi-bold">----&gt; 6</span>         <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">TypeError</span>(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Argument must be a number</span><span style="color:rgb(175,0,0)">"</span>)
+<span class="ansi-green-fg">      7</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> x <span style="color:rgb(98,98,98)">&lt;</span> <span style="color:rgb(98,98,98)">0</span>:
+<span class="ansi-green-fg">      8</span>         <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ValueError</span>(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Cannot calculate square root of a negative number</span><span style="color:rgb(175,0,0)">"</span>)
+
+<span class="ansi-red-fg ansi-bold">TypeError</span>: Argument must be a number</pre>
+</div>
+</div>
+</div>
+<div id="7105b2d1" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>square_root(<span class="op">-</span><span class="dv">99</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg ansi-bold">ValueError</span>                                Traceback (most recent call last)
+Cell <span class="ansi-green-fg ansi-bold">In[16], line 1</span>
+<span class="ansi-green-fg ansi-bold">----&gt; 1</span> <span class="ansi-yellow-bg">square_root</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">-</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">99</span><span class="ansi-yellow-bg">)</span>
+
+Cell <span class="ansi-green-fg ansi-bold">In[14], line 8</span>, in <span class="ansi-cyan-fg">square_root</span><span class="ansi-blue-fg ansi-bold">(x)</span>
+<span class="ansi-green-fg">      6</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">TypeError</span>(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Argument must be a number</span><span style="color:rgb(175,0,0)">"</span>)
+<span class="ansi-green-fg">      7</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> x <span style="color:rgb(98,98,98)">&lt;</span> <span style="color:rgb(98,98,98)">0</span>:
+<span class="ansi-green-fg ansi-bold">----&gt; 8</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ValueError</span>(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Cannot calculate square root of a negative number</span><span style="color:rgb(175,0,0)">"</span>)
+<span class="ansi-green-fg">      9</span> <span style="font-style:italic;color:rgb(95,135,135)"># Now that we have checked the input, we can calculate the square root</span>
+<span class="ansi-green-fg">     10</span> result <span style="color:rgb(98,98,98)">=</span> x <span style="color:rgb(98,98,98)">*</span><span style="color:rgb(98,98,98)">*</span> <span style="color:rgb(98,98,98)">0.5</span>
+
+<span class="ansi-red-fg ansi-bold">ValueError</span>: Cannot calculate square root of a negative number</pre>
+</div>
+</div>
+</div>
+<p>لنختبر الآن المسار السعيد:</p>
+<div id="70d8ebbb" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>square_root(<span class="dv">16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>4.0</code></pre>
+</div>
+</div>
+</section>
+<section id="الأخطاء-الشائعة-أسباب-وحلول" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="الأخطاء-الشائعة-أسباب-وحلول"><span class="header-section-number">11.4</span> الأخطاء الشائعة: أسباب وحلول</h2>
+<p>فيما يلي بعض أنواع الأخطاء الشائعة وكيفية إصلاحها:</p>
+<section id="typeerror" class="level3">
+<h3 class="anchored" data-anchor-id="typeerror"><code>TypeError</code></h3>
+<p><strong>السبب</strong>:</p>
+<ol type="1">
+<li>استدعاء إجراء بعدد أكثر أو أقل من العوامل الواجبة (مثل: <code>len(1, 2)</code>)</li>
+<li>استدعاء إجراء بعوامل لا تطابق النوع المحدد في تعريفه (مثل: <code>math.sqrt('nine')</code> أو <code>5 + '5'</code>)</li>
+</ol>
+<p><strong>الحل</strong>: الوقاية باستعمال <code>type()</code> أو <code>isinstance()</code> للتحقق من تطابق أنواع البيانات المستخدمة مع متطلبات العملية.</p>
+</section>
+<section id="valueerror" class="level3">
+<h3 class="anchored" data-anchor-id="valueerror"><code>ValueError</code></h3>
+<p><strong>السبب</strong>:</p>
+<p>ألا يحصل <code>TypeError</code> لكنَّ القيمة خارج مدى الإجراء. كتمرير عدد سالب إلى مكان يُتوقع فيه أعداد موجبة فقط. مثل: <code>math.sqrt(-16)</code> فالجذر التربيعي لا يقبل عددًا سالبًا.</p>
+<p><strong>الحل</strong>: تحقق من مدى القيمة قبل استدعاء الإجراء بها.</p>
+</section>
+<section id="indexerror-و-keyerror" class="level3">
+<h3 class="anchored" data-anchor-id="indexerror-و-keyerror"><code>IndexError</code> و <code>KeyError</code></h3>
+<p><strong>السبب</strong>: الرقم الذي استعمل في عملية الإشارة <code>[index]list</code> (قائمة) أو <code>dict[key]</code> (قاموس) يشير لما هو خارج المجموعة.</p>
+<p><strong>الحل</strong>:</p>
+<ul>
+<li>بالنسبة للقائمة: معرفة طول المجموعة قبل الإشارة بالمؤشر (استخدم <code>len()</code>) أو</li>
+<li>بالنسبة للقاموس:
+<ul>
+<li>بتصدير الشرط <code>if key in dict</code> لتعليق تنفيذ الجملة على وجود الرقم قبل الإشارة به أو</li>
+<li>باستعمال <code>dict.get(key, default)</code> التي تُرجِع <code>default</code> في حالة عدم الرقم</li>
+</ul></li>
+<li>استعمال <code>try-except</code> للتعامل معها <code>IndexError</code> أو <code>KeyError</code> بعد وقوعها أو</li>
+<li>في بعض الحالات، يكون التكرار بـ<code>for</code> مانعًا من حصوله أصلاً</li>
+</ul>
+</section>
+<section id="attributeerror-و-nameerror" class="level3">
+<h3 class="anchored" data-anchor-id="attributeerror-و-nameerror"><code>AttributeError</code> و <code>NameError</code></h3>
+<p><strong>السبب</strong>: استعمال متغير أو إجراء قبل تعريفه.</p>
+<ul>
+<li>فإن أسنِد إلى كائن؛ وقع <code>AttributeError</code></li>
+<li>وإلا وقع <code>NameError</code></li>
+</ul>
+<p><strong>الحل</strong>:</p>
+<ul>
+<li>تأكد من صحة ترتيب الخطوات</li>
+<li>تأكد من صحة الإملاء</li>
+</ul>
+</section>
+<section id="modulenotfounderror" class="level3">
+<h3 class="anchored" data-anchor-id="modulenotfounderror"><code>ModuleNotFoundError</code></h3>
+<p><strong>السبب</strong>: فشل جُملة الاستيراد <code>import numpy</code></p>
+<p><strong>الحل</strong>:</p>
+<ul>
+<li>تأكد من صحة الإملاء</li>
+<li>تأكد من تثبيت الوحدة في البيئة التي يعمل فيها البرنامج: <code>pip install numpy</code></li>
+</ul>
+</section>
+<section id="syntaxerror" class="level3">
+<h3 class="anchored" data-anchor-id="syntaxerror"><code>SyntaxError</code></h3>
+<p><strong>السبب</strong>: خطأ نحوي قد يكون:</p>
+<ul>
+<li>في وضع كلمة صحيحة في غير سياقها</li>
+<li>خطأ في الإملاء</li>
+<li>توقُّع الكثير من مترجم بايثون</li>
+</ul>
+<p><strong>الحل</strong>: اتبع ما تقوله لك رسالة الخطأ.</p>
+</section>
+<section id="كيفية-إصلاح-الأخطاء-المقعدة" class="level3">
+<h3 class="anchored" data-anchor-id="كيفية-إصلاح-الأخطاء-المقعدة">كيفية إصلاح الأخطاء المقعدة؟</h3>
+<p>قد تتطلب الأخطاء المقعدة المزيد من التصحيح وفهم الكود. لذا، من المهم تعلم كيفية قراءة رسالة الخطأ التي تنتجها Python. يتكون الخطأ من ثلاثة أجزاء: <strong>نوع الخطأ</strong>، <strong>رسالة الخطأ</strong>، و <strong>سلسلة النداءات</strong> (stack trace).</p>
+<p>أولاً، اقرأ السطر الأخير. فذلك يخبرك بأمرين:</p>
+<ol type="1">
+<li><code>ErrorType</code> الذي يمكنك استخدامه في كتلة <code>try-catch</code> إذا لزم الأمر</li>
+<li>يتبعه رسالة خطأ بلغة إنجليزية بسيطة توضح ما حدث</li>
+</ol>
+<p>تدرج سلسلة النداءات (stack trace) الاستدعاءات (الإجراءات التي تستدعي إجراءات أخرى). وبالتالي، فإن الكود الذي رفع الخطأ سيكون الأخير (في الأسفل)، في حين أن الإجراء التي بدأت ذلك ستكون الأولى (في الأعلى).</p>
+<p>اعتبر سلسلة الاستدعاءات حيث تستدعي <code>func_app</code> الإجراء <code>func_library_1</code> التي تستدعي الإجراء <code>func_library_2</code>. يُفترض أن الدالتين الأخريين هما مكتبات مستوردة. مثال: نعرّف إجراءات في تطبيقنا تستدعي مكتبة <code>pandas</code> التي تستدعي مكتبة <code>numpy</code>.</p>
+<p>قد يتم رفع استثناء في مكان ما، ونريد تطبيق ما تعلمناه أعلاه لقراءته وإصلاحه.</p>
+<div id="e7a2ae7f" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">def</span> func_library_2(c):</span>
+<span id="cb25-2"><a href="#cb25-2"></a>    <span class="cf">if</span> <span class="bu">len</span>(c) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb25-3"><a href="#cb25-3"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Empty input"</span>)</span>
+<span id="cb25-4"><a href="#cb25-4"></a>    z <span class="op">=</span> c</span>
+<span id="cb25-5"><a href="#cb25-5"></a>    <span class="cf">return</span> z</span>
+<span id="cb25-6"><a href="#cb25-6"></a></span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="kw">def</span> func_library_1(b, c):</span>
+<span id="cb25-8"><a href="#cb25-8"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(c, <span class="bu">str</span>):</span>
+<span id="cb25-9"><a href="#cb25-9"></a>        <span class="cf">raise</span> <span class="pp">TypeError</span>(<span class="st">"c must be a string"</span>)</span>
+<span id="cb25-10"><a href="#cb25-10"></a>    y <span class="op">=</span> func_library_2(c)</span>
+<span id="cb25-11"><a href="#cb25-11"></a>    <span class="cf">return</span> b <span class="op">+</span> y</span>
+<span id="cb25-12"><a href="#cb25-12"></a></span>
+<span id="cb25-13"><a href="#cb25-13"></a><span class="kw">def</span> func_app(a, b, c):</span>
+<span id="cb25-14"><a href="#cb25-14"></a>    x <span class="op">=</span> func_library_1(b, c)</span>
+<span id="cb25-15"><a href="#cb25-15"></a>    <span class="cf">return</span> a <span class="op">+</span> x</span>
+<span id="cb25-16"><a href="#cb25-16"></a></span>
+<span id="cb25-17"><a href="#cb25-17"></a>func_app(<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg ansi-bold">ValueError</span>                                Traceback (most recent call last)
+Cell <span class="ansi-green-fg ansi-bold">In[18], line 17</span>
+<span class="ansi-green-fg">     14</span>     x <span style="color:rgb(98,98,98)">=</span> func_library_1(b, c)
+<span class="ansi-green-fg">     15</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> a <span style="color:rgb(98,98,98)">+</span> x
+<span class="ansi-green-fg ansi-bold">---&gt; 17</span> <span class="ansi-yellow-bg">func_app</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">a</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">b</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span class="ansi-yellow-bg">)</span>
+
+Cell <span class="ansi-green-fg ansi-bold">In[18], line 14</span>, in <span class="ansi-cyan-fg">func_app</span><span class="ansi-blue-fg ansi-bold">(a, b, c)</span>
+<span class="ansi-green-fg">     13</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span> <span style="color:rgb(0,0,255)">func_app</span>(a, b, c):
+<span class="ansi-green-fg ansi-bold">---&gt; 14</span>     x <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">func_library_1</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">b</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">c</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">     15</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> a <span style="color:rgb(98,98,98)">+</span> x
+
+Cell <span class="ansi-green-fg ansi-bold">In[18], line 10</span>, in <span class="ansi-cyan-fg">func_library_1</span><span class="ansi-blue-fg ansi-bold">(b, c)</span>
+<span class="ansi-green-fg">      8</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="color:rgb(0,135,0)">isinstance</span>(c, <span style="color:rgb(0,135,0)">str</span>):
+<span class="ansi-green-fg">      9</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">TypeError</span>(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">c must be a string</span><span style="color:rgb(175,0,0)">"</span>)
+<span class="ansi-green-fg ansi-bold">---&gt; 10</span> y <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">func_library_2</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">c</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">     11</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> b <span style="color:rgb(98,98,98)">+</span> y
+
+Cell <span class="ansi-green-fg ansi-bold">In[18], line 3</span>, in <span class="ansi-cyan-fg">func_library_2</span><span class="ansi-blue-fg ansi-bold">(c)</span>
+<span class="ansi-green-fg">      1</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span> <span style="color:rgb(0,0,255)">func_library_2</span>(c):
+<span class="ansi-green-fg">      2</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">len</span>(c) <span style="color:rgb(98,98,98)">==</span> <span style="color:rgb(98,98,98)">0</span>:
+<span class="ansi-green-fg ansi-bold">----&gt; 3</span>         <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ValueError</span>(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Empty input</span><span style="color:rgb(175,0,0)">"</span>)
+<span class="ansi-green-fg">      4</span>     z <span style="color:rgb(98,98,98)">=</span> c
+<span class="ansi-green-fg">      5</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> z
+
+<span class="ansi-red-fg ansi-bold">ValueError</span>: Empty input</pre>
+</div>
+</div>
+</div>
+<p>لنقرأ رسالة الخطأ. تقول: <code>"ValueError: Empty input"</code>. حسنًا، ما الذي تسبب في ذلك؟ دعونا نلقي نظرة على سلسلة النداءات (stack trace) من الأعلى (للعثور على إجراءاتنا الخاصة). نجد:</p>
+<pre><code>File c:\Users\thund\OneDrive\3-Teach\DS-AI\2. Py\book\11_errors.qmd:17
+     14     x = func_library_1(b, c)
+     15     return a + x
+---&gt; 17 func_app('a', 'b', '')</code></pre>
+<p>هي أول استدعاء في سلسلة السببية. لنقرأ ماذا يأتي بعدها:</p>
+<pre><code>File c:\Users\thund\OneDrive\3-Teach\DS-AI\2. Py\book\11_errors.qmd:14
+     13 def func_app(a, b, c):
+---&gt; 14     x = func_library_1(b, c)
+     15     return a + x</code></pre>
+<p>الآن هذه هي الاستدعاء الثاني، والأخير في تطبيقنا. بعد هذه النقطة، يكون خارج نطاق سيطرتنا. بما أننا نحافظ على كودنا الخاص <code>func_app</code>، فمن الأرجح أننا ارتكبنا الخطأ. يمكننا إصلاحه عن طريق التحقق من الإدخال قبل أن يغادر كودنا إلى <code>func_library_1</code>.</p>
+<div id="06a63c69" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>func_app(<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>'abc'</code></pre>
+</div>
+</div>
+<p>تم الإصلاح. انتهى.</p>
+<p>إذا كان الخطأ في الواقع في <code>func_library_1</code>، فعلينا التواصل مع القائمين على صيانة المكتبة لإصلاحه. ربما يمكننا إصلاحه بأنفسنا وتقديم طلب سحب (pull request) على GitHub. هكذا تتحسن البرمجيات مفتوحة المصدر.</p>
+</section>
+</section>
+<section id="الخطأ-المنطقي-الخطأ-في-المعنى" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="الخطأ-المنطقي-الخطأ-في-المعنى"><span class="header-section-number">11.5</span> الخطأ المنطقي: الخطأ في المعنى</h2>
+<p>وهي التي نقصدها حين نقول: <strong>Bug</strong>، ولذلك قيل للبرنامج الذي يساعد في إصلاحها: <strong>Debugger</strong>، وعملية البحث عنها وإصلاحها: <strong>Debugging</strong>.</p>
+<p><strong>الأخطاء المنطقية صامتة</strong>. إذ لا يكتشفها المترجم، وتتسبب في تصرف البرنامج بشكل غير صحيح. الأخطاء المنطقية هي الأصعب في التتبع والإصلاح لأنها ليست واضحة. يمكن أن تكون ناجمة عن:</p>
+<ul>
+<li>افتراضات غير صحيحة</li>
+<li>تطبيق غير صحيح للخوارزمية أو</li>
+<li>تحضير غير صحيح للبيانات</li>
+</ul>
+<p>اقرأ المزيد عن <a href="https://en.wikipedia.org/wiki/Software_bug#Types">أنواع الأخطاء</a> وإليك بعض الأمثلة.</p>
+<section id="استعمال-الإجراء-الخاطئ" class="level3">
+<h3 class="anchored" data-anchor-id="استعمال-الإجراء-الخاطئ">استعمال الإجراء الخاطئ</h3>
+<div id="1bc35a54" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="im">import</span> math</span>
+<span id="cb30-2"><a href="#cb30-2"></a></span>
+<span id="cb30-3"><a href="#cb30-3"></a>square <span class="op">=</span> math.sqrt(<span class="dv">4</span>) <span class="co"># should use math.pow(4, 2) instead</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="استعمال-العامل-الخاطئ" class="level3">
+<h3 class="anchored" data-anchor-id="استعمال-العامل-الخاطئ">استعمال العامل الخاطئ</h3>
+<div id="315bd2e5" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>x <span class="op">=</span> <span class="dv">16</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="cf">if</span> (x <span class="op">==</span> <span class="st">"16"</span>):</span>
+<span id="cb31-3"><a href="#cb31-3"></a>    <span class="bu">print</span>(<span class="st">'equal'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="مستوى-محاذاة-خاطئ" class="level3">
+<h3 class="anchored" data-anchor-id="مستوى-محاذاة-خاطئ">مستوى محاذاة خاطئ</h3>
+<p>هنا كانت النية تقتضي أن تكون <code>print(j)</code> داخل الحلقة الداخلية:</p>
+<div id="a5c488fc" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb32-2"><a href="#cb32-2"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
+<span id="cb32-3"><a href="#cb32-3"></a>        <span class="bu">print</span>(i)  </span>
+<span id="cb32-4"><a href="#cb32-4"></a>    <span class="bu">print</span>(j)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0
+0
+0
+2
+1
+1
+1
+2</code></pre>
+</div>
+</div>
+</section>
+<section id="خطأ-الحافة" class="level3">
+<h3 class="anchored" data-anchor-id="خطأ-الحافة">خطأ الحافَّة</h3>
+<p>ويسمى (Off-by-one error).</p>
+<p>يكاد يكون أشهر الأخطاء في البرمجة: خطأ الحافَّة.</p>
+<p>نشرحه بمثال: النية هنا هي طباعة الأرقام من 5 إلى 0 بما في ذلك 0، ولكن الحلقة تتوقف عند 1.</p>
+<div id="7d79dea0" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb34-2"><a href="#cb34-2"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5
+4
+3
+2
+1</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="معالجة-الخطأ-المنطقي" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="معالجة-الخطأ-المنطقي"><span class="header-section-number">11.6</span> معالجة الخطأ المنطقي</h2>
+<p>قد تستعين بعبارة <code>assert</code> هنا وهناك للتحقق من منطق الكود، أو تنتقل <strong>لكتابة مجموعة اختبارات</strong> أكبر.</p>
+<p><strong>التتبع</strong>. أفضل طريقة لحل الأخطاء المنطقية هي تنفيذ الكود والنظر في الناتج، وتتبع المنطق مرة أخرى إلى الكود سطرًا بسطر. يمكنك استخدام عبارات الطباعة <code>print</code> لتصحيح الأخطاء وفهم تدفق البرنامج. وقد يكون الأفضل من ذلك استعمال <a href="https://code.visualstudio.com/docs/python/debugging"><strong>المدقق</strong></a> (Debugger).</p>
+<p><strong>مراجعة الأقران</strong>: بحيث يطلع على الكود شخص آخر، فإنه قد يرى منه ما لا ترى.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/08_files_and_directories/a2_directories.html" class="pagination-link" aria-label="الدليل">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">الدليل</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/10_time/a_time.html" class="pagination-link" aria-label="الوقت">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">الوقت</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

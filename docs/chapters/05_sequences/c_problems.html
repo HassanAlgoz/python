@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>15&nbsp; خريطة المجموعات – البايثونية</title>
+<title>تمارين – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./glossary.html" rel="next">
-<link href="./chapters/12_oop/a2_extend.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/06_mapping/a_mapping.html" rel="next">
+<link href="../../chapters/05_sequences/b_context.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -68,9 +102,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -84,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix_collections.html">ملحقات</a></li><li class="breadcrumb-item"><a href="./appendix_collections.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">خريطة المجموعات</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/05_sequences/a_sequences.html">المجموعة المرتبة</a></li><li class="breadcrumb-item"><a href="../../chapters/05_sequences/c_problems.html">تمارين</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -99,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">البايثونية</a> 
+      <a href="../../">البايثونية</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -111,19 +142,19 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">فاتحة</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../../setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">إعداد بيئة التطوير</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/01_intro/introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/01_intro/introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">لغة البرمجة</span></span></a>
   </div>
 </li>
@@ -138,25 +169,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/a_numbers.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_numbers/a_numbers.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">الأعداد</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_numbers/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/c_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_numbers/c_problems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تمارين</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/d_solutions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_numbers/d_solutions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">حلول</span></a>
   </div>
 </li>
@@ -173,25 +204,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/03_control_flow/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/c_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/03_control_flow/c_problems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تمارين</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/d_solutions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/03_control_flow/d_solutions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">حلول</span></a>
   </div>
 </li>
@@ -208,13 +239,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/04_functions/a_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/04_functions/a_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الإجراءات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/04_functions/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/04_functions/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
@@ -231,19 +262,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/05_sequences/a_sequences.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/05_sequences/a_sequences.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">المجموعة المرتبة</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/05_sequences/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/05_sequences/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/05_sequences/c_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/05_sequences/c_problems.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">تمارين</span></a>
   </div>
 </li>
@@ -260,19 +291,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/06_mapping/a_mapping.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/06_mapping/a_mapping.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">المجموعة المرقومة</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/06_mapping/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/06_mapping/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/06_mapping/c_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/06_mapping/c_problems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تمارين</span></a>
   </div>
 </li>
@@ -289,19 +320,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/07_strings/a1_strings.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/07_strings/a1_strings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">النص</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/07_strings/a2_unicode.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/07_strings/a2_unicode.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">تمثيل النص</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/07_strings/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/07_strings/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
@@ -318,13 +349,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/08_files_and_directories/a1_serialization.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/08_files_and_directories/a1_serialization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الملف</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/08_files_and_directories/a2_directories.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/08_files_and_directories/a2_directories.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">الدليل</span></span></a>
   </div>
 </li>
@@ -341,7 +372,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/09_errors/a_errors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/09_errors/a_errors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
   </div>
 </li>
@@ -358,7 +389,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/10_time/a_time.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/10_time/a_time.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
   </div>
 </li>
@@ -375,13 +406,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/12_oop/a1_classes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/12_oop/a1_classes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">الأصناف</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/12_oop/a2_extend.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/12_oop/a2_extend.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">التجريد</span></span></a>
   </div>
 </li>
@@ -398,13 +429,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix_collections.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../appendix_collections.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">خريطة المجموعات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+  <a href="../../glossary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">المصطلحات</span></span></a>
   </div>
 </li>
@@ -415,15 +446,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#سلة-مشتريات" id="toc-سلة-مشتريات" class="nav-link active" data-scroll-target="#سلة-مشتريات">سلة مشتريات</a></li>
+  <li><a href="#متوسط-المبيعات-اليومية" id="toc-متوسط-المبيعات-اليومية" class="nav-link" data-scroll-target="#متوسط-المبيعات-اليومية">متوسط المبيعات اليومية</a></li>
+  <li><a href="#ضرب-متجهين" id="toc-ضرب-متجهين" class="nav-link" data-scroll-target="#ضرب-متجهين">ضرب متجهين</a></li>
+  <li><a href="#توزيع-الفرق" id="toc-توزيع-الفرق" class="nav-link" data-scroll-target="#توزيع-الفرق">توزيع الفرق</a>
+  <ul class="collapse">
+  <li><a href="#ضم-الأقران" id="toc-ضم-الأقران" class="nav-link" data-scroll-target="#ضم-الأقران">ضم الأقران</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix_collections.html">ملحقات</a></li><li class="breadcrumb-item"><a href="./appendix_collections.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">خريطة المجموعات</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/05_sequences/a_sequences.html">المجموعة المرتبة</a></li><li class="breadcrumb-item"><a href="../../chapters/05_sequences/c_problems.html">تمارين</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">خريطة المجموعات</span></h1>
+<h1 class="title">تمارين</h1>
 </div>
 
 
@@ -440,159 +483,104 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div id="fig-collections-tree" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-collections-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>
-<pre class="mermaid mermaid-js" data-label="fig-collections-tree">classDiagram
-    class Container {
-        &lt;&lt;abstract&gt;&gt;
-        +__contains__()
-    }
-
-    class Iterable {
-        &lt;&lt;abstract&gt;&gt;
-        +__iter__()
-    }
-
-    class Iterator {
-        &lt;&lt;abstract&gt;&gt;
-        +__next__()
-        +__iter__()
-    }
-
-    class Reversible {
-        &lt;&lt;abstract&gt;&gt;
-        +__reversed__()
-    }
-
-    class Sized {
-        &lt;&lt;abstract&gt;&gt;
-        +__len__()
-    }
-
-    class Collection {
-        &lt;&lt;abstract&gt;&gt;
-        +__contains__()
-        +__iter__()
-        +__len__()
-    }
-
-    class Sequence {
-        &lt;&lt;abstract&gt;&gt;
-        +__getitem__()
-        +__len__()
-        +__contains__()
-        +__iter__()
-        +__reversed__()
-        +index()
-        +count()
-    }
-
-    class MutableSequence {
-        &lt;&lt;abstract&gt;&gt;
-        +__getitem__()
-        +__setitem__()
-        +__delitem__()
-        +__len__()
-        +insert()
-        +append()
-        +clear()
-        +reverse()
-        +extend()
-        +pop()
-        +remove()
-        +__iadd__()
-    }
-
-    class Set {
-        &lt;&lt;abstract&gt;&gt;
-        +__contains__()
-        +__iter__()
-        +__len__()
-        +__le__()
-        +__lt__()
-        +__eq__()
-        +__ne__()
-        +__gt__()
-        +__ge__()
-        +__and__()
-        +__or__()
-        +__sub__()
-        +__xor__()
-        +isdisjoint()
-    }
-
-    class MutableSet {
-        &lt;&lt;abstract&gt;&gt;
-        +__contains__()
-        +__iter__()
-        +__len__()
-        +add()
-        +discard()
-        +clear()
-        +pop()
-        +remove()
-        +__ior__()
-        +__iand__()
-        +__ixor__()
-        +__isub__()
-    }
-
-    class Mapping {
-        &lt;&lt;abstract&gt;&gt;
-        +__getitem__()
-        +__iter__()
-        +__len__()
-        +__contains__()
-        +keys()
-        +items()
-        +values()
-        +get()
-        +__eq__()
-        +__ne__()
-    }
-
-    class MutableMapping {
-        &lt;&lt;abstract&gt;&gt;
-        +__getitem__()
-        +__setitem__()
-        +__delitem__()
-        +__iter__()
-        +__len__()
-        +pop()
-        +popitem()
-        +clear()
-        +update()
-        +setdefault()
-    }
-
-    Iterable &lt;|-- Iterator
-    Iterable &lt;|-- Reversible
-    Sized &lt;|-- Collection
-    Iterable &lt;|-- Collection
-    Container &lt;|-- Collection
-    Reversible &lt;|-- Sequence
-    Collection &lt;|-- Sequence
-    Sequence &lt;|-- MutableSequence
-    Collection &lt;|-- Set
-    Set &lt;|-- MutableSet
-    Collection &lt;|-- Mapping
-    Mapping &lt;|-- MutableMapping
-</pre>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-collections-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.1: الأنواع المجردة حول المجموعة (Collection)
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
+<section id="سلة-مشتريات" class="level2">
+<h2 class="anchored" data-anchor-id="سلة-مشتريات">سلة مشتريات</h2>
+<p>لديك قائمة بالفواكه وأسعارها.</p>
+<p>ولديك سلة مشتريات تريد أن تحسب مجموعها.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>fruits <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span>]</span>
+<span id="cb1-2"><a href="#cb1-2"></a>prices <span class="op">=</span> [    <span class="fl">1.5</span>,      <span class="fl">2.0</span>,      <span class="fl">1.0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>اكتب إجراء يحسب مجموع السلة:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> calculate_total_price(shopping_list):</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">assert</span> calculate_total_price([<span class="st">"apple"</span>, <span class="st">"apple"</span>, <span class="st">"apple"</span>]) <span class="op">==</span> <span class="fl">4.5</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="cf">assert</span> calculate_total_price([<span class="st">"banana"</span>, <span class="st">"apple"</span>]) <span class="op">==</span> <span class="fl">3.5</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="cf">assert</span> calculate_total_price([]) <span class="op">==</span> <span class="fl">0.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="متوسط-المبيعات-اليومية" class="level2">
+<h2 class="anchored" data-anchor-id="متوسط-المبيعات-اليومية">متوسط المبيعات اليومية</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>daily_sales <span class="op">=</span> [</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">10</span>,</span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="dv">19</span>, <span class="dv">14</span>, <span class="dv">12</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>,</span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">13</span>,</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="dv">8</span>, <span class="dv">20</span>, <span class="dv">19</span>, <span class="dv">15</span>, <span class="dv">14</span>, <span class="dv">13</span>, <span class="dv">12</span>,</span>
+<span id="cb4-6"><a href="#cb4-6"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>احسب ما يلي:</p>
+<ul>
+<li>عدد الأيام
+<ul>
+<li>يمكنك استعمال الدالة <code>len()</code></li>
+</ul></li>
+<li>مجموع المبيعات لكل أسبوع على حدة
+<ul>
+<li>يمكنك استعمال الدالة <code>sum()</code> واستعمال الإشارة بقطعة <code>[:7]</code> للأسبوع الأول</li>
+</ul></li>
+<li>متوسط المبيعات لكل أسبوع على حدة والانحراف المعياري
+<ul>
+<li>يمكنك استعمال الدالة <code>statistics.mean()</code> و <code>statistics.stdev()</code></li>
+</ul></li>
+<li>متوسط المبيعات خلال الشهر والانحراف المعياري</li>
+</ul>
+</section>
+<section id="ضرب-متجهين" class="level2">
+<h2 class="anchored" data-anchor-id="ضرب-متجهين">ضرب متجهين</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> dot_product(v, u):</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>للاختبار سنستعمل ما هو موجود في مكتبة <code>numpy</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="cf">assert</span> dot_product([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]) <span class="op">==</span> np.dot([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>])</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="cf">assert</span> dot_product([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]) <span class="op">==</span> np.dot([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="توزيع-الفرق" class="level2">
+<h2 class="anchored" data-anchor-id="توزيع-الفرق">توزيع الفرق</h2>
+<p>لديك قائمة من الأسماء وتريد توزيعها إلى مجموعات:</p>
+<ol type="1">
+<li>الحالة الأولى: يتم تعيين حجم المجموعة الواحدة</li>
+<li>الحالة الثانية: يتم تعيين عدد المجموعات</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> make_groups1(items: <span class="bu">list</span>[<span class="bu">str</span>], num_groups: <span class="bu">int</span> <span class="op">=</span> <span class="va">None</span>, group_size: <span class="bu">int</span> <span class="op">=</span> <span class="va">None</span>) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">list</span>[<span class="bu">str</span>]]:</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ويجب أن يكون الترتيب عشوائيًّا. انظر <a href="https://python.readthedocs.io/en/stable/library/random.html#functions-for-sequences">توثيق مكتبة بايثون عن مكتبة العشواء</a> هذه: <code>random.choice()</code>, <code>random.shuffle()</code>, <code>random.sample()</code>.</p>
+<p>افترض أن هذه القائمة التي لديك:</p>
+<pre><code>Ahmad
+Mohannad
+Mohammed
+Salem
+Ali
+Samir</code></pre>
+<p>الاختبارات</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>g1 <span class="op">=</span> make_groups1([<span class="st">"Ahmad"</span>, <span class="st">"Mohannad"</span>, <span class="st">"Mohammed"</span>, <span class="st">"Salem"</span>, <span class="st">"Ali"</span>, <span class="st">"Samir"</span>], num_groups<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="cf">assert</span> <span class="bu">len</span>(g1) <span class="op">==</span> <span class="dv">2</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="cf">assert</span> <span class="bu">len</span>(g1[<span class="dv">0</span>]) <span class="op">==</span> <span class="dv">3</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="cf">assert</span> <span class="bu">len</span>(g1[<span class="dv">1</span>]) <span class="op">==</span> <span class="dv">3</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a>g2 <span class="op">=</span> make_groups1([<span class="st">"Ahmad"</span>, <span class="st">"Mohannad"</span>, <span class="st">"Mohammed"</span>, <span class="st">"Salem"</span>, <span class="st">"Ali"</span>, <span class="st">"Samir"</span>], group_size<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="cf">assert</span> <span class="bu">len</span>(g2) <span class="op">==</span> <span class="dv">3</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="cf">assert</span> <span class="bu">len</span>(g2[<span class="dv">0</span>]) <span class="op">==</span> <span class="dv">2</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="cf">assert</span> <span class="bu">len</span>(g2[<span class="dv">1</span>]) <span class="op">==</span> <span class="dv">2</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="cf">assert</span> <span class="bu">len</span>(g2[<span class="dv">2</span>]) <span class="op">==</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="ضم-الأقران" class="level3">
+<h3 class="anchored" data-anchor-id="ضم-الأقران">ضم الأقران</h3>
+<p>تريد الآن أن تزيد شرطًا وهو أن يكون فارق العمر بينهم أقل ما يمكن. وهذه أعمارهم:</p>
+<pre><code>Ahmad: 24
+Mohannad: 17
+Mohammed: 16
+Salem: 32
+Ali: 26
+Samir: 31</code></pre>
+<p>الاختبارات</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>groups <span class="op">=</span> make_groups2([<span class="st">"Ahmad"</span>, <span class="st">"Mohannad"</span>, <span class="st">"Mohammed"</span>, <span class="st">"Salem"</span>, <span class="st">"Ali"</span>, <span class="st">"Samir"</span>], group_size<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="cf">for</span> g <span class="kw">in</span> groups:</span>
+<span id="cb11-3"><a href="#cb11-3"></a>    <span class="cf">if</span> <span class="st">"Ahmad"</span> <span class="kw">in</span> g:</span>
+<span id="cb11-4"><a href="#cb11-4"></a>        <span class="cf">assert</span> <span class="st">"Ali"</span> <span class="kw">in</span> g</span>
+<span id="cb11-5"><a href="#cb11-5"></a>    <span class="cf">if</span> <span class="st">"Mohannad"</span> <span class="kw">in</span> g:</span>
+<span id="cb11-6"><a href="#cb11-6"></a>        <span class="cf">assert</span> <span class="st">"Mohammed"</span> <span class="kw">in</span> g</span>
+<span id="cb11-7"><a href="#cb11-7"></a>    <span class="cf">if</span> <span class="st">"Salem"</span> <span class="kw">in</span> g:</span>
+<span id="cb11-8"><a href="#cb11-8"></a>        <span class="cf">assert</span> <span class="st">"Samir"</span> <span class="kw">in</span> g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1017,13 +1005,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapters/12_oop/a2_extend.html" class="pagination-link" aria-label="التجريد">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">التجريد</span></span>
+      <a href="../../chapters/05_sequences/b_context.html" class="pagination-link" aria-label="تطبيقات">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">تطبيقات</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./glossary.html" class="pagination-link" aria-label="المصطلحات">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">المصطلحات</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../chapters/06_mapping/a_mapping.html" class="pagination-link" aria-label="المجموعة المرقومة">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">المجموعة المرقومة</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

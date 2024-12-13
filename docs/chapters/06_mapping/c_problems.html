@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>15&nbsp; خريطة المجموعات – البايثونية</title>
+<title>تمارين – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./glossary.html" rel="next">
-<link href="./chapters/12_oop/a2_extend.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/07_strings/a1_strings.html" rel="next">
+<link href="../../chapters/06_mapping/b_context.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -68,9 +102,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -84,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix_collections.html">ملحقات</a></li><li class="breadcrumb-item"><a href="./appendix_collections.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">خريطة المجموعات</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/06_mapping/a_mapping.html">المجموعة الرابطة</a></li><li class="breadcrumb-item"><a href="../../chapters/06_mapping/c_problems.html">تمارين</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -99,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">البايثونية</a> 
+      <a href="../../">البايثونية</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -111,19 +142,19 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">فاتحة</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../../setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">إعداد بيئة التطوير</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/01_intro/introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/01_intro/introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">لغة البرمجة</span></span></a>
   </div>
 </li>
@@ -138,25 +169,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/a_numbers.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_numbers/a_numbers.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">الأعداد</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_numbers/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/c_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_numbers/c_problems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تمارين</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/d_solutions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_numbers/d_solutions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">حلول</span></a>
   </div>
 </li>
@@ -173,25 +204,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/03_control_flow/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/c_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/03_control_flow/c_problems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تمارين</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/d_solutions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/03_control_flow/d_solutions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">حلول</span></a>
   </div>
 </li>
@@ -208,13 +239,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/04_functions/a_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/04_functions/a_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الإجراءات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/04_functions/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/04_functions/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
@@ -231,19 +262,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/05_sequences/a_sequences.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/05_sequences/a_sequences.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">المجموعة المرتبة</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/05_sequences/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/05_sequences/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/05_sequences/c_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/05_sequences/c_problems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تمارين</span></a>
   </div>
 </li>
@@ -260,19 +291,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/06_mapping/a_mapping.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/06_mapping/a_mapping.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">المجموعة المرقومة</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/06_mapping/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/06_mapping/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/06_mapping/c_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/06_mapping/c_problems.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">تمارين</span></a>
   </div>
 </li>
@@ -289,19 +320,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/07_strings/a1_strings.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/07_strings/a1_strings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">النص</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/07_strings/a2_unicode.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/07_strings/a2_unicode.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">تمثيل النص</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/07_strings/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/07_strings/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
@@ -318,13 +349,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/08_files_and_directories/a1_serialization.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/08_files_and_directories/a1_serialization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الملف</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/08_files_and_directories/a2_directories.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/08_files_and_directories/a2_directories.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">الدليل</span></span></a>
   </div>
 </li>
@@ -341,7 +372,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/09_errors/a_errors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/09_errors/a_errors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
   </div>
 </li>
@@ -358,7 +389,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/10_time/a_time.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/10_time/a_time.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
   </div>
 </li>
@@ -375,13 +406,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/12_oop/a1_classes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/12_oop/a1_classes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">الأصناف</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/12_oop/a2_extend.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/12_oop/a2_extend.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">التجريد</span></span></a>
   </div>
 </li>
@@ -398,13 +429,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix_collections.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../appendix_collections.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">خريطة المجموعات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+  <a href="../../glossary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">المصطلحات</span></span></a>
   </div>
 </li>
@@ -415,15 +446,24 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#تقريب-الاختلاف-بين-الكلمات" id="toc-تقريب-الاختلاف-بين-الكلمات" class="nav-link active" data-scroll-target="#تقريب-الاختلاف-بين-الكلمات">تقريب الاختلاف بين الكلمات</a></li>
+  <li><a href="#تصحيح-الإملاء" id="toc-تصحيح-الإملاء" class="nav-link" data-scroll-target="#تصحيح-الإملاء">تصحيح الإملاء</a></li>
+  <li><a href="#حساب-الجمل" id="toc-حساب-الجمل" class="nav-link" data-scroll-target="#حساب-الجمل">حساب الجُمَّل</a></li>
+  <li><a href="#التوفيق-بين-مجموعتين" id="toc-التوفيق-بين-مجموعتين" class="nav-link" data-scroll-target="#التوفيق-بين-مجموعتين">التوفيق بين مجموعتين</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix_collections.html">ملحقات</a></li><li class="breadcrumb-item"><a href="./appendix_collections.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">خريطة المجموعات</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/06_mapping/a_mapping.html">المجموعة الرابطة</a></li><li class="breadcrumb-item"><a href="../../chapters/06_mapping/c_problems.html">تمارين</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">خريطة المجموعات</span></h1>
+<h1 class="title">تمارين</h1>
 </div>
 
 
@@ -440,159 +480,195 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div id="fig-collections-tree" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-collections-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>
-<pre class="mermaid mermaid-js" data-label="fig-collections-tree">classDiagram
-    class Container {
-        &lt;&lt;abstract&gt;&gt;
-        +__contains__()
-    }
+<section id="تقريب-الاختلاف-بين-الكلمات" class="level2">
+<h2 class="anchored" data-anchor-id="تقريب-الاختلاف-بين-الكلمات">تقريب الاختلاف بين الكلمات</h2>
+<p>في هذا المثال، تعود هذه النصوص كلها إلى نفس المعنى.</p>
+<ul>
+<li>(‘medina’, ‘madinah’, ‘madina’, ‘al madinah’, ‘al madina’, ‘medina’, ‘madinah’, ‘madina’, ‘المدينة’, ‘مدينة’),</li>
+<li>(‘mecca’, ‘makkah’, ‘makka’, ‘makkah’, ‘makkah’, ‘مكة’, ‘مكه’),</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> normalize_city_name(city_name: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">assert</span> (</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="st">'medina'</span> <span class="op">==</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    normalize_city_name(<span class="st">'medinah'</span>) <span class="op">==</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>    normalize_city_name(<span class="st">'al madina'</span>) <span class="op">==</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>    normalize_city_name(<span class="st">'المدينة'</span>) <span class="op">==</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>    normalize_city_name(<span class="st">'المدينه'</span>)</span>
+<span id="cb2-7"><a href="#cb2-7"></a>)</span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="cf">assert</span> (</span>
+<span id="cb2-9"><a href="#cb2-9"></a>    <span class="st">'mecca'</span> <span class="op">==</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>    normalize_city_name(<span class="st">'makkah'</span>) <span class="op">==</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>    normalize_city_name(<span class="st">'makka'</span>) <span class="op">==</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>    normalize_city_name(<span class="st">'مكة'</span>) <span class="op">==</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>    normalize_city_name(<span class="st">'مكه'</span>)</span>
+<span id="cb2-14"><a href="#cb2-14"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="تصحيح-الإملاء" class="level2">
+<h2 class="anchored" data-anchor-id="تصحيح-الإملاء">تصحيح الإملاء</h2>
+<p>اكتب إجراءً يصحح الإخطاء الشائعة في الإملاء العربي.</p>
+<ul>
+<li>إبدال التاء المربوطة بالهاء: مكتبه، لعبه، روايه</li>
+<li>إبدال الظاء بالضاد والعكس: ظابط، قرظ، ضهر</li>
+<li>زيادة الياء: أحسنتي، رأيتكي</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> correct_spelling(word: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">assert</span> correct_spelling(<span class="st">'المكتبه فيها الروايه التي أبحث عنها'</span>) <span class="op">==</span> <span class="st">'المكتبة فيها الرواية التي أبحث عنها'</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="cf">assert</span> correct_spelling(<span class="st">'أعطاك الظابط القرظ بعد الضهر'</span>) <span class="op">==</span> <span class="st">'أعطاك الضابط القرض بعد الظهر'</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="cf">assert</span> correct_spelling(<span class="st">'رأيتكي أحسنتي'</span>) <span class="op">==</span> <span class="st">'رأيتك أحسنت</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="حساب-الجمل" class="level2">
+<h2 class="anchored" data-anchor-id="حساب-الجمل">حساب الجُمَّل</h2>
+<p><a href="https://ar.wikipedia.org/wiki/%D8%AD%D8%B3%D8%A7%D8%A8_%D8%A7%D9%84%D8%AC%D9%85%D9%84">حِسَاب الجُمَّل</a> هي طريقة لتسجيل صور الأرقام والتواريخ باستخدام الحروف الأبجدية، إذ يُعطى كل حرف رقما معينا يدل عليه.</p>
+<p>فكانوا من تشكيلة هذه الحروف ومجموعها يصلون إلى ما تعنيه من تاريخ مقصود وبالعكس كانوا يستخدمون الأرقام للوصول إلى النصوص.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>حساب الجمَّل</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ا</td>
+<td>1</td>
+<td>ي</td>
+<td>10</td>
+<td>ق</td>
+<td>100</td>
+<td>غ</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>ب</td>
+<td>2</td>
+<td>ك</td>
+<td>20</td>
+<td>ر</td>
+<td>200</td>
+<td>بغ</td>
+<td>2000</td>
+</tr>
+<tr class="odd">
+<td>جـ</td>
+<td>3</td>
+<td>ل</td>
+<td>30</td>
+<td>ش</td>
+<td>300</td>
+<td>جغ</td>
+<td>3000</td>
+</tr>
+<tr class="even">
+<td>د</td>
+<td>4</td>
+<td>م</td>
+<td>40</td>
+<td>ت</td>
+<td>400</td>
+<td>دغ</td>
+<td>4000</td>
+</tr>
+<tr class="odd">
+<td>هـ</td>
+<td>5</td>
+<td>ن</td>
+<td>50</td>
+<td>ث</td>
+<td>500</td>
+<td>هغ</td>
+<td>5000</td>
+</tr>
+<tr class="even">
+<td>و</td>
+<td>6</td>
+<td>س</td>
+<td>60</td>
+<td>خ</td>
+<td>600</td>
+<td>وغ</td>
+<td>6000</td>
+</tr>
+<tr class="odd">
+<td>ز</td>
+<td>7</td>
+<td>ع</td>
+<td>70</td>
+<td>ذ</td>
+<td>700</td>
+<td>زغ</td>
+<td>7000</td>
+</tr>
+<tr class="even">
+<td>ح</td>
+<td>8</td>
+<td>ف</td>
+<td>80</td>
+<td>ض</td>
+<td>800</td>
+<td>حغ</td>
+<td>8000</td>
+</tr>
+<tr class="odd">
+<td>ط</td>
+<td>9</td>
+<td>ص</td>
+<td>90</td>
+<td>ظ</td>
+<td>900</td>
+<td>طغ</td>
+<td>9000</td>
+</tr>
+</tbody>
+</table>
+<p>اكتب تفاصيل الإجراء الذي يحسب الجمَّل لكلمة معينة.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> gematria(word: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">assert</span> gematria(<span class="st">'غرم'</span>) <span class="op">==</span> <span class="dv">1240</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="cf">assert</span> gematria(<span class="st">'رب'</span>) <span class="op">==</span> <span class="dv">202</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="cf">assert</span> gematria(<span class="st">'ريح'</span>) <span class="op">==</span> <span class="dv">218</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="cf">assert</span> gematria(<span class="st">'شعب'</span>) <span class="op">==</span> <span class="dv">372</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>وكذلك في العبارات:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="cf">assert</span> gematria(<span class="st">'في المشمش'</span>) <span class="op">==</span> <span class="dv">801</span> <span class="op">==</span> <span class="dv">80</span><span class="op">+</span><span class="dv">10</span><span class="op">+</span><span class="dv">1</span><span class="op">+</span><span class="dv">30</span><span class="op">+</span><span class="dv">40</span><span class="op">+</span><span class="dv">300</span><span class="op">+</span><span class="dv">40</span><span class="op">+</span><span class="dv">300</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="cf">assert</span> gematria(<span class="st">'مات الشعر بعده'</span>) <span class="op">==</span> <span class="dv">1123</span> <span class="op">==</span> <span class="dv">40</span><span class="op">+</span><span class="dv">1</span><span class="op">+</span><span class="dv">400</span><span class="op">+</span><span class="dv">1</span><span class="op">+</span><span class="dv">30</span><span class="op">+</span><span class="dv">300</span><span class="op">+</span><span class="dv">70</span><span class="op">+</span><span class="dv">200</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">70</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="التوفيق-بين-مجموعتين" class="level2">
+<h2 class="anchored" data-anchor-id="التوفيق-بين-مجموعتين">التوفيق بين مجموعتين</h2>
+<p>مسألة التوفيق بين مجموعتين تجدها في سياقات كثيرة.</p>
+<p>نريد في هذا التمرين التوفيق بين أشخاص وما لديهم من مهارات وبين شركات وما تطلبها من هذه المهارات.</p>
+<p>يمكن أن تبدأ بهذا الشكل لإيجاد كمية التوافق:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>person_skills <span class="op">=</span> {<span class="st">"Python"</span>, <span class="st">"SQL"</span>}</span>
+<span id="cb8-2"><a href="#cb8-2"></a>needed_skills <span class="op">=</span> {<span class="st">"Python"</span>, <span class="st">"R"</span>, <span class="st">"Ninja"</span>, <span class="st">"Gymnastics"</span>, <span class="st">"Art of War"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>لكن في الواقع تأتي البيانات لمجموعة من الأشخاص مع مجموعة من الشركات هكذا:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>people <span class="op">=</span> [</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    {<span class="st">"name"</span>: <span class="st">"Ahmad"</span>, <span class="st">"skills"</span>: [<span class="st">"Python"</span>, <span class="st">"Go"</span>, <span class="st">"JavaScript"</span>, <span class="st">"Machine Learning"</span>, <span class="st">"Statistics"</span>]},</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    {<span class="st">"name"</span>: <span class="st">"Jawad"</span>, <span class="st">"skills"</span>: [<span class="st">"Management"</span>, <span class="st">"Business"</span>, <span class="st">"Marketing"</span>]},</span>
+<span id="cb9-4"><a href="#cb9-4"></a>    {<span class="st">"name"</span>: <span class="st">"Belal"</span>, <span class="st">"skills"</span>: [<span class="st">"Python"</span>, <span class="st">"Statistics"</span>, <span class="st">"R"</span>, <span class="st">"Management"</span>]},</span>
+<span id="cb9-5"><a href="#cb9-5"></a>]</span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a>companies <span class="op">=</span> [</span>
+<span id="cb9-8"><a href="#cb9-8"></a>    {<span class="st">"name"</span>: <span class="st">"X"</span>, <span class="st">"skills_needed"</span>: [<span class="st">"Python"</span>, <span class="st">"Machine Learning"</span>, <span class="st">"Statistics"</span>]},</span>
+<span id="cb9-9"><a href="#cb9-9"></a>    {<span class="st">"name"</span>: <span class="st">"Y"</span>, <span class="st">"skills_needed"</span>: [<span class="st">"Sales"</span>, <span class="st">"Marketing"</span>, <span class="st">"Leadership"</span>, <span class="st">"Management"</span>]},</span>
+<span id="cb9-10"><a href="#cb9-10"></a>    {<span class="st">"name"</span>: <span class="st">"Z"</span>, <span class="st">"skills_needed"</span>: [<span class="st">"Statistics"</span>, <span class="st">"R"</span>, <span class="st">"Management"</span>]},</span>
+<span id="cb9-11"><a href="#cb9-11"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>اكتب برنامج للتوفيق بين المجموعتين بحيث ترتب على بما يناسب الشركات مرة، وبما يناسب الأشخاص مرة.</p>
+<pre><code>X: Ahmad, ...
+Y: Jawad, ...
+Z: Belal, ...
 
-    class Iterable {
-        &lt;&lt;abstract&gt;&gt;
-        +__iter__()
-    }
-
-    class Iterator {
-        &lt;&lt;abstract&gt;&gt;
-        +__next__()
-        +__iter__()
-    }
-
-    class Reversible {
-        &lt;&lt;abstract&gt;&gt;
-        +__reversed__()
-    }
-
-    class Sized {
-        &lt;&lt;abstract&gt;&gt;
-        +__len__()
-    }
-
-    class Collection {
-        &lt;&lt;abstract&gt;&gt;
-        +__contains__()
-        +__iter__()
-        +__len__()
-    }
-
-    class Sequence {
-        &lt;&lt;abstract&gt;&gt;
-        +__getitem__()
-        +__len__()
-        +__contains__()
-        +__iter__()
-        +__reversed__()
-        +index()
-        +count()
-    }
-
-    class MutableSequence {
-        &lt;&lt;abstract&gt;&gt;
-        +__getitem__()
-        +__setitem__()
-        +__delitem__()
-        +__len__()
-        +insert()
-        +append()
-        +clear()
-        +reverse()
-        +extend()
-        +pop()
-        +remove()
-        +__iadd__()
-    }
-
-    class Set {
-        &lt;&lt;abstract&gt;&gt;
-        +__contains__()
-        +__iter__()
-        +__len__()
-        +__le__()
-        +__lt__()
-        +__eq__()
-        +__ne__()
-        +__gt__()
-        +__ge__()
-        +__and__()
-        +__or__()
-        +__sub__()
-        +__xor__()
-        +isdisjoint()
-    }
-
-    class MutableSet {
-        &lt;&lt;abstract&gt;&gt;
-        +__contains__()
-        +__iter__()
-        +__len__()
-        +add()
-        +discard()
-        +clear()
-        +pop()
-        +remove()
-        +__ior__()
-        +__iand__()
-        +__ixor__()
-        +__isub__()
-    }
-
-    class Mapping {
-        &lt;&lt;abstract&gt;&gt;
-        +__getitem__()
-        +__iter__()
-        +__len__()
-        +__contains__()
-        +keys()
-        +items()
-        +values()
-        +get()
-        +__eq__()
-        +__ne__()
-    }
-
-    class MutableMapping {
-        &lt;&lt;abstract&gt;&gt;
-        +__getitem__()
-        +__setitem__()
-        +__delitem__()
-        +__iter__()
-        +__len__()
-        +pop()
-        +popitem()
-        +clear()
-        +update()
-        +setdefault()
-    }
-
-    Iterable &lt;|-- Iterator
-    Iterable &lt;|-- Reversible
-    Sized &lt;|-- Collection
-    Iterable &lt;|-- Collection
-    Container &lt;|-- Collection
-    Reversible &lt;|-- Sequence
-    Collection &lt;|-- Sequence
-    Sequence &lt;|-- MutableSequence
-    Collection &lt;|-- Set
-    Set &lt;|-- MutableSet
-    Collection &lt;|-- Mapping
-    Mapping &lt;|-- MutableMapping
-</pre>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-collections-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.1: الأنواع المجردة حول المجموعة (Collection)
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
+Ahmad: X, ...
+Jawad: Y, ...
+Belal: Z, ...</code></pre>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1017,13 +1093,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapters/12_oop/a2_extend.html" class="pagination-link" aria-label="التجريد">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">التجريد</span></span>
+      <a href="../../chapters/06_mapping/b_context.html" class="pagination-link" aria-label="تطبيقات">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">تطبيقات</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./glossary.html" class="pagination-link" aria-label="المصطلحات">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">المصطلحات</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../chapters/07_strings/a1_strings.html" class="pagination-link" aria-label="النص">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">النص</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

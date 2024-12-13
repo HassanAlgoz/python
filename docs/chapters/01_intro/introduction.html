@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>16&nbsp; المصطلحات – البايثونية</title>
+<title>1&nbsp; لغة البرمجة – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,23 +57,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./appendix_collections.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/02_numbers/a_numbers.html" rel="next">
+<link href="../../setup.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,6 +109,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -120,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix_collections.html">ملحقات</a></li><li class="breadcrumb-item"><a href="./glossary.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">المصطلحات</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/01_intro/introduction.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">لغة البرمجة</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -135,7 +165,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">البايثونية</a> 
+      <a href="../../">البايثونية</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -147,19 +177,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">فاتحة</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../../setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">إعداد بيئة التطوير</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/01_intro/introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/01_intro/introduction.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">لغة البرمجة</span></span></a>
   </div>
 </li>
@@ -174,25 +204,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/a_numbers.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_numbers/a_numbers.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">الأعداد</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_numbers/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/c_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_numbers/c_problems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تمارين</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/d_solutions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_numbers/d_solutions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">حلول</span></a>
   </div>
 </li>
@@ -209,25 +239,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/03_control_flow/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/c_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/03_control_flow/c_problems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تمارين</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/d_solutions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/03_control_flow/d_solutions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">حلول</span></a>
   </div>
 </li>
@@ -244,13 +274,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/04_functions/a_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/04_functions/a_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الإجراءات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/04_functions/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/04_functions/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
@@ -267,19 +297,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/05_sequences/a_sequences.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/05_sequences/a_sequences.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">المجموعة المرتبة</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/05_sequences/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/05_sequences/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/05_sequences/c_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/05_sequences/c_problems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تمارين</span></a>
   </div>
 </li>
@@ -296,19 +326,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/06_mapping/a_mapping.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/06_mapping/a_mapping.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">المجموعة المرقومة</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/06_mapping/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/06_mapping/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/06_mapping/c_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/06_mapping/c_problems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تمارين</span></a>
   </div>
 </li>
@@ -325,19 +355,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/07_strings/a1_strings.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/07_strings/a1_strings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">النص</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/07_strings/a2_unicode.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/07_strings/a2_unicode.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">تمثيل النص</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/07_strings/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/07_strings/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
@@ -354,13 +384,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/08_files_and_directories/a1_serialization.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/08_files_and_directories/a1_serialization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الملف</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/08_files_and_directories/a2_directories.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/08_files_and_directories/a2_directories.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">الدليل</span></span></a>
   </div>
 </li>
@@ -377,7 +407,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/09_errors/a_errors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/09_errors/a_errors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
   </div>
 </li>
@@ -394,7 +424,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/10_time/a_time.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/10_time/a_time.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
   </div>
 </li>
@@ -411,13 +441,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/12_oop/a1_classes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/12_oop/a1_classes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">الأصناف</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/12_oop/a2_extend.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/12_oop/a2_extend.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">التجريد</span></span></a>
   </div>
 </li>
@@ -434,13 +464,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix_collections.html" class="sidebar-item-text sidebar-link">
+  <a href="../../appendix_collections.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">خريطة المجموعات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./glossary.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../glossary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">المصطلحات</span></span></a>
   </div>
 </li>
@@ -456,17 +486,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#tuple" id="toc-tuple" class="nav-link active" data-scroll-target="#tuple"><span class="header-section-number">16.1</span> Tuple</a></li>
-  <li><a href="#parameter" id="toc-parameter" class="nav-link" data-scroll-target="#parameter"><span class="header-section-number">16.2</span> Parameter</a></li>
+  <li><a href="#أصول-اللغة" id="toc-أصول-اللغة" class="nav-link active" data-scroll-target="#أصول-اللغة"><span class="header-section-number">1.1</span> أصول اللغة</a></li>
+  <li><a href="#القطعة-البرمجية" id="toc-القطعة-البرمجية" class="nav-link" data-scroll-target="#القطعة-البرمجية"><span class="header-section-number">1.2</span> القطعة البرمجية</a>
+  <ul class="collapse">
+  <li><a href="#المثال-الأول-جمل-التعيين-والشرط" id="toc-المثال-الأول-جمل-التعيين-والشرط" class="nav-link" data-scroll-target="#المثال-الأول-جمل-التعيين-والشرط">المثال الأول: جمل التعيين والشرط</a></li>
+  <li><a href="#المثال-الثاني-القوائم-وحلقات-التكرار" id="toc-المثال-الثاني-القوائم-وحلقات-التكرار" class="nav-link" data-scroll-target="#المثال-الثاني-القوائم-وحلقات-التكرار">المثال الثاني: القوائم وحلقات التكرار</a></li>
+  </ul></li>
+  <li><a href="#المزيدات" id="toc-المزيدات" class="nav-link" data-scroll-target="#المزيدات"><span class="header-section-number">1.3</span> المزيدات</a>
+  <ul class="collapse">
+  <li><a href="#مثال-الإجراءات-المضمنة" id="toc-مثال-الإجراءات-المضمنة" class="nav-link" data-scroll-target="#مثال-الإجراءات-المضمنة">مثال الإجراءات المضمَّنة</a></li>
+  <li><a href="#مثال-وحدة-الرياضيات-الأساسية" id="toc-مثال-وحدة-الرياضيات-الأساسية" class="nav-link" data-scroll-target="#مثال-وحدة-الرياضيات-الأساسية">مثال وحدة الرياضيات الأساسية</a></li>
+  <li><a href="#المكتبات-المساهمة" id="toc-المكتبات-المساهمة" class="nav-link" data-scroll-target="#المكتبات-المساهمة">المكتبات المساهمة</a></li>
+  </ul></li>
+  <li><a href="#المجتمع-يطور-اللغة" id="toc-المجتمع-يطور-اللغة" class="nav-link" data-scroll-target="#المجتمع-يطور-اللغة"><span class="header-section-number">1.4</span> المجتمع يطور اللغة</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix_collections.html">ملحقات</a></li><li class="breadcrumb-item"><a href="./glossary.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">المصطلحات</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">المصطلحات</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">لغة البرمجة</span></h1>
 </div>
 
 
@@ -483,340 +524,337 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="a3bb8e3c" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, HTML</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Read the CSV file</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'assets/glossary.csv'</span>)</span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># Replace NaN values in the 'comment' column with empty strings</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a>df[<span class="st">'comment'</span>] <span class="op">=</span> df[<span class="st">'comment'</span>].fillna(<span class="st">''</span>)</span>
-<span id="cb1-9"><a href="#cb1-9"></a></span>
-<span id="cb1-10"><a href="#cb1-10"></a>df.rename(columns<span class="op">=</span>{</span>
-<span id="cb1-11"><a href="#cb1-11"></a>    <span class="st">'ar'</span>: <span class="st">'عربي'</span>,</span>
-<span id="cb1-12"><a href="#cb1-12"></a>    <span class="st">'en'</span>: <span class="st">'English'</span>,</span>
-<span id="cb1-13"><a href="#cb1-13"></a>    <span class="st">'comment'</span>: <span class="st">'تعليق'</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-15"><a href="#cb1-15"></a></span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="co"># Display the dataframe as an HTML table</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a>df.to_html(index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb1-18"><a href="#cb1-18"></a>display(HTML(df.to_html(index<span class="op">=</span><span class="va">False</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+<p>يتألف البرنامج المكتوب بلغة بايثون من <strong>قطع برمجية</strong> هي عبارة عن سلسلة من <strong>الجُمَل</strong> البسيطة والمركبة المكونة من <strong>مفردات</strong> للتعبير عن الأوامِر بطريقة سهلة على المبرمج كتابتها ، وفي نفس الوقت تتبع <strong>قواعد نحوية</strong> صارمة لا تشتبه عند ترجمتها لتعليمات مفصَّلة ودقيقة بلغة المنطق الرقمي لآلة لتنفذها.</p>
+<section id="أصول-اللغة" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="أصول-اللغة"><span class="header-section-number">1.1</span> أصول اللغة</h2>
+<p>وقد تكون هذه الجمل البرمجية <strong>أصلية</strong> في اللغة وقد تكون <strong>مزيدة</strong> مما أضيف لاحقًا. فأما <a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords">المفردات الأصلية في لغة بايثون</a> فهي:</p>
+<pre><code>False      await      else       import     pass
+None       break      except     in         raise
+True       class      finally    is         return
+and        continue   for        lambda     try
+as         def        from       nonlocal   while
+assert     del        global     not        with
+async      elif       if         or         yield</code></pre>
+<p>ومنها كذلك: <code>match</code>, <code>case</code>, <code>type</code> و <code>_</code>.</p>
+<p>أما الجمل فتنقسم إلى قسمين:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><a href="https://docs.python.org/3/reference/simple_stmts.html"><strong>جملة بسيطة</strong></a>:</p>
+<ul>
+<li>التعبير: <code>x + y</code></li>
+<li>التعيين: <code>x = y</code></li>
+<li>التأكيد: <code>assert condition</code></li>
+<li>المرور: <code>pass</code></li>
+<li>الحذف: <code>del x</code></li>
+<li>الإرجاع: <code>return y</code></li>
+<li>الإنتاج: <code>yield y</code></li>
+<li>رفع الاستثناء: <code>raise Exception</code></li>
+<li>الكسر: <code>break</code></li>
+<li>الاستمرار: <code>continue</code></li>
+<li>الاستيراد: <code>import module</code></li>
+<li>العالمية: <code>global x</code></li>
+<li>غير المحلية: <code>nonlocal x</code></li>
+<li>النوع: <code>type(x)</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><a href="https://docs.python.org/3/reference/compound_stmts.html"><strong>جملة مركبة</strong></a>:</p>
+<ul>
+<li>الشرط: <code>if ...</code></li>
+<li>التكرار: <code>while ...</code></li>
+<li>الحلقة: <code>for ...</code></li>
+<li>المحاولة: <code>try ...</code></li>
+<li>السياق: <code>with ...</code></li>
+<li>المطابقة: <code>match ...</code></li>
+<li>تعريف الدالة: <code>def ...</code></li>
+<li>تعريف الفئة: <code>class ...</code></li>
+<li>الروتينات المتزامنة: <code>async def ...</code></li>
+<li>قوائم معلمات النوع: <code>[T1[, T2, ...]]</code></li>
+</ul>
+</div>
+</div>
+<p>ثم لدينا المعاملات والمحددات.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><a href="https://docs.python.org/3/reference/lexical_analysis.html#operators"><strong>المعاملات</strong></a> فهي رموز لعمليات تختلف بحسب السياق (العوامل):</p>
+<pre><code>+       -       *       **      /       //      %      @
+&lt;&lt;      &gt;&gt;      &amp;       |       ^       ~       :=
+&lt;       &gt;       &lt;=      &gt;=      ==      !=</code></pre>
+<p>فمثلاً: معامل الجمع <code>+</code> له أكثر من تفسير في العبارة: <code>x + y</code>:</p>
+<ul>
+<li>إذا كان <code>x</code> و <code>y</code> أرقامًا فإن <code>+</code> هو عملية جمع</li>
+<li>إذا كان <code>x</code> و <code>y</code> نصين فإن <code>+</code> هو عملية دمج</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><a href="https://docs.python.org/3/reference/lexical_analysis.html#delimiters"><strong>المحددات</strong></a> هي رموز تبين أين تبتدئ بعض الجمل أو تنفصل أو تنتهي:</p>
+<pre><code>(       )       [       ]       {       }
+,       :       !       .       ;       @       =</code></pre>
+<p>ومن أمثلتها:</p>
+<ul>
+<li>في العبارة: <code>x = (y + z) * (a + b)</code> لتحديد ترتيب العمليات</li>
+<li>في الإجراء المستدعى: <code>print(x, y, z)</code> لتحديد العوامل</li>
+<li>في تعريف صف: <code>xs = (10, 20, 30)</code> لتحديد العناصر</li>
+</ul>
+</div>
+</div>
+<p><strong>تنبيه</strong>: لا نحفظ هذا إلا بالمماسة والتكرار. إنما قصدتُ من سرده أن تتكون لديك نظرة عامة على اللغة.</p>
+<p>إذاً في لغة بايثون:</p>
+<ol type="1">
+<li>قطع برمجية</li>
+<li>في كل قطعة جمل برمجية بسيطة أو مركبة</li>
+<li>في كل جملة مفردات وتعبيرات وعوامل ومحددات</li>
+</ol>
+</section>
+<section id="القطعة-البرمجية" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="القطعة-البرمجية"><span class="header-section-number">1.2</span> القطعة البرمجية</h2>
+<p>في <strong>لغة إجرائية</strong> كبايثون فإن تنفيذ الأسطر البرمجية يكون حسب ترتيب كتابتها من الأعلى إلى الأسفل.</p>
+<section id="المثال-الأول-جمل-التعيين-والشرط" class="level3">
+<h3 class="anchored" data-anchor-id="المثال-الأول-جمل-التعيين-والشرط">المثال الأول: جمل التعيين والشرط</h3>
+<div id="a3a640c9" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>distance <span class="op">=</span> <span class="dv">200</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>speed <span class="op">=</span>  <span class="dv">100</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>time_to_arrive <span class="op">=</span> distance <span class="op">/</span> speed</span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="cf">if</span> time_to_arrive <span class="op">&gt;</span> <span class="dv">1</span>:</span>
+<span id="cb4-6"><a href="#cb4-6"></a>    <span class="bu">print</span>(<span class="st">'we are going to be late!'</span>)</span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="cf">else</span>:</span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="bu">print</span>(<span class="st">'on time'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>we are going to be late!</code></pre>
+</div>
+</div>
+<p>في هذه القطعة مجموعة جُمل:</p>
+<ul>
+<li>تعريف المتغيرات عن طريق جمل التعيين: <code>distance = 200</code> و <code>speed = 100</code></li>
+<li>تعيين ناتج حساب قسمة المسافة على السرعة: <code>time_to_arrive = distance / speed</code></li>
+<li>جملة شرطية: <code>if</code>
+<ul>
+<li>الجزء الأول (الشرط): <code>time_to_arrive &gt; 1</code>
+<ul>
+<li>الجزء الثاني المضمن داخل القطعة: هي جمل برمجية متعلقة بنفوذ الشرط</li>
+</ul></li>
+<li>الجزء الثالث (في حالة انتفاء الشرط): <code>else</code>
+<ul>
+<li>الجزء الرابع (المضمن داخل القطعة): هي جمل برمجية متعلقة بانتفاء ذلك الشرط</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="المثال-الثاني-القوائم-وحلقات-التكرار" class="level3">
+<h3 class="anchored" data-anchor-id="المثال-الثاني-القوائم-وحلقات-التكرار">المثال الثاني: القوائم وحلقات التكرار</h3>
+<p>هذا المثال أكثر تعقيدًا نسبيًّا:</p>
+<ul>
+<li>نعرف سعر كل ثمرة في قائمة أسعار: <code>fruit_prices</code></li>
+</ul>
+<div id="439ce951" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>fruit_prices <span class="op">=</span> {</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="st">'apple'</span>: <span class="fl">0.5</span>,</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    <span class="st">'banana'</span>: <span class="fl">0.25</span>,</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    <span class="st">'orange'</span>: <span class="fl">0.75</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>نضع بعض المشتريات في السلة: <code>basket</code></li>
+</ul>
+<div id="bf37a796" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>basket <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'apple'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>نحسب سعر السلة كلها بحسب قائمة الأسعار: <code>total_price</code></li>
+<li>نحتاج لاستعمال جملة الحلقة: <code>for</code> للمرور على كل عنصر في السلة</li>
+<li>نستعمل جملة الزيادة: <code>+=</code> لزيادة الحاصل</li>
+<li>أخيرًا جملة استدعاء لإجراء الطباعة: <code>print</code></li>
+</ul>
+<div id="a3b699ac" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>total_price <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="cf">for</span> fruit <span class="kw">in</span> basket:</span>
+<span id="cb8-4"><a href="#cb8-4"></a>    total_price <span class="op">+=</span> fruit_prices[fruit]</span>
+<span id="cb8-5"><a href="#cb8-5"></a></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="bu">print</span>(total_price)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1.75</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="المزيدات" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="المزيدات"><span class="header-section-number">1.3</span> المزيدات</h2>
+<p>من خواص لغة البرمجة: إنشاء مركبات لغوية جديدة. وذلك بثلاثة أمور:</p>
+<ol type="1">
+<li><strong>تعريف الدوال</strong> / <strong>الإجراءات</strong></li>
+<li><strong>تعريف الأصناف</strong> / <strong>الأنواع</strong></li>
+<li><strong>تعريف الوحدات</strong> المتضمنة للأمرين السابقين</li>
+</ol>
+<p>فأضاف مطوروا بايثون أنفسهم إلى اللغة ما يسمى <strong>بالمكتبة الأساسية</strong> وهي على قسمين:</p>
+<ol type="1">
+<li><strong>مضمَّنات أساسية</strong>، وفيها:
+<ul>
+<li><a href="https://docs.python.org/3/library/functions.html">إجراءات مضمَّنة</a> مثل: <code>print</code>, <code>sum</code>, <code>max</code>, <code>min</code>, <code>len</code></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html">أصناف مضمَّنة</a> مثل: <code>str</code>, <code>int</code>, <code>list</code></li>
+</ul></li>
+<li><strong>وحدات أساسية</strong>، مثل:
+<ul>
+<li>وحدة <a href="https://docs.python.org/3/library/math.html"><code>math</code></a> التي تضم مجموعة إجراءات تعنى بالعمليات الرياضية على الأعداد</li>
+<li>وحدة <a href="https://docs.python.org/3/library/datetime.html"><code>datetime</code></a> التي تضم مجموعة أصناف وإجراءات تعنى بالوقت والتاريخ</li>
+</ul></li>
+</ol>
+<p>وكونها مكتبة أساسية فهي تنزل وتثبت مع حزمة لغة بايثون نفسها.</p>
+<section id="مثال-الإجراءات-المضمنة" class="level3">
+<h3 class="anchored" data-anchor-id="مثال-الإجراءات-المضمنة">مثال الإجراءات المضمَّنة</h3>
+<div id="cad66d22" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>my_list <span class="op">=</span> [<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>فلمجموعة الأرقام عدد من الإجراءات المضمَّنة في لغة بايثون مثل:</p>
+<ul>
+<li>الجمع: <code>sum</code></li>
+<li>القيمة العليا: <code>max</code></li>
+<li>القيمة الدنيا: <code>min</code></li>
+<li>عد العناصر: <code>len</code></li>
+</ul>
+<p>نستعرضها هنا:</p>
+<div id="0428e615" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="bu">print</span>(<span class="st">'sum is:'</span>, <span class="bu">sum</span>(my_list))</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="bu">print</span>(<span class="st">'max is:'</span>, <span class="bu">max</span>(my_list))</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="bu">print</span>(<span class="st">'min is:'</span>, <span class="bu">min</span>(my_list))</span>
+<span id="cb11-4"><a href="#cb11-4"></a></span>
+<span id="cb11-5"><a href="#cb11-5"></a>avg <span class="op">=</span> <span class="bu">sum</span>(my_list) <span class="op">/</span> <span class="bu">len</span>(my_list)</span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="bu">print</span>(<span class="st">'average is:'</span>, avg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>sum is: 60
+max is: 30
+min is: 10
+average is: 20.0</code></pre>
+</div>
+</div>
+<p>وغيرها كثير.</p>
+</section>
+<section id="مثال-وحدة-الرياضيات-الأساسية" class="level3">
+<h3 class="anchored" data-anchor-id="مثال-وحدة-الرياضيات-الأساسية">مثال وحدة الرياضيات الأساسية</h3>
+<p>في هذا المثال نعرف نقطتين ثم نحسب المسافة بينهما. والمسافة الإقليدية بين نقطتين <span class="math inline">\((x_1, y_1)\)</span> و <span class="math inline">\((x_2, y_2)\)</span> تتبع معادلة فيثاغورس:</p>
+<p><span class="math display">\[
+\text{distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+\]</span></p>
+<p>تعمل هذه القطعة كالتالي:</p>
+<ul>
+<li>جملة استيراد المكتبة الرياضية: <code>import math</code></li>
+<li>تعريف النقطتين: <code>x1, y1 = 0, 0</code> و <code>x2, y2 = 3, 4</code></li>
+<li>حساب المسافة: <code>distance = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)</code> وفيه:
+<ul>
+<li><code>x2 - x1</code> هو الفرق بين الإحداثيات السينية</li>
+<li><code>y2 - y1</code> هو الفرق بين الإحداثيات الصادية</li>
+<li><code>**</code> هي عملية تربيع العدد</li>
+<li><code>math.sqrt</code> هي دالة حساب الجذر التربيعي</li>
+</ul></li>
+<li>طباعة النتيجة: <code>print(distance)</code> وفيه:
+<ul>
+<li><code>distance</code> هو الناتج النهائي لحساب المسافة</li>
+<li><code>print</code> هي دالة تطبع الناتج على الشاشة</li>
+</ul></li>
+</ul>
+<div id="c4fce032" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">import</span> math</span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a>x1, y1 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>x2, y2 <span class="op">=</span> <span class="dv">3</span>, <span class="dv">4</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>distance <span class="op">=</span> math.sqrt((x2 <span class="op">-</span> x1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="bu">print</span>(distance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5.0</code></pre>
+</div>
+</div>
+<p>ويمكن كتابة قطع برمجية مخزَّنة بحدود يتم تعيينا لاحقها كما هو حال الدوال الرياضية التي تتغير نتيجتها بتغير مدخلاتها. كما في هذا المثال:</p>
+<div id="b8e47490" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">def</span> distance(x1, y1, x2, y2):</span>
+<span id="cb15-2"><a href="#cb15-2"></a>    <span class="cf">return</span> math.sqrt((x2 <span class="op">-</span> x1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb15-3"><a href="#cb15-3"></a></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="bu">print</span>(distance(x1<span class="op">=</span><span class="dv">0</span>, y1<span class="op">=</span><span class="dv">0</span>, x2<span class="op">=</span><span class="dv">3</span>, y2<span class="op">=</span><span class="dv">4</span>))</span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="bu">print</span>(distance(x1<span class="op">=</span><span class="dv">1</span>, y1<span class="op">=</span><span class="dv">1</span>, x2<span class="op">=</span><span class="dv">2</span>, y2<span class="op">=</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5.0
+1.4142135623730951</code></pre>
+</div>
+</div>
+</section>
+<section id="المكتبات-المساهمة" class="level3">
+<h3 class="anchored" data-anchor-id="المكتبات-المساهمة">المكتبات المساهمة</h3>
+<p>فهذه عملية الجذر التربيعي أتينا بها باستيراد الوحدة الأساسية <code>math</code> ثم أشرنا إلى الإجراء <code>sqrt</code> المعرَّف ضمنها عن طريق معامل <code>.</code>.</p>
+<p>أما ما ليس أساسيًّّا (<strong>مكتبات مساهمة</strong>) فإنه متوفِّر في قواعد بيانات على الشبكة مثل <a href="https://pypi.org/">PyPI</a> الذي يضم ما يزيد على ما يزيد على 580,000 مشروع، أو غيره من مواقع استضافة حزم بايثون. ويمكن تنزيلها وتثبيتها باستعمال: <code>pip install package_name</code> ومن ثم استعمال لغتها المزيدة بعد بجملة الاستيراد: <code>import package_name</code> على نحو ما فعلناه مع المكتبة الأساسية <code>math</code> هكذا:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="ex">pip</span> install pandas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="50092bff" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb18-2"><a href="#cb18-2"></a></span>
+<span id="cb18-3"><a href="#cb18-3"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../datasets/students.csv'</span>)</span>
+<span id="cb18-4"><a href="#cb18-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
-<th data-quarto-table-cell-role="th">English</th>
-<th data-quarto-table-cell-role="th">عربي</th>
-<th data-quarto-table-cell-role="th">تعليق</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Grade</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Identifier</td>
-<td>مُعرَّف</td>
-<td></td>
+<td data-quarto-table-cell-role="th">0</td>
+<td>Adam</td>
+<td>22</td>
+<td>90</td>
 </tr>
 <tr class="even">
-<td>Variable</td>
-<td>متغير</td>
-<td></td>
+<td data-quarto-table-cell-role="th">1</td>
+<td>Belal</td>
+<td>23</td>
+<td>92</td>
 </tr>
 <tr class="odd">
-<td>Value</td>
-<td>قيمة</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Simple Statement</td>
-<td>جملة بسيطة</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Compound Statement</td>
-<td>جملة مركبة</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Expression</td>
-<td>تعبير</td>
-<td>مثل: `x + y`</td>
-</tr>
-<tr class="odd">
-<td>Clause</td>
-<td>شطر جملة</td>
-<td>مثل: `if x &gt; y`</td>
-</tr>
-<tr class="even">
-<td>Block</td>
-<td>لَبِنَة</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Cell</td>
-<td>قطعة</td>
-<td>مثل</td>
-</tr>
-<tr class="even">
-<td>Snippet</td>
-<td>قصاصة</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Code</td>
-<td>كود</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Operation</td>
-<td>عملية</td>
-<td>مثل: `+` في `x + y` و مثل: `.` في `point.x</td>
-</tr>
-<tr class="odd">
-<td>Function</td>
-<td>إجراء</td>
-<td>في سياق البرمجة لا نقول دالة لأن الدالة دائمًا لها مخرجات ولا تتأثر إلا بمدخلاتها</td>
-</tr>
-<tr class="even">
-<td>Method</td>
-<td>فعل أو سلوك</td>
-<td>مثل: `append` في `list.append(x)`</td>
-</tr>
-<tr class="odd">
-<td>Object</td>
-<td>كائن أو شيء</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Class</td>
-<td>صنف أو نوع</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Type</td>
-<td>نوع</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Conatiner</td>
-<td>حاوية</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Iterable</td>
-<td>قابل للتكرار</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Iterator</td>
-<td>مكرر</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Reversible</td>
-<td>قابل للعكس</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Generator</td>
-<td>مولد</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Sized</td>
-<td>محدد الحجم</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Callable</td>
-<td>قابل للنداء</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Collection</td>
-<td>مجموعة</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Sequence</td>
-<td>تسلسل</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Index</td>
-<td>فهرس أو مؤشر</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Mutable Sequence</td>
-<td>تسلسل قابل للتعديل</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Sequence</td>
-<td>تسلسل</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>String</td>
-<td>نص</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>List</td>
-<td>قائمة</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Dict (Mapping)</td>
-<td>دالة</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Hashable</td>
-<td>مرقوم</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>View</td>
-<td>عرض</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Tuple</td>
-<td>صف</td>
-<td>فرد، زوج) صف ثلاثي، صف رباعي، ...إلخ</td>
-</tr>
-<tr class="even">
-<td>Set</td>
-<td>مجموعة رياضية</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Parameter</td>
-<td>معامل</td>
-<td>وهي المتغيرات في التعريف</td>
-</tr>
-<tr class="even">
-<td>Argument</td>
-<td>معامل</td>
-<td>وهي القيَم المُمَرَّرَة</td>
-</tr>
-<tr class="odd">
-<td>File</td>
-<td>ملف</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Module</td>
-<td>وحدة</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Package</td>
-<td>حزمة</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Library</td>
-<td>مكتبة</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Framework</td>
-<td>إطار عمل</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Built-in</td>
-<td>مدمج</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>{}</td>
-<td>قوسين معوجين أو قوسين متعرجين</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>[]</td>
-<td>قوسين مربعين</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>()</td>
-<td>قوسين دائريين</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>&lt;&gt;</td>
-<td>قوسين زاويين أو قوسين حادين</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Feedback</td>
-<td>تعقيب</td>
-<td>التعليقات أو الردود التي ترد بعد عرض رأي أو عمل</td>
-</tr>
-<tr class="even">
-<td>Static</td>
-<td>ثابت</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Dynamic</td>
-<td>متغير</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Constant</td>
-<td>ثابت</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Variable</td>
-<td>متغير</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>System Time</td>
-<td>وقت النظام</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Calendar Time</td>
-<td>وقت التقويم</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Epoch</td>
-<td>المرجع الزمني الحاسوبي</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Positional</td>
-<td>مكاني</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Swap</td>
-<td>قلب</td>
-<td></td>
+<td data-quarto-table-cell-role="th">2</td>
+<td>Camal</td>
+<td>24</td>
+<td>91</td>
 </tr>
 </tbody>
 </table>
+
 </div>
 </div>
-<section id="tuple" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="tuple"><span class="header-section-number">16.1</span> Tuple</h2>
-<blockquote class="blockquote">
-<p>Etymology. The term originated as an abstraction of the sequence: single, couple/double, triple, quadruple, quintuple, sextuple, septuple, octuple, …, n‑tuple, …, where the prefixes are taken from the Latin names of the numerals. The unique 0-tuple is called the null tuple or empty tuple. <a href="https://en.wikipedia.org/wiki/Tuple">Wikipedia</a></p>
-</blockquote>
+</div>
 </section>
-<section id="parameter" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="parameter"><span class="header-section-number">16.2</span> Parameter</h2>
-<blockquote class="blockquote">
-<p>A parameter (from Ancient Greek παρά (pará) ‘beside, subsidiary’ and μέτρον (métron) ‘measure’), generally, is any characteristic that can help in defining or classifying a particular system (meaning an event, project, object, situation, etc.). <a href="https://en.wikipedia.org/wiki/Parameter">Wikipedia</a></p>
-</blockquote>
+</section>
+<section id="المجتمع-يطور-اللغة" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="المجتمع-يطور-اللغة"><span class="header-section-number">1.4</span> المجتمع يطور اللغة</h2>
+<p>فهنا دور <strong>المجتمع</strong> ليبني باللغة بمفرداتها وجملها ومكتبتها الأساسية والخارجية، ليبني فوق ذلك ما يخدم أغراضه. فاستطاع كل فئة من الناس تركيب حزمة جديدة مكونة من أشياء مركبة وإجراءات مركبة يستفيدون هم في ذلك من حزم أناس آخرين ، ثم يوفرونها لغيرهم. وهكذا تنمو اللغة ، حزمةً تِلو الأخرى بحسب إسهامات كل مجتمع برمجي بما يهتم به.</p>
+<p>ومن مكامن القوة في لغة بايثون: أنها <strong>متوافقة مع لغتي C/C++</strong> إذْ يُمكن كتابة برمجيات عالية الأداء والكفاءة بهما مستفيدين من الحزم الموجودة فيهما، ثم توفيق ذلك ليكون كمكتبة في لغة بايثون.</p>
+<p>فالمجتمعات البرمجية في بايثون كثيرة ومتعددة في اهتماماتها. منها على سبيل المثال:</p>
+<ul>
+<li><strong>تطوير مواقع الشبكة</strong>:
+<ul>
+<li><a href="https://www.djangoproject.com/">Django</a> - لبناء مواقع متصلة بقواعد بيانات</li>
+<li><a href="https://fastapi.tiangolo.com/">FastAPI</a> - حديث وسريع لبناء واجهات برمجية على الشبكة</li>
+</ul></li>
+<li><strong>الذكاء الاصطناعي وتعلم الآلة</strong>:
+<ul>
+<li><a href="https://www.statsmodels.org/">statsmodels</a> - للنماذج الإحصائية</li>
+<li><a href="https://scikit-learn.org/">scikit-learn</a> - لاكتشاف الأنماط والتنبؤ (تعلم الآلة)</li>
+<li><a href="https://pytorch.org/">PyTorch</a> - لبناء نماذج التعلم العميق</li>
+</ul></li>
+<li><strong>تصوير البيانات</strong>:
+<ul>
+<li><a href="https://seaborn.pydata.org/">seaborn</a> - تصور البيانات الإحصائية على أساس Matplotlib.</li>
+<li><a href="https://matplotlib.org/">matplotlib</a> - مكتبة شاملة لإنشاء تصورات ثابتة ومتحركة وتفاعلية.</li>
+</ul></li>
+<li><strong>التحليل الرياضي والهندسة</strong>:
+<ul>
+<li><a href="https://www.sympy.org/">sympy</a> - للرياضيات الرمزية.</li>
+<li><a href="https://astroautomata.com/PySR/">PySR</a> - الانحدار الرمزي.</li>
+<li><a href="https://scipy.org/">SciPy</a> - للرياضيات والعلوم والهندسة.</li>
+</ul></li>
+</ul>
+<p>وتصل عدد المشاريع (تقريبًا عدد الحزم) في قاعدة بيانات <a href="https://pypi.org/">(PyPI)</a> اليوم ما يزيد على 580,000 مشروع. وتجد الكود مشاعًا على أكبر منصة لإدارة الأكواد البرمجية: <a href="https://github.com/">GitHub</a>.</p>
 
 
 </section>
@@ -1244,11 +1282,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./appendix_collections.html" class="pagination-link" aria-label="خريطة المجموعات">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">خريطة المجموعات</span></span>
+      <a href="../../setup.html" class="pagination-link" aria-label="إعداد بيئة التطوير">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">إعداد بيئة التطوير</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../chapters/02_numbers/a_numbers.html" class="pagination-link" aria-label="الأعداد">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">الأعداد</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
