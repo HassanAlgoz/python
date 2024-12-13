@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ar" xml:lang="ar" dir="rtl"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d87094df3ba191efc081cab14fe125a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -497,10 +497,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>ومن وجهٍ آخر فهي (المتسلسلة) تعتبر من صنف <strong>القابل للعكس</strong> (Reversible) لكونها تقبل الإجراء <code>reversed</code> الذي فعله: <code>__reversed__</code>.</p>
 <section id="تعريف-الإجراء" class="level2" data-number="13.1">
 <h2 data-number="13.1" class="anchored" data-anchor-id="تعريف-الإجراء"><span class="header-section-number">13.1</span> تعريف الإجراء</h2>
-<p>يُعرَّف الإجراء بالكلمة <code>class</code> ويُبتدأُ غالبًا بتعريف إجراء الإنشاء <code>__init__</code> ليتم تعيين الصفات فيه بالإسناد للاسم <code>self</code> الذي يشير إلى الشيء المعين من هذا النوع.</p>
+<p>يُعرَّف الإجراء بالكلمة <code>class</code> ويُبتدأُ غالبًا بتعريف إجراء الإنشاء <a href="https://docs.python.org/3/reference/datamodel.html#object.__init__"><code>__init__</code></a> ليتم تعيين الصفات فيه بالإسناد للاسم <code>self</code> الذي يشير إلى الشيء المعين الذي يتم إنشاؤه الآن.</p>
 <p>أما تعريف الأفعال فكالإجراءات مثل <code>def move</code> بزيادة <code>self</code> في الابتداء.</p>
 <p>تأمل المثال:</p>
-<div id="3a9a0b00" class="cell" data-execution_count="2">
+<div id="5de043f8" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb1-3"><a href="#cb1-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
@@ -510,22 +510,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7"></a>        <span class="va">self</span>.x <span class="op">+=</span> dx</span>
 <span id="cb1-8"><a href="#cb1-8"></a>        <span class="va">self</span>.y <span class="op">+=</span> dy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>والآن نستطيع إنشاء معيَّنات من هذا الصنف ونمرر القيم <code>x, y</code> بحسب ما هو موجود في <a href="https://docs.python.org/3/reference/datamodel.html#object.__init__">الإجراء المخصص للإنشاء: <code>__init__</code></a> على النحو التالي:</p>
-<div id="a3558949" class="cell" data-execution_count="3">
+<p>والآن نستطيع إنشاء معيَّنات من هذا الصنف ونمرر القيم <code>x, y</code> بحسب ما هو موجود في الإجراء المخصص للإنشاء: <code>__init__</code> على النحو التالي:</p>
+<div id="75fbd849" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>p1 <span class="op">=</span> Point(<span class="dv">3</span>, <span class="dv">4</span>)</span>
 <span id="cb2-2"><a href="#cb2-2"></a>p2 <span class="op">=</span> Point(<span class="dv">7</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>نستعمل حرف النقطة <code>.</code> بعد اسم المعيَّن للإشارة لصفةٍ أو فعل:</p>
-<div id="9b1a5402" class="cell" data-execution_count="4">
+<p>نستعمل حرف النقطة <code>.</code> بعد اسم المعيَّن للإشارة لصفةٍ أو فعل، نحو: <code>p1.x</code>:</p>
+<div id="1b5e8b6c" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>x_diff <span class="op">=</span> <span class="bu">abs</span>(p1.x <span class="op">-</span> p2.x)</span>
 <span id="cb3-2"><a href="#cb3-2"></a>y_diff <span class="op">=</span> <span class="bu">abs</span>(p1.y <span class="op">-</span> p2.y)</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="bu">print</span>(<span class="ss">f"The difference between the x-coordinates is </span><span class="sc">{</span>x_diff<span class="sc">}</span><span class="ss"> and between the y-coordinates is </span><span class="sc">{</span>y_diff<span class="sc">}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="bu">print</span>(<span class="ss">f'X difference is </span><span class="sc">{</span>x_diff<span class="sc">}</span><span class="ss"> and Y difference is </span><span class="sc">{</span>y_diff<span class="sc">}</span><span class="ss">.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>The difference between the x-coordinates is 4 and between the y-coordinates is 3.</code></pre>
+<pre><code>X difference is 4 and Y difference is 3.</code></pre>
 </div>
 </div>
-<p>وهذا مثال لاستدعاء الفعل:</p>
-<div id="0edf8071" class="cell" data-execution_count="5">
+<p>وهذا مثال لاستدعاء الفعل: <code>p1.move()</code></p>
+<div id="e5c7401e" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>p1.move(<span class="dv">4</span>, <span class="dv">4</span>)</span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(p1.x, p1.y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -533,14 +533,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>لو أردنا طباعة النقطة، كيف تظهر؟</p>
-<div id="04dbda83" class="cell" data-execution_count="6">
+<div id="60f690e2" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">print</span>(p1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;__main__.Point object at 0x00000245FB9B4980&gt;</code></pre>
+<pre><code>&lt;__main__.Point object at 0x78f779f7a330&gt;</code></pre>
 </div>
 </div>
-<p>لتخصيص طريقة عرض الشيء، بحيث لو طبعناه أو ذكرناه في آخر السطر يظهر البشكل الذي نريده، يمكن تغيير الإجراء المخصص <code>__repr__</code> (Representation) أي: التمثيل .. هكذا:</p>
-<div id="40f9ae24" class="cell" data-execution_count="7">
+<p>لتخصيص طريقة عرض الشيء، بحيث لو طبعناه أو ذكرناه في آخر السطر يظهر البشكل الذي نريده، يمكن تغيير الإجراء المخصص <a href="https://docs.python.org/3/reference/datamodel.html#object.__repr__"><code>__repr__</code></a> أي: التمثيل .. هكذا:</p>
+<div id="76f535f4" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb9-2"><a href="#cb9-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb9-3"><a href="#cb9-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
@@ -554,7 +554,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-11"><a href="#cb9-11"></a>        <span class="cf">return</span> <span class="ss">f"Point(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>والآن إن عرفنا نقطة جديدة، ووضعناها على السطر لوحدها ، ستظهر لنا الإحداثيات، لا عنوانها الذاكري:</p>
-<div id="16e2b77f" class="cell" data-execution_count="8">
+<div id="3e0d4577" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>p <span class="op">=</span> Point(<span class="dv">3</span>, <span class="dv">4</span>)</span>
 <span id="cb10-2"><a href="#cb10-2"></a>p.move(<span class="dv">7</span>, <span class="dv">6</span>)</span>
 <span id="cb10-3"><a href="#cb10-3"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -563,7 +563,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><strong>الإجراء الثابت</strong> هو ما يُسنَدُ للصنف نفسه لا للأعيان. ويتم تثبيت الإجراء بعلامة <strong>المزيِّن</strong> <code>@staticmethod</code>. لاحظ عدم وجود <code>self</code> في الإجراء الجديد <code>distance</code> لأنه ثابت:</p>
-<div id="341777bb" class="cell" data-execution_count="9">
+<div id="dca997da" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb12-2"><a href="#cb12-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb12-3"><a href="#cb12-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
@@ -581,7 +581,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-15"><a href="#cb12-15"></a>        <span class="cf">return</span> ((p1.x <span class="op">-</span> p2.x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (p1.y <span class="op">-</span> p2.y)<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span><span class="fl">0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ويتم استدعاؤه بذكر اسم الصنف والنقطة <code>.</code>:</p>
-<div id="1d471bbf" class="cell" data-execution_count="10">
+<div id="755bacf4" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>a <span class="op">=</span> Point(<span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb13-2"><a href="#cb13-2"></a>b <span class="op">=</span> Point(<span class="dv">1</span>, <span class="dv">0</span>)</span>
 <span id="cb13-3"><a href="#cb13-3"></a></span>
@@ -591,7 +591,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>كذلك يُجعل المتغير من النوع الثابت بتعيينه بمحاذاة غيره من الإجراءات نحو ما فعلنا هنا بالمتغير <code>distance_type</code>. ولاحظ استعماله في الإجراء <code>distance</code> في جملة <code>if-else</code> من غير استعمال <code>self</code> لأننا لا نشير إلى معيَّن:</p>
-<div id="4f4b97de" class="cell" data-execution_count="11">
+<div id="3ef35c28" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb15-2"><a href="#cb15-2"></a>    distance_type <span class="op">=</span> <span class="st">'euclidean'</span></span>
 <span id="cb15-3"><a href="#cb15-3"></a></span>
@@ -618,7 +618,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>تطبيق عملية الجمع المخصصة بالإجراء <code>__add__</code></li>
 <li>تطبيق عملية الطرح المخصصة بالإجراء <code>__sub__</code></li>
 </ol>
-<div id="38f93775" class="cell" data-execution_count="12">
+<div id="0b0d6d8f" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb16-2"><a href="#cb16-2"></a>    distance_type <span class="op">=</span> <span class="st">'euclidean'</span></span>
 <span id="cb16-3"><a href="#cb16-3"></a></span>
@@ -647,7 +647,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-26"><a href="#cb16-26"></a>        <span class="cf">return</span> Point(<span class="va">self</span>.x <span class="op">-</span> other.x, <span class="va">self</span>.y <span class="op">-</span> other.y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>تبحث بايثون عن <code>__add__</code> كلما وجدت علامة الجمع <code>+</code>، وكذلك تبحث عن <code>__sub__</code> كلما وجدت علامة الطرح <code>-</code>. فلنجرب الآن. لاحظ أن نتيجة الجمع نقطة جديدة، وكذلك نتيجة الطرح.</p>
-<div id="518c8bb1" class="cell" data-execution_count="13">
+<div id="87ed32a2" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>p1 <span class="op">=</span> Point(<span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb17-2"><a href="#cb17-2"></a>p2 <span class="op">=</span> Point(<span class="dv">1</span>, <span class="dv">0</span>)</span>
 <span id="cb17-3"><a href="#cb17-3"></a><span class="bu">print</span>(p1 <span class="op">+</span> p2)</span>
@@ -745,8 +745,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -857,7 +855,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="حسان القوز">
 
-<title>البايثونية</title>
+<title>تطبيقات – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,26 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./setup.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d87094df3ba191efc081cab14fe125a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/09_oop/a1_classes.html" rel="next">
+<link href="../../chapters/08_files_and_directories/a2_directories.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d87094df3ba191efc081cab14fe125a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -81,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">فاتحة</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/a1_serialization.html">الملفات</a></li><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/b_context.html">تطبيقات</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -96,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">البايثونية</a> 
+      <a href="../../">البايثونية</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -108,19 +142,19 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">فاتحة</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../../setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">إعداد بيئة التطوير</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/01_intro/introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/01_intro/introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">لغة البرمجة</span></span></a>
   </div>
 </li>
@@ -135,25 +169,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/a_numbers.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_numbers/a_numbers.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">الأعداد</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_numbers/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/c_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_numbers/c_problems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تمارين</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/d_solutions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_numbers/d_solutions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">حلول</span></a>
   </div>
 </li>
@@ -170,25 +204,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/03_control_flow/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/c_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/03_control_flow/c_problems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تمارين</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/d_solutions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/03_control_flow/d_solutions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">حلول</span></a>
   </div>
 </li>
@@ -205,13 +239,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/04_functions/a_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/04_functions/a_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الإجراءات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/04_functions/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/04_functions/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
@@ -228,19 +262,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/05_sequences/a_sequences.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/05_sequences/a_sequences.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">المجموعة المرتبة</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/05_sequences/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/05_sequences/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/05_sequences/c_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/05_sequences/c_problems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تمارين</span></a>
   </div>
 </li>
@@ -257,19 +291,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/06_mapping/a_mapping.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/06_mapping/a_mapping.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">المجموعة المرقومة</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/06_mapping/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/06_mapping/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/06_mapping/c_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/06_mapping/c_problems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تمارين</span></a>
   </div>
 </li>
@@ -286,19 +320,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/07_strings/a1_strings.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/07_strings/a1_strings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">النص</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/07_strings/a2_unicode.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/07_strings/a2_unicode.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">تمثيل النص</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/07_strings/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/07_strings/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
@@ -315,19 +349,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/08_files_and_directories/a1_serialization.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/08_files_and_directories/a1_serialization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الملف</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/08_files_and_directories/a2_directories.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/08_files_and_directories/a2_directories.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">الدليل</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/08_files_and_directories/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/08_files_and_directories/b_context.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
@@ -344,13 +378,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/09_oop/a1_classes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/09_oop/a1_classes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">الأصناف</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/09_oop/a2_extend.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/09_oop/a2_extend.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">التجريد</span></span></a>
   </div>
 </li>
@@ -367,7 +401,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/10_time/a_time.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/10_time/a_time.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
   </div>
 </li>
@@ -384,7 +418,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/11_errors/a_errors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/11_errors/a_errors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
   </div>
 </li>
@@ -401,13 +435,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix_collections.html" class="sidebar-item-text sidebar-link">
+  <a href="../../appendix_collections.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">خريطة المجموعات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+  <a href="../../glossary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">قاموس المصطلحات</span></a>
   </div>
 </li>
@@ -423,39 +457,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#فاتحة" id="toc-فاتحة" class="nav-link active" data-scroll-target="#فاتحة">فاتحة</a>
-  <ul class="collapse">
-  <li><a href="#تمهيد" id="toc-تمهيد" class="nav-link" data-scroll-target="#تمهيد">تمهيد</a></li>
-  <li><a href="#عناصر-الكتاب" id="toc-عناصر-الكتاب" class="nav-link" data-scroll-target="#عناصر-الكتاب">عناصر الكتاب</a></li>
-  </ul></li>
+  <li><a href="#تصنيف-التغريدات" id="toc-تصنيف-التغريدات" class="nav-link active" data-scroll-target="#تصنيف-التغريدات">تصنيف التغريدات</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/a1_serialization.html">الملفات</a></li><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/b_context.html">تطبيقات</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">البايثونية</h1>
+<h1 class="title">تطبيقات</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>حسان القوز </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">10 مايو 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -465,35 +483,190 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="فاتحة" class="level1 unnumbered">
-<h1 class="unnumbered">فاتحة</h1>
-<p>بسم الله الرحمن الرحيم. والحمد لله والصلاة والسلام على رسول الله وآله وصحبه ومن والاه. أما بعد.</p>
-<p>اخترت لغة بايثون لتعليم البرمجة لسهولتها وشهرتها مما يجعل كثيرًا من التطبيقات في المتناول، إذ الجهود متظافرة على خدمةمكتباتها من المجتمعات التي تتمحور حول صنف ما من التطبيقات. وقد نقسم أنواع التطبيقات إلى ثلاثة:</p>
-<p><strong>أنظمة تحاكي الواقع</strong>: مثلاً برنامج لمحاكاة القوى المؤثرة وتوزيع الأحمال على جسر (أو عمارة أو باخرة أو طائرة) يساعد المهندسين على بناء الجسر (وربما خطة تفصيلية متدرِّجة).</p>
-<p><strong>أنظمة فاعلة في الواقع</strong>: مثلاً في المصنع: الذراع الآلية ، وآلة القص ، وآلة الكبس ، …إلخ. من الآلات التي تعمل ضمن مجموعة متسقة لتنتج ما تنتج على خط الإنتاج.</p>
-<p><strong>أنظمة المعلومات</strong>: تُعنى بجمع المعلومات وحفظها وفهرستها وترتيبها وتقسيمها وعرضها وتسهيل الحصول عليها بالسؤال المباشر وغير المباشر، والتحقق منها وتوفيرها والاستفادة منها وترجمتها ونحو ذلك. وهذا النوع هو الأغلب. مثل: محرك بحث قوقل (يعمل على ترتيب شبكة الإنترنت) ، ونظام الدفع عبر البطاقة ، والبرمجيات المكتيبة (تقارير ، محاسبة ، تخطيط، …إلخ) ، ونحو ذلك .</p>
-<section id="تمهيد" class="level2">
-<h2 class="anchored" data-anchor-id="تمهيد">تمهيد</h2>
-<p>ظل الذكاء الاصطناعي طموحًا عاليًا منذ بزوغ فجر علوم الحاسب (1953). وما زال هذا الهدف دافعًا قويًّا لكل من فهم أننا باختراع الحاسب (1833 - 1871) استطعنا محاكاة المنطق في آلات صماء. ولا حد لإمكانيَّة هذا المعالِج الآلي إلا تعبيرك اللغوي أيها الناطق البشري. فهذا جانب المعالجة.</p>
-<p>وجانب الإدراك فيه:</p>
-<p>أدوات <strong>الإحساس</strong> التي تُدخِلُ المرئيات والمسموعات ونحوها ؛ وقد تم محاكاتها بآلة التصوير (كاميرا) ولاقط الصوت (مايكروفون). وكذلك أجهزة استشعار دقيقة مثل مستشعر الحرارة أو الرطوبة أو أجهزة قياس المسافة أو ماسحات البصمة أو الرنين المغناطيسي (MRI) أو الموجات الكهرومغناطيسية في الأقمار الصناعية وأجهزة الملاحة الجوية والبحرية والبوصلة أو ميزان التسوية الأفقية (Gyroscope) وغيرها كثير.</p>
-<p>ومنها ما يُسجل يدويًّا كما يكون في المستشفى: العمر والوزن والطول، أو بيانات الحضور والانصراف أو المبيعات اليومية، أو بيانات طلاب أو متدربين في دورة تدريبية أو سجلات المخزون ونحو ذلك. وهي كثيرة جدًّا.</p>
-<p>وأدوات <strong>الاستيعاب</strong> وهي التي تجمع المحسوسات في وعاءٍ واحدٍ للاعتبار جُملةً واحدة، وقد تم محاكاتهُا بما نسميه الذاكرة (وهي على مراحل تَبعُد وتَقترب من مركز المعالجة). وتشبه الذاكرة في الجهاز ما يراه الشخص في الوقت الواحد أو يمكن تصوُّرُه في الذهن وتخيله في لحظة واحدة. أما الذكريات المخزنة لدينا ، وما نكتبه في مذكرات فيكون مسجلاً في أجهزة الحفظ.</p>
-<p>ثم تأتي أدوات <strong>المعالجة</strong> وهي الآلات القابلة للبرمجة؛ مثل وحدة المعالجة المركزية (CPU) ووحدة المعالجة الرسومية (GPU) وغيرها؛ حيث يوضَع المنطق المترجَم من لغات البرمجة المتعددة.</p>
-</section>
-<section id="عناصر-الكتاب" class="level2">
-<h2 class="anchored" data-anchor-id="عناصر-الكتاب">عناصر الكتاب</h2>
-<p>ينقسم الكتاب إلى أبواب: يعالج كل منها موضوعًا في لغة البرمجة.</p>
-<p>ينقسم كل باب إلى ثلاثة أجزاء:</p>
+<section id="تصنيف-التغريدات" class="level2">
+<h2 class="anchored" data-anchor-id="تصنيف-التغريدات">تصنيف التغريدات</h2>
+<p>لدينا ثلاثة ملفات:</p>
 <ol type="1">
-<li><strong>الآلية</strong>: شرح الكلمات والجمل البرمجية</li>
-<li><strong>التطبيق</strong>: يرى المتعلم استعمال الآليات في سياقات مختلفة</li>
-<li><strong>التمرين</strong>: لترسيخ المفاهيم واكتساب المهارات بالممارسة</li>
-<li><strong>الحل</strong>: للتحقق من صحَّة حلك للتمرين</li>
+<li>الأول يحوي تغريدات</li>
+<li>الثاني يحوي كلمات إيجابية</li>
+<li>الثالث يحوي كلمات سلبية</li>
 </ol>
+<p>نريد تصنيف التغريدات بناءً على عدد الكلمات الإيجابية والسلبية فيها.</p>
+<div id="e01b0ad5" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>data_dir <span class="op">=</span> Path(<span class="st">'../../datasets/tweets'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>بعد النظر في شكل الملفات. يتبين لنا أن السطر الواحد يحتوي على “شيء” واحد. وبالتالي سنقسم البيانات على كل سطر.</p>
+<p>ونلاحظ أيضًا وجود أسطر خاوية، يجب التخلص منها.</p>
+<div id="52243423" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> read_lines(file_path: Path) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">str</span>]:</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="co">"""skips empty lines and converts to lowercase"""</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    result <span class="op">=</span> []</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="cf">with</span> <span class="bu">open</span>(file_path, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb2-5"><a href="#cb2-5"></a>        <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
+<span id="cb2-6"><a href="#cb2-6"></a>            x <span class="op">=</span> line.strip()</span>
+<span id="cb2-7"><a href="#cb2-7"></a>            <span class="cf">if</span> <span class="bu">len</span>(x) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb2-8"><a href="#cb2-8"></a>                x <span class="op">=</span> x.lower()</span>
+<span id="cb2-9"><a href="#cb2-9"></a>                result.append(x)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    <span class="cf">return</span> result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>نستدعي الدالة لقراءة الملفات الثلاث:</p>
+<div id="6feb8d08" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>tweets <span class="op">=</span> read_lines(data_dir <span class="op">/</span> <span class="st">'tweets.txt'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>positive_words <span class="op">=</span> read_lines(data_dir <span class="op">/</span> <span class="st">'words_positive.txt'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>negative_words <span class="op">=</span> read_lines(data_dir <span class="op">/</span> <span class="st">'words_negative.txt'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="94c69df2" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">for</span> i, tweet <span class="kw">in</span> <span class="bu">enumerate</span>(tweets):</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="bu">print</span>(i, tweet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0 grateful for the amazing people in my life who make it so wonderful
+1 the beautiful flowers were in full bloom and the sweet scent filled the air. the birds were singing merrily and the sun was shining brightly. it was a perfect day
+2 the kind and generous old man was always willing to help others. he was a role model for the entire community and he was loved by everyone
+3 the intelligent and talented young woman had a bright future ahead of her. she was passionate about her work and she was determined to make a difference in the world
+4 sending out good vibes to everyone today! have a beautiful day!
+5 i've been feeling so anxious and stressed lately with everything going on. really need a break from it all.
+6 traffic was the worst it's ever been today. the long commute just made me feel grumpy and drained.
+7 had an awful morning - overslept and missed my first meeting. feeling uneasy about how my boss will react.
+8 all the noise from the construction outside is driving me nuts. it's making working from home dreadful.
+9 went out with some friends last night but didn't have as much fun as i thought. felt a bit lonely and left early feeling uneasy.</code></pre>
+</div>
+</div>
+<div id="5b46aed3" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">for</span> p <span class="kw">in</span> positive_words:</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="bu">print</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>grateful
+amazing
+wonderful
+beautiful
+sweet
+perfect
+kind
+generous
+help
+loved
+intelligent
+talented
+young
+bright
+passionate
+determined
+good
+beautiful
+friends
+fun
+happy</code></pre>
+</div>
+</div>
+<div id="8d31c010" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="cf">for</span> n <span class="kw">in</span> negative_words:</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    <span class="bu">print</span>(n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>anxious
+stressed
+worst
+grumpy
+drained
+awful
+overslept
+missed
+uneasy
+boss
+noise
+dreadful
+lonely
+sad</code></pre>
+</div>
+</div>
+<p>الآن نقوم بتصنيف التغريدات:</p>
+<div id="eefeee95" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">def</span> classify(text: <span class="bu">str</span>) <span class="op">-&gt;</span> (<span class="bu">int</span>, <span class="bu">int</span>):</span>
+<span id="cb10-2"><a href="#cb10-2"></a>    <span class="co">"""Returns the number of positive and negative words in the text"""</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>    </span>
+<span id="cb10-4"><a href="#cb10-4"></a>    positive_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>    <span class="cf">for</span> word <span class="kw">in</span> positive_words:</span>
+<span id="cb10-6"><a href="#cb10-6"></a>        <span class="cf">if</span> word <span class="kw">in</span> text:</span>
+<span id="cb10-7"><a href="#cb10-7"></a>            positive_count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>    </span>
+<span id="cb10-9"><a href="#cb10-9"></a>    negative_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a>    <span class="cf">for</span> word <span class="kw">in</span> negative_words:</span>
+<span id="cb10-11"><a href="#cb10-11"></a>        <span class="cf">if</span> word <span class="kw">in</span> text:</span>
+<span id="cb10-12"><a href="#cb10-12"></a>            negative_count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a>    </span>
+<span id="cb10-14"><a href="#cb10-14"></a>    <span class="cf">return</span> positive_count, negative_count</span>
+<span id="cb10-15"><a href="#cb10-15"></a></span>
+<span id="cb10-16"><a href="#cb10-16"></a><span class="cf">assert</span> classify(<span class="st">'i am happy'</span>) <span class="op">==</span> (<span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb10-17"><a href="#cb10-17"></a><span class="cf">assert</span> classify(<span class="st">'i am sad'</span>) <span class="op">==</span> (<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb10-18"><a href="#cb10-18"></a><span class="cf">assert</span> classify(<span class="st">'i am happy and sad'</span>) <span class="op">==</span> (<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="cf">assert</span> classify(<span class="st">'i shall walk to the store'</span>) <span class="op">==</span> (<span class="dv">0</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>نستدعي الدالة على التغريدات، ونفرز النتائج في ثلاثة قوائم:</p>
+<div id="a6d41f80" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>positive_tweets <span class="op">=</span> []</span>
+<span id="cb11-2"><a href="#cb11-2"></a>negative_tweets <span class="op">=</span> []</span>
+<span id="cb11-3"><a href="#cb11-3"></a>neutral_tweets <span class="op">=</span> []</span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="cf">for</span> tweet <span class="kw">in</span> tweets:</span>
+<span id="cb11-5"><a href="#cb11-5"></a>    pos, neg <span class="op">=</span> classify(tweet)</span>
+<span id="cb11-6"><a href="#cb11-6"></a>    score <span class="op">=</span> pos <span class="op">-</span> neg</span>
+<span id="cb11-7"><a href="#cb11-7"></a>    <span class="bu">print</span>(<span class="ss">f'-</span><span class="sc">{</span>neg<span class="sc">}</span><span class="ss"> +</span><span class="sc">{</span>pos<span class="sc">}</span><span class="ss"> = </span><span class="sc">{</span>score<span class="sc">:+}</span><span class="ss">'</span>)</span>
+<span id="cb11-8"><a href="#cb11-8"></a>    <span class="cf">if</span> score <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb11-9"><a href="#cb11-9"></a>        positive_tweets.append((tweet, score))</span>
+<span id="cb11-10"><a href="#cb11-10"></a>    <span class="cf">elif</span> score <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb11-11"><a href="#cb11-11"></a>        negative_tweets.append((tweet, score))</span>
+<span id="cb11-12"><a href="#cb11-12"></a>    <span class="cf">else</span>:</span>
+<span id="cb11-13"><a href="#cb11-13"></a>        neutral_tweets.append((tweet, score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-0 +3 = +3
+-0 +5 = +5
+-0 +4 = +4
+-0 +6 = +6
+-0 +3 = +3
+-2 +0 = -2
+-3 +0 = -3
+-5 +0 = -5
+-2 +0 = -2
+-2 +2 = +0</code></pre>
+</div>
+</div>
+<p>نعرض التغريدات بحسب التصنيف مرتبة بقوة التصنيف من الأعلى إلى الأسفل:</p>
+<div id="6324f2bf" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="bu">print</span>(<span class="st">'positive_tweets:'</span>)</span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="cf">for</span> tweet, score <span class="kw">in</span> <span class="bu">sorted</span>(positive_tweets, key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>], reverse<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb13-3"><a href="#cb13-3"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>score<span class="sc">:+}</span><span class="ss"> </span><span class="sc">{</span>tweet<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>positive_tweets:
++6 the intelligent and talented young woman had a bright future ahead of her. she was passionate about her work and she was determined to make a difference in the world
++5 the beautiful flowers were in full bloom and the sweet scent filled the air. the birds were singing merrily and the sun was shining brightly. it was a perfect day
++4 the kind and generous old man was always willing to help others. he was a role model for the entire community and he was loved by everyone
++3 grateful for the amazing people in my life who make it so wonderful
++3 sending out good vibes to everyone today! have a beautiful day!</code></pre>
+</div>
+</div>
+<div id="c2644d8c" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">print</span>(<span class="st">'negative_tweets:'</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="cf">for</span> tweet, score <span class="kw">in</span> <span class="bu">sorted</span>(negative_tweets, key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>]):</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>score<span class="sc">:+}</span><span class="ss"> </span><span class="sc">{</span>tweet<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>negative_tweets:
+-5 had an awful morning - overslept and missed my first meeting. feeling uneasy about how my boss will react.
+-3 traffic was the worst it's ever been today. the long commute just made me feel grumpy and drained.
+-2 i've been feeling so anxious and stressed lately with everything going on. really need a break from it all.
+-2 all the noise from the construction outside is driving me nuts. it's making working from home dreadful.</code></pre>
+</div>
+</div>
+<div id="637b31d2" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="bu">print</span>(<span class="st">'neutral_tweets:'</span>)</span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="cf">for</span> tweet, score <span class="kw">in</span> neutral_tweets:</span>
+<span id="cb17-3"><a href="#cb17-3"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>score<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>tweet<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>neutral_tweets:
+0 went out with some friends last night but didn't have as much fun as i thought. felt a bit lonely and left early feeling uneasy.</code></pre>
+</div>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -916,10 +1089,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../../chapters/08_files_and_directories/a2_directories.html" class="pagination-link" aria-label="الدليل">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">الدليل</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./setup.html" class="pagination-link" aria-label="إعداد بيئة التطوير">
-        <span class="nav-page-text">إعداد بيئة التطوير</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../chapters/09_oop/a1_classes.html" class="pagination-link" aria-label="الأصناف">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">الأصناف</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
