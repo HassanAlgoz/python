@@ -52,7 +52,7 @@ $body-color: $gray-800 !default;
 // Fonts
 
 // stylelint-disable-next-line value-keyword-case
-$font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$font-family-sans-serif: "Noto Naskh Arabic", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $headings-font-weight: 400 !default;
 
 // Navbar
@@ -75,7 +75,7 @@ $progress-height: .5rem !default;
 
 // Variables
 
-$web-font-path: "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" !default;
+$web-font-path: "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" !default;
 
 @if $web-font-path {
     @import url($web-font-path);
@@ -94,8 +94,9 @@ body {
     -webkit-font-smoothing: antialiased;
     // direction: rtl; // Set text direction to RTL
     // text-align: right; // Align text to the right
+    --bs-body-text-align: right;
+    
     // Indicators
-
     .badge {
         &.bg-light {
             color: $dark;
@@ -138,4 +139,12 @@ ul.task-list li input[type="checkbox"] {
 
 ol {
     list-style-type: arabic-indic;
+}
+
+.sidebar-item-text.sidebar-link.text-start {
+    text-align: start !important;
+}
+
+.list-unstyled {
+    padding-left: initial !important;
 }

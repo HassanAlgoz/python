@@ -28,68 +28,83 @@ book:
   title: "البايثونية"
   image: cover.png
   author: "حسان القوز"
-  date: "17/10/2024"
+  date: "2024-12-13"
+  favicon: logo.png
+  twitter-card: true
+  site-url: https://hassanalgoz.github.io/python/
+  search: true
+  repo-url: https://github.com/hassanalgoz/python
+  repo-actions: [edit, issue, source]
+  repo-subdir: book
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
+
+  page-navigation: false
+
   chapters:
     - index.qmd
     - setup.qmd
     - chapters/01_intro/introduction.qmd
-    - part: الأعداد
+    - part: باب الأعداد
       chapters:
         - chapters/02_numbers/a_numbers.qmd
         - chapters/02_numbers/b_context.qmd
         - chapters/02_numbers/c_problems.qmd
         - chapters/02_numbers/d_solutions.qmd
-    - part: الشرط والتكرار
+    - part: باب الشرط والتكرار
       chapters:
         - chapters/03_control_flow/a_control_flow.qmd
         - chapters/03_control_flow/b_context.qmd
         - chapters/03_control_flow/c_problems.qmd
         - chapters/03_control_flow/d_solutions.qmd
-    - part: الإجراءات
+    - part: باب الإجراءات
       chapters:
         - chapters/04_functions/a_functions.qmd
         - chapters/04_functions/b_context.qmd
-    - part: المجموعة المرتبة
+    - part: باب المجموعة المرتبة
       chapters:
         - chapters/05_sequences/a_sequences.qmd
         - chapters/05_sequences/b_context.qmd
         - chapters/05_sequences/c_problems.qmd
-    - part: المجموعة الرابطة
+    - part: باب المجموعة الرابطة
       chapters:
         - chapters/06_mapping/a_mapping.qmd
         - chapters/06_mapping/b_context.qmd
         - chapters/06_mapping/c_problems.qmd
-    - part: النص
+    - part: باب النص
       chapters:
         - chapters/07_strings/a1_strings.qmd
         - chapters/07_strings/a2_unicode.qmd
         - chapters/07_strings/b_context.qmd
-    - part: الملفات
+    - part: باب الملفات
       chapters:
         - chapters/08_files_and_directories/a1_serialization.qmd
         - chapters/08_files_and_directories/a2_directories.qmd
         - chapters/08_files_and_directories/b_context.qmd
-    - part: تعريف المجردات
+    - part: باب الأصناف
       chapters:
         - chapters/09_oop/a1_classes.qmd
         - chapters/09_oop/a2_extend.qmd
-    - part: الوقت
+    - part: باب الوقت
       chapters:
         - chapters/10_time/a_time.qmd
-    - part: الخطأ
+    - part: باب الخطأ
       chapters:
         - chapters/11_errors/a_errors.qmd
-    - part: ملحقات
-      chapters:
-        - appendix_collections.qmd
-        - glossary.qmd
+  appendices:
+    - appendix_collections.qmd
+    - glossary.qmd
 
 bibliography: references.bib
 
 format:
   html:
     theme: custom.scss
+    fontsize: 1.1em
+    linestretch: 1.7
     grid:
       sidebar-width: 300px
       margin-width: 300px
 lang: ar
+
+language: _language_ar.yml
