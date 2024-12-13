@@ -1,5 +1,45 @@
 # تطبيقات {.unnumbered}
 
+## ترشيح الأرقام
+
+تصور أن لدينا قائمة من الأرقام الموجبة والسالبة في مجموعة واحدة، ونريد فصلها لمجموعتين:
+
+```{python}
+numbers = [-11, -12, 13, 14, -15, 16, 17, -18, -19, 20]
+positives = []
+negatives = []
+
+for x in numbers:
+    if x > 0:
+        positives.append(x)
+    else:
+        negatives.append(x)
+
+print('positives:', positives)
+print('negatives:', negatives)
+```
+
+أو باستعمال الإنشاء المختصر:
+
+```{python}
+numbers = [-11, -12, 13, 14, -15, 16, 17, -18, -19, 20]
+positives = [x for x in numbers if x > 0]
+negatives = [x for x in numbers if x < 0]
+
+print('positives:', positives)
+print('negatives:', negatives)
+```
+
+
+## التكرار على قائمتين
+
+```{python}
+total_sales = [52000.00, 51000.00, 48000.00]
+prod_cost   = [46800.00, 45900.00, 43200.00]
+for sales, costs in zip(total_sales, prod_cost):
+    profit = sales - costs
+    print(f'Total profit: {profit}')
+```
 
 ## التكرار على العناصر الصفوف
 
@@ -87,35 +127,6 @@ print('minimum number of pages:', minimum)
 ```
 
 
-## ترشيح الأرقام
-
-تصور أن لدينا قائمة من الأرقام الموجبة والسالبة في مجموعة واحدة، ونريد فصلها لمجموعتين:
-
-```{python}
-numbers = [-11, -12, 13, 14, -15, 16, 17, -18, -19, 20]
-positives = []
-negatives = []
-
-for x in numbers:
-    if x > 0:
-        positives.append(x)
-    else:
-        negatives.append(x)
-
-print('positives:', positives)
-print('negatives:', negatives)
-```
-
-أو باستعمال الإنشاء المختصر:
-
-```{python}
-numbers = [-11, -12, 13, 14, -15, 16, 17, -18, -19, 20]
-positives = [x for x in numbers if x > 0]
-negatives = [x for x in numbers if x < 0]
-
-print('positives:', positives)
-print('negatives:', negatives)
-```
 
 ## حساب مجموع المسافات بين التنبؤ والحقيقة
 

@@ -1,0 +1,120 @@
+# تطبيقات {.unnumbered}
+
+## تصنيف التغريدات
+
+لدينا ثلاثة ملفات:
+
+1. الأول يحوي تغريدات
+2. الثاني يحوي كلمات إيجابية
+3. الثالث يحوي كلمات سلبية
+
+نريد تصنيف التغريدات بناءً على عدد الكلمات الإيجابية والسلبية فيها.
+
+```{python}
+from pathlib import Path
+
+data_dir = Path('../../datasets/tweets')
+```
+
+
+بعد النظر في شكل الملفات. يتبين لنا أن السطر الواحد يحتوي على "شيء" واحد. وبالتالي سنقسم البيانات على كل سطر.
+
+ونلاحظ أيضًا وجود أسطر خاوية، يجب التخلص منها.
+
+```{python}
+def read_lines(file_path: Path) -> list[str]:
+    """skips empty lines and converts to lowercase"""
+    result = []
+    with open(file_path, 'r') as file:
+        for line in file:
+            x = line.strip()
+            if len(x) > 0:
+                x = x.lower()
+                result.append(x)
+    return result
+```
+
+نستدعي الدالة لقراءة الملفات الثلاث:
+
+```{python}
+tweets = read_lines(data_dir / 'tweets.txt')
+positive_words = read_lines(data_dir / 'words_positive.txt')
+negative_words = read_lines(data_dir / 'words_negative.txt')
+```
+
+```{python}
+for i, tweet in enumerate(tweets):
+    print(i, tweet)
+```
+
+```{python}
+for p in positive_words:
+    print(p)
+```
+
+```{python}
+for n in negative_words:
+    print(n)
+```
+
+الآن نقوم بتصنيف التغريدات:
+
+```{python}
+def classify(text: str) -> (int, int):
+    """Returns the number of positive and negative words in the text"""
+    
+    positive_count = 0
+    for word in positive_words:
+        if word in text:
+            positive_count += 1
+    
+    negative_count = 0
+    for word in negative_words:
+        if word in text:
+            negative_count += 1
+    
+    return positive_count, negative_count
+
+assert classify('i am happy') == (1, 0)
+assert classify('i am sad') == (0, 1)
+assert classify('i am happy and sad') == (1, 1)
+assert classify('i shall walk to the store') == (0, 0)
+```
+
+نستدعي الدالة على التغريدات، ونفرز النتائج في ثلاثة قوائم:
+
+```{python}
+positive_tweets = []
+negative_tweets = []
+neutral_tweets = []
+for tweet in tweets:
+    pos, neg = classify(tweet)
+    score = pos - neg
+    print(f'-{neg} +{pos} = {score:+}')
+    if score > 0:
+        positive_tweets.append((tweet, score))
+    elif score < 0:
+        negative_tweets.append((tweet, score))
+    else:
+        neutral_tweets.append((tweet, score))
+```
+
+نعرض التغريدات بحسب التصنيف مرتبة بقوة التصنيف من الأعلى إلى الأسفل:
+
+```{python}
+print('positive_tweets:')
+for tweet, score in sorted(positive_tweets, key=lambda x: x[1], reverse=True):
+    print(f'{score:+} {tweet}')
+```
+
+```{python}
+print('negative_tweets:')
+for tweet, score in sorted(negative_tweets, key=lambda x: x[1]):
+    print(f'{score:+} {tweet}')
+```
+
+```{python}
+print('neutral_tweets:')
+for tweet, score in neutral_tweets:
+    print(f'{score} {tweet}')
+```

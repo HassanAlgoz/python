@@ -123,3 +123,21 @@ assert parse_command("max 5 10 2") == 10
 ```
 
 تطبيقات النصوص كثيرة جدًّا في الواقع، لكن نكتفي بهذا هنا، ولعلك تراجع مصادر مختصة بالتحليل النصي لتعلم المزيد.
+
+## تلوين الخارج
+
+```python
+from colorama import Fore, Back, Style
+
+# Print different color text with different background
+print(f"{Fore.RED}This text is red!{Style.RESET_ALL}")
+print(f"{Back.GREEN}This has a green background{Style.RESET_ALL}")
+print(f"{Fore.YELLOW}{Back.BLUE}This is yellow text on a blue background{Style.RESET_ALL}")
+
+# Print with bold and italic styles
+print(f"{Style.BRIGHT}This is bright text{Style.RESET_ALL}")
+print(f"{Style.DIM}This is dimmed text{Style.RESET_ALL}")
+
+# Reset all styles at the end
+print(f"{Style.RESET_ALL}This is back to default style")
+```

@@ -109,3 +109,28 @@ def sum_of_numbers(n: int) -> int:
 assert sum_of_numbers(n=5) == 1+2+3+4+5 == 15
 assert sum_of_numbers(n=10) == 1+2+3+4+5+6+7+8+9+10 == 55
 ```
+
+
+## فصل البيانات
+
+هذا الإجراء يقسم سلسلة إلى جزئين بناءً على نسبة معينة:
+
+```{python}
+def split_data(seq, ratio):
+    idx = int(len(seq) * ratio)
+    return seq[:idx], seq[idx:]
+```
+
+نختبر الإجراء ونلاحظ أن الناتج من نوع صف (`tuple`). فنستعمل التعيين المتعدد لاستخراج القيم من الصف:
+
+```{python}
+my_data = list(range(1, 10 + 1))
+t = split_data(my_data, 0.80)
+
+print(type(t))
+a, b = t
+print(a, b)
+
+assert a == [1, 2, 3, 4, 5, 6, 7, 8]
+assert b == [9, 10]
+```
