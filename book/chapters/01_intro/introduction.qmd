@@ -100,7 +100,7 @@ async      elif       if         or         yield
 ::::
 
 
-**تنبيه**: لا نحفظ هذا إلا بالمماسة والتكرار. إنما قصدتُ من سرده أن تتكون لديك نظرة عامة على اللغة.
+**تنبيه**: ليس المطلوب حفظ ذلك الآن، وإنما هذه نظرة عامَّة لتكوين تصوُّر مجمل.
 
 إذاً في لغة بايثون:
 
@@ -191,7 +191,8 @@ print(total_price)
 ### مثال الإجراءات المضمَّنة
 
 ```{python}
-my_list = [20, 10, 30]
+my_list = [20, 10, 30, 40, 50, 20, 10, 20,
+           30, 40, 50, 60, 30, 20, 30, 40]
 ```
 
 فلمجموعة الأرقام عدد من الإجراءات المضمَّنة في لغة بايثون مثل:
@@ -255,11 +256,40 @@ print(distance(x1=1, y1=1, x2=2, y2=2))
 ```
 
 
-### المكتبات المساهمة
+## المكتبات المساهمة
 
 فهذه عملية الجذر التربيعي أتينا بها باستيراد الوحدة الأساسية `math` ثم أشرنا إلى الإجراء `sqrt` المعرَّف ضمنها عن طريق معامل `.`.
 
-أما ما ليس أساسيًّّا (**مكتبات مساهمة**) فإنه متوفِّر في قواعد بيانات على الشبكة مثل [PyPI](https://pypi.org/) الذي يضم ما يزيد على ما يزيد على 580,000 مشروع، أو غيره من مواقع استضافة حزم بايثون. ويمكن تنزيلها وتثبيتها باستعمال: `pip install package_name` ومن ثم استعمال لغتها المزيدة بعد بجملة الاستيراد: `import package_name` على نحو ما فعلناه مع المكتبة الأساسية `math` هكذا:
+أما ما ليس أساسيًّّا (**مكتبات مساهمة**) فإنه متوفِّر في قواعد بيانات على الشبكة مثل [PyPI](https://pypi.org/) الذي يضم ما يزيد على ما يزيد على 580,000 مشروع، أو غيره من مواقع استضافة حزم بايثون. ويمكن تنزيلها وتثبيتها باستعمال: `pip install package_name` ومن ثم استعمال لغتها المزيدة بعد بجملة الاستيراد: `import package_name` على نحو ما فعلناه مع المكتبة الأساسية `math`.
+
+مدير الحزم pip هو أداة لتثبيت الحزم من فهرس حزم بايثون (Python Package Index - PyPI). هنا مثلاً صفحة [حزمة numpy](https://pypi.org/project/numpy/). على سبيل المثال، تختص حزمة [ `numpy`](https://numpy.org/) **بالعمليات العددية** (Numerical Python) على المصفوفات متعددة الأبعاد. وتعتبر هذه الحزمة أصلاً أساسيًّا لدى حزم كثيرة جدًّا في بايثون. ولنستخدمها نحن، يجب تثبيتها على النحو التالي:
+
+```bash
+pip install numpy
+```
+
+
+بعد ذلك نستطيع استعمالها بعد جملة الاستيراد، لنجرب عملية الضربالنقطي بين مصفوفتين:
+
+
+```{python}
+import numpy as np
+
+mat1 = np.array([
+    [1, 2],
+    [3, 4]
+])
+
+mat2 = np.array([
+    [5, 6],
+    [7, 8]
+])
+
+print(np.dot(mat1, mat2))
+```
+
+
+ومن الحزم التي تبني علي `numpy` حزمة [`pandas`](https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_spreadsheets.html) المتخصصة في تفكيك وتركيب الجداول والتحليلات الإحصائية عليها. ونحن إذا أردناها نستوردها ونستعملها:
 
 ```bash
 pip install pandas
@@ -271,6 +301,38 @@ import pandas as pd
 df = pd.read_csv('../../datasets/students.csv')
 df
 ```
+
+ثم التحليل كالتالي:
+
+```{python}
+df.describe(include=['number']).T
+```
+
+وهي من أشهر المكتبات المساهمة في تحليل البيانات المجدولة.
+
+والمثال الأخير هو حزمة [`geopy`](https://geopy.readthedocs.io/en/stable/) المتخصصة في الإحداثيات المكانية على الأرض وما يتعلق بها من حسابات وبيانات. يبدوا استعمالها معقَّدًا؛ لكنك ستراه سهلاً فيما بعد:
+
+```bash
+pip install geopy
+```
+
+```python
+from geopy.distance import geodesic
+from geopy.geocoders import Nominatim
+
+geolocator = Nominatim(user_agent="exercise")
+
+dammam_location = geolocator.geocode("Dammam, Saudi Arabia")
+bahrain_location = geolocator.geocode("Bahrain")
+
+dammam_coords = (dammam_location.latitude, dammam_location.longitude)
+bahrain_coords = (bahrain_location.latitude, bahrain_location.longitude)
+
+# Calculate the distance
+distance = geodesic(dammam_coords, bahrain_coords).kilometers
+print(f"Between Dammam and Bahrain is {distance:.2f} km")
+```
+
 
 ## المجتمع يطور اللغة
 
