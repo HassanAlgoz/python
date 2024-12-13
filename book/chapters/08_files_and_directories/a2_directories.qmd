@@ -43,18 +43,18 @@ graph LR
 
 ```{python}
 from pathlib import Path
+from pathlib import PureWindowsPath
 ```
 
 يُنشأ المسار من نص أو مجموعة نصوص بينها علامة `/` (وهي في الأصل علامة قسمة إذا وُضعت بين الأرقام) التي تعني ضم النص إلى المسار.
 
 لاحظ استعمال **النص الخام** `r''` لكون الحرف `\` له معنىً خاص في نصوص بايثون، فهو يستعمل مثلا `\n` للانتقال لسطر جديد. لكن حين نستعمل `r''` فإن الحرف `\` لا يعني شيئًا خاصًا.
 
-
 ```{python}
 assert (
-    Path('../../datasets/example_root/a/a.txt') ==
-    Path(r'..\..\datasets\example_root\a\a.txt') ==
-    Path('../../datasets') / 'example_root' / 'a' / 'a.txt'
+    Path('../../datasets/example_root/a/a.txt').as_posix() ==
+    PureWindowsPath(r'..\..\datasets\example_root\a\a.txt').as_posix() ==
+    (Path('../../datasets') / 'example_root' / 'a' / 'a.txt').as_posix()
 )
 ```
 

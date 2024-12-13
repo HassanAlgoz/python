@@ -1,5 +1,51 @@
 # تطبيقات {.unnumbered}
 
+## الكلمة المتناظرة
+
+في هذا المثال نوضح استعمال مؤشرين على نفس النص لمعرفة ما إذا كانت الكلمة متناظرة:
+
+- المؤئر الأول بإصبعك الأيمن: `i` يبدأ من أول حرف وينتهي عند المنتصف
+- المؤئر الثاني بإصبعك الأيسر: `j` يبدأ من آخر حرف وينتهي عند المنتصف
+
+```{python}
+def is_palindrome(word):
+    """
+    A palindrome word is one that can be read the same way from both ends.
+    """
+
+    # Remove the difference of capitalization
+    word = word.lower()
+    
+    # Remove the spaces (to match things like: "Race car")
+    word = word.replace(" ", "")
+
+    # Check if the word is a palindrome
+    for i in range(len(word) // 2):
+        j = len(word) - i - 1
+        if word[i] != word[j]:
+            return False
+    return True
+
+# Test examples
+assert is_palindrome("radar")
+assert is_palindrome("level") 
+assert is_palindrome("madam")
+assert is_palindrome("توت")
+assert is_palindrome("خوخ")
+assert is_palindrome("Race car")
+assert is_palindrome("حصان ناصح")
+assert not is_palindrome("python")
+```
+
+بدل الحلقة، وكان لنا أن نكتب باختصار: `word == word[::-1]` وهي تعني أن النص متناظر إذا كان مساوياً لنفسه بالمقلوب.
+
+```{python}
+def is_palindrome(word):
+    word = word.lower()
+    word = word.replace(" ", "")
+    return word == word[::-1]
+```
+
 ## عد الكلمات
 
 هذا مثال لاستخراج الكلمات (من غير تكرار) من قاموس من العبارات (ثلاثة عبارات). هذه العملية تستعمل كثيرًا في تحليل النصوص إذ نريد أن نعرف جميع الكلمات الواردة في مجموعة من النصوص، ولا نريد الكلمات المعهودة جدًّا (هنا نسميها `stop_words`)، كما أننا نستعمل `.lower()` في التعبير الناتج حتى لا يفرق بين الحروف في حالتيها الإنجليزية:
@@ -76,3 +122,4 @@ assert parse_command("* 5 10 2") == 100
 assert parse_command("max 5 10 2") == 10
 ```
 
+تطبيقات النصوص كثيرة جدًّا في الواقع، لكن نكتفي بهذا هنا، ولعلك تراجع مصادر مختصة بالتحليل النصي لتعلم المزيد.
