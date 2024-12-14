@@ -1,13 +1,23 @@
 # الشرط والتكرار
 
-يسير تنفيذ الجمل البرمجية في اللغات الإجرائية -مثل بايثون- من الأعلى للأسفل. فإذا كتبنا الكود التالي:
+يسير تنفيذ الجمل البرمجية في اللغات **الإجرائية** -مثل بايثون- من الأعلى للأسفل. فإذا كتبنا الكود التالي:
 
+:::: {.columns}
+::: {.column width="35%"}
 
+```{mermaid}
+flowchart TD
+    A[x = 1] --> B[x = 2] --> C["print(x)"]
+```
+:::
+::: {.column width="65%"}
 ```{python}
 x = 1
 x = 2
 print(x)
 ```
+:::
+::::
 
 فإن جملة التعيين التالية تكتُب قيمة `2` في نفس المحلّ الذي كتبت عليه جملة التعيين الأولى `1`. لذا ظهرت النتيجة: `2`.
 
@@ -20,17 +30,48 @@ print(x)
 
 الجملة الشرطية هي جملة مركَّبة من كلمة `if` وتعبير منطقي ثم الجمل التي يتعلق تنفيذها بناءً على هذا الشرط (وتكون داخل المحاذاة):
 
+:::: {.columns}
+::: {.column width="35%"}
+```{mermaid}
+flowchart TD
+    IF{{if cond}} -- False --> X["Outside"]
+    IF -- True --> Y["Inside"]
+
+  style IF fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 0 color:red;
+```
+
+:::
+::: {.column width="65%"}
 ```{python}
-if True:
+cond = True
+if cond:
     print('Inside')
 print('Outside')
 ```
+
+:::
+::::
+
 
 ### تنبيه: المحاذاة العمودية
 
 لاحظ أن **المحاذاة العمودية** (Indentation) (المسافات البيضاء أسفل كلمة `if`) في الكود أعلاه ليست لمجرد تسهيل قراءة الكود، بل هي التي تحدد التعليمات المشروطة. عادةً ما تكون المحاذاة عبارة عن 4 مسافات أو 2 أو أكثر، لكن لابد أن تكون موحَّدة طوال الكود.
 
 لاحظ: بدون المحاذاة الصحيحة، سيظهر خطأ في الكود:
+
+:::: {.columns}
+::: {.column width="35%"}
+
+```{mermaid}
+flowchart TD
+    IF{{if True}}
+    Y["Inside"] --> X["Outside"]
+    style IF fill:#fc0000, stroke:#333, stroke-width:2px;
+```
+
+:::
+::: {.column width="65%"}
 
 ```{python}
 #| error: true
@@ -40,13 +81,33 @@ print('Inside')
 print('Outside')
 ```
 
+:::
+::::
+
+
 إذا قمت بزيادة المحاذاة لكل من جملتي `print()`، فسوف يعمل الكود بتدفِّقٍ غيرِ الذي قصدناه ابتداءً. أي أنه سيطبع `Outside` عندما يكون في الواقع داخل اللَّبِنَة الشرطية.
 
+:::: {.columns}
+::: {.column width="35%"}
+
+```{mermaid}
+flowchart TD
+    IF{{if True}}
+    IF -- True --> Y["Inside"] --> X["Outside"]
+    
+    style IF fill:#82aeff, stroke:#333, stroke-width:2px;
+```
+
+:::
+::: {.column width="65%"}
 ```{python}
 if True:
     print('Inside')
     print('Outside')
 ```
+
+:::
+::::
 
 يؤدي الكود السابق إلى خطأ منطقي لن يظهر أبدًا كخطأ ولن يوقف البرنامج. لذا كن حذرًا مع المحاذاة في كتابة كود بايثون!
 
@@ -154,6 +215,27 @@ assert 3 == len('123') == len([10, 20, 30]) == len('abc')
 
 الصيغة المتكاملة للجملة الشرطية على النحو التالي:
 
+:::: {.columns}
+::: {.column width="35%"}
+
+```{mermaid}
+flowchart TD
+    IF{{if condition_1}}
+    IF -- False --> ELIF{{elif condition_2}}
+    IF -- True --> code_1
+    ELIF -- False --> ELSE{{else}}
+    ELIF -- True --> code_2
+    ELSE --> code_3
+
+    style IF fill:#82aeff, stroke:#333, stroke-width:2px;
+    style ELIF fill:#82aeff, stroke:#333, stroke-width:2px;
+    style ELSE fill:#82aeff, stroke:#333, stroke-width:2px;
+    linkStyle 0,2 color:red;
+```
+
+:::
+::: {.column width="65%"}
+
 ```python
 if <boolean expression>:
     <code>
@@ -163,9 +245,15 @@ else:
     <code>
 ```
 
+:::
+::::
+
+
 - كلمة `if` (**إذا**) تبدأ الجملة المركبة الشرطية
 - قد توجد [`else`](https://docs.python.org/3/reference/compound_stmts.html#else) (**وإلا**) مرة. وهي تعمل عند تخلُّف العبارة المنطقية السابقة لها سواءً كانت السابقة لها `if` أو `elif`.
 - وقد توجد [`elif`](https://docs.python.org/3/reference/compound_stmts.html#elif) بينهما مرة أو أكثر (وهي اختصار لكلمة `else if` وتعني: **وإلا فإن**)، فتعمل مثل `else` معلَّقة بعبارة منطقية مثل `if`.
+
+
 
 #### جرب
 
@@ -181,7 +269,7 @@ x = -5
 
 if x < 0:
     x = 0
-    print('Negative changed to zero')
+    print('Set to zero')
 elif x == 0:
     print('Zero')
 elif x == 1:
@@ -191,6 +279,27 @@ else:
 
 print("Always:", x)
 ```
+
+```{mermaid}
+flowchart TD
+    IF{{if x < 0}}
+    IF -- False --> ELIF{{elif x == 0}}
+    IF -- True --> S1[x = 0] --> S2["Set to zero"]
+    ELIF -- False --> ELSE{{else}}
+    ELIF -- True --> S3[x = 1] --> S4["Single"]
+    ELSE --> S5["More"]
+
+    Always[Always: x]
+    S2 --> Always
+    S4 --> Always
+    S5 --> Always
+
+    style IF fill:#82aeff, stroke:#333, stroke-width:2px;
+    style ELIF fill:#82aeff, stroke:#333, stroke-width:2px;
+    style ELSE fill:#82aeff, stroke:#333, stroke-width:2px;
+    linkStyle 0,3 color:red;
+```
+
 
 وهذا تصوير لسير الأوامر لنفس الكود. ملاحظة: اضغط على الزر `Prev` أو `Next` للتنقل بين خطوات التنفيذ الفعلية:
 
@@ -203,12 +312,28 @@ print("Always:", x)
 
 تستطيع في بايثون أن تجعل جملة التعيين تأخذ قيمتها بحسب شرطٍ معين. مثلاً:
 
+:::: {.columns}
+
+::: {.column width="40%"}
+```{mermaid}
+flowchart TD
+    IF{{if age > 14}}
+    IF -- False --> S2["status = 'child'"]
+    IF -- True --> S1["status = 'adult'"]
+
+    style IF fill:#82aeff, stroke:#333, stroke-width:2px;
+    linkStyle 0 color:red;
+```
+:::
+::: {.column width="60%"}
 ```{python}
 age = 18
 status = 'adult' if age > 14 else 'child'
 
 print(status)
 ```
+:::
+::::
 
 وهي مكافئة للكود التالي:
 
@@ -225,16 +350,53 @@ print(status)
 
 ويحصل **تسلسل التعيين المشروط** بالصيغة التالية:
 
+:::: {.columns}
+::: {.column width="35%"}
+```{mermaid}
+flowchart TD
+  S1["score = 75"] --> IF1
+  IF1{{if score >= 90}} -- True --> A["grade = 'A'"]
+  IF1 -- False --> IF2{{if score >= 80}} -- True --> B["grade = 'B'"]
+  IF2 -- False --> C["grade = 'C'"]
+  
+  style IF1 fill:#82aeff, stroke:#333, stroke-width:2px;
+  style IF2 fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 2,4 color:red;
+```
+:::
+::: {.column width="65%"}
 ```{python}
 score = 75
 grade = "A" if score >= 90 else "B" if score >= 80 else "C"
 print(grade)
 ```
+:::
+::::
 
 
 ## تضمين الجمل الشرطية
 
 جمل الشرط المضمنة هي جمل `if` داخل جمل `if` أخرى. على سبيل المثال:
+
+:::: {.columns}
+::: {.column width="35%"}
+
+```{mermaid}
+flowchart TD
+  IF1{{if condition_1}}
+  IF1 -- False --> ELSE1
+  IF1 -- True --> IF2{{if condition_2}}
+  IF2 -- False --> code_2
+  IF2 -- True --> code_1
+  ELSE1[code_3]
+
+  style IF1 fill:#82aeff, stroke:#333, stroke-width:2px;
+  style IF2 fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 0,2 color:red;
+```
+
+:::
+::: {.column width="65%"}
 
 ```python
 if <boolean expression>:
@@ -245,6 +407,9 @@ if <boolean expression>:
 else:
     <code>
 ```
+
+:::
+::::
 
 ننبه مرة أخرى أن **المحاذاة مهمة**. يجب أن تكون جملة `if` الداخلية ذات محاذاة أكثر من جملة `if` الخارجية.
 
@@ -304,13 +469,42 @@ else:
 
 نبدأ بالتكرار بالطريقة غير المحددة، وهي جُملة تبدأ بالكلمة `while` على النحو التالي.  كأنها `if` متكررة إلى حين تخلُّف الشرط (أن يصبح `False`). وإن لم يتحقق الشرط أصلاً فلا ينفذ الكود المضمَّن أصلا:
 
+:::: {.columns}
+::: {.column width="35%"}
+```{mermaid}
+flowchart TD
+  WHILE{{while condition}}
+  WHILE -- False --> END
+  WHILE -- True --> S1[code] --> WHILE
+  
+  style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 0 color:red;
+```
+:::
+::: {.column width="65%"}
 ```python
 while <boolean expression>:
     <code>
 ```
+:::
+::::
 
 مثال:
 
+
+:::: {.columns}
+::: {.column width="35%"}
+```{mermaid}
+flowchart TD
+  S0["i = 0"] --> WHILE{{"while i < 5"}}
+  WHILE -- False --> S3["Done"]
+  WHILE -- True --> S1["print(i)"] --> S2["i += 1"] --> WHILE
+
+  style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 0 color:red;
+```
+:::
+::: {.column width="65%"}
 ```{python}
 i = 0
 while i < 5:
@@ -318,6 +512,8 @@ while i < 5:
     i += 1
 print('Done')
 ```
+:::
+::::
 
 لنقم بتتبع الخطوات عندما تكون `i = 0`:
 
@@ -342,6 +538,21 @@ print('Done')
 
 أولاً نمثل لاستعمال جملة `break` على النحو التالي:
 
+:::: {.columns}
+::: {.column width="35%"}
+```{mermaid}
+flowchart TD
+  S0["i = 0"] --> WHILE{{"while i < 5"}}
+  WHILE -- False --> Done["Done"]
+  WHILE -- True --> IF1{{"if i == 3"}}
+  IF1 -- break --> Done
+  IF1 -- False --> S1["print(i)"] --> S2["i += 1"] --> WHILE
+
+  style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 1,4 color:red;
+```
+:::
+::: {.column width="65%"}
 ```{python}
 i = 0
 while i < 5:
@@ -351,11 +562,28 @@ while i < 5:
     i += 1
 print('Done')
 ```
+:::
+::::
 
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20if%20i%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20break%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
 وهذا مثال لاستخدام عبارة `continue` للتخطي:
 
+:::: {.columns}
+::: {.column width="35%"}
+```{mermaid}
+flowchart TD
+  S0["i = 0"] --> WHILE{{"while i < 5"}}
+  WHILE -- False --> Done["Done"]
+  WHILE -- True --> IF1{{"if i == 3"}}
+  IF1 -- continue -->  WHILE
+  IF1 -- False --> S1["print(i)"] --> S2["i += 1"] --> WHILE
+
+  style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 1,4 color:red;
+```
+:::
+::: {.column width="65%"}
 ```{python}
 i = 0
 while i < 5:
@@ -366,11 +594,33 @@ while i < 5:
     i += 1
 print('Done')
 ```
+:::
+::::
 
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20if%20i%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20continue%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
 أما جملة `break` المضمنة تحت طبقتين من التكرار فإن الذي يتوقف هو التكرار الداخلي فقط، ولا يتوقف الخارجي. وهذا مثال:
 
+:::: {.columns}
+::: {.column width="35%"}
+
+```{mermaid}
+flowchart TD
+  INIT1["i = 0"] --> WHILE1
+  WHILE1{{"while i < 3"}}
+    S3["i += 1"] --> WHILE1
+    WHILE1 -- True --> INIT2["j = 0"] --> WHILE2
+    WHILE2{{"while j < 3"}}
+      WHILE2 -- True --> IF1{{"if i == 1"}} -- break --> WHILE1
+      IF1 -- False --> S1["print(i, j)"] --> S2["j += 1"] --> WHILE2
+    WHILE2 -- False --> S3
+
+  style WHILE1 fill:#82aeff, stroke:#333, stroke-width:2px;
+  style WHILE2 fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 5,8 color:red;
+```
+:::
+::: {.column width="65%"}
 ```{python}
 i = 0
 while i < 3:
@@ -383,5 +633,7 @@ while i < 3:
     i += 1
 print('Done')
 ```
+:::
+::::
 
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%203%3A%0A%20%20%20%20j%20%3D%200%0A%20%20%20%20while%20j%20%3C%203%3A%0A%20%20%20%20%20%20%20%20if%20i%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20%20%20print%28i,%20j%29%0A%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
