@@ -64,8 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../chapters/07_strings/a2_unicode.html" rel="next">
-<link href="../../chapters/06_mapping/c_problems.html" rel="prev">
+<link href="../../logo.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d87094df3ba191efc081cab14fe125a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-0aac8e47911a43b3c30d9e1afe62ca59.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -89,21 +88,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-no-results-text": "لا يوجد نتائج",
+    "search-matching-documents-text": "الصفحات المطابقة",
+    "search-copy-link-title": "نسخ الرابط إلى الحافظة",
+    "search-hide-matches-text": "إخفاء المطابقات الإضافية",
+    "search-more-match-text": "مطابقة واحدة في هذه الصفحة",
+    "search-more-matches-text": "مطابقات إضافية في هذه الصفحة",
+    "search-clear-button-title": "إزالة",
+    "search-text-placeholder": "ابحث عن...",
+    "search-detached-cancel-button-title": "إلغاء",
+    "search-submit-button-title": "إرسال",
+    "search-label": "البحث"
   }
 }</script>
 
 
+<meta name="twitter:title" content="7&nbsp; النص – البايثونية">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/07_strings/cover.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating">
@@ -112,13 +115,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/07_strings/a1_strings.html">النص</a></li><li class="breadcrumb-item"><a href="../../chapters/07_strings/a1_strings.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">النص</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/07_strings/a1_strings.html">باب النص</a></li><li class="breadcrumb-item"><a href="../../chapters/07_strings/a1_strings.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">النص</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -131,11 +134,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../../">البايثونية</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/hassanalgoz/python/tree/main/book/" title="الكود المصدر" class="quarto-navigation-tool px-1" aria-label="الكود المصدر"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="التحميل" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="التحميل"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../البايثونية.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            التحميل PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../البايثونية.epub">
+              <i class="bi bi-journal pe-1"></i>
+            التحميل ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="المشاركة" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="المشاركة"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="البحث"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -143,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">فاتحة</span></a>
+ <span class="menu-text">مقدمة</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -161,8 +201,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">الأعداد</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الأعداد</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -196,8 +236,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">الشرط والتكرار</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الشرط والتكرار</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -231,8 +271,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">الإجراءات</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الإجراءات</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -254,8 +294,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">المجموعة المرتبة</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب المجموعة المرتبة</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -283,8 +323,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">المجموعة الرابطة</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب المجموعة الرابطة</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -312,8 +352,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">النص</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب النص</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -341,8 +381,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">الملفات</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الملفات</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -370,8 +410,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">تعريف المجردات</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الأصناف</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -393,8 +433,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">الوقت</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الوقت</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -410,8 +450,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">الخطأ</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الخطأ</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -427,8 +467,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
- <span class="menu-text">ملحقات</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">الملحقات</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -454,7 +494,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">المحاور</h2>
    
   <ul>
   <li><a href="#النص-الطبيعي" id="toc-النص-الطبيعي" class="nav-link active" data-scroll-target="#النص-الطبيعي"><span class="header-section-number">7.1</span> النص الطبيعي</a></li>
@@ -484,12 +524,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#الأعداد-العشرية" id="toc-الأعداد-العشرية" class="nav-link" data-scroll-target="#الأعداد-العشرية">الأعداد العشرية</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/07_strings/a1_strings.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/07_strings/a1_strings.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/07_strings/a1_strings.html">النص</a></li><li class="breadcrumb-item"><a href="../../chapters/07_strings/a1_strings.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">النص</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/07_strings/a1_strings.html">باب النص</a></li><li class="breadcrumb-item"><a href="../../chapters/07_strings/a1_strings.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">النص</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">النص</span></h1>
 </div>
@@ -533,14 +573,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1"></a><span class="pp">---</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">Name</span><span class="kw">:</span><span class="at"> Adam</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">Age</span><span class="kw">:</span><span class="at"> </span><span class="dv">25</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">City</span><span class="kw">:</span><span class="at"> Riyadh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">City</span><span class="kw">:</span><span class="at"> Riyadh</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" data-margin="1%" style="width:48%;">
 <p>مثال لقالب بصيغة <code>JSON</code>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">{</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>  <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"Adam"</span><span class="fu">,</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>  <span class="dt">"Age"</span><span class="fu">:</span> <span class="dv">25</span><span class="fu">,</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a>  <span class="dt">"City"</span><span class="fu">:</span> <span class="st">"Riyadh"</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">}</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>وهذا مثال لقالب بصيغة <code>XML</code>:</p>
@@ -548,12 +588,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2"></a>  &lt;<span class="kw">name</span>&gt;Adam&lt;/<span class="kw">name</span>&gt;</span>
 <span id="cb3-3"><a href="#cb3-3"></a>  &lt;<span class="kw">age</span>&gt;25&lt;/<span class="kw">age</span>&gt;</span>
 <span id="cb3-4"><a href="#cb3-4"></a>  &lt;<span class="kw">city</span>&gt;Riyadh&lt;/<span class="kw">city</span>&gt;</span>
-<span id="cb3-5"><a href="#cb3-5"></a>&lt;/<span class="kw">person</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5"></a>&lt;/<span class="kw">person</span>&gt;</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>والصيغة التي تستعمل كثيرًا لتمثيل الجداول (صفوف) هي صيغة <code>CSV</code>. فكل سطرٍ هو صفٌّ في الجدول، وأوَّلُ سطرٍ هو رأس الجدول عادةً. وذلك على النحو التالي:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode numberSource csv number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1"></a>Name,Age,City</span>
 <span id="cb4-2"><a href="#cb4-2"></a>Adam,25,Riyadh</span>
 <span id="cb4-3"><a href="#cb4-3"></a>Belal,30,Jeddah</span>
-<span id="cb4-4"><a href="#cb4-4"></a>Camal,35,Dammam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-4"><a href="#cb4-4"></a>Camal,35,Dammam</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>جرب أن تُنشئ ملفًّا نصيًّا وتكتب فيه ذلك وتحفظه بصيغة <code>csv</code> ثم سترى أنه يمكنك فتحه بمحرر جداول (:مثل إكسل - Excel).</p>
 </section>
 <section id="إنشاء-النص" class="level2" data-number="7.3">
@@ -567,7 +607,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>على سبيل المثال:</p>
 <div id="f17689b7" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>name <span class="op">=</span> <span class="st">'Adam'</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>address <span class="op">=</span> <span class="st">"Makkah, Saudi Arabia"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2"></a>address <span class="op">=</span> <span class="st">"Makkah, Saudi Arabia"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>تأمل إنشاء هذا النص الذي يبتدئ في السطر الأول ويتمد لأربعة أسطر:</p>
 <div id="52145fb4" class="cell" data-execution_count="2">
@@ -577,7 +617,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-4"><a href="#cb6-4"></a><span class="st">شكرًا لكم.</span></span>
 <span id="cb6-5"><a href="#cb6-5"></a><span class="st">أخوكم آدم.</span></span>
 <span id="cb6-6"><a href="#cb6-6"></a><span class="st">"""</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="bu">print</span>(message)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="bu">print</span>(message)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>السلام عليكم ورحمة الله وبركاته,
 أبشركم بأنكم قطعتم نصف المشوار.
@@ -593,7 +633,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'my_file.txt'</span>, <span class="st">'r'</span>)</span>
 <span id="cb8-2"><a href="#cb8-2"></a>message <span class="op">=</span> <span class="bu">file</span>.read()</span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="bu">file</span>.close()</span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="bu">print</span>(message)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="bu">print</span>(message)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>وسيأتي تفصيل كيفية التعامل مع الملفات في <a href="11_files.qmd">باب الملفات</a>.</p>
 </section>
 </section>
@@ -605,7 +645,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-2"><a href="#cb9-2"></a></span>
 <span id="cb9-3"><a href="#cb9-3"></a>first <span class="op">=</span> s[<span class="dv">0</span>]</span>
 <span id="cb9-4"><a href="#cb9-4"></a>last <span class="op">=</span> s[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="bu">print</span>(first <span class="op">+</span> last)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="bu">print</span>(first <span class="op">+</span> last)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>An</code></pre>
 </div>
@@ -628,7 +668,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>s <span class="op">=</span> (<span class="st">'A'</span>, <span class="st">'r'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'i'</span>, <span class="st">'a'</span>, <span class="st">'n'</span>)</span>
 <span id="cb12-2"><a href="#cb12-2"></a>first <span class="op">=</span> s[<span class="dv">0</span>]</span>
 <span id="cb12-3"><a href="#cb12-3"></a>last <span class="op">=</span> s[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="bu">print</span>(first <span class="op">+</span> last)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="bu">print</span>(first <span class="op">+</span> last)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>An</code></pre>
 </div>
@@ -641,7 +681,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>فالنص تسلسل يشبه الصف في كوْنه <strong>ثابتًا</strong> (أي لا يقبل تعديل عنصر أو إضافته أو حذفه). فلو حاولت تغيير موضعٍ <code>s[i]</code> في النص أو قطعة <code>s[i:j]</code> فإنك ستواجه خطأ:</p>
 <div id="dec9b66b" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>s[<span class="dv">0</span>] <span class="op">=</span> <span class="st">'a'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-2"><a href="#cb14-2"></a>s[<span class="dv">0</span>] <span class="op">=</span> <span class="st">'a'</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
@@ -658,7 +698,7 @@ Cell <span class="ansi-green-fg">In[5], line 2</span>
 <div id="dda92e2e" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>s <span class="op">=</span> <span class="st">'a'</span> <span class="op">+</span> s[<span class="dv">1</span>:]</span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="bu">print</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="bu">print</span>(s)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>arabian</code></pre>
 </div>
@@ -673,7 +713,7 @@ Cell <span class="ansi-green-fg">In[5], line 2</span>
 <div id="d901933d" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a>s <span class="op">=</span> s.replace(<span class="st">'ian'</span>, <span class="st">'y'</span>)</span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="bu">print</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="bu">print</span>(s)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Araby</code></pre>
 </div>
@@ -683,7 +723,7 @@ Cell <span class="ansi-green-fg">In[5], line 2</span>
 <h3 class="anchored" data-anchor-id="إزالة-المسافات">إزالة المسافات</h3>
 <p>كما لدينا علميات <code>.strip()</code> لإزالة المسافات البيضاء من بداية ونهاية النص.</p>
 <div id="0b5a7e25" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="cf">assert</span> <span class="st">'  Arabian  '</span>.strip() <span class="op">==</span> <span class="st">'Arabian'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="cf">assert</span> <span class="st">'  Arabian  '</span>.strip() <span class="op">==</span> <span class="st">'Arabian'</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="البحث-والمطابقة" class="level3">
@@ -699,7 +739,7 @@ Cell <span class="ansi-green-fg">In[5], line 2</span>
 <span id="cb20-3"><a href="#cb20-3"></a><span class="cf">assert</span> <span class="kw">not</span> s.startswith(<span class="st">'a'</span>)</span>
 <span id="cb20-4"><a href="#cb20-4"></a><span class="cf">assert</span> s.endswith(<span class="st">'n'</span>)</span>
 <span id="cb20-5"><a href="#cb20-5"></a><span class="cf">assert</span> <span class="st">'rabia'</span> <span class="kw">in</span> s</span>
-<span id="cb20-6"><a href="#cb20-6"></a><span class="cf">assert</span> s.find(<span class="st">'a'</span>) <span class="op">==</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-6"><a href="#cb20-6"></a><span class="cf">assert</span> s.find(<span class="st">'a'</span>) <span class="op">==</span> <span class="dv">2</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="الفصل-والوصل" class="level3">
@@ -711,7 +751,7 @@ Cell <span class="ansi-green-fg">In[5], line 2</span>
 <p>أولاً: <strong>الفصل</strong>: مثاله قراءة سطر في ملف <code>csv</code> إذْ القيم مفصولة بعلامة الفاصلة <code>,</code>:</p>
 <div id="cdadfbcd" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>csv <span class="op">=</span> <span class="st">"Adam,25,Riyadh"</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="cf">assert</span> csv.split(<span class="st">','</span>) <span class="op">==</span> [<span class="st">'Adam'</span>, <span class="st">'25'</span>, <span class="st">'Riyadh'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="cf">assert</span> csv.split(<span class="st">','</span>) <span class="op">==</span> [<span class="st">'Adam'</span>, <span class="st">'25'</span>, <span class="st">'Riyadh'</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ولقراءة الملف كاملاً نكرر:</p>
 <ul>
@@ -729,7 +769,7 @@ Cell <span class="ansi-green-fg">In[5], line 2</span>
 <span id="cb22-7"><a href="#cb22-7"></a><span class="cf">for</span> line <span class="kw">in</span> csv.split(sep<span class="op">=</span><span class="st">'</span><span class="ch">\n</span><span class="st">'</span>):</span>
 <span id="cb22-8"><a href="#cb22-8"></a>  row <span class="op">=</span> line.split(sep<span class="op">=</span><span class="st">','</span>)</span>
 <span id="cb22-9"><a href="#cb22-9"></a>  data.append(row)</span>
-<span id="cb22-10"><a href="#cb22-10"></a><span class="bu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-10"><a href="#cb22-10"></a><span class="bu">print</span>(data)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[['name', 'age', 'city'], ['Adam', '25', 'Riyadh'], ['Belal', '30', 'Jeddah'], ['Camal', '35', 'Dammam']]</code></pre>
 </div>
@@ -739,7 +779,7 @@ Cell <span class="ansi-green-fg">In[5], line 2</span>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>data <span class="op">=</span> [<span class="st">'Adam'</span>, <span class="st">'25'</span>, <span class="st">'Riyadh'</span>]</span>
 <span id="cb24-2"><a href="#cb24-2"></a>seperator <span class="op">=</span> <span class="st">','</span></span>
 <span id="cb24-3"><a href="#cb24-3"></a>csv <span class="op">=</span> seperator.join(data)</span>
-<span id="cb24-4"><a href="#cb24-4"></a><span class="cf">assert</span> csv <span class="op">==</span> <span class="st">'Adam,25,Riyadh'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="cf">assert</span> csv <span class="op">==</span> <span class="st">'Adam,25,Riyadh'</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="عمليات-إنجليزية" class="level3">
@@ -756,7 +796,7 @@ Cell <span class="ansi-green-fg">In[5], line 2</span>
 <span id="cb25-2"><a href="#cb25-2"></a><span class="bu">print</span>(name.upper())</span>
 <span id="cb25-3"><a href="#cb25-3"></a><span class="bu">print</span>(name.lower())</span>
 <span id="cb25-4"><a href="#cb25-4"></a><span class="bu">print</span>(name.capitalize())</span>
-<span id="cb25-5"><a href="#cb25-5"></a><span class="bu">print</span>(name.title())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="bu">print</span>(name.title())</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ADAM IBRAHEEM
 adam ibraheem
@@ -777,7 +817,7 @@ Adam Ibraheem</code></pre>
 <div id="7b403a33" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>x <span class="op">=</span> <span class="st">'20'</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a>y <span class="op">=</span> <span class="st">'40'</span></span>
-<span id="cb27-3"><a href="#cb27-3"></a><span class="bu">print</span>(x <span class="op">+</span> y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="bu">print</span>(x <span class="op">+</span> y)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2040</code></pre>
 </div>
@@ -786,7 +826,7 @@ Adam Ibraheem</code></pre>
 <div id="ba29a9b2" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>x2 <span class="op">=</span> <span class="bu">float</span>(x)</span>
 <span id="cb29-2"><a href="#cb29-2"></a>y2 <span class="op">=</span> <span class="bu">float</span>(y)</span>
-<span id="cb29-3"><a href="#cb29-3"></a><span class="bu">print</span>(x2 <span class="op">+</span> y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="bu">print</span>(x2 <span class="op">+</span> y2)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>60.0</code></pre>
 </div>
@@ -809,7 +849,7 @@ Adam Ibraheem</code></pre>
 <span id="cb31-5"><a href="#cb31-5"></a>s2 <span class="op">=</span> <span class="st">"I am </span><span class="sc">{}</span><span class="st"> and I want to reach level </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(name, lvl)  <span class="co"># .format() method</span></span>
 <span id="cb31-6"><a href="#cb31-6"></a>s3 <span class="op">=</span> <span class="ss">f"I am </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> and I want to reach level </span><span class="sc">{</span>lvl<span class="sc">}</span><span class="ss">"</span>            <span class="co"># f-strings</span></span>
 <span id="cb31-7"><a href="#cb31-7"></a><span class="cf">assert</span> s1 <span class="op">==</span> s2 <span class="op">==</span> s3</span>
-<span id="cb31-8"><a href="#cb31-8"></a><span class="bu">print</span>(s1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-8"><a href="#cb31-8"></a><span class="bu">print</span>(s1)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>I am John and I want to reach level 300</code></pre>
 </div>
@@ -818,7 +858,7 @@ Adam Ibraheem</code></pre>
 <div id="e81abe7a" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="bu">print</span>(<span class="st">'-'</span> <span class="op">*</span> <span class="dv">10</span>)</span>
 <span id="cb33-2"><a href="#cb33-2"></a><span class="bu">print</span>(<span class="st">'*'</span> <span class="op">*</span> <span class="dv">10</span>)</span>
-<span id="cb33-3"><a href="#cb33-3"></a><span class="bu">print</span>(<span class="st">'='</span> <span class="op">*</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="bu">print</span>(<span class="st">'='</span> <span class="op">*</span> <span class="dv">10</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>----------
 **********
@@ -831,7 +871,7 @@ Adam Ibraheem</code></pre>
 <div id="03043710" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>name <span class="op">=</span> <span class="st">'Adam'</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a><span class="bu">print</span>(name.ljust(<span class="dv">15</span>)) </span>
-<span id="cb35-3"><a href="#cb35-3"></a><span class="bu">print</span>(name.center(<span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-3"><a href="#cb35-3"></a><span class="bu">print</span>(name.center(<span class="dv">15</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Adam           
       Adam     </code></pre>
@@ -841,7 +881,7 @@ Adam Ibraheem</code></pre>
 <div id="e252af59" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="bu">print</span>(<span class="st">'*'</span> <span class="op">*</span> <span class="dv">20</span>)</span>
 <span id="cb37-2"><a href="#cb37-2"></a><span class="bu">print</span>(<span class="st">'Adam'</span>.center(<span class="dv">20</span>, <span class="st">"*"</span>))</span>
-<span id="cb37-3"><a href="#cb37-3"></a><span class="bu">print</span>(<span class="st">'*'</span> <span class="op">*</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-3"><a href="#cb37-3"></a><span class="bu">print</span>(<span class="st">'*'</span> <span class="op">*</span> <span class="dv">20</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>********************
 ********Adam********
@@ -856,7 +896,7 @@ Adam Ibraheem</code></pre>
 <div id="287735b0" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="dv">100</span><span class="sc">:10}</span><span class="ss">'</span>)</span>
 <span id="cb39-2"><a href="#cb39-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="dv">1000</span><span class="sc">:10}</span><span class="ss">'</span>)</span>
-<span id="cb39-3"><a href="#cb39-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="dv">10000</span><span class="sc">:10}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-3"><a href="#cb39-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="dv">10000</span><span class="sc">:10}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       100
       1000
@@ -867,7 +907,7 @@ Adam Ibraheem</code></pre>
 <div id="bd04bb3e" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a>p <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb41-3"><a href="#cb41-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb41-3"><a href="#cb41-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  100</code></pre>
 </div>
@@ -875,7 +915,7 @@ Adam Ibraheem</code></pre>
 <p>بشكل افتراضي، يتم محاذاة الرقم إلى اليمين. يمكننا محاذاته إلى اليسار بإضافة <code>&lt;</code>. لاحظ الفرق بين التعبيرين أدناه:</p>
 <div id="8b073cd8" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span><span class="op">&gt;</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb43-2"><a href="#cb43-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span><span class="op">&lt;</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span><span class="op">&lt;</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  100
 100  </code></pre>
@@ -887,7 +927,7 @@ Adam Ibraheem</code></pre>
 <div id="ea903f4f" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>big_num <span class="op">=</span> <span class="dv">10000</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>big_num<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb45-3"><a href="#cb45-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>big_num<span class="sc">:,}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb45-3"><a href="#cb45-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>big_num<span class="sc">:,}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>10000
 10,000</code></pre>
@@ -898,7 +938,7 @@ Adam Ibraheem</code></pre>
 <h3 class="anchored" data-anchor-id="الترميز-العلمي">الترميز العلمي</h3>
 <div id="dac194cc" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>small_num <span class="op">=</span> <span class="fl">0.00001</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>small_num<span class="sc">:.2e}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb47-2"><a href="#cb47-2"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>small_num<span class="sc">:.2e}</span><span class="ss">"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1.00e-05</code></pre>
 </div>
@@ -911,7 +951,7 @@ Adam Ibraheem</code></pre>
 <span id="cb49-2"><a href="#cb49-2"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb49-3"><a href="#cb49-3"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
 <span id="cb49-4"><a href="#cb49-4"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
-<span id="cb49-5"><a href="#cb49-5"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.0f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb49-5"><a href="#cb49-5"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.0f}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>10.5689
 10.5689
@@ -925,7 +965,7 @@ Adam Ibraheem</code></pre>
 <div id="ac6e0996" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>price_dollars <span class="op">=</span> <span class="fl">2978.95</span></span>
 <span id="cb51-2"><a href="#cb51-2"></a>price_riyals <span class="op">=</span> price_dollars <span class="op">*</span> <span class="fl">3.75</span></span>
-<span id="cb51-3"><a href="#cb51-3"></a><span class="bu">print</span>(<span class="ss">f"$</span><span class="sc">{</span>price_dollars<span class="sc">:,.2f}</span><span class="ss"> = </span><span class="sc">{</span>price_riyals<span class="sc">:,.2f}</span><span class="ss"> SAR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb51-3"><a href="#cb51-3"></a><span class="bu">print</span>(<span class="ss">f"$</span><span class="sc">{</span>price_dollars<span class="sc">:,.2f}</span><span class="ss"> = </span><span class="sc">{</span>price_riyals<span class="sc">:,.2f}</span><span class="ss"> SAR"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$2,978.95 = 11,171.06 SAR</code></pre>
 </div>
@@ -980,12 +1020,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "تم النسخ!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "تم النسخ!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -1027,7 +1067,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/hassanalgoz\.github\.io\/python\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1354,21 +1394,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../chapters/06_mapping/c_problems.html" class="pagination-link" aria-label="تمارين">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">تمارين</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../chapters/07_strings/a2_unicode.html" class="pagination-link" aria-label="تمثيل النص">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">تمثيل النص</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/07_strings/a1_strings.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/07_strings/a1_strings.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></div></div></footer></body></html>

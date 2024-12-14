@@ -64,8 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../chapters/03_control_flow/b_context.html" rel="next">
-<link href="../../chapters/02_numbers/d_solutions.html" rel="prev">
+<link href="../../logo.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d87094df3ba191efc081cab14fe125a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-0aac8e47911a43b3c30d9e1afe62ca59.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -89,21 +88,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-no-results-text": "لا يوجد نتائج",
+    "search-matching-documents-text": "الصفحات المطابقة",
+    "search-copy-link-title": "نسخ الرابط إلى الحافظة",
+    "search-hide-matches-text": "إخفاء المطابقات الإضافية",
+    "search-more-match-text": "مطابقة واحدة في هذه الصفحة",
+    "search-more-matches-text": "مطابقات إضافية في هذه الصفحة",
+    "search-clear-button-title": "إزالة",
+    "search-text-placeholder": "ابحث عن...",
+    "search-detached-cancel-button-title": "إلغاء",
+    "search-submit-button-title": "إرسال",
+    "search-label": "البحث"
   }
 }</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
+<meta name="twitter:title" content="3&nbsp; الشرط والتكرار – البايثونية">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/03_control_flow/cover.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating">
@@ -112,13 +119,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/a_control_flow.html">الشرط والتكرار</a></li><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/a_control_flow.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/a_control_flow.html">باب الشرط والتكرار</a></li><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/a_control_flow.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -131,11 +138,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../../">البايثونية</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/hassanalgoz/python/tree/main/book/" title="الكود المصدر" class="quarto-navigation-tool px-1" aria-label="الكود المصدر"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="التحميل" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="التحميل"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../البايثونية.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            التحميل PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../البايثونية.epub">
+              <i class="bi bi-journal pe-1"></i>
+            التحميل ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="المشاركة" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="المشاركة"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="البحث"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -143,7 +187,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">فاتحة</span></a>
+ <span class="menu-text">مقدمة</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -161,8 +205,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">الأعداد</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الأعداد</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -196,8 +240,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">الشرط والتكرار</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الشرط والتكرار</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -231,8 +275,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">الإجراءات</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الإجراءات</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -254,8 +298,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">المجموعة المرتبة</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب المجموعة المرتبة</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -283,8 +327,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">المجموعة الرابطة</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب المجموعة الرابطة</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -312,8 +356,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">النص</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب النص</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -341,8 +385,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">الملفات</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الملفات</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -370,8 +414,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">تعريف المجردات</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الأصناف</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -393,8 +437,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">الوقت</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الوقت</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -410,8 +454,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">الخطأ</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الخطأ</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -427,8 +471,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
- <span class="menu-text">ملحقات</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">الملحقات</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -454,7 +498,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">المحاور</h2>
    
   <ul>
   <li><a href="#الجملة-الشرطية" id="toc-الجملة-الشرطية" class="nav-link active" data-scroll-target="#الجملة-الشرطية"><span class="header-section-number">3.1</span> الجملة الشرطية</a>
@@ -475,12 +519,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#الخروج-من-الحلقة" id="toc-الخروج-من-الحلقة" class="nav-link" data-scroll-target="#الخروج-من-الحلقة">الخروج من الحلقة</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/03_control_flow/a_control_flow.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/03_control_flow/a_control_flow.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/a_control_flow.html">الشرط والتكرار</a></li><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/a_control_flow.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/a_control_flow.html">باب الشرط والتكرار</a></li><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/a_control_flow.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></h1>
 </div>
@@ -499,13 +543,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>يسير تنفيذ الجمل البرمجية في اللغات الإجرائية -مثل بايثون- من الأعلى للأسفل. فإذا كتبنا الكود التالي:</p>
-<div id="f109e223" class="cell" data-execution_count="1">
+<p>يسير تنفيذ الجمل البرمجية في اللغات <strong>الإجرائية</strong> -مثل بايثون- من الأعلى للأسفل. فإذا كتبنا الكود التالي:</p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A[x = 1] --&gt; B[x = 2] --&gt; C["print(x)"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<div id="a56547a7" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>x <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">print</span>(x)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2</code></pre>
+</div>
+</div>
 </div>
 </div>
 <p>فإن جملة التعيين التالية تكتُب قيمة <code>2</code> في نفس المحلّ الذي كتبت عليه جملة التعيين الأولى <code>1</code>. لذا ظهرت النتيجة: <code>2</code>.</p>
@@ -517,23 +579,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="الجملة-الشرطية" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="الجملة-الشرطية"><span class="header-section-number">3.1</span> الجملة الشرطية</h2>
 <p>الجملة الشرطية هي جملة مركَّبة من كلمة <code>if</code> وتعبير منطقي ثم الجمل التي يتعلق تنفيذها بناءً على هذا الشرط (وتكون داخل المحاذاة):</p>
-<div id="42c49f60" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    <span class="bu">print</span>(<span class="st">'Inside'</span>)</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="bu">print</span>(<span class="st">'Outside'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    IF{{if cond}} -- False --&gt; X["Outside"]
+    IF -- True --&gt; Y["Inside"]
+
+  style IF fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 0 color:red;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<div id="5c57d1f2" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>cond <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="cf">if</span> cond:</span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="bu">print</span>(<span class="st">'Inside'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="bu">print</span>(<span class="st">'Outside'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Inside
 Outside</code></pre>
+</div>
+</div>
 </div>
 </div>
 <section id="تنبيه-المحاذاة-العمودية" class="level3">
 <h3 class="anchored" data-anchor-id="تنبيه-المحاذاة-العمودية">تنبيه: المحاذاة العمودية</h3>
 <p>لاحظ أن <strong>المحاذاة العمودية</strong> (Indentation) (المسافات البيضاء أسفل كلمة <code>if</code>) في الكود أعلاه ليست لمجرد تسهيل قراءة الكود، بل هي التي تحدد التعليمات المشروطة. عادةً ما تكون المحاذاة عبارة عن 4 مسافات أو 2 أو أكثر، لكن لابد أن تكون موحَّدة طوال الكود.</p>
 <p>لاحظ: بدون المحاذاة الصحيحة، سيظهر خطأ في الكود:</p>
-<div id="6e57d60b" class="cell" data-execution_count="3">
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    IF{{if True}}
+    Y["Inside"] --&gt; X["Outside"]
+    style IF fill:#fc0000, stroke:#333, stroke-width:2px;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<div id="29fcf377" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(<span class="st">'Inside'</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="bu">print</span>(<span class="st">'Outside'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="bu">print</span>(<span class="st">'Outside'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[3], line 2</span>
@@ -544,14 +647,37 @@ Outside</code></pre>
 </div>
 </div>
 </div>
+</div>
+</div>
 <p>إذا قمت بزيادة المحاذاة لكل من جملتي <code>print()</code>، فسوف يعمل الكود بتدفِّقٍ غيرِ الذي قصدناه ابتداءً. أي أنه سيطبع <code>Outside</code> عندما يكون في الواقع داخل اللَّبِنَة الشرطية.</p>
-<div id="3d6f2e87" class="cell" data-execution_count="4">
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    IF{{if True}}
+    IF -- True --&gt; Y["Inside"] --&gt; X["Outside"]
+    
+    style IF fill:#82aeff, stroke:#333, stroke-width:2px;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<div id="7cfd2d2b" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
 <span id="cb6-2"><a href="#cb6-2"></a>    <span class="bu">print</span>(<span class="st">'Inside'</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a>    <span class="bu">print</span>(<span class="st">'Outside'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3"></a>    <span class="bu">print</span>(<span class="st">'Outside'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Inside
 Outside</code></pre>
+</div>
+</div>
 </div>
 </div>
 <p>يؤدي الكود السابق إلى خطأ منطقي لن يظهر أبدًا كخطأ ولن يوقف البرنامج. لذا كن حذرًا مع المحاذاة في كتابة كود بايثون!</p>
@@ -601,19 +727,19 @@ Outside</code></pre>
 </tbody>
 </table>
 <p>هنا نستكشف عبارات تؤول إلى قيَم منطقية. العبارة الأولى: خمسة أكبر من تسعة؟</p>
-<div id="353a89ea" class="cell" data-execution_count="5">
+<div id="269a1150" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>b1 <span class="op">=</span> <span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">9</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="bu">print</span>(<span class="bu">type</span>(b1))</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="bu">print</span>(b1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="bu">print</span>(b1)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'bool'&gt;
 False</code></pre>
 </div>
 </div>
 <p>العبارة الثانية: هل طول كذا أكبر من طول كذا؟</p>
-<div id="00d4a6fc" class="cell" data-execution_count="6">
+<div id="2f291281" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>b2 <span class="op">=</span> <span class="bu">len</span>(<span class="st">'12345'</span>) <span class="op">&gt;</span> <span class="bu">len</span>(<span class="st">'123456789'</span>)</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="bu">print</span>(b2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="bu">print</span>(b2)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>False</code></pre>
 </div>
@@ -669,59 +795,87 @@ False</code></pre>
 <li><strong>العكس</strong>: NOT (<strong>ليس</strong>): تخرج عكس المدخل (1 يصبح 0، و0 يصبح 1).</li>
 </ul>
 <p>على سبيل المثال:</p>
-<div id="5b3c9217" class="cell" data-execution_count="7">
+<div id="0bba8477" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>age <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>weight <span class="op">=</span> <span class="dv">50</span></span>
 <span id="cb12-3"><a href="#cb12-3"></a></span>
 <span id="cb12-4"><a href="#cb12-4"></a><span class="cf">if</span> age <span class="op">&gt;</span> <span class="dv">18</span> <span class="kw">and</span> weight <span class="op">&gt;</span> <span class="dv">45</span>:</span>
-<span id="cb12-5"><a href="#cb12-5"></a>  <span class="bu">print</span>(<span class="st">"You are eligible to donate blood"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-5"><a href="#cb12-5"></a>  <span class="bu">print</span>(<span class="st">"You are eligible to donate blood"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>You are eligible to donate blood</code></pre>
 </div>
 </div>
 <p>تستعمل الأقواس لتجميع الشروط لإيقاع الترتيب المنطقي المراد:</p>
-<div id="9c796914" class="cell" data-execution_count="8">
+<div id="116f194f" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>age <span class="op">=</span> <span class="dv">16</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>temperature <span class="op">=</span> <span class="dv">15</span></span>
 <span id="cb14-3"><a href="#cb14-3"></a>is_wearing_coat <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb14-4"><a href="#cb14-4"></a></span>
 <span id="cb14-5"><a href="#cb14-5"></a><span class="cf">if</span> age <span class="op">&lt;</span> <span class="dv">16</span> <span class="kw">or</span> (temperature <span class="op">&lt;</span> <span class="dv">20</span> <span class="kw">and</span> <span class="kw">not</span> is_wearing_coat):</span>
-<span id="cb14-6"><a href="#cb14-6"></a>  <span class="bu">print</span>(<span class="st">"I suggest you don't go outside"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="bu">print</span>(<span class="st">"I suggest you don't go outside"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>يُنظَر للشرط بأكمله كقيمة منطقية واحدة تكون <code>True</code> أو <code>False</code> ولا بأس بتجزئته حينما يسهل بذلك الفهم:</p>
-<div id="41f734e8" class="cell" data-execution_count="9">
+<div id="329c3f18" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>is_minor <span class="op">=</span> age <span class="op">&lt;</span> <span class="dv">16</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>is_cold <span class="op">=</span> temperature <span class="op">&lt;</span> <span class="dv">20</span></span>
 <span id="cb15-3"><a href="#cb15-3"></a></span>
 <span id="cb15-4"><a href="#cb15-4"></a><span class="cf">if</span> is_minor <span class="kw">or</span> (is_cold <span class="kw">and</span> <span class="kw">not</span> is_wearing_coat):</span>
-<span id="cb15-5"><a href="#cb15-5"></a>  <span class="bu">print</span>(<span class="st">"I suggest you don't go outside"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-5"><a href="#cb15-5"></a>  <span class="bu">print</span>(<span class="st">"I suggest you don't go outside"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="تسلسل-المقارنات" class="level3">
 <h3 class="anchored" data-anchor-id="تسلسل-المقارنات">تسلسل المقارنات</h3>
 <p>تفهم بايثون المقارنات المتسلسلة. فعبارة <code>x &lt; y &lt;= z</code> تكافئ <code>x &lt; y and y &lt;= z</code>:</p>
-<div id="cd57c2f1" class="cell" data-execution_count="10">
+<div id="af160872" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>low <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>high <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb16-3"><a href="#cb16-3"></a>x <span class="op">=</span> <span class="dv">15</span></span>
 <span id="cb16-4"><a href="#cb16-4"></a></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="cf">assert</span> (low <span class="op">&lt;</span> x <span class="op">&lt;</span> high) <span class="op">==</span> (low <span class="op">&lt;</span> x <span class="kw">and</span> x <span class="op">&lt;</span> high)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="cf">assert</span> (low <span class="op">&lt;</span> x <span class="op">&lt;</span> high) <span class="op">==</span> (low <span class="op">&lt;</span> x <span class="kw">and</span> x <span class="op">&lt;</span> high)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>كذلك تراها تستعمل في المساواة:</p>
-<div id="a5b08659" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="cf">assert</span> <span class="dv">3</span> <span class="op">==</span> <span class="bu">len</span>(<span class="st">'123'</span>) <span class="op">==</span> <span class="bu">len</span>([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>]) <span class="op">==</span> <span class="bu">len</span>(<span class="st">'abc'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="13377239" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="cf">assert</span> <span class="dv">3</span> <span class="op">==</span> <span class="bu">len</span>(<span class="st">'123'</span>) <span class="op">==</span> <span class="bu">len</span>([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>]) <span class="op">==</span> <span class="bu">len</span>(<span class="st">'abc'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="الجملة-الشرطية-المتكاملة" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="الجملة-الشرطية-المتكاملة"><span class="header-section-number">3.3</span> الجملة الشرطية المتكاملة</h2>
 <p>الصيغة المتكاملة للجملة الشرطية على النحو التالي:</p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    IF{{if condition_1}}
+    IF -- False --&gt; ELIF{{elif condition_2}}
+    IF -- True --&gt; code_1
+    ELIF -- False --&gt; ELSE{{else}}
+    ELIF -- True --&gt; code_2
+    ELSE --&gt; code_3
+
+    style IF fill:#82aeff, stroke:#333, stroke-width:2px;
+    style ELIF fill:#82aeff, stroke:#333, stroke-width:2px;
+    style ELSE fill:#82aeff, stroke:#333, stroke-width:2px;
+    linkStyle 0,2 color:red;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
 <div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="cf">if</span> <span class="op">&lt;</span>boolean expression<span class="op">&gt;</span>:</span>
 <span id="cb18-2"><a href="#cb18-2"></a>    <span class="op">&lt;</span>code<span class="op">&gt;</span></span>
 <span id="cb18-3"><a href="#cb18-3"></a><span class="cf">elif</span> <span class="op">&lt;</span>boolean expression<span class="op">&gt;</span>:</span>
 <span id="cb18-4"><a href="#cb18-4"></a>    <span class="op">&lt;</span>code<span class="op">&gt;</span></span>
 <span id="cb18-5"><a href="#cb18-5"></a><span class="cf">else</span>:</span>
-<span id="cb18-6"><a href="#cb18-6"></a>    <span class="op">&lt;</span>code<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-6"><a href="#cb18-6"></a>    <span class="op">&lt;</span>code<span class="op">&gt;</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 <ul>
 <li>كلمة <code>if</code> (<strong>إذا</strong>) تبدأ الجملة المركبة الشرطية</li>
 <li>قد توجد <a href="https://docs.python.org/3/reference/compound_stmts.html#else"><code>else</code></a> (<strong>وإلا</strong>) مرة. وهي تعمل عند تخلُّف العبارة المنطقية السابقة لها سواءً كانت السابقة لها <code>if</code> أو <code>elif</code>.</li>
@@ -736,12 +890,12 @@ False</code></pre>
 <li><code>x = 1</code></li>
 <li><code>x = 5</code></li>
 </ul>
-<div id="2b3bc165" class="cell" data-execution_count="12">
+<div id="541512ac" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>x <span class="op">=</span> <span class="op">-</span><span class="dv">5</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a></span>
 <span id="cb19-3"><a href="#cb19-3"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">0</span>:</span>
 <span id="cb19-4"><a href="#cb19-4"></a>    x <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb19-5"><a href="#cb19-5"></a>    <span class="bu">print</span>(<span class="st">'Negative changed to zero'</span>)</span>
+<span id="cb19-5"><a href="#cb19-5"></a>    <span class="bu">print</span>(<span class="st">'Set to zero'</span>)</span>
 <span id="cb19-6"><a href="#cb19-6"></a><span class="cf">elif</span> x <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb19-7"><a href="#cb19-7"></a>    <span class="bu">print</span>(<span class="st">'Zero'</span>)</span>
 <span id="cb19-8"><a href="#cb19-8"></a><span class="cf">elif</span> x <span class="op">==</span> <span class="dv">1</span>:</span>
@@ -749,10 +903,38 @@ False</code></pre>
 <span id="cb19-10"><a href="#cb19-10"></a><span class="cf">else</span>:</span>
 <span id="cb19-11"><a href="#cb19-11"></a>    <span class="bu">print</span>(<span class="st">'More'</span>)</span>
 <span id="cb19-12"><a href="#cb19-12"></a></span>
-<span id="cb19-13"><a href="#cb19-13"></a><span class="bu">print</span>(<span class="st">"Always:"</span>, x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-13"><a href="#cb19-13"></a><span class="bu">print</span>(<span class="st">"Always:"</span>, x)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Negative changed to zero
+<pre><code>Set to zero
 Always: 0</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    IF{{if x &lt; 0}}
+    IF -- False --&gt; ELIF{{elif x == 0}}
+    IF -- True --&gt; S1[x = 0] --&gt; S2["Set to zero"]
+    ELIF -- False --&gt; ELSE{{else}}
+    ELIF -- True --&gt; S3[x = 1] --&gt; S4["Single"]
+    ELSE --&gt; S5["More"]
+
+    Always[Always: x]
+    S2 --&gt; Always
+    S4 --&gt; Always
+    S5 --&gt; Always
+
+    style IF fill:#82aeff, stroke:#333, stroke-width:2px;
+    style ELIF fill:#82aeff, stroke:#333, stroke-width:2px;
+    style ELSE fill:#82aeff, stroke:#333, stroke-width:2px;
+    linkStyle 0,3 color:red;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
 </div>
 </div>
 <p>وهذا تصوير لسير الأوامر لنفس الكود. ملاحظة: اضغط على الزر <code>Prev</code> أو <code>Next</code> للتنقل بين خطوات التنفيذ الفعلية:</p>
@@ -764,17 +946,40 @@ Always: 0</code></pre>
 <section id="جملة-التعيين-المشروط" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="جملة-التعيين-المشروط"><span class="header-section-number">3.4</span> جملة التعيين المشروط</h2>
 <p>تستطيع في بايثون أن تجعل جملة التعيين تأخذ قيمتها بحسب شرطٍ معين. مثلاً:</p>
-<div id="8d120f4f" class="cell" data-execution_count="13">
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    IF{{if age &gt; 14}}
+    IF -- False --&gt; S2["status = 'child'"]
+    IF -- True --&gt; S1["status = 'adult'"]
+
+    style IF fill:#82aeff, stroke:#333, stroke-width:2px;
+    linkStyle 0 color:red;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div id="adb72cf9" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>age <span class="op">=</span> <span class="dv">18</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a>status <span class="op">=</span> <span class="st">'adult'</span> <span class="cf">if</span> age <span class="op">&gt;</span> <span class="dv">14</span> <span class="cf">else</span> <span class="st">'child'</span></span>
 <span id="cb21-3"><a href="#cb21-3"></a></span>
-<span id="cb21-4"><a href="#cb21-4"></a><span class="bu">print</span>(status)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="bu">print</span>(status)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>adult</code></pre>
 </div>
 </div>
+</div>
+</div>
 <p>وهي مكافئة للكود التالي:</p>
-<div id="731f7bd2" class="cell" data-execution_count="14">
+<div id="9a9ee0d9" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>age <span class="op">=</span> <span class="dv">18</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a></span>
 <span id="cb23-3"><a href="#cb23-3"></a><span class="cf">if</span> age <span class="op">&gt;</span> <span class="dv">14</span>:</span>
@@ -782,31 +987,83 @@ Always: 0</code></pre>
 <span id="cb23-5"><a href="#cb23-5"></a><span class="cf">else</span>:</span>
 <span id="cb23-6"><a href="#cb23-6"></a>  status <span class="op">=</span> <span class="st">'child'</span></span>
 <span id="cb23-7"><a href="#cb23-7"></a></span>
-<span id="cb23-8"><a href="#cb23-8"></a><span class="bu">print</span>(status)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-8"><a href="#cb23-8"></a><span class="bu">print</span>(status)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>adult</code></pre>
 </div>
 </div>
 <p>ويحصل <strong>تسلسل التعيين المشروط</strong> بالصيغة التالية:</p>
-<div id="cdc44421" class="cell" data-execution_count="15">
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  S1["score = 75"] --&gt; IF1
+  IF1{{if score &gt;= 90}} -- True --&gt; A["grade = 'A'"]
+  IF1 -- False --&gt; IF2{{if score &gt;= 80}} -- True --&gt; B["grade = 'B'"]
+  IF2 -- False --&gt; C["grade = 'C'"]
+  
+  style IF1 fill:#82aeff, stroke:#333, stroke-width:2px;
+  style IF2 fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 2,4 color:red;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<div id="4f27d6a9" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>score <span class="op">=</span> <span class="dv">75</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a>grade <span class="op">=</span> <span class="st">"A"</span> <span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">90</span> <span class="cf">else</span> <span class="st">"B"</span> <span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">80</span> <span class="cf">else</span> <span class="st">"C"</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a><span class="bu">print</span>(grade)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="bu">print</span>(grade)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>C</code></pre>
+</div>
+</div>
 </div>
 </div>
 </section>
 <section id="تضمين-الجمل-الشرطية" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="تضمين-الجمل-الشرطية"><span class="header-section-number">3.5</span> تضمين الجمل الشرطية</h2>
 <p>جمل الشرط المضمنة هي جمل <code>if</code> داخل جمل <code>if</code> أخرى. على سبيل المثال:</p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  IF1{{if condition_1}}
+  IF1 -- False --&gt; ELSE1
+  IF1 -- True --&gt; IF2{{if condition_2}}
+  IF2 -- False --&gt; code_2
+  IF2 -- True --&gt; code_1
+  ELSE1[code_3]
+
+  style IF1 fill:#82aeff, stroke:#333, stroke-width:2px;
+  style IF2 fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 0,2 color:red;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
 <div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="cf">if</span> <span class="op">&lt;</span>boolean expression<span class="op">&gt;</span>:</span>
 <span id="cb27-2"><a href="#cb27-2"></a>    <span class="cf">if</span> <span class="op">&lt;</span>boolean expression<span class="op">&gt;</span>:</span>
 <span id="cb27-3"><a href="#cb27-3"></a>        <span class="op">&lt;</span>code<span class="op">&gt;</span></span>
 <span id="cb27-4"><a href="#cb27-4"></a>    <span class="cf">else</span>:</span>
 <span id="cb27-5"><a href="#cb27-5"></a>        <span class="op">&lt;</span>code<span class="op">&gt;</span></span>
 <span id="cb27-6"><a href="#cb27-6"></a><span class="cf">else</span>:</span>
-<span id="cb27-7"><a href="#cb27-7"></a>    <span class="op">&lt;</span>code<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-7"><a href="#cb27-7"></a>    <span class="op">&lt;</span>code<span class="op">&gt;</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 <p>ننبه مرة أخرى أن <strong>المحاذاة مهمة</strong>. يجب أن تكون جملة <code>if</code> الداخلية ذات محاذاة أكثر من جملة <code>if</code> الخارجية.</p>
 <section id="مثال" class="level4">
 <h4 class="anchored" data-anchor-id="مثال">مثال</h4>
@@ -849,7 +1106,7 @@ Always: 0</code></pre>
 </tr>
 </tbody>
 </table>
-<div id="920f195e" class="cell" data-execution_count="16">
+<div id="6264d821" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>score <span class="op">=</span> <span class="dv">95</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a></span>
 <span id="cb28-3"><a href="#cb28-3"></a><span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">90</span>:</span>
@@ -871,7 +1128,7 @@ Always: 0</code></pre>
 <span id="cb28-19"><a href="#cb28-19"></a>  <span class="bu">print</span>(<span class="st">"Poor: D"</span>)</span>
 <span id="cb28-20"><a href="#cb28-20"></a></span>
 <span id="cb28-21"><a href="#cb28-21"></a><span class="cf">else</span>:</span>
-<span id="cb28-22"><a href="#cb28-22"></a>  <span class="bu">print</span>(<span class="st">"Failed: F"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-22"><a href="#cb28-22"></a>  <span class="bu">print</span>(<span class="st">"Failed: F"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Outstanding: A+</code></pre>
 </div>
@@ -892,15 +1149,59 @@ Always: 0</code></pre>
 <section id="التكرار-بشرط" class="level3">
 <h3 class="anchored" data-anchor-id="التكرار-بشرط">التكرار بشرط</h3>
 <p>نبدأ بالتكرار بالطريقة غير المحددة، وهي جُملة تبدأ بالكلمة <code>while</code> على النحو التالي. كأنها <code>if</code> متكررة إلى حين تخلُّف الشرط (أن يصبح <code>False</code>). وإن لم يتحقق الشرط أصلاً فلا ينفذ الكود المضمَّن أصلا:</p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  WHILE{{while condition}}
+  WHILE -- False --&gt; END
+  WHILE -- True --&gt; S1[code] --&gt; WHILE
+  
+  style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 0 color:red;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
 <div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="cf">while</span> <span class="op">&lt;</span>boolean expression<span class="op">&gt;</span>:</span>
-<span id="cb30-2"><a href="#cb30-2"></a>    <span class="op">&lt;</span>code<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-2"><a href="#cb30-2"></a>    <span class="op">&lt;</span>code<span class="op">&gt;</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 <p>مثال:</p>
-<div id="333fb66d" class="cell" data-execution_count="17">
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  S0["i = 0"] --&gt; WHILE{{"while i &lt; 5"}}
+  WHILE -- False --&gt; S3["Done"]
+  WHILE -- True --&gt; S1["print(i)"] --&gt; S2["i += 1"] --&gt; WHILE
+
+  style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 0 color:red;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<div id="d2d6d89d" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
 <span id="cb31-3"><a href="#cb31-3"></a>    <span class="bu">print</span>(i)</span>
 <span id="cb31-4"><a href="#cb31-4"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb31-5"><a href="#cb31-5"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-5"><a href="#cb31-5"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0
 1
@@ -908,6 +1209,8 @@ Always: 0</code></pre>
 3
 4
 Done</code></pre>
+</div>
+</div>
 </div>
 </div>
 <p>لنقم بتتبع الخطوات عندما تكون <code>i = 0</code>:</p>
@@ -932,14 +1235,37 @@ Done</code></pre>
 <li>تستخدم كلمة <a href="https://docs.python.org/3/reference/simple_stmts.html#continue"><code>continue</code></a> للانتقال إلى الكرة التالية متخطيةً بقية الخطوات في الكرة الحالية.</li>
 </ul>
 <p>أولاً نمثل لاستعمال جملة <code>break</code> على النحو التالي:</p>
-<div id="0e452f3f" class="cell" data-execution_count="18">
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  S0["i = 0"] --&gt; WHILE{{"while i &lt; 5"}}
+  WHILE -- False --&gt; Done["Done"]
+  WHILE -- True --&gt; IF1{{"if i == 3"}}
+  IF1 -- break --&gt; Done
+  IF1 -- False --&gt; S1["print(i)"] --&gt; S2["i += 1"] --&gt; WHILE
+
+  style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 1,4 color:red;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<div id="038be354" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
 <span id="cb33-3"><a href="#cb33-3"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
 <span id="cb33-4"><a href="#cb33-4"></a>        <span class="cf">break</span></span>
 <span id="cb33-5"><a href="#cb33-5"></a>    <span class="bu">print</span>(i)</span>
 <span id="cb33-6"><a href="#cb33-6"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb33-7"><a href="#cb33-7"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-7"><a href="#cb33-7"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0
 1
@@ -947,10 +1273,35 @@ Done</code></pre>
 Done</code></pre>
 </div>
 </div>
+</div>
+</div>
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20if%20i%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20break%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
 </iframe>
 <p>وهذا مثال لاستخدام عبارة <code>continue</code> للتخطي:</p>
-<div id="62aaf4ed" class="cell" data-execution_count="19">
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  S0["i = 0"] --&gt; WHILE{{"while i &lt; 5"}}
+  WHILE -- False --&gt; Done["Done"]
+  WHILE -- True --&gt; IF1{{"if i == 3"}}
+  IF1 -- continue --&gt;  WHILE
+  IF1 -- False --&gt; S1["print(i)"] --&gt; S2["i += 1"] --&gt; WHILE
+
+  style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 1,4 color:red;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<div id="393a4e08" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
 <span id="cb35-3"><a href="#cb35-3"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
@@ -958,7 +1309,7 @@ Done</code></pre>
 <span id="cb35-5"><a href="#cb35-5"></a>        <span class="cf">continue</span></span>
 <span id="cb35-6"><a href="#cb35-6"></a>    <span class="bu">print</span>(i)</span>
 <span id="cb35-7"><a href="#cb35-7"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb35-8"><a href="#cb35-8"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-8"><a href="#cb35-8"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0
 1
@@ -967,10 +1318,39 @@ Done</code></pre>
 Done</code></pre>
 </div>
 </div>
+</div>
+</div>
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20if%20i%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20continue%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
 </iframe>
 <p>أما جملة <code>break</code> المضمنة تحت طبقتين من التكرار فإن الذي يتوقف هو التكرار الداخلي فقط، ولا يتوقف الخارجي. وهذا مثال:</p>
-<div id="3918ec39" class="cell" data-execution_count="20">
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  INIT1["i = 0"] --&gt; WHILE1
+  WHILE1{{"while i &lt; 3"}}
+    S3["i += 1"] --&gt; WHILE1
+    WHILE1 -- True --&gt; INIT2["j = 0"] --&gt; WHILE2
+    WHILE2{{"while j &lt; 3"}}
+      WHILE2 -- True --&gt; IF1{{"if i == 1"}} -- break --&gt; WHILE1
+      IF1 -- False --&gt; S1["print(i, j)"] --&gt; S2["j += 1"] --&gt; WHILE2
+    WHILE2 -- False --&gt; S3
+
+  style WHILE1 fill:#82aeff, stroke:#333, stroke-width:2px;
+  style WHILE2 fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 5,8 color:red;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<div id="82da6f51" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">3</span>:</span>
 <span id="cb37-3"><a href="#cb37-3"></a>    j <span class="op">=</span> <span class="dv">0</span></span>
@@ -980,7 +1360,7 @@ Done</code></pre>
 <span id="cb37-7"><a href="#cb37-7"></a>        <span class="bu">print</span>(i, j)</span>
 <span id="cb37-8"><a href="#cb37-8"></a>        j <span class="op">+=</span> <span class="dv">1</span></span>
 <span id="cb37-9"><a href="#cb37-9"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb37-10"><a href="#cb37-10"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-10"><a href="#cb37-10"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0 0
 0 1
@@ -989,6 +1369,8 @@ Done</code></pre>
 2 1
 2 2
 Done</code></pre>
+</div>
+</div>
 </div>
 </div>
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%203%3A%0A%20%20%20%20j%20%3D%200%0A%20%20%20%20while%20j%20%3C%203%3A%0A%20%20%20%20%20%20%20%20if%20i%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20%20%20print%28i,%20j%29%0A%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
@@ -1042,12 +1424,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "تم النسخ!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "تم النسخ!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -1089,7 +1471,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/hassanalgoz\.github\.io\/python\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1416,21 +1798,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../chapters/02_numbers/d_solutions.html" class="pagination-link" aria-label="حلول">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">حلول</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../chapters/03_control_flow/b_context.html" class="pagination-link" aria-label="تطبيقات">
-        <span class="nav-page-text">تطبيقات</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/03_control_flow/a_control_flow.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/03_control_flow/a_control_flow.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></div></div></footer></body></html>

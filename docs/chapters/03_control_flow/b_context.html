@@ -64,8 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../chapters/03_control_flow/c_problems.html" rel="next">
-<link href="../../chapters/03_control_flow/a_control_flow.html" rel="prev">
+<link href="../../logo.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d87094df3ba191efc081cab14fe125a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-0aac8e47911a43b3c30d9e1afe62ca59.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -89,17 +88,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-no-results-text": "لا يوجد نتائج",
+    "search-matching-documents-text": "الصفحات المطابقة",
+    "search-copy-link-title": "نسخ الرابط إلى الحافظة",
+    "search-hide-matches-text": "إخفاء المطابقات الإضافية",
+    "search-more-match-text": "مطابقة واحدة في هذه الصفحة",
+    "search-more-matches-text": "مطابقات إضافية في هذه الصفحة",
+    "search-clear-button-title": "إزالة",
+    "search-text-placeholder": "ابحث عن...",
+    "search-detached-cancel-button-title": "إلغاء",
+    "search-submit-button-title": "إرسال",
+    "search-label": "البحث"
   }
 }</script>
 
@@ -133,6 +132,10 @@ window.Quarto = {
 };
 </script>
 
+<meta name="twitter:title" content="تطبيقات – البايثونية">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/03_control_flow/cover.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating">
@@ -141,13 +144,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/a_control_flow.html">الشرط والتكرار</a></li><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/b_context.html">تطبيقات</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/a_control_flow.html">باب الشرط والتكرار</a></li><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/b_context.html">تطبيقات</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -160,11 +163,48 @@ window.Quarto = {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../../">البايثونية</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/hassanalgoz/python/tree/main/book/" title="الكود المصدر" class="quarto-navigation-tool px-1" aria-label="الكود المصدر"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="التحميل" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="التحميل"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../البايثونية.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            التحميل PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../البايثونية.epub">
+              <i class="bi bi-journal pe-1"></i>
+            التحميل ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="المشاركة" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="المشاركة"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="البحث"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -172,7 +212,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">فاتحة</span></a>
+ <span class="menu-text">مقدمة</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -190,8 +230,8 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">الأعداد</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الأعداد</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -225,8 +265,8 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">الشرط والتكرار</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الشرط والتكرار</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -260,8 +300,8 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">الإجراءات</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الإجراءات</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -283,8 +323,8 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">المجموعة المرتبة</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب المجموعة المرتبة</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -312,8 +352,8 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">المجموعة الرابطة</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب المجموعة الرابطة</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -341,8 +381,8 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">النص</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب النص</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -370,8 +410,8 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">الملفات</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الملفات</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -399,8 +439,8 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">تعريف المجردات</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الأصناف</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -422,8 +462,8 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">الوقت</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الوقت</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -439,8 +479,8 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">الخطأ</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">باب الخطأ</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -456,8 +496,8 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
- <span class="menu-text">ملحقات</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">الملحقات</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -483,7 +523,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">المحاور</h2>
    
   <ul>
   <li><a href="#حساب-مجموع-الأعداد-المدخلة" id="toc-حساب-مجموع-الأعداد-المدخلة" class="nav-link active" data-scroll-target="#حساب-مجموع-الأعداد-المدخلة">حساب مجموع الأعداد المدخلة</a></li>
@@ -493,12 +533,12 @@ window.Quarto = {
   <li><a href="#برنامج-تفاعلي" id="toc-برنامج-تفاعلي" class="nav-link" data-scroll-target="#برنامج-تفاعلي">برنامج تفاعلي</a></li>
   <li><a href="#برنامج-تفاعلي-ذو-صفحات-متعددة" id="toc-برنامج-تفاعلي-ذو-صفحات-متعددة" class="nav-link" data-scroll-target="#برنامج-تفاعلي-ذو-صفحات-متعددة">برنامج تفاعلي ذو صفحات متعددة</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/03_control_flow/b_context.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/03_control_flow/b_context.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/a_control_flow.html">الشرط والتكرار</a></li><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/b_context.html">تطبيقات</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/a_control_flow.html">باب الشرط والتكرار</a></li><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/b_context.html">تطبيقات</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">تطبيقات</h1>
 </div>
@@ -536,7 +576,7 @@ window.Quarto = {
 <span id="cb1-6"><a href="#cb1-6"></a>  total <span class="op">+=</span> number</span>
 <span id="cb1-7"><a href="#cb1-7"></a>  <span class="cf">if</span> number <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb1-8"><a href="#cb1-8"></a>    <span class="cf">break</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="bu">print</span>(total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="bu">print</span>(total)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="حجرة-ورقة-مقص" class="level2">
 <h2 class="anchored" data-anchor-id="حجرة-ورقة-مقص">حجرة ورقة مقص</h2>
@@ -570,19 +610,19 @@ window.Quarto = {
 <span id="cb2-19"><a href="#cb2-19"></a>    case (<span class="st">"rock"</span>, <span class="st">"scissors"</span>) <span class="op">|</span> (<span class="st">"paper"</span>, <span class="st">"rock"</span>) <span class="op">|</span> (<span class="st">"scissors"</span>, <span class="st">"paper"</span>):</span>
 <span id="cb2-20"><a href="#cb2-20"></a>      <span class="bu">print</span>(<span class="st">"You win!"</span>)</span>
 <span id="cb2-21"><a href="#cb2-21"></a>    <span class="cf">case</span> _:</span>
-<span id="cb2-22"><a href="#cb2-22"></a>      <span class="bu">print</span>(<span class="st">"You lose!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-22"><a href="#cb2-22"></a>      <span class="bu">print</span>(<span class="st">"You lose!"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>يتبين ما تختصره علينا جملة <code>match</code> مقارنة بالشرطية المكافئة التالية (لاحظ وجود علامة <code>\</code> لإعلام المترجم أن الجملة تمتد للسطر الذي يليه):</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">if</span> user_move <span class="op">==</span> <span class="st">"rock"</span> <span class="kw">and</span> computer_move <span class="op">==</span> <span class="st">"scissors"</span> \</span>
 <span id="cb3-2"><a href="#cb3-2"></a>  <span class="kw">or</span> user_move <span class="op">==</span> <span class="st">"paper"</span> <span class="kw">and</span> computer_move <span class="op">==</span> <span class="st">"rock"</span> \</span>
 <span id="cb3-3"><a href="#cb3-3"></a>  <span class="kw">or</span> user_move <span class="op">==</span> <span class="st">"scissors"</span> <span class="kw">and</span> computer_move <span class="op">==</span> <span class="st">"paper"</span>:</span>
 <span id="cb3-4"><a href="#cb3-4"></a>  <span class="bu">print</span>(<span class="st">"You win!"</span>)</span>
 <span id="cb3-5"><a href="#cb3-5"></a><span class="cf">else</span>:</span>
-<span id="cb3-6"><a href="#cb3-6"></a>  <span class="bu">print</span>(<span class="st">"You lose!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="bu">print</span>(<span class="st">"You lose!"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>ولك أن تختصرها هي كذلك كالتالي:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">if</span> (user_move, computer_move) <span class="kw">in</span> [(<span class="st">"rock"</span>, <span class="st">"scissors"</span>), (<span class="st">"paper"</span>, <span class="st">"rock"</span>), (<span class="st">"scissors"</span>, <span class="st">"paper"</span>)]:</span>
 <span id="cb4-2"><a href="#cb4-2"></a>  <span class="bu">print</span>(<span class="st">"You win!"</span>)</span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="cf">else</span>:</span>
-<span id="cb4-4"><a href="#cb4-4"></a>  <span class="bu">print</span>(<span class="st">"You lose!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="bu">print</span>(<span class="st">"You lose!"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="حساب-مضروب-العدد" class="level2">
 <h2 class="anchored" data-anchor-id="حساب-مضروب-العدد">حساب مضروب العدد</h2>
@@ -595,7 +635,7 @@ window.Quarto = {
 <span id="cb5-3"><a href="#cb5-3"></a><span class="cf">while</span> j <span class="op">&gt;</span> <span class="dv">1</span>:</span>
 <span id="cb5-4"><a href="#cb5-4"></a>  j <span class="op">-=</span> <span class="dv">1</span></span>
 <span id="cb5-5"><a href="#cb5-5"></a>  i <span class="op">*=</span> j</span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="bu">print</span>(i)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>120</code></pre>
 </div>
@@ -637,7 +677,7 @@ window.Quarto = {
 <span id="cb7-15"><a href="#cb7-15"></a>    <span class="cf">break</span></span>
 <span id="cb7-16"><a href="#cb7-16"></a>  <span class="cf">else</span>:</span>
 <span id="cb7-17"><a href="#cb7-17"></a>    <span class="bu">print</span>(<span class="st">"Access denied!"</span>)</span>
-<span id="cb7-18"><a href="#cb7-18"></a>    tries <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-18"><a href="#cb7-18"></a>    tries <span class="op">+=</span> <span class="dv">1</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>لاحظ:</p>
 <ul>
 <li>وجود حلقة <code>while</code> لإعادة المحاولة ثلاث مرات فقط</li>
@@ -675,7 +715,7 @@ window.Quarto = {
 <span id="cb8-24"><a href="#cb8-24"></a>      <span class="bu">print</span>(<span class="st">"Exiting the store..."</span>)</span>
 <span id="cb8-25"><a href="#cb8-25"></a>      <span class="cf">break</span></span>
 <span id="cb8-26"><a href="#cb8-26"></a>    <span class="cf">case</span> _:</span>
-<span id="cb8-27"><a href="#cb8-27"></a>      <span class="bu">print</span>(<span class="st">"Invalid choice. Please try again."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-27"><a href="#cb8-27"></a>      <span class="bu">print</span>(<span class="st">"Invalid choice. Please try again."</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>قد يبدو الأمر بلا معنى؛ لكن هكذا تعمل برامج الخوادم التي تستقبل الطلبات بشكل مستمر. فإنها تدخل حلقة لانهائية تأخذ فيها الطلبات من المستخدمين ليتم معالجتها والرد عليهم.</p>
 </section>
 <section id="برنامج-تفاعلي-ذو-صفحات-متعددة" class="level2">
@@ -720,7 +760,7 @@ window.Quarto = {
 <span id="cb9-38"><a href="#cb9-38"></a>      page <span class="op">=</span> <span class="st">"main"</span></span>
 <span id="cb9-39"><a href="#cb9-39"></a>    </span>
 <span id="cb9-40"><a href="#cb9-40"></a>    <span class="cf">case</span> _:</span>
-<span id="cb9-41"><a href="#cb9-41"></a>      <span class="cf">break</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-41"><a href="#cb9-41"></a>      <span class="cf">break</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
@@ -769,12 +809,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "تم النسخ!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "تم النسخ!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -816,7 +856,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/hassanalgoz\.github\.io\/python\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1143,21 +1183,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../chapters/03_control_flow/a_control_flow.html" class="pagination-link" aria-label="الشرط والتكرار">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../chapters/03_control_flow/c_problems.html" class="pagination-link" aria-label="تمارين">
-        <span class="nav-page-text">تمارين</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/03_control_flow/b_context.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/03_control_flow/b_context.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></div></div></footer></body></html>
