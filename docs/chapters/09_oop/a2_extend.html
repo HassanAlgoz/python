@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -458,8 +424,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/11_errors/a_errors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/11_errors/a1_errors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/11_errors/a2_exceptions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">الخطأ الواقعي: الاستثناء</span></span></a>
   </div>
 </li>
       </ul>
@@ -492,15 +464,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">المحاور</h2>
-   
-  <ul>
-  <li><a href="#التركيب" id="toc-التركيب" class="nav-link active" data-scroll-target="#التركيب"><span class="header-section-number">12.1</span> التركيب</a></li>
-  <li><a href="#التخصيص" id="toc-التخصيص" class="nav-link" data-scroll-target="#التخصيص"><span class="header-section-number">12.2</span> التخصيص</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/09_oop/a2_extend.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/09_oop/a2_extend.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -524,250 +489,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>تمثل الأصناف في لغة بايثون طريقة لوصف المجردات؛ مثل: النقطة <code>Point</code> كما رأينا.</p>
-<p>ومن الخصائص الممتعة في بناء البرمجيات: العلاقات بين المجردات في المستويات المختلفة من التجريد. وسنمثل بمثالين:</p>
-<ol type="1">
-<li><strong>التركيب</strong>: حيث نعرِّف صِنف <strong>المضلَّع</strong> أنه مركَّب من <strong>سلسلة + نقاط</strong> ونركِّب من عوامل اللغة ما يجعله يشبه <strong>المجموعات</strong></li>
-<li><strong>التخصيص</strong>: حيث نخفي إجراءات السلسلة (الحذف والإضافة والتعديل ونحوها) وراء أفعال محددَّة في صنف جديد نسميه <strong>الطابور</strong></li>
-</ol>
-<section id="التركيب" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="التركيب"><span class="header-section-number">12.1</span> التركيب</h2>
-<p>لو كان عندنا تعريف صنف نقطة ..</p>
-<div id="b57e775d" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">class</span> Point:</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
-<span id="cb1-3"><a href="#cb1-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
-<span id="cb1-4"><a href="#cb1-4"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
-<span id="cb1-5"><a href="#cb1-5"></a>    </span>
-<span id="cb1-6"><a href="#cb1-6"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
-<span id="cb1-7"><a href="#cb1-7"></a>        <span class="cf">return</span> <span class="ss">f"Point(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a>    </span>
-<span id="cb1-9"><a href="#cb1-9"></a>    <span class="at">@staticmethod</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a>    <span class="kw">def</span> distance(p1, p2):</span>
-<span id="cb1-11"><a href="#cb1-11"></a>        <span class="cf">return</span> ((p1.x <span class="op">-</span> p2.x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (p1.y <span class="op">-</span> p2.y)<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span><span class="fl">0.5</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>يمكننا <strong>تركيب</strong> شيء مكون من النقاط، وهو المضلَّع، على النحو التالي:</p>
-<ul>
-<li>يأخذ إجراء الإنشاء <code>__init__</code> سلسلة من النقاط ويعيِّنُها لمتغير اسمه <code>points</code></li>
-<li>يعرض إجراء التمثيل <code>__repr__</code> كلمة <code>Polygon</code> وداخل أقواسها يضع تمثيل النقاط</li>
-<li>لاحظ أن إجراء <code>perimeter</code> يُنتج قُطر المضلَّع؛ وهو مجموع المسافات بين النقاط المتوالية</li>
-</ul>
-<div id="265e36dd" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">class</span> Polygon:</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, points):</span>
-<span id="cb2-3"><a href="#cb2-3"></a>        <span class="va">self</span>.points <span class="op">=</span> points</span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
-<span id="cb2-6"><a href="#cb2-6"></a>        <span class="cf">return</span> <span class="ss">f"Polygon(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>points<span class="sc">}</span><span class="ss">)"</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a>    <span class="kw">def</span> perimeter(<span class="va">self</span>):</span>
-<span id="cb2-9"><a href="#cb2-9"></a>        n <span class="op">=</span> <span class="bu">len</span>(<span class="va">self</span>.points)</span>
-<span id="cb2-10"><a href="#cb2-10"></a>        s <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb2-12"><a href="#cb2-12"></a>            s <span class="op">+=</span> Point.distance(<span class="va">self</span>.points[i], <span class="va">self</span>.points[(i<span class="op">+</span><span class="dv">1</span>)<span class="op">%</span>n])</span>
-<span id="cb2-13"><a href="#cb2-13"></a>        <span class="cf">return</span> s</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>لاحظ أن إنشاء المضلَّع يتطلَّب إنشاء نقاط. ولاحظ أننا جعلنا كل نقطة في سطر، لكنها في الحقيقة كلها عناصر لقائمة، وهو واضحٌ بملاحظة القوسين المربعين <code>[ ]</code>:</p>
-<div id="0d03dd4f" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>poly <span class="op">=</span> Polygon([</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    Point(<span class="dv">0</span>, <span class="dv">0</span>),</span>
-<span id="cb3-3"><a href="#cb3-3"></a>    Point(<span class="dv">5</span>, <span class="dv">0</span>),</span>
-<span id="cb3-4"><a href="#cb3-4"></a>    Point(<span class="dv">5</span>, <span class="dv">5</span>),</span>
-<span id="cb3-5"><a href="#cb3-5"></a>    Point(<span class="dv">0</span>, <span class="dv">5</span>),</span>
-<span id="cb3-6"><a href="#cb3-6"></a>])</span>
-<span id="cb3-7"><a href="#cb3-7"></a>poly</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>Polygon([Point(0, 0), Point(5, 0), Point(5, 5), Point(0, 5)])</code></pre>
-</div>
-</div>
-<p>والآن يمكن استعمال إجراء حساب المحيط:</p>
-<div id="0c8bf247" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>poly.perimeter()</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>20.0</code></pre>
-</div>
-</div>
-<p>ولأن هذا المركَّب مكوَّن من أفراد، فنريده أن يُشابه <strong>الأنواع الحاوية</strong>، التي لها أفعال معيَّنة. وذلك ممكنٌ باستعمال الأفعال المخصصة:</p>
-<ul>
-<li>العد: <code>len(s)</code> يُسمَّى فعله: <code>__len__</code></li>
-<li>الإشارة: <code>s[i]</code> يُسمَّى فعله: <code>__getitem__</code></li>
-<li>التعيين: <code>s[i] = p</code> يُسمَّى فعله: <code>__setitem__</code></li>
-<li>الحذف: <code>del s[i]</code> يُسمَّى فعله: <code>__delitem__</code></li>
-</ul>
-<p>انظر التوثيق الرسمي لبايثون حول <a href="https://docs.python.org/3/reference/datamodel.html#emulating-container-types">محاكاة أنواع الحاويات</a> لمزيد من المعلومات.</p>
-<div id="262c12da" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">class</span> Polygon:</span>
-<span id="cb7-2"><a href="#cb7-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, points):</span>
-<span id="cb7-3"><a href="#cb7-3"></a>        <span class="va">self</span>.points <span class="op">=</span> points</span>
-<span id="cb7-4"><a href="#cb7-4"></a></span>
-<span id="cb7-5"><a href="#cb7-5"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
-<span id="cb7-6"><a href="#cb7-6"></a>        <span class="cf">return</span> <span class="ss">f"Polygon(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>points<span class="sc">}</span><span class="ss">)"</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a></span>
-<span id="cb7-8"><a href="#cb7-8"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</span>
-<span id="cb7-9"><a href="#cb7-9"></a>        <span class="cf">return</span> <span class="bu">len</span>(<span class="va">self</span>.points)</span>
-<span id="cb7-10"><a href="#cb7-10"></a>    </span>
-<span id="cb7-11"><a href="#cb7-11"></a>    <span class="kw">def</span> <span class="fu">__getitem__</span>(<span class="va">self</span>, i):</span>
-<span id="cb7-12"><a href="#cb7-12"></a>        <span class="cf">return</span> <span class="va">self</span>.points[i]</span>
-<span id="cb7-13"><a href="#cb7-13"></a></span>
-<span id="cb7-14"><a href="#cb7-14"></a>    <span class="kw">def</span> <span class="fu">__setitem__</span>(<span class="va">self</span>, i, p):</span>
-<span id="cb7-15"><a href="#cb7-15"></a>        <span class="va">self</span>.points[i] <span class="op">=</span> p</span>
-<span id="cb7-16"><a href="#cb7-16"></a></span>
-<span id="cb7-17"><a href="#cb7-17"></a>    <span class="kw">def</span> <span class="fu">__delitem__</span>(<span class="va">self</span>, i):</span>
-<span id="cb7-18"><a href="#cb7-18"></a>        <span class="kw">del</span> <span class="va">self</span>.points[i]</span>
-<span id="cb7-19"><a href="#cb7-19"></a>    </span>
-<span id="cb7-20"><a href="#cb7-20"></a>    <span class="kw">def</span> perimeter(<span class="va">self</span>):</span>
-<span id="cb7-21"><a href="#cb7-21"></a>        n <span class="op">=</span> <span class="bu">len</span>(<span class="va">self</span>.points)</span>
-<span id="cb7-22"><a href="#cb7-22"></a>        s <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb7-23"><a href="#cb7-23"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb7-24"><a href="#cb7-24"></a>            s <span class="op">+=</span> Point.distance(<span class="va">self</span>.points[i], <span class="va">self</span>.points[(i<span class="op">+</span><span class="dv">1</span>)<span class="op">%</span>n])</span>
-<span id="cb7-25"><a href="#cb7-25"></a>        <span class="cf">return</span> s</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="7b5fd9cb" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>poly <span class="op">=</span> Polygon([</span>
-<span id="cb8-2"><a href="#cb8-2"></a>    Point(<span class="dv">0</span>, <span class="dv">0</span>),</span>
-<span id="cb8-3"><a href="#cb8-3"></a>    Point(<span class="dv">5</span>, <span class="dv">0</span>),</span>
-<span id="cb8-4"><a href="#cb8-4"></a>    Point(<span class="dv">5</span>, <span class="dv">5</span>),</span>
-<span id="cb8-5"><a href="#cb8-5"></a>    Point(<span class="dv">0</span>, <span class="dv">5</span>),</span>
-<span id="cb8-6"><a href="#cb8-6"></a>])</span>
-<span id="cb8-7"><a href="#cb8-7"></a>poly</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>Polygon([Point(0, 0), Point(5, 0), Point(5, 5), Point(0, 5)])</code></pre>
-</div>
-</div>
-<p>والآن نستطيع عدَّ النقاط بالإجراء المعروف <code>len</code> الذي بدوْره يستدعي الإجراء المتعلق بالشيء <code>__len__</code> (فُهما سواء):</p>
-<div id="840b8f55" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="cf">assert</span> <span class="bu">len</span>(poly) <span class="op">==</span> poly.<span class="fu">__len__</span>()</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="bu">len</span>(poly)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>4</code></pre>
-</div>
-</div>
-<p>بتعريفنا لإجراء معرفة الطول، انسجم هذا الصنف مع المجموعات مثل القائمة ومجموعة الفرائد والروابط والسلسلة النصية وغيرها.</p>
-<p>وقد تتساءل: هل أي كلمة أكتبها بين الشرطتين السفليتين استطيع استعماله مثل <code>len</code>؟ والجواب: للأسف لا؛ وإنما هي أسماء مخصوصة.</p>
-<p>أما قبول الإجراء <code>len</code> لأصناف مغايرة عن بعضها فهي خاصيَّة <strong>تعدد الأشكال</strong> <a href="https://en.wikipedia.org/wiki/Polymorphism_(computer_science)">(Polymorphism)</a>: أي أن الإجراء الواحد يقبل أصناف متعددة في الحقيقة لكنَّها في تُظهر نفس السلوك الخارجي. بعبارة أخرى نقول:</p>
-<ul>
-<li>الظاهر: المدخلات والمخرجات واحدة</li>
-<li>الحقيقة: الخوارزمية قد تختلف اختلافًا جذريًّا !</li>
-</ul>
-<p>وهذا كثيرٌ في البرمجيات.</p>
-<p>ثم الإشارة برقم أو بشريحة:</p>
-<div id="893ad149" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="bu">print</span>(poly[<span class="dv">0</span>])</span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="bu">print</span>(poly[<span class="op">-</span><span class="dv">1</span>])</span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="bu">print</span>(poly[<span class="dv">1</span>:<span class="dv">3</span>])</span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="bu">print</span>(poly[::<span class="op">-</span><span class="dv">1</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Point(0, 0)
-Point(0, 5)
-[Point(5, 0), Point(5, 5)]
-[Point(0, 5), Point(5, 5), Point(5, 0), Point(0, 0)]</code></pre>
-</div>
-</div>
-<p>ثم التعيين:</p>
-<div id="91cb2dbb" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>poly[<span class="dv">0</span>] <span class="op">=</span> Point(<span class="dv">10</span>, <span class="dv">10</span>)</span>
-<span id="cb14-2"><a href="#cb14-2"></a>poly</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>Polygon([Point(10, 10), Point(5, 0), Point(5, 5), Point(0, 5)])</code></pre>
-</div>
-</div>
-<p>وأخيرًا الحذف:</p>
-<div id="c3eff343" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">del</span> poly[<span class="dv">0</span>]</span>
-<span id="cb16-2"><a href="#cb16-2"></a>poly</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>Polygon([Point(5, 0), Point(5, 5), Point(0, 5)])</code></pre>
-</div>
-</div>
-<p>تبين بهذا محاكاة بعض إجراءات الحاويات الأساسية مثل <code>list</code> و<code>set</code> و<code>tuple</code> و<code>str</code> و<code>dict</code>. وقد تقدَّم معنا أن النقطة تستطيع محاكاة الأنواع العددية باستعمال الفعل المخصص للجمع <code>+</code> الذي هو <code>__add__</code>.</p>
-</section>
-<section id="التخصيص" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="التخصيص"><span class="header-section-number">12.2</span> التخصيص</h2>
-<p>يكثر استعمال <strong>الطابور</strong> كهيكل بيانات لحل مجموعة من المسائل بطريقة سهلة. نستعرض في هذا المثال كيفية تخصيص القائمة (<code>list</code>) ذات الإجراءات الكثيرة من الحذف والإضافة والتعديل، لصنف له إجراءات مختلفة لكنها مبنية عليها.</p>
-<p>الطابور يُعرَّف بأمرين أساسيين:</p>
-<ul>
-<li>الإدخال من جهة</li>
-<li>الإخراج من الجهة المقابلة (بحيث يكون ما دخل أولاً هو الذي يخرج أولاً)</li>
-</ul>
-<p>فهو بهذا أخص من القائمة التي تزيد عليه: الإشارة لعنصر برقمٍ وإمكان تعديله أو حذفه أو الإضافة في الوسط، وغيرها.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Data_Queue.svg/330px-Data_Queue.svg.png" class="img-fluid figure-img"></p>
-<figcaption><a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)">توضيح الطابور</a></figcaption>
-</figure>
-</div>
-<p>فهذا مثال لكتابة صنف الطابور:</p>
-<div id="5fa78b21" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">class</span> Queue:</span>
-<span id="cb18-2"><a href="#cb18-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
-<span id="cb18-3"><a href="#cb18-3"></a>        <span class="va">self</span>.items <span class="op">=</span> []</span>
-<span id="cb18-4"><a href="#cb18-4"></a></span>
-<span id="cb18-5"><a href="#cb18-5"></a>    <span class="kw">def</span> enqueue(<span class="va">self</span>, item):</span>
-<span id="cb18-6"><a href="#cb18-6"></a>        <span class="co">"""Add an item to the end of the queue"""</span></span>
-<span id="cb18-7"><a href="#cb18-7"></a>        <span class="va">self</span>.items.append(item)</span>
-<span id="cb18-8"><a href="#cb18-8"></a></span>
-<span id="cb18-9"><a href="#cb18-9"></a>    <span class="kw">def</span> dequeue(<span class="va">self</span>):</span>
-<span id="cb18-10"><a href="#cb18-10"></a>        <span class="co">"""Remove an item from the front of the queue"""</span></span>
-<span id="cb18-11"><a href="#cb18-11"></a>        <span class="cf">if</span> <span class="kw">not</span> <span class="va">self</span>.is_empty():</span>
-<span id="cb18-12"><a href="#cb18-12"></a>            <span class="cf">return</span> <span class="va">self</span>.items.pop(<span class="dv">0</span>)</span>
-<span id="cb18-13"><a href="#cb18-13"></a>        <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb18-14"><a href="#cb18-14"></a></span>
-<span id="cb18-15"><a href="#cb18-15"></a>    <span class="kw">def</span> peek(<span class="va">self</span>):</span>
-<span id="cb18-16"><a href="#cb18-16"></a>        <span class="co">"""Return the item at the front without removing it"""</span></span>
-<span id="cb18-17"><a href="#cb18-17"></a>        <span class="cf">if</span> <span class="kw">not</span> <span class="va">self</span>.is_empty():</span>
-<span id="cb18-18"><a href="#cb18-18"></a>            <span class="cf">return</span> <span class="va">self</span>.items[<span class="dv">0</span>]</span>
-<span id="cb18-19"><a href="#cb18-19"></a>        <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb18-20"><a href="#cb18-20"></a></span>
-<span id="cb18-21"><a href="#cb18-21"></a>    <span class="kw">def</span> is_empty(<span class="va">self</span>):</span>
-<span id="cb18-22"><a href="#cb18-22"></a>        <span class="co">"""Check if the queue is empty"""</span></span>
-<span id="cb18-23"><a href="#cb18-23"></a>        <span class="cf">return</span> <span class="bu">len</span>(<span class="va">self</span>.items) <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb18-24"><a href="#cb18-24"></a>    </span>
-<span id="cb18-25"><a href="#cb18-25"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</span>
-<span id="cb18-26"><a href="#cb18-26"></a>        <span class="cf">return</span> <span class="bu">len</span>(<span class="va">self</span>.items)</span>
-<span id="cb18-27"><a href="#cb18-27"></a></span>
-<span id="cb18-28"><a href="#cb18-28"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
-<span id="cb18-29"><a href="#cb18-29"></a>        <span class="co">"""Return the underlying list representation"""</span></span>
-<span id="cb18-30"><a href="#cb18-30"></a>        <span class="cf">return</span> <span class="bu">repr</span>(<span class="va">self</span>.items)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>لاحظ أن إجراء الإنشاء <code>__init__</code> يعيِّن قائمة فارغة للشيء <code>self</code></li>
-<li>ثم الإجراء <code>enqueue</code> يتم بواسطة إجراء القائمة <code>append</code></li>
-<li>والإجراء <code>dequeue</code> يتم بواسطة إجراء القائمة <code>pop</code></li>
-<li>وكذلك <code>peek</code> باستعمال الإشارة بالرقم للعنصر في الموضع <code>0</code></li>
-<li>ثم <code>is_empty</code> بالنظر لطول القائمة بالإجراء <code>len</code></li>
-</ul>
-<p>نختبر ذلك الآن:</p>
-<div id="74c5bc08" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>q <span class="op">=</span> Queue()</span>
-<span id="cb19-2"><a href="#cb19-2"></a></span>
-<span id="cb19-3"><a href="#cb19-3"></a>q.enqueue(<span class="dv">1</span>)</span>
-<span id="cb19-4"><a href="#cb19-4"></a>q.enqueue(<span class="dv">2</span>)</span>
-<span id="cb19-5"><a href="#cb19-5"></a>q.enqueue(<span class="dv">3</span>)</span>
-<span id="cb19-6"><a href="#cb19-6"></a></span>
-<span id="cb19-7"><a href="#cb19-7"></a><span class="bu">print</span>(q)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1, 2, 3]</code></pre>
-</div>
-</div>
-<p>نزيل عُنصرًا:</p>
-<div id="2b29307b" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>q.dequeue()</span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="bu">print</span>(q)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[2, 3]</code></pre>
-</div>
-</div>
-<p>هل يمكننا معرفة عدد العناصر؟:</p>
-<div id="55be5c1e" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="bu">len</span>(q)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
-<pre><code>2</code></pre>
-</div>
-</div>
-<p>صحيح أن القائمة أكثر قدرة (إذْ تتضمن عمليات أكثر)، إلا أن الطابور مخصص لخدمة وظيفة محددة. وليس يهمنا ما ينطوي خلفه (قائمة أم صف أم غير ذلك)؛ بل يهمنا إجراءاته الظاهرة لنا. أما طريقة عمله فقد تجرَّدنا عنها.</p>
+<p>نقول إن هذه <strong>الحروف</strong> أو <strong>المعاملات</strong> ، نحو: <code>+</code>, <code>=</code>, <code>.</code>, <code>[ ]</code>, <code>for</code>, <code>in</code> وسائط <strong>لأفعال مخصصة</strong> ويُرمزُ لتعريفها بشرطتين سفليتين كما تقدَّم.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1192,4 +916,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/09_oop/a2_extend.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/09_oop/a2_extend.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/09_oop/a2_extend.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/09_oop/a2_extend.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></div></div></footer></body></html>

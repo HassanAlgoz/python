@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; الملف – البايثونية</title>
+<title>14&nbsp; الخطأ – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -103,9 +103,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<meta name="twitter:title" content="9&nbsp; الملف – البايثونية">
+<meta name="twitter:title" content="14&nbsp; الخطأ – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/08_files_and_directories/cover.png">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/11_errors/cover.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/a1_serialization.html">باب الملفات</a></li><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/a1_serialization.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الملف</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html">باب الخطأ</a></li><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">الخطأ</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -389,7 +389,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/08_files_and_directories/a1_serialization.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/08_files_and_directories/a1_serialization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الملف</span></span></a>
   </div>
 </li>
@@ -458,7 +458,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/11_errors/a1_errors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/11_errors/a1_errors.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
   </div>
 </li>
@@ -503,19 +503,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#قراءة-وكتابة-الملفات" id="toc-قراءة-وكتابة-الملفات" class="nav-link active" data-scroll-target="#قراءة-وكتابة-الملفات"><span class="header-section-number">9.1</span> قراءة وكتابة الملفات</a></li>
-  <li><a href="#صياغة-البيانات" id="toc-صياغة-البيانات" class="nav-link" data-scroll-target="#صياغة-البيانات"><span class="header-section-number">9.2</span> صياغة البيانات</a></li>
-  <li><a href="#الارتباط-والتضمين" id="toc-الارتباط-والتضمين" class="nav-link" data-scroll-target="#الارتباط-والتضمين"><span class="header-section-number">9.3</span> الارتباط والتضمين</a></li>
-  <li><a href="#الصف" id="toc-الصف" class="nav-link" data-scroll-target="#الصف"><span class="header-section-number">9.4</span> الصف</a></li>
+  <li><a href="#الخطأ-النحوي-الخطأ-في-المبنى" id="toc-الخطأ-النحوي-الخطأ-في-المبنى" class="nav-link active" data-scroll-target="#الخطأ-النحوي-الخطأ-في-المبنى"><span class="header-section-number">14.1</span> الخطأ النحوي: الخطأ في المبنى</a>
+  <ul class="collapse">
+  <li><a href="#فقدان-النقطتين" id="toc-فقدان-النقطتين" class="nav-link" data-scroll-target="#فقدان-النقطتين">فقدان النقطتين <code>:</code></a></li>
+  <li><a href="#علامات-اقتباس-غير-متوازنة" id="toc-علامات-اقتباس-غير-متوازنة" class="nav-link" data-scroll-target="#علامات-اقتباس-غير-متوازنة">علامات اقتباس غير متوازنة</a></li>
+  <li><a href="#اسم-متغير-غير-صالح" id="toc-اسم-متغير-غير-صالح" class="nav-link" data-scroll-target="#اسم-متغير-غير-صالح">اسم متغير غير صالح</a></li>
+  <li><a href="#أخطاء-المحاذاة" id="toc-أخطاء-المحاذاة" class="nav-link" data-scroll-target="#أخطاء-المحاذاة">أخطاء المحاذاة</a></li>
+  <li><a href="#تجويد-العبارة" id="toc-تجويد-العبارة" class="nav-link" data-scroll-target="#تجويد-العبارة">تجويد العبارة</a></li>
+  </ul></li>
+  <li><a href="#الخطأ-المنطقي-الخطأ-في-المعنى" id="toc-الخطأ-المنطقي-الخطأ-في-المعنى" class="nav-link" data-scroll-target="#الخطأ-المنطقي-الخطأ-في-المعنى"><span class="header-section-number">14.2</span> الخطأ المنطقي: الخطأ في المعنى</a>
+  <ul class="collapse">
+  <li><a href="#استعمال-الإجراء-الخاطئ" id="toc-استعمال-الإجراء-الخاطئ" class="nav-link" data-scroll-target="#استعمال-الإجراء-الخاطئ">استعمال الإجراء الخاطئ</a></li>
+  <li><a href="#استعمال-العامل-الخاطئ" id="toc-استعمال-العامل-الخاطئ" class="nav-link" data-scroll-target="#استعمال-العامل-الخاطئ">استعمال العامل الخاطئ</a></li>
+  <li><a href="#مستوى-محاذاة-خاطئ" id="toc-مستوى-محاذاة-خاطئ" class="nav-link" data-scroll-target="#مستوى-محاذاة-خاطئ">مستوى محاذاة خاطئ</a></li>
+  <li><a href="#خطأ-الحافة" id="toc-خطأ-الحافة" class="nav-link" data-scroll-target="#خطأ-الحافة">خطأ الحافَّة</a></li>
+  </ul></li>
+  <li><a href="#كشف-الأخطاء-المنطقية" id="toc-كشف-الأخطاء-المنطقية" class="nav-link" data-scroll-target="#كشف-الأخطاء-المنطقية"><span class="header-section-number">14.3</span> كشف الأخطاء المنطقية</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/08_files_and_directories/a1_serialization.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/08_files_and_directories/a1_serialization.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/11_errors/a1_errors.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/11_errors/a1_errors.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/a1_serialization.html">باب الملفات</a></li><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/a1_serialization.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الملف</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html">باب الخطأ</a></li><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">الخطأ</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الملف</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">الخطأ</span></h1>
 </div>
 
 
@@ -532,240 +544,193 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="قراءة-وكتابة-الملفات" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="قراءة-وكتابة-الملفات"><span class="header-section-number">9.1</span> قراءة وكتابة الملفات</h2>
-<p>فيه ثلاثة خطوات:</p>
+<p>ينقسم الخطأ لثلاثة أنواع:</p>
 <ol type="1">
-<li>نفتح الملف <a href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a>: وهذا طلبٌ من نظام التشغيل الإذنَ (بحسب <code>mode</code> الإذن بالقراءة <code>r</code> أو الإذن بالكتابة <code>w</code> أو الإذن بالقراءة والكتابة <code>rw</code>)؛ ونحصل في النتيجة على مؤشر يشير إليه.</li>
-<li>. نقرأ الملف<code>file.read()</code> فيتم نسخ محتواه من التخزين إلى الذاكرة</li>
-<li>ولا بُد من تسريحه بعد الفراغ منه باستعمال <code>file.close()</code></li>
-</ol>
-<p>وذلك على النحو التالي:</p>
-<div id="ff2660ae" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="bu">file</span><span class="op">=</span><span class="st">'../../datasets/example_root/a/a.txt'</span>, mode<span class="op">=</span><span class="st">'r'</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>content <span class="op">=</span> f.read()</span>
-<span id="cb1-3"><a href="#cb1-3"></a>f.close()</span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="bu">print</span>(content)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>lorem ipsum dolfet
-weilfur badem zelfur</code></pre>
-</div>
-</div>
-<p>أما <strong>المسار</strong> فله شكلان</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>نوع المسار</th>
-<th>الشرح</th>
-<th>مثال</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>المسار المطلق</strong> (Absolute Path)</td>
-<td>يحدد المسار بشكل كامل بدءًا من الجذر، ولا يعتمد على الموقع الحالي.</td>
-<td><code>/home/user/Downloads</code></td>
-</tr>
-<tr class="even">
-<td><strong>المسار النسبي</strong> (Relative Path)</td>
-<td>يحدد المسار بالنسبة لموقع الملف الحالي.</td>
-<td><code>../../datasets/example_root/a/a.txt</code></td>
-</tr>
-</tbody>
-</table>
-<p>وقد تستعمل علامة <code>./</code> للإشارة للدليل الحالي. أما علامة <code>../</code> فتشير إلى الدليل الأب.</p>
-<p>وهكذا نكتب في الملف باستعمال <code>file.write()</code>، بعد فتح الملف بوضع الكتابة <code>'w'</code> في <code>open(mode='w')</code>:</p>
-<div id="0c746542" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>content <span class="op">=</span> <span class="st">"""Salam everyone,</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="st">I hope you are enjoying the course,</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="st">Thank you.</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="st">"""</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="bu">file</span><span class="op">=</span><span class="st">'../../datasets/example_root/a/zzz.txt'</span>, mode<span class="op">=</span><span class="st">'w'</span>)</span>
-<span id="cb3-8"><a href="#cb3-8"></a>f.write(content)</span>
-<span id="cb3-9"><a href="#cb3-9"></a>f.close()</span>
-<span id="cb3-10"><a href="#cb3-10"></a></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="bu">print</span>(content)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Salam everyone,
-I hope you are enjoying the course,
-
-Thank you.
-</code></pre>
-</div>
-</div>
-<p>انظر <a href="https://docs.python.org/3/library/pathlib.html#reading-and-writing-files">توثيق قراءة وكتابة الملفات</a>.</p>
-<p>ولأن الإغلاق ضروري بعد كل فتح؛ فقد وفرت بايثون لذلك مركبًا لغويًّا يُعرف <strong>بإدارة السياق</strong>. فالملف صنفٌ يعتبر <a href="https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers"><strong>مدير سياق</strong> (Context Manager)</a> فيجوز استعمال <code>with</code> وتضمين قطعة الكود في سياقها الذي يتكفل بإغلاق الملف تلقائيّا عند نهاية آخر جملة في قطعة الكود داخلها. وذلك على النحو التالي:</p>
-<div id="e7de6df7" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>contents <span class="op">=</span> <span class="st">''</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="bu">file</span><span class="op">=</span><span class="st">'../../datasets/example_root/a/a.txt'</span>, mode<span class="op">=</span><span class="st">'r'</span>) <span class="im">as</span> f:</span>
-<span id="cb5-3"><a href="#cb5-3"></a>    contents <span class="op">=</span> f.read()</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="bu">print</span>(contents)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>lorem ipsum dolfet
-weilfur badem zelfur</code></pre>
-</div>
-</div>
-</section>
-<section id="صياغة-البيانات" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="صياغة-البيانات"><span class="header-section-number">9.2</span> صياغة البيانات</h2>
-<p><strong>سَلْسَلة البيانات</strong> (Data Serialization) تشير لعملية تحويل البيانات في ذاكرة بايثون (مثل القائمة <code>[]</code> والقاموس <code>{}</code>) من صيغتها الثنائية الخاص باللغة إلى تمثيلٍ ليس خاصًّا بلغةٍ معيَّنة؛ بل يتبع صيغةً متفقًا عليها؛ فإما أن يكون:</p>
-<ol type="1">
-<li><strong>تمثيلاً نصيًّا</strong> (Plain Text Serialization) متفقًا عليه مثل: <code>xml</code> أو <code>json</code> أو <code>csv</code> ونحوها (وقد تقدَّم عرضُها في <a href="">باب النص</a>).</li>
-<li>أو <strong>تمثيلاً ثنائيًّا</strong> (Binary Serialization) متفقًا عليه كذلك مثل: <code>pickle</code> أو <code>protobuf</code> أو <code>parquet</code>.</li>
-</ol>
-<p>فالتمثيل النصي يتميز بأنه مباشر وواضح بالنسبة للبشر. لكنه أبطأ في المعالجة (سواءً في الكتابة أو في القراءة) وأكبرُ حجمًا في التخزين غالبًا. أما التمثيل الثانئي فهو بعكسه: أقرب للآلة وأصعب في التدقيق عند حدوث الخطأ إلا مع وجود أدوات تساعد في ذلك. لكنه أسرع في المعالجة وأقل حجمًا للتخزين.</p>
-<p>وعملية تحويل البيانات المُسَلسَلة (أي المكتوبة بإحدى هذه الصيغ) وقراءَتها في برنامجٍ ما تسمى فك التسلسل (Deserialization). فالتحويل يكون مثلاً من النصي إلى الثنائي في الذاكرة. أو من الثنائي المسلسل إلى الثنائي في الذاكرة.</p>
-<p>فالسلسلة وفكها <strong>ما هي إلا صياغة</strong> لا تغير المكنون بل شكله.</p>
-<p>ويختلف شكل البيانات من ثلاثة أوجه:</p>
-<ol type="1">
-<li><strong>الصف</strong>: <code>[1, 2, 3, 4, 5]</code></li>
-<li><strong>الربط</strong>: <code>{key1: value1, key2: value2}</code></li>
-<li><strong>التضمين</strong>: فيكون العنصر نفسه سلسلة أو ارتباطًا</li>
-</ol>
-<p>فالصفوف تتميز بكون كل صفٍّ فيها تدوينًا لمجموعة خصائص تشترك في العمود كله. أما الارتباط ففيه مرونة؛ فمجموعة الارتباطات لا تُلزِم كل ارتباط أن يكون له ذات خصائص الارتباط الذي قبله. والتقسيمات تُنتج التضمين.</p>
-</section>
-<section id="الارتباط-والتضمين" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="الارتباط-والتضمين"><span class="header-section-number">9.3</span> الارتباط والتضمين</h2>
-<p>سنمثل باستعمال <a href="https://docs.python.org/3/library/json.html">الوحدة المدمجة <code>json</code></a> ذات وظائف القراءة والكتابة لملفات مصاغة على شكل json. فإن كنت تتعامل مع صيغ أخرى انظر في الوثائق:</p>
+<li><strong>الخطأ النحوي</strong>: وهو الخطأ في مبنى اللغة؛ أي: مخالفة قواعدها وقوانينها. (Syntactic Error)</li>
+<li><strong>الخطأ المنطقي</strong>: وهو التعبير بخطوات صحيحة في ذاتها لكنها لا تؤول للنتيجة التي نهدف إليها. (Logical Error)</li>
+<li><strong>الخطأ في الواقع</strong>: ويسمى <strong>الاستثناء</strong> وهو حالة غير مثالية يجب أن يتعامل معها الرنامج. (Runtime Error)
 <ul>
-<li><a href="https://docs.python.org/3/library/xml.html">الوحدة المدمجة <code>xml</code></a> لصيغة <code>xml</code>.</li>
-<li>أو <a href="https://pyyaml.org/wiki/PyYAMLDocumentation">مكتبة <code>pyyaml</code></a> لصيغة <code>yaml</code>.</li>
-</ul>
-<div id="bc1f08ab" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> json</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>لنفترض أن لدينا <code>user_preferences</code> محفوظًا في القاموس، ونريد حفظه في ملف json:</p>
-<div id="e2603df5" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>user_preferences <span class="op">=</span> {</span>
-<span id="cb8-2"><a href="#cb8-2"></a>    <span class="st">'theme'</span>: <span class="st">'dark'</span>,</span>
-<span id="cb8-3"><a href="#cb8-3"></a>    <span class="st">'language'</span>: <span class="st">'Arabic'</span>,</span>
-<span id="cb8-4"><a href="#cb8-4"></a>    <span class="st">'notifications'</span>: {</span>
-<span id="cb8-5"><a href="#cb8-5"></a>        <span class="st">'email'</span>: <span class="va">True</span>,</span>
-<span id="cb8-6"><a href="#cb8-6"></a>        <span class="st">'sms'</span>: <span class="va">False</span>,</span>
-<span id="cb8-7"><a href="#cb8-7"></a>        <span class="st">'push'</span>: <span class="va">True</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a>    },</span>
-<span id="cb8-9"><a href="#cb8-9"></a>    <span class="st">'last_updated'</span>: <span class="st">'2021-09-01'</span>,</span>
-<span id="cb8-10"><a href="#cb8-10"></a>    <span class="st">'emails'</span>: [<span class="st">'example1@domain.com'</span>, <span class="st">'example2@domain.com'</span>]</span>
-<span id="cb8-11"><a href="#cb8-11"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>لنكتبها في الملف نستعمال <code>json.dump</code> على النحو التالي:</p>
-<div id="3a808737" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/user_preferences.json'</span>, mode<span class="op">=</span><span class="st">'w'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb9-2"><a href="#cb9-2"></a>    json.dump(user_preferences, <span class="bu">file</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>فإذا أردنا قراءتها استعمال <code>json.load</code> على النحو التالي:</p>
-<div id="84a413e3" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/user_preferences.json'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb10-2"><a href="#cb10-2"></a>    data <span class="op">=</span> json.load(<span class="bu">file</span>)</span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="bu">print</span>(data)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>{'theme': 'dark', 'language': 'Arabic', 'notifications': {'email': True, 'sms': False, 'push': True}, 'last_updated': '2021-09-01', 'emails': ['example1@domain.com', 'example2@domain.com']}</code></pre>
-</div>
-</div>
-</section>
-<section id="الصف" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="الصف"><span class="header-section-number">9.4</span> الصف</h2>
-<p>تأتي البيانات الجدولية في صيغ متعددة، مثل: - CSV وهي صيغة يكون فيها الصف في سطر، وتكون عناصره مفصولة بعلامة الفاصلة <code>","</code> - TSV وهي مثل CSV إلا أن الفاصلة علامة <code>"\t"</code></p>
-<p>وغيرها كثير.</p>
-<p>في هذا القسم، سنركز على ملفات (Comma Separated Values) CSV؛ وتعني حرفيًّا: القيَم المفصولة بالفاصلة.</p>
-<p>توجد في بايثون وحدة <a href="https://docs.python.org/3/library/csv.html"><code>csv</code></a> فيها إجراءات للقراءة والكتابة على طريقة csv. فلدينا:</p>
-<ul>
-<li>كائن <a href="https://docs.python.org/3/library/csv.html#csv.reader"><code>reader</code></a> لعمليات القراءة</li>
-<li>وكائن آخر منفصل اسمه <a href="https://docs.python.org/3/library/csv.html#csv.writer"><code>writer</code></a> يحوي عمليات الكتابة</li>
-</ul>
-<div id="e8d0b7f9" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="im">import</span> csv</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>لنكتب قائمة من الطلاب إلى ملف CSV. لاحظ، لدينا قائمة من قوائم، حيث تمثل كل قائمة داخلية صفًا لوحدها:</p>
-<div id="a15070a9" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>header <span class="op">=</span> [<span class="st">'Name'</span>, <span class="st">'Age'</span>, <span class="st">'Grade'</span>]</span>
-<span id="cb13-2"><a href="#cb13-2"></a>rows <span class="op">=</span> [</span>
-<span id="cb13-3"><a href="#cb13-3"></a>    [<span class="st">'Adam'</span>, <span class="dv">22</span>, <span class="dv">90</span>],</span>
-<span id="cb13-4"><a href="#cb13-4"></a>    [<span class="st">'Belal'</span>, <span class="dv">23</span>, <span class="dv">92</span>],</span>
-<span id="cb13-5"><a href="#cb13-5"></a>    [<span class="st">'Camal'</span>, <span class="dv">24</span>, <span class="dv">91</span>],</span>
-<span id="cb13-6"><a href="#cb13-6"></a>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>نكتبها على النحو التالي:</p>
-<div id="2ffddf3d" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/students.csv'</span>, mode<span class="op">=</span><span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb14-2"><a href="#cb14-2"></a>    writer <span class="op">=</span> csv.writer(<span class="bu">file</span>)</span>
-<span id="cb14-3"><a href="#cb14-3"></a>    writer.writerow(header)</span>
-<span id="cb14-4"><a href="#cb14-4"></a>    writer.writerows(rows)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>ملاحظة، يمكنك محاولة فتح الملف مباشرة من مستكشف الملفات. حاول فتحه باستخدام Excel أو Google Sheet أو أي برنامج جداول بيانات آخر. إذا فتحته باستخدام محرر نصوص، سترى البيانات كملف CSV؛ حرفيًا قيم مفصولة بفواصل.</p>
-<p>الآن، دعنا نقرأه كهيكل بيانات في بايثون: كقائمة من القوائم.</p>
-<div id="0bd9b9c0" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/students.csv'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb15-2"><a href="#cb15-2"></a>    reader <span class="op">=</span> csv.reader(<span class="bu">file</span>)</span>
-<span id="cb15-3"><a href="#cb15-3"></a>    <span class="cf">for</span> row <span class="kw">in</span> reader:</span>
-<span id="cb15-4"><a href="#cb15-4"></a>        <span class="bu">print</span>(row)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>['Name', 'Age', 'Grade']
-['Adam', '22', '90']
-['Belal', '23', '92']
-['Camal', '24', '91']</code></pre>
-</div>
-</div>
-<p>لنحاول حساب متوسط درجات الطلاب.</p>
-<div id="f4438053" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>students <span class="op">=</span> []</span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/students.csv'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb17-3"><a href="#cb17-3"></a>    reader <span class="op">=</span> csv.reader(<span class="bu">file</span>)</span>
-<span id="cb17-4"><a href="#cb17-4"></a>    <span class="bu">next</span>(reader) <span class="co"># skip the header</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a>    <span class="cf">for</span> row <span class="kw">in</span> reader:</span>
-<span id="cb17-6"><a href="#cb17-6"></a>        students.append(row)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>الآن بعد أن حفظناها في القائمة <code>students</code>، دعونا نقوم ببعض العمليات الحسابية.</p>
-<div id="f4f209e7" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>grades <span class="op">=</span> [s[<span class="dv">2</span>] <span class="cf">for</span> s <span class="kw">in</span> students]</span>
-<span id="cb18-2"><a href="#cb18-2"></a>avg <span class="op">=</span> <span class="bu">sum</span>(grades) <span class="op">/</span> <span class="bu">len</span>(grades)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<li>يأتي الحديث عنه في <a href="../../chapters/11_errors/a2_exceptions.html">الفصل التالي</a>.</li>
+</ul></li>
+</ol>
+<p>في هذا الفصل، نناقش كل نوع من الأخطاء وكيفية التعامل معها.</p>
+<section id="الخطأ-النحوي-الخطأ-في-المبنى" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="الخطأ-النحوي-الخطأ-في-المبنى"><span class="header-section-number">14.1</span> الخطأ النحوي: الخطأ في المبنى</h2>
+<p>الأخطاء النحوية تتعلق بتركيب اللغة لا أكثر ولا أقل. إليك ثلاثة أمثلة.</p>
+<section id="فقدان-النقطتين" class="level3">
+<h3 class="anchored" data-anchor-id="فقدان-النقطتين">فقدان النقطتين <code>:</code></h3>
+<div id="8e965c43" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">if</span> (x <span class="op">&gt;</span> <span class="dv">5</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="bu">print</span>(<span class="st">"x"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[13], line 2</span>
-<span class="ansi-green-fg ansi-bold">      1</span> grades <span style="color:rgb(98,98,98)">=</span> [s[<span style="color:rgb(98,98,98)">2</span>] <span style="font-weight:bold;color:rgb(0,135,0)">for</span> s <span style="font-weight:bold;color:rgb(175,0,255)">in</span> students]
-<span class="ansi-green-fg">----&gt; 2</span> avg <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">sum</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">grades</span><span class="ansi-yellow-bg">)</span> <span style="color:rgb(98,98,98)">/</span> <span style="color:rgb(0,135,0)">len</span>(grades)
-
-<span class="ansi-red-fg">TypeError</span>: unsupported operand type(s) for +: 'int' and 'str'</pre>
+<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[1], line 1</span>
+<span class="ansi-red-fg">    if (x &gt; 5)</span>
+              ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> expected ':'
+</pre>
 </div>
 </div>
 </div>
-<p>هذا الخطأ متوقع عند قراءة الملفات لأنها دائمًا تعتبر من نوع <code>str</code>، ولذلك نضطر لتحويل القيَم العددية إلى <code>int</code> لإجراء عمليات رياضية:</p>
-<div id="7ebb66bf" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>grades <span class="op">=</span> [<span class="bu">int</span>(s[<span class="dv">2</span>]) <span class="cf">for</span> s <span class="kw">in</span> students]</span>
-<span id="cb19-2"><a href="#cb19-2"></a>avg <span class="op">=</span> <span class="bu">sum</span>(grades) <span class="op">/</span> <span class="bu">len</span>(grades)</span>
-<span id="cb19-3"><a href="#cb19-3"></a>avg</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
-<pre><code>91.0</code></pre>
+</section>
+<section id="علامات-اقتباس-غير-متوازنة" class="level3">
+<h3 class="anchored" data-anchor-id="علامات-اقتباس-غير-متوازنة">علامات اقتباس غير متوازنة</h3>
+<div id="0c975a63" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">print</span>(<span class="st">"x</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[2], line 1</span>
+<span class="ansi-red-fg">    print("x</span>
+          ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> unterminated string literal (detected at line 1)
+</pre>
 </div>
 </div>
-<p>يمكنك أيضًا قراءة وكتابة البيانات في شكل قاموس باستخدام الكائنات <a href="https://docs.python.org/3/library/csv.html#csv.DictReader"><code>DictReader</code></a> و<a href="https://docs.python.org/3/library/csv.html#csv.DictWriter"><code>DictWriter</code></a>.</p>
-<div id="d2b0c2fe" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/students.csv'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb21-2"><a href="#cb21-2"></a>    reader <span class="op">=</span> csv.DictReader(<span class="bu">file</span>)</span>
-<span id="cb21-3"><a href="#cb21-3"></a>    <span class="cf">for</span> row <span class="kw">in</span> reader:</span>
-<span id="cb21-4"><a href="#cb21-4"></a>        <span class="bu">print</span>(row)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="اسم-متغير-غير-صالح" class="level3">
+<h3 class="anchored" data-anchor-id="اسم-متغير-غير-صالح">اسم متغير غير صالح</h3>
+<div id="0850a7c1" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>my<span class="op">-</span>variable <span class="op">=</span> <span class="dv">10</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[3], line 1</span>
+<span class="ansi-red-fg">    my-variable = 10</span>
+    ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> cannot assign to expression here. Maybe you meant '==' instead of '='?
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section id="أخطاء-المحاذاة" class="level3">
+<h3 class="anchored" data-anchor-id="أخطاء-المحاذاة">أخطاء المحاذاة</h3>
+<p>من الأخطاء النحوية الشائعة في بايثون: أخطاء المحاذاة (Indentation Error).</p>
+<p>وذلك أن بايثون تقبل نوعين من المسافات البادئة للسطر؛ إما بحرف المسافة التي بين الكلمات <code>\s</code> أو بحرف المسافة بين الأعمدة <code>\t</code>. وقد يستعمل بعض الناس هذه وبعضهم ذلك، ثم تأخذ كودًا من هنا وكودًا من هناك، فترى الكود عنك لا يعمل، والسبب هو الخلط بينهما في نفس الكود. وبايثون لا تقبل ذلك. فيجب توحيد النوع. إما هذه أو هذه. لذلك يضبط VS Code ومحررات الأكواد الأخرى تحويل البادئة تلقائيًا إلى مسافة أو العكس.</p>
+<p>إليك بعض الأمثلة لما يحصل من أخطاء في المحاذاة:</p>
+<p>عدم وجود مسافة بادئة، عندما تكون متوقعة:</p>
+<div id="ec208e2a" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(<span class="st">"x"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[4], line 2</span>
+<span class="ansi-red-fg">    print("x")</span>
+    ^
+<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> expected an indented block after 'if' statement on line 1
+</pre>
+</div>
+</div>
+</div>
+<p>عدم تطابق المحاذاة:</p>
+<div id="6a0bf175" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="bu">print</span>(<span class="st">"x"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>     <span class="bu">print</span>(<span class="st">'y'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[5], line 3</span>
+<span class="ansi-red-fg">    print('y')</span>
+    ^
+<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> unexpected indent
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section id="تجويد-العبارة" class="level3">
+<h3 class="anchored" data-anchor-id="تجويد-العبارة">تجويد العبارة</h3>
+<p>من تجويد العبارة تسمية المتغيرات بما يدل على وظيفتها، مثل:</p>
+<div id="2fbb7027" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>rate <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>hours_per_day <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>days <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>pay <span class="op">=</span> rate <span class="op">*</span> hours_per_day <span class="op">*</span> days</span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="bu">print</span>(pay)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'Name': 'Adam', 'Age': '22', 'Grade': '90'}
-{'Name': 'Belal', 'Age': '23', 'Grade': '92'}
-{'Name': 'Camal', 'Age': '24', 'Grade': '91'}</code></pre>
+<pre><code>1500</code></pre>
 </div>
 </div>
-<p>والطريقة الموصى بها للتعامل مع البيانات الجدولية (مثل ملفات CSV) هي استخدام مكتبة مثل pandas. توفر هذه المكتبة هيكل بيانات سريع ومرن لمعالجة البيانات وتحليلها. <strong>ولا بأس أن تطلع على <a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">دليل البداية في مكتبة pandas</a></strong>.</p>
+<p>وإن كان ليس من الخطأ النحوي كتابتها بطريقة مختلفة وبأسماء غير معبِّرة، إلا أنه أمرٌ غير مستحسن:</p>
+<div id="5e69d8ae" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>r, hpd, d <span class="op">=</span> <span class="dv">50</span>, <span class="dv">6</span>, <span class="dv">5</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>p <span class="op">=</span> r <span class="op">*</span> hpd <span class="op">*</span> d</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="bu">print</span>(p)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1500</code></pre>
+</div>
+</div>
+<p>وفي هذا نصائح كثيرة، يراجع فيها <a href="https://peps.python.org/pep-0008/">دليل أسلوب الكتابة في بايثون</a>.</p>
+</section>
+</section>
+<section id="الخطأ-المنطقي-الخطأ-في-المعنى" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="الخطأ-المنطقي-الخطأ-في-المعنى"><span class="header-section-number">14.2</span> الخطأ المنطقي: الخطأ في المعنى</h2>
+<p>وهي التي نقصدها حين نقول: <strong>Bug</strong>، ولذلك قيل للبرنامج الذي يساعد في إصلاحها: <strong>Debugger</strong>، وعملية البحث عنها وإصلاحها: <strong>Debugging</strong>.</p>
+<p><strong>الأخطاء المنطقية صامتة</strong>. إذ لا يكتشفها المترجم، وتتسبب في تصرف البرنامج بشكل غير صحيح. الأخطاء المنطقية هي الأصعب في التتبع والإصلاح لأنها ليست واضحة. يمكن أن تكون ناجمة عن:</p>
 <ul>
-<li>إذا كنت تريد قراءة الملفات وكتابتها بشكل بسيط انظر: <a href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a>.</li>
-<li>وإذا كنت تريد التعامل مع الملفات المؤقتة فانظر: <a href="https://docs.python.org/3/library/tempfile.html#module-tempfile"><code>tempfile</code></a>.</li>
-<li>وكثير من عمليات التعامل مع الملفات والأدلة تجدها في: <a href="https://docs.python.org/3/library/shutil.html#module-shutil"><code>shutil</code></a>.</li>
+<li>افتراضات غير صحيحة</li>
+<li>تطبيق غير صحيح للخوارزمية أو</li>
+<li>تحضير غير صحيح للبيانات</li>
 </ul>
+<p>اقرأ المزيد عن <a href="https://en.wikipedia.org/wiki/Software_bug#Types">أنواع الأخطاء</a> وإليك بعض الأمثلة.</p>
+<section id="استعمال-الإجراء-الخاطئ" class="level3">
+<h3 class="anchored" data-anchor-id="استعمال-الإجراء-الخاطئ">استعمال الإجراء الخاطئ</h3>
+<div id="e97f6dc3" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="im">import</span> math</span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a>square <span class="op">=</span> math.sqrt(<span class="dv">4</span>) <span class="co"># should use math.pow(4, 2) instead</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="استعمال-العامل-الخاطئ" class="level3">
+<h3 class="anchored" data-anchor-id="استعمال-العامل-الخاطئ">استعمال العامل الخاطئ</h3>
+<div id="4edac47f" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>x <span class="op">=</span> <span class="dv">16</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="cf">if</span> (x <span class="op">==</span> <span class="st">"16"</span>):</span>
+<span id="cb11-3"><a href="#cb11-3"></a>    <span class="bu">print</span>(<span class="st">'equal'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="مستوى-محاذاة-خاطئ" class="level3">
+<h3 class="anchored" data-anchor-id="مستوى-محاذاة-خاطئ">مستوى محاذاة خاطئ</h3>
+<p>هنا كانت النية تقتضي أن تكون <code>print(j)</code> داخل الحلقة الداخلية:</p>
+<div id="f9a80743" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb12-2"><a href="#cb12-2"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
+<span id="cb12-3"><a href="#cb12-3"></a>        <span class="bu">print</span>(i)  </span>
+<span id="cb12-4"><a href="#cb12-4"></a>    <span class="bu">print</span>(j)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0
+0
+0
+2
+1
+1
+1
+2</code></pre>
+</div>
+</div>
+</section>
+<section id="خطأ-الحافة" class="level3">
+<h3 class="anchored" data-anchor-id="خطأ-الحافة">خطأ الحافَّة</h3>
+<p>يكاد يكون أشهر الأخطاء في البرمجة: خطأ الحافَّة. ويسمى (Off-by-one error).</p>
+<p>نشرحه بمثال: النية هنا هي طباعة الأرقام من 5 إلى 0 بما في ذلك 0، ولكن الحلقة تتوقف عند 1.</p>
+<div id="a411589c" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb14-2"><a href="#cb14-2"></a>    <span class="bu">print</span>(i)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5
+4
+3
+2
+1</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="كشف-الأخطاء-المنطقية" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="كشف-الأخطاء-المنطقية"><span class="header-section-number">14.3</span> كشف الأخطاء المنطقية</h2>
+<p>لكونها جملاً صحيحة في ذاتها؛ لا يستطيع البرنامج كشف هذه الأخطاء لوحده. بل يجب على من يُدركُ حقيقة المطلوب من البرنامج أن يتكفل بذلك. وهنا تكون الحاجة ماسَّة <strong>لجمل التوكيد</strong>: <code>assert</code> وقد رأيناها كثيرًا.</p>
+<p>و<strong>التدقيق</strong>؛ إذْ أفضل طريقة لحل الأخطاء المنطقية هي تنفيذ الكود والنظر في الناتج، وتتبع المنطق مرة أخرى إلى الكود سطرًا بسطر. يمكنك استخدام عبارات الطباعة <code>print</code> لتصحيح الأخطاء وفهم تدفق البرنامج. وقد يكون الأفضل من ذلك استعمال <a href="https://code.visualstudio.com/docs/python/debugging"><strong>المدقق</strong></a> (Debugger).</p>
+<p><strong>مراجعة الأقران</strong>: بحيث يطلع على الكود شخص آخر، فإنه قد يرى منه ما تعذر عليك رؤيته. وقد يتم تنظيمه بين أعضاء الفريق الواحد بأحد برمجيات التعاون مثل: GitHub وGitLab وBitbucket وغيرها. لكن ليس شرطًا أن يكون بطريقة منظَّمة حتى تستفيد منه.</p>
 
 
 </section>
@@ -1193,4 +1158,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/08_files_and_directories/a1_serialization.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/08_files_and_directories/a1_serialization.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/11_errors/a1_errors.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/11_errors/a1_errors.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></div></div></footer></body></html>
