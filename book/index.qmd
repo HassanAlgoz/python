@@ -20,101 +20,9 @@
 
 ## لماذا لغة بايثون بالتحديد؟
 
-لغات البرمجة هي أدوات لكن بدل أن تكون هذه الأداة لها أزرار ومقبض ومؤشر وما إلى ذلك من المحسوسات؛ استعمال الأداة هذه يكون بكتابة قطعة برمجية تتبع قواعد اللغة. لذا تتنافس المؤسسات بصناعة لغات تتزاحم في خدمة نفس الأغراض، لذا ينتج لدينا مثل هذه الخريطة:
-
-
-```{mermaid}
-%% | label: fig-applications-of-languages
-%% | fig-cap: تصنيف لغات البرمجة حسب المجال
-flowchart LR
-    subgraph Application_Level
-        direction LR
-        subgraph Web_Application_Servers
-            WebBack1[C# .NET]
-            WebBack2[Java Spring]
-            WebBack3[Python Django]
-        end
-        subgraph Web_Application_Frontends
-            direction TB
-            WebFront1[JavaScript]
-            WebFront1 --> WebFront2[React]
-            WebFront1 --> WebFront3[Vue]
-            WebFront1 --> WebFront4[Angular]
-        end
-        subgraph Mobile_Apps
-            direction TB
-            Mobile1[iOS]
-            Mobile2[Android]
-            Mobile3[Swift] --> Mobile1
-            Mobile4[Flutter]
-            Mobile4 --> Mobile1
-            Mobile4 --> Mobile2
-            Mobile5[Kotlin] --> Mobile2
-        end
-        subgraph Desktop_Apps
-            direction LR
-            Desk1[C# WinUI]
-            Desk2[Java FX]
-            Desk3["C++ Qt"]
-            Desk4[JS Electron]
-        end
-    end
-```
-
-
-```{mermaid}
-flowchart RL
-    subgraph System_Level
-        direction TB
-        subgraph Operating_Systems
-            OS1[C]
-            OS2[Rust]
-        end
-        subgraph Databases
-            DB1[C/C++]
-
-        end
-        subgraph Networking
-            Net1[C/C++]
-            Net2[Go]
-            Net3[Python]
-        end
-    end
-```
-
-
-ومن اللغات ما هو واسع جدًّا من ناحية الاستعمال إلا أن استعمالها محدد لمجال معيَّن وليسَت لغة عامة يُكتب بها أي شيء؛ وهي **اللغات الوصفية** (Declarative Languages) وللتكميل نضيفها في الرسم:
-
-
-```{mermaid}
-flowchart RL
-    subgraph Declarative_Languages
-        subgraph Markup
-            Markup1[HTML]
-            Markup2[CSS]
-            Markup3[Markdown]
-            Markup4[LaTeX]
-        end
-        subgraph Query
-            Query1[GraphQL]
-            Query2[SQL]
-        end
-        subgraph Data
-            Data1[JSON]
-            Data2[CSV]
-            Data3[XML]
-            Data4[YAML]
-        end
-    end
-    subgraph Scripting
-        Script1[Bash]
-        Script2[Python]
-        Script3["Deno (JS)"]
-    end
-```
+لغات البرمجة هي أدوات لكن بدل أن تكون هذه الأداة لها أزرار ومقبض ومؤشر وما إلى ذلك من المحسوسات؛ استعمال الأداة هذه يكون بكتابة قطعة برمجية تتبع قواعد اللغة. لذا تتنافس المؤسسات بصناعة لغات تتزاحم في خدمة نفس الأغراض، لذا ينتج لدينا مثل هذه الخريطة. انظر: @fig-languages-applications.
 
 ويقع الاختيار على لغة بايثون كثيرًا لأمور:
-
 
 - **السهولة** نسبةً إلى أخواتها؛ حيث يجد فيها المبتدئ قُربًا إلى اللغة الإنجليزية
 - **العموم** (عدم اختصاصها بمجال ضيق) وذلك يتمثل في تنوع تطبيقاتها
@@ -134,9 +42,9 @@ flowchart RL
 
 ينقسم الكتاب إلى أبواب: يعالج كل منها موضوعًا في لغة البرمجة.
 
-ينقسم كل باب إلى ثلاثة أجزاء:
+ينقسم كل باب إلى أربعة أجزاء:
 
-1. **الآلية**: شرح الكلمات والجمل البرمجية
+1. **شرح مسبط**: شرح الكلمات والجمل البرمجية
 2. **التطبيق**: يرى المتعلم استعمال الآليات في سياقات مختلفة
 3. **التمرين**: لترسيخ المفاهيم واكتساب المهارات بالممارسة
 4. **الحل**: للتحقق من صحَّة حلك للتمرين
