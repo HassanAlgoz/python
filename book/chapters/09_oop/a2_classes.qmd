@@ -1,11 +1,58 @@
 # التجريد
 
-تمثل الأصناف في لغة بايثون طريقة لوصف المجردات؛ مثل: النقطة `Point` كما رأينا.
+ومن الخصائص الممتعة في بناء البرمجيات: العلاقات بين المجردات في المستويات المختلفة من التجريد. وسنمثل لذلك بـ:
 
-ومن الخصائص الممتعة في بناء البرمجيات: العلاقات بين المجردات في المستويات المختلفة من التجريد. وسنمثل بمثالين:
+1. **التعميم**: بحيث يكون النوع غير مقيَّد بحالة معيَّنة، بل يُخصص عند التعيين.
+2. **التركيب**: حيث نعرِّف صِنف **المضلَّع** أنه مركَّب من **سلسلة + نقاط** ونركِّب من عوامل اللغة ما يجعله يشبه **المجموعات**
+3. **التخصيص**: حيث نخفي إجراءات السلسلة (الحذف والإضافة والتعديل ونحوها) وراء أفعال محددَّة في صنف جديد نسميه **الطابور**
+4. **التسلسل**: وهو النوع الذي يرتبط بمثله. كالشجرة، فروعها أصولٌ لفروع، وهكذا يتسلسل الأمر حتى نصل إلى الثمار.
 
-1. **التركيب**: حيث نعرِّف صِنف **المضلَّع** أنه مركَّب من **سلسلة + نقاط** ونركِّب من عوامل اللغة ما يجعله يشبه **المجموعات**
-2. **التخصيص**: حيث نخفي إجراءات السلسلة (الحذف والإضافة والتعديل ونحوها) وراء أفعال محددَّة في صنف جديد نسميه **الطابور**
+## التعميم
+
+نريد أن نعمم صنف المتجه بحيث لا يتقيد بعنصرين `x,y` بل يقبل أن يكون أكثر من ذلك:
+
+```{python}
+class Vector:
+    def __init__(self, *args):
+        self.elements = args
+    
+    def __repr__(self):
+        str_elements = [str(e) for e in self.elements]
+        return f"Vector({', '.join(str_elements)})"
+    
+    def __add__(self, other):
+        result = []
+        if isinstance(other, Vector):
+            if len(self.elements) != len(other.elements):
+                raise ValueError("Vectors must have the same length")
+            for a, b in zip(self.elements, other.elements):
+                result.append(a + b)
+        else:
+            for a in self.elements:
+                result.append(a + other)        
+        return Vector(*result)
+    
+    def __radd__(self, other):
+        return self + other
+```
+
+أما السطر الأخير: `return Vector(*result)` فعلامة النجمة تفك القائمة بحيث تمرر عناصرها كمعيَّنات منفصلة لإجراء الإنشاء.
+
+```{python}
+v1 = Vector(10, 20, 30)
+v2 = Vector(60, 50, 40)
+
+v1 + v2
+```
+
+```{python}
+v1 + 10
+```
+
+```{python}
+10 + v1
+```
+
 
 ## التركيب
 
@@ -243,3 +290,42 @@ len(q)
 
 صحيح أن القائمة أكثر قدرة (إذْ تتضمن عمليات أكثر)، إلا أن الطابور مخصص لخدمة وظيفة محددة. وليس يهمنا ما ينطوي خلفه (قائمة أم صف أم غير ذلك)؛ بل يهمنا إجراءاته الظاهرة لنا. أما طريقة عمله فقد تجرَّدنا عنها.
 
+
+## التسلسل
+
+ومن الأنواع ما يتسليل مثل الشجرة، حيث فروعها قد تكون أصولاً لفروع أخرى. وهكذا يتسلسل الأمر حتى نصل إلى الأوراق / الثمار (القيم الأخيرة).
+
+ومثل هذا له استعمالات كثيرة في هيكلة البيانات بأمثل بنية تكون فيها أسرع في البحث والإدراج والحذف ونحو ذلك. لكننا نكتفي بمثال نعرف فيه الشجرة الثنائية:
+
+```{python}
+class BinaryTreeNode:
+    def __init__(self,
+        value,
+        left: 'BinaryTreeNode' = None,
+        right: 'BinaryTreeNode' = None):
+        self.value = value
+        self.left = left
+        self.right = right
+    
+    def __repr__(self):
+        if self.left is None and self.right is None:
+            return f"{self.value}"
+        return f"({self.left}) <-- [{self.value}] --> ({self.right})"
+```
+
+```{python}
+tree = BinaryTreeNode(10)
+tree.left = BinaryTreeNode(5)
+tree.right = BinaryTreeNode(15)
+
+tree
+```
+
+```{python}
+tree.left.left = BinaryTreeNode(3)
+tree.left.right = BinaryTreeNode(7)
+tree.right.left = BinaryTreeNode(13)
+tree.right.right = BinaryTreeNode(17)
+
+tree
+```
