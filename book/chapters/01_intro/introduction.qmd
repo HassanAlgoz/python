@@ -105,7 +105,7 @@ async      elif       if         or         yield
 إذاً في لغة بايثون:
 
 1. قطع برمجية
-2. في كل قطعة جمل برمجية بسيطة أو مركبة
+2. في كل قطعة جمل متتابعة بسيطة أو مركبة
 3. في كل جملة مفردات وتعبيرات وعوامل ومحددات
 
 ## القطعة البرمجية
@@ -139,9 +139,11 @@ else:
 
 ```{mermaid}
 flowchart TD
-    B[distance = 200] --> C[speed = 100] --> D[time_to_arrive = distance / speed] --> IF1{{time_to_arrive > 1 ?}}
+    B[distance = 200] --> C[speed = 100] --> D[time_to_arrive = distance / speed] --> IF1{{"if time_to_arrive > 1"}}
     IF1 -->|False| X["on time"]
     IF1 -->|True| Y["we are going to be late!"]
+
+    style IF1 fill:#82aeff, stroke:#333, stroke-width:2px;
 ```
 
 ### المثال الثاني: القوائم وحلقات التكرار
