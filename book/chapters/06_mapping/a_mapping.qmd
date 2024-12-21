@@ -16,7 +16,7 @@
 
 انظر [MutableSet](https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableSet) في خريطة المجموعات: @fig-collections-tree.
 
-تنشأ المجموعة الفريدة بالإجراء المنشئ [`set()`](https://docs.python.org/3/library/stdtypes.html#set). ويفضل استعمال القوسين المتعرجين `{ }` بدلاً منه:
+تنشأ المجموعة الفريدة بالفعل المنشئ [`set()`](https://docs.python.org/3/library/stdtypes.html#set). ويفضل استعمال القوسين المتعرجين `{ }` بدلاً منه:
 
 ```{python}
 s1 = set([10, 20, 30])
@@ -38,7 +38,7 @@ assert s1 == s2
 - المحو: `clear`
 
 
-ذكرنا أن شرط عضوية العنصر أن يكون مرقومًا؛ وهذا **يجعل عملية البحث فيها قفزة واحدة** (`O(1)`)؛ إذْ يتم حساب الرقم بالإجراء `hash()` الذي **يشير لعنوان القيمة في الذاكرة**.
+ذكرنا أن شرط عضوية العنصر أن يكون مرقومًا؛ وهذا **يجعل عملية البحث فيها قفزة واحدة** (`O(1)`)؛ إذْ يتم حساب الرقم بالفعل `hash()` الذي **يشير لعنوان القيمة في الذاكرة**.
 
 **المرقوم** ([`Hashable`](https://docs.python.org/3/glossary.html#term-hashable)): هو ما يقبل الفعل `hash()` الذي يحول الشيء إلى رقم فريد. ومنه:
 
@@ -94,18 +94,18 @@ symmetric_difference = set1 ^ set2
 assert symmetric_difference == {1, 2, 3, 6, 7, 8}
 ```
 
-نصيحة: من الأفضل استعمال اسم الإجراء بدلاً من العلامة التي تقابله حيث أنها تقبل أي نوع من المتكررات (Iterables) ولا تقتصر على مجموعة الفرائد فقط (`set`).
+نصيحة: من الأفضل استعمال اسم الفعل بدلاً من العلامة التي تقابله حيث أنها تقبل أي نوع من المتكررات (Iterables) ولا تقتصر على مجموعة الفرائد فقط (`set`).
 
-| العملية                        | العلامة        | الإجراء المكافئ                  |
+| العملية                        | العلامة        | الفعل المكافئ                  |
 |--------------------------------|----------------|----------------------------------|
 | الاتحاد                        | `set1 | set2`  | `set1.union(set2)`               |
 | التقاطع                       | `set1 & set2`  | `set1.intersection(set2)`        |
 | الفرق                          | `set1 - set2`  | `set1.difference(set2)`          |
 | الفرق التماثلي                | `set1 ^ set2`  | `set1.symmetric_difference(set2)`|
 
-وكذلك لدينا إجراءات تحقق الجزئية والشمول والانفصال:
+وكذلك لدينا أفعال تحقق الجزئية والشمول والانفصال:
 
-| العملية                        | العلامة        | الإجراء المكافئ                  |
+| العملية                        | العلامة        | الفعل المكافئ                  |
 |--------------------------------|----------------|----------------------------------|
 | تحقق الجزئية                   | `set1 <= set2` | `set1.issubset(set2)`            |
 | تحقق الشمول                    | `set1 >= set2` | `set1.issuperset(set2)`          |
@@ -158,7 +158,7 @@ print(unique_t)
 
 انظر [MutableMapping](https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableMapping) في خريطة المجموعات: @fig-collections-tree.
 
-تنشأ المجموعة الرابطة بالإجراء المنشئ [`dict()`](https://docs.python.org/3/library/stdtypes.html#dict) ويفضل استعمال القوسين المتعرجين `{ }` بدلاً منه:
+تنشأ المجموعة الرابطة بالفعل المنشئ [`dict()`](https://docs.python.org/3/library/stdtypes.html#dict) ويفضل استعمال القوسين المتعرجين `{ }` بدلاً منه:
 
 ```{python}
 d1 = dict(key1='value1', key2='value2')
@@ -221,7 +221,7 @@ print(data[('a', 'b', 'c')])
 
 ### إنشاء قاموس من سلسلتين
 
-ويتحصل القاموس من سلسلتين باستعمال الإجراء [`zip()`](https://docs.python.org/3/library/functions.html#zip)، كما يلي:
+ويتحصل القاموس من سلسلتين باستعمال الفعل [`zip()`](https://docs.python.org/3/library/functions.html#zip)، كما يلي:
 
 ```{python}
 students = ['Ahmad', 'Belal', 'Careem', 'David']

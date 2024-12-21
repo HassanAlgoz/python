@@ -60,7 +60,7 @@ assert (
 
 ملاحظة، عند نسخ المسارات في نظام ويندوز (Windows)، يجب عليك إما استبدال الشرطات المائلة العكسية `\` بالشرطات المائلة الأمامية `/` أو استخدام السلاسل النصية الخام `r''` لتجنب المشاكل (كما فعلنا أعلاه).
 
-وهكذا نستطيع استعمال الكائن `Path` في إجراء `open(file=path)` للتعامل مع الملفات:
+وهكذا نستطيع استعمال الكائن `Path` في فعل `open(file=path)` للتعامل مع الملفات:
 
 ```{python}
 p = Path('../../datasets/example_root/a/a.txt')
@@ -84,7 +84,7 @@ with open(file=p, mode='r') as f:
 print(contents)
 ```
 
-بدلاً من قراءة الملف جملة واحدة `.read()` نستطيع القراءة سطرًا بسطر عن طريق الإجراء `.readline()` على النحو التالي:
+بدلاً من قراءة الملف جملة واحدة `.read()` نستطيع القراءة سطرًا بسطر عن طريق الفعل `.readline()` على النحو التالي:
 
 ```{python}
 p = Path('../../datasets/example_root/a/a.txt')
@@ -101,7 +101,7 @@ with open(file=p, mode='r') as f:
 
 انظر [قراءة الأدلة](https://docs.python.org/3/library/pathlib.html#reading-directories).
 
-لعرض قائمة الدليل، نستعمل المكرر الناتج من إجراء `.iterdir()` ونكرر عليه، وهو بدورِه يُنتج في كل كرةٍ **مساراً** (`x`). وهذا المسار يُمكن التحقق من أنه يشير إلى دليل أو لا (`x.is_dir()`) على النحو التالي: 
+لعرض قائمة الدليل، نستعمل المكرر الناتج من فعل `.iterdir()` ونكرر عليه، وهو بدورِه يُنتج في كل كرةٍ **مساراً** (`x`). وهذا المسار يُمكن التحقق من أنه يشير إلى دليل أو لا (`x.is_dir()`) على النحو التالي: 
 
 ```{python}
 p = Path('../../datasets/example_root/')
@@ -111,7 +111,7 @@ dirs
 
 #### جرب
 
-هل تريد أن تعرف حجم دليل التنزيلات (Downloads) في جهازك؟. لديك الإجراء `stat()` للحصول على بيانات عن الدليل، والتي من ضمنها الحجم (`st_size`) هكذا:
+هل تريد أن تعرف حجم دليل التنزيلات (Downloads) في جهازك؟. لديك الفعل `stat()` للحصول على بيانات عن الدليل، والتي من ضمنها الحجم (`st_size`) هكذا:
 
 ```{python}
 p = Path.home() / 'Downloads'
@@ -119,7 +119,7 @@ size = p.stat().st_size
 print(size, 'bytes')
 ```
 
-ثم هذا الإجراء لتحويل الوِحدة من البايت إلى الكيلو والميجا والقيقا:
+ثم هذا الفعل لتحويل الوِحدة من البايت إلى الكيلو والميجا والقيقا:
 
 ```{python}
 def format_size(size):
@@ -137,7 +137,7 @@ print(format_size(size))
 
 ### البحث في شجرة الأدلة
 
-يستعمل الإجراء [`glob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob) للبحث عن نمط معيَّن بدءًا من **المسار**، وهذا النمط قد يبحث في مستوىً واحد أو يتخلل الشجرة بأي طريقة تريد؛ ليطابق أسماء الملفات والأدلة بنمط معيَّن فيستخرجها لك.
+يستعمل الفعل [`glob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob) للبحث عن نمط معيَّن بدءًا من **المسار**، وهذا النمط قد يبحث في مستوىً واحد أو يتخلل الشجرة بأي طريقة تريد؛ ليطابق أسماء الملفات والأدلة بنمط معيَّن فيستخرجها لك.
 
 انظر [لغة الأنماط](https://docs.python.org/3/library/pathlib.html#pathlib-pattern-language) لتتعلم هذه اللغة الصغيرة.
 
@@ -155,7 +155,7 @@ print('Total size:', format_size(total_size))
 
 ### المشي على جميع ملفات الشجرة
 
-نستعمل الإجراء [`walk`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk) للسير على جميع ملفات الشجرة نزولاً أو صعودًا؛ على هذا النحو:
+نستعمل الفعل [`walk`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk) للسير على جميع ملفات الشجرة نزولاً أو صعودًا؛ على هذا النحو:
 
 ```{python}
 p = Path('../../datasets/example_root/')
@@ -207,7 +207,7 @@ for dirpath, dirnames, filenames in p.walk(top_down=True):
     - [`rmdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rmdir): حذف دليل فارغ.
     - [`unlink`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.unlink): حذف ملف.
     - [`rename`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rename): تعديل اسم ملف.
-    - [`replace`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.replace): تعديل اسم ملف مع الكتابة فوقه إذا لزم الأمر.
+    - [`replace`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.replace): تعديل اسم ملف مع الكتابة فوقه إذا لزم الفعل.
     - [`chmod`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.chmod): تغيير أذونات الملف.
     - [`lchmod`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.lchmod): تغيير أذونات الملف دون متابعة الارتباطات الرمزية.
     - [`touch`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.touch): تحديث الطابع الزمني للملف.

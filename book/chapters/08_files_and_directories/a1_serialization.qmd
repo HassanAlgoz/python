@@ -46,7 +46,7 @@ print(content)
 
 انظر [توثيق قراءة وكتابة الملفات](https://docs.python.org/3/library/pathlib.html#reading-and-writing-files).
 
-ولأن الإغلاق ضروري بعد كل فتح؛ فقد وفرت بايثون لذلك مركبًا لغويًّا يُعرف **بإدارة السياق**. فالملف صنفٌ يعتبر [**مدير سياق** (Context Manager)](https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers) فيجوز استعمال `with` وتضمين قطعة الكود في سياقها الذي يتكفل بإغلاق الملف تلقائيّا عند نهاية آخر جملة في قطعة الكود داخلها. وذلك على النحو التالي:
+ولأن الإغلاق ضروري بعد كل فتح؛ فقد وفرت بايثون لذلك مركبًا لغويًّا يُعرف **بإدارة السياق**. فالملف نوعٌ يعتبر [**مدير سياق** (Context Manager)](https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers) فيجوز استعمال `with` وتضمين قطعة الكود في سياقها الذي يتكفل بإغلاق الملف تلقائيّا عند نهاية آخر جملة في قطعة الكود داخلها. وذلك على النحو التالي:
 
 ```{python}
 contents = ''
@@ -130,7 +130,7 @@ print(data)
 
 في هذا القسم، سنركز على ملفات (Comma Separated Values) CSV؛ وتعني حرفيًّا: القيَم المفصولة بالفاصلة.
 
-توجد في بايثون وحدة [`csv`](https://docs.python.org/3/library/csv.html) فيها إجراءات للقراءة والكتابة على طريقة csv. فلدينا:
+توجد في بايثون وحدة [`csv`](https://docs.python.org/3/library/csv.html) فيها أفعال للقراءة والكتابة على طريقة csv. فلدينا:
 
 - كائن [`reader`](https://docs.python.org/3/library/csv.html#csv.reader) لعمليات القراءة
 - وكائن آخر منفصل اسمه [`writer`](https://docs.python.org/3/library/csv.html#csv.writer) يحوي عمليات الكتابة
@@ -189,7 +189,7 @@ grades = [s[2] for s in students]
 avg = sum(grades) / len(grades)
 ```
 
-هذا الخطأ متوقع عند قراءة الملفات لأنها دائمًا تعتبر من نوع `str`، ولذلك نضطر لتحويل القيَم العددية إلى `int` لإجراء عمليات رياضية:
+هذا الخطأ متوقع عند قراءة الملفات لأنها دائمًا تعتبر من نوع `str`، ولذلك نضطر لتحويل القيَم العددية إلى `int` لفعل عمليات رياضية:
 
 
 ```{python}
