@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -105,9 +71,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <meta name="twitter:title" content="إعداد بيئة التطوير – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/assets/python_download.png">
-<meta name="twitter:image-height" content="756">
-<meta name="twitter:image-width" content="1590">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/cover.png">
+<meta name="twitter:image-height" content="1185">
+<meta name="twitter:image-width" content="1196">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -527,41 +493,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>نبدأ بالتعرف على بيئة التطوير ، وتثبيتها في جهازك؛ وذلك أنني أؤمن بضرورة إكساب الفرد أعلى قدر من التحكم في أدواته حتى يتمكن منها ومن تطويعها لعمل ما يريد بالشكل الأمثل.</p>
 <p><strong>بيئة التطوير</strong> هي الأدوات البرمجية الأساسية والمساعدة لعمليات كتابة الكود وتنفيذه واختباره ونحو ذلك.</p>
-<p>أول ما نحتاج إليه هو حزمة برمجيات <strong>بايثون</strong> التي تتضمَّن الأداة التي تترجم ما نكتبه من كود بلغة بايثون لأوامِر ثنائية (صفر وواحد) لتكون مفهومة على مستوى نظام التشغيل ومعمارية الحاسب (إذ هي مستويات أكثر تفصيلاً)؛ ونسميه <strong>المُفَسِّر (Interpreter)</strong> وإن شئت قُل مترجم.</p>
-<p>كما تتضمن هذه الحزمة برنامج <code>pip</code> المسؤول عن تثبيت الحِزَم البرمجية المكتوبة بلغة بايثون؛ وذلك حتى تتمكن من البناء عليها عند كتابة أكواد بايثون (وبهذا الاعتبار تسمى <strong>مكتبات</strong>)، أو فقط لاستعمال برمجيات مكتوبة ببايثون (وبهذا الاعتبار تسمى <strong>برمجيات</strong>).</p>
-<p>أما محرر الكود فسنختار <strong>محرر (VS Codium)</strong> وهو مفتوح المصدر، وقد بنت عليه شركة مايكروسوفت محررها (Visual Studio Code) (الذي يستعمله 73.6% من 58,121 متجاوب في <a href="https://survey.stackoverflow.co/2024/technology#1-integrated-development-environment">استبيان StackOverFlow 2024</a>) لأن الشركة أسسته ثم فتحت للمجتمع البرمجي أكواده. وما يميزه أنه سهل بالنسبة للمبتدئ، وقوي بالنسبة للمتمكن. وتعني الشركة بدعمه وصيانته باستمرار وتطويره، كما أتيح بفتح أكواده سهولة كشف الأخطاء فيه، وأتيح بفضل تصميمه لأن يُخصص وتمتد إمكانياته بإضافات برمجيَّة قابلة للتثبيت يقوم بتزويدها لبعضهم البعض المجتمع البرمجي على مختلف لغاته واستعمالاته.</p>
-<p>وهناك طريقتان في العمل مع كود البايثون:</p>
-<ol type="1">
-<li>الكتابة على ملف <code>.py</code> وتشغيله من أوله إلى آخره</li>
-<li>الكتابة على <strong>دفتر جوبتر</strong> (<code>.ipynb</code>) وتشغيل كل جزء على حدة (وهذه الطريقة التي نفضلها)</li>
-</ol>
-<p>نأتي الآن على كيفية تثبيت هذه المكونات في الجهاز.</p>
-<ol type="1">
-<li>تنزيل مثبِّت حزمة برمجيات بايثون؛ بالذهاب لصفحة <a href="https://www.python.org/">https://www.python.org/</a> والضغط على زر التنزيل (Download).</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/python_download.png" class="img-fluid figure-img"></p>
-<figcaption>How to download Python from https://www.python.org/</figcaption>
-</figure>
-</div>
-<ol start="2" type="1">
-<li><p>تنزيل مثبِّت محرر الأكواد وتثبيته:</p>
-<ul>
-<li>النسخة المعدلة من مايكروسوفت (التي تتضمن متابعتك والربط مع خدماتها السحابية المدفوعة): <a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
-<li>النسخة الحرة مفتوحة المصدر: <a href="https://vscodium.com/">VS Codium</a></li>
-</ul></li>
-<li><p>يجب أن نربط المحرر باللغة: يجب تثبيت وصلة البايثون: <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python Extension</a>.</p></li>
-<li><p>كما يجب ربط المحرر بدفتر جوبتر: يجب أن نثبت وصلة جوبيتر: <a href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Jupyter Extension</a>.</p></li>
-<li><p>لتشغيل الكود في دفتر جوبتر يجب تثبيت حزمة <code>ipykernel</code> عن طريق مدير الحزم <code>pip</code>. يستلزم ذلك أن تفتح <strong>نافذة الأفعال</strong> (Terminal) ثم تكتب فيها السطر التالي:</p></li>
-</ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">pip</span> install ipykernel</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>أخيرًا:</p>
-<ul>
-<li>إن أردت كتابة الكود في دفتر جوبتر: أنشئ ملف جديد بصيغة <code>ipynb.</code> وافتحه.</li>
-<li>إن أردت كتابة الكود في ملف بايثون عادي: أنشئ ملف جديد بصيغة <code>.py</code> وافتحه.</li>
-</ul>
-<p>بعد ذلك تكون جاهزًا للبدء في <a href="./chapters/01_intro/introduction.html">الدرس الأول</a>!</p>
+<p>أما محرر الكود فسنختار <strong>محرر (Visual Studio Code)</strong> وهو فرعٌ عن مشروع مفتوح المصدر بنت عليه شركة مايكروسوفت. ويستعمله 73.6% من 58,121 متجاوب في <a href="https://survey.stackoverflow.co/2024/technology#1-integrated-development-environment">استبيان StackOverFlow 2024</a> لأن الشركة أسسته ثم فتحت للمجتمع البرمجي أكواده. وما يميزه أنه سهل بالنسبة للمبتدئ، وقوي بالنسبة للمتمكن. وتعني الشركة بدعمه وصيانته باستمرار وتطويره، كما أتيح بفتح أكواده سهولة كشف الأخطاء فيه، وأتيح بفضل تصميمه لأن يُخصص وتمتد إمكانياته بإضافات برمجيَّة قابلة للتثبيت يقوم بتزويدها لبعضهم البعض المجتمع البرمجي على مختلف لغاته واستعمالاته.</p>
+<p>وأما تنظيم المشروعات والمكتبات فسنختار <code>uv</code> من Astral إذْ يجمع بين الترتيب (فصل كل مشروع عن الآخر)، والسرعة (لأنه كُتِبَ بلغة Rust)، وكذلك السهولة.</p>
+<p>تابع المقطع الذي فيه تفصيل ذلك كله:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zIJvm39Rbf0?si=AK3LtOQwKhRSmy3p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<p>بعد ذلك تكون جاهزًا للبدء في البرمجة.</p>
 
 
 
