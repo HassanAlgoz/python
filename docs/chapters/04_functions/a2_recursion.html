@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>حل المسائل – البايثونية</title>
+<title>5&nbsp; الفعل المتسلسل – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,10 +102,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta name="twitter:title" content="حل المسائل – البايثونية">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta name="twitter:title" content="5&nbsp; الفعل المتسلسل – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/02_numbers/cover.png">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/04_functions/cover.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -118,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/02_numbers/a_numbers.html">باب الأعداد (Numbers)</a></li><li class="breadcrumb-item"><a href="../../chapters/02_numbers/solutions.html">حل المسائل</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/04_functions/a_functions.html">باب الأفعال (Functions)</a></li><li class="breadcrumb-item"><a href="../../chapters/04_functions/a2_recursion.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الفعل المتسلسل</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -227,7 +256,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/02_numbers/solutions.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/02_numbers/solutions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">حل المسائل</span></a>
   </div>
 </li>
@@ -285,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/04_functions/a2_recursion.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/04_functions/a2_recursion.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الفعل المتسلسل</span></span></a>
   </div>
 </li>
@@ -509,21 +538,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#كم-سيكون-عمرك-عند-حين-كذا" id="toc-كم-سيكون-عمرك-عند-حين-كذا" class="nav-link active" data-scroll-target="#كم-سيكون-عمرك-عند-حين-كذا">كم سيكون عمرك عند حين كذا؟</a></li>
-  <li><a href="#حساب-الأجر" id="toc-حساب-الأجر" class="nav-link" data-scroll-target="#حساب-الأجر">حساب الأجر</a></li>
-  <li><a href="#حساب-الزمن-المستغرق-للوصول-إلى-مكان-معين" id="toc-حساب-الزمن-المستغرق-للوصول-إلى-مكان-معين" class="nav-link" data-scroll-target="#حساب-الزمن-المستغرق-للوصول-إلى-مكان-معين">حساب الزمن المستغرق للوصول إلى مكان معيَّن</a></li>
-  <li><a href="#حساب-ارتفاع-المثلث-عن-طريق-أطوال-أضلاعه" id="toc-حساب-ارتفاع-المثلث-عن-طريق-أطوال-أضلاعه" class="nav-link" data-scroll-target="#حساب-ارتفاع-المثلث-عن-طريق-أطوال-أضلاعه">حساب ارتفاع المثلث عن طريق أطوال أضلاعه</a></li>
-  <li><a href="#نسبة-التغير" id="toc-نسبة-التغير" class="nav-link" data-scroll-target="#نسبة-التغير">نسبة التغير</a></li>
-  <li><a href="#الزيادة-النسبية" id="toc-الزيادة-النسبية" class="nav-link" data-scroll-target="#الزيادة-النسبية">الزيادة النسبية</a></li>
+  <li><a href="#مثال-المضروب" id="toc-مثال-المضروب" class="nav-link active" data-scroll-target="#مثال-المضروب"><span class="header-section-number">5.1</span> مثال: المضروب</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/02_numbers/solutions.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/02_numbers/solutions.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/04_functions/a2_recursion.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/04_functions/a2_recursion.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/02_numbers/a_numbers.html">باب الأعداد (Numbers)</a></li><li class="breadcrumb-item"><a href="../../chapters/02_numbers/solutions.html">حل المسائل</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/04_functions/a_functions.html">باب الأفعال (Functions)</a></li><li class="breadcrumb-item"><a href="../../chapters/04_functions/a2_recursion.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الفعل المتسلسل</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">حل المسائل</h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الفعل المتسلسل</span></h1>
 </div>
 
 
@@ -540,91 +564,96 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="كم-سيكون-عمرك-عند-حين-كذا" class="level2">
-<h2 class="anchored" data-anchor-id="كم-سيكون-عمرك-عند-حين-كذا">كم سيكون عمرك عند حين كذا؟</h2>
-<div id="61220c55" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>future_date <span class="op">=</span> <span class="dv">2050</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>today <span class="op">=</span> <span class="dv">2024</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>age <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>age_then <span class="op">=</span> age <span class="op">+</span> (future_date <span class="op">-</span> today)</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="bu">print</span>(<span class="st">'you will be'</span>, age_then, <span class="st">'years old in'</span>, future_date)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>الفعل المتسلسل</strong>: يحتوي على جملة يطلب فيها نفسه. ويجب أن تؤول سلسلة الطلبات هذه إلى جملة تنهي التسلسل.</p>
+<p><strong>تنبيه</strong>: هذا مبحثٌ شيِّق، وقد يكون فيه شيءٌ من الصعوبة، لكنّ فيه أدوات فعَّالة في استعمال المنطق البرمجي بأقصى مدى.</p>
+<section id="مثال-المضروب" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="مثال-المضروب"><span class="header-section-number">5.1</span> مثال: المضروب</h2>
+<p>فمثلا: تعرف الرياضيات <strong>مضروب العدد</strong></p>
+<p><span class="math display">\[
+!n = n(n-1)(n-2)\cdots(1)
+\]</span></p>
+<p>فهي عملية ضرب لكل عدد مع الذي قبله حتى ينتهي للواحد. ومن أمثلته:</p>
+<p><span class="math display">\[
+!5 = (5)(4)(3)(2)(1)
+\]</span></p>
+<p>ولك أن تصف نفس العملية هكذا:</p>
+<p><span class="math display">\[
+!n = n !(n-1)
+\]</span></p>
+<p>أي أن مضروب العدد هو ضربُ هذا العدد في مضروب العدد الذي قبله. وذلك يتسلسل على النحو التالي:</p>
+<p><span class="math display">\[
+!5 = (5)!(4) = (5)(4!(3)) = (5)(4(3!(2))) = (5)(4(3(2!(1)))) = (5)(4(3(2(1)))) = (5)(4)(3)(2)(1)
+\]</span></p>
+<p>إذا نخلص بالمعادلة التالية:</p>
+<p><span class="math display">\[
+!n = n(n-1)(n-2)\cdots(1) = n!(n-1)
+\]</span></p>
+<p>وهكذا يكون تعريفها في بايثون:</p>
+<div id="dbf77c5f" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> factorial(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co"># Recursive case</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb1-4"><a href="#cb1-4"></a>        recursive_result <span class="op">=</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>        <span class="cf">return</span> n <span class="op">*</span> recursive_result</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="co"># Terminal case</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>    <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a>factorial(<span class="dv">5</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>120</code></pre>
+</div>
+</div>
+<p>حيث لدينا حالتان:</p>
+<ul>
+<li>عندما تكون <code>n &gt; 0</code> يتم الطلب الذاتي : <code>recursive_result = factorial(n - 1)</code> إذْ هي جملة متسلسلة تكدِّس طلبات فوق طلبات؛ لكنها تؤول في النهاية إلى الجملة التي تُنهي التسلسل</li>
+<li><code>return 1</code> هي الجملة التي تنهي التسلسل</li>
+</ul>
+<p>وهنا قطعة كود نستعملها لتصور تسلسل الطلبات:</p>
+<div id="ce85522c" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>الكود</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> factorial(n: <span class="bu">int</span>, depth: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="co"># Recursive case</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'  '</span> <span class="op">*</span> depth<span class="sc">}</span><span class="ss">Call factorial(</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb3-6"><a href="#cb3-6"></a>        result <span class="op">=</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>, depth <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb3-7"><a href="#cb3-7"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'  '</span> <span class="op">*</span> depth<span class="sc">}</span><span class="ss">Return </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss"> from factorial(</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8"></a>        <span class="cf">return</span> result</span>
+<span id="cb3-9"><a href="#cb3-9"></a>    </span>
+<span id="cb3-10"><a href="#cb3-10"></a>    <span class="co"># Terminal case</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'  '</span> <span class="op">*</span> depth<span class="sc">}</span><span class="ss">Return 1 from factorial(</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12"></a>    <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a></span>
+<span id="cb3-14"><a href="#cb3-14"></a>factorial(<span class="dv">5</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>you will be 46 years old in 2050</code></pre>
+<pre><code>Call factorial(5)
+  Call factorial(4)
+    Call factorial(3)
+      Call factorial(2)
+        Call factorial(1)
+          Call factorial(0)
+          Return 1 from factorial(0)
+        Return 1 from factorial(1)
+      Return 2 from factorial(2)
+    Return 6 from factorial(3)
+  Return 24 from factorial(4)
+Return 120 from factorial(5)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>120</code></pre>
 </div>
 </div>
-</section>
-<section id="حساب-الأجر" class="level2">
-<h2 class="anchored" data-anchor-id="حساب-الأجر">حساب الأجر</h2>
-<div id="4c60b35c" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>hours <span class="op">=</span> <span class="dv">40</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>per_hour_rate <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>gross_pay <span class="op">=</span> hours <span class="op">*</span> per_hour_rate</span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="bu">print</span>(<span class="st">'you deserve:'</span>, gross_pay, <span class="st">'SAR'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>you deserve: 400 SAR</code></pre>
-</div>
-</div>
-</section>
-<section id="حساب-الزمن-المستغرق-للوصول-إلى-مكان-معين" class="level2">
-<h2 class="anchored" data-anchor-id="حساب-الزمن-المستغرق-للوصول-إلى-مكان-معين">حساب الزمن المستغرق للوصول إلى مكان معيَّن</h2>
-<div id="5cc3c94c" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>speed <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>distance <span class="op">=</span> <span class="dv">200</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>time <span class="op">=</span> distance <span class="op">/</span> speed</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="bu">print</span>(<span class="st">'it will take you'</span>, time, <span class="st">'hours to reach the destination'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>it will take you 2.0 hours to reach the destination</code></pre>
-</div>
-</div>
-</section>
-<section id="حساب-ارتفاع-المثلث-عن-طريق-أطوال-أضلاعه" class="level2">
-<h2 class="anchored" data-anchor-id="حساب-ارتفاع-المثلث-عن-طريق-أطوال-أضلاعه">حساب ارتفاع المثلث عن طريق أطوال أضلاعه</h2>
-<div id="bf5cbadc" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> math</span>
-<span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a>a <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a>b <span class="op">=</span> <span class="dv">4</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a>c <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a></span>
-<span id="cb7-7"><a href="#cb7-7"></a>s <span class="op">=</span> (a <span class="op">+</span> b <span class="op">+</span> c) <span class="op">/</span> <span class="dv">2</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a>area <span class="op">=</span> math.sqrt(s <span class="op">*</span> (s <span class="op">-</span> a) <span class="op">*</span> (s <span class="op">-</span> b) <span class="op">*</span> (s <span class="op">-</span> c))</span>
-<span id="cb7-9"><a href="#cb7-9"></a>h <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> area <span class="op">/</span> c</span>
-<span id="cb7-10"><a href="#cb7-10"></a><span class="bu">print</span>(<span class="st">'the height of the triangle is'</span>, h)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>the height of the triangle is 2.4</code></pre>
-</div>
-</div>
-</section>
-<section id="نسبة-التغير" class="level2">
-<h2 class="anchored" data-anchor-id="نسبة-التغير">نسبة التغير</h2>
-<p>إذا كنت تصرف في الشهر 1,000 ريال لقضاء حاجياتك، ثم اتبعت استراتيجية معينة، وأردت أن تحسب نسبة التغير في مصروفك، فكيف تعرف النسبة إذا نزلت إلى 650 ريال؟</p>
-<div id="9833ee43" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>old_expense <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>new_expense <span class="op">=</span> <span class="dv">650</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a></span>
-<span id="cb9-4"><a href="#cb9-4"></a>percentage <span class="op">=</span> (new_expense <span class="op">-</span> old_expense) <span class="op">/</span> old_expense</span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="bu">print</span>(percentage <span class="op">*</span> <span class="dv">100</span>, <span class="st">'%'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>-35.0 %</code></pre>
-</div>
-</div>
-</section>
-<section id="الزيادة-النسبية" class="level2">
-<h2 class="anchored" data-anchor-id="الزيادة-النسبية">الزيادة النسبية</h2>
-<p>إذا كنت تمارس الرياضة وتزيد في وزن الحمل 10% أسبوعيًّا .. فإذا بدأت بوزن 20 كيلو، فإلى كم كيلوا ستصل في الأسبوع الرابع؟</p>
-<div id="43a844a8" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>increment <span class="op">=</span> <span class="fl">1.10</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a></span>
-<span id="cb11-3"><a href="#cb11-3"></a>w1 <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a>w2 <span class="op">=</span> w1 <span class="op">*</span> increment</span>
-<span id="cb11-5"><a href="#cb11-5"></a>w3 <span class="op">=</span> w2 <span class="op">*</span> increment</span>
-<span id="cb11-6"><a href="#cb11-6"></a>w4 <span class="op">=</span> w3 <span class="op">*</span> increment</span>
-<span id="cb11-7"><a href="#cb11-7"></a></span>
-<span id="cb11-8"><a href="#cb11-8"></a><span class="bu">print</span>(<span class="bu">round</span>(w4, <span class="dv">1</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>26.6</code></pre>
-</div>
-</div>
+<ul>
+<li>فكل طلب يُنشأ له ظرف تنفيذ جديد تكون بالنسبة له قيمة <code>n</code> هي المعيَّنة له وقت النداء.</li>
+<li>وهكذا يتم تكديس الطلبات حتى ينتهي التسلسل عند الطلب <code>factorial(0)</code> الذي يؤول لنتيجة مباشرة: <code>return 1</code> فيخلَّى هذا الظرف من الذاكرة وتعود نتيجته إلى الظرف المباشر الذي استدعاه وهو ظرف <code>factorial(1)</code>.</li>
+<li>فتتعين القيمة <code>recursive_result = 1</code> وينتقل إلى الجملة التي بعدها وهي جملة الرجوع بنتيجة <code>return n * recursive_result</code> وهُما معيَّنان، أي تكون الجملة في واقع الظرف: <code>return 1 * 1</code>.</li>
+<li>وهذه النتيجة تعود للظرف الذي استدعاه وهو <code>factorial(2)</code> … إلخ.</li>
+</ul>
+<p>طلب الفعل المتسلسل يؤدي إلى ظروف متداخلة تؤول إلى ظرف واحد في النهاية.</p>
+<p>يستعمل الفعل المتسلسل وكذلك هياكل البيانات المتسلسلة بشكل كبير في الخوارزميات الفعالة.</p>
+<p>يسهل كتابة بعض الخوارزميات باستعمال الفعل المتسلسل. لكن قد تكون (أحياًنا) أقل أداءً من استعمال الحلقات.</p>
 
 
 </section>
@@ -1052,4 +1081,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/02_numbers/solutions.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/02_numbers/solutions.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/04_functions/a2_recursion.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/04_functions/a2_recursion.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></div></div></footer></body></html>
