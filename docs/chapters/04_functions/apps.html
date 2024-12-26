@@ -343,14 +343,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/05_sequences/b_context.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/05_sequences/apps.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/05_sequences/c_problems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">تمارين</span></a>
+  <a href="../../chapters/05_sequences/problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">مسائل</span></a>
   </div>
 </li>
       </ul>
@@ -539,11 +539,9 @@ window.Quarto = {
    
   <ul>
   <li><a href="#طول-الخط-المستقيم-بين-نقطتين" id="toc-طول-الخط-المستقيم-بين-نقطتين" class="nav-link active" data-scroll-target="#طول-الخط-المستقيم-بين-نقطتين">طول الخط المستقيم بين نقطتين</a></li>
-  <li><a href="#كم-سيكون-عمرك-عند-حين-كذا" id="toc-كم-سيكون-عمرك-عند-حين-كذا" class="nav-link" data-scroll-target="#كم-سيكون-عمرك-عند-حين-كذا">كم سيكون عمرك عند حين كذا؟</a>
-  <ul class="collapse">
+  <li><a href="#كم-سيكون-عمرك-عند-حين-كذا" id="toc-كم-سيكون-عمرك-عند-حين-كذا" class="nav-link" data-scroll-target="#كم-سيكون-عمرك-عند-حين-كذا">كم سيكون عمرك عند حين كذا؟</a></li>
   <li><a href="#حساب-الأجر" id="toc-حساب-الأجر" class="nav-link" data-scroll-target="#حساب-الأجر">حساب الأجر</a></li>
   <li><a href="#الوزن-الطبيعي" id="toc-الوزن-الطبيعي" class="nav-link" data-scroll-target="#الوزن-الطبيعي">الوزن الطبيعي</a></li>
-  </ul></li>
   <li><a href="#مجموع-الأرقام-إلى-س" id="toc-مجموع-الأرقام-إلى-س" class="nav-link" data-scroll-target="#مجموع-الأرقام-إلى-س">مجموع الأرقام إلى س</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/04_functions/apps.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/04_functions/apps.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></nav>
@@ -571,8 +569,8 @@ window.Quarto = {
 
 
 <p>تعريف الفعل فعل مساعد للبرمجة وليس هو تنفيذيًّا بذاته. لذا ستكون تطبيقات هذا الجزء عبارة عن <strong>قولَبة التطبيقات السابقة</strong> بتعريفها في أفعال:</p>
-<section id="طول-الخط-المستقيم-بين-نقطتين" class="level3">
-<h3 class="anchored" data-anchor-id="طول-الخط-المستقيم-بين-نقطتين">طول الخط المستقيم بين نقطتين</h3>
+<section id="طول-الخط-المستقيم-بين-نقطتين" class="level2">
+<h2 class="anchored" data-anchor-id="طول-الخط-المستقيم-بين-نقطتين">طول الخط المستقيم بين نقطتين</h2>
 <p>في هذا المثال نعرف نقطتين ثم نحسب المسافة بينهما. <strong>والمسافة الإقليدية</strong> بين نقطتين <span class="math inline">\((x_1, y_1)\)</span> و <span class="math inline">\((x_2, y_2)\)</span> تتبع معادلة <strong>فيثاغورس</strong>:</p>
 <p><span class="math display">\[
 \text{distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
@@ -581,7 +579,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \sqrt{x} = x^{1/2}
 \]</span></p>
-<div id="296b1beb" class="cell" data-execution_count="1">
+<div id="296b1beb" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> euclidean_distance(x1: <span class="bu">float</span>, y1: <span class="bu">float</span>, x2: <span class="bu">float</span>, y2: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">return</span> ((x2 <span class="op">-</span> x1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1)<span class="op">**</span><span class="dv">2</span>) <span class="op">**</span> <span class="fl">0.5</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
@@ -590,16 +588,17 @@ window.Quarto = {
 </section>
 <section id="كم-سيكون-عمرك-عند-حين-كذا" class="level2">
 <h2 class="anchored" data-anchor-id="كم-سيكون-عمرك-عند-حين-كذا">كم سيكون عمرك عند حين كذا؟</h2>
-<div id="207d6f84" class="cell" data-execution_count="2">
+<div id="207d6f84" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> age_at_future_event(age_now: <span class="bu">int</span>, current_year: <span class="bu">int</span>, future_year: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    <span class="cf">return</span> age_now <span class="op">+</span> (future_year <span class="op">-</span> current_year)</span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="cf">assert</span> age_at_future_event(age_now<span class="op">=</span><span class="dv">0</span>, current_year<span class="op">=</span><span class="dv">2000</span>, future_year<span class="op">=</span><span class="dv">2010</span>) <span class="op">==</span> <span class="dv">10</span></span>
 <span id="cb2-5"><a href="#cb2-5"></a><span class="cf">assert</span> age_at_future_event(age_now<span class="op">=</span><span class="dv">20</span>, current_year<span class="op">=</span><span class="dv">2000</span>, future_year<span class="op">=</span><span class="dv">2010</span>) <span class="op">==</span> <span class="dv">30</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="حساب-الأجر" class="level3">
-<h3 class="anchored" data-anchor-id="حساب-الأجر">حساب الأجر</h3>
-<div id="65bdecd4" class="cell" data-execution_count="3">
+</section>
+<section id="حساب-الأجر" class="level2">
+<h2 class="anchored" data-anchor-id="حساب-الأجر">حساب الأجر</h2>
+<div id="65bdecd4" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> gross_pay(hours: <span class="bu">float</span>, per_hour_rate: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    <span class="cf">return</span> hours <span class="op">*</span> per_hour_rate</span>
 <span id="cb3-3"><a href="#cb3-3"></a></span>
@@ -607,8 +606,8 @@ window.Quarto = {
 <span id="cb3-5"><a href="#cb3-5"></a><span class="cf">assert</span> gross_pay(<span class="dv">40</span>, <span class="dv">10</span>) <span class="op">==</span> <span class="dv">400</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="الوزن-الطبيعي" class="level3">
-<h3 class="anchored" data-anchor-id="الوزن-الطبيعي">الوزن الطبيعي</h3>
+<section id="الوزن-الطبيعي" class="level2">
+<h2 class="anchored" data-anchor-id="الوزن-الطبيعي">الوزن الطبيعي</h2>
 <p>هذا هو وزن الجسم الموصى به من قبل منظمة الصحة العالمية (WHO) استنادًا إلى قيم مؤشر كتلة الجسم للبالغين. ويستخدم لكل من الرجال والنساء الذين تبلغ أعمارهم 20 عامًا أو أكثر.</p>
 <table class="caption-top table">
 <thead>
@@ -657,7 +656,7 @@ window.Quarto = {
 <p><span class="math display">\[
 BMI = \frac{weight}{height^2}
 \]</span></p>
-<div id="7c062630" class="cell" data-execution_count="4">
+<div id="7c062630" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> calculate_bmi(weight: <span class="bu">float</span>, height: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb4-2"><a href="#cb4-2"></a>    <span class="cf">return</span> weight <span class="op">/</span> height<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a></span>
@@ -684,17 +683,16 @@ BMI = \frac{weight}{height^2}
 <span id="cb4-24"><a href="#cb4-24"></a><span class="cf">assert</span> classify_bmi(bmi<span class="op">=</span><span class="dv">40</span>) <span class="op">==</span> <span class="st">'obese_class_3'</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-</section>
 <section id="مجموع-الأرقام-إلى-س" class="level2">
 <h2 class="anchored" data-anchor-id="مجموع-الأرقام-إلى-س">مجموع الأرقام إلى س</h2>
 <p>ما نريد صياغته هو مجموع الأرقام من 1 إلى <code>n</code>:</p>
-<div id="5770ace0" class="cell" data-execution_count="5">
+<div id="5770ace0" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> sum_of_numbers(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    <span class="co">"""Sum of numbers from 1 to n"""</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a>    <span class="cf">pass</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>حلها بالتكرار باستعمال <code>range</code> لإنشاء تسلسل الأرقام للتكرار عليها، ولاحظ أن النهاية <code>n+1</code> ليكون الرقم الأخير مشمولاً في التكرار:</p>
-<div id="f231674b" class="cell" data-execution_count="6">
+<div id="f231674b" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> sum_of_numbers(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb6-2"><a href="#cb6-2"></a>    <span class="co">"""Sum of numbers from 1 to n"""</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a>    result <span class="op">=</span> <span class="dv">0</span></span>
@@ -706,7 +704,7 @@ BMI = \frac{weight}{height^2}
 <span id="cb6-9"><a href="#cb6-9"></a><span class="cf">assert</span> sum_of_numbers(n<span class="op">=</span><span class="dv">10</span>) <span class="op">==</span> <span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">3</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span><span class="op">+</span><span class="dv">6</span><span class="op">+</span><span class="dv">7</span><span class="op">+</span><span class="dv">8</span><span class="op">+</span><span class="dv">9</span><span class="op">+</span><span class="dv">10</span> <span class="op">==</span> <span class="dv">55</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وحلها بالفعل المتسلسل:</p>
-<div id="632e6522" class="cell" data-execution_count="7">
+<div id="632e6522" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> sum_of_numbers(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb7-2"><a href="#cb7-2"></a>    <span class="co">"""Sum of numbers from 1 to n"""</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">1</span>:</span>
@@ -720,7 +718,7 @@ BMI = \frac{weight}{height^2}
 <p><span class="math display">\[
 \sum_{i=1}^{n} i = \frac{n(n + 1)}{2}
 \]</span></p>
-<div id="feadb5c2" class="cell" data-execution_count="8">
+<div id="feadb5c2" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> sum_of_numbers(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb8-2"><a href="#cb8-2"></a>    <span class="co">"""Sum of numbers from 1 to n"""</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a>    <span class="cf">return</span> n <span class="op">*</span> (n <span class="op">+</span> <span class="dv">1</span>) <span class="op">//</span> <span class="dv">2</span></span>

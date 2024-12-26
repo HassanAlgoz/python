@@ -102,10 +102,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta name="twitter:title" content="تطبيقات – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/06_mapping/cover.png">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/05_sequences/cover.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -118,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/06_mapping/a_mapping.html">باب المجموعة الرابطة (Mapping)</a></li><li class="breadcrumb-item"><a href="../../chapters/06_mapping/b_context.html">تطبيقات</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/05_sequences/a_sequences.html">باب المجموعة المرتبة (Sequences)</a></li><li class="breadcrumb-item"><a href="../../chapters/05_sequences/apps.html">تطبيقات</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -314,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/05_sequences/apps.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/05_sequences/apps.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
@@ -343,7 +372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/06_mapping/b_context.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/06_mapping/b_context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
@@ -509,21 +538,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#الكلمة-ومعناها" id="toc-الكلمة-ومعناها" class="nav-link active" data-scroll-target="#الكلمة-ومعناها">الكلمة ومعناها</a></li>
-  <li><a href="#ربط-الأسماء-بالأرقام" id="toc-ربط-الأسماء-بالأرقام" class="nav-link" data-scroll-target="#ربط-الأسماء-بالأرقام">ربط الأسماء بالأرقام</a></li>
-  <li><a href="#اختصار-الروابط-الطويلة" id="toc-اختصار-الروابط-الطويلة" class="nav-link" data-scroll-target="#اختصار-الروابط-الطويلة">اختصار الروابط الطويلة</a></li>
-  <li><a href="#الاختصارات" id="toc-الاختصارات" class="nav-link" data-scroll-target="#الاختصارات">الاختصارات</a></li>
-  <li><a href="#سلة-المشتريات" id="toc-سلة-المشتريات" class="nav-link" data-scroll-target="#سلة-المشتريات">سلة المشتريات</a></li>
-  <li><a href="#تسجيل-تفضيلات-المستخدم" id="toc-تسجيل-تفضيلات-المستخدم" class="nav-link" data-scroll-target="#تسجيل-تفضيلات-المستخدم">تسجيل تفضيلات المستخدم</a></li>
-  <li><a href="#الذاكرة-القريبة" id="toc-الذاكرة-القريبة" class="nav-link" data-scroll-target="#الذاكرة-القريبة">الذاكرة القريبة</a></li>
-  <li><a href="#استعمال-الإنشاء-المختصر" id="toc-استعمال-الإنشاء-المختصر" class="nav-link" data-scroll-target="#استعمال-الإنشاء-المختصر">استعمال الإنشاء المختصر</a></li>
+  <li><a href="#فرز-البيانات" id="toc-فرز-البيانات" class="nav-link active" data-scroll-target="#فرز-البيانات">فرز البيانات</a></li>
+  <li><a href="#تجزئة-البيانات" id="toc-تجزئة-البيانات" class="nav-link" data-scroll-target="#تجزئة-البيانات">تجزئة البيانات</a></li>
+  <li><a href="#البحث-في-قائمة-صفوف" id="toc-البحث-في-قائمة-صفوف" class="nav-link" data-scroll-target="#البحث-في-قائمة-صفوف">البحث في قائمة صفوف</a></li>
+  <li><a href="#الحساب-بين-البيانات-المترابطة" id="toc-الحساب-بين-البيانات-المترابطة" class="nav-link" data-scroll-target="#الحساب-بين-البيانات-المترابطة">الحساب بين البيانات المترابطة</a></li>
+  <li><a href="#معرفة-النقاط-المجاورة" id="toc-معرفة-النقاط-المجاورة" class="nav-link" data-scroll-target="#معرفة-النقاط-المجاورة">معرفة النقاط المجاورة</a></li>
+  <li><a href="#أمثلة-إضافية-على-الإنشاء-المختصر" id="toc-أمثلة-إضافية-على-الإنشاء-المختصر" class="nav-link" data-scroll-target="#أمثلة-إضافية-على-الإنشاء-المختصر">أمثلة إضافية على الإنشاء المختصر</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/06_mapping/b_context.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/06_mapping/b_context.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/05_sequences/apps.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/05_sequences/apps.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/06_mapping/a_mapping.html">باب المجموعة الرابطة (Mapping)</a></li><li class="breadcrumb-item"><a href="../../chapters/06_mapping/b_context.html">تطبيقات</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/05_sequences/a_sequences.html">باب المجموعة المرتبة (Sequences)</a></li><li class="breadcrumb-item"><a href="../../chapters/05_sequences/apps.html">تطبيقات</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">تطبيقات</h1>
 </div>
@@ -542,221 +569,225 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="الكلمة-ومعناها" class="level2">
-<h2 class="anchored" data-anchor-id="الكلمة-ومعناها">الكلمة ومعناها</h2>
-<p>القاموس بالمعنى الذي يشير إليه اللفظ. نفترض أن لدينا قاموسًا يحتوي على ترجمة بعض الكلمات من الإنجليزية إلى العربية:</p>
-<div id="ec38c3ae" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>english_to_arabic <span class="op">=</span> {</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="st">'apple'</span>: <span class="st">'تفاحة'</span>,</span>
-<span id="cb1-3"><a href="#cb1-3"></a>    <span class="st">'banana'</span>: <span class="st">'موزة'</span>,</span>
-<span id="cb1-4"><a href="#cb1-4"></a>    <span class="st">'orange'</span>: <span class="st">'برتقالة'</span>,</span>
-<span id="cb1-5"><a href="#cb1-5"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="ربط-الأسماء-بالأرقام" class="level2">
-<h2 class="anchored" data-anchor-id="ربط-الأسماء-بالأرقام">ربط الأسماء بالأرقام</h2>
-<p>مثلاً: دليل أرقام الهواتف هو قاموس:</p>
-<div id="88424de0" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>name_to_phone <span class="op">=</span> {</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    <span class="st">'Adam'</span>: <span class="st">'966xxxxxxxxx'</span>,</span>
-<span id="cb2-3"><a href="#cb2-3"></a>    <span class="st">'Mohammed'</span>: <span class="st">'966xxxxxxxxx'</span>,</span>
-<span id="cb2-4"><a href="#cb2-4"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>وكذلك دليل أسماء النطاق (DNS: Domain Name System) على شبكة الانرتنت هو قاموس:</p>
-<div id="faecdb40" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>domain_to_ip <span class="op">=</span> {</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    <span class="st">'google.com'</span>: <span class="st">'172.217.14.206'</span>,</span>
-<span id="cb3-3"><a href="#cb3-3"></a>    <span class="st">'wikipedia.org'</span>: <span class="st">'103.86.96.10'</span>,</span>
-<span id="cb3-4"><a href="#cb3-4"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="اختصار-الروابط-الطويلة" class="level2">
-<h2 class="anchored" data-anchor-id="اختصار-الروابط-الطويلة">اختصار الروابط الطويلة</h2>
-<p>من استعمالات القاموس: اختصار الروابط الطويلة في روابط قصيرة.</p>
-<div id="e13d7a40" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>short_to_full <span class="op">=</span> {</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    <span class="st">'google'</span>: <span class="st">'https://www.google.com'</span>,</span>
-<span id="cb4-3"><a href="#cb4-3"></a>    <span class="st">'python'</span>: <span class="st">'https://www.python.org'</span>,</span>
-<span id="cb4-4"><a href="#cb4-4"></a>    <span class="st">'wiki'</span>: <span class="st">'https://www.wikipedia.org'</span>,</span>
-<span id="cb4-5"><a href="#cb4-5"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="الاختصارات" class="level2">
-<h2 class="anchored" data-anchor-id="الاختصارات">الاختصارات</h2>
-<p>أو الاختصارات إلى الكلمة التامة:</p>
-<div id="381211f8" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>abb_to_full <span class="op">=</span> {</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    <span class="st">'ASAP'</span>: <span class="st">'As Soon As Possible'</span>,</span>
-<span id="cb5-3"><a href="#cb5-3"></a>    <span class="st">'BRB'</span>: <span class="st">'Be Right Back'</span>,</span>
-<span id="cb5-4"><a href="#cb5-4"></a>    <span class="st">'DIY'</span>: <span class="st">'Do It Yourself'</span>,</span>
-<span id="cb5-5"><a href="#cb5-5"></a>    <span class="st">'EDA'</span>: <span class="st">'Exploratory Data Analysis'</span>,</span>
-<span id="cb5-6"><a href="#cb5-6"></a>    <span class="st">'FYI'</span>: <span class="st">'For Your Information'</span>,</span>
-<span id="cb5-7"><a href="#cb5-7"></a>    <span class="st">'SAR'</span>: <span class="st">'Saudi Riyal'</span>,</span>
-<span id="cb5-8"><a href="#cb5-8"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>ويمكن عكس القاموس بالطريقة التالية:</p>
-<div id="f350ae73" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>full_to_abb <span class="op">=</span> {}</span>
-<span id="cb6-2"><a href="#cb6-2"></a></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="cf">for</span> key, value <span class="kw">in</span> abb_to_full.items():</span>
-<span id="cb6-4"><a href="#cb6-4"></a>    full_to_abb[value] <span class="op">=</span> key</span>
-<span id="cb6-5"><a href="#cb6-5"></a></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="bu">print</span>(full_to_abb)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="فرز-البيانات" class="level2">
+<h2 class="anchored" data-anchor-id="فرز-البيانات">فرز البيانات</h2>
+<p>تصور أن لدينا قائمة من الأرقام الموجبة والسالبة في مجموعة واحدة، ونريد فصلها لمجموعتين:</p>
+<div id="ae3b83bf" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>numbers <span class="op">=</span> [<span class="op">-</span><span class="dv">11</span>, <span class="op">-</span><span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="op">-</span><span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="op">-</span><span class="dv">18</span>, <span class="op">-</span><span class="dv">19</span>, <span class="dv">20</span>]</span>
+<span id="cb1-2"><a href="#cb1-2"></a>positives <span class="op">=</span> []</span>
+<span id="cb1-3"><a href="#cb1-3"></a>negatives <span class="op">=</span> []</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="cf">for</span> x <span class="kw">in</span> numbers:</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb1-7"><a href="#cb1-7"></a>        positives.append(x)</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-9"><a href="#cb1-9"></a>        negatives.append(x)</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="bu">print</span>(<span class="st">'positives:'</span>, positives)</span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="bu">print</span>(<span class="st">'negatives:'</span>, negatives)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'As Soon As Possible': 'ASAP', 'Be Right Back': 'BRB', 'Do It Yourself': 'DIY', 'Exploratory Data Analysis': 'EDA', 'For Your Information': 'FYI', 'Saudi Riyal': 'SAR'}</code></pre>
+<pre><code>positives: [13, 14, 16, 17, 20]
+negatives: [-11, -12, -15, -18, -19]</code></pre>
 </div>
 </div>
-</section>
-<section id="سلة-المشتريات" class="level2">
-<h2 class="anchored" data-anchor-id="سلة-المشتريات">سلة المشتريات</h2>
-<p>نفترض أن لدينا سلة تحتوي على مشتريات العميل (<code>basket</code>)، ونريد حساب القيمة الإجمالية لها، ولدينا قائمة بأسعار الفواكه. فنعرف الأسعار على أنها قاموس <code>prices</code> بحيث يشير اسم الفاكهة إلى سعرها (قيمتها المالية).</p>
-<div id="082a2173" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>prices <span class="op">=</span> {</span>
-<span id="cb8-2"><a href="#cb8-2"></a>    <span class="st">'apple'</span>: <span class="fl">15.25</span>,</span>
-<span id="cb8-3"><a href="#cb8-3"></a>    <span class="st">'banana'</span>: <span class="fl">10.50</span>,</span>
-<span id="cb8-4"><a href="#cb8-4"></a>    <span class="st">'orange'</span>: <span class="fl">5.75</span>,</span>
-<span id="cb8-5"><a href="#cb8-5"></a>    <span class="st">'cantaloupe'</span>: <span class="fl">40.00</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>يجوز تحديث الأسعار هكذا:</p>
-<div id="00401779" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>prices[<span class="st">'banana'</span>] <span class="op">=</span> <span class="dv">12</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>أو بالمجموع هكذا:</p>
-<div id="9246921a" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>prices.update({<span class="st">'banana'</span>: <span class="dv">12</span>, <span class="st">'orange'</span>: <span class="dv">15</span>})</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>والآن نفترض أن لدينا قائمة بالفواكه التي يريدها العميل:</p>
-<div id="ac648ee9" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>basket <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>, <span class="st">'banana'</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>نحسب سعر كل فاكهة في السلة بناءً على الأسعار الموجودة في القاموس:</p>
-<div id="fe70b53f" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="cf">for</span> fruit <span class="kw">in</span> basket:</span>
-<span id="cb12-4"><a href="#cb12-4"></a>    total <span class="op">+=</span> prices[fruit]</span>
-<span id="cb12-5"><a href="#cb12-5"></a></span>
-<span id="cb12-6"><a href="#cb12-6"></a><span class="bu">print</span>(total)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>أو باستعمال الإنشاء المختصر:</p>
+<div id="9cceae0a" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>numbers <span class="op">=</span> [<span class="op">-</span><span class="dv">11</span>, <span class="op">-</span><span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="op">-</span><span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="op">-</span><span class="dv">18</span>, <span class="op">-</span><span class="dv">19</span>, <span class="dv">20</span>]</span>
+<span id="cb3-2"><a href="#cb3-2"></a>positives <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> numbers <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">0</span>]</span>
+<span id="cb3-3"><a href="#cb3-3"></a>negatives <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> numbers <span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">0</span>]</span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="bu">print</span>(<span class="st">'positives:'</span>, positives)</span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="bu">print</span>(<span class="st">'negatives:'</span>, negatives)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>69.5</code></pre>
+<pre><code>positives: [13, 14, 16, 17, 20]
+negatives: [-11, -12, -15, -18, -19]</code></pre>
 </div>
 </div>
 </section>
-<section id="تسجيل-تفضيلات-المستخدم" class="level2">
-<h2 class="anchored" data-anchor-id="تسجيل-تفضيلات-المستخدم">تسجيل تفضيلات المستخدم</h2>
-<p>يجوز أن تكون قيمة المرقوم قاموسًا؛ وهذا يعني أن القاموس قد يتضمن قاموسًا.</p>
-<p>هذا المثال يوضح استعمالًا شائعًا لذلك، وهو ترتيب معلومات أو تفضيلات المستخدم.</p>
-<div id="e9d08670" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>user <span class="op">=</span> {</span>
-<span id="cb14-2"><a href="#cb14-2"></a>    <span class="st">'name'</span>: <span class="st">'Adam'</span>,</span>
-<span id="cb14-3"><a href="#cb14-3"></a>    <span class="st">'language'</span>: <span class="st">'Arabic'</span>,</span>
-<span id="cb14-4"><a href="#cb14-4"></a>    <span class="st">'phone'</span>: <span class="st">'966xxxxxxxxx'</span>,</span>
-<span id="cb14-5"><a href="#cb14-5"></a>    <span class="st">'last_updated'</span>: <span class="st">'2021-09-01'</span>,</span>
-<span id="cb14-6"><a href="#cb14-6"></a>    <span class="st">'age'</span>: <span class="dv">25</span>,</span>
-<span id="cb14-7"><a href="#cb14-7"></a>    <span class="st">'notifications'</span>: {</span>
-<span id="cb14-8"><a href="#cb14-8"></a>        <span class="st">'email'</span>: <span class="va">True</span>,</span>
-<span id="cb14-9"><a href="#cb14-9"></a>        <span class="st">'sms'</span>: <span class="va">False</span>,</span>
-<span id="cb14-10"><a href="#cb14-10"></a>        <span class="st">'push'</span>: <span class="va">True</span></span>
-<span id="cb14-11"><a href="#cb14-11"></a>    },</span>
-<span id="cb14-12"><a href="#cb14-12"></a>    <span class="st">'emails'</span>: [<span class="st">'example1@domain.com'</span>, <span class="st">'example2@domain.com'</span>]</span>
-<span id="cb14-13"><a href="#cb14-13"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="تجزئة-البيانات" class="level2">
+<h2 class="anchored" data-anchor-id="تجزئة-البيانات">تجزئة البيانات</h2>
+<p>هذا الفعل يقسم قائمة إلى جزئين بنسبة محددة:</p>
+<div id="fb92f7cd" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> split(data: <span class="bu">list</span>, ratio: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">list</span>, <span class="bu">list</span>]:</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    idx <span class="op">=</span> <span class="bu">int</span>(<span class="bu">len</span>(data) <span class="op">*</span> ratio)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    <span class="cf">return</span> data[:idx], data[idx:]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>وللوصول إلى قيمة مضمَّنة، نستعمل الإشارة مرتين، هكذا:</p>
-<div id="2cde7587" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>user[<span class="st">'notifications'</span>][<span class="st">'sms'</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>نختبر الفعل ونلاحظ أن الناتج من نوع صف (<code>tuple</code>). فنستعمل التعيين المتعدد لاستخراج القيم من الصف:</p>
+<div id="c0c3fca7" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>xs <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">90</span>, <span class="dv">100</span>]</span>
+<span id="cb6-2"><a href="#cb6-2"></a>a, b <span class="op">=</span> split(xs, <span class="fl">0.80</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="cf">assert</span> a <span class="op">==</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>]</span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="cf">assert</span> b <span class="op">==</span> [<span class="dv">90</span>, <span class="dv">100</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="البحث-في-قائمة-صفوف" class="level2">
+<h2 class="anchored" data-anchor-id="البحث-في-قائمة-صفوف">البحث في قائمة صفوف</h2>
+<p>لاحظ أن كل عنصر في القائمة هو صف من ثلاثة عناصر، ولاحظ وجود علامة <code>|</code> في بيان نوع الناتج، وتعني التخيير بين النوعين المذكورين:</p>
+<div id="0c8d4bb4" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> search_verb(verb: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">str</span>, <span class="bu">str</span>, <span class="bu">str</span>] <span class="op">|</span> <span class="va">None</span>:</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    dictionary <span class="op">=</span> [</span>
+<span id="cb7-3"><a href="#cb7-3"></a>        (<span class="st">"ذهب"</span>, <span class="st">"يذهب"</span>, <span class="st">"ذاهب"</span>),</span>
+<span id="cb7-4"><a href="#cb7-4"></a>        (<span class="st">"ضرب"</span>, <span class="st">"يضرب"</span>, <span class="st">"ضارب"</span>),</span>
+<span id="cb7-5"><a href="#cb7-5"></a>        (<span class="st">"جلس"</span>, <span class="st">"يجلس"</span>, <span class="st">"جالس"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6"></a>    ]</span>
+<span id="cb7-7"><a href="#cb7-7"></a>    <span class="cf">for</span> (verb_past, verb_present, subject) <span class="kw">in</span> dictionary:</span>
+<span id="cb7-8"><a href="#cb7-8"></a>        <span class="cf">if</span> verb_past <span class="op">==</span> verb:</span>
+<span id="cb7-9"><a href="#cb7-9"></a>            <span class="cf">return</span> verb_past, verb_present, subject</span>
+<span id="cb7-10"><a href="#cb7-10"></a>    <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a></span>
+<span id="cb7-12"><a href="#cb7-12"></a>search_verb(<span class="st">"ذهب"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>('ذهب', 'يذهب', 'ذاهب')</code></pre>
+</div>
+</div>
+</section>
+<section id="الحساب-بين-البيانات-المترابطة" class="level2">
+<h2 class="anchored" data-anchor-id="الحساب-بين-البيانات-المترابطة">الحساب بين البيانات المترابطة</h2>
+<p>افترض أن لديك قائمة بالمصروفات والإيرادات لكل رُبع من السنة، وتريد حساب صافي الربح لكل ربع على حدة، ثم جمعها لتحصل على الربح الإجمالي للسنة.</p>
+<div id="3ec18363" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>monthly_income  <span class="op">=</span> [<span class="dv">52000</span>, <span class="dv">51000</span>, <span class="dv">48000</span>]</span>
+<span id="cb9-2"><a href="#cb9-2"></a>monthly_expense <span class="op">=</span> [<span class="dv">46800</span>, <span class="dv">45900</span>, <span class="dv">43200</span>]</span>
+<span id="cb9-3"><a href="#cb9-3"></a>monthly_net <span class="op">=</span> []</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="cf">for</span> inc, exp <span class="kw">in</span> <span class="bu">zip</span>(monthly_income, monthly_expense):</span>
+<span id="cb9-5"><a href="#cb9-5"></a>    result <span class="op">=</span> inc <span class="op">-</span> exp</span>
+<span id="cb9-6"><a href="#cb9-6"></a>    monthly_net.append(result)</span>
+<span id="cb9-7"><a href="#cb9-7"></a></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="bu">print</span>(<span class="st">"monthly net:"</span>, monthly_net)</span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="bu">print</span>(<span class="st">"annual net:"</span>, <span class="bu">sum</span>(monthly_net))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>monthly net: [5200, 5100, 4800]
+annual net: 15100</code></pre>
+</div>
+</div>
+<p>أو باستعمال الإنشاء المختصر:</p>
+<div id="f221a1dc" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>monthly_income  <span class="op">=</span> [<span class="dv">52000</span>, <span class="dv">51000</span>, <span class="dv">48000</span>]</span>
+<span id="cb11-2"><a href="#cb11-2"></a>monthly_expense <span class="op">=</span> [<span class="dv">46800</span>, <span class="dv">45900</span>, <span class="dv">43200</span>]</span>
+<span id="cb11-3"><a href="#cb11-3"></a>monthly_net <span class="op">=</span> [inc <span class="op">-</span> exp <span class="cf">for</span> inc, exp <span class="kw">in</span> <span class="bu">zip</span>(monthly_income, monthly_expense)]</span>
+<span id="cb11-4"><a href="#cb11-4"></a></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="bu">print</span>(<span class="st">"monthly net:"</span>, monthly_net)</span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="bu">print</span>(<span class="st">"annual net:"</span>, <span class="bu">sum</span>(monthly_net))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>monthly net: [5200, 5100, 4800]
+annual net: 15100</code></pre>
+</div>
+</div>
+<p>وإن شئت أن تجعلها فعلاً مستقلاً، ولاحظ أن التعريف يُفرق على عدة أسطر إذا طال.</p>
+<div id="fda76f72" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">def</span> calculate_net(</span>
+<span id="cb13-2"><a href="#cb13-2"></a>    monthly_income: <span class="bu">list</span>[<span class="bu">float</span>],</span>
+<span id="cb13-3"><a href="#cb13-3"></a>    monthly_expense: <span class="bu">list</span>[<span class="bu">float</span>]</span>
+<span id="cb13-4"><a href="#cb13-4"></a>) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">list</span>[<span class="bu">float</span>], <span class="bu">float</span>]:</span>
+<span id="cb13-5"><a href="#cb13-5"></a>    <span class="co">"""</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="co">    Calculate the net income for each month and the total net income for the year.</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="co">    """</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a>    monthly_net <span class="op">=</span> [inc <span class="op">-</span> exp <span class="cf">for</span> inc, exp <span class="kw">in</span> <span class="bu">zip</span>(monthly_income, monthly_expense)]</span>
+<span id="cb13-9"><a href="#cb13-9"></a>    <span class="cf">return</span> monthly_net, <span class="bu">sum</span>(monthly_net)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>لكن قد لا نحتاج لهذا التفصيل إلا فيما هو معقَّد، وحين يحصل الاشتباه، لكن التعوُّد على مثل هذا خصوصًا في العمل الجماعي، وحين يكبُر المشروع أفضل.</p>
+</section>
+<section id="معرفة-النقاط-المجاورة" class="level2">
+<h2 class="anchored" data-anchor-id="معرفة-النقاط-المجاورة">معرفة النقاط المجاورة</h2>
+<p>تقول الرياضيات أن المسافة الإقليدية (على سطح مستوي لا متعرج) بين نقطتين تحكمها المعادلة:</p>
+<p><span class="math display">\[
+d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+\]</span></p>
+<p>نريد استعماله لقائمة من النقاط لمعرفة النقاط المجاورة.</p>
+<div id="5702dae9" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>points <span class="op">=</span> [(<span class="dv">1</span>, <span class="dv">2</span>), (<span class="dv">3</span>, <span class="dv">4</span>), (<span class="dv">5</span>, <span class="dv">6</span>), (<span class="dv">7</span>, <span class="dv">8</span>)]</span>
+<span id="cb14-2"><a href="#cb14-2"></a>x1, y1 <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">4</span>)</span>
+<span id="cb14-3"><a href="#cb14-3"></a></span>
+<span id="cb14-4"><a href="#cb14-4"></a>distances <span class="op">=</span> []</span>
+<span id="cb14-5"><a href="#cb14-5"></a></span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="cf">for</span> x2, y2 <span class="kw">in</span> points:</span>
+<span id="cb14-7"><a href="#cb14-7"></a>  d <span class="op">=</span> ((x2 <span class="op">-</span> x1) <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1) <span class="op">**</span> <span class="dv">2</span>) <span class="op">**</span> <span class="fl">0.5</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a>  distances.append(d)</span>
+<span id="cb14-9"><a href="#cb14-9"></a>  <span class="bu">print</span>(<span class="ss">f'distance from </span><span class="sc">{</span>x2<span class="sc">,</span> y2<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>x1<span class="sc">,</span> y1<span class="sc">}</span><span class="ss"> is </span><span class="sc">{</span>d<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb14-10"><a href="#cb14-10"></a></span>
+<span id="cb14-11"><a href="#cb14-11"></a>min_distance <span class="op">=</span> <span class="bu">min</span>(distances)</span>
+<span id="cb14-12"><a href="#cb14-12"></a>min_distance_index <span class="op">=</span> distances.index(min_distance)</span>
+<span id="cb14-13"><a href="#cb14-13"></a></span>
+<span id="cb14-14"><a href="#cb14-14"></a><span class="bu">print</span>(<span class="st">'min distance index:'</span>, min_distance_index)</span>
+<span id="cb14-15"><a href="#cb14-15"></a></span>
+<span id="cb14-16"><a href="#cb14-16"></a>nearest_point <span class="op">=</span> points[min_distance_index]</span>
+<span id="cb14-17"><a href="#cb14-17"></a></span>
+<span id="cb14-18"><a href="#cb14-18"></a><span class="bu">print</span>(<span class="ss">f'nearest point to </span><span class="sc">{</span>x1<span class="sc">,</span> y1<span class="sc">}</span><span class="ss"> is </span><span class="sc">{</span>nearest_point<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>distance from (1, 2) to (2, 4) is 2.23606797749979
+distance from (3, 4) to (2, 4) is 1.0
+distance from (5, 6) to (2, 4) is 3.605551275463989
+distance from (7, 8) to (2, 4) is 6.4031242374328485
+min distance index: 1
+nearest point to (2, 4) is (3, 4)</code></pre>
+</div>
+</div>
+<p>فلنجعلها فعلاً، وسنفصِّلُ في الوصف حتى نبيِّنَ وظيفة الفعل لأي مستفيد بما يهمه، فنذكر الماهية ولا نذكر الكيفية التفصيلية:</p>
+<div id="7fcfaaa6" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">def</span> nearest_point(</span>
+<span id="cb16-2"><a href="#cb16-2"></a>    points: <span class="bu">list</span>[<span class="bu">tuple</span>[<span class="bu">float</span>, <span class="bu">float</span>]],</span>
+<span id="cb16-3"><a href="#cb16-3"></a>    point: <span class="bu">tuple</span>[<span class="bu">float</span>, <span class="bu">float</span>]</span>
+<span id="cb16-4"><a href="#cb16-4"></a>) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">float</span>, <span class="bu">float</span>]:</span>
+<span id="cb16-5"><a href="#cb16-5"></a>    <span class="co">"""Find the nearest point to the given point.</span></span>
+<span id="cb16-6"><a href="#cb16-6"></a><span class="co">    </span></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="co">    Args:</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="co">        points: A list of (x,y) coordinate tuples representing points in 2D space.</span></span>
+<span id="cb16-9"><a href="#cb16-9"></a><span class="co">                Must contain at least one point.</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a><span class="co">        point: A tuple of (x,y) coordinates representing the reference point.</span></span>
+<span id="cb16-11"><a href="#cb16-11"></a><span class="co">    </span></span>
+<span id="cb16-12"><a href="#cb16-12"></a><span class="co">    Returns:</span></span>
+<span id="cb16-13"><a href="#cb16-13"></a><span class="co">        The (x,y) coordinates of the point from the input list that is closest</span></span>
+<span id="cb16-14"><a href="#cb16-14"></a><span class="co">        to the reference point, measured by Euclidean distance.</span></span>
+<span id="cb16-15"><a href="#cb16-15"></a><span class="co">    """</span></span>
+<span id="cb16-16"><a href="#cb16-16"></a>    x1, y1 <span class="op">=</span> point</span>
+<span id="cb16-17"><a href="#cb16-17"></a>    distances <span class="op">=</span> []</span>
+<span id="cb16-18"><a href="#cb16-18"></a>    <span class="cf">for</span> x2, y2 <span class="kw">in</span> points:</span>
+<span id="cb16-19"><a href="#cb16-19"></a>        d <span class="op">=</span> ((x2 <span class="op">-</span> x1) <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1) <span class="op">**</span> <span class="dv">2</span>) <span class="op">**</span> <span class="fl">0.5</span></span>
+<span id="cb16-20"><a href="#cb16-20"></a>        distances.append(d)</span>
+<span id="cb16-21"><a href="#cb16-21"></a>    min_distance <span class="op">=</span> <span class="bu">min</span>(distances)</span>
+<span id="cb16-22"><a href="#cb16-22"></a>    min_distance_index <span class="op">=</span> distances.index(min_distance)</span>
+<span id="cb16-23"><a href="#cb16-23"></a>    <span class="cf">return</span> points[min_distance_index]</span>
+<span id="cb16-24"><a href="#cb16-24"></a></span>
+<span id="cb16-25"><a href="#cb16-25"></a><span class="co"># Tests</span></span>
+<span id="cb16-26"><a href="#cb16-26"></a><span class="cf">assert</span> nearest_point(points<span class="op">=</span>[(<span class="dv">1</span>, <span class="dv">2</span>)], point<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">3</span>)) <span class="op">==</span> (<span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb16-27"><a href="#cb16-27"></a><span class="cf">assert</span> nearest_point(points<span class="op">=</span>[(<span class="dv">1</span>, <span class="dv">2</span>), (<span class="dv">3</span>, <span class="dv">4</span>), (<span class="dv">5</span>, <span class="dv">6</span>), (<span class="dv">7</span>, <span class="dv">8</span>)], point<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">4</span>)) <span class="op">==</span> (<span class="dv">3</span>, <span class="dv">4</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="أمثلة-إضافية-على-الإنشاء-المختصر" class="level2">
+<h2 class="anchored" data-anchor-id="أمثلة-إضافية-على-الإنشاء-المختصر">أمثلة إضافية على الإنشاء المختصر</h2>
+<p>يمكن استعمال اختصار من اختصار على النحو التالي. في هذا المثال نفرد قائمة مكونة من قوائم عددية، فنحوِّلها لتكون قائمة واحدة مكوَّنة من جميع هذه الأرقام:</p>
+<div id="7649c3cc" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>vec <span class="op">=</span> [[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]]</span>
+<span id="cb17-2"><a href="#cb17-2"></a>[num <span class="cf">for</span> elem <span class="kw">in</span> vec <span class="cf">for</span> num <span class="kw">in</span> elem]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+</div>
+</div>
+<p>إذا كتبناها من غير اختصار فشكلها كالتالي (لاحظ استعملنا متغير <code>flat</code> لتجميع القيَم المفردة):</p>
+<div id="ba2fe464" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>flat <span class="op">=</span> []</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="cf">for</span> elem <span class="kw">in</span> vec:</span>
+<span id="cb19-3"><a href="#cb19-3"></a>    <span class="cf">for</span> num <span class="kw">in</span> elem:</span>
+<span id="cb19-4"><a href="#cb19-4"></a>        flat.append(num)</span>
+<span id="cb19-5"><a href="#cb19-5"></a>flat</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+</div>
+</div>
+<p>وهذا مثال لحاصل الضرب الديكارتي بين مجموعتين رياضيتين:</p>
+<div id="614f8633" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>colors <span class="op">=</span> [<span class="st">'red'</span>, <span class="st">'green'</span>]</span>
+<span id="cb21-2"><a href="#cb21-2"></a>shapes <span class="op">=</span> [<span class="st">'circle'</span>, <span class="st">'square'</span>]</span>
+<span id="cb21-3"><a href="#cb21-3"></a>cartesian_product <span class="op">=</span> [(color, shape) <span class="cf">for</span> color <span class="kw">in</span> colors <span class="cf">for</span> shape <span class="kw">in</span> shapes]</span>
+<span id="cb21-4"><a href="#cb21-4"></a>cartesian_product</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
-<pre><code>False</code></pre>
+<pre><code>[('red', 'circle'),
+ ('red', 'square'),
+ ('green', 'circle'),
+ ('green', 'square')]</code></pre>
 </div>
 </div>
-<p>أما حفظها فسيأتي الكلام عن حفظ البيانات في <a href="../../chapters/08_files_and_directories/a1_serialization.html">باب كتابة الملفات وقراءتها</a> إن شاء الله.</p>
-</section>
-<section id="الذاكرة-القريبة" class="level2">
-<h2 class="anchored" data-anchor-id="الذاكرة-القريبة">الذاكرة القريبة</h2>
-<p>يجوز أن تسجل نتيجة طلب فعل بمدخلات معيَّنة. حتى إذا ما تكرر الطلب نفس المدخلات؛ توفِّر تكلفة استدعائه بإرجاع النتيجة المحفوظة. وهذا يفيد في أمرين:</p>
-<ol type="1">
-<li>الاقتصاد في موارد المعالجة، خصوصًا عند تعقد العمليات.</li>
-<li>تقليل وقت الاستجابة.</li>
-</ol>
-<p>ويشترط أن يكون الفعل نقيًّا. (انظر <a href="../../chapters/04_functions/a_functions.html#الفعل-النقي">قسم الفعل النقي في باب الفعل</a>).</p>
-<div id="48070501" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>factorial_table <span class="op">=</span> {</span>
-<span id="cb17-2"><a href="#cb17-2"></a>    <span class="dv">0</span>: <span class="dv">1</span>,</span>
-<span id="cb17-3"><a href="#cb17-3"></a>    <span class="dv">1</span>: <span class="dv">1</span>,</span>
-<span id="cb17-4"><a href="#cb17-4"></a>    <span class="dv">2</span>: <span class="dv">2</span>,</span>
-<span id="cb17-5"><a href="#cb17-5"></a>    <span class="dv">3</span>: <span class="dv">6</span>,</span>
-<span id="cb17-6"><a href="#cb17-6"></a>}</span>
-<span id="cb17-7"><a href="#cb17-7"></a></span>
-<span id="cb17-8"><a href="#cb17-8"></a><span class="kw">def</span> factorial(n):</span>
-<span id="cb17-9"><a href="#cb17-9"></a>    <span class="cf">if</span> n <span class="kw">not</span> <span class="kw">in</span> factorial_table:</span>
-<span id="cb17-10"><a href="#cb17-10"></a>        factorial_table[n] <span class="op">=</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb17-11"><a href="#cb17-11"></a>    <span class="cf">return</span> factorial_table[n]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>بل إن بايثون توفر هذه الخاصية للدوال عن طريق <strong>المزيِّن</strong> (decorator) <a href="https://docs.python.org/3/library/functools.html#functools.cache"><code>@functools.lru_cache</code></a>، هكذا:</p>
-<div id="3408753c" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="im">import</span> functools</span>
-<span id="cb18-2"><a href="#cb18-2"></a></span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="at">@functools.lru_cache</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="kw">def</span> factorial(n):</span>
-<span id="cb18-5"><a href="#cb18-5"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb18-6"><a href="#cb18-6"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb18-7"><a href="#cb18-7"></a>    <span class="cf">return</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>لاحظ عدم الحاجة لتعريف القاموس <code>factorial_table</code>، بل يقوم المزيِّن هو بذلك تلقائيًّا.</p>
-</section>
-<section id="استعمال-الإنشاء-المختصر" class="level2">
-<h2 class="anchored" data-anchor-id="استعمال-الإنشاء-المختصر">استعمال الإنشاء المختصر</h2>
-<p>تقدم معنا الكلام عن <a href="../../chapters/05_sequences/a_sequences.html#الإنشاء-المختصر-الجملة-الثلاثية">الإنشاء المختصر</a>. وسنستعرضه الآن مع القاموس.</p>
-<p>عكس قاموس بحيث تصبح الدلائل هي القيم والقيم هي الدلائل:</p>
-<div id="0ea4c13a" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>idx2label <span class="op">=</span> {</span>
-<span id="cb19-2"><a href="#cb19-2"></a>    <span class="dv">0</span>: <span class="st">'cat'</span>,</span>
-<span id="cb19-3"><a href="#cb19-3"></a>    <span class="dv">1</span>: <span class="st">'dog'</span>,</span>
-<span id="cb19-4"><a href="#cb19-4"></a>    <span class="dv">2</span>: <span class="st">'bird'</span>,</span>
-<span id="cb19-5"><a href="#cb19-5"></a>}</span>
-<span id="cb19-6"><a href="#cb19-6"></a></span>
-<span id="cb19-7"><a href="#cb19-7"></a>label2idx <span class="op">=</span> {label: idx <span class="cf">for</span> idx, label <span class="kw">in</span> idx2label.items()}</span>
-<span id="cb19-8"><a href="#cb19-8"></a>label2idx</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
-<pre><code>{'cat': 0, 'dog': 1, 'bird': 2}</code></pre>
-</div>
-</div>
-<p>هنا مثال لقاموس من الفواكه، نريد ترشيح ما قيمته أقل من 20:</p>
-<div id="86e866c5" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>menu <span class="op">=</span> {</span>
-<span id="cb21-2"><a href="#cb21-2"></a>    <span class="st">'apple'</span>: <span class="dv">15</span>,</span>
-<span id="cb21-3"><a href="#cb21-3"></a>    <span class="st">'banana'</span>: <span class="dv">10</span>,</span>
-<span id="cb21-4"><a href="#cb21-4"></a>    <span class="st">'orange'</span>: <span class="dv">5</span>,</span>
-<span id="cb21-5"><a href="#cb21-5"></a>    <span class="st">'cantaloupe'</span>: <span class="dv">40</span></span>
-<span id="cb21-6"><a href="#cb21-6"></a>}</span>
-<span id="cb21-7"><a href="#cb21-7"></a></span>
-<span id="cb21-8"><a href="#cb21-8"></a>filtered_menu <span class="op">=</span> {key: value <span class="cf">for</span> key, value <span class="kw">in</span> menu.items() <span class="cf">if</span> value <span class="op">&lt;</span> <span class="dv">20</span>}</span>
-<span id="cb21-9"><a href="#cb21-9"></a>filtered_menu</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>{'apple': 15, 'banana': 10, 'orange': 5}</code></pre>
-</div>
-</div>
-<p>وهذا مثال أكثر تعقيدًا. نطبق خصم 20% فقط على العناصر التي يكون سعرها أعلى من المتوسط، مع الحفاظ على بقية الأسعار كما هي. لاحظ أن التعبير هنا هو تعيين شرطي: <code>value * (1 - discount) if value &gt; avg_price else value</code> وليس هو قطعة الترشيح (<code>if</code>)؛ إذ تلك تأتي في نهاية الجملة، بعد قطعة التكرار (<code>for</code>).</p>
-<div id="7e21ea73" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>menu <span class="op">=</span> {</span>
-<span id="cb23-2"><a href="#cb23-2"></a>    <span class="st">'apple'</span>: <span class="dv">15</span>,</span>
-<span id="cb23-3"><a href="#cb23-3"></a>    <span class="st">'banana'</span>: <span class="dv">10</span>,</span>
-<span id="cb23-4"><a href="#cb23-4"></a>    <span class="st">'orange'</span>: <span class="dv">5</span>,</span>
-<span id="cb23-5"><a href="#cb23-5"></a>    <span class="st">'cantaloupe'</span>: <span class="dv">40</span></span>
-<span id="cb23-6"><a href="#cb23-6"></a>}</span>
-<span id="cb23-7"><a href="#cb23-7"></a></span>
-<span id="cb23-8"><a href="#cb23-8"></a>avg_price <span class="op">=</span> <span class="bu">sum</span>(menu.values()) <span class="op">/</span> <span class="bu">len</span>(menu)</span>
-<span id="cb23-9"><a href="#cb23-9"></a>discount <span class="op">=</span> <span class="fl">0.20</span></span>
-<span id="cb23-10"><a href="#cb23-10"></a></span>
-<span id="cb23-11"><a href="#cb23-11"></a>discounted_menu <span class="op">=</span> {</span>
-<span id="cb23-12"><a href="#cb23-12"></a>    key: value <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> discount) <span class="cf">if</span> value <span class="op">&gt;</span> avg_price <span class="cf">else</span> value</span>
-<span id="cb23-13"><a href="#cb23-13"></a>    <span class="cf">for</span> key, value <span class="kw">in</span> menu.items()</span>
-<span id="cb23-14"><a href="#cb23-14"></a>}</span>
-<span id="cb23-15"><a href="#cb23-15"></a>discounted_menu</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>{'apple': 15, 'banana': 10, 'orange': 5, 'cantaloupe': 32.0}</code></pre>
-</div>
-</div>
+<p>راجع التوثيق <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">لمزيد من الأمثلة</a>.</p>
 
 
 </section>
@@ -1184,4 +1215,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/06_mapping/b_context.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/06_mapping/b_context.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/05_sequences/apps.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/05_sequences/apps.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></div></div></footer></body></html>
