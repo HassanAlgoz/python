@@ -28,3 +28,58 @@ def binary_search(items: list[int], item: int) -> int:
             right = mid - 1
     return -1
 ```
+
+
+## القائمة كمكدس
+
+**المكدس** هو عبارة عن مجموعة مرتبة تتراكم عناصرها فوق بعض، بحيث ما يدخل أخيرا هو ما يخرج أولاً.
+
+يتحصل المكدس بفعلين من القائمة:
+
+- الإلحاق (إضافة العنصر في النهاية): `l.append(x)`
+- النزع (إزالة الأخير وإرجاعه): `l.pop()`
+
+ومن تطبيقات المكدس السهلة، استعماله في التحقق من توازن الأقواس:
+
+```{python}
+def is_balanced(text: str) -> bool:
+    """Check if the text has balanced parentheses."""
+    stack = []
+    for character in text:
+        if character == '(':
+            stack.append(character)
+        elif character == ')':
+            if len(stack) == 0:
+                return False
+            stack.pop()    
+    return len(stack) == 0
+
+assert is_balanced('()')
+assert is_balanced('(())')
+assert not is_balanced('(()')
+assert not is_balanced('((()')
+assert not is_balanced('())))')
+```
+
+
+## حساب مجموع المسافات بين التنبؤ والحقيقة
+
+تستعمل معادلة مجموع القيم المطلقة للفروق بين التنبؤ والحقيقة في الانحدار الخطي الذي يستعمل في تعلم الآلة:
+
+$$
+\text{MAE} = \sum_{i=1}^{n} |y^{(i)}_\text{predicted} - y^{(i)}_\text{actual}|
+$$
+
+فلدينا قائمتين من الأعداد، ما تم التنبؤ به من قبل النموذج، وما هو حقيقي ضمن البيانات، ونريد أن نجد مجموع الفروق المطلقة بينهما.
+
+```{python}
+predictions = [ 1, 2, 3, 4, 5]
+actuals =     [-2, 3, 4, 5, 6]
+errors =      [ 0, 0, 0, 0, 0]
+
+for i in range(len(predictions)):
+  errors[i] = abs(predictions[i] - actuals[i])
+
+print('errors:', errors)
+print('total error:', sum(errors))
+```

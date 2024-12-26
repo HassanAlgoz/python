@@ -1,0 +1,211 @@
+# تطبيقات {.unnumbered}
+
+## فرز البيانات
+
+تصور أن لدينا قائمة من الأرقام الموجبة والسالبة في مجموعة واحدة، ونريد فصلها لمجموعتين:
+
+```{python}
+numbers = [-11, -12, 13, 14, -15, 16, 17, -18, -19, 20]
+positives = []
+negatives = []
+
+for x in numbers:
+    if x > 0:
+        positives.append(x)
+    else:
+        negatives.append(x)
+
+print('positives:', positives)
+print('negatives:', negatives)
+```
+
+أو باستعمال الإنشاء المختصر:
+
+```{python}
+numbers = [-11, -12, 13, 14, -15, 16, 17, -18, -19, 20]
+positives = [x for x in numbers if x > 0]
+negatives = [x for x in numbers if x < 0]
+
+print('positives:', positives)
+print('negatives:', negatives)
+```
+
+
+## تجزئة البيانات
+
+هذا الفعل يقسم قائمة إلى جزئين بنسبة محددة:
+
+```{python}
+def split(data: list, ratio: float) -> tuple[list, list]:
+    idx = int(len(data) * ratio)
+    return data[:idx], data[idx:]
+```
+
+نختبر الفعل ونلاحظ أن الناتج من نوع صف (`tuple`). فنستعمل التعيين المتعدد لاستخراج القيم من الصف:
+
+```{python}
+xs = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+a, b = split(xs, 0.80)
+
+assert a == [10, 20, 30, 40, 50, 60, 70, 80]
+assert b == [90, 100]
+```
+
+
+## البحث في قائمة صفوف
+
+لاحظ أن كل عنصر في القائمة هو صف من ثلاثة عناصر، ولاحظ وجود علامة `|` في بيان نوع الناتج، وتعني التخيير بين النوعين المذكورين:
+
+```{python}
+def search_verb(verb: str) -> tuple[str, str, str] | None:
+    dictionary = [
+        ("ذهب", "يذهب", "ذاهب"),
+        ("ضرب", "يضرب", "ضارب"),
+        ("جلس", "يجلس", "جالس")
+    ]
+    for (verb_past, verb_present, subject) in dictionary:
+        if verb_past == verb:
+            return verb_past, verb_present, subject
+    return None
+
+search_verb("ذهب")
+```
+
+
+## الحساب بين البيانات المترابطة
+
+افترض أن لديك قائمة بالمصروفات والإيرادات لكل رُبع من السنة، وتريد حساب صافي الربح لكل ربع على حدة، ثم جمعها لتحصل على الربح الإجمالي للسنة.
+
+```{python}
+monthly_income  = [52000, 51000, 48000]
+monthly_expense = [46800, 45900, 43200]
+monthly_net = []
+for inc, exp in zip(monthly_income, monthly_expense):
+    result = inc - exp
+    monthly_net.append(result)
+
+print("monthly net:", monthly_net)
+print("annual net:", sum(monthly_net))
+```
+
+أو باستعمال الإنشاء المختصر:
+
+```{python}
+monthly_income  = [52000, 51000, 48000]
+monthly_expense = [46800, 45900, 43200]
+monthly_net = [inc - exp for inc, exp in zip(monthly_income, monthly_expense)]
+
+print("monthly net:", monthly_net)
+print("annual net:", sum(monthly_net))
+```
+
+وإن شئت أن تجعلها فعلاً مستقلاً، ولاحظ أن التعريف يُفرق على عدة أسطر إذا طال.
+
+```{python}
+def calculate_net(
+    monthly_income: list[float],
+    monthly_expense: list[float]
+) -> tuple[list[float], float]:
+    """
+    Calculate the net income for each month and the total net income for the year.
+    """
+    monthly_net = [inc - exp for inc, exp in zip(monthly_income, monthly_expense)]
+    return monthly_net, sum(monthly_net)
+```
+
+لكن قد لا نحتاج لهذا التفصيل إلا فيما هو معقَّد، وحين يحصل الاشتباه، لكن التعوُّد على مثل هذا خصوصًا في العمل الجماعي، وحين يكبُر المشروع أفضل.
+
+
+## معرفة النقاط المجاورة
+
+تقول الرياضيات أن المسافة الإقليدية (على سطح مستوي لا متعرج) بين نقطتين تحكمها المعادلة:
+
+$$
+d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+$$
+
+نريد استعماله لقائمة من النقاط لمعرفة النقاط المجاورة.
+
+```{python}
+points = [(1, 2), (3, 4), (5, 6), (7, 8)]
+x1, y1 = (2, 4)
+
+distances = []
+
+for x2, y2 in points:
+  d = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
+  distances.append(d)
+  print(f'distance from {x2, y2} to {x1, y1} is {d}')
+
+min_distance = min(distances)
+min_distance_index = distances.index(min_distance)
+
+print('min distance index:', min_distance_index)
+
+nearest_point = points[min_distance_index]
+
+print(f'nearest point to {x1, y1} is {nearest_point}')
+```
+
+فلنجعلها فعلاً، وسنفصِّلُ في الوصف حتى نبيِّنَ وظيفة الفعل لأي مستفيد بما يهمه، فنذكر الماهية ولا نذكر الكيفية التفصيلية:
+
+```{python}
+def nearest_point(
+    points: list[tuple[float, float]],
+    point: tuple[float, float]
+) -> tuple[float, float]:
+    """Find the nearest point to the given point.
+    
+    Args:
+        points: A list of (x,y) coordinate tuples representing points in 2D space.
+                Must contain at least one point.
+        point: A tuple of (x,y) coordinates representing the reference point.
+    
+    Returns:
+        The (x,y) coordinates of the point from the input list that is closest
+        to the reference point, measured by Euclidean distance.
+    """
+    x1, y1 = point
+    distances = []
+    for x2, y2 in points:
+        d = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
+        distances.append(d)
+    min_distance = min(distances)
+    min_distance_index = distances.index(min_distance)
+    return points[min_distance_index]
+
+# Tests
+assert nearest_point(points=[(1, 2)], point=(2, 3)) == (1, 2)
+assert nearest_point(points=[(1, 2), (3, 4), (5, 6), (7, 8)], point=(2, 4)) == (3, 4)
+```
+
+
+## أمثلة إضافية على الإنشاء المختصر
+
+يمكن استعمال اختصار من اختصار على النحو التالي. في هذا المثال نفرد قائمة مكونة من قوائم عددية، فنحوِّلها لتكون قائمة واحدة مكوَّنة من جميع هذه الأرقام:
+
+```{python}
+vec = [[1,2,3], [4,5,6], [7,8,9]]
+[num for elem in vec for num in elem]
+```
+
+إذا كتبناها من غير اختصار فشكلها كالتالي (لاحظ استعملنا متغير `flat` لتجميع القيَم المفردة):
+
+```{python}
+flat = []
+for elem in vec:
+    for num in elem:
+        flat.append(num)
+flat
+```
+
+وهذا مثال لحاصل الضرب الديكارتي بين مجموعتين رياضيتين:
+
+```{python}
+colors = ['red', 'green']
+shapes = ['circle', 'square']
+cartesian_product = [(color, shape) for color in colors for shape in shapes]
+cartesian_product
+```
+
+راجع التوثيق [لمزيد من الأمثلة](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions).
