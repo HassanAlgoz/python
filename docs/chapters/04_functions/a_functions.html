@@ -547,7 +547,7 @@ window.Quarto = {
   <li><a href="#الفعل-المنتج" id="toc-الفعل-المنتج" class="nav-link" data-scroll-target="#الفعل-المنتج"><span class="header-section-number">4.5</span> الفعل المنتج</a></li>
   <li><a href="#الإجمال-ثم-التفصيل" id="toc-الإجمال-ثم-التفصيل" class="nav-link" data-scroll-target="#الإجمال-ثم-التفصيل"><span class="header-section-number">4.6</span> الإجمال ثم التفصيل</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/04_functions/a_functions.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/04_functions/a_functions.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -572,11 +572,11 @@ window.Quarto = {
 
 
 <p><strong>الفعل</strong>: قطعة كود مخزَّنة مسمَّاة. عادة ما يكون لها عوامل متغيرة.</p>
-<p>نحو: <code>int(x)</code> لإنشاء العدد الصحيح من النص. مثل: <code>int("12")</code> نُنتج: <code>12</code>.</p>
-<p>وقد يأخذ عاملين نحو: <code>max(a, b)</code> مثل: <code>max(10, 5)</code> نُنتج: <code>10</code>.</p>
-<p>وقد يأخذ عاملاً واحدًا لكنَّهُ قائمة نحو: <code>sum(numbers)</code> مثل: <code>sum([1, 2, 3, 4, 5])</code> نُنتج: <code>15</code>.</p>
-<p>وقد يكون عدد عوامله لا محدودًا نحو: <code>print(*values)</code> مثل:</p>
-<div id="3a3cc8c7" class="cell" data-execution_count="1">
+<p>نحو: <code>int(x)</code> لإنشاء العدد الصحيح من النص. مثل: <code>int("12")</code> ينتج: <code>12</code>.</p>
+<p>وقد يأخذ عاملين نحو: <code>round(x, n)</code> مثل: <code>round(10.259, 2)</code> ينتج: <code>10.26</code>.</p>
+<p>وقد يأخذ عاملاً واحدًا لكنَّهُ قائمة نحو: <code>sum(numbers)</code> مثل: <code>sum([1, 2, 3, 4, 5])</code> ينتج: <code>15</code>.</p>
+<p>وقد يكون عدد عوامله لا محدودًا نحو: <code>print(*values)</code>، (وعلامة النجمة <code>*</code> تشير لقبول عوامل مفكوكة على نحو ما تقدَّم، لا كالقائمة) مثل:</p>
+<div id="3a3cc8c7" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>name <span class="op">=</span> <span class="st">"Adam"</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>age <span class="op">=</span> <span class="dv">25</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="bu">print</span>(<span class="st">"My name is"</span>, name, <span class="st">"and I'm"</span>, age, <span class="st">"years old"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -584,9 +584,8 @@ window.Quarto = {
 <pre><code>My name is Adam and I'm 25 years old</code></pre>
 </div>
 </div>
-<p>وعلامة النجمة <code>*</code> تشير لقبول عوامل مفكوكة على نحو ما تقدَّم، لا كالقائمة.</p>
 <p>وقد يكون عامله جائزًا نحو: <code>range(start, stop, step)</code> مثل:</p>
-<div id="0c67baab" class="cell" data-execution_count="2">
+<div id="0c67baab" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">assert</span> <span class="bu">range</span>(<span class="dv">10</span>) <span class="op">==</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">1</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وقد تقدَّم الحديث عنه في <a href="../../chapters/03_control_flow/a_control_flow.html">باب التكرار</a>.</p>
@@ -597,19 +596,19 @@ window.Quarto = {
 </ul>
 <p>وفي كل ما سبق كانت العوامل من نوع الفاعل؛ لأنها كانت تؤثر في النتيجة ولا تتأثر بها.</p>
 <p>أما المفعول فنحو فعل الترتيب من مكتبة القائمة: <code>list.sort(numbers)</code> فإن مفعوله القائمة نفسها، مثل:</p>
-<div id="6771154d" class="cell" data-execution_count="3">
+<div id="6771154d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>numbers <span class="op">=</span> [<span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>]</span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="bu">list</span>.sort(numbers)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>فمع أننا لما نعيِّن النتيجة، فقد تغيَّرت القائمة:</p>
-<div id="a7492b5e" class="cell" data-execution_count="4">
+<div id="a7492b5e" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="bu">print</span>(numbers)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[10, 20, 30, 40]</code></pre>
 </div>
 </div>
 <p>بعكس الترتيب بالفعل الذي ليس من المكتبة: <code>sorted(numbers)</code> فإنَّ القائمة فيه ليست مفعولاً؛ إذْ يُنتِجُ الفعلُ قائمةً جديدةً ولا يغير القائمة المُدخلة:</p>
-<div id="db2640c6" class="cell" data-execution_count="5">
+<div id="db2640c6" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>numbers <span class="op">=</span> [<span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>]</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="bu">print</span>(<span class="bu">sorted</span>(numbers), <span class="st">"هي قائمة جديدة"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="bu">print</span>(numbers, <span class="st">"لم يعمل الفعل في القائمة نفسها"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -619,21 +618,21 @@ window.Quarto = {
 </div>
 </div>
 <p>ويجتمع الفاعل والمفعول في نحو:</p>
-<div id="78ec4a9f" class="cell" data-execution_count="6">
+<div id="78ec4a9f" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="bu">list</span>.append(numbers, <span class="dv">50</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><code>numbers</code> هنا مفعول</li>
 <li><code>50</code> هنا فاعل</li>
 </ul>
-<div id="655523f7" class="cell" data-execution_count="7">
+<div id="655523f7" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">print</span>(numbers)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[40, 20, 10, 30, 50]</code></pre>
 </div>
 </div>
 <p>وقد خصصت لغات البرمجة للمبني للمفعول الواحد كتابةً على النحو: <code>list.sort(numbers)</code> هي نفسها <code>numbers.sort()</code> حيث قدَّم المفعول:</p>
-<div id="5d59e801" class="cell" data-execution_count="8">
+<div id="5d59e801" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>xs <span class="op">=</span> [<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span>
 <span id="cb12-2"><a href="#cb12-2"></a>ys <span class="op">=</span> [<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span>
 <span id="cb12-3"><a href="#cb12-3"></a></span>
@@ -663,7 +662,7 @@ window.Quarto = {
 <li><strong>التفاصيل</strong>: وهي القطعة الكود التي يتم تنفيذها عند الطلب</li>
 </ol>
 <p>أما <strong>جملة الرجوع</strong> <code>return</code> توقِفُ التنفيذَ عندها وتخرج بالنتيجة <strong>لموضع الطلب</strong>.</p>
-<div id="e2c5fe17" class="cell" data-execution_count="9">
+<div id="e2c5fe17" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">def</span> calculate_grade(score):</span>
 <span id="cb13-2"><a href="#cb13-2"></a>    <span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">90</span>:</span>
 <span id="cb13-3"><a href="#cb13-3"></a>        <span class="cf">return</span> <span class="st">"A"</span></span>
@@ -700,7 +699,7 @@ window.Quarto = {
 <span id="cb15-9"><a href="#cb15-9"></a><span class="cf">else</span>:</span>
 <span id="cb15-10"><a href="#cb15-10"></a>    <span class="cf">return</span> <span class="st">"F"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>لاحظ أن نتيجة السطرين بحسب الظرفين المختلفين:</p>
-<div id="71f2b796" class="cell" data-execution_count="10">
+<div id="71f2b796" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="bu">print</span>(calculate_grade(<span class="dv">95</span>))</span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="bu">print</span>(calculate_grade(<span class="dv">80</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -709,7 +708,7 @@ B</code></pre>
 </div>
 </div>
 <p>وقد نعدد عوامل كثيرة، نحو:</p>
-<div id="7ef7697f" class="cell" data-execution_count="11">
+<div id="7ef7697f" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">def</span> weather_condition(temperature, humidity, wind_speed):</span>
 <span id="cb18-2"><a href="#cb18-2"></a>    <span class="cf">if</span> temperature <span class="op">&gt;=</span> <span class="dv">30</span> <span class="kw">and</span> humidity <span class="op">&gt;=</span> <span class="dv">60</span> <span class="kw">and</span> wind_speed <span class="op">&gt;=</span> <span class="dv">10</span>:</span>
 <span id="cb18-3"><a href="#cb18-3"></a>        <span class="cf">return</span> <span class="st">"Rainy"</span></span>
@@ -720,7 +719,7 @@ B</code></pre>
 <span id="cb18-8"><a href="#cb18-8"></a>    <span class="cf">return</span> <span class="st">"Normal"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ويكون طلبها بالطريقتين كما تقدَّم، بالموضع أو بالاسم:</p>
-<div id="8b9e89e2" class="cell" data-execution_count="12">
+<div id="8b9e89e2" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>cond <span class="op">=</span> weather_condition(<span class="dv">30</span>, humidity<span class="op">=</span><span class="dv">60</span>, wind_speed<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb19-2"><a href="#cb19-2"></a></span>
 <span id="cb19-3"><a href="#cb19-3"></a><span class="cf">if</span> cond <span class="op">==</span> <span class="st">"Rainy"</span>:</span>
@@ -743,7 +742,7 @@ B</code></pre>
 F = \frac{9}{5} C + 32
 \]</span></p>
 <p>فنعرِّفُ العوامل بقيَم عدميَّة، ونفحص وجودها بالشرط <code>is not None</code> لنُعمِلَها أو نهملها:</p>
-<div id="51f87f39" class="cell" data-execution_count="13">
+<div id="51f87f39" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">def</span> convert_temperature(celsius <span class="op">=</span> <span class="va">None</span>, fahrenheit <span class="op">=</span> <span class="va">None</span>):</span>
 <span id="cb21-2"><a href="#cb21-2"></a>    <span class="cf">if</span> celsius <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
 <span id="cb21-3"><a href="#cb21-3"></a>        fahrenheit <span class="op">=</span> (<span class="dv">9</span> <span class="op">/</span> <span class="dv">5</span>) <span class="op">*</span> celsius <span class="op">+</span> <span class="dv">32</span></span>
@@ -753,7 +752,7 @@ F = \frac{9}{5} C + 32
 <span id="cb21-7"><a href="#cb21-7"></a>        <span class="cf">return</span> celsius</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>نتأكد:</p>
-<div id="3471b5bb" class="cell" data-execution_count="14">
+<div id="3471b5bb" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="cf">assert</span> convert_temperature(celsius<span class="op">=</span><span class="dv">32</span>) <span class="op">==</span> <span class="fl">89.6</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a><span class="cf">assert</span> convert_temperature(fahrenheit<span class="op">=</span><span class="fl">89.6</span>) <span class="op">==</span> <span class="dv">32</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -787,13 +786,13 @@ F = \frac{9}{5} C + 32
 <section id="نطاق-التسمية" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="نطاق-التسمية"><span class="header-section-number">4.4</span> نطاق التسمية</h2>
 <p>ومن خصائص الظرفيَّةِ انعزال المعرَّفات الداخلة عن الخارج. يعني أنها تُنسى بعد إنتهاء الفعل.</p>
-<div id="30607ab0" class="cell" data-execution_count="15">
+<div id="30607ab0" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">def</span> calculate_bmi(weight: <span class="bu">float</span>, height: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb24-2"><a href="#cb24-2"></a>    bmi <span class="op">=</span> weight <span class="op">/</span> (height <span class="op">**</span> <span class="dv">2</span>)</span>
 <span id="cb24-3"><a href="#cb24-3"></a>    <span class="cf">return</span> <span class="bu">round</span>(bmi, <span class="dv">2</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>فنتوقع وقوع خطأ هنا لأن <code>bmi</code> غير معرفة إلا في نطاق الفعل:</p>
-<div id="a25ff8c4" class="cell" data-execution_count="16">
+<div id="a25ff8c4" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="bu">print</span>(bmi)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -807,7 +806,7 @@ Cell <span class="ansi-green-fg">In[16], line 1</span>
 </div>
 </div>
 <p>وعلى العكس فإن المعرَّفات الخارجة معروفة في الداخل؛ فيمكن أن تكون عاملةً في الفعل:</p>
-<div id="7a48b06f" class="cell" data-execution_count="17">
+<div id="7a48b06f" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>max_length <span class="op">=</span> <span class="dv">8</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a></span>
 <span id="cb26-3"><a href="#cb26-3"></a><span class="kw">def</span> check_password_strength(password: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
@@ -837,7 +836,7 @@ Cell <span class="ansi-green-fg">In[16], line 1</span>
 </ul>
 <p>والفعل دائمًا يرجع بنهاية آخر جملة فيه، لكن الذي لا يصرَّحُ فيه بكلمة الرجوع <code>return</code> يُقدَّر القيمة العدمية: <code>None</code> ويسمى الفعل حنيها <strong>خاويًا</strong> (void).</p>
 <p>تأمل المثال التالي الذي يأخذ عوامل ثم لا يرجع بشيء، لكنه يُظهر النتيجة على الشاشة، وقد كتبنا فيه جملة الرجوع <code>return None</code> لكنها مقدَّرة على أية حال، ولا يلزمنا أن نضعها:</p>
-<div id="48a70114" class="cell" data-execution_count="18">
+<div id="48a70114" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">def</span> print_decorated(message: <span class="bu">str</span>, n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
 <span id="cb27-2"><a href="#cb27-2"></a>    <span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> n)</span>
 <span id="cb27-3"><a href="#cb27-3"></a>    <span class="bu">print</span>(message)</span>
@@ -855,7 +854,7 @@ Salam alykom
 <section id="الإجمال-ثم-التفصيل" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="الإجمال-ثم-التفصيل"><span class="header-section-number">4.6</span> الإجمال ثم التفصيل</h2>
 <p>ويُحبَّذُ في الإنشاء الإجمالُ ثم التفصيل. ويتأتى على النحو التالي:</p>
-<div id="e79a2e58" class="cell" data-execution_count="19">
+<div id="e79a2e58" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">def</span> min_max(numbers: <span class="bu">list</span>[<span class="bu">float</span>]) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">float</span>, <span class="bu">float</span>]:</span>
 <span id="cb29-2"><a href="#cb29-2"></a>    <span class="co">"""Return the minimum and maximum values in the list."""</span></span>
 <span id="cb29-3"><a href="#cb29-3"></a>    <span class="cf">pass</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -877,7 +876,7 @@ Salam alykom
 <li>وبعد ذلك نأتي لكتابة التفاصيل: التي هي قطعة الكود داخل الفعل.</li>
 </ul>
 <p>وهكذا تظهر المساعدة، مثلما لو وضعت المؤشر على اسم الفعل (فإن غالب المحررات تُظهر لك شيئًا):</p>
-<div id="355028c8" class="cell" data-execution_count="20">
+<div id="355028c8" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="bu">help</span>(min_max)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on function min_max in module __main__:
@@ -896,7 +895,7 @@ min_max(numbers: list[float]) -&gt; tuple[float, float]
 <li>تستعمل التعليقات المبتدأة بحرف <code>#</code>لتبيين ما قد يُشكل من التفاصيل</li>
 <li>ذكر النوع <code>tuple[float, float]</code> يعني أن الفعل يرجع بزوج، لا بقيمة واحدة (وهذا يسمَّى نوع الصف، وسيأتي الحديث عنه)</li>
 </ul>
-<div id="d9d9de47" class="cell" data-execution_count="21">
+<div id="d9d9de47" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">def</span> min_max(numbers: <span class="bu">list</span>[<span class="bu">float</span>]) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">float</span>, <span class="bu">float</span>]:</span>
 <span id="cb33-2"><a href="#cb33-2"></a>    <span class="co">"""Return the minimum and maximum values in the list."""</span></span>
 <span id="cb33-3"><a href="#cb33-3"></a></span>
@@ -916,12 +915,13 @@ min_max(numbers: list[float]) -&gt; tuple[float, float]
 <span id="cb33-17"><a href="#cb33-17"></a>    <span class="cf">return</span> minimum, maximum</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ونشغل الاختبارات، ونتوقع أن لا يظهر منها خطأ:</p>
-<div id="46bbc09b" class="cell" data-execution_count="22">
+<div id="46bbc09b" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="cf">assert</span> min_max([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]) <span class="op">==</span> (<span class="dv">10</span>, <span class="dv">50</span>)</span>
 <span id="cb34-2"><a href="#cb34-2"></a><span class="cf">assert</span> min_max([<span class="dv">50</span>, <span class="dv">40</span>, <span class="dv">30</span>, <span class="dv">20</span>, <span class="dv">10</span>]) <span class="op">==</span> (<span class="dv">10</span>, <span class="dv">50</span>)</span>
 <span id="cb34-3"><a href="#cb34-3"></a><span class="cf">assert</span> min_max([<span class="dv">10</span>, <span class="dv">10</span>, <span class="op">-</span><span class="dv">900</span>, <span class="dv">10</span>, <span class="dv">10</span>]) <span class="op">==</span> (<span class="op">-</span><span class="dv">900</span>, <span class="dv">10</span>)</span>
 <span id="cb34-4"><a href="#cb34-4"></a><span class="cf">assert</span> min_max([]) <span class="op">==</span> (<span class="va">None</span>, <span class="va">None</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>راجع <a href="https://docs.python.org/3/tutorial/controlflow.html#special-parameters">ثوثيق بايثون في العوامل الخاصة</a> للمزيد.</p>
 
 
 </section>
@@ -1349,4 +1349,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/edit/main/book/chapters/04_functions/a_functions.qmd" class="toc-action"><i class="bi bi-github"></i>تعديل هذه الصفحة</a></li><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi empty"></i>الإبلاغ عن مشكلة</a></li><li><a href="https://github.com/hassanalgoz/python/blob/main/book/chapters/04_functions/a_functions.qmd" class="toc-action"><i class="bi empty"></i>عرض المصدر</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></div></div></footer></body></html>
