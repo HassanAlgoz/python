@@ -175,87 +175,124 @@ a1.balance
 a1.balance = 1000
 ```
 
-## الوراثة (Inheritance)
+## تصنيف الأنواع
 
-و**الوراثة**: أن يستمد الشيء صفات وأفعال شيءٍ آخر مباشرةً. كأن تقول: إن المربع والمثلث شكلٌ.
+تصنف الأنواع في البرمجة بطريقتين:
 
-وسنوضح ذلك بأمثلة مصطنعة.
+- **تصنيف اسمي**: حيث يتم التصريح بأن النوع فلان، يستمد من النوع فلان (وقد يتعدد). وتتم **بالوراثة** (Inheritance)
+- **تصنيف عملي**: حيث يكون اعتبار التصنيف بحسب أفعال النوع. وتتم **بالواجهة** (Interface) وهو نوعٌ من **التركيب** (Composition)
 
-المثال الأول: المربع مستطيل:
+## التصنيف الاسمي: الوراثة (Inheritance)
+
+**الوراثة**: أن يندرج النوع تحت نوعٍ آخر؛ فهو يستمد منه ويزيد عليه صفةً أو فعلاً (أو أكثر).
+
+وهو اسميٌّ لأن المعتبر هو أسماء الأنواع؛ فتقول:
+
+- **الشكل** هو ما كان له محيط
+- **المستطيل** شكلٌ (إذًا له محيط) و فوق ذلك فإنه له: طولًا وعرضًا ومساحة
+- **والمثلث** شكلٌ (إذًا له محيط) و فوق ذلك فإنه له: ثلاثةَ أضلاعٍ ومساحة
+- أما **المربع** فهو مستطيل (إذًا له محيط لأن المستطيل شكل، وله طول وعرض ومساحة): لكن عرضه وطوله متساويان
+
+وهذه شجرة التوارث للأنواع المذكورة:
+
+```{mermaid}
+flowchart BT
+  Shape
+  Rectangle -- "is a" --> Shape
+  Square -- "is a" --> Rectangle
+  Triangle -- "is a" --> Shape
+```
+
+ويستعمل الإجراء `super()` للإشارة إلى النوع الأصل الذي استمدَّ منه. فإننا في فعل الإنشاء `__init__` في المخصص نطلب فعل الإنشاء `__init__` في الأصل.
 
 ```{python}
-class Rectangle:
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
+class Shape:
+    def __init__(self, *sides):
+        self.sides = sides
     
+    @property
     def perimeter(self):
-        return 2 * (self.width + self.height)
+        return sum(self.sides)
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        super().__init__(width, height, width, height)
     
+    @property
+    def width(self):
+        return self.sides[0]
+    
+    @property
+    def height(self):
+        return self.sides[1]
+    
+    @property
     def area(self):
         return self.width * self.height
     
+class Triangle(Shape):
+    def __init__(self, a, b, c):
+        super().__init__(a, b, c)
+
+    @property
+    def a(self):
+        return self.sides[0]
+    
+    @property
+    def b(self):
+        return self.sides[1]
+    
+    @property
+    def c(self):
+        return self.sides[2]
+    
+    @property
+    def area(self):
+        s = self.perimeter / 2
+        return (s * (s - self.a) * (s - self.b) * (s - self.c))**0.5
+    
+
 class Square(Rectangle):
     def __init__(self, side):
         super().__init__(side, side)
 ```
 
-وتشير كلمة `super()` في الوارث إلى النوع المورث. فالفعل المخصص للإنشاء في الأصل يستدعي الفعل المخصص للإنشاء في الأصل.
-
-المثال الثاني:
-
-- الأشكال لها محيط
-- المثلث شكل
-- المستطيل شكل وله مساحة أيضًا
 
 ```{python}
-class Shape:
-    def __init__(self, sides):
-        self.sides = sides
-
-    def perimeter(self):
-        result = 0
-        for s in self.sides:
-            result += s
-        return result
-
-class Triangle(Shape):
-    def __init__(self, s1, s2, s3):
-        super().__init__([s1, s2, s3])
-
-class Rectangle(Shape):
-    def __init__(self, width, height):
-        super().__init__([width, height, width, height])
-
-    def area(self):
-        return self.sides[0] * self.sides[1]
-```
-
-فهو يستمد منه ويزيد عليه.
-
-```{python}
-
-tri1 = Triangle(10, 10, 10)
-print("Triangle:")
-print("Perimeter:", tri1.perimeter())
+x = Triangle(10, 10, 10)
+print("Triangle")
+print("Perimeter:", x.perimeter)
+print("Area:", round(x.area, 2))
+print(f"Sides: a={x.a}, b={x.b}, c={x.c}")
 ```
 
 ```{python}
-rect1 = Rectangle(10, 20)
-print("Rectangle:")
-print("Perimeter:", rect1.perimeter())
-print("Area:", rect1.area())
+y = Rectangle(10, 20)
+print("Rectangle")
+print("Perimeter:", y.perimeter)
+print("Area:", round(y.area, 2))
+print(f"Sides: width={y.width}, height={y.height}")
 ```
 
-**فائدة**: يفضل كثير من الممارسين الانتماء على الوراثة في أغلب الأحيان. فهي أكثر قبولاً للنمو، بينما الوراثة جامدة وغير مرنة عند التغيير. وكثيرٌ مما ينظَّرُ له في الوراثة يمكن تحقيقه بجملة `if-elif-else` أو جملة `match-case` وتنتهي القصة.
+وتجد في شجرة المجموعات @fig-collections-tree أن المجموعات المتغيرة نوع مخصص من الأنواع الجامدة:
 
-## التركيب (Composition)
+- القائمة (`list`) مخصصة من التسلسل المتغير (`MutableSequence`) الذي هو من نوع التسلسل (`Sequence`).
+- المجموعة (`set`) مخصصة من المجموعة المتغيرة (`MutableSet`) التي هي من نوع المجموعة (`Set`).
+- القاموس (`dict`) مخصص من القاموس المتغير (`MutableMapping`) الذي هو من نوع القاموس (`Mapping`).
 
-و**التركيب**: أن يدخُلَ الشيءُ تحت نوعٍ ما لا لأنَّه أنشئَ منه ولكن لمطابقته خصائصه.
+يفضل كثير من الممارسين التصنيف العملي على التصنيف الاسمي في أغلب الأحيان. لمرونته التي نحتاجها في التطوير المستمر للبرنامج، بينما التصنيف الاسمي جامد، وتخرق قواعده الصرامة بسرعة عند التغيير. وكثيرٌ مما ينظَّرُ له في التصنيف الاسمي يمكن تحقيقه بجملة `if-elif-else` أو جملة `match-case` وتنتهي القصة. ولذلك يجب استعماله في حالات قليلة يكون الاستمداد فيها من حيثية محددة: مثل التغيُّر (Mutability) كما في المثال السابق.
 
-ويكثر فيه المجرَّداتُ ذات الفعل الواحد أو الفعلين. لأننا نريد أشياء كثيرة تنتمي بحسب ما يكون فيها من أفعال.
+## التصنيف العملي: التركيب (Composition)
+
+ومثاله في نفس شجرة المجموعات @fig-collections-tree هو نوع **الجمع** (`Collection`)، حيث له ثلاثة اعتبارات:
+
+1. كونها تقبل العضويَّة: `x in s` وفعلها هو: `__contains__` تصنَّف أنها حاوية (Container)
+2. كونها تقبل التكرار: `for x in s` وفعلها هو: `__iter__` تصنَّف أنها متوالية (`Iterable`)
+3. كونها تقبل العد: `len(s)` وفعلها هو: `__len__` تصنَّف أنها محجَّمة (`Sized`)
+
+وكذلك المتسلسلة (Sequence) تقبل العكس، وفعلها المخصص هو: `__reversed__`؛ فبهذا الاعتبار هي من النوع **القابل للعكس** (Reversible).
  
-فمثلاً: أيُّ شيءٍ يعرِّفُ الفعل `len(sized)__ -> int__` فإنه ينتمي لنوع **ذوات الحجم** (`Sized`).
+فمثلاً: أيُّ شيءٍ يعرِّفُ الفعل `len(sized)__ -> int__` فإنه ينتمي لنوع **ذوات الحجم** (`Sized`)، ونمثل لذلك بنوع المتجه في فضاء ثنائي الأبعاد حيث يتكون من عنصرين:
 
 ```{python}
 class Vector:
@@ -270,16 +307,9 @@ v1 = Vector(10, 20)
 len(v1)
 ```
 
-فالمتجه صار ذا حجمٍ باعتبار وجود الفعل المخصص `__len__`. ووجوده يجعل الفعل `len` يقبله كعامل له.
+ولاحظ عدم وجود ذكر اسم النوع `Sized` البتة، فليس بينهما علاقة مباشرة، ولكن تم تعريف ذلك الصنف المجرَّد لاحقًا لاعتبار جميع ما له الفعل `__len__` لمعرفة عدد عناصره.
 
-أو أكثر بحسب الاعتبار. فنقول إن **المتسلسلة** (Sequence) نوع من **المجموعة** (Collection) باعتبارات ثلاث (انظر: خريطة المجموعات @fig-collections-tree):
-
-1. كونها تقبل العضويَّة: `x in s` وفعلها هو: `__contains__`
-2. كونها تقبل التكرار: `for x in s` وفعلها هو: `__iter__` 
-3. كونها تقبل العد: `len(s)` وفعلها هو: `__len__`
-
-ومن وجهٍ آخر فهي (أعني المتسلسلة) من نوع **القابل للعكس** (Reversible) لكونها تقبل الفعل `reversed` الذي فعله: `__reversed__`.
-
+ويكثر فيه المجرَّداتُ ذات الفعل الواحد أو الفعلين. لأننا نريد أشياء كثيرة تنتمي بحسب ما يكون فيها من أفعال.
 
 ## المعاملات (Operators)
 
@@ -311,7 +341,7 @@ len(v1)
  
 كل الذي سبق، قد تم تعريفه في بايثون لهذه الأنواع التي تراها بالتحديد عن طريق أفعال مخصصة. وإليك هذا الجدول للمعاملات المخصصة:
 
-| المعامل | الفعل |
+| مثال معامله | الفعل |
 |----------|----------|
 | `self + other` | `__add__` |
 | `self - other` | `__sub__` |
