@@ -199,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapters/01_intro/introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">لغة البرمجة</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">ماذا نعني بلغة البرمجة؟</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -540,7 +540,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="e023915b" class="cell" data-execution_count="2">
+<div id="d793c5d7" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>الكود</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, HTML</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
@@ -559,6 +561,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-16"><a href="#cb1-16"></a><span class="co"># Display the dataframe as an HTML table</span></span>
 <span id="cb1-17"><a href="#cb1-17"></a>df.to_html(index<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb1-18"><a href="#cb1-18"></a>display(HTML(df.to_html(index<span class="op">=</span><span class="va">False</span>)))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -571,7 +574,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>Identifier</td>
-<td>مُعرَّف</td>
+<td>مُعرَّف</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -605,33 +608,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>مثل: `if x &gt; y`</td>
 </tr>
 <tr class="even">
-<td>Block</td>
-<td>لَبِنَة</td>
+<td>Code Block</td>
+<td>قطعة كود</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Cell</td>
-<td>قطعة</td>
+<td>لَبِنَة</td>
 <td>مثل</td>
-</tr>
-<tr class="even">
-<td>Snippet</td>
-<td>قصاصة</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Code</td>
-<td>كود</td>
-<td></td>
 </tr>
 <tr class="even">
 <td>Operation</td>
 <td>عملية</td>
-<td>مثل: `+` في `x + y` و مثل: `.` في `point.x</td>
+<td>مثل: `+` في `x + y` و مثل: `.` في `point.x`</td>
 </tr>
 <tr class="odd">
 <td>Function</td>
-<td>إجراء</td>
+<td>فعل</td>
 <td>في سياق البرمجة لا نقول دالة لأن الدالة دائمًا لها مخرجات ولا تتأثر إلا بمدخلاتها</td>
 </tr>
 <tr class="even">
@@ -641,12 +634,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td>Object</td>
-<td>كائن أو شيء</td>
+<td>شيء أو كائن</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Class</td>
-<td>صنف أو نوع</td>
+<td>صنف</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -655,38 +648,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td></td>
 </tr>
 <tr class="even">
-<td>Conatiner</td>
+<td>Container</td>
 <td>حاوية</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Iterable</td>
-<td>قابل للتكرار</td>
-<td></td>
+<td>متوالية</td>
+<td>قابل للتكرار (مفعول به)</td>
 </tr>
 <tr class="even">
 <td>Iterator</td>
-<td>مكرر</td>
-<td></td>
+<td>مكرِّر</td>
+<td>فاعل</td>
 </tr>
 <tr class="odd">
 <td>Reversible</td>
-<td>قابل للعكس</td>
-<td></td>
+<td>معكوس</td>
+<td>مفعول به: قابل للعكس</td>
 </tr>
 <tr class="even">
 <td>Generator</td>
-<td>مولد</td>
-<td></td>
+<td>مولِّد</td>
+<td>فاعل</td>
 </tr>
 <tr class="odd">
 <td>Sized</td>
-<td>محدد الحجم</td>
-<td></td>
+<td>محجَّم</td>
+<td>صفة</td>
 </tr>
 <tr class="even">
 <td>Callable</td>
-<td>قابل للنداء</td>
+<td>منادى</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -700,43 +693,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td></td>
 </tr>
 <tr class="odd">
-<td>Index</td>
-<td>فهرس أو مؤشر</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Mutable Sequence</td>
-<td>تسلسل قابل للتعديل</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Sequence</td>
-<td>تسلسل</td>
+<td>تسلسل متغير</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>String</td>
-<td>نص</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>List</td>
 <td>قائمة</td>
 <td></td>
 </tr>
-<tr class="even">
-<td>Dict (Mapping)</td>
-<td>دالة</td>
-<td></td>
-</tr>
 <tr class="odd">
-<td>Hashable</td>
-<td>مرقوم</td>
+<td>List Index</td>
+<td>مؤشر قائمة</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>View</td>
-<td>عرض</td>
+<td>Database Index</td>
+<td>فهرس قاعدة بيانات</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -750,113 +723,223 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td></td>
 </tr>
 <tr class="odd">
-<td>Parameter</td>
-<td>معامل</td>
-<td>وهي المتغيرات في التعريف</td>
+<td>Dictionary</td>
+<td>قاموس</td>
+<td></td>
 </tr>
 <tr class="even">
-<td>Argument</td>
-<td>معامل</td>
-<td>وهي القيَم المُمَرَّرَة</td>
+<td>Mapping</td>
+<td>دالة</td>
+<td></td>
 </tr>
 <tr class="odd">
+<td>Hashable</td>
+<td>مرقوم</td>
+<td>صفة: يصير رقمًا</td>
+</tr>
+<tr class="even">
+<td>Dictionary Key</td>
+<td>مرقوم قاموس</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Dictionary Item</td>
+<td>رابط</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Key</td>
+<td>مفتاح</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Value</td>
+<td>قيمة</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>String</td>
+<td>نص</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>View</td>
+<td>عرض</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Parameter</td>
+<td>معامل</td>
+<td>وهي المتغيرات الشكلية في تعريف الفعل</td>
+</tr>
+<tr class="odd">
+<td>Argument</td>
+<td>معامل</td>
+<td>قيم التعيين للمتغيرات الشكلية</td>
+</tr>
+<tr class="even">
 <td>File</td>
 <td>ملف</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Module</td>
 <td>وحدة</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Package</td>
 <td>حزمة</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Library</td>
 <td>مكتبة</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Framework</td>
 <td>إطار عمل</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Built-in</td>
 <td>مدمج</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>{}</td>
 <td>قوسين معوجين أو قوسين متعرجين</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>[]</td>
 <td>قوسين مربعين</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>()</td>
 <td>قوسين دائريين</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>&lt;&gt;</td>
 <td>قوسين زاويين أو قوسين حادين</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Feedback</td>
 <td>تعقيب</td>
 <td>التعليقات أو الردود التي ترد بعد عرض رأي أو عمل</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Static</td>
 <td>ثابت</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Dynamic</td>
 <td>متغير</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Constant</td>
 <td>ثابت</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Variable</td>
 <td>متغير</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>System Time</td>
 <td>وقت النظام</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Calendar Time</td>
 <td>وقت التقويم</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Epoch</td>
 <td>المرجع الزمني الحاسوبي</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Positional</td>
 <td>مكاني</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Swap</td>
-<td>قلب</td>
+<td>قَلب</td>
+<td>فعل</td>
+</tr>
+<tr class="even">
+<td>Path</td>
+<td>مسار</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Directory</td>
+<td>دليل</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Absolute Path</td>
+<td>مسار مطلق</td>
+<td>يبدأ من الجذر</td>
+</tr>
+<tr class="odd">
+<td>Relative Path</td>
+<td>مسار نسبي</td>
+<td>يبدأ من الموقع الحالي</td>
+</tr>
+<tr class="even">
+<td>Context Manager</td>
+<td>مدير سياق</td>
+<td>يتحكم في فتح وإغلاق الموارد</td>
+</tr>
+<tr class="odd">
+<td>Recursion</td>
+<td>تسلسل</td>
+<td>في الفعل فعلٌ بنفس الفعل</td>
+</tr>
+<tr class="even">
+<td>Recursive Function</td>
+<td>فعل متسلسل</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Execution Frame</td>
+<td>إطار تنفيذ</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Object-Oriented Programming</td>
+<td>برمجة شيئية</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Attribute</td>
+<td>صفة</td>
+<td>متغير مسند لمعيَّن من النوع</td>
+</tr>
+<tr class="even">
+<td>Method</td>
+<td>فعل</td>
+<td>فعل مسند لمعيَّن من النوع</td>
+</tr>
+<tr class="odd">
+<td>Composition</td>
+<td>تركيب</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Inheritance</td>
+<td>توريث</td>
 <td></td>
 </tr>
 </tbody>
