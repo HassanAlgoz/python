@@ -1,0 +1,43 @@
+ومن الحزم التي تبني على `numpy` حزمة [`pandas`](https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_spreadsheets.html) المتخصصة في تفكيك وتركيب الجداول والتحليلات الإحصائية عليها. ونحن إذا أردناها نستوردها ونستعملها:
+
+```bash
+pip install pandas
+```
+
+```{python}
+import pandas as pd
+
+df = pd.read_csv('../../datasets/students.csv')
+df
+```
+
+ثم التحليل كالتالي:
+
+```{python}
+df.describe(include=['number']).T
+```
+
+وهي من أشهر المكتبات المساهمة في تحليل البيانات المجدولة.
+
+والمثال الأخير هو حزمة [`geopy`](https://geopy.readthedocs.io/en/stable/) المتخصصة في الإحداثيات المكانية على الأرض وما يتعلق بها من حسابات وبيانات. يبدوا استعمالها معقَّدًا؛ لكنك ستراه سهلاً فيما بعد:
+
+```bash
+pip install geopy
+```
+
+```python
+from geopy.distance import geodesic
+from geopy.geocoders import Nominatim
+
+geolocator = Nominatim(user_agent="exercise")
+
+dammam_location = geolocator.geocode("Dammam, Saudi Arabia")
+bahrain_location = geolocator.geocode("Bahrain")
+
+dammam_coords = (dammam_location.latitude, dammam_location.longitude)
+bahrain_coords = (bahrain_location.latitude, bahrain_location.longitude)
+
+# Calculate the distance
+distance = geodesic(dammam_coords, bahrain_coords).kilometers
+print(f"Between Dammam and Bahrain is {distance:.2f} km")
+```
