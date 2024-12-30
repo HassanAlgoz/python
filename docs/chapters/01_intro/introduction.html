@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -105,6 +105,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -138,7 +141,9 @@ window.Quarto = {
 
 <meta name="twitter:title" content="1&nbsp; ماذا نعني بلغة البرمجة؟ – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/01_intro/cover.png">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/01_intro/introduction_files/figure-html/cell-6-output-1.png">
+<meta name="twitter:image-height" content="526">
+<meta name="twitter:image-width" content="711">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -580,7 +585,7 @@ window.Quarto = {
 <section id="القطعة-البرمجية" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="القطعة-البرمجية"><span class="header-section-number">1.1</span> القطعة البرمجية</h2>
 <p>تُنَفَّذُ القطعة بحسب ترتيب جُمَلِها نزولاً من الأعلى.</p>
-<div id="b3ae2338" class="cell" data-execution_count="2">
+<div id="38059fc5" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>pages <span class="op">=</span> <span class="dv">900</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>speed <span class="op">=</span>  <span class="dv">50</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>finish_time <span class="op">=</span> pages <span class="op">/</span> speed</span>
@@ -787,7 +792,7 @@ async      elif       if         or         yield</code></pre>
 \text{distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
 \]</span></p>
 <p>القطعة:</p>
-<div id="e0d43069" class="cell" data-execution_count="3">
+<div id="738f4be7" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> math</span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
 <span id="cb4-3"><a href="#cb4-3"></a>x1, y1 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
@@ -815,29 +820,180 @@ async      elif       if         or         yield</code></pre>
 <section id="المكتبات-المساهمة" class="level3">
 <h3 class="anchored" data-anchor-id="المكتبات-المساهمة">المكتبات المساهمة</h3>
 <p>وتسمى <strong>المكتبات الخارجية</strong> وهي مكتبات يساهم بها الناس، ويضيفونها إلى اللغة، نجدها في موقع قاعدة بيانات <a href="https://pypi.org/">PyPI</a> الذي يضم أكثر من 580 ألف مشروع، أو غيرها من المواقع. وهذه يتم تنزيلها وتثبيتها للاستفادة من لغتها المزيدة.</p>
-<p>على سبيل المثال، تختص <strong>حزمة</strong> <a href="https://numpy.org/"><code>numpy</code></a> (Numerical Python) بالعمليات العددية على المصفوفات متعددة الأبعاد.</p>
+<p>على سبيل المثال، تختص <strong>حزمة</strong> <a href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_spreadsheets.html"><code>pandas</code></a> المتخصصة في تفكيك وتركيب الجداول والتحليلات الإحصائية عليها؛ فهي أقوى من أي نسخة من إكسل (Excel) أو غيره.</p>
 <p>لتثبيتها نستعمل <code>pip</code> هكذا في سطر الأوامر (النافذة السوداء):</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">pip</span> install numpy</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">pip</span> install pandas</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>ثم نستعملها بعد جملة الاستيراد، لنجرب عملية الضربالنقطي بين مصفوفتين:</p>
-<div id="06099039" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div id="af96f132" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a>mat1 <span class="op">=</span> np.array([</span>
-<span id="cb7-4"><a href="#cb7-4"></a>    [<span class="dv">1</span>, <span class="dv">2</span>],</span>
-<span id="cb7-5"><a href="#cb7-5"></a>    [<span class="dv">3</span>, <span class="dv">4</span>]</span>
-<span id="cb7-6"><a href="#cb7-6"></a>])</span>
-<span id="cb7-7"><a href="#cb7-7"></a></span>
-<span id="cb7-8"><a href="#cb7-8"></a>mat2 <span class="op">=</span> np.array([</span>
-<span id="cb7-9"><a href="#cb7-9"></a>    [<span class="dv">5</span>, <span class="dv">6</span>],</span>
-<span id="cb7-10"><a href="#cb7-10"></a>    [<span class="dv">7</span>, <span class="dv">8</span>]</span>
-<span id="cb7-11"><a href="#cb7-11"></a>])</span>
-<span id="cb7-12"><a href="#cb7-12"></a></span>
-<span id="cb7-13"><a href="#cb7-13"></a><span class="bu">print</span>(np.dot(mat1, mat2))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[19 22]
- [43 50]]</code></pre>
+<span id="cb7-3"><a href="#cb7-3"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../datasets/students.csv'</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a>df</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Grade</th>
+<th data-quarto-table-cell-role="th">Gender</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Mohammed</td>
+<td>19</td>
+<td>88</td>
+<td>M</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Abdullah</td>
+<td>20</td>
+<td>95</td>
+<td>M</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Ahmed</td>
+<td>21</td>
+<td>87</td>
+<td>M</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Khalid</td>
+<td>19</td>
+<td>92</td>
+<td>M</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Sara</td>
+<td>20</td>
+<td>94</td>
+<td>F</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Fatima</td>
+<td>22</td>
+<td>89</td>
+<td>F</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Omar</td>
+<td>21</td>
+<td>91</td>
+<td>M</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Norah</td>
+<td>20</td>
+<td>93</td>
+<td>F</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Turki</td>
+<td>19</td>
+<td>86</td>
+<td>M</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Reem</td>
+<td>21</td>
+<td>90</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
+</div>
+<p>ثم لعرض ملخصات إحصائية:</p>
+<div id="05c54649" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df.describe(include<span class="op">=</span>[<span class="st">'number'</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>10.000000</td>
+<td>10.00000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>20.200000</td>
+<td>90.50000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>1.032796</td>
+<td>3.02765</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>19.000000</td>
+<td>86.00000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>19.250000</td>
+<td>88.25000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>20.000000</td>
+<td>90.50000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>21.000000</td>
+<td>92.75000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>22.000000</td>
+<td>95.00000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>أو تصوير البيانات:</p>
+<div id="29c186ad" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>df[<span class="st">'Gender'</span>].value_counts().plot(kind<span class="op">=</span><span class="st">'barh'</span>, color<span class="op">=</span><span class="st">'skyblue'</span>, figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="introduction_files/figure-html/cell-6-output-1.png" width="356" height="263" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>هكذا بكل بساطة.</p>
 <p>فإذًا .. هنا دور <strong>المجتمع</strong> ليبني باللغة: بمفرداتها وجملها ومكتبتها الأساسية والخارجية، ليبني فوق ذلك ما يخدم أغراضه. فلكل فئة من الناس تركيب حزمة جديدة مكونة من أنواع وأفعال مركبة مبنية على غيرها ، ثم يوفرونها لغيرهم. وهكذا تنمو اللغة ، حزمةً تِلو الأخرى بحسب إسهامات كل مجتمع برمجي بما يهتم به.</p>
 <p>ومن مكامن القوة في لغة بايثون: أنها <strong>متوافقة مع لغتي C/C++</strong> إذْ يُمكن كتابة برمجيات عالية الأداء والكفاءة بهما مستفيدين من الحزم الموجودة فيهما، ثم توفيق ذلك ليكون كمكتبة في لغة بايثون.</p>
 <p>فالمجتمعات البرمجية في بايثون كثيرة ومتعددة في اهتماماتها. منها على سبيل المثال:</p>

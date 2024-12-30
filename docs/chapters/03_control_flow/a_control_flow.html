@@ -758,7 +758,7 @@ False</code></pre>
 </div>
 <section id="تركيب-الشروط" class="level3">
 <h3 class="anchored" data-anchor-id="تركيب-الشروط">تركيب الشروط</h3>
-<p>يجوز دمج عدة شروط بعمليات الجمع والتخيير والحصر والعكس، فناتجها منطقي:</p>
+<p>يجوز دمج عدة شروط بعمليات الجمع والتخيير والحصر والعكس، فناتجها منطقي ملخص في الجدول التالي:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -817,6 +817,12 @@ False</code></pre>
 <pre><code>You are eligible to donate blood</code></pre>
 </div>
 </div>
+<p>يؤول طرفي المعامل <code>and</code> لقيمة منطقية هكذا:</p>
+<ul>
+<li><code>age &gt; 18</code> تؤول إلى <code>True</code> لأن <code>age=20</code> وهو أكبر من <code>18</code></li>
+<li><code>weight &gt; 45</code> تؤول إلى <code>True</code> لأن <code>weight=50</code> وهو أكبر من <code>45</code></li>
+<li>فتكون الجملة إذًا: <code>True and True</code> وهي تؤول إلى <code>True</code></li>
+</ul>
 <p>تستعمل الأقواس لتجميع الشروط لإيقاع الترتيب المنطقي المراد:</p>
 <div id="116f194f" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>age <span class="op">=</span> <span class="dv">16</span></span>
@@ -826,6 +832,13 @@ False</code></pre>
 <span id="cb14-5"><a href="#cb14-5"></a><span class="cf">if</span> age <span class="op">&lt;</span> <span class="dv">16</span> <span class="kw">or</span> (temperature <span class="op">&lt;</span> <span class="dv">20</span> <span class="kw">and</span> <span class="kw">not</span> is_wearing_coat):</span>
 <span id="cb14-6"><a href="#cb14-6"></a>  <span class="bu">print</span>(<span class="st">"I suggest you don't go outside"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ul>
+<li><code>age &lt; 16</code> تؤول إلى <code>False</code> لأن <code>age=16</code> ليست أصغر من <code>16</code></li>
+<li><code>temperature &lt; 20</code> تؤول إلى <code>True</code> لأن <code>temperature=15</code> أصغر من <code>20</code> فعلاً</li>
+<li><code>not is_wearing_coat</code> تؤول إلى <code>False</code> لأن <code>is_wearing_coat=True</code> وهي عكسها</li>
+<li>إذًا الجملة بين القوسين <code>(temperature &lt; 20 and not is_wearing_coat)</code> تؤول إلى <code>True and False</code> وهي تؤول إلى <code>False</code></li>
+<li>إذًا الجملة <code>age &lt; 16 or (False)</code> تؤول إلى <code>False or False</code> وهي تؤول إلى <code>False</code></li>
+</ul>
 <p>يُنظَر للشرط بأكمله كقيمة منطقية واحدة تكون <code>True</code> أو <code>False</code> ولا بأس بتجزئته حينما يسهل بذلك الفهم:</p>
 <div id="329c3f18" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>is_minor <span class="op">=</span> age <span class="op">&lt;</span> <span class="dv">16</span></span>
@@ -1238,7 +1251,7 @@ Done</code></pre>
 <p>وهذا تصوير لسير الأفعال لنفس الكود. ملاحظة: اضغط على الزر <code>Prev</code> أو <code>Next</code> للتنقل بين خطوات التنفيذ الفعلية:</p>
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
 </iframe>
-<p>لاحظ أن نسيان جملة الزيادة (<code>i += 1</code>) يجعل الشرط دائمًا صحيحًا، فيدور البرنامج في <strong>حقلة لا نهيائة</strong> ولا يخرج أبدًا. ويعتبر هذا خطأ برمجيًّا يتعذر على الكود التعامل معه بنفسه؛ بل يجب على المبرمج أن يكتشفه.</p>
+<p>لاحظ أن نسيان جملة الزيادة (<code>i += 1</code>) يجعل الشرط دائمًا صحيحًا، فيدور البرنامج في <strong>حلقة لا نهيائة</strong> ولا يخرج أبدًا. ويعتبر هذا خطأ برمجيًّا يتعذر على الكود التعامل معه بنفسه؛ بل يجب على المبرمج أن يكتشفه. وسيأتي الكلام عن أنواع الأخطاء في البرمجة في <a href="../../chapters/11_errors/a1_errors.html">باب الأخطاء</a>.</p>
 </section>
 <section id="الخروج-من-الحلقة" class="level3">
 <h3 class="anchored" data-anchor-id="الخروج-من-الحلقة">الخروج من الحلقة</h3>
