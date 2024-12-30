@@ -148,7 +148,7 @@ print(b2)
 
 ### تركيب الشروط
 
-يجوز دمج عدة شروط بعمليات الجمع والتخيير والحصر والعكس، فناتجها منطقي:
+يجوز دمج عدة شروط بعمليات الجمع والتخيير والحصر والعكس، فناتجها منطقي ملخص في الجدول التالي:
 
 | A | B | AND | OR  | XOR |
 |----------|----------|----------|---------|------------------|
@@ -172,6 +172,12 @@ if age > 18 and weight > 45:
   print("You are eligible to donate blood")
 ```
 
+يؤول طرفي المعامل `and` لقيمة منطقية هكذا:
+
+- `age > 18` تؤول إلى `True` لأن `age=20` وهو أكبر من `18`
+- `weight > 45` تؤول إلى `True` لأن `weight=50` وهو أكبر من `45`
+- فتكون الجملة إذًا: `True and True` وهي تؤول إلى `True`
+
 تستعمل الأقواس لتجميع الشروط لإيقاع الترتيب المنطقي المراد:
 
 ```{python}
@@ -182,6 +188,12 @@ is_wearing_coat = True
 if age < 16 or (temperature < 20 and not is_wearing_coat):
   print("I suggest you don't go outside")
 ```
+
+- `age < 16` تؤول إلى `False` لأن `age=16` ليست أصغر من `16`
+- `temperature < 20` تؤول إلى `True` لأن `temperature=15` أصغر من `20` فعلاً
+- `not is_wearing_coat` تؤول إلى `False` لأن `is_wearing_coat=True` وهي عكسها
+- إذًا الجملة بين القوسين `(temperature < 20 and not is_wearing_coat)` تؤول إلى `True and False` وهي تؤول إلى `False`
+- إذًا الجملة `age < 16 or (False)` تؤول إلى `False or False` وهي تؤول إلى `False`
 
 يُنظَر للشرط بأكمله كقيمة منطقية واحدة تكون `True` أو `False` ولا بأس بتجزئته حينما يسهل بذلك الفهم:
 
@@ -529,7 +541,7 @@ print('Done')
 
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
-لاحظ أن نسيان جملة الزيادة (`i += 1`) يجعل الشرط دائمًا صحيحًا، فيدور البرنامج في **حقلة لا نهيائة** ولا يخرج أبدًا. ويعتبر هذا خطأ برمجيًّا يتعذر على الكود التعامل معه بنفسه؛ بل يجب على المبرمج أن يكتشفه.
+لاحظ أن نسيان جملة الزيادة (`i += 1`) يجعل الشرط دائمًا صحيحًا، فيدور البرنامج في **حلقة لا نهيائة** ولا يخرج أبدًا. ويعتبر هذا خطأ برمجيًّا يتعذر على الكود التعامل معه بنفسه؛ بل يجب على المبرمج أن يكتشفه. وسيأتي الكلام عن أنواع الأخطاء في البرمجة في [باب الأخطاء](../11_errors/a1_errors.qmd).
 
 ### الخروج من الحلقة
 
