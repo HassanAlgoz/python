@@ -1,25 +1,28 @@
-# تمارين {.unnumbered}
+# مسائل {.unnumbered}
 
 ## قاموس داخل قاموس
 
 إذا كان لديك قاموس متداخل كالتالي:
 
 ```{python}
-my_dict = {
-    "class": {
-        "president": {
-            "name": "Malik",
-            "marks": {
-                "physics": 70,
-                "history": 80
-            }
-        }
-    }
+user_preferences = {
+    'theme': 'dark',
+    'language': 'Arabic',
+    'notifications': {
+        'email': True,
+        'sms': False,
+        'push': True
+    },
+    'last_updated': '2021-09-01',
+    'emails': ['example1@domain.com', 'example2@domain.com']
 }
 ```
 
-المطلوب: اطبع قيمة المفتاح `"history"` بالتدريج من القاموس المتداخل.
+المطلوب أن تسحب من تفضيلات المستخدم المتغيرات التالية:
 
+- `theme`
+- `notifications.sms`
+- آخر عنصر في: `emails`
 
 ## توحيد الصيغة
 
@@ -53,11 +56,13 @@ assert (
 
 ## تصحيح الإملاء
 
-اكتب فعلً يصحح الإخطاء الشائعة في الإملاء العربي.
+اكتب فعلًا يصحح الإخطاء الشائعة في الإملاء العربي.
 
 - إبدال التاء المربوطة بالهاء: مكتبه، لعبه، روايه
 - إبدال الظاء بالضاد والعكس: ظابط، قرظ، ضهر
 - زيادة الياء: أحسنتي، رأيتكي
+
+والمطلوب فقط تصحيح الأخطاء المذكورة.
 
 ```python
 def correct_spelling(word: str) -> str:
@@ -65,9 +70,14 @@ def correct_spelling(word: str) -> str:
 ```
 
 ```python
-assert correct_spelling('المكتبه فيها الروايه التي أبحث عنها') == 'المكتبة فيها الرواية التي أبحث عنها'
-assert correct_spelling('أعطاك الظابط القرظ بعد الضهر') == 'أعطاك الضابط القرض بعد الظهر'
-assert correct_spelling('رأيتكي أحسنتي') == 'رأيتك أحسنت
+assert correct_spelling('المكتبه فيها الروايه التي أبحث عنها') ==
+    'المكتبة فيها الرواية التي أبحث عنها'
+    
+assert correct_spelling('أعطاك الظابط القرظ بعد الضهر') ==
+    'أعطاك الضابط القرض بعد الظهر'
+
+assert correct_spelling('رأيتكي أحسنتي') ==
+    'رأيتك أحسنت'
 ```
 
 
