@@ -102,6 +102,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta name="twitter:title" content="مسائل – البايثونية">
 <meta name="twitter:description" content="">
@@ -350,7 +379,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/06_mapping/c_problems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">تمارين</span></a>
+ <span class="menu-text">مسائل</span></a>
   </div>
 </li>
       </ul>
@@ -514,6 +543,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#ضرب-متجهين" id="toc-ضرب-متجهين" class="nav-link" data-scroll-target="#ضرب-متجهين">ضرب متجهين</a></li>
   <li><a href="#توزيع-الفرق" id="toc-توزيع-الفرق" class="nav-link" data-scroll-target="#توزيع-الفرق">توزيع الفرق</a>
   <ul class="collapse">
+  <li><a href="#بحسب-حجم-المجموعة" id="toc-بحسب-حجم-المجموعة" class="nav-link" data-scroll-target="#بحسب-حجم-المجموعة">بحسب حجم المجموعة</a></li>
+  <li><a href="#بحسب-عدد-المجموعات" id="toc-بحسب-عدد-المجموعات" class="nav-link" data-scroll-target="#بحسب-عدد-المجموعات">بحسب عدد المجموعات</a></li>
+  <li><a href="#دمج-الاثنين-في-فعل-واحد" id="toc-دمج-الاثنين-في-فعل-واحد" class="nav-link" data-scroll-target="#دمج-الاثنين-في-فعل-واحد">دمج الاثنين في فعل واحد</a></li>
   <li><a href="#ضم-الأقران" id="toc-ضم-الأقران" class="nav-link" data-scroll-target="#ضم-الأقران">ضم الأقران</a></li>
   </ul></li>
   </ul>
@@ -547,10 +579,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>ولديك سلة مشتريات تريد أن تحسب مجموعها.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>fruits <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span>]</span>
 <span id="cb1-2"><a href="#cb1-2"></a>prices <span class="op">=</span> [    <span class="fl">1.5</span>,      <span class="fl">2.0</span>,      <span class="fl">1.0</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>اكتب فعل يحسب مجموع السلة:</p>
+<p>اكتب فعلاً يحسب مجموع السلة:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> calculate_total_price(shopping_list: <span class="bu">list</span>[<span class="bu">str</span>]) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    <span class="co">"""Calculate the total price of the shopping list."""</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>    <span class="cf">pass</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>الاختبار:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">assert</span> calculate_total_price([<span class="st">"apple"</span>, <span class="st">"apple"</span>, <span class="st">"apple"</span>]) <span class="op">==</span> <span class="fl">4.5</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="cf">assert</span> calculate_total_price([<span class="st">"banana"</span>, <span class="st">"apple"</span>]) <span class="op">==</span> <span class="fl">3.5</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="cf">assert</span> calculate_total_price([]) <span class="op">==</span> <span class="fl">0.0</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -582,25 +615,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="ضرب-متجهين" class="level2">
 <h2 class="anchored" data-anchor-id="ضرب-متجهين">ضرب متجهين</h2>
+<p>يوصف ضرب المتجهين بالصيغة:</p>
+<p><span class="math display">\[
+\vec{u} \cdot \vec{v} = \sum_{i=1}^{n} u_i v_i
+\]</span></p>
+<p>أي أن كل عنصر من المتجه الأول يضرب في العنصر المناظر له في المتجه الثاني، ويُجْمَعُ ناتج ذلك كله.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> dot_product(v: <span class="bu">list</span>[<span class="bu">float</span>], u: <span class="bu">list</span>[<span class="bu">float</span>]) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    <span class="co">"""Calculate the dot product of two vectors."""</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a>    <span class="cf">pass</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>للاختبار سنستعمل ما هو موجود في مكتبة <code>numpy</code>:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb6-2"><a href="#cb6-2"></a></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="cf">assert</span> dot_product([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]) <span class="op">==</span> np.dot([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>])</span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="cf">assert</span> dot_product([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]) <span class="op">==</span> np.dot([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>الاختبار:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">assert</span> dot_product([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]) <span class="op">==</span> <span class="dv">32</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="cf">assert</span> dot_product([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]) <span class="op">==</span> <span class="dv">14</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="توزيع-الفرق" class="level2">
 <h2 class="anchored" data-anchor-id="توزيع-الفرق">توزيع الفرق</h2>
-<p>لديك قائمة من الأسماء وتريد توزيعها إلى مجموعات:</p>
-<ol type="1">
-<li>الحالة الأولى: يتم تعيين حجم المجموعة الواحدة</li>
-<li>الحالة الثانية: يتم تعيين عدد المجموعات</li>
-</ol>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> make_groups1(items: <span class="bu">list</span>[<span class="bu">str</span>], num_groups: <span class="bu">int</span> <span class="op">=</span> <span class="va">None</span>, group_size: <span class="bu">int</span> <span class="op">=</span> <span class="va">None</span>) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">list</span>[<span class="bu">str</span>]]:</span>
+<section id="بحسب-حجم-المجموعة" class="level3">
+<h3 class="anchored" data-anchor-id="بحسب-حجم-المجموعة">بحسب حجم المجموعة</h3>
+<p>لديك قائمة من الأسماء وتريد توزيعها إلى مجموعات حيث <code>group_size</code> هو حجم المجموعة الواحدة:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> make_groups_by_size(items: <span class="bu">list</span>[<span class="bu">str</span>], group_size: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">list</span>[<span class="bu">str</span>]]:</span>
 <span id="cb7-2"><a href="#cb7-2"></a>    <span class="cf">pass</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>ويجب أن يكون الترتيب عشوائيًّا. انظر <a href="https://python.readthedocs.io/en/stable/library/random.html#functions-for-sequences">توثيق مكتبة بايثون عن مكتبة العشواء</a> هذه: <code>random.choice()</code>, <code>random.shuffle()</code>, <code>random.sample()</code>.</p>
 <p>افترض أن هذه القائمة التي لديك:</p>
 <pre><code>Ahmad
 Mohannad
@@ -609,34 +642,76 @@ Salem
 Ali
 Samir</code></pre>
 <p>الاختبارات</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>g1 <span class="op">=</span> make_groups1([<span class="st">"Ahmad"</span>, <span class="st">"Mohannad"</span>, <span class="st">"Mohammed"</span>, <span class="st">"Salem"</span>, <span class="st">"Ali"</span>, <span class="st">"Samir"</span>], num_groups<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="cf">assert</span> <span class="bu">len</span>(g1) <span class="op">==</span> <span class="dv">2</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="cf">assert</span> <span class="bu">len</span>(g1[<span class="dv">0</span>]) <span class="op">==</span> <span class="dv">3</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="cf">assert</span> <span class="bu">len</span>(g1[<span class="dv">1</span>]) <span class="op">==</span> <span class="dv">3</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a></span>
-<span id="cb9-6"><a href="#cb9-6"></a>g2 <span class="op">=</span> make_groups1([<span class="st">"Ahmad"</span>, <span class="st">"Mohannad"</span>, <span class="st">"Mohammed"</span>, <span class="st">"Salem"</span>, <span class="st">"Ali"</span>, <span class="st">"Samir"</span>], group_size<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="cf">assert</span> <span class="bu">len</span>(g2) <span class="op">==</span> <span class="dv">3</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="cf">assert</span> <span class="bu">len</span>(g2[<span class="dv">0</span>]) <span class="op">==</span> <span class="dv">2</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="cf">assert</span> <span class="bu">len</span>(g2[<span class="dv">1</span>]) <span class="op">==</span> <span class="dv">2</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="cf">assert</span> <span class="bu">len</span>(g2[<span class="dv">2</span>]) <span class="op">==</span> <span class="dv">2</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>g2 <span class="op">=</span> make_groups_by_size([</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    <span class="st">"Ahmad"</span>,</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    <span class="st">"Mohannad"</span>,</span>
+<span id="cb9-4"><a href="#cb9-4"></a>    <span class="st">"Mohammed"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5"></a>    <span class="st">"Salem"</span>,</span>
+<span id="cb9-6"><a href="#cb9-6"></a>    <span class="st">"Ali"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7"></a>    <span class="st">"Samir"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8"></a>], group_size<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="cf">assert</span> <span class="bu">len</span>(g2) <span class="op">==</span> <span class="dv">3</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="cf">assert</span> <span class="bu">len</span>(g2[<span class="dv">0</span>]) <span class="op">==</span> <span class="dv">2</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="cf">assert</span> <span class="bu">len</span>(g2[<span class="dv">1</span>]) <span class="op">==</span> <span class="dv">2</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a><span class="cf">assert</span> <span class="bu">len</span>(g2[<span class="dv">2</span>]) <span class="op">==</span> <span class="dv">2</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="بحسب-عدد-المجموعات" class="level3">
+<h3 class="anchored" data-anchor-id="بحسب-عدد-المجموعات">بحسب عدد المجموعات</h3>
+<p>نريد الآن توزيعها بحسب عدد المجموعات <code>group_count</code>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">def</span> make_groups_by_count(items: <span class="bu">list</span>[<span class="bu">str</span>], group_count: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">list</span>[<span class="bu">str</span>]]:</span>
+<span id="cb10-2"><a href="#cb10-2"></a>    <span class="cf">pass</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>الاختبار:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>g1 <span class="op">=</span> make_groups_by_count([</span>
+<span id="cb11-2"><a href="#cb11-2"></a>    <span class="st">"Ahmad"</span>,</span>
+<span id="cb11-3"><a href="#cb11-3"></a>    <span class="st">"Mohannad"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4"></a>    <span class="st">"Mohammed"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5"></a>    <span class="st">"Salem"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6"></a>    <span class="st">"Ali"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7"></a>    <span class="st">"Samir"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8"></a>], group_count<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="cf">assert</span> <span class="bu">len</span>(g1) <span class="op">==</span> <span class="dv">2</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a><span class="cf">assert</span> <span class="bu">len</span>(g1[<span class="dv">0</span>]) <span class="op">==</span> <span class="dv">3</span></span>
+<span id="cb11-11"><a href="#cb11-11"></a><span class="cf">assert</span> <span class="bu">len</span>(g1[<span class="dv">1</span>]) <span class="op">==</span> <span class="dv">3</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="دمج-الاثنين-في-فعل-واحد" class="level3">
+<h3 class="anchored" data-anchor-id="دمج-الاثنين-في-فعل-واحد">دمج الاثنين في فعل واحد</h3>
+<p>هل يمكنك جعل كلا الأمرين في فعل واحد؟ بحيث:</p>
+<ul>
+<li>لو تم تعيين <code>group_size</code> فإنه يتم توزيع العناصر بحسب حجم المجموعة</li>
+<li>لو تم تعيين <code>group_count</code> فإنه يتم توزيع العناصر بحسب عدد المجموعات</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">def</span> make_groups(items: <span class="bu">list</span>[<span class="bu">str</span>], group_size: <span class="bu">int</span> <span class="op">=</span> <span class="va">None</span>, group_count: <span class="bu">int</span> <span class="op">=</span> <span class="va">None</span>) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">list</span>[<span class="bu">str</span>]]:</span>
+<span id="cb12-2"><a href="#cb12-2"></a>    <span class="cf">pass</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="ضم-الأقران" class="level3">
 <h3 class="anchored" data-anchor-id="ضم-الأقران">ضم الأقران</h3>
-<p>تريد الآن أن تزيد شرطًا وهو أن يكون فارق العمر بينهم أقل ما يمكن. وهذه أعمارهم:</p>
+<p>ماذا لو أردت أن تضم قائمة من الأشخاص بحيث يكون فارق العمر بينهم أقل ما يمكن؟</p>
 <pre><code>Ahmad: 24
 Mohannad: 17
 Mohammed: 16
 Salem: 32
 Ali: 26
 Samir: 31</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>peers <span class="op">=</span> [</span>
+<span id="cb14-2"><a href="#cb14-2"></a>    (<span class="st">"Ahmad"</span>, <span class="dv">24</span>),</span>
+<span id="cb14-3"><a href="#cb14-3"></a>    (<span class="st">"Mohannad"</span>, <span class="dv">17</span>),</span>
+<span id="cb14-4"><a href="#cb14-4"></a>    (<span class="st">"Mohammed"</span>, <span class="dv">16</span>),</span>
+<span id="cb14-5"><a href="#cb14-5"></a>    (<span class="st">"Salem"</span>, <span class="dv">32</span>),</span>
+<span id="cb14-6"><a href="#cb14-6"></a>    (<span class="st">"Ali"</span>, <span class="dv">26</span>),</span>
+<span id="cb14-7"><a href="#cb14-7"></a>    (<span class="st">"Samir"</span>, <span class="dv">31</span>),</span>
+<span id="cb14-8"><a href="#cb14-8"></a>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">def</span> make_pairs_by_age_diff(items: <span class="bu">list</span>[<span class="bu">tuple</span>[<span class="bu">str</span>, <span class="bu">int</span>]]) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">tuple</span>[<span class="bu">str</span>, <span class="bu">str</span>]]:</span>
+<span id="cb15-2"><a href="#cb15-2"></a>    <span class="co">"""Make pairs of people by their age difference minimum."""</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>    <span class="cf">pass</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>الاختبارات</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>groups <span class="op">=</span> make_groups2([<span class="st">"Ahmad"</span>, <span class="st">"Mohannad"</span>, <span class="st">"Mohammed"</span>, <span class="st">"Salem"</span>, <span class="st">"Ali"</span>, <span class="st">"Samir"</span>], group_size<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="cf">for</span> g <span class="kw">in</span> groups:</span>
-<span id="cb11-3"><a href="#cb11-3"></a>    <span class="cf">if</span> <span class="st">"Ahmad"</span> <span class="kw">in</span> g:</span>
-<span id="cb11-4"><a href="#cb11-4"></a>        <span class="cf">assert</span> <span class="st">"Ali"</span> <span class="kw">in</span> g</span>
-<span id="cb11-5"><a href="#cb11-5"></a>    <span class="cf">if</span> <span class="st">"Mohannad"</span> <span class="kw">in</span> g:</span>
-<span id="cb11-6"><a href="#cb11-6"></a>        <span class="cf">assert</span> <span class="st">"Mohammed"</span> <span class="kw">in</span> g</span>
-<span id="cb11-7"><a href="#cb11-7"></a>    <span class="cf">if</span> <span class="st">"Salem"</span> <span class="kw">in</span> g:</span>
-<span id="cb11-8"><a href="#cb11-8"></a>        <span class="cf">assert</span> <span class="st">"Samir"</span> <span class="kw">in</span> g</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>pairs <span class="op">=</span> make_pairs_by_age_diff(peers)</span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="cf">for</span> p <span class="kw">in</span> pairs:</span>
+<span id="cb16-3"><a href="#cb16-3"></a>    <span class="cf">if</span> <span class="st">"Ahmad"</span> <span class="kw">in</span> p:</span>
+<span id="cb16-4"><a href="#cb16-4"></a>        <span class="cf">assert</span> <span class="st">"Ali"</span> <span class="kw">in</span> p</span>
+<span id="cb16-5"><a href="#cb16-5"></a>    <span class="cf">if</span> <span class="st">"Mohannad"</span> <span class="kw">in</span> p:</span>
+<span id="cb16-6"><a href="#cb16-6"></a>        <span class="cf">assert</span> <span class="st">"Mohammed"</span> <span class="kw">in</span> p</span>
+<span id="cb16-7"><a href="#cb16-7"></a>    <span class="cf">if</span> <span class="st">"Salem"</span> <span class="kw">in</span> p:</span>
+<span id="cb16-8"><a href="#cb16-8"></a>        <span class="cf">assert</span> <span class="st">"Samir"</span> <span class="kw">in</span> p</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
