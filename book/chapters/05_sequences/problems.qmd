@@ -3,16 +3,15 @@
 
 ## سلة مشتريات
 
-لديك قائمة بالفواكه وأسعارها.
-
-ولديك سلة مشتريات تريد أن تحسب مجموعها.
+- لديك قائمة بالفواكه وأسعارها.
+- ولديك سلة مشتريات تريد أن تحسب مجموعها.
 
 ```python
 fruits = ["apple", "banana", "orange"]
 prices = [    1.5,      2.0,      1.0]
 ```
 
-اكتب فعلاً يحسب مجموع السلة:
+املأ تفاصيل الفعل حتى يحسب مجموع السلة:
 
 ```python
 def calculate_total_price(shopping_list: list[str]) -> float:
@@ -20,7 +19,7 @@ def calculate_total_price(shopping_list: list[str]) -> float:
     pass
 ```
 
-الاختبار:
+الاختبارات:
 
 ```python
 assert calculate_total_price(["apple", "apple", "apple"]) == 4.5
@@ -31,6 +30,8 @@ assert calculate_total_price([]) == 0.0
 
 ## متوسط المبيعات اليومية
 
+- لديك قائمة بالمبيعات اليومية.
+
 ```python
 daily_sales = [
     10, 12, 10, 15, 13, 14, 10,
@@ -40,7 +41,7 @@ daily_sales = [
 ]
 ```
 
-احسب ما يلي:
+وتريد أن تحسب ما يلي:
 
 - عدد الأيام
     - يمكنك استعمال الفعل `len()`
@@ -73,6 +74,30 @@ def dot_product(v: list[float], u: list[float]) -> float:
 assert dot_product([1, 2, 3], [4, 5, 6]) == 32
 assert dot_product([1, 2, 3], [1, 2, 3]) == 14
 ```
+
+فهذا التوكيد الأول بالصيغة الرياضية:
+
+$$
+\begin{align*}
+\vec{u} &= [1, 2, 3] \\
+\vec{v} &= [4, 5, 6] \\
+\vec{u} \cdot \vec{v} &= (1)(4) + (2)(5) + (3)(6) \\
+                     &= 4 + 10 + 18 \\
+                     &= 32
+\end{align*}
+$$
+
+وهذا التوكيد الثاني بالصيغة الرياضية:
+
+$$
+\begin{align*}
+\vec{u} &= [1, 2, 3] \\
+\vec{v} &= [1, 2, 3] \\
+\vec{u} \cdot \vec{v} &= (1)(1) + (2)(2) + (3)(3) \\
+                     &= 1 + 4 + 9 \\
+                     &= 14
+\end{align*}
+$$
 
 
 ## توزيع الفرق
