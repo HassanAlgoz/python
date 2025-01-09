@@ -39,7 +39,7 @@ def read_lines(file_path: Path) -> list[str]:
 ```{python}
 tweets = read_lines(data_dir / 'tweets.txt')
 positive_words = read_lines(data_dir / 'words_positive.txt')
-negative_words = read_lines(data_dir / 'words_negative.txt')
+negative_words = read_lines(data_dir / 'words_negative.txt') 
 ```
 
 ```{python}
@@ -75,10 +75,10 @@ def classify(text: str) -> (int, int):
     
     return positive_count, negative_count
 
-assert classify('i am happy') == (1, 0)
-assert classify('i am sad') == (0, 1)
-assert classify('i am happy and sad') == (1, 1)
-assert classify('i shall walk to the store') == (0, 0)
+assert classify('أنا سعيد') == (1, 0)
+assert classify('أنا حزين') == (0, 1)
+assert classify('سعيد حزين اليوم') == (1, 1)
+assert classify('اذهب إلى الدكان') == (0, 0)
 ```
 
 نستدعي الفعل على التغريدات، ونفرز النتائج في ثلاثة قوائم:
