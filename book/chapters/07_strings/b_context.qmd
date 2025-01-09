@@ -126,18 +126,32 @@ assert parse_command("max 5 10 2") == 10
 
 ## تلوين الخارج
 
-```python
-from colorama import Fore, Back, Style
+تقبل نافذة الأوامر تغيير لون الطباعة بأحرف تحكُّم معيَّنة تبدأ بالحرف `\033` وتنتهي بالحرف `m` على التحو التالي، يمكن استعمالها في ثنايا النص لتغيير لون الحبر، ثم يجب استعمال الحرف الذي يرمز إلى `RESET` لإعادة اللون إلى الأصل.
+
+```{python}
+GREEN = '\033[92m'  # ANSI escape code for green text
+RED = '\033[91m'    # ANSI escape code for red text
+BLUE = '\033[94m'   # ANSI escape code for blue text
+YELLOW = '\033[93m' # ANSI escape code for yellow text
+
+BRIGHT = '\033[1m'  # ANSI escape code for bright text
+DIM = '\033[2m'    # ANSI escape code for dimmed text
+
+BG_GREEN = '\033[42m'  # ANSI escape code for green background
+BG_RED = '\033[41m'    # ANSI escape code for red background
+BG_BLUE = '\033[44m'   # ANSI escape code for blue background
+BG_YELLOW = '\033[43m' # ANSI escape code for yellow background
+
+RESET = '\033[0m'   # Reset text color
+
 
 # Print different color text with different background
-print(f"{Fore.RED}This text is red!{Style.RESET_ALL}")
-print(f"{Back.GREEN}This has a green background{Style.RESET_ALL}")
-print(f"{Fore.YELLOW}{Back.BLUE}This is yellow text on a blue background{Style.RESET_ALL}")
-
-# Print with bold and italic styles
-print(f"{Style.BRIGHT}This is bright text{Style.RESET_ALL}")
-print(f"{Style.DIM}This is dimmed text{Style.RESET_ALL}")
-
-# Reset all styles at the end
-print(f"{Style.RESET_ALL}This is back to default style")
+print(f"{YELLOW}This text is yellow!")
+print(f"{BG_GREEN}This has a green background (and still yellow because we did not reset)")
+print(f'{RESET}', end='')
+print(f"{RED}{BG_BLUE}This is red text on a blue background{RESET}")
 ```
+
+**تنبيه**: لن ترى الألوان هنا على الكتاب، لكن انسخ الكود وشغله وستراها.
+
+راجع [ANSI escape code](https://en.wikipedia.org/wiki/ANSI_escape_code) لمزيد من التفاصيل عن الألوان في نافذة الأوامر.
