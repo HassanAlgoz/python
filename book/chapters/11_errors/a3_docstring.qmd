@@ -1,0 +1,143 @@
+# التوثيق
+
+## الإجمال ثم التفصيل
+
+يُحبَّذُ في الإنشاء دائمًا **الإجمال ثم التفصيل**. ونبين ذلك في تعريف الأفعال، وينطبق كذلك في تعريف الأنواع:
+
+```{python}
+def min_max(numbers: list[float]) -> tuple[float, float]:
+    """Return the minimum and maximum values in the list."""
+    pass
+```
+
+- كتابة اسم معبِّرٍ عن وظيفة الفعل، مع كتابة نوع ما يقبل ونوع ما ينتج
+	- وهي جُملة التعريف: `def`
+- كتابة وصف -باللغة الإنجليزية- يحدد سلوكه العام بناءً على عوامله يصف ما يَقبل وما يُنتج (إذْ لغة البرمجة عاجزة عن بيان كل ما يحصل)
+	- وهو النص الملحَقُ: [**`docstring`**](https://peps.python.org/pep-0257/) (ويكونُ أولَّ شيء فيه قبل أي أمر، وهو المحاط بـ: `"""`) والقاعدة العامة فيه: ألا يصف إلا ما يفيد المستفيد من الفعل. أما التفاصيل التي تفيد مطوِّر الفعل فإنها تكون **تعليقات** بعلامة `#` في ثناياه. فالذي يظهر عند المساعدة `help(min_max)` هو النص الملحق، لا التعليقات.
+- بعد ذلك نكتب الاختبارات التي بمجموعها تصف سلوك الفعل من الخارج 
+	- ونستعمل لها جملة التوكيد: `assert`
+	- ولن تكون حقيقيةً لأن تفاصيل الفعل لم تُكتب بعد، لذا نستعمل كلمة `pass` لإرضاء المترجم إلى ذلك الحين 
+- وبعد ذلك نأتي لكتابة التفاصيل: التي هي قطعة الكود داخل الفعل.
+
+وهكذا تظهر المساعدة، مثلما لو وضعت المؤشر على اسم الفعل (فإن غالب المحررات تُظهر لك شيئًا):
+
+```{python}
+help(min_max)
+```
+
+لاحظ أن الظاهر هو **ماهية الفعل لا كيفية عمله**. وهذا هو المهم.
+
+ثم نكتب **اختبارات تصف السلوك** الذي نريده منه:
+
+```python
+# assert min_max([10, 20, 30, 40, 50]) == (10, 50)
+# assert min_max([50, 40, 30, 20, 10]) == (10, 50)
+# assert min_max([10, 10, -900, 10, 10]) == (-900, 10)
+# assert min_max([]) == (None, None)
+```
+
+ثم الآن نعدل الفعل الذي كتبناه:
+
+- تستعمل التعليقات المبتدأة بحرف `#`لتبيين ما قد يُشكل من التفاصيل
+- ذكر النوع `tuple[float, float]` يعني أن الفعل يرجع بزوج، لا بقيمة واحدة (وهذا يسمَّى نوع الصف، وسيأتي الحديث عنه)
+
+```{python}
+def min_max(numbers: list[float]) -> tuple[float, float]:
+    """Return the minimum and maximum values in the list."""
+
+    if len(numbers) == 0:
+        return None, None
+    
+    # Assign the first element to minimum and maximum
+    minimum = numbers[0]
+    maximum = numbers[0]
+    
+    for num in numbers:
+        if num < minimum:
+            minimum = num
+        # elif is used because maximum will never be less than minimum
+        elif num > maximum:
+            maximum = num
+    return minimum, maximum
+```
+
+ونشغل الاختبارات، ونتوقع أن لا يظهر منها خطأ:
+
+```{python}
+assert min_max([10, 20, 30, 40, 50]) == (10, 50)
+assert min_max([50, 40, 30, 20, 10]) == (10, 50)
+assert min_max([10, 10, -900, 10, 10]) == (-900, 10)
+assert min_max([]) == (None, None)
+```
+
+راجع [ثوثيق بايثون في العوامل الخاصة](https://docs.python.org/3/tutorial/controlflow.html#special-parameters) للمزيد.
+
+## نص التوثيق
+
+وهذا مثال أشمل لما يعبر به في **نص التوثيق**:
+
+1. الجزء الأول وصفٌ مختَصَر بعبارة سهلة ومباشرة
+2. الجزء `Args` يصف ما يقبل
+3. الجزء `Returns` يصف ما ينتج
+4. الجزء `Raises` يصف الاستثناءات التي يرفعها
+5. الجزء `Example` يمثل لكيفية الاستعمال
+
+```{python}
+import statistics
+
+def stats(numbers):
+    """
+    Calculate the mean, median, and mode of a list of numbers.
+
+    Args:
+        numbers (list): A list of numerical values.
+
+    Returns:
+        tuple: A tuple containing:
+            - mean (float): The average of the numbers.
+            - median (float): The middle value when the numbers are sorted.
+            - mode (int/float): The most frequent number in the list.
+
+    Raises:
+        ValueError: If the list is empty or the mode cannot be determined.
+
+    Example:
+        >>> stats([1, 2, 3, 3, 4, 5])
+        (3.0, 3.0, 3)
+
+    """
+    if not numbers:
+        raise ValueError("The list of numbers cannot be empty.")
+    
+    # Calculate the three statistics
+    mean = statistics.mean(numbers)
+    median = statistics.median(numbers)
+    mode = statistics.mode(numbers)
+
+    return mean, median, mode
+```
+
+لنستعرض المساعدة على الفعل:
+
+```{python}
+help(stats)
+```
+
+والآن نستعمل الفعل:
+
+```{python}
+data = [10, 20, 25, 30, 30, 30, 35, 40, 50, 55]
+mean, median, mode = stats(data)
+print(f"Mean: {mean}")
+print(f"Median: {median}")
+print(f"Mode: {mode}")
+```
+
+### الفرق بين نص التوثيق والتعليقات
+
+- التعليقات `#` تكون بين مطوري هذا الفعل
+    - مثلاً: يبين السبب وراء بعض الخطوات التي قد تبدو غريبة
+    - يستعمل لإطفاء مجموعة أسطر (اختصاره `Ctrl+/` في المحرر)
+- التوثيق `"""..."""` يكون بين مستخدمي هذا الفعل
+    - يصف بلغة البَشَر ما تعجز عن وصفه لغة البرمجة؛ فمثلاً: إن كان الفعل يغير نفس القائمة ولا يعيد نسخة منها؛ فإن ذلك يبيَّن
+
