@@ -542,6 +542,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#التكرار-بشرط" id="toc-التكرار-بشرط" class="nav-link" data-scroll-target="#التكرار-بشرط">التكرار بشرط</a></li>
   <li><a href="#الخروج-من-الحلقة" id="toc-الخروج-من-الحلقة" class="nav-link" data-scroll-target="#الخروج-من-الحلقة">الخروج من الحلقة</a></li>
   </ul></li>
+  <li><a href="#المصطلحات" id="toc-المصطلحات" class="nav-link" data-scroll-target="#المصطلحات"><span class="header-section-number">4.7</span> المصطلحات</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
@@ -1326,11 +1327,13 @@ Done</code></pre>
   S0["i = 0"] --&gt; WHILE{{"while i &lt; 5"}}
   WHILE -- False --&gt; Done["Done"]
   WHILE -- True --&gt; IF1{{"if i == 3"}}
-  IF1 -- continue --&gt;  WHILE
+  IF1 -- True --&gt; S3["i += 1"]
+  S3 -- continue --&gt;  WHILE
   IF1 -- False --&gt; S1["print(i)"] --&gt; S2["i += 1"] --&gt; WHILE
 
   style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;
-  linkStyle 1,4 color:red;
+  linkStyle 1,5 color:red;
+  linkStyle 4 color:blue;
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -1412,9 +1415,82 @@ Done</code></pre>
 </div>
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%203%3A%0A%20%20%20%20j%20%3D%200%0A%20%20%20%20while%20j%20%3C%203%3A%0A%20%20%20%20%20%20%20%20if%20i%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20%20%20print%28i,%20j%29%0A%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
 </iframe>
-
-
 </section>
+</section>
+<section id="المصطلحات" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="المصطلحات"><span class="header-section-number">4.7</span> المصطلحات</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>العربية</th>
+<th>الإنجليزية</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>جملة شرطية</td>
+<td>Conditional Statement</td>
+</tr>
+<tr class="even">
+<td>جملة تكرارية</td>
+<td>Loop Statement</td>
+</tr>
+<tr class="odd">
+<td>شرط</td>
+<td>Condition</td>
+</tr>
+<tr class="even">
+<td>تكرار</td>
+<td>Loop</td>
+</tr>
+<tr class="odd">
+<td>تكرار محدد</td>
+<td>For Loop</td>
+</tr>
+<tr class="even">
+<td>تكرار غير محدد</td>
+<td>While Loop</td>
+</tr>
+<tr class="odd">
+<td>استمرار</td>
+<td>Continue</td>
+</tr>
+<tr class="even">
+<td>توقف</td>
+<td>Break</td>
+</tr>
+<tr class="odd">
+<td>تعيين مشروط</td>
+<td>Conditional Assignment</td>
+</tr>
+<tr class="even">
+<td>تعبير شرطي</td>
+<td>Conditional Expression</td>
+</tr>
+<tr class="odd">
+<td>تداخل</td>
+<td>Nesting</td>
+</tr>
+<tr class="even">
+<td>تسلسل</td>
+<td>Sequence</td>
+</tr>
+<tr class="odd">
+<td>تفرع</td>
+<td>Branching</td>
+</tr>
+<tr class="even">
+<td>مقارنة</td>
+<td>Comparison</td>
+</tr>
+<tr class="odd">
+<td>عملية منطقية</td>
+<td>Logical Operation</td>
+</tr>
+</tbody>
+</table>
+
+
 </section>
 
 </main> <!-- /main -->

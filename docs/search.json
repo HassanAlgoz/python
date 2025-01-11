@@ -280,6 +280,17 @@
     ]
   },
   {
+    "objectID": "chapters/02_numbers/a_numbers.html#المصطلحات",
+    "href": "chapters/02_numbers/a_numbers.html#المصطلحات",
+    "title": "3  الأعداد",
+    "section": "3.11 المصطلحات",
+    "text": "3.11 المصطلحات\n\n\n\nالعربية\nالإنجليزية\n\n\n\n\nعدد\nNumber\n\n\nعدد صحيح\nInteger\n\n\nعدد عشري\nFloat\n\n\nعملية حسابية\nOperation\n\n\nجمع\nAddition\n\n\nطرح\nSubtraction\n\n\nضرب\nMultiplication\n\n\nقسمة\nDivision\n\n\nباقي القسمة\nModulo\n\n\nالقسمة الصحيحة\nFloor Division\n\n\nالأس\nPower\n\n\nالجذر\nRoot\n\n\nمعادلة\nEquation\n\n\nمتغير\nVariable\n\n\nقيمة\nValue\n\n\nتعيين\nAssignment\n\n\nنسبة مئوية\nPercentage\n\n\nنسبة التغير\nRate of Change\n\n\nالتغير النسبي\nRelative Change",
+    "crumbs": [
+      "باب الأعداد (Numbers)",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>الأعداد</span>"
+    ]
+  },
+  {
     "objectID": "chapters/02_numbers/apps.html",
     "href": "chapters/02_numbers/apps.html",
     "title": "تطبيقات",
@@ -339,15 +350,15 @@
     "href": "chapters/02_numbers/problems.html",
     "title": "مسائل",
     "section": "",
-    "text": "كم سيكون عمرك عند حين كذا؟",
+    "text": "كم سيكون عمرك حين كذا؟",
     "crumbs": [
       "باب الأعداد (Numbers)",
       "مسائل"
     ]
   },
   {
-    "objectID": "chapters/02_numbers/problems.html#كم-سيكون-عمرك-عند-حين-كذا",
-    "href": "chapters/02_numbers/problems.html#كم-سيكون-عمرك-عند-حين-كذا",
+    "objectID": "chapters/02_numbers/problems.html#كم-سيكون-عمرك-حين-كذا",
+    "href": "chapters/02_numbers/problems.html#كم-سيكون-عمرك-حين-كذا",
     "title": "مسائل",
     "section": "",
     "text": "عرف تاريخ الحدث المستقبلي بالسنوات: future_date\nعرف تاريخ اليوم: today\nعرف المتغير: age\nاحسب عمرك عند حصول الحدث: age_then\nاطبع النتيجة: print(age_then)",
@@ -416,7 +427,7 @@
     "href": "chapters/02_numbers/solutions.html",
     "title": "حل المسائل",
     "section": "",
-    "text": "كم سيكون عمرك عند حين كذا؟\nfuture_date = 2050\ntoday = 2024\nage = 20\nage_then = age + (future_date - today)\nprint('you will be', age_then, 'years old in', future_date)\n\nyou will be 46 years old in 2050",
+    "text": "كم سيكون عمرك حين كذا؟\nfuture_date = 2050\ntoday = 2024\nage = 20\nage_then = age + (future_date - today)\nprint('you will be', age_then, 'years old in', future_date)\n\nyou will be 46 years old in 2050",
     "crumbs": [
       "باب الأعداد (Numbers)",
       "حل المسائل"
@@ -548,7 +559,18 @@
     "href": "chapters/03_control_flow/a_control_flow.html#التكرار",
     "title": "4  الشرط والتكرار",
     "section": "4.6 التكرار",
-    "text": "4.6 التكرار\nحلقة التكرار: هي الرجوع بالتنفيذ لجملة سابقة (غالبًا تكون سطرًا سابقًا) وذلك يحصل عددًا من المرات أو معلَّقًا بشرط.\nفللتكرار طريقتان:\n\nسرد متوالية (for): حيث يعيَّن متغير التكرار لكل عنصر في المتوالية، واحدًا تلوَ الآخر. (وسيأتي ذكره في باب المتسلسلات)\nالتكرار بشرط (while): حيث يستمر التكرار مادام الشرط متحققًا. (وهو موضوع هذا القسم)\n\n\nالتكرار بشرط\nنبدأ بالتكرار بالطريقة غير المحددة، وهي جُملة تبدأ بالكلمة while على النحو التالي. كأنها if متكررة إلى حين تخلُّف الشرط (أن يصبح False). وإن لم يتحقق الشرط أصلاً فلا ينفذ الكود المضمَّن أصلا:\n\n\n\n\n\n\n\nflowchart TD\n  WHILE{{while condition}}\n  WHILE -- False --&gt; END\n  WHILE -- True --&gt; S1[code] --&gt; WHILE\n  \n  style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;\n  linkStyle 0 color:red;\n\n\n\n\n\n\n\nwhile &lt;boolean expression&gt;:\n    &lt;code&gt;\n\n\nمثال:\n\n\n\n\n\n\n\nflowchart TD\n  S0[\"i = 0\"] --&gt; WHILE{{\"while i &lt; 5\"}}\n  WHILE -- False --&gt; S3[\"Done\"]\n  WHILE -- True --&gt; S1[\"print(i)\"] --&gt; S2[\"i += 1\"] --&gt; WHILE\n\n  style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;\n  linkStyle 0 color:red;\n\n\n\n\n\n\n\n\ni = 0\nwhile i &lt; 5:\n    print(i)\n    i += 1\nprint('Done')\n\n0\n1\n2\n3\n4\nDone\n\n\n\n\nلنقم بتتبع الخطوات عندما تكون i = 0:\n\n0 &lt; 5 تؤول True، فنطبع 0 ونزيد i لتصبح 1\n1 &lt; 5 تؤول True، فنطبع 1 ونزيد i لتصبح 2\n2 &lt; 5 تؤول True، فنطبع 2 ونزيد i لتصبح 3\n3 &lt; 5 تؤول True، فنطبع 3 ونزيد i لتصبح 4\n4 &lt; 5 تؤول True، فنطبع 4 ونزيد i لتصبح 5\n5 &lt; 5 تؤول False،فنخرج من الحلقة\nنطبع Done\n\nوهذا تصوير لسير الأفعال لنفس الكود. ملاحظة: اضغط على الزر Prev أو Next للتنقل بين خطوات التنفيذ الفعلية:\n\n\nلاحظ أن نسيان جملة الزيادة (i += 1) يجعل الشرط دائمًا صحيحًا، فيدور البرنامج في حلقة لا نهيائة ولا يخرج أبدًا. ويعتبر هذا خطأ برمجيًّا يتعذر على الكود التعامل معه بنفسه؛ بل يجب على المبرمج أن يكتشفه. وسيأتي الكلام عن أنواع الأخطاء في البرمجة في باب الأخطاء.\n\n\nالخروج من الحلقة\n\nتستخدم كلمة break لإيقاف عملية التكرار كلها.\nتستخدم كلمة continue للانتقال إلى الكرة التالية متخطيةً بقية الخطوات في الكرة الحالية.\n\nأولاً نمثل لاستعمال جملة break على النحو التالي:\n\n\n\n\n\n\n\nflowchart TD\n  S0[\"i = 0\"] --&gt; WHILE{{\"while i &lt; 5\"}}\n  WHILE -- False --&gt; Done[\"Done\"]\n  WHILE -- True --&gt; IF1{{\"if i == 3\"}}\n  IF1 -- break --&gt; Done\n  IF1 -- False --&gt; S1[\"print(i)\"] --&gt; S2[\"i += 1\"] --&gt; WHILE\n\n  style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;\n  linkStyle 1,4 color:red;\n\n\n\n\n\n\n\n\ni = 0\nwhile i &lt; 5:\n    if i == 3:\n        break\n    print(i)\n    i += 1\nprint('Done')\n\n0\n1\n2\nDone\n\n\n\n\n\n\nوهذا مثال لاستخدام عبارة continue للتخطي:\n\n\n\n\n\n\n\nflowchart TD\n  S0[\"i = 0\"] --&gt; WHILE{{\"while i &lt; 5\"}}\n  WHILE -- False --&gt; Done[\"Done\"]\n  WHILE -- True --&gt; IF1{{\"if i == 3\"}}\n  IF1 -- continue --&gt;  WHILE\n  IF1 -- False --&gt; S1[\"print(i)\"] --&gt; S2[\"i += 1\"] --&gt; WHILE\n\n  style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;\n  linkStyle 1,4 color:red;\n\n\n\n\n\n\n\n\ni = 0\nwhile i &lt; 5:\n    if i == 3:\n        i += 1\n        continue\n    print(i)\n    i += 1\nprint('Done')\n\n0\n1\n2\n4\nDone\n\n\n\n\n\n\nأما جملة break المضمنة تحت طبقتين من التكرار فإن الذي يتوقف هو التكرار الداخلي فقط، ولا يتوقف الخارجي. وهذا مثال:\n\n\n\n\n\n\n\nflowchart TD\n  INIT1[\"i = 0\"] --&gt; WHILE1\n  WHILE1{{\"while i &lt; 3\"}}\n    S3[\"i += 1\"] --&gt; WHILE1\n    WHILE1 -- True --&gt; INIT2[\"j = 0\"] --&gt; WHILE2\n    WHILE2{{\"while j &lt; 3\"}}\n      WHILE2 -- True --&gt; IF1{{\"if i == 1\"}} -- break --&gt; WHILE1\n      IF1 -- False --&gt; S1[\"print(i, j)\"] --&gt; S2[\"j += 1\"] --&gt; WHILE2\n    WHILE2 -- False --&gt; S3\n\n  style WHILE1 fill:#82aeff, stroke:#333, stroke-width:2px;\n  style WHILE2 fill:#82aeff, stroke:#333, stroke-width:2px;\n  linkStyle 5,8 color:red;\n\n\n\n\n\n\n\n\ni = 0\nwhile i &lt; 3:\n    j = 0\n    while j &lt; 3:\n        if i == 1:\n            break\n        print(i, j)\n        j += 1\n    i += 1\nprint('Done')\n\n0 0\n0 1\n0 2\n2 0\n2 1\n2 2\nDone",
+    "text": "4.6 التكرار\nحلقة التكرار: هي الرجوع بالتنفيذ لجملة سابقة (غالبًا تكون سطرًا سابقًا) وذلك يحصل عددًا من المرات أو معلَّقًا بشرط.\nفللتكرار طريقتان:\n\nسرد متوالية (for): حيث يعيَّن متغير التكرار لكل عنصر في المتوالية، واحدًا تلوَ الآخر. (وسيأتي ذكره في باب المتسلسلات)\nالتكرار بشرط (while): حيث يستمر التكرار مادام الشرط متحققًا. (وهو موضوع هذا القسم)\n\n\nالتكرار بشرط\nنبدأ بالتكرار بالطريقة غير المحددة، وهي جُملة تبدأ بالكلمة while على النحو التالي. كأنها if متكررة إلى حين تخلُّف الشرط (أن يصبح False). وإن لم يتحقق الشرط أصلاً فلا ينفذ الكود المضمَّن أصلا:\n\n\n\n\n\n\n\nflowchart TD\n  WHILE{{while condition}}\n  WHILE -- False --&gt; END\n  WHILE -- True --&gt; S1[code] --&gt; WHILE\n  \n  style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;\n  linkStyle 0 color:red;\n\n\n\n\n\n\n\nwhile &lt;boolean expression&gt;:\n    &lt;code&gt;\n\n\nمثال:\n\n\n\n\n\n\n\nflowchart TD\n  S0[\"i = 0\"] --&gt; WHILE{{\"while i &lt; 5\"}}\n  WHILE -- False --&gt; S3[\"Done\"]\n  WHILE -- True --&gt; S1[\"print(i)\"] --&gt; S2[\"i += 1\"] --&gt; WHILE\n\n  style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;\n  linkStyle 0 color:red;\n\n\n\n\n\n\n\n\ni = 0\nwhile i &lt; 5:\n    print(i)\n    i += 1\nprint('Done')\n\n0\n1\n2\n3\n4\nDone\n\n\n\n\nلنقم بتتبع الخطوات عندما تكون i = 0:\n\n0 &lt; 5 تؤول True، فنطبع 0 ونزيد i لتصبح 1\n1 &lt; 5 تؤول True، فنطبع 1 ونزيد i لتصبح 2\n2 &lt; 5 تؤول True، فنطبع 2 ونزيد i لتصبح 3\n3 &lt; 5 تؤول True، فنطبع 3 ونزيد i لتصبح 4\n4 &lt; 5 تؤول True، فنطبع 4 ونزيد i لتصبح 5\n5 &lt; 5 تؤول False،فنخرج من الحلقة\nنطبع Done\n\nوهذا تصوير لسير الأفعال لنفس الكود. ملاحظة: اضغط على الزر Prev أو Next للتنقل بين خطوات التنفيذ الفعلية:\n\n\nلاحظ أن نسيان جملة الزيادة (i += 1) يجعل الشرط دائمًا صحيحًا، فيدور البرنامج في حلقة لا نهيائة ولا يخرج أبدًا. ويعتبر هذا خطأ برمجيًّا يتعذر على الكود التعامل معه بنفسه؛ بل يجب على المبرمج أن يكتشفه. وسيأتي الكلام عن أنواع الأخطاء في البرمجة في باب الأخطاء.\n\n\nالخروج من الحلقة\n\nتستخدم كلمة break لإيقاف عملية التكرار كلها.\nتستخدم كلمة continue للانتقال إلى الكرة التالية متخطيةً بقية الخطوات في الكرة الحالية.\n\nأولاً نمثل لاستعمال جملة break على النحو التالي:\n\n\n\n\n\n\n\nflowchart TD\n  S0[\"i = 0\"] --&gt; WHILE{{\"while i &lt; 5\"}}\n  WHILE -- False --&gt; Done[\"Done\"]\n  WHILE -- True --&gt; IF1{{\"if i == 3\"}}\n  IF1 -- break --&gt; Done\n  IF1 -- False --&gt; S1[\"print(i)\"] --&gt; S2[\"i += 1\"] --&gt; WHILE\n\n  style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;\n  linkStyle 1,4 color:red;\n\n\n\n\n\n\n\n\ni = 0\nwhile i &lt; 5:\n    if i == 3:\n        break\n    print(i)\n    i += 1\nprint('Done')\n\n0\n1\n2\nDone\n\n\n\n\n\n\nوهذا مثال لاستخدام عبارة continue للتخطي:\n\n\n\n\n\n\n\nflowchart TD\n  S0[\"i = 0\"] --&gt; WHILE{{\"while i &lt; 5\"}}\n  WHILE -- False --&gt; Done[\"Done\"]\n  WHILE -- True --&gt; IF1{{\"if i == 3\"}}\n  IF1 -- True --&gt; S3[\"i += 1\"]\n  S3 -- continue --&gt;  WHILE\n  IF1 -- False --&gt; S1[\"print(i)\"] --&gt; S2[\"i += 1\"] --&gt; WHILE\n\n  style WHILE fill:#82aeff, stroke:#333, stroke-width:2px;\n  linkStyle 1,5 color:red;\n  linkStyle 4 color:blue;\n\n\n\n\n\n\n\n\ni = 0\nwhile i &lt; 5:\n    if i == 3:\n        i += 1\n        continue\n    print(i)\n    i += 1\nprint('Done')\n\n0\n1\n2\n4\nDone\n\n\n\n\n\n\nأما جملة break المضمنة تحت طبقتين من التكرار فإن الذي يتوقف هو التكرار الداخلي فقط، ولا يتوقف الخارجي. وهذا مثال:\n\n\n\n\n\n\n\nflowchart TD\n  INIT1[\"i = 0\"] --&gt; WHILE1\n  WHILE1{{\"while i &lt; 3\"}}\n    S3[\"i += 1\"] --&gt; WHILE1\n    WHILE1 -- True --&gt; INIT2[\"j = 0\"] --&gt; WHILE2\n    WHILE2{{\"while j &lt; 3\"}}\n      WHILE2 -- True --&gt; IF1{{\"if i == 1\"}} -- break --&gt; WHILE1\n      IF1 -- False --&gt; S1[\"print(i, j)\"] --&gt; S2[\"j += 1\"] --&gt; WHILE2\n    WHILE2 -- False --&gt; S3\n\n  style WHILE1 fill:#82aeff, stroke:#333, stroke-width:2px;\n  style WHILE2 fill:#82aeff, stroke:#333, stroke-width:2px;\n  linkStyle 5,8 color:red;\n\n\n\n\n\n\n\n\ni = 0\nwhile i &lt; 3:\n    j = 0\n    while j &lt; 3:\n        if i == 1:\n            break\n        print(i, j)\n        j += 1\n    i += 1\nprint('Done')\n\n0 0\n0 1\n0 2\n2 0\n2 1\n2 2\nDone",
+    "crumbs": [
+      "باب الشرط والتكرار (Control Flow)",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>الشرط والتكرار</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03_control_flow/a_control_flow.html#المصطلحات",
+    "href": "chapters/03_control_flow/a_control_flow.html#المصطلحات",
+    "title": "4  الشرط والتكرار",
+    "section": "4.7 المصطلحات",
+    "text": "4.7 المصطلحات\n\n\n\nالعربية\nالإنجليزية\n\n\n\n\nجملة شرطية\nConditional Statement\n\n\nجملة تكرارية\nLoop Statement\n\n\nشرط\nCondition\n\n\nتكرار\nLoop\n\n\nتكرار محدد\nFor Loop\n\n\nتكرار غير محدد\nWhile Loop\n\n\nاستمرار\nContinue\n\n\nتوقف\nBreak\n\n\nتعيين مشروط\nConditional Assignment\n\n\nتعبير شرطي\nConditional Expression\n\n\nتداخل\nNesting\n\n\nتسلسل\nSequence\n\n\nتفرع\nBranching\n\n\nمقارنة\nComparison\n\n\nعملية منطقية\nLogical Operation",
     "crumbs": [
       "باب الشرط والتكرار (Control Flow)",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>الشرط والتكرار</span>"
@@ -786,6 +808,17 @@
     ]
   },
   {
+    "objectID": "chapters/04_functions/a_functions.html#المصطلحات",
+    "href": "chapters/04_functions/a_functions.html#المصطلحات",
+    "title": "5  الأفعال",
+    "section": "5.6 المصطلحات",
+    "text": "5.6 المصطلحات\n\n\n\nالعربية\nالإنجليزية\n\n\n\n\nفعل\nFunction\n\n\nعامل\nParameter\n\n\nعامل مؤثر\nInput Parameter\n\n\nعامل متأثر\nOutput Parameter\n\n\nنطاق\nScope\n\n\nنطاق محلي\nLocal Scope\n\n\nنطاق عام\nGlobal Scope\n\n\nرجوع\nReturn\n\n\nقيمة راجعة\nReturn Value\n\n\nفعل خاوٍ\nVoid Function\n\n\nقيمة عدمية\nNone\n\n\nمفعول\nObject\n\n\nمذكور\nExplicit\n\n\nمحذوف\nImplicit\n\n\nطلب التنفيذ\nFunction Call\n\n\nتعريف الفعل\nFunction Definition",
+    "crumbs": [
+      "باب الأفعال (Functions)",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>الأفعال</span>"
+    ]
+  },
+  {
     "objectID": "chapters/04_functions/a2_recursion.html",
     "href": "chapters/04_functions/a2_recursion.html",
     "title": "6  الفعل المتسلسل",
@@ -808,6 +841,17 @@
     ]
   },
   {
+    "objectID": "chapters/04_functions/a2_recursion.html#المصطلحات",
+    "href": "chapters/04_functions/a2_recursion.html#المصطلحات",
+    "title": "6  الفعل المتسلسل",
+    "section": "6.2 المصطلحات",
+    "text": "6.2 المصطلحات\n\n\n\nالعربية\nالإنجليزية\n\n\n\n\nفعل متسلسل\nRecursive Function\n\n\nطلب ذاتي\nRecursive Call\n\n\nظرف تنفيذ\nExecution Context\n\n\nتكديس\nStack\n\n\nتسلسل\nRecursion\n\n\nحالة منتهية\nTerminal Case\n\n\nحالة متسلسلة\nRecursive Case\n\n\nهياكل بيانات متسلسلة\nRecursive Data Structures\n\n\nخوارزمية\nAlgorithm",
+    "crumbs": [
+      "باب الأفعال (Functions)",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>الفعل المتسلسل</span>"
+    ]
+  },
+  {
     "objectID": "chapters/04_functions/apps.html",
     "href": "chapters/04_functions/apps.html",
     "title": "تطبيقات",
@@ -819,11 +863,11 @@
     ]
   },
   {
-    "objectID": "chapters/04_functions/apps.html#كم-سيكون-عمرك-عند-حين-كذا",
-    "href": "chapters/04_functions/apps.html#كم-سيكون-عمرك-عند-حين-كذا",
+    "objectID": "chapters/04_functions/apps.html#كم-سيكون-عمرك-حين-كذا",
+    "href": "chapters/04_functions/apps.html#كم-سيكون-عمرك-حين-كذا",
     "title": "تطبيقات",
-    "section": "كم سيكون عمرك عند حين كذا؟",
-    "text": "كم سيكون عمرك عند حين كذا؟\n\ndef age_at_future_event(age_now: int, current_year: int, future_year: int) -&gt; int:\n    return age_now + (future_year - current_year)\n\nassert age_at_future_event(age_now=0, current_year=2000, future_year=2010) == 10\nassert age_at_future_event(age_now=20, current_year=2000, future_year=2010) == 30",
+    "section": "كم سيكون عمرك حين كذا؟",
+    "text": "كم سيكون عمرك حين كذا؟\n\ndef age_at_future_event(age_now: int, current_year: int, future_year: int) -&gt; int:\n    return age_now + (future_year - current_year)\n\nassert age_at_future_event(age_now=0, current_year=2000, future_year=2010) == 10\nassert age_at_future_event(age_now=20, current_year=2000, future_year=2010) == 30",
     "crumbs": [
       "باب الأفعال (Functions)",
       "تطبيقات"
@@ -923,6 +967,17 @@
     "title": "7  الجمع المرتب",
     "section": "7.5 الإنشاء المختصر: الجملة الثلاثية",
     "text": "7.5 الإنشاء المختصر: الجملة الثلاثية\nمما تميزت به لغة بايثون عن غيرها: مختصرة الإنشاء (Comprehension)؛ وهي جملة تُنشئ مجموعة مستمَدَّة من متوالية في ثلاث جُمَل في سطرٍ واحدٍ -غالبًا- ووظيفتها: إنشاء مجموعة مستمَدَّة من متوالية.\nوليسَت زيادتها في اللغة من باب الضرورة وإنما من باب التحسين. إذْ فيها قوة في التعبير عن جمل كثيرة في مساحة صغيرة. فهذا المثال يعبر عن إنشاء قائمة كل عنصرٍ فيها مربَّعٌ من المتوالية range(10) في سطرٍ واحد:\n\nsquares = [x ** 2 for x in range(10)]\nsquares\n\n[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n\n\nفهي جملة إنشاء مركَّبة من ثلاث جمل:\n\nتعبير (x ** 2) ، الذي يشتمل غالبًا على متغير التكرار (x)\nتكرار: (for x in range(10))\nوشرط: والشرطُ ليسَ بشرط؛ فلم يظهر في هذا المثال\n\nفهي مكافئة للقطعة التالية:\n\nsquares = []\nfor x in range(10):\n    squares.append(x ** 2)\nsquares\n\n[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n\n\nولو أردنا ترشيح الأعداد الزوجية من قائمة، نستطيع استعمال جملة الشرط في الاختصار على النحو التالي:\n\nnumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\nevens = [x for x in numbers if x % 2 == 0]\nevens\n\n[0, 2, 4, 6, 8]\n\n\n\nالتعبير: (x) فقط\nالتكرار: (for x in numbers)، وتذكر أن القائمة متوالية\nالشرط: (if x % 2 == 0)\n\nوهي مكافئة للقطعة التالية:\n\nevens = []\nfor x in numbers:\n    if x % 2 == 0:\n        evens.append(x)\nevens\n\n[0, 2, 4, 6, 8]\n\n\nوأما القوسان المربعان [ ] -في كلا المثالين- فلإنشاء قائمة. وبحسب ما يُراد إنشاؤه تختلف الأقواس:\n\n[expression for item in iterable if condition] للقائمة (list)\n(expression for item in iterable if condition) للمولِّد (Generator)\n{expression for item in iterable if condition} لمجموعة الفرائد (set) وسيأتي الكلام عنها في الباب القادم\n{expression: expression for item in iterable if condition} للقاموس (dict) وسيأتي الكلام عنه في الباب القادم\n\nوقد يكون التعبير غير مشتمل على متغير التكرار، نحو:\n\nnumbers = range(11)\nevens_count = (1 for x in numbers if x % 2 == 0)\n\nفقد أنشأنا بالقوسين الدائريين ( ) مولِّدًا يُنتج 1 لكل عنصر زوجي، بعدد العناصر الزوجية في المتوالية numbers. ثم نحقق وجوده بالقراءة، فنقول مثلاً: sum لجمعها كلها:\n\nsum(evens_count)\n\n6\n\n\nأو نضعها في جملة واحدة:\n\nsum(1 for x in numbers if x % 2 == 0)\n\n6",
+    "crumbs": [
+      "باب الجمع المرتب (Sequences)",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>الجمع المرتب</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05_sequences/a_sequences.html#المصطلحات",
+    "href": "chapters/05_sequences/a_sequences.html#المصطلحات",
+    "title": "7  الجمع المرتب",
+    "section": "7.6 المصطلحات",
+    "text": "7.6 المصطلحات\n\n\n\nالعربية\nالإنجليزية\n\n\n\n\nقائمة\nList\n\n\nمولِّد\nGenerator\n\n\nجمع\nCollection\n\n\nقاموس\nDictionary\n\n\nمتوالية\nSequence\n\n\nالتكرار\nIteration\n\n\nتعبير مختصر\nList Comprehension\n\n\nعنصر\nElement\n\n\nفهرس\nIndex\n\n\nشريحة\nSlice\n\n\nتعديل\nModification\n\n\nإضافة\nAppend\n\n\nإدراج\nInsert\n\n\nحذف\nRemove\n\n\nترتيب\nSort\n\n\nعكس\nReverse",
     "crumbs": [
       "باب الجمع المرتب (Sequences)",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>الجمع المرتب</span>"
@@ -1077,6 +1132,17 @@
     "title": "8  الجمع المرقوم",
     "section": "8.2 القاموس",
     "text": "8.2 القاموس\nالقاموس (dict) جمع مرتب من المرقومات الفريدة المشيرة إلى قيمة.\nانظر MutableMapping في خريطة الجُمُوع: شكل 1.\nتنشأ المجموعة الرابطة بالفعل المنشئ dict() ويفضل استعمال القوسين المتعرجين { } بدلاً منه:\n\nd1 = dict(key1='value1', key2='value2')\nd2 = {'key1': 'value1', 'key2': 'value2'}\nassert d1 == d2\n\nاصطلاحات: نسمي key1 المرقوم ونسمي value1 القيمة؛ وهما معًا نسميهما رابطًا.\nومن حيث كون القاموس جمعًا (Collection)، فإنه يقبل الأفعال ثلاثة:\n\nالعضوية: x not in d\nالعد: len(d)\nالتكرار: for x in d\n\nويقبل القاموس لكونه دالة (Mapping) الأفعال التالية:\n\nالإشارة بمرقوم: dict[key]\nالإشارة بمرقوم أو إرجاع قيمة ابتدائية: dict.get(key[, default])\n\nويجوز التكرار بثلاثة طرق:\n\nكر الروابط: for key, value in d.items()\nكر المرقومات: for key in d.keys()\nكر القيم: for value in d.values()\n\nولكونه دالة متغيرة (MutableMapping)، فإنه يقبل الأفعال التالية:\n\nالتعديل بمرقوم: dict[key] = value\nالحذف بمرقوم: del dict[key]\nنزع بمرقوم وإرجاع القيمة: x = dict.pop(key)\nالتحديث بدالَّة أو بمكرر روابط: dict.update(mapping)\n\nملاحظة: منذ بايثون 3.7 أصبح القاموس مرتبًا. أي أن الروابط لها ما قبلها ولها ما بعدها بحسب ترتيب إدراجها.\nلاحظ أننا نستعمل مرقومات مختلفة وأيضًا نستعمل قيم مختلفة:\n\ndata = {\n    'key1': 100,\n    20: 'value2',\n    'c': [10, 20, 30, True],\n    (1, 2): 'value3',\n    ('a', 'b', 'c'): 'value4',\n}\n\nassert len(data) == 5\ndel data['key1']\nassert 'key1' not in data\n\nونحصل عليها بالإشارة بمرقوم:\n\nprint(data[20])\nprint(data['c'])\nprint(data[(1, 2)])\nprint(data[('a', 'b', 'c')])\n\nvalue2\n[10, 20, 30, True]\nvalue3\nvalue4\n\n\n\nإنشاء قاموس من سلسلتين\nويتحصل القاموس من سلسلتين باستعمال الفعل zip()، كما يلي:\n\nstudents = ['Ahmad', 'Belal', 'Careem', 'David']\nmarks = [90, 80, 75, 85]\ndata = dict(zip(students, marks, strict=True))\ndata\n\n{'Ahmad': 90, 'Belal': 80, 'Careem': 75, 'David': 85}",
+    "crumbs": [
+      "باب الجمع المرقوم (Mapping)",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>الجمع المرقوم</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06_mapping/a_mapping.html#المصطلحات",
+    "href": "chapters/06_mapping/a_mapping.html#المصطلحات",
+    "title": "8  الجمع المرقوم",
+    "section": "8.3 المصطلحات",
+    "text": "8.3 المصطلحات\n\n\n\nالعربية\nالإنجليزية\n\n\n\n\nجمع مرقوم\nHashable Collection\n\n\nمجموعة\nSet\n\n\nقاموس\nDictionary\n\n\nمتغير\nMutable\n\n\nفريد\nUnique\n\n\nمرقوم\nHashable\n\n\nبلا ترتيب\nUnordered\n\n\nالعد\nLength\n\n\nالتكرار\nIteration\n\n\nالعضوية\nMembership\n\n\nالإضافة\nAdd\n\n\nالحذف\nDiscard\n\n\nنزع\nPop\n\n\nالمحو\nClear\n\n\nالتقاطع\nIntersection\n\n\nالاتحاد\nUnion\n\n\nالفرق\nDifference\n\n\nالفرق التماثلي\nSymmetric Difference\n\n\nالجزئية\nSubset\n\n\nالشمول\nSuperset\n\n\nالانفصال\nDisjoint\n\n\nرابط\nEntry\n\n\nمرقوم\nKey\n\n\nقيمة\nValue\n\n\nدالة\nMapping\n\n\nدالة متغيرة\nMutable Mapping",
     "crumbs": [
       "باب الجمع المرقوم (Mapping)",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>الجمع المرقوم</span>"
@@ -1347,6 +1413,17 @@
     ]
   },
   {
+    "objectID": "chapters/07_strings/a1_strings.html#جدول-المصطلحات",
+    "href": "chapters/07_strings/a1_strings.html#جدول-المصطلحات",
+    "title": "9  النص",
+    "section": "9.10 جدول المصطلحات",
+    "text": "9.10 جدول المصطلحات\n\n\n\nالعربية\nالإنجليزية\n\n\n\n\nنص\nString\n\n\nنص طبيعي\nNatural Language Text\n\n\nنص مقولب\nFormatted Text\n\n\nصيغة القولبة\nTempalte Format\n\n\nتنسيق\nFormatting\n\n\nمحاذاة\nAlignment\n\n\nحشو\nPadding\n\n\nفاصل الآلاف\nThousands Separator\n\n\nترميز علمي\nScientific Notation\n\n\nأعداد عشرية\nDecimal Numbers\n\n\nاستبدال\nReplace\n\n\nإزالة المسافات\nStrip\n\n\nبحث\nSearch\n\n\nمطابقة\nMatch\n\n\nفصل\nSplit\n\n\nوصل\nJoin\n\n\nتفسير الأرقام\nNumber Parsing\n\n\nإخراج النص\nString Output\n\n\nدمج النصوص\nString Concatenation",
+    "crumbs": [
+      "باب النص (Strings)",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>النص</span>"
+    ]
+  },
+  {
     "objectID": "chapters/07_strings/a2_unicode.html",
     "href": "chapters/07_strings/a2_unicode.html",
     "title": "10  ترميز الحروف",
@@ -1385,6 +1462,17 @@
     "title": "10  ترميز الحروف",
     "section": "10.3 الطباعة",
     "text": "10.3 الطباعة\n\nحروف التحكم بآلة الطباعة\nيسمّى الحرف \\r بالعودة للبداية لأنه يعني فعل يقوم بإرجاع المؤشر إلى بداية السطر.\nكانت آلة الطباعة قديمًا يتحرك رأس الطباعة فيها بعد طباعة كل حرف. ثم عندما ينتهي السطر، يجب على الشخص أن يقوم بعمليتين:\n\nالضغط على المفتاح الذي يرفع الورقة بمقدار سطر (ويرمز له بالحرف \\r)\nالضغط على المفتاح الذي يرجع رأس الطباعة لبداية السطر (ويرمز له بالحرف \\n)\n\nوهما مستخدمان اليوم فيما يُعرض على الشاشة.\nففعل print في الحقيقة يضع سطرًا جديدًا (حرف \\n) في الوضع الافتراضي. فإن أردنا ألا يضعه، فنحدد العامل end الذي فيه على النحو التالي:\n\nprint('Hello', end='')\nprint('World', end='')\n\nHelloWorld\n\n\nلاحظ أننا جعلنا (end='') أي: لا نريده أن يضع حرفًا بعد طباعة النص. ولذلك ظهرت الكلمتان في نفس السطر.\nولو أردت أن تعيد الكتابة على نفس السطر، يمكنك أن تضع الحرف (\\r) الذي يفعل رأس الطباعة بالرجوع لبداية السطر:\n\nprint('123', end='\\r')\nprint('45')\n\n12345\n\n\nلاحظ أن النتيجة هي طباعة الحرفين 45 فوق الحرفين 12 مع بقاء الحرف الأخير 3 في الأخير. وذلك لرجوع رأس الطباعة.\nتستعمل هذه اللطيفة في تحديث العداد حتى يظهر على الشاشة وكأنه يزيد شيئًا فشيئًا. وذلك على النحو التالي (لاحظ أننا نستعمل time.sleep(t) حتى نمثِّل وجود عمليَّة تأخذ وقتًا طويلاً فحسب):\nimport time\n\nfor x in range(10 + 1):\n    time.sleep(0.20)\n    print(f'[{x}/10] ' + '===' * x + '&gt;', end='\\r')",
+    "crumbs": [
+      "باب النص (Strings)",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>ترميز الحروف</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07_strings/a2_unicode.html#جدول-المصطلحات",
+    "href": "chapters/07_strings/a2_unicode.html#جدول-المصطلحات",
+    "title": "10  ترميز الحروف",
+    "section": "10.4 جدول المصطلحات",
+    "text": "10.4 جدول المصطلحات\n\n\n\nالمصطلح بالعربية\nالمصطلح بالإنجليزية\n\n\n\n\nترميز الحروف\nCharacter Encoding\n\n\nرموز آسكي\nASCII\n\n\nأحرف تحكم\nControl Characters\n\n\nرموز أنسي\nANSI\n\n\nرموز يونيكود\nUnicode\n\n\nالأحرف البيضاء\nWhitespace Characters\n\n\nالمسافة\nSpace\n\n\nالتبويب\nTab\n\n\nسطر جديد\nLine Feed\n\n\nالعودة لبداية السطر\nCarriage Return\n\n\nصفحة جديدة\nForm Feed\n\n\nعمود جديد\nVertical Tab\n\n\nعودة المؤشر\nBackspace\n\n\nأحرف طباعة\nPrintable Characters\n\n\nالمسافة البادئة\nIndentation\n\n\nالأطراف الزائدة\nStrip\n\n\nتجزئة النص\nText Split\n\n\nرأس الطباعة\nPrint Head",
     "crumbs": [
       "باب النص (Strings)",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>ترميز الحروف</span>"
@@ -1501,6 +1589,17 @@
     ]
   },
   {
+    "objectID": "chapters/08_files_and_directories/a1_serialization.html#المصطلحات",
+    "href": "chapters/08_files_and_directories/a1_serialization.html#المصطلحات",
+    "title": "11  الملف",
+    "section": "11.5 المصطلحات",
+    "text": "11.5 المصطلحات\n\n\n\nالعربية\nالإنجليزية\n\n\n\n\nالمسار\nPath\n\n\nالمسار المطلق\nAbsolute Path\n\n\nالمسار النسبي\nRelative Path\n\n\nإدارة السياق\nContext Manager\n\n\nسلسلة البيانات\nData Serialization\n\n\nتمثيل نصي\nPlain Text Serialization\n\n\nتمثيل ثنائي\nBinary Serialization\n\n\nفك التسلسل\nDeserialization\n\n\nالصف\nArray\n\n\nالربط\nMapping\n\n\nالتضمين\nNesting\n\n\nالقيم المفصولة بالفاصلة\nComma Separated Values (CSV)\n\n\nالقيم المفصولة بعلامة التبويب\nTab Separated Values (TSV)\n\n\nقارئ\nReader\n\n\nكاتب\nWriter\n\n\nقارئ القاموس\nDict Reader\n\n\nكاتب القاموس\nDict Writer",
+    "crumbs": [
+      "باب الملفات (Files)",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>الملف</span>"
+    ]
+  },
+  {
     "objectID": "chapters/08_files_and_directories/a2_directories.html",
     "href": "chapters/08_files_and_directories/a2_directories.html",
     "title": "12  الدليل",
@@ -1528,6 +1627,17 @@
     "title": "12  الدليل",
     "section": "12.2 النسخ والحذف والنقل (shutil)",
     "text": "12.2 النسخ والحذف والنقل (shutil)\n\nshutil.copy2: نسخ ملف.\nshutil.copytree: نسخ شجرة أدلة.\nshutil.rmtree: حذف شجرة أدلة.\nshutil.move: نقل ملف أو دليل.",
+    "crumbs": [
+      "باب الملفات (Files)",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>الدليل</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08_files_and_directories/a2_directories.html#المصطلحات",
+    "href": "chapters/08_files_and_directories/a2_directories.html#المصطلحات",
+    "title": "12  الدليل",
+    "section": "12.3 المصطلحات",
+    "text": "12.3 المصطلحات\n\n\n\nالعربية\nالإنجليزية\n\n\n\n\nدليل\nDirectory\n\n\nمجلَّد\nFolder\n\n\nملف\nFile\n\n\nصيغة\nFormat/Extension\n\n\nمخفي\nHidden\n\n\nالطريق/المسار\nPath\n\n\nمُطلَق\nAbsolute\n\n\nنسبي\nRelative\n\n\nالبرمجة الشيئية\nObject-Oriented Programming (OOP)\n\n\nنظام التشغيل\nOperating System (OS)\n\n\nمنخفضة المستوى\nLow-level\n\n\nشجرة\nTree\n\n\nنمط\nPattern\n\n\nالارتباط الرمزي\nSymbolic Link (Symlink)\n\n\nالارتباط الصلب\nHard Link\n\n\nالتكرار\nIteration\n\n\nالبحث\nSearch\n\n\nالنسخ\nCopy\n\n\nالحذف\nDelete/Remove\n\n\nالنقل\nMove\n\n\nالأذونات\nPermissions\n\n\nالطابع الزمني\nTimestamp\n\n\nالدليل الأب\nParent Directory\n\n\nالاسم الأساسي\nBase Name\n\n\nالامتداد\nExtension/Suffix",
     "crumbs": [
       "باب الملفات (Files)",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>الدليل</span>"
@@ -1622,6 +1732,17 @@
     ]
   },
   {
+    "objectID": "chapters/09_oop/a1_classes.html#المصطلحات",
+    "href": "chapters/09_oop/a1_classes.html#المصطلحات",
+    "title": "13  الأنواع",
+    "section": "13.7 المصطلحات",
+    "text": "13.7 المصطلحات\n\n\n\nالعربية\nالإنجليزية\n\n\n\n\nالبرمجة الشيئية\nObject-Oriented Programming\n\n\nالشيء\nObject\n\n\nالنوع\nClass\n\n\nالصفة\nAttribute\n\n\nالفعل\nMethod\n\n\nالمعيَّن\nInstance\n\n\nالتغليف\nEncapsulation\n\n\nالوراثة\nInheritance\n\n\nالتركيب\nComposition\n\n\nالواجهة\nInterface\n\n\nالتصنيف الاسمي\nNominal Classification\n\n\nالتصنيف العملي\nPractical Classification\n\n\nالمعاملات\nOperators\n\n\nالجموع\nCollections\n\n\nالمجموعة المتغيرة\nMutable Set\n\n\nالقاموس\nDictionary\n\n\nالقاموس المتغير\nMutable Dictionary\n\n\nالتسلسل\nSequence\n\n\nالتسلسل المتغير\nMutable Sequence\n\n\nالقابل للعكس\nReversible\n\n\nذو الحجم\nSized\n\n\nالمتجه\nVector\n\n\nالمزيِّن\nDecorator\n\n\nالفعل الثابت\nStatic Method",
+    "crumbs": [
+      "باب الأصناف (Classes)",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>الأنواع</span>"
+    ]
+  },
+  {
     "objectID": "chapters/09_oop/a2_classes.html",
     "href": "chapters/09_oop/a2_classes.html",
     "title": "14  التجريد",
@@ -1637,7 +1758,7 @@
     "href": "chapters/09_oop/a2_classes.html#التعميم",
     "title": "14  التجريد",
     "section": "",
-    "text": "لاحظ استعمال النجمة في فعل الإنشاء *args وذلك لتكون عدد العناصر غير مقيدة بحد\nوفي __add__ لنا حالتان: ما إذا كان المدخل عبارة عن متجهًا أو عددًا\nأما السطر الأخير منها: return Vector(*result) فعلامة النجمة تفك القائمة بحيث تمرر عناصرها كمعيَّنات منفصلة لفعل الإنشاء الذي تم تعريفه في الأعلى.",
+    "text": "لاحظ استعمال النجمة في فعل الإنشاء *args وذلك لتكون عدد العناصر غير مقيدة بحد\nوفي __add__ لنا حالتان: ما إذا كان المدخل عبارة عن متجه أو عدد\nأما السطر الأخير منها: return Vector(*result) فعلامة النجمة تفك القائمة بحيث تمرر عناصرها كمعيَّنات منفصلة لفعل الإنشاء الذي تم تعريفه في الأعلى.",
     "crumbs": [
       "باب الأصناف (Classes)",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>التجريد</span>"
@@ -1670,7 +1791,18 @@
     "href": "chapters/09_oop/a2_classes.html#التسلسل",
     "title": "14  التجريد",
     "section": "14.4 التسلسل",
-    "text": "14.4 التسلسل\nومن الأنواع ما يتسليل مثل الشجرة، حيث فروعها قد تكون أصولاً لفروع أخرى. وهكذا يتسلسل الأمر حتى نصل إلى الأوراق / الثمار (القيم الأخيرة).\nومثل هذا له استعمالات كثيرة في هيكلة البيانات بأمثل بنية تكون فيها أسرع في البحث والإدراج والحذف ونحو ذلك. لكننا نكتفي بمثال نتأمله، نعرف فيه الشجرة الثنائية:\n\nclass BinaryTreeNode:\n    def __init__(self,\n        value,\n        left: 'BinaryTreeNode' = None,\n        right: 'BinaryTreeNode' = None):\n        self.value = value\n        self.left = left\n        self.right = right\n    \n    def __repr__(self):\n        if self.left is None and self.right is None:\n            return f\"{self.value}\"\n        return f\"({self.left}) &lt;-- [{self.value}] --&gt; ({self.right})\"\n\n\ntree = BinaryTreeNode(10)\ntree.left = BinaryTreeNode(5)\ntree.right = BinaryTreeNode(15)\n\ntree\n\n(5) &lt;-- [10] --&gt; (15)\n\n\n\ntree.left.left = BinaryTreeNode(3)\ntree.left.right = BinaryTreeNode(7)\ntree.right.left = BinaryTreeNode(13)\ntree.right.right = BinaryTreeNode(17)\n\ntree\n\n((3) &lt;-- [5] --&gt; (7)) &lt;-- [10] --&gt; ((13) &lt;-- [15] --&gt; (17))\n\n\nنكتفي بهذا القدر.",
+    "text": "14.4 التسلسل\nومن الأنواع ما يتسليل مثل الشجرة، حيث فروعها قد تكون أصولاً لفروع أخرى. وهكذا يتسلسل الأمر حتى نصل إلى الأوراق / الثمار (القيم الأخيرة).\nومثل هذا له استعمالات كثيرة في هيكلة البيانات بأمثل بنية تكون فيها أسرع في البحث والإدراج والحذف ونحو ذلك. لكننا نكتفي بمثال نتأمله، نعرف فيه الشجرة الثنائية:\n\nclass BinaryTreeNode:\n    def __init__(self, value):\n        self.value = value\n        self._left = None\n        self._right = None\n        self._parent = None\n    \n    @property\n    def left(self):\n        return self._left\n\n    @left.setter \n    def left(self, node):\n        self._left = node\n        if node is not None:\n            node.parent = self\n\n    @property\n    def right(self):\n        return self._right\n\n    @right.setter\n    def right(self, node):\n        self._right = node\n        if node is not None:\n            node.parent = self\n    \n    @property\n    def parent(self):\n        return self._parent\n    \n    @parent.setter\n    def parent(self, node):\n        self._parent = node\n\n    def __repr__(self):\n        if self._left is None and self._right is None:\n            return f\"({self.value})\"\n        return f\"{self._left} &lt;-- [{self.value}] --&gt; {self._right}\"\n\nتخصيص عملية التعيين: لاحظ في المثال استعمال .setter بعد اسم المتغير left وright وparent؛ وهذا يعني أن تعيين القيمة للمتغير ستفضي إلى هذا الفعل، فمثلاً حين تقول: tree.left = x فإن هذا الفعل هو الذي سيتم تنفيذه. أما اسم المتغير الذي يحمل القيمة؛ فهو مختبئ عن طريق الشرطة المبتدأة: _left و_right و_parent. وبهذا يتبيَّن كيف لنا أننا نستطيع تخصيص عملية التعيين نفسها.\nوالهدف من التخصيص في مثالنا هذا أن نمنع تعيين فرعٍ أيمن أو أيسر لا يعرف أصله: .parent.\nثم ننشيئ الجشرة، ونصلها بفرعين:\n\ntree = BinaryTreeNode(10)\ntree.left = BinaryTreeNode(5)\ntree.right = BinaryTreeNode(15)\n\ntree\n\n(5) &lt;-- [10] --&gt; (15)\n\n\nثم نفرع عن كل فرعٍ فرعين:\n\ntree.left.left = BinaryTreeNode(3)\ntree.left.right = BinaryTreeNode(7)\ntree.right.left = BinaryTreeNode(13)\ntree.right.right = BinaryTreeNode(17)\n\ntree\n\n(3) &lt;-- [5] --&gt; (7) &lt;-- [10] --&gt; (13) &lt;-- [15] --&gt; (17)\n\n\nويمكننا أن نصل من الفرع إلى الأصل باستعمال .parent، هكذا:\n\nx = tree.left.left\nprint('x:', x)\nprint('x.parent:', x.parent)\n\nx: (3)\nx.parent: (3) &lt;-- [5] --&gt; (7)\n\n\nنكتفي بهذا القدر.",
+    "crumbs": [
+      "باب الأصناف (Classes)",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>التجريد</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09_oop/a2_classes.html#المصطلحات",
+    "href": "chapters/09_oop/a2_classes.html#المصطلحات",
+    "title": "14  التجريد",
+    "section": "14.5 المصطلحات",
+    "text": "14.5 المصطلحات\n\n\n\nالعربية\nالإنجليزية\n\n\n\n\nالتجريد\nAbstraction\n\n\nالتعميم\nGeneralization\n\n\nالتركيب\nComposition\n\n\nالتخصيص\nSpecialization\n\n\nالتسلسل\nRecursion\n\n\nالمضلَّع\nPolygon\n\n\nالنقطة\nPoint\n\n\nالمتجه\nVector\n\n\nالطابور\nQueue\n\n\nالشجرة\nTree\n\n\nالشجرة الثنائية\nBinary Tree\n\n\nالعقدة\nNode\n\n\nالفرع\nBranch\n\n\nالأصل\nParent\n\n\nالورقة/الثمرة\nLeaf\n\n\nتعدد الأشكال\nPolymorphism\n\n\nهيكل البيانات\nData Structure\n\n\nالأنواع الحاوية\nContainer Types\n\n\nالروابط\nLinks",
     "crumbs": [
       "باب الأصناف (Classes)",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>التجريد</span>"
@@ -1732,6 +1864,17 @@
     ]
   },
   {
+    "objectID": "chapters/10_time/a_time.html#المصطلحات",
+    "href": "chapters/10_time/a_time.html#المصطلحات",
+    "title": "15  الوقت",
+    "section": "15.5 المصطلحات",
+    "text": "15.5 المصطلحات\n\n\n\nالعربية\nالإنجليزية\n\n\n\n\nالتوقيت العالمي المنسق\nCoordinated Universal Time (UTC)\n\n\nالمناطق الزمنية\nTime Zones\n\n\nالتوقيت المحلي\nLocal Time\n\n\nالتوقيت الصيفي\nDaylight Saving Time\n\n\nقاعدة بيانات المناطق الزمنية\nTime Zone Database (tz database)\n\n\nوقت التقويم\nCalendar Time\n\n\nفجر نظام يونكس\nUnix Epoch\n\n\nالتاريخ الهجري\nHijri Date\n\n\nالتاريخ الميلادي/الجريجوري\nGregorian Date\n\n\nالساعات المتغيرة\nVariable Hours\n\n\nالساعات الميكانيكية الثابتة\nFixed Mechanical Hours\n\n\nالساعة الشمسية/المزولة\nSundial\n\n\nالساعة المتأرجحة\nPendulum Clock\n\n\nالكرونومتر\nChronometer\n\n\nمذبذب الكوارتز\nQuartz Oscillator\n\n\nالساعة الذرية\nAtomic Clock\n\n\nساعة شعاع السيزيوم\nCesium Beam Clock\n\n\nساعة نافورة السيزيوم\nCesium Fountain Clock\n\n\nالساعة الضوئية\nOptical Clock",
+    "crumbs": [
+      "باب الوقت (Time)",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>الوقت</span>"
+    ]
+  },
+  {
     "objectID": "chapters/11_errors/a1_errors.html",
     "href": "chapters/11_errors/a1_errors.html",
     "title": "16  الخطأ",
@@ -1770,6 +1913,17 @@
     "title": "16  الخطأ",
     "section": "16.3 كشف الأخطاء المنطقية",
     "text": "16.3 كشف الأخطاء المنطقية\nلكونها جملاً صحيحة في ذاتها؛ لا يستطيع البرنامج كشف هذه الأخطاء لوحده. بل يجب على من يُدركُ حقيقة المطلوب من البرنامج أن يتكفل بذلك. وهنا تكون الحاجة ماسَّة لجمل التوكيد: assert وقد رأيناها كثيرًا.\nوالتدقيق؛ إذْ أفضل طريقة لحل الأخطاء المنطقية هي تنفيذ الكود والنظر في الناتج، وتتبع المنطق مرة أخرى إلى الكود سطرًا بسطر. يمكنك استخدام عبارات الطباعة print لتصحيح الأخطاء وفهم تدفق البرنامج. وقد يكون الأفضل من ذلك استعمال المدقق (Debugger).\nمراجعة الأقران: بحيث يطلع على الكود شخص آخر، فإنه قد يرى منه ما تعذر عليك رؤيته. وقد يتم تنظيمه بين أعضاء الفريق الواحد بأحد برمجيات التعاون مثل: GitHub وGitLab وBitbucket وغيرها. لكن ليس شرطًا أن يكون بطريقة منظَّمة حتى تستفيد منه.",
+    "crumbs": [
+      "باب الخطأ والاستثناء (Errors and Exceptions)",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>الخطأ</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11_errors/a1_errors.html#المصطلحات",
+    "href": "chapters/11_errors/a1_errors.html#المصطلحات",
+    "title": "16  الخطأ",
+    "section": "16.4 المصطلحات",
+    "text": "16.4 المصطلحات\n\n\n\nالعربية\nالإنجليزية\n\n\n\n\nالخطأ النحوي\nSyntactic Error\n\n\nالخطأ المنطقي\nLogical Error\n\n\nالخطأ التشغيلي\nRuntime Error\n\n\nالاستثناء\nException\n\n\nأخطاء المحاذاة\nIndentation Error\n\n\nأسلوب الكتابة\nCode Style\n\n\nخطأ الحافَّة\nOff-by-one Error\n\n\nالمدقق\nDebugger\n\n\nالتدقيق\nDebugging\n\n\nجمل التوكيد\nAssert Statements\n\n\nمراجعة الأقران\nPeer Review\n\n\nبرمجيات التعاون\nCollaboration Tools",
     "crumbs": [
       "باب الخطأ والاستثناء (Errors and Exceptions)",
       "<span class='chapter-number'>16</span>  <span class='chapter-title'>الخطأ</span>"
@@ -1853,6 +2007,17 @@
     ]
   },
   {
+    "objectID": "chapters/11_errors/a2_exceptions.html#المصطلحات",
+    "href": "chapters/11_errors/a2_exceptions.html#المصطلحات",
+    "title": "17  الخطأ الواقعي: الاستثناء",
+    "section": "17.7 المصطلحات",
+    "text": "17.7 المصطلحات\n\n\n\nالعربية\nالإنجليزية\n\n\n\n\nالاستثناء\nException\n\n\nخطأ\nError\n\n\nظرف التنفيذ\nExecution Frame\n\n\nالوقاية\nIf-else\n\n\nالتدارك\nTry-except\n\n\nخطأ نحوي\nSyntax Error\n\n\nخطأ في المحاذاة\nIndentation Error\n\n\nخطأ في النوع\nType Error\n\n\nخطأ في القيمة\nValue Error\n\n\nخطأ في المؤشر الرقمي\nIndex Error\n\n\nخطأ في المؤشر المرقوم\nKey Error\n\n\nخطأ في الخاصية\nAttribute Error\n\n\nخطأ في الاسم\nName Error\n\n\nخطأ في استيراد الوحدة\nModule Not Found Error\n\n\nخطأ القسمة على صفر\nZero Division Error\n\n\nرفع الخطأ\nRaise Exception\n\n\nإلتقاط الخطأ\nCatch Exception\n\n\nتدفق الخطأ\nError Flow",
+    "crumbs": [
+      "باب الخطأ والاستثناء (Errors and Exceptions)",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>الخطأ الواقعي: الاستثناء</span>"
+    ]
+  },
+  {
     "objectID": "chapters/11_errors/a3_docstring.html",
     "href": "chapters/11_errors/a3_docstring.html",
     "title": "18  التوثيق",
@@ -1880,6 +2045,17 @@
     "title": "18  التوثيق",
     "section": "18.2 نص التوثيق",
     "text": "18.2 نص التوثيق\nوهذا مثال أشمل لما يعبر به في نص التوثيق:\n\nالجزء الأول وصفٌ مختَصَر بعبارة سهلة ومباشرة\nالجزء Args يصف ما يقبل\nالجزء Returns يصف ما ينتج\nالجزء Raises يصف الاستثناءات التي يرفعها\nالجزء Example يمثل لكيفية الاستعمال\n\n\nimport statistics\n\ndef stats(numbers):\n    \"\"\"\n    Calculate the mean, median, and mode of a list of numbers.\n\n    Args:\n        numbers (list): A list of numerical values.\n\n    Returns:\n        tuple: A tuple containing:\n            - mean (float): The average of the numbers.\n            - median (float): The middle value when the numbers are sorted.\n            - mode (int/float): The most frequent number in the list.\n\n    Raises:\n        ValueError: If the list is empty or the mode cannot be determined.\n\n    Example:\n        &gt;&gt;&gt; stats([1, 2, 3, 3, 4, 5])\n        (3.0, 3.0, 3)\n\n    \"\"\"\n    if not numbers:\n        raise ValueError(\"The list of numbers cannot be empty.\")\n    \n    # Calculate the three statistics\n    mean = statistics.mean(numbers)\n    median = statistics.median(numbers)\n    mode = statistics.mode(numbers)\n\n    return mean, median, mode\n\nلنستعرض المساعدة على الفعل:\n\nhelp(stats)\n\nHelp on function stats in module __main__:\n\nstats(numbers)\n    Calculate the mean, median, and mode of a list of numbers.\n\n    Args:\n        numbers (list): A list of numerical values.\n\n    Returns:\n        tuple: A tuple containing:\n            - mean (float): The average of the numbers.\n            - median (float): The middle value when the numbers are sorted.\n            - mode (int/float): The most frequent number in the list.\n\n    Raises:\n        ValueError: If the list is empty or the mode cannot be determined.\n\n    Example:\n        &gt;&gt;&gt; stats([1, 2, 3, 3, 4, 5])\n        (3.0, 3.0, 3)\n\n\n\nوالآن نستعمل الفعل:\n\ndata = [10, 20, 25, 30, 30, 30, 35, 40, 50, 55]\nmean, median, mode = stats(data)\nprint(f\"Mean: {mean}\")\nprint(f\"Median: {median}\")\nprint(f\"Mode: {mode}\")\n\nMean: 32.5\nMedian: 30.0\nMode: 30\n\n\n\nالفرق بين نص التوثيق والتعليقات\n\nالتعليقات # تكون بين مطوري هذا الفعل\n\nمثلاً: يبين السبب وراء بعض الخطوات التي قد تبدو غريبة\nيستعمل لإطفاء مجموعة أسطر (اختصاره Ctrl+/ في المحرر)\n\nالتوثيق \"\"\"...\"\"\" يكون بين مستخدمي هذا الفعل\n\nيصف بلغة البَشَر ما تعجز عن وصفه لغة البرمجة؛ فمثلاً: إن كان الفعل يغير نفس القائمة ولا يعيد نسخة منها؛ فإن ذلك يبيَّن",
+    "crumbs": [
+      "باب الخطأ والاستثناء (Errors and Exceptions)",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>التوثيق</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11_errors/a3_docstring.html#المصطلحات",
+    "href": "chapters/11_errors/a3_docstring.html#المصطلحات",
+    "title": "18  التوثيق",
+    "section": "18.3 المصطلحات",
+    "text": "18.3 المصطلحات\n\n\n\nالعربية\nالإنجليزية\n\n\n\n\nنص التوثيق\nDocstring\n\n\nالتعليقات\nComments\n\n\nالإجمال ثم التفصيل\nSummary then Details\n\n\nجملة التعريف\nDefinition Statement\n\n\nجملة التوكيد\nAssert Statement\n\n\nنوع الصف\nType Annotation\n\n\nالمساعدة\nHelp\n\n\nالوسط الحسابي\nMean\n\n\nالوسيط\nMedian\n\n\nالمنوال\nMode\n\n\nالاستثناء\nException\n\n\nالقيمة\nValue\n\n\nالمعاملات\nArguments\n\n\nالقيمة المرجعة\nReturn Value\n\n\nالمثال\nExample",
     "crumbs": [
       "باب الخطأ والاستثناء (Errors and Exceptions)",
       "<span class='chapter-number'>18</span>  <span class='chapter-title'>التوثيق</span>"
