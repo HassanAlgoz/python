@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>تطبيقات – البايثونية</title>
+<title>1&nbsp; المقدمة الأولى: لغة البرمجة – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -101,6 +101,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "البحث"
   }
 }</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -132,9 +139,11 @@ window.Quarto = {
 };
 </script>
 
-<meta name="twitter:title" content="تطبيقات – البايثونية">
+<meta name="twitter:title" content="1&nbsp; المقدمة الأولى: لغة البرمجة – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/02_numbers/cover.png">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/01_intro/a1_intro_files/figure-html/cell-6-output-1.png">
+<meta name="twitter:image-height" content="526">
+<meta name="twitter:image-width" content="711">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -147,7 +156,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/02_numbers/a_numbers.html">باب الأعداد (Numbers)</a></li><li class="breadcrumb-item"><a href="../../chapters/02_numbers/apps.html">تطبيقات</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/01_intro/a1_intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">المقدمة الأولى: لغة البرمجة</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -223,7 +232,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/01_intro/a1_intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/01_intro/a1_intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">المقدمة الأولى: لغة البرمجة</span></span></a>
   </div>
 </li>
@@ -250,7 +259,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/02_numbers/apps.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/02_numbers/apps.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
@@ -550,20 +559,23 @@ window.Quarto = {
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#معادلة-مساحة-المكعب" id="toc-معادلة-مساحة-المكعب" class="nav-link active" data-scroll-target="#معادلة-مساحة-المكعب">معادلة مساحة المكعب</a></li>
-  <li><a href="#معادلة-تحويل-وحدة-إلى-وحدة-أخرى" id="toc-معادلة-تحويل-وحدة-إلى-وحدة-أخرى" class="nav-link" data-scroll-target="#معادلة-تحويل-وحدة-إلى-وحدة-أخرى">معادلة تحويل وحدة إلى وحدة أخرى</a></li>
-  <li><a href="#معادلة-مساحة-الدائرة" id="toc-معادلة-مساحة-الدائرة" class="nav-link" data-scroll-target="#معادلة-مساحة-الدائرة">معادلة مساحة الدائرة</a></li>
-  <li><a href="#معادلة-طول-الخط-المستقيم-بين-نقطتين" id="toc-معادلة-طول-الخط-المستقيم-بين-نقطتين" class="nav-link" data-scroll-target="#معادلة-طول-الخط-المستقيم-بين-نقطتين">معادلة طول الخط المستقيم بين نقطتين</a></li>
-  <li><a href="#نسبة-التغير" id="toc-نسبة-التغير" class="nav-link" data-scroll-target="#نسبة-التغير">نسبة التغير</a></li>
+  <li><a href="#القطعة-البرمجية" id="toc-القطعة-البرمجية" class="nav-link active" data-scroll-target="#القطعة-البرمجية"><span class="header-section-number">1.1</span> القطعة البرمجية</a></li>
+  <li><a href="#الكلمات" id="toc-الكلمات" class="nav-link" data-scroll-target="#الكلمات"><span class="header-section-number">1.2</span> الكلمات</a></li>
+  <li><a href="#الأنواع-والأفعال-المبنية" id="toc-الأنواع-والأفعال-المبنية" class="nav-link" data-scroll-target="#الأنواع-والأفعال-المبنية"><span class="header-section-number">1.3</span> الأنواع والأفعال المبنية</a></li>
+  <li><a href="#نمو-اللغة" id="toc-نمو-اللغة" class="nav-link" data-scroll-target="#نمو-اللغة"><span class="header-section-number">1.4</span> نمو اللغة</a>
+  <ul class="collapse">
+  <li><a href="#المكتبة-الأساسية" id="toc-المكتبة-الأساسية" class="nav-link" data-scroll-target="#المكتبة-الأساسية">المكتبة الأساسية</a></li>
+  <li><a href="#المكتبات-المساهمة" id="toc-المكتبات-المساهمة" class="nav-link" data-scroll-target="#المكتبات-المساهمة">المكتبات المساهمة</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/02_numbers/a_numbers.html">باب الأعداد (Numbers)</a></li><li class="breadcrumb-item"><a href="../../chapters/02_numbers/apps.html">تطبيقات</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">تطبيقات</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">المقدمة الأولى: لغة البرمجة</span></h1>
 </div>
 
 
@@ -580,98 +592,450 @@ window.Quarto = {
 </header>
 
 
-<p>لا يلزمنا اشتقاق هذه المعادلات؛ لكن نستعمل النتائج التي خرج بها أهل الرياضيات فنعوض هذه المتغيرات بالقيم التي نريد لنتحصل على الناتج.</p>
-<section id="معادلة-مساحة-المكعب" class="level2">
-<h2 class="anchored" data-anchor-id="معادلة-مساحة-المكعب">معادلة مساحة المكعب</h2>
-<p>اكتب برنامجًا يحسب مساحة المكعب وفق المعادلة:</p>
-<p><span class="math display">\[
-\text{area} = \text{width} \times \text{length} \times \text{height}
-\]</span></p>
-<div id="8d98f1f4" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>width <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>length <span class="op">=</span> <span class="dv">4</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>height <span class="op">=</span> <span class="dv">5</span></span>
+<p>يتألف البرنامج المكتوب بلغة البرمجة من <strong>قِطَع</strong> هي عبارة عن سلسلة من <strong>الجُمَل</strong> البسيطة والمركبة المكونة من <strong>مُفْرَدات</strong> للتعبير عن الأوامِر بطريقة يَسْهُلة على المبرمج كتابتها ، وفي نفس الوقت تَتَّبِعُ <strong>قَواعِدَ نَحْوِيَّة</strong> صارمة حتى لا تشتبه على المترجم عند تحويلها لتعليمات مفصَّلة على لغة المنطق الرقمي لآلة التي تنفذها.</p>
+<p>وفي هذا المثال عرضٌ لقطع برمجية في بايثون وشرحٌ لعملها، وليس المطلوب أي شيء منها أو تأمُّلَه ومحاولة فهمه بل هذه نظرة عامَّة لتكوين تصوُّر مُجْمَل عمّا سيأتي إن شاء الله.</p>
+<section id="القطعة-البرمجية" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="القطعة-البرمجية"><span class="header-section-number">1.1</span> القطعة البرمجية</h2>
+<p>تُنَفَّذُ القطعة بحسب ترتيب جُمَلِها نزولاً من الأعلى.</p>
+<div id="38059fc5" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>pages <span class="op">=</span> <span class="dv">900</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>speed <span class="op">=</span>  <span class="dv">50</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>finish_time <span class="op">=</span> pages <span class="op">/</span> speed</span>
 <span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a>area <span class="op">=</span> width <span class="op">*</span> length <span class="op">*</span> height</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="bu">print</span>(area)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="cf">if</span> finish_time <span class="op">&lt;</span> <span class="dv">14</span>:</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="bu">print</span>(<span class="st">'الوقت كافٍ'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="cf">else</span>:</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    <span class="bu">print</span>(<span class="st">'داهمنا الوقت'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>60</code></pre>
+<pre><code>داهمنا الوقت</code></pre>
 </div>
 </div>
-</section>
-<section id="معادلة-تحويل-وحدة-إلى-وحدة-أخرى" class="level2">
-<h2 class="anchored" data-anchor-id="معادلة-تحويل-وحدة-إلى-وحدة-أخرى">معادلة تحويل وحدة إلى وحدة أخرى</h2>
-<p>اكتب برنامجًا لتحويل درجة الحرارة من السيليلوس إلى الفهرنهايت استخدم معادلة التحويل التالية:</p>
-<p><span class="math display">\[
-F = \frac{9}{5} \times C + 32
-\]</span></p>
-<div id="d5df4e3b" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>c <span class="op">=</span> <span class="dv">32</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>f <span class="op">=</span> (<span class="dv">9</span> <span class="op">/</span> <span class="dv">5</span>) <span class="op">*</span> c <span class="op">+</span> <span class="dv">32</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="bu">print</span>(<span class="st">'Celsius:'</span>, c)</span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="bu">print</span>(<span class="st">'Fahrenheit:'</span>, f)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Celsius: 32
-Fahrenheit: 89.6</code></pre>
-</div>
-</div>
-</section>
-<section id="معادلة-مساحة-الدائرة" class="level2">
-<h2 class="anchored" data-anchor-id="معادلة-مساحة-الدائرة">معادلة مساحة الدائرة</h2>
-<p>اكتب برنامجًا لحساب مساحة الدائرة وفق المعادلة التالية:</p>
-<p><span class="math display">\[
-\text{area} = \pi \times \text{radius}^2
-\]</span></p>
-<div id="0868e89d" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> math</span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a>radius <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a>area <span class="op">=</span> math.pi <span class="op">*</span> radius<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="bu">print</span>(area)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>78.53981633974483</code></pre>
-</div>
-</div>
-<p><strong>ملاحظة</strong>:</p>
+<p>في هذه القطعة مجموعة جُمل، نشرحها سطرًا سطرًا:</p>
 <ul>
-<li>تم استعمال <code>radius ** 2</code> بدلاً من الفعل <code>math.pow(radius, 2)</code> لتربيع العدد.</li>
-<li>كذلك يجوز استعمال <code>x ** 0.5</code> بدلاً من الفعل <code>math.sqrt(x)</code> لحساب الجذر التربيعي.</li>
+<li>السطرين الأولين: جملة تعيين حرفّيْ (<code>900</code> و <code>50</code>) لمتغير (<code>pages</code> و <code>speed</code>).</li>
+<li>السطر الثالث: جملة تعيين ناتج عبارة القسمة. ولاحظ أن اسم المتغير <code>finish_time</code> يستعمل الشرطة السفلية بدلاً من المسافة (وهذا ضروري)</li>
+<li>جملة شرطية: <code>if</code> (بمعنى إن كان)
+<ul>
+<li>الجزء الأول (الشرط): <code>finish_time &lt; 14</code></li>
+<li>ثم ما بعده مباشرة: جملة معلَّقة بالشرط</li>
+<li>الجزء الثاني <code>else</code> (بمعنى فإن لم يكن) جملة معلَّقة بانتفاء الشرط</li>
+</ul></li>
+</ul>
+<p>فهذه أربعة أنواع من الجُمل في قطعة واحدة. والجملة في بايثون لها أنواعُ كثيرة، وتنقسم إلى قسمين: بسيطة ومركبة:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><a href="https://docs.python.org/3/reference/simple_stmts.html"><strong>جملة بسيطة</strong></a>:</p>
+<ul>
+<li>التعبير: <code>x + y</code></li>
+<li>التعيين: <code>x = y</code></li>
+<li>التأكيد: <code>assert condition</code></li>
+<li>المرور: <code>pass</code></li>
+<li>الحذف: <code>del x</code></li>
+<li>الإرجاع: <code>return y</code></li>
+<li>الإنتاج: <code>yield y</code></li>
+<li>رفع الاستثناء: <code>raise Exception</code></li>
+<li>الكسر: <code>break</code></li>
+<li>الاستمرار: <code>continue</code></li>
+<li>الاستيراد: <code>import module</code></li>
+<li>العالمية: <code>global x</code></li>
+<li>غير المحلية: <code>nonlocal x</code></li>
+<li>النوع: <code>type(x)</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><a href="https://docs.python.org/3/reference/compound_stmts.html"><strong>جملة مركبة</strong></a>:</p>
+<ul>
+<li>الشرط: <code>if ...</code></li>
+<li>التكرار: <code>while ...</code></li>
+<li>الحلقة: <code>for ...</code></li>
+<li>المحاولة: <code>try ...</code></li>
+<li>السياق: <code>with ...</code></li>
+<li>المطابقة: <code>match ...</code></li>
+<li>تعريف الفعل: <code>def ...</code></li>
+<li>تعريف النوع: <code>class ...</code></li>
+<li>الروتينات المتزامنة: <code>async def ...</code></li>
+<li>قوائم معلمات النوع: <code>[T1[, T2, ...]]</code></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="الكلمات" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="الكلمات"><span class="header-section-number">1.2</span> الكلمات</h2>
+<p>أول أنواع الكلمة هو <a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords">المفردات الأصلية في لغة بايثون</a> التي لها معنىً خاصّ مفهوم لدى بايثون وتستعمل في جُمَل محددة. وهي:</p>
+<pre><code>False      await      else       import     pass
+None       break      except     in         raise
+True       class      finally    is         return
+and        continue   for        lambda     try
+as         def        from       nonlocal   while
+assert     del        global     not        with
+async      elif       if         or         yield</code></pre>
+<p>ومنها كذلك: <code>match</code>, <code>case</code>, <code>type</code> و <code>_</code>.</p>
+<p>وما عدا ذلك</p>
+<p>فقد تبني الحروف كلمةً تكونُ <strong>متغيِّرًا</strong>، نحو: <code>x</code> أو <code>price</code> أو <code>body_weight</code> فكلها أسماء مقبولة للمتغيرات؛ لا كما في الرياضيات التي عادةً ما تستعمل الحرف الواحد.</p>
+<p>وقت تبني الحروف كلمة تكون <strong>حرفيٍّا</strong>، نحو: <code>44</code> أو <code>3.14</code> أو <code>"كيف حالك؟"</code> ويُسمَّى <strong>قيمة</strong>.</p>
+<p>ومن الحروف <strong>علامات الابتداء والوَقف</strong>، نحو: <code>( )</code> و <code>[ ]</code> و <code>{ }</code> <strong>والفصل</strong>، نحو: <code>,</code> (الفاصلة اللاتينية) و <code>:</code> (النقطتان الرأسِيَّتان) و <code>=</code> (علامة التعيين) ، وتُسمى جميعًا <a href="https://docs.python.org/3/reference/lexical_analysis.html#delimiters"><strong>المحددات</strong></a>.</p>
+<ul>
+<li>فالأقواس <code>()</code> في العبارة: <code>(y + z) * (a + b)</code> لتحديد ترتيب العمليات</li>
+<li>والأقواس <code>()</code> في العبارة: <code>print(x, y, z)</code> لتحديد عوامل الفعل: أي: المتغيرات التي نمررها له</li>
+<li>والأقواس <code>()</code> في العبارة: <code>(10, 20, 30)</code> لتحديد صف من الأرقام</li>
+</ul>
+<p>ومن الحروف <a href="https://docs.python.org/3/reference/lexical_analysis.html#operators"><strong>المعاملات</strong></a>، نحو: <code>+</code> و <code>*</code> و <code>/</code> و <code>**</code> و <code>==</code></p>
+<p>فمثلاً: معامل الجمع <code>+</code> يفسَّر بحسب السياق: <code>x + y</code></p>
+<ul>
+<li>فإن كان <code>x = 5</code> و <code>y = 10</code> فهما من نوع <strong>الرقم</strong> (<code>number</code>) فهي للجمع</li>
+<li>فإن كان <code>x = "Ahmad"</code> و <code>y = "Belal"</code> فهما من نوع <strong>النص</strong> (<code>str</code>) فهي للدمج بينهما</li>
+<li>فإن كان <code>x = 5</code> و <code>y = "Belal"</code> فهما من نوع <strong>الرقم</strong> و <strong>النص</strong> فليسَ بمعرَّف</li>
 </ul>
 </section>
-<section id="معادلة-طول-الخط-المستقيم-بين-نقطتين" class="level2">
-<h2 class="anchored" data-anchor-id="معادلة-طول-الخط-المستقيم-بين-نقطتين">معادلة طول الخط المستقيم بين نقطتين</h2>
+<section id="الأنواع-والأفعال-المبنية" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="الأنواع-والأفعال-المبنية"><span class="header-section-number">1.3</span> الأنواع والأفعال المبنية</h2>
+<p>ومن الأنواع والأفعال ما هو <strong>مبنيُّ</strong> في لغة بايثون:</p>
+<p><a href="https://docs.python.org/3/library/stdtypes.html"><strong>الأنواع المبنية</strong></a> مثل:</p>
+<ul>
+<li>الرقم: <code>int</code>, <code>float</code>, <code>complex</code> للحساب</li>
+<li>النص: <code>str</code> للتعامل مع الكلام المكتوب</li>
+<li>الجمع: <code>list</code>, <code>tuple</code>, <code>range</code>, <code>set</code>, <code>dict</code> لغير المفرد</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph RL
+    A[الأنواع المبنية] --&gt; B[الرقم &lt;br&gt; number]
+    A --&gt; C[النص &lt;br&gt; str]
+    B --&gt; E[صحيح &lt;br&gt; int]
+    B --&gt; F[عشري &lt;br&gt; float]
+    B --&gt; G[مركب &lt;br&gt; complex]
+    A --&gt; D[الجمع &lt;br&gt; collection]
+    D --&gt; H[قائمة &lt;br&gt; list]
+    D --&gt; I[صف &lt;br&gt; tuple]
+    D --&gt; J[نطاق &lt;br&gt; range]
+    D --&gt; K[مجموعة &lt;br&gt; set]
+    D --&gt; L[قاموس &lt;br&gt; dict]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>وسيأتي تفصيلها في أبوابها إن شاء الله.</p>
+<p><a href="https://docs.python.org/3/library/functions.html"><strong>الأفعال المبنية</strong></a> مثل: <code>print</code>, <code>sum</code>, <code>max</code>, <code>min</code>, <code>len</code></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>الفعل</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>الطباعة</td>
+<td><code>print</code></td>
+</tr>
+<tr class="even">
+<td>الجمع</td>
+<td><code>sum</code></td>
+</tr>
+<tr class="odd">
+<td>الأكبر</td>
+<td><code>max</code></td>
+</tr>
+<tr class="even">
+<td>الأصغر</td>
+<td><code>min</code></td>
+</tr>
+<tr class="odd">
+<td>الطول</td>
+<td><code>len</code></td>
+</tr>
+<tr class="even">
+<td>إدخال</td>
+<td><code>input</code></td>
+</tr>
+<tr class="odd">
+<td>نوع</td>
+<td><code>type</code></td>
+</tr>
+<tr class="even">
+<td>أي</td>
+<td><code>any</code></td>
+</tr>
+<tr class="odd">
+<td>كل</td>
+<td><code>all</code></td>
+</tr>
+<tr class="even">
+<td>التالي</td>
+<td><code>next</code></td>
+</tr>
+<tr class="odd">
+<td>تطبيق</td>
+<td><code>map</code></td>
+</tr>
+<tr class="even">
+<td>تجميع</td>
+<td><code>zip</code></td>
+</tr>
+<tr class="odd">
+<td>تقريب</td>
+<td><code>round</code></td>
+</tr>
+</tbody>
+</table>
+<p>وغيرها كثير لا يفيد حصره هنا. ولا تزال اللغة تتطوَّر ويُزادُ فيها من هذه الأنواع والأفعال.</p>
+</section>
+<section id="نمو-اللغة" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="نمو-اللغة"><span class="header-section-number">1.4</span> نمو اللغة</h2>
+<p>ومن خواص لغة البرمجة: إنشاء مركبات لغوية جديدة، وذلك بشيئين:</p>
+<ol type="1">
+<li><strong>تعريف أنواع</strong> جديدة؛ بجملة <code>class</code></li>
+<li><strong>تعريف أفعال</strong> جديدة؛ بجملة <code>def</code></li>
+</ol>
+<p>فأضاف مطوروا بايثون أنفسهم إلى اللغة ما يسمى <strong>بالمكتبة الأساسية</strong>، ومن أقسامها:</p>
+<ul>
+<li>وحدة <a href="https://docs.python.org/3/library/math.html"><code>math</code></a> التي تضم مجموعة أفعال تعنى بالعمليات الرياضية على الأعداد</li>
+<li>وحدة <a href="https://docs.python.org/3/library/statistics.html"><code>statistics</code></a> التي تضم مجموعة أفعال تعنى بالإحصاء</li>
+<li>وحدة <a href="https://docs.python.org/3/library/datetime.html"><code>datetime</code></a> التي تضم مجموعة أنواع وأفعال تعنى بالوقت والتاريخ</li>
+</ul>
+<section id="المكتبة-الأساسية" class="level3">
+<h3 class="anchored" data-anchor-id="المكتبة-الأساسية">المكتبة الأساسية</h3>
 <p>في هذا المثال نعرف نقطتين ثم نحسب المسافة بينهما. والمسافة الإقليدية بين نقطتين <span class="math inline">\((x_1, y_1)\)</span> و <span class="math inline">\((x_2, y_2)\)</span> تتبع معادلة فيثاغورس:</p>
 <p><span class="math display">\[
 \text{distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
 \]</span></p>
-<div id="ffe9a9b0" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> math</span>
-<span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a>x1, y1 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a>x2, y2 <span class="op">=</span> <span class="dv">3</span>, <span class="dv">4</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a>distance <span class="op">=</span> math.sqrt((x2 <span class="op">-</span> x1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="bu">print</span>(distance)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>القطعة:</p>
+<div id="738f4be7" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> math</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>x1, y1 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>x2, y2 <span class="op">=</span> <span class="dv">3</span>, <span class="dv">4</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>distance <span class="op">=</span> math.sqrt((x2 <span class="op">-</span> x1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="bu">print</span>(distance)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>5.0</code></pre>
 </div>
 </div>
+<p>تفصيل هذه القطعة كالتالي:</p>
+<ul>
+<li>جملة استيراد المكتبة الرياضية: <code>import math</code></li>
+<li>تعيين النقطتين: <code>x1, y1 = 0, 0</code> و <code>x2, y2 = 3, 4</code></li>
+<li>حساب المسافة: <code>distance = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)</code> وفيه:
+<ul>
+<li><code>x2 - x1</code> هو الفرق بين الإحداثيات السينية</li>
+<li><code>y2 - y1</code> هو الفرق بين الإحداثيات الصادية</li>
+<li><code>**</code> هي عملية تربيع العدد</li>
+<li><code>math.sqrt</code> هي فعل حساب الجذر التربيعي</li>
+</ul></li>
+<li>طباعة النتيجة: <code>print(distance)</code> وفيه:</li>
+</ul>
 </section>
-<section id="نسبة-التغير" class="level2">
-<h2 class="anchored" data-anchor-id="نسبة-التغير">نسبة التغير</h2>
-<p>إذا كان معدل قراءتك في الأسبوع الثاني 15 دقيقة، وكان معدل قراءتك في الأسبوع الأول 10 دقائق، فكم نسبة الزيادة في معدل قراءتك؟</p>
-<div id="4e34625f" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>week1 <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>week2 <span class="op">=</span> <span class="dv">15</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a></span>
-<span id="cb9-4"><a href="#cb9-4"></a>percentage <span class="op">=</span> (week2 <span class="op">-</span> week1) <span class="op">/</span> week1</span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="bu">print</span>(percentage <span class="op">*</span> <span class="dv">100</span>, <span class="st">'%'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>50.0 %</code></pre>
-</div>
-</div>
+<section id="المكتبات-المساهمة" class="level3">
+<h3 class="anchored" data-anchor-id="المكتبات-المساهمة">المكتبات المساهمة</h3>
+<p>وتسمى <strong>المكتبات الخارجية</strong> وهي مكتبات يساهم بها الناس، ويضيفونها إلى اللغة، نجدها في موقع قاعدة بيانات <a href="https://pypi.org/">PyPI</a> الذي يضم أكثر من 580 ألف مشروع، أو غيرها من المواقع. وهذه يتم تنزيلها وتثبيتها للاستفادة من لغتها المزيدة.</p>
+<p>على سبيل المثال، تختص <strong>حزمة</strong> <a href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_spreadsheets.html"><code>pandas</code></a> المتخصصة في تفكيك وتركيب الجداول والتحليلات الإحصائية عليها؛ فهي أقوى من أي نسخة من إكسل (Excel) أو غيره.</p>
+<p>لتثبيتها نستعمل <code>pip</code> هكذا في سطر الأوامر (النافذة السوداء):</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">pip</span> install pandas</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ثم نستطيع استعمال المكتبة لقراءة بيانات الطلاب -مثلاً- من ملف CSV:</p>
+<div id="af96f132" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../datasets/students.csv'</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a>df</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
 
 
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Grade</th>
+<th data-quarto-table-cell-role="th">Gender</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Mohammed</td>
+<td>19</td>
+<td>88</td>
+<td>M</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Abdullah</td>
+<td>20</td>
+<td>95</td>
+<td>M</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Ahmed</td>
+<td>21</td>
+<td>87</td>
+<td>M</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Khalid</td>
+<td>19</td>
+<td>92</td>
+<td>M</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Sara</td>
+<td>20</td>
+<td>94</td>
+<td>F</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Fatima</td>
+<td>22</td>
+<td>89</td>
+<td>F</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Omar</td>
+<td>21</td>
+<td>91</td>
+<td>M</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Norah</td>
+<td>20</td>
+<td>93</td>
+<td>F</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Turki</td>
+<td>19</td>
+<td>86</td>
+<td>M</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Reem</td>
+<td>21</td>
+<td>90</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>ثم لعرض ملخصات إحصائية:</p>
+<div id="05c54649" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df.describe(include<span class="op">=</span>[<span class="st">'number'</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>10.000000</td>
+<td>10.00000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>20.200000</td>
+<td>90.50000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>1.032796</td>
+<td>3.02765</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>19.000000</td>
+<td>86.00000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>19.250000</td>
+<td>88.25000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>20.000000</td>
+<td>90.50000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>21.000000</td>
+<td>92.75000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>22.000000</td>
+<td>95.00000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>أو تصوير البيانات:</p>
+<div id="29c186ad" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>df[<span class="st">'Gender'</span>].value_counts().plot(kind<span class="op">=</span><span class="st">'barh'</span>, color<span class="op">=</span><span class="st">'skyblue'</span>, figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="a1_intro_files/figure-html/cell-6-output-1.png" width="356" height="263" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>هكذا بكل بساطة.</p>
+<p>فإذًا .. هنا دور <strong>المجتمع</strong> ليبني باللغة: بمفرداتها وجملها ومكتبتها الأساسية والخارجية، ليبني فوق ذلك ما يخدم أغراضه. فلكل فئة من الناس تركيب حزمة جديدة مكونة من أنواع وأفعال مركبة مبنية على غيرها ، ثم يوفرونها لغيرهم. وهكذا تنمو اللغة ، حزمةً تِلو الأخرى بحسب إسهامات كل مجتمع برمجي بما يهتم به.</p>
+<p>ومن مكامن القوة في لغة بايثون: أنها <strong>متوافقة مع لغتي C/C++</strong> إذْ يُمكن كتابة برمجيات عالية الأداء والكفاءة بهما مستفيدين من الحزم الموجودة فيهما، ثم توفيق ذلك ليكون كمكتبة في لغة بايثون.</p>
+<p>فالمجتمعات البرمجية في بايثون كثيرة ومتعددة في اهتماماتها. منها على سبيل المثال:</p>
+<ul>
+<li><strong>تطوير مواقع الشبكة</strong>:
+<ul>
+<li><a href="https://www.djangoproject.com/">Django</a> - لبناء مواقع متصلة بقواعد بيانات</li>
+<li><a href="https://fastapi.tiangolo.com/">FastAPI</a> - حديث وسريع لبناء واجهات برمجية على الشبكة</li>
+</ul></li>
+<li><strong>الذكاء الاصطناعي وتعلم الآلة</strong>:
+<ul>
+<li><a href="https://www.statsmodels.org/">statsmodels</a> - للنماذج الإحصائية</li>
+<li><a href="https://scikit-learn.org/">scikit-learn</a> - لاكتشاف الأنماط والتنبؤ (تعلم الآلة)</li>
+<li><a href="https://pytorch.org/">PyTorch</a> - لبناء نماذج التعلم العميق</li>
+</ul></li>
+<li><strong>تصوير البيانات</strong>:
+<ul>
+<li><a href="https://seaborn.pydata.org/">seaborn</a> - تصور البيانات الإحصائية على أساس Matplotlib.</li>
+<li><a href="https://matplotlib.org/">matplotlib</a> - مكتبة شاملة لإنشاء تصورات ثابتة ومتحركة وتفاعلية.</li>
+</ul></li>
+<li><strong>التحليل الرياضي والهندسة</strong>:
+<ul>
+<li><a href="https://www.sympy.org/">sympy</a> - للرياضيات الرمزية.</li>
+<li><a href="https://astroautomata.com/PySR/">PySR</a> - الانحدار الرمزي.</li>
+<li><a href="https://scipy.org/">SciPy</a> - للرياضيات والعلوم والهندسة.</li>
+</ul></li>
+</ul>
+
+
+</section>
 </section>
 
 </main> <!-- /main -->

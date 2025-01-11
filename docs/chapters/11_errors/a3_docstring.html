@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>تطبيقات – البايثونية</title>
+<title>18&nbsp; التوثيق – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,39 +102,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta name="twitter:title" content="تطبيقات – البايثونية">
+<meta name="twitter:title" content="18&nbsp; التوثيق – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/02_numbers/cover.png">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/11_errors/cover.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -147,7 +118,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/02_numbers/a_numbers.html">باب الأعداد (Numbers)</a></li><li class="breadcrumb-item"><a href="../../chapters/02_numbers/apps.html">تطبيقات</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html">باب الخطأ والاستثناء (Errors and Exceptions)</a></li><li class="breadcrumb-item"><a href="../../chapters/11_errors/a3_docstring.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">التوثيق</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -250,7 +221,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/02_numbers/apps.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/02_numbers/apps.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
@@ -511,7 +482,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/11_errors/a3_docstring.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/11_errors/a3_docstring.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">التوثيق</span></span></a>
   </div>
 </li>
@@ -550,20 +521,20 @@ window.Quarto = {
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#معادلة-مساحة-المكعب" id="toc-معادلة-مساحة-المكعب" class="nav-link active" data-scroll-target="#معادلة-مساحة-المكعب">معادلة مساحة المكعب</a></li>
-  <li><a href="#معادلة-تحويل-وحدة-إلى-وحدة-أخرى" id="toc-معادلة-تحويل-وحدة-إلى-وحدة-أخرى" class="nav-link" data-scroll-target="#معادلة-تحويل-وحدة-إلى-وحدة-أخرى">معادلة تحويل وحدة إلى وحدة أخرى</a></li>
-  <li><a href="#معادلة-مساحة-الدائرة" id="toc-معادلة-مساحة-الدائرة" class="nav-link" data-scroll-target="#معادلة-مساحة-الدائرة">معادلة مساحة الدائرة</a></li>
-  <li><a href="#معادلة-طول-الخط-المستقيم-بين-نقطتين" id="toc-معادلة-طول-الخط-المستقيم-بين-نقطتين" class="nav-link" data-scroll-target="#معادلة-طول-الخط-المستقيم-بين-نقطتين">معادلة طول الخط المستقيم بين نقطتين</a></li>
-  <li><a href="#نسبة-التغير" id="toc-نسبة-التغير" class="nav-link" data-scroll-target="#نسبة-التغير">نسبة التغير</a></li>
+  <li><a href="#الإجمال-ثم-التفصيل" id="toc-الإجمال-ثم-التفصيل" class="nav-link active" data-scroll-target="#الإجمال-ثم-التفصيل"><span class="header-section-number">18.1</span> الإجمال ثم التفصيل</a></li>
+  <li><a href="#نص-التوثيق" id="toc-نص-التوثيق" class="nav-link" data-scroll-target="#نص-التوثيق"><span class="header-section-number">18.2</span> نص التوثيق</a>
+  <ul class="collapse">
+  <li><a href="#الفرق-بين-نص-التوثيق-والتعليقات" id="toc-الفرق-بين-نص-التوثيق-والتعليقات" class="nav-link" data-scroll-target="#الفرق-بين-نص-التوثيق-والتعليقات">الفرق بين نص التوثيق والتعليقات</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/02_numbers/a_numbers.html">باب الأعداد (Numbers)</a></li><li class="breadcrumb-item"><a href="../../chapters/02_numbers/apps.html">تطبيقات</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html">باب الخطأ والاستثناء (Errors and Exceptions)</a></li><li class="breadcrumb-item"><a href="../../chapters/11_errors/a3_docstring.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">التوثيق</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">تطبيقات</h1>
+<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">التوثيق</span></h1>
 </div>
 
 
@@ -580,98 +551,180 @@ window.Quarto = {
 </header>
 
 
-<p>لا يلزمنا اشتقاق هذه المعادلات؛ لكن نستعمل النتائج التي خرج بها أهل الرياضيات فنعوض هذه المتغيرات بالقيم التي نريد لنتحصل على الناتج.</p>
-<section id="معادلة-مساحة-المكعب" class="level2">
-<h2 class="anchored" data-anchor-id="معادلة-مساحة-المكعب">معادلة مساحة المكعب</h2>
-<p>اكتب برنامجًا يحسب مساحة المكعب وفق المعادلة:</p>
-<p><span class="math display">\[
-\text{area} = \text{width} \times \text{length} \times \text{height}
-\]</span></p>
-<div id="8d98f1f4" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>width <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>length <span class="op">=</span> <span class="dv">4</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>height <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a>area <span class="op">=</span> width <span class="op">*</span> length <span class="op">*</span> height</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="bu">print</span>(area)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>60</code></pre>
+<section id="الإجمال-ثم-التفصيل" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="الإجمال-ثم-التفصيل"><span class="header-section-number">18.1</span> الإجمال ثم التفصيل</h2>
+<p>يُحبَّذُ في الإنشاء دائمًا <strong>الإجمال ثم التفصيل</strong>. ونبين ذلك في تعريف الأفعال، وينطبق كذلك في تعريف الأنواع:</p>
+<div id="1e800c9f" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> min_max(numbers: <span class="bu">list</span>[<span class="bu">float</span>]) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">float</span>, <span class="bu">float</span>]:</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co">"""Return the minimum and maximum values in the list."""</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="cf">pass</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section>
-<section id="معادلة-تحويل-وحدة-إلى-وحدة-أخرى" class="level2">
-<h2 class="anchored" data-anchor-id="معادلة-تحويل-وحدة-إلى-وحدة-أخرى">معادلة تحويل وحدة إلى وحدة أخرى</h2>
-<p>اكتب برنامجًا لتحويل درجة الحرارة من السيليلوس إلى الفهرنهايت استخدم معادلة التحويل التالية:</p>
-<p><span class="math display">\[
-F = \frac{9}{5} \times C + 32
-\]</span></p>
-<div id="d5df4e3b" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>c <span class="op">=</span> <span class="dv">32</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>f <span class="op">=</span> (<span class="dv">9</span> <span class="op">/</span> <span class="dv">5</span>) <span class="op">*</span> c <span class="op">+</span> <span class="dv">32</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="bu">print</span>(<span class="st">'Celsius:'</span>, c)</span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="bu">print</span>(<span class="st">'Fahrenheit:'</span>, f)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Celsius: 32
-Fahrenheit: 89.6</code></pre>
-</div>
-</div>
-</section>
-<section id="معادلة-مساحة-الدائرة" class="level2">
-<h2 class="anchored" data-anchor-id="معادلة-مساحة-الدائرة">معادلة مساحة الدائرة</h2>
-<p>اكتب برنامجًا لحساب مساحة الدائرة وفق المعادلة التالية:</p>
-<p><span class="math display">\[
-\text{area} = \pi \times \text{radius}^2
-\]</span></p>
-<div id="0868e89d" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> math</span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a>radius <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a>area <span class="op">=</span> math.pi <span class="op">*</span> radius<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="bu">print</span>(area)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>78.53981633974483</code></pre>
-</div>
-</div>
-<p><strong>ملاحظة</strong>:</p>
 <ul>
-<li>تم استعمال <code>radius ** 2</code> بدلاً من الفعل <code>math.pow(radius, 2)</code> لتربيع العدد.</li>
-<li>كذلك يجوز استعمال <code>x ** 0.5</code> بدلاً من الفعل <code>math.sqrt(x)</code> لحساب الجذر التربيعي.</li>
+<li>كتابة اسم معبِّرٍ عن وظيفة الفعل، مع كتابة نوع ما يقبل ونوع ما ينتج
+<ul>
+<li>وهي جُملة التعريف: <code>def</code></li>
+</ul></li>
+<li>كتابة وصف -باللغة الإنجليزية- يحدد سلوكه العام بناءً على عوامله يصف ما يَقبل وما يُنتج (إذْ لغة البرمجة عاجزة عن بيان كل ما يحصل)
+<ul>
+<li>وهو النص الملحَقُ: <a href="https://peps.python.org/pep-0257/"><strong><code>docstring</code></strong></a> (ويكونُ أولَّ شيء فيه قبل أي أمر، وهو المحاط بـ: <code>"""</code>) والقاعدة العامة فيه: ألا يصف إلا ما يفيد المستفيد من الفعل. أما التفاصيل التي تفيد مطوِّر الفعل فإنها تكون <strong>تعليقات</strong> بعلامة <code>#</code> في ثناياه. فالذي يظهر عند المساعدة <code>help(min_max)</code> هو النص الملحق، لا التعليقات.</li>
+</ul></li>
+<li>بعد ذلك نكتب الاختبارات التي بمجموعها تصف سلوك الفعل من الخارج
+<ul>
+<li>ونستعمل لها جملة التوكيد: <code>assert</code></li>
+<li>ولن تكون حقيقيةً لأن تفاصيل الفعل لم تُكتب بعد، لذا نستعمل كلمة <code>pass</code> لإرضاء المترجم إلى ذلك الحين</li>
+</ul></li>
+<li>وبعد ذلك نأتي لكتابة التفاصيل: التي هي قطعة الكود داخل الفعل.</li>
 </ul>
+<p>وهكذا تظهر المساعدة، مثلما لو وضعت المؤشر على اسم الفعل (فإن غالب المحررات تُظهر لك شيئًا):</p>
+<div id="e011499c" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">help</span>(min_max)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Help on function min_max in module __main__:
+
+min_max(numbers: list[float]) -&gt; tuple[float, float]
+    Return the minimum and maximum values in the list.
+</code></pre>
+</div>
+</div>
+<p>لاحظ أن الظاهر هو <strong>ماهية الفعل لا كيفية عمله</strong>. وهذا هو المهم.</p>
+<p>ثم نكتب <strong>اختبارات تصف السلوك</strong> الذي نريده منه:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># assert min_max([10, 20, 30, 40, 50]) == (10, 50)</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># assert min_max([50, 40, 30, 20, 10]) == (10, 50)</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># assert min_max([10, 10, -900, 10, 10]) == (-900, 10)</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># assert min_max([]) == (None, None)</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ثم الآن نعدل الفعل الذي كتبناه:</p>
+<ul>
+<li>تستعمل التعليقات المبتدأة بحرف <code>#</code>لتبيين ما قد يُشكل من التفاصيل</li>
+<li>ذكر النوع <code>tuple[float, float]</code> يعني أن الفعل يرجع بزوج، لا بقيمة واحدة (وهذا يسمَّى نوع الصف، وسيأتي الحديث عنه)</li>
+</ul>
+<div id="3ebeb059" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> min_max(numbers: <span class="bu">list</span>[<span class="bu">float</span>]) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">float</span>, <span class="bu">float</span>]:</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="co">"""Return the minimum and maximum values in the list."""</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a>    <span class="cf">if</span> <span class="bu">len</span>(numbers) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-5"><a href="#cb5-5"></a>        <span class="cf">return</span> <span class="va">None</span>, <span class="va">None</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>    </span>
+<span id="cb5-7"><a href="#cb5-7"></a>    <span class="co"># Assign the first element to minimum and maximum</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>    minimum <span class="op">=</span> numbers[<span class="dv">0</span>]</span>
+<span id="cb5-9"><a href="#cb5-9"></a>    maximum <span class="op">=</span> numbers[<span class="dv">0</span>]</span>
+<span id="cb5-10"><a href="#cb5-10"></a>    </span>
+<span id="cb5-11"><a href="#cb5-11"></a>    <span class="cf">for</span> num <span class="kw">in</span> numbers:</span>
+<span id="cb5-12"><a href="#cb5-12"></a>        <span class="cf">if</span> num <span class="op">&lt;</span> minimum:</span>
+<span id="cb5-13"><a href="#cb5-13"></a>            minimum <span class="op">=</span> num</span>
+<span id="cb5-14"><a href="#cb5-14"></a>        <span class="co"># elif is used because maximum will never be less than minimum</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a>        <span class="cf">elif</span> num <span class="op">&gt;</span> maximum:</span>
+<span id="cb5-16"><a href="#cb5-16"></a>            maximum <span class="op">=</span> num</span>
+<span id="cb5-17"><a href="#cb5-17"></a>    <span class="cf">return</span> minimum, maximum</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>ونشغل الاختبارات، ونتوقع أن لا يظهر منها خطأ:</p>
+<div id="4f119a39" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">assert</span> min_max([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]) <span class="op">==</span> (<span class="dv">10</span>, <span class="dv">50</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="cf">assert</span> min_max([<span class="dv">50</span>, <span class="dv">40</span>, <span class="dv">30</span>, <span class="dv">20</span>, <span class="dv">10</span>]) <span class="op">==</span> (<span class="dv">10</span>, <span class="dv">50</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="cf">assert</span> min_max([<span class="dv">10</span>, <span class="dv">10</span>, <span class="op">-</span><span class="dv">900</span>, <span class="dv">10</span>, <span class="dv">10</span>]) <span class="op">==</span> (<span class="op">-</span><span class="dv">900</span>, <span class="dv">10</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="cf">assert</span> min_max([]) <span class="op">==</span> (<span class="va">None</span>, <span class="va">None</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>راجع <a href="https://docs.python.org/3/tutorial/controlflow.html#special-parameters">ثوثيق بايثون في العوامل الخاصة</a> للمزيد.</p>
 </section>
-<section id="معادلة-طول-الخط-المستقيم-بين-نقطتين" class="level2">
-<h2 class="anchored" data-anchor-id="معادلة-طول-الخط-المستقيم-بين-نقطتين">معادلة طول الخط المستقيم بين نقطتين</h2>
-<p>في هذا المثال نعرف نقطتين ثم نحسب المسافة بينهما. والمسافة الإقليدية بين نقطتين <span class="math inline">\((x_1, y_1)\)</span> و <span class="math inline">\((x_2, y_2)\)</span> تتبع معادلة فيثاغورس:</p>
-<p><span class="math display">\[
-\text{distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
-\]</span></p>
-<div id="ffe9a9b0" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> math</span>
+<section id="نص-التوثيق" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="نص-التوثيق"><span class="header-section-number">18.2</span> نص التوثيق</h2>
+<p>وهذا مثال أشمل لما يعبر به في <strong>نص التوثيق</strong>:</p>
+<ol type="1">
+<li>الجزء الأول وصفٌ مختَصَر بعبارة سهلة ومباشرة</li>
+<li>الجزء <code>Args</code> يصف ما يقبل</li>
+<li>الجزء <code>Returns</code> يصف ما ينتج</li>
+<li>الجزء <code>Raises</code> يصف الاستثناءات التي يرفعها</li>
+<li>الجزء <code>Example</code> يمثل لكيفية الاستعمال</li>
+</ol>
+<div id="2fb50cc7" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> statistics</span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a>x1, y1 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a>x2, y2 <span class="op">=</span> <span class="dv">3</span>, <span class="dv">4</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a>distance <span class="op">=</span> math.sqrt((x2 <span class="op">-</span> x1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="bu">print</span>(distance)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="kw">def</span> stats(numbers):</span>
+<span id="cb7-4"><a href="#cb7-4"></a>    <span class="co">"""</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">    Calculate the mean, median, and mode of a list of numbers.</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">    Args:</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">        numbers (list): A list of numerical values.</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co">    Returns:</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="co">        tuple: A tuple containing:</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="co">            - mean (float): The average of the numbers.</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="co">            - median (float): The middle value when the numbers are sorted.</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="co">            - mode (int/float): The most frequent number in the list.</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="co">    Raises:</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="co">        ValueError: If the list is empty or the mode cannot be determined.</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="co">    Example:</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a><span class="co">        &gt;&gt;&gt; stats([1, 2, 3, 3, 4, 5])</span></span>
+<span id="cb7-21"><a href="#cb7-21"></a><span class="co">        (3.0, 3.0, 3)</span></span>
+<span id="cb7-22"><a href="#cb7-22"></a></span>
+<span id="cb7-23"><a href="#cb7-23"></a><span class="co">    """</span></span>
+<span id="cb7-24"><a href="#cb7-24"></a>    <span class="cf">if</span> <span class="kw">not</span> numbers:</span>
+<span id="cb7-25"><a href="#cb7-25"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"The list of numbers cannot be empty."</span>)</span>
+<span id="cb7-26"><a href="#cb7-26"></a>    </span>
+<span id="cb7-27"><a href="#cb7-27"></a>    <span class="co"># Calculate the three statistics</span></span>
+<span id="cb7-28"><a href="#cb7-28"></a>    mean <span class="op">=</span> statistics.mean(numbers)</span>
+<span id="cb7-29"><a href="#cb7-29"></a>    median <span class="op">=</span> statistics.median(numbers)</span>
+<span id="cb7-30"><a href="#cb7-30"></a>    mode <span class="op">=</span> statistics.mode(numbers)</span>
+<span id="cb7-31"><a href="#cb7-31"></a></span>
+<span id="cb7-32"><a href="#cb7-32"></a>    <span class="cf">return</span> mean, median, mode</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>لنستعرض المساعدة على الفعل:</p>
+<div id="316bac61" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">help</span>(stats)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>5.0</code></pre>
+<pre><code>Help on function stats in module __main__:
+
+stats(numbers)
+    Calculate the mean, median, and mode of a list of numbers.
+
+    Args:
+        numbers (list): A list of numerical values.
+
+    Returns:
+        tuple: A tuple containing:
+            - mean (float): The average of the numbers.
+            - median (float): The middle value when the numbers are sorted.
+            - mode (int/float): The most frequent number in the list.
+
+    Raises:
+        ValueError: If the list is empty or the mode cannot be determined.
+
+    Example:
+        &gt;&gt;&gt; stats([1, 2, 3, 3, 4, 5])
+        (3.0, 3.0, 3)
+</code></pre>
 </div>
 </div>
+<p>والآن نستعمل الفعل:</p>
+<div id="d20edfe3" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>data <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">30</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">55</span>]</span>
+<span id="cb10-2"><a href="#cb10-2"></a>mean, median, mode <span class="op">=</span> stats(data)</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="bu">print</span>(<span class="ss">f"Mean: </span><span class="sc">{</span>mean<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="bu">print</span>(<span class="ss">f"Median: </span><span class="sc">{</span>median<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="bu">print</span>(<span class="ss">f"Mode: </span><span class="sc">{</span>mode<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean: 32.5
+Median: 30.0
+Mode: 30</code></pre>
+</div>
+</div>
+<section id="الفرق-بين-نص-التوثيق-والتعليقات" class="level3">
+<h3 class="anchored" data-anchor-id="الفرق-بين-نص-التوثيق-والتعليقات">الفرق بين نص التوثيق والتعليقات</h3>
+<ul>
+<li>التعليقات <code>#</code> تكون بين مطوري هذا الفعل
+<ul>
+<li>مثلاً: يبين السبب وراء بعض الخطوات التي قد تبدو غريبة</li>
+<li>يستعمل لإطفاء مجموعة أسطر (اختصاره <code>Ctrl+/</code> في المحرر)</li>
+</ul></li>
+<li>التوثيق <code>"""..."""</code> يكون بين مستخدمي هذا الفعل
+<ul>
+<li>يصف بلغة البَشَر ما تعجز عن وصفه لغة البرمجة؛ فمثلاً: إن كان الفعل يغير نفس القائمة ولا يعيد نسخة منها؛ فإن ذلك يبيَّن</li>
+</ul></li>
+</ul>
+
+
 </section>
-<section id="نسبة-التغير" class="level2">
-<h2 class="anchored" data-anchor-id="نسبة-التغير">نسبة التغير</h2>
-<p>إذا كان معدل قراءتك في الأسبوع الثاني 15 دقيقة، وكان معدل قراءتك في الأسبوع الأول 10 دقائق، فكم نسبة الزيادة في معدل قراءتك؟</p>
-<div id="4e34625f" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>week1 <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>week2 <span class="op">=</span> <span class="dv">15</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a></span>
-<span id="cb9-4"><a href="#cb9-4"></a>percentage <span class="op">=</span> (week2 <span class="op">-</span> week1) <span class="op">/</span> week1</span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="bu">print</span>(percentage <span class="op">*</span> <span class="dv">100</span>, <span class="st">'%'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>50.0 %</code></pre>
-</div>
-</div>
-
-
 </section>
 
 </main> <!-- /main -->
