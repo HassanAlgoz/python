@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>17&nbsp; الخطأ – البايثونية</title>
+<title>5&nbsp; الأفعال – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,10 +102,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta name="twitter:title" content="17&nbsp; الخطأ – البايثونية">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta name="twitter:title" content="5&nbsp; الأفعال – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/11_errors/cover.png">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/assets/LEGB.png">
+<meta name="twitter:image-height" content="443">
+<meta name="twitter:image-width" content="876">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -118,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html">باب الخطأ والاستثناء (Errors and Exceptions)</a></li><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">الخطأ</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/04_functions/a1_functions.html">باب الأفعال (Functions)</a></li><li class="breadcrumb-item"><a href="../../chapters/04_functions/a1_functions.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الأفعال</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -285,7 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/04_functions/a1_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/04_functions/a1_functions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الأفعال</span></span></a>
   </div>
 </li>
@@ -476,7 +507,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/11_errors/a1_errors.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/11_errors/a1_errors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
   </div>
 </li>
@@ -555,32 +586,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#الخطأ-النحوي-الخطأ-في-المبنى" id="toc-الخطأ-النحوي-الخطأ-في-المبنى" class="nav-link active" data-scroll-target="#الخطأ-النحوي-الخطأ-في-المبنى"><span class="header-section-number">17.1</span> الخطأ النحوي: الخطأ في المبنى</a>
-  <ul class="collapse">
-  <li><a href="#فقدان-النقطتين" id="toc-فقدان-النقطتين" class="nav-link" data-scroll-target="#فقدان-النقطتين">فقدان النقطتين <code>:</code></a></li>
-  <li><a href="#علامات-اقتباس-غير-متوازنة" id="toc-علامات-اقتباس-غير-متوازنة" class="nav-link" data-scroll-target="#علامات-اقتباس-غير-متوازنة">علامات اقتباس غير متوازنة</a></li>
-  <li><a href="#اسم-متغير-غير-صالح" id="toc-اسم-متغير-غير-صالح" class="nav-link" data-scroll-target="#اسم-متغير-غير-صالح">اسم متغير غير صالح</a></li>
-  <li><a href="#أخطاء-المحاذاة" id="toc-أخطاء-المحاذاة" class="nav-link" data-scroll-target="#أخطاء-المحاذاة">أخطاء المحاذاة</a></li>
-  <li><a href="#تجويد-العبارة" id="toc-تجويد-العبارة" class="nav-link" data-scroll-target="#تجويد-العبارة">تجويد العبارة</a></li>
-  </ul></li>
-  <li><a href="#الخطأ-المنطقي-الخطأ-في-المعنى" id="toc-الخطأ-المنطقي-الخطأ-في-المعنى" class="nav-link" data-scroll-target="#الخطأ-المنطقي-الخطأ-في-المعنى"><span class="header-section-number">17.2</span> الخطأ المنطقي: الخطأ في المعنى</a>
-  <ul class="collapse">
-  <li><a href="#استعمال-الفعل-الخاطئ" id="toc-استعمال-الفعل-الخاطئ" class="nav-link" data-scroll-target="#استعمال-الفعل-الخاطئ">استعمال الفعل الخاطئ</a></li>
-  <li><a href="#استعمال-العامل-الخاطئ" id="toc-استعمال-العامل-الخاطئ" class="nav-link" data-scroll-target="#استعمال-العامل-الخاطئ">استعمال العامل الخاطئ</a></li>
-  <li><a href="#مستوى-محاذاة-خاطئ" id="toc-مستوى-محاذاة-خاطئ" class="nav-link" data-scroll-target="#مستوى-محاذاة-خاطئ">مستوى محاذاة خاطئ</a></li>
-  <li><a href="#خطأ-الحافة" id="toc-خطأ-الحافة" class="nav-link" data-scroll-target="#خطأ-الحافة">خطأ الحافَّة</a></li>
-  </ul></li>
-  <li><a href="#كشف-الأخطاء-المنطقية" id="toc-كشف-الأخطاء-المنطقية" class="nav-link" data-scroll-target="#كشف-الأخطاء-المنطقية"><span class="header-section-number">17.3</span> كشف الأخطاء المنطقية</a></li>
-  <li><a href="#المصطلحات" id="toc-المصطلحات" class="nav-link" data-scroll-target="#المصطلحات"><span class="header-section-number">17.4</span> المصطلحات</a></li>
+  <li><a href="#التعريف-والتفاصيل-والتنفيذ" id="toc-التعريف-والتفاصيل-والتنفيذ" class="nav-link active" data-scroll-target="#التعريف-والتفاصيل-والتنفيذ"><span class="header-section-number">5.1</span> التعريف والتفاصيل والتنفيذ</a></li>
+  <li><a href="#العوامل-الجائزة" id="toc-العوامل-الجائزة" class="nav-link" data-scroll-target="#العوامل-الجائزة"><span class="header-section-number">5.2</span> العوامل الجائزة</a></li>
+  <li><a href="#التصريح-بالنوع" id="toc-التصريح-بالنوع" class="nav-link" data-scroll-target="#التصريح-بالنوع"><span class="header-section-number">5.3</span> التصريح بالنوع</a></li>
+  <li><a href="#نطاق-التسمية" id="toc-نطاق-التسمية" class="nav-link" data-scroll-target="#نطاق-التسمية"><span class="header-section-number">5.4</span> نطاق التسمية</a></li>
+  <li><a href="#ثمرة-الفعل" id="toc-ثمرة-الفعل" class="nav-link" data-scroll-target="#ثمرة-الفعل"><span class="header-section-number">5.5</span> ثمرة الفعل</a></li>
+  <li><a href="#المصطلحات" id="toc-المصطلحات" class="nav-link" data-scroll-target="#المصطلحات"><span class="header-section-number">5.6</span> المصطلحات</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html">باب الخطأ والاستثناء (Errors and Exceptions)</a></li><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">الخطأ</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/04_functions/a1_functions.html">باب الأفعال (Functions)</a></li><li class="breadcrumb-item"><a href="../../chapters/04_functions/a1_functions.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الأفعال</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">الخطأ</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الأفعال</span></h1>
 </div>
 
 
@@ -597,196 +617,312 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>ينقسم الخطأ لثلاثة أنواع:</p>
-<ol type="1">
-<li><strong>الخطأ النحوي</strong>: وهو الخطأ في مبنى اللغة؛ أي: مخالفة قواعدها وقوانينها. (Syntactic Error)</li>
-<li><strong>الخطأ المنطقي</strong>: وهو التعبير بخطوات صحيحة في ذاتها لكنها لا تؤول للنتيجة التي نهدف إليها. (Logical Error)</li>
-<li><strong>الخطأ التشغيلي</strong>: ويسمى <strong>الاستثناء</strong> وهو حالة غير مثالية يجب أن يتعامل معها الرنامج. (Runtime Error)
-<ul>
-<li>يأتي الحديث عنه في <a href="../../chapters/11_errors/a2_exceptions.html">الفصل التالي</a>.</li>
-</ul></li>
-</ol>
-<p>في هذا الفصل، نناقش كل نوع من الأخطاء وكيفية التعامل معها.</p>
-<section id="الخطأ-النحوي-الخطأ-في-المبنى" class="level2" data-number="17.1">
-<h2 data-number="17.1" class="anchored" data-anchor-id="الخطأ-النحوي-الخطأ-في-المبنى"><span class="header-section-number">17.1</span> الخطأ النحوي: الخطأ في المبنى</h2>
-<p>الأخطاء النحوية تتعلق بتركيب اللغة لا أكثر ولا أقل. إليك ثلاثة أمثلة.</p>
-<section id="فقدان-النقطتين" class="level3">
-<h3 class="anchored" data-anchor-id="فقدان-النقطتين">فقدان النقطتين <code>:</code></h3>
-<div id="8e965c43" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">if</span> (x <span class="op">&gt;</span> <span class="dv">5</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="bu">print</span>(<span class="st">"x"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[1], line 1</span>
-<span class="ansi-red-fg">    if (x &gt; 5)</span>
-              ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> expected ':'
-</pre>
-</div>
-</div>
-</div>
-</section>
-<section id="علامات-اقتباس-غير-متوازنة" class="level3">
-<h3 class="anchored" data-anchor-id="علامات-اقتباس-غير-متوازنة">علامات اقتباس غير متوازنة</h3>
-<div id="0c975a63" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">print</span>(<span class="st">"x</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[2], line 1</span>
-<span class="ansi-red-fg">    print("x</span>
-          ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> unterminated string literal (detected at line 1)
-</pre>
-</div>
-</div>
-</div>
-</section>
-<section id="اسم-متغير-غير-صالح" class="level3">
-<h3 class="anchored" data-anchor-id="اسم-متغير-غير-صالح">اسم متغير غير صالح</h3>
-<div id="0850a7c1" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>my<span class="op">-</span>variable <span class="op">=</span> <span class="dv">10</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[3], line 1</span>
-<span class="ansi-red-fg">    my-variable = 10</span>
-    ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> cannot assign to expression here. Maybe you meant '==' instead of '='?
-</pre>
-</div>
-</div>
-</div>
-</section>
-<section id="أخطاء-المحاذاة" class="level3">
-<h3 class="anchored" data-anchor-id="أخطاء-المحاذاة">أخطاء المحاذاة</h3>
-<p>من الأخطاء النحوية الشائعة في بايثون: أخطاء المحاذاة (Indentation Error).</p>
-<p>وذلك أن بايثون تقبل نوعين من المسافات البادئة للسطر؛ إما بحرف المسافة التي بين الكلمات <code>\s</code> أو بحرف المسافة بين الأعمدة <code>\t</code>. فإذا نسخت قطعةً من إحدى مواقع الشبكة، من هنا وهناك، فقد يخلتط عندك الأمران؛ وهذا مما لا تقبله بايثون. لذلك تضبط محررات النصوص عملية النسخ واللصق فتوحِّد المسافة البادئة بأحدهما، حتى لا نهتم لذلك نحن. فهي حروف خفيَّة!</p>
-<p>إليك بعض الأمثلة لما يحصل من أخطاء في المحاذاة:</p>
-<p>عدم وجود مسافة بادئة، عندما تكون متوقعة:</p>
-<div id="ec208e2a" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(<span class="st">"x"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[4], line 2</span>
-<span class="ansi-red-fg">    print("x")</span>
-    ^
-<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> expected an indented block after 'if' statement on line 1
-</pre>
-</div>
-</div>
-</div>
-<p>عدم تطابق المحاذاة:</p>
-<div id="6a0bf175" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    <span class="bu">print</span>(<span class="st">"x"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a>     <span class="bu">print</span>(<span class="st">'y'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[5], line 3</span>
-<span class="ansi-red-fg">    print('y')</span>
-    ^
-<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> unexpected indent
-</pre>
-</div>
-</div>
-</div>
-</section>
-<section id="تجويد-العبارة" class="level3">
-<h3 class="anchored" data-anchor-id="تجويد-العبارة">تجويد العبارة</h3>
-<p>من تجويد العبارة تسمية المتغيرات بما يدل على وظيفتها، مثل:</p>
-<div id="2fbb7027" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>rate <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>hours_per_day <span class="op">=</span> <span class="dv">6</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>days <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a>pay <span class="op">=</span> rate <span class="op">*</span> hours_per_day <span class="op">*</span> days</span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="bu">print</span>(pay)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>الفعل</strong>: قطعة نص برمجي مخزَّنة مسمَّاة. عادة ما يكون لها عوامل متغيرة.</p>
+<p>نحو: <code>int(x)</code> لإنشاء العدد الصحيح من النص. مثل: <code>int("12")</code> ينتج: <code>12</code>.</p>
+<p>وقد يأخذ عاملين نحو: <code>round(x, n)</code> مثل: <code>round(10.259, 2)</code> ينتج: <code>10.26</code>.</p>
+<p>وقد يأخذ عاملاً واحدًا لكنَّهُ قائمة نحو: <code>sum(numbers)</code> مثل: <code>sum([1, 2, 3, 4, 5])</code> ينتج: <code>15</code>.</p>
+<p>وقد يكون عدد عوامله لا محدودًا نحو: <code>print(*values)</code>. وعلامة النجمة <code>*</code> تشير لقبول عوامل مفكوكة على نحو ما تقدَّم، لا كالقائمة. مثل:</p>
+<div id="f11d3724" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>name <span class="op">=</span> <span class="st">"Adam"</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>age <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">print</span>(<span class="st">"My name is"</span>, name, <span class="st">"and I'm"</span>, age, <span class="st">"years old"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1500</code></pre>
+<pre><code>My name is Adam and I'm 25 years old</code></pre>
 </div>
 </div>
-<p>وإن كان ليس من الخطأ النحوي كتابتها بطريقة مختلفة وبأسماء غير معبِّرة، إلا أنه فعلٌ غير مستحسن:</p>
-<div id="5e69d8ae" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>r, hpd, d <span class="op">=</span> <span class="dv">50</span>, <span class="dv">6</span>, <span class="dv">5</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>p <span class="op">=</span> r <span class="op">*</span> hpd <span class="op">*</span> d</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="bu">print</span>(p)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1500</code></pre>
-</div>
-</div>
-<p>وفي هذا نصائح كثيرة، يراجع فيها <a href="https://peps.python.org/pep-0008/">دليل أسلوب الكتابة في بايثون</a>.</p>
-</section>
-</section>
-<section id="الخطأ-المنطقي-الخطأ-في-المعنى" class="level2" data-number="17.2">
-<h2 data-number="17.2" class="anchored" data-anchor-id="الخطأ-المنطقي-الخطأ-في-المعنى"><span class="header-section-number">17.2</span> الخطأ المنطقي: الخطأ في المعنى</h2>
-<p>وهي التي نقصدها حين نقول: <strong>Bug</strong>، ولذلك قيل للبرنامج الذي يساعد في إصلاحها: <strong>Debugger</strong>، وعملية البحث عنها وإصلاحها: <strong>Debugging</strong>.</p>
-<p><strong>الأخطاء المنطقية صامتة</strong>. إذ لا يكتشفها المترجم، وتتسبب في تصرف البرنامج بشكل غير صحيح. الأخطاء المنطقية هي الأصعب في التتبع والإصلاح لأنها ليست واضحة. يمكن أن تكون ناجمة عن:</p>
+<p>فإن <code>print</code> قبلت خمسة عوامل:</p>
 <ul>
-<li>افتراضات غير صحيحة</li>
-<li>تطبيق غير صحيح للخوارزمية أو</li>
-<li>تحضير غير صحيح للبيانات</li>
+<li>النص: <code>"My name is"</code></li>
+<li>قيمة المتغير: <code>name</code></li>
+<li>النص: <code>"and I'm"</code></li>
+<li>قيمة المتغير: <code>age</code></li>
+<li>النص: <code>"years old"</code></li>
 </ul>
-<p>اقرأ المزيد عن <a href="https://en.wikipedia.org/wiki/Software_bug#Types">أنواع الأخطاء</a> وإليك بعض الأمثلة.</p>
-<section id="استعمال-الفعل-الخاطئ" class="level3">
-<h3 class="anchored" data-anchor-id="استعمال-الفعل-الخاطئ">استعمال الفعل الخاطئ</h3>
-<div id="e97f6dc3" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="im">import</span> math</span>
-<span id="cb10-2"><a href="#cb10-2"></a></span>
-<span id="cb10-3"><a href="#cb10-3"></a>square <span class="op">=</span> math.sqrt(<span class="dv">4</span>) <span class="co"># should use math.pow(4, 2) instead</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="استعمال-العامل-الخاطئ" class="level3">
-<h3 class="anchored" data-anchor-id="استعمال-العامل-الخاطئ">استعمال العامل الخاطئ</h3>
-<div id="4edac47f" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>x <span class="op">=</span> <span class="dv">16</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="cf">if</span> (x <span class="op">==</span> <span class="st">"16"</span>):</span>
-<span id="cb11-3"><a href="#cb11-3"></a>    <span class="bu">print</span>(<span class="st">'equal'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="مستوى-محاذاة-خاطئ" class="level3">
-<h3 class="anchored" data-anchor-id="مستوى-محاذاة-خاطئ">مستوى محاذاة خاطئ</h3>
-<p>هنا كانت النية تقتضي أن تكون <code>print(j)</code> داخل الحلقة الداخلية:</p>
-<div id="f9a80743" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
-<span id="cb12-2"><a href="#cb12-2"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
-<span id="cb12-3"><a href="#cb12-3"></a>        <span class="bu">print</span>(i)  </span>
-<span id="cb12-4"><a href="#cb12-4"></a>    <span class="bu">print</span>(j)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>وقد يكون عامله غير واجب نحو: <code>range(start, stop, step)</code> وقد تقدم الكلام عنها في <a href="../../chapters/03_control_flow/a_control_flow.html">باب التكرار</a>.</p>
+<p>ولدينا الفعل <code>help(func)</code> يطلب مساعدة الفعل المعيَّن، بلا أقواس، هكذا:</p>
+<div id="46944857" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">help</span>(<span class="bu">sum</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0
-0
-0
-2
-1
-1
-1
-2</code></pre>
+<pre><code>Help on built-in function sum in module builtins:
+
+sum(iterable, /, start=0)
+    Return the sum of a 'start' value (default: 0) plus an iterable of numbers
+
+    When the iterable is empty, return the start value.
+    This function is intended specifically for use with numeric values and may
+    reject non-numeric types.
+</code></pre>
 </div>
 </div>
-</section>
-<section id="خطأ-الحافة" class="level3">
-<h3 class="anchored" data-anchor-id="خطأ-الحافة">خطأ الحافَّة</h3>
-<p>يكاد يكون أشهر الأخطاء في البرمجة: خطأ الحافَّة. ويسمى (Off-by-one error).</p>
-<p>نشرحه بمثال: النية هنا هي طباعة الأرقام من 5 إلى 0 بما في ذلك 0، ولكن الحلقة تتوقف عند 1.</p>
-<div id="a411589c" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb14-2"><a href="#cb14-2"></a>    <span class="bu">print</span>(i)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>وقد عرفت أن <strong>طلب التنفيذ</strong> يكون بالقوسين بعد اسمه <code>()</code>، وتوضَع العوامل فيهما وهي ضربان:</p>
+<ul>
+<li><strong>عامل مؤثر</strong></li>
+<li><strong>عامل متأثر</strong></li>
+</ul>
+<p>وفي كل ما سبق كانت العوامل من نوع المؤثر؛ لأنها كانت تؤثر في النتيجة ولا تتأثر بها.</p>
+<p>أما المتأثر فنحو فعل الترتيب من مكتبة القائمة: <code>list.sort(xs)</code> فإن المتأثر به القائمة نفسها، مثل:</p>
+<div id="80768ba5" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>xs <span class="op">=</span> [<span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>]</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="bu">list</span>.sort(xs)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>فأما جملة <code>list.sort</code> فإن اسم النوع <code>list</code> أردنا منه الفعل <code>sort</code>، وأتيْنا بالقوسين لطلب تنفيذه، ووضعنا المتأثر <code>xs</code> فيه.</p>
+<p>ومع أننا لم نعيِّن النتيجة، فقد تغيَّرت القائمة، وهذا ما نقصده بأن المتأثر هو ما يتأثر بالفعل:</p>
+<div id="df34f018" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="bu">print</span>(xs)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>5
-4
-3
-2
-1</code></pre>
+<pre><code>[10, 20, 30, 40]</code></pre>
+</div>
+</div>
+<p>بعكس الترتيب بالفعل الذي ليس من المكتبة: <code>sorted(xs)</code> فإنَّ القائمة فيه ليست متأثرًا؛ إذْ يُنتِجُ الفعلُ قائمةً جديدةً ولا يغير القائمة المُدخلة:</p>
+<div id="5b19b5bc" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>xs <span class="op">=</span> [<span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>]</span>
+<span id="cb8-2"><a href="#cb8-2"></a>ys <span class="op">=</span> <span class="bu">sorted</span>(xs)</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="bu">print</span>(xs, <span class="st">"لم يعمل الفعل في القائمة نفسها"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="bu">print</span>(ys, <span class="st">"هي قائمة جديدة"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[40, 20, 10, 30] لم يعمل الفعل في القائمة نفسها
+[10, 20, 30, 40] هي قائمة جديدة</code></pre>
+</div>
+</div>
+<p>ويجتمع المؤثر والمتأثر في نحو:</p>
+<div id="06847530" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">list</span>.append(xs, <span class="dv">50</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>فالفعل <code>list.append</code> يأخذ القائمة، ويضيف إليها القيمة <code>50</code>. ولذلك نقول الأوَّل متأثر والثاني مؤثر. وإن شئت قل: متأثر ومؤثر.</p>
+<div id="72c3c5eb" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="bu">print</span>(xs)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[40, 20, 10, 30, 50]</code></pre>
+</div>
+</div>
+<p>وقد وضعت اللغات <strong>الشيئية</strong> (Object-Oriented) مثل بايثون صياغة خاصَّةً: <strong>للفِعْل المُقَدَّمِ مفعولُه</strong>. ونقصد بالمفعول الشيئ المتأثر؛ فهكذا:</p>
+<ul>
+<li>مفعول ثم فعل ثم العوامل المؤثرة: <code>xs.append(25)</code></li>
+<li>اسم ثم فعل ثم مفعول ثم العوامل المؤثرة:<code>list.append(xs, 25)</code></li>
+</ul>
+<p>وكلاهما يؤدي نفس المعنى.</p>
+<p>وحرف النقطة <code>.</code> يصل لما هو مُسنَد إلى الشيء، سواءٌ كان اسم نوع نحو <code>list</code> أو معيَّنًا من النوع نحو <code>xs</code>.</p>
+<p>ومثاله أيضًا في الفعل <code>list.sort</code> يأخذ القائمة، ويصنفها:</p>
+<div id="6753f1ca" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>xs <span class="op">=</span> [<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span>
+<span id="cb13-2"><a href="#cb13-2"></a>ys <span class="op">=</span> [<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span>
+<span id="cb13-3"><a href="#cb13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="bu">list</span>.sort(xs)</span>
+<span id="cb13-5"><a href="#cb13-5"></a>ys.sort()</span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="cf">assert</span> xs <span class="op">==</span> ys</span>
+<span id="cb13-7"><a href="#cb13-7"></a></span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="bu">list</span>.append(xs, <span class="dv">50</span>)</span>
+<span id="cb13-9"><a href="#cb13-9"></a>ys.append(<span class="dv">50</span>)</span>
+<span id="cb13-10"><a href="#cb13-10"></a><span class="cf">assert</span> xs <span class="op">==</span> ys</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>وقد تُعَيَّنُ العوامل بأحد طريقتين:</p>
+<ol type="1">
+<li><strong>تعيين بالموضع</strong>: نحو: <code>round(3.14159, 2)</code></li>
+<li><strong>تعيين بالاسم</strong>: نحو: <code>round(number=3.14159, ndigits=2)</code> فلا يشترط فيه ترتيب العوامل.</li>
+</ol>
+<p>ويجوز استعمال الطريقتين معًا في نحو: <code>list.sort(numbers, reverse=True)</code> ويشترط فيه تقدم التعيين بالموضع ليكون في مكانه، ثم يتبعه التعيين بالاسم حيث لا يشترط الترتيب فيه.</p>
+<section id="التعريف-والتفاصيل-والتنفيذ" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="التعريف-والتفاصيل-والتنفيذ"><span class="header-section-number">5.1</span> التعريف والتفاصيل والتنفيذ</h2>
+<p>نذلف الآن لإنشاء أفعال جديدة.</p>
+<p>يعرَّف الفعل بـ <code>def</code> ويتكون من ثلاثة أجزاء:</p>
+<ol type="1">
+<li><strong>اسم الفعل</strong>: الذي يُطلَبُ به</li>
+<li><strong>العوامل</strong>: سميت كذلك لأن نتيجة الفعل تتغير بتغيرها. ويتم تعيينها لاحقًا</li>
+<li><strong>التفاصيل</strong>: وهي القطعة البرمجية التي جُعِلَ اسمه عنوانًا لها</li>
+</ol>
+<p>أما <strong>جملة الرجوع</strong> <code>return</code> فإنَّها مخرج الفعل بالنتيجة <strong>لموضع الطلب</strong>.</p>
+<div id="daae5a61" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">def</span> calculate_grade(score):</span>
+<span id="cb14-2"><a href="#cb14-2"></a>    <span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">90</span>:</span>
+<span id="cb14-3"><a href="#cb14-3"></a>        <span class="cf">return</span> <span class="st">"A"</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>    <span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">80</span>:</span>
+<span id="cb14-5"><a href="#cb14-5"></a>        <span class="cf">return</span> <span class="st">"B"</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a>    <span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">70</span>:</span>
+<span id="cb14-7"><a href="#cb14-7"></a>        <span class="cf">return</span> <span class="st">"C"</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a>    <span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">60</span>:</span>
+<span id="cb14-9"><a href="#cb14-9"></a>        <span class="cf">return</span> <span class="st">"D"</span></span>
+<span id="cb14-10"><a href="#cb14-10"></a>    <span class="cf">else</span>:</span>
+<span id="cb14-11"><a href="#cb14-11"></a>        <span class="cf">return</span> <span class="st">"F"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>وعند طلب التنفيذ نعين العوامل ..</p>
+<p>فينتج لنا بطلب <code>calculate_grade(95)</code> نسخة معيَّنة من تفاصيل الفعل، نسمّيها <a href="https://docs.python.org/3/reference/executionmodel.html#structure-of-a-program"><strong>ظرف التنفيذ</strong></a> ؛ يكون فيه المتغير <code>score=95</code> كأنه هكذا:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="cf">if</span> <span class="dv">95</span> <span class="op">&gt;=</span> <span class="dv">90</span>:</span>
+<span id="cb15-2"><a href="#cb15-2"></a>    <span class="cf">return</span> <span class="st">"A"</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="cf">elif</span> <span class="dv">95</span> <span class="op">&gt;=</span> <span class="dv">80</span>:</span>
+<span id="cb15-4"><a href="#cb15-4"></a>    <span class="cf">return</span> <span class="st">"B"</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="cf">elif</span> <span class="dv">95</span> <span class="op">&gt;=</span> <span class="dv">70</span>:</span>
+<span id="cb15-6"><a href="#cb15-6"></a>    <span class="cf">return</span> <span class="st">"C"</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="cf">elif</span> <span class="dv">95</span> <span class="op">&gt;=</span> <span class="dv">60</span>:</span>
+<span id="cb15-8"><a href="#cb15-8"></a>    <span class="cf">return</span> <span class="st">"D"</span></span>
+<span id="cb15-9"><a href="#cb15-9"></a><span class="cf">else</span>:</span>
+<span id="cb15-10"><a href="#cb15-10"></a>    <span class="cf">return</span> <span class="st">"F"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>وبطلب تنفيذ <code>calculate_grade(80)</code> يكون الظرف هكذ:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="cf">if</span> <span class="dv">80</span> <span class="op">&gt;=</span> <span class="dv">90</span>:</span>
+<span id="cb16-2"><a href="#cb16-2"></a>    <span class="cf">return</span> <span class="st">"A"</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="cf">elif</span> <span class="dv">80</span> <span class="op">&gt;=</span> <span class="dv">80</span>:</span>
+<span id="cb16-4"><a href="#cb16-4"></a>    <span class="cf">return</span> <span class="st">"B"</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="cf">elif</span> <span class="dv">80</span> <span class="op">&gt;=</span> <span class="dv">70</span>:</span>
+<span id="cb16-6"><a href="#cb16-6"></a>    <span class="cf">return</span> <span class="st">"C"</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="cf">elif</span> <span class="dv">80</span> <span class="op">&gt;=</span> <span class="dv">60</span>:</span>
+<span id="cb16-8"><a href="#cb16-8"></a>    <span class="cf">return</span> <span class="st">"D"</span></span>
+<span id="cb16-9"><a href="#cb16-9"></a><span class="cf">else</span>:</span>
+<span id="cb16-10"><a href="#cb16-10"></a>    <span class="cf">return</span> <span class="st">"F"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>لاحظ أن نتيجة السطرين بحسب الظرفين المختلفين:</p>
+<div id="0d4497b1" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="bu">print</span>(calculate_grade(<span class="dv">95</span>))</span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="bu">print</span>(calculate_grade(<span class="dv">80</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>A
+B</code></pre>
+</div>
+</div>
+<p>وقد نعدد عوامل كثيرة، نحو:</p>
+<div id="47137066" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">def</span> weather_condition(temperature, humidity, wind_speed):</span>
+<span id="cb19-2"><a href="#cb19-2"></a>    <span class="cf">if</span> temperature <span class="op">&gt;=</span> <span class="dv">30</span> <span class="kw">and</span> humidity <span class="op">&gt;=</span> <span class="dv">60</span> <span class="kw">and</span> wind_speed <span class="op">&gt;=</span> <span class="dv">10</span>:</span>
+<span id="cb19-3"><a href="#cb19-3"></a>        <span class="cf">return</span> <span class="st">"Rainy"</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a>    <span class="cf">elif</span> temperature <span class="op">&gt;=</span> <span class="dv">20</span> <span class="kw">and</span> humidity <span class="op">&gt;=</span> <span class="dv">50</span> <span class="kw">and</span> wind_speed <span class="op">&gt;=</span> <span class="dv">5</span>:</span>
+<span id="cb19-5"><a href="#cb19-5"></a>        <span class="cf">return</span> <span class="st">"Cloudy"</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>    <span class="cf">elif</span> temperature <span class="op">&gt;=</span> <span class="dv">10</span> <span class="kw">and</span> humidity <span class="op">&gt;=</span> <span class="dv">30</span> <span class="kw">and</span> wind_speed <span class="op">&gt;=</span> <span class="dv">0</span>:</span>
+<span id="cb19-7"><a href="#cb19-7"></a>        <span class="cf">return</span> <span class="st">"Sunny"</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a>    <span class="cf">return</span> <span class="st">"Normal"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>ويكون طلبها بالطريقتين كما تقدَّم، بالموضع أو بالاسم (ولا يشترط في الثانية الترتيب):</p>
+<div id="09184793" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>cond <span class="op">=</span> weather_condition(<span class="dv">30</span>, wind_speed<span class="op">=</span><span class="dv">10</span>, humidity<span class="op">=</span><span class="dv">60</span>)</span>
+<span id="cb20-2"><a href="#cb20-2"></a></span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="cf">if</span> cond <span class="op">==</span> <span class="st">"Rainy"</span>:</span>
+<span id="cb20-4"><a href="#cb20-4"></a>    <span class="bu">print</span>(<span class="st">"Don't forget your umbrella!"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Don't forget your umbrella!</code></pre>
 </div>
 </div>
 </section>
+<section id="العوامل-الجائزة" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="العوامل-الجائزة"><span class="header-section-number">5.2</span> العوامل الجائزة</h2>
+<p>الأصل في العوامل المعرَّفة الوجوب؛ إلا ما عُيِّن عند التعريف، ولو بالقيمة العدميَّة <code>None</code> أو ما يوازيها من القيَم الصفرية. وينسخُ ذلك التعيينَ التعيينُ عند طلب الفعل.</p>
+<p>لو أردنا للفعل أن يتكيَّف بحسب المؤثر المعيَّن، بحيث:</p>
+<ul>
+<li>لو عينت السلزيوس فالتحويل لفهرنهايت: <code>convert_temperature(celsius=32)</code></li>
+<li>لو عينت الفهرنهايت فالتحويل لسلزيوس: <code>convert_temperature(fahrenheit=89.6)</code></li>
+</ul>
+<p>وإليك معادلة التحويل بين نوعيْ درجة الحرارة:</p>
+<p><span class="math display">\[
+F = \frac{9}{5} C + 32
+\]</span></p>
+<p>فنعرِّفُ العوامل بقيَم عدميَّة، ونفحص وجودها بالشرط <code>is not None</code> لنُعمِلَها أو نهملها:</p>
+<div id="ba1d1a24" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">def</span> convert_temperature(celsius <span class="op">=</span> <span class="va">None</span>, fahrenheit <span class="op">=</span> <span class="va">None</span>):</span>
+<span id="cb22-2"><a href="#cb22-2"></a>    <span class="cf">if</span> celsius <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb22-3"><a href="#cb22-3"></a>        fahrenheit <span class="op">=</span> (<span class="dv">9</span> <span class="op">/</span> <span class="dv">5</span>) <span class="op">*</span> celsius <span class="op">+</span> <span class="dv">32</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>        <span class="cf">return</span> fahrenheit</span>
+<span id="cb22-5"><a href="#cb22-5"></a>    <span class="cf">elif</span> fahrenheit <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb22-6"><a href="#cb22-6"></a>        celsius <span class="op">=</span> (fahrenheit <span class="op">-</span> <span class="dv">32</span>) <span class="op">*</span> (<span class="dv">5</span> <span class="op">/</span> <span class="dv">9</span>)</span>
+<span id="cb22-7"><a href="#cb22-7"></a>        <span class="cf">return</span> celsius</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>نتأكد:</p>
+<div id="68910b85" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="cf">assert</span> convert_temperature(celsius<span class="op">=</span><span class="dv">32</span>) <span class="op">==</span> <span class="fl">89.6</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="cf">assert</span> convert_temperature(fahrenheit<span class="op">=</span><span class="fl">89.6</span>) <span class="op">==</span> <span class="dv">32</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="كشف-الأخطاء-المنطقية" class="level2" data-number="17.3">
-<h2 data-number="17.3" class="anchored" data-anchor-id="كشف-الأخطاء-المنطقية"><span class="header-section-number">17.3</span> كشف الأخطاء المنطقية</h2>
-<p>لكونها جملاً صحيحة في ذاتها؛ لا يستطيع البرنامج كشف هذه الأخطاء لوحده. بل يجب على من يُدركُ حقيقة المطلوب من البرنامج أن يتكفل بذلك. وهنا تكون الحاجة ماسَّة <strong>لجمل التوكيد</strong>: <code>assert</code> وقد رأيناها كثيرًا.</p>
-<p>و<strong>التدقيق</strong>؛ إذْ أفضل طريقة لحل الأخطاء المنطقية هي تنفيذ القطعة البرمجية والنظر في الناتج، وتتبع المنطق مرة أخرى إلى النص البرمجي سطرًا بسطر. يمكنك استخدام عبارات الطباعة <code>print</code> لتصحيح الأخطاء وفهم تدفق البرنامج. وقد يكون الأفضل من ذلك استعمال <a href="https://code.visualstudio.com/docs/python/debugging"><strong>المدقق</strong></a> (Debugger).</p>
-<p><strong>مراجعة الأقران</strong>: بحيث يطلع على النص البرمجي شخص آخر، فإنه قد يرى منه ما تعذر عليك رؤيته. وقد يتم تنظيمه بين أعضاء الفريق الواحد بأحد برمجيات التعاون مثل: GitHub وGitLab وBitbucket وغيرها. لكن ليس شرطًا أن يكون بطريقة منظَّمة حتى تستفيد منه.</p>
+<section id="التصريح-بالنوع" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="التصريح-بالنوع"><span class="header-section-number">5.3</span> التصريح بالنوع</h2>
+<p>وجاز في بايثون ذكر أنواع العوامل والنواتج، وليس بلازِم ولا مُلزِم. فوجودُها وضوحٌ للمبرمِجين ولا يُلزِمُك بها المفسِّر. نحو:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">def</span> do_something(a: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span>, b: <span class="bu">str</span> <span class="op">=</span> <span class="st">''</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb24-2"><a href="#cb24-2"></a>    <span class="co"># ...</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>فعبارة: <code>a: int = 0</code> تتكون من ثلاثة أجزاء:</p>
+<ul>
+<li>اسم العامل: <code>a</code></li>
+<li>نوعه: <code>int</code></li>
+<li>القيمة الابتدائية: <code>0</code></li>
+</ul>
+<p>وكذلك <code>b: str = ''</code> مثلها.</p>
+<p>وبعد السهم نوع ناتج الفعل: <code>-&gt; float</code></p>
+<p>ومن الأنواع المبنيَّة في بايثون:</p>
+<ul>
+<li><code>int</code> الأعداد الصحيحة، نحو: <code>10</code></li>
+<li><code>float</code> الأعداد العشرية، نحو: <code>10.5</code></li>
+<li><code>str</code> وهي نوع النص، نحو: <code>"Salam"</code></li>
+<li><code>list</code> قائمة وإن شئت تحديد نوع العنصر الواحد فيها؛ فإنك تضعه بين القوسين المربعين، نحو:
+<ul>
+<li><code>list[int]</code></li>
+<li><code>list[float]</code></li>
+<li><code>list[str]</code></li>
+</ul></li>
+</ul>
 </section>
-<section id="المصطلحات" class="level2" data-number="17.4">
-<h2 data-number="17.4" class="anchored" data-anchor-id="المصطلحات"><span class="header-section-number">17.4</span> المصطلحات</h2>
+<section id="نطاق-التسمية" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="نطاق-التسمية"><span class="header-section-number">5.4</span> نطاق التسمية</h2>
+<p>ومن خصائصها أن المتغيرات في الداخل لا تظهر للخارج.</p>
+<div id="9d81c9f4" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">def</span> calculate_bmi(weight: <span class="bu">float</span>, height: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb25-2"><a href="#cb25-2"></a>    bmi <span class="op">=</span> weight <span class="op">/</span> (height <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb25-3"><a href="#cb25-3"></a>    <span class="cf">return</span> <span class="bu">round</span>(bmi, <span class="dv">2</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>فنتوقع وقوع خطأ هنا لأن <code>bmi</code> غير معرفة إلا في نطاق الفعل:</p>
+<div id="0a4b510b" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="bu">print</span>(bmi)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[38], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color:rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">bmi</span>)
+
+<span class="ansi-red-fg">NameError</span>: name 'bmi' is not defined</pre>
+</div>
+</div>
+</div>
+<p>وعلى العكس فإن المعرَّفات الخارجة معروفة في الداخل؛ فيمكن أن تكون عاملة في الفعل:</p>
+<div id="2ad698db" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>max_length <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="kw">def</span> check_password_strength(password: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb27-4"><a href="#cb27-4"></a>    <span class="cf">if</span> <span class="bu">len</span>(password) <span class="op">&gt;</span> max_length:</span>
+<span id="cb27-5"><a href="#cb27-5"></a>        <span class="cf">return</span> <span class="st">"strong"</span></span>
+<span id="cb27-6"><a href="#cb27-6"></a>    <span class="cf">elif</span> <span class="bu">len</span>(password) <span class="op">&gt;</span> max_length <span class="op">//</span> <span class="dv">2</span>:</span>
+<span id="cb27-7"><a href="#cb27-7"></a>        <span class="cf">return</span> <span class="st">"medium"</span></span>
+<span id="cb27-8"><a href="#cb27-8"></a>    <span class="cf">return</span> <span class="st">"weak"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../assets/LEGB.png" class="img-fluid figure-img"></p>
+<figcaption>مستويات نطاق التسمية</figcaption>
+</figure>
+</div>
+<p>والنصيحة العامة: أن يكون الاستعمال تاليًا لأخص نطاق، ما أمكن.</p>
+</section>
+<section id="ثمرة-الفعل" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="ثمرة-الفعل"><span class="header-section-number">5.5</span> ثمرة الفعل</h2>
+<p>تُخرج الأفعال نتائج معالجتها بإحدى طريقتين:</p>
+<ul>
+<li><strong>الرجوع</strong>: حيث ترجِع النتيجة بجملة <code>return</code> لموضع طلب الفعل، وغالبًا ما يتم تعيينه نحو: <code>y = sqrt(x)</code></li>
+<li><strong>العمل في مفعول</strong>:
+<ul>
+<li><strong>مذكور</strong>، نحو: <code>list.sort(xs)</code> حيث تعدَّل القيمة التي يشير إليها المتغير <code>xs</code></li>
+<li><strong>محذوف</strong>، نحو: <code>print(...)</code> حي وُضِعَت لمفعوله قيمة ابتدائية <code>file=sys.stdout</code> لذا تُكتَبُ النتيجة على الشاشة</li>
+</ul></li>
+</ul>
+<p>والفعل دائمًا يرجع بنهاية آخر جملة فيه، لكن الذي لا يصرَّحُ فيه بكلمة الرجوع <code>return</code> تُقدَّر له القيمة العدمية: <code>None</code> ويسمى الفعل حنيها <strong>خاويًا</strong> (void).</p>
+<p>تأمل المثال التالي الذي يأخذ عوامل ثم لا يرجع بشيء، لكنه يُظهر النتيجة على الشاشة، وقد كتبنا فيه جملة الرجوع <code>return None</code> لكنها مقدَّرة على أية حال، ولا يلزمنا أن نضعها:</p>
+<div id="2311966d" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">def</span> print_decorated(message: <span class="bu">str</span>, n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb28-2"><a href="#cb28-2"></a>    <span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> n)</span>
+<span id="cb28-3"><a href="#cb28-3"></a>    <span class="bu">print</span>(message)</span>
+<span id="cb28-4"><a href="#cb28-4"></a>    <span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> n)</span>
+<span id="cb28-5"><a href="#cb28-5"></a>    <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb28-6"><a href="#cb28-6"></a></span>
+<span id="cb28-7"><a href="#cb28-7"></a>print_decorated(<span class="st">"Salam alykom"</span>, <span class="dv">15</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>===============
+Salam alykom
+===============</code></pre>
+</div>
+</div>
+</section>
+<section id="المصطلحات" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="المصطلحات"><span class="header-section-number">5.6</span> المصطلحات</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -796,52 +932,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>الخطأ النحوي</td>
-<td>Syntactic Error</td>
+<td>فعل</td>
+<td>Function</td>
 </tr>
 <tr class="even">
-<td>الخطأ المنطقي</td>
-<td>Logical Error</td>
+<td>عامل</td>
+<td>Parameter</td>
 </tr>
 <tr class="odd">
-<td>الخطأ التشغيلي</td>
-<td>Runtime Error</td>
+<td>عامل مؤثر</td>
+<td>Input Parameter</td>
 </tr>
 <tr class="even">
-<td>الاستثناء</td>
-<td>Exception</td>
+<td>عامل متأثر</td>
+<td>Output Parameter</td>
 </tr>
 <tr class="odd">
-<td>أخطاء المحاذاة</td>
-<td>Indentation Error</td>
+<td>نطاق</td>
+<td>Scope</td>
 </tr>
 <tr class="even">
-<td>أسلوب الكتابة</td>
-<td>Code Style</td>
+<td>نطاق محلي</td>
+<td>Local Scope</td>
 </tr>
 <tr class="odd">
-<td>خطأ الحافَّة</td>
-<td>Off-by-one Error</td>
+<td>نطاق عام</td>
+<td>Global Scope</td>
 </tr>
 <tr class="even">
-<td>المدقق</td>
-<td>Debugger</td>
+<td>رجوع</td>
+<td>Return</td>
 </tr>
 <tr class="odd">
-<td>التدقيق</td>
-<td>Debugging</td>
+<td>قيمة راجعة</td>
+<td>Return Value</td>
 </tr>
 <tr class="even">
-<td>جمل التوكيد</td>
-<td>Assert Statements</td>
+<td>فعل خاوٍ</td>
+<td>Void Function</td>
 </tr>
 <tr class="odd">
-<td>مراجعة الأقران</td>
-<td>Peer Review</td>
+<td>قيمة عدمية</td>
+<td>None</td>
 </tr>
 <tr class="even">
-<td>برمجيات التعاون</td>
-<td>Collaboration Tools</td>
+<td>مفعول</td>
+<td>Object</td>
+</tr>
+<tr class="odd">
+<td>مذكور</td>
+<td>Explicit</td>
+</tr>
+<tr class="even">
+<td>محذوف</td>
+<td>Implicit</td>
+</tr>
+<tr class="odd">
+<td>طلب التنفيذ</td>
+<td>Function Call</td>
+</tr>
+<tr class="even">
+<td>تعريف الفعل</td>
+<td>Function Definition</td>
 </tr>
 </tbody>
 </table>

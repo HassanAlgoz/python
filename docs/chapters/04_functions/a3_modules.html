@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>17&nbsp; الخطأ – البايثونية</title>
+<title>7&nbsp; الاستيراد والتصدير – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -101,11 +101,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "البحث"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<meta name="twitter:title" content="17&nbsp; الخطأ – البايثونية">
+<meta name="twitter:title" content="7&nbsp; الاستيراد والتصدير – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/11_errors/cover.png">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/04_functions/cover.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -118,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html">باب الخطأ والاستثناء (Errors and Exceptions)</a></li><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">الخطأ</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/04_functions/a1_functions.html">باب الأفعال (Functions)</a></li><li class="breadcrumb-item"><a href="../../chapters/04_functions/a3_modules.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">الاستيراد والتصدير</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -297,7 +300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/04_functions/a3_modules.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/04_functions/a3_modules.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">الاستيراد والتصدير</span></span></a>
   </div>
 </li>
@@ -476,7 +479,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/11_errors/a1_errors.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/11_errors/a1_errors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
   </div>
 </li>
@@ -555,32 +558,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#الخطأ-النحوي-الخطأ-في-المبنى" id="toc-الخطأ-النحوي-الخطأ-في-المبنى" class="nav-link active" data-scroll-target="#الخطأ-النحوي-الخطأ-في-المبنى"><span class="header-section-number">17.1</span> الخطأ النحوي: الخطأ في المبنى</a>
-  <ul class="collapse">
-  <li><a href="#فقدان-النقطتين" id="toc-فقدان-النقطتين" class="nav-link" data-scroll-target="#فقدان-النقطتين">فقدان النقطتين <code>:</code></a></li>
-  <li><a href="#علامات-اقتباس-غير-متوازنة" id="toc-علامات-اقتباس-غير-متوازنة" class="nav-link" data-scroll-target="#علامات-اقتباس-غير-متوازنة">علامات اقتباس غير متوازنة</a></li>
-  <li><a href="#اسم-متغير-غير-صالح" id="toc-اسم-متغير-غير-صالح" class="nav-link" data-scroll-target="#اسم-متغير-غير-صالح">اسم متغير غير صالح</a></li>
-  <li><a href="#أخطاء-المحاذاة" id="toc-أخطاء-المحاذاة" class="nav-link" data-scroll-target="#أخطاء-المحاذاة">أخطاء المحاذاة</a></li>
-  <li><a href="#تجويد-العبارة" id="toc-تجويد-العبارة" class="nav-link" data-scroll-target="#تجويد-العبارة">تجويد العبارة</a></li>
-  </ul></li>
-  <li><a href="#الخطأ-المنطقي-الخطأ-في-المعنى" id="toc-الخطأ-المنطقي-الخطأ-في-المعنى" class="nav-link" data-scroll-target="#الخطأ-المنطقي-الخطأ-في-المعنى"><span class="header-section-number">17.2</span> الخطأ المنطقي: الخطأ في المعنى</a>
-  <ul class="collapse">
-  <li><a href="#استعمال-الفعل-الخاطئ" id="toc-استعمال-الفعل-الخاطئ" class="nav-link" data-scroll-target="#استعمال-الفعل-الخاطئ">استعمال الفعل الخاطئ</a></li>
-  <li><a href="#استعمال-العامل-الخاطئ" id="toc-استعمال-العامل-الخاطئ" class="nav-link" data-scroll-target="#استعمال-العامل-الخاطئ">استعمال العامل الخاطئ</a></li>
-  <li><a href="#مستوى-محاذاة-خاطئ" id="toc-مستوى-محاذاة-خاطئ" class="nav-link" data-scroll-target="#مستوى-محاذاة-خاطئ">مستوى محاذاة خاطئ</a></li>
-  <li><a href="#خطأ-الحافة" id="toc-خطأ-الحافة" class="nav-link" data-scroll-target="#خطأ-الحافة">خطأ الحافَّة</a></li>
-  </ul></li>
-  <li><a href="#كشف-الأخطاء-المنطقية" id="toc-كشف-الأخطاء-المنطقية" class="nav-link" data-scroll-target="#كشف-الأخطاء-المنطقية"><span class="header-section-number">17.3</span> كشف الأخطاء المنطقية</a></li>
-  <li><a href="#المصطلحات" id="toc-المصطلحات" class="nav-link" data-scroll-target="#المصطلحات"><span class="header-section-number">17.4</span> المصطلحات</a></li>
+  <li><a href="#تثبيت-حزم" id="toc-تثبيت-حزم" class="nav-link active" data-scroll-target="#تثبيت-حزم"><span class="header-section-number">7.1</span> تثبيت حزم</a></li>
+  <li><a href="#فائدة-نشر-مكتبتك" id="toc-فائدة-نشر-مكتبتك" class="nav-link" data-scroll-target="#فائدة-نشر-مكتبتك"><span class="header-section-number">7.2</span> فائدة: نشر مكتبتك</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html">باب الخطأ والاستثناء (Errors and Exceptions)</a></li><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">الخطأ</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/04_functions/a1_functions.html">باب الأفعال (Functions)</a></li><li class="breadcrumb-item"><a href="../../chapters/04_functions/a3_modules.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">الاستيراد والتصدير</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">الخطأ</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">الاستيراد والتصدير</span></h1>
 </div>
 
 
@@ -597,254 +585,148 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>ينقسم الخطأ لثلاثة أنواع:</p>
-<ol type="1">
-<li><strong>الخطأ النحوي</strong>: وهو الخطأ في مبنى اللغة؛ أي: مخالفة قواعدها وقوانينها. (Syntactic Error)</li>
-<li><strong>الخطأ المنطقي</strong>: وهو التعبير بخطوات صحيحة في ذاتها لكنها لا تؤول للنتيجة التي نهدف إليها. (Logical Error)</li>
-<li><strong>الخطأ التشغيلي</strong>: ويسمى <strong>الاستثناء</strong> وهو حالة غير مثالية يجب أن يتعامل معها الرنامج. (Runtime Error)
+<p>عندما يكبر النص البرمجي المكتوب ويتعقد، فإننا كثيرًا ما نلجأ لتقسيمه في ملفات منفصلة وذلك ليكون كل ملف مسؤولاً عن جزئية معيَّنة.</p>
+<p>أو قد نرى أن جزءًا من النص البرمجي يستحق الاستعمال في مشروع آخر، فنريد أن نلفَّه في حزمة، ونصدِّره ليكون قابلاً للتثبيت في مشاريع أخرى.</p>
+<p>هاتان الحالتان تستوجبان أن نتعرف على مصطلحين في بايثون: الوحدة والحزمة.</p>
+<p><strong>الوِحدة</strong> (Module) هي النص البرمجي في الملف الواحد (مثل: <code>script.py</code>)</p>
+<p><strong>الحزمة</strong> (Package) هي مجموعة مكوَّنة من وِحدة أو أكثر؛ وتُعرَّف: بمجلَّد يكون فيه ملف خاص باسم <code>__init.py__</code> ويوضع فيه النص البرمجي المنشئ الذي يعمل عند فعل استيراد الحزمة بالكلمة <code>import</code> (في المرة الأولى فقط).</p>
+<p>فيما يلي مثال يوضِّح ترتيب حزمة ما (<code>my_package</code>) مكوَّنة من حزم مضمَّنة، وفي المستوى الأخير نرى الوحدات، على النحو التالي:</p>
+<pre><code>│   main.py
+│   main.py
+│
+└───my_package
+    │   __init__.py
+    │
+    ├───pkg1
+    │   │   __init__.py
+    │   │   module_a.py
+    │   │   module_b.py
+    │
+    ├───pkg2
+    │   │   __init__.py
+    │   │   module_a.py
+    │   │   module_b.py
+    │   │   module_c.py</code></pre>
 <ul>
-<li>يأتي الحديث عنه في <a href="../../chapters/11_errors/a2_exceptions.html">الفصل التالي</a>.</li>
-</ul></li>
-</ol>
-<p>في هذا الفصل، نناقش كل نوع من الأخطاء وكيفية التعامل معها.</p>
-<section id="الخطأ-النحوي-الخطأ-في-المبنى" class="level2" data-number="17.1">
-<h2 data-number="17.1" class="anchored" data-anchor-id="الخطأ-النحوي-الخطأ-في-المبنى"><span class="header-section-number">17.1</span> الخطأ النحوي: الخطأ في المبنى</h2>
-<p>الأخطاء النحوية تتعلق بتركيب اللغة لا أكثر ولا أقل. إليك ثلاثة أمثلة.</p>
-<section id="فقدان-النقطتين" class="level3">
-<h3 class="anchored" data-anchor-id="فقدان-النقطتين">فقدان النقطتين <code>:</code></h3>
-<div id="8e965c43" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">if</span> (x <span class="op">&gt;</span> <span class="dv">5</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="bu">print</span>(<span class="st">"x"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[1], line 1</span>
-<span class="ansi-red-fg">    if (x &gt; 5)</span>
-              ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> expected ':'
-</pre>
-</div>
-</div>
-</div>
-</section>
-<section id="علامات-اقتباس-غير-متوازنة" class="level3">
-<h3 class="anchored" data-anchor-id="علامات-اقتباس-غير-متوازنة">علامات اقتباس غير متوازنة</h3>
-<div id="0c975a63" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">print</span>(<span class="st">"x</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[2], line 1</span>
-<span class="ansi-red-fg">    print("x</span>
-          ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> unterminated string literal (detected at line 1)
-</pre>
-</div>
-</div>
-</div>
-</section>
-<section id="اسم-متغير-غير-صالح" class="level3">
-<h3 class="anchored" data-anchor-id="اسم-متغير-غير-صالح">اسم متغير غير صالح</h3>
-<div id="0850a7c1" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>my<span class="op">-</span>variable <span class="op">=</span> <span class="dv">10</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[3], line 1</span>
-<span class="ansi-red-fg">    my-variable = 10</span>
-    ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> cannot assign to expression here. Maybe you meant '==' instead of '='?
-</pre>
-</div>
-</div>
-</div>
-</section>
-<section id="أخطاء-المحاذاة" class="level3">
-<h3 class="anchored" data-anchor-id="أخطاء-المحاذاة">أخطاء المحاذاة</h3>
-<p>من الأخطاء النحوية الشائعة في بايثون: أخطاء المحاذاة (Indentation Error).</p>
-<p>وذلك أن بايثون تقبل نوعين من المسافات البادئة للسطر؛ إما بحرف المسافة التي بين الكلمات <code>\s</code> أو بحرف المسافة بين الأعمدة <code>\t</code>. فإذا نسخت قطعةً من إحدى مواقع الشبكة، من هنا وهناك، فقد يخلتط عندك الأمران؛ وهذا مما لا تقبله بايثون. لذلك تضبط محررات النصوص عملية النسخ واللصق فتوحِّد المسافة البادئة بأحدهما، حتى لا نهتم لذلك نحن. فهي حروف خفيَّة!</p>
-<p>إليك بعض الأمثلة لما يحصل من أخطاء في المحاذاة:</p>
-<p>عدم وجود مسافة بادئة، عندما تكون متوقعة:</p>
-<div id="ec208e2a" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(<span class="st">"x"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[4], line 2</span>
-<span class="ansi-red-fg">    print("x")</span>
-    ^
-<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> expected an indented block after 'if' statement on line 1
-</pre>
-</div>
-</div>
-</div>
-<p>عدم تطابق المحاذاة:</p>
-<div id="6a0bf175" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    <span class="bu">print</span>(<span class="st">"x"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a>     <span class="bu">print</span>(<span class="st">'y'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[5], line 3</span>
-<span class="ansi-red-fg">    print('y')</span>
-    ^
-<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> unexpected indent
-</pre>
-</div>
-</div>
-</div>
-</section>
-<section id="تجويد-العبارة" class="level3">
-<h3 class="anchored" data-anchor-id="تجويد-العبارة">تجويد العبارة</h3>
-<p>من تجويد العبارة تسمية المتغيرات بما يدل على وظيفتها، مثل:</p>
-<div id="2fbb7027" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>rate <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>hours_per_day <span class="op">=</span> <span class="dv">6</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>days <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a>pay <span class="op">=</span> rate <span class="op">*</span> hours_per_day <span class="op">*</span> days</span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="bu">print</span>(pay)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1500</code></pre>
-</div>
-</div>
-<p>وإن كان ليس من الخطأ النحوي كتابتها بطريقة مختلفة وبأسماء غير معبِّرة، إلا أنه فعلٌ غير مستحسن:</p>
-<div id="5e69d8ae" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>r, hpd, d <span class="op">=</span> <span class="dv">50</span>, <span class="dv">6</span>, <span class="dv">5</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>p <span class="op">=</span> r <span class="op">*</span> hpd <span class="op">*</span> d</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="bu">print</span>(p)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1500</code></pre>
-</div>
-</div>
-<p>وفي هذا نصائح كثيرة، يراجع فيها <a href="https://peps.python.org/pep-0008/">دليل أسلوب الكتابة في بايثون</a>.</p>
-</section>
-</section>
-<section id="الخطأ-المنطقي-الخطأ-في-المعنى" class="level2" data-number="17.2">
-<h2 data-number="17.2" class="anchored" data-anchor-id="الخطأ-المنطقي-الخطأ-في-المعنى"><span class="header-section-number">17.2</span> الخطأ المنطقي: الخطأ في المعنى</h2>
-<p>وهي التي نقصدها حين نقول: <strong>Bug</strong>، ولذلك قيل للبرنامج الذي يساعد في إصلاحها: <strong>Debugger</strong>، وعملية البحث عنها وإصلاحها: <strong>Debugging</strong>.</p>
-<p><strong>الأخطاء المنطقية صامتة</strong>. إذ لا يكتشفها المترجم، وتتسبب في تصرف البرنامج بشكل غير صحيح. الأخطاء المنطقية هي الأصعب في التتبع والإصلاح لأنها ليست واضحة. يمكن أن تكون ناجمة عن:</p>
-<ul>
-<li>افتراضات غير صحيحة</li>
-<li>تطبيق غير صحيح للخوارزمية أو</li>
-<li>تحضير غير صحيح للبيانات</li>
+<li>الملف <code>main.py</code> هو المكان الذي سنكتب فيه الكود لتجربة عبارات الاستيراد (<code>import</code>).</li>
+<li>نقول إن المجلدين <code>pkg1</code> و<code>pkg2</code> هما: حزم فرعية من حزمة <code>my_package</code>، ويمكن استيرادهما بشكل مستقل.</li>
+<li>الملفات <code>module_a.py</code> و<code>module_b.py</code> و<code>module_c.py</code> هي وحدات داخل الحزم الفرعية.</li>
+<li>يستخدم الملف <code>__init__.py</code> علامةً للمجلَّد أنه حزمة؛ ولا يلزم أن يتضمن أي كود، ولكنه غالبًا ما يحتوي على كود تهيئة للحزمة.</li>
 </ul>
-<p>اقرأ المزيد عن <a href="https://en.wikipedia.org/wiki/Software_bug#Types">أنواع الأخطاء</a> وإليك بعض الأمثلة.</p>
-<section id="استعمال-الفعل-الخاطئ" class="level3">
-<h3 class="anchored" data-anchor-id="استعمال-الفعل-الخاطئ">استعمال الفعل الخاطئ</h3>
-<div id="e97f6dc3" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="im">import</span> math</span>
-<span id="cb10-2"><a href="#cb10-2"></a></span>
-<span id="cb10-3"><a href="#cb10-3"></a>square <span class="op">=</span> math.sqrt(<span class="dv">4</span>) <span class="co"># should use math.pow(4, 2) instead</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="استعمال-العامل-الخاطئ" class="level3">
-<h3 class="anchored" data-anchor-id="استعمال-العامل-الخاطئ">استعمال العامل الخاطئ</h3>
-<div id="4edac47f" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>x <span class="op">=</span> <span class="dv">16</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="cf">if</span> (x <span class="op">==</span> <span class="st">"16"</span>):</span>
-<span id="cb11-3"><a href="#cb11-3"></a>    <span class="bu">print</span>(<span class="st">'equal'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="مستوى-محاذاة-خاطئ" class="level3">
-<h3 class="anchored" data-anchor-id="مستوى-محاذاة-خاطئ">مستوى محاذاة خاطئ</h3>
-<p>هنا كانت النية تقتضي أن تكون <code>print(j)</code> داخل الحلقة الداخلية:</p>
-<div id="f9a80743" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
-<span id="cb12-2"><a href="#cb12-2"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
-<span id="cb12-3"><a href="#cb12-3"></a>        <span class="bu">print</span>(i)  </span>
-<span id="cb12-4"><a href="#cb12-4"></a>    <span class="bu">print</span>(j)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>0
-0
-0
-2
-1
-1
-1
-2</code></pre>
-</div>
-</div>
-</section>
-<section id="خطأ-الحافة" class="level3">
-<h3 class="anchored" data-anchor-id="خطأ-الحافة">خطأ الحافَّة</h3>
-<p>يكاد يكون أشهر الأخطاء في البرمجة: خطأ الحافَّة. ويسمى (Off-by-one error).</p>
-<p>نشرحه بمثال: النية هنا هي طباعة الأرقام من 5 إلى 0 بما في ذلك 0، ولكن الحلقة تتوقف عند 1.</p>
-<div id="a411589c" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb14-2"><a href="#cb14-2"></a>    <span class="bu">print</span>(i)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>5
-4
-3
-2
-1</code></pre>
-</div>
-</div>
-</section>
-</section>
-<section id="كشف-الأخطاء-المنطقية" class="level2" data-number="17.3">
-<h2 data-number="17.3" class="anchored" data-anchor-id="كشف-الأخطاء-المنطقية"><span class="header-section-number">17.3</span> كشف الأخطاء المنطقية</h2>
-<p>لكونها جملاً صحيحة في ذاتها؛ لا يستطيع البرنامج كشف هذه الأخطاء لوحده. بل يجب على من يُدركُ حقيقة المطلوب من البرنامج أن يتكفل بذلك. وهنا تكون الحاجة ماسَّة <strong>لجمل التوكيد</strong>: <code>assert</code> وقد رأيناها كثيرًا.</p>
-<p>و<strong>التدقيق</strong>؛ إذْ أفضل طريقة لحل الأخطاء المنطقية هي تنفيذ القطعة البرمجية والنظر في الناتج، وتتبع المنطق مرة أخرى إلى النص البرمجي سطرًا بسطر. يمكنك استخدام عبارات الطباعة <code>print</code> لتصحيح الأخطاء وفهم تدفق البرنامج. وقد يكون الأفضل من ذلك استعمال <a href="https://code.visualstudio.com/docs/python/debugging"><strong>المدقق</strong></a> (Debugger).</p>
-<p><strong>مراجعة الأقران</strong>: بحيث يطلع على النص البرمجي شخص آخر، فإنه قد يرى منه ما تعذر عليك رؤيته. وقد يتم تنظيمه بين أعضاء الفريق الواحد بأحد برمجيات التعاون مثل: GitHub وGitLab وBitbucket وغيرها. لكن ليس شرطًا أن يكون بطريقة منظَّمة حتى تستفيد منه.</p>
-</section>
-<section id="المصطلحات" class="level2" data-number="17.4">
-<h2 data-number="17.4" class="anchored" data-anchor-id="المصطلحات"><span class="header-section-number">17.4</span> المصطلحات</h2>
-<table class="caption-top table">
+<p>دعنا نلقي نظرة على عمليات الاستيراد واحدة تلو الأخرى، انظر (<code>main.py</code>):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> my_package</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="im">from</span> my_package.pkg1 <span class="im">import</span> module_a</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="im">from</span> my_package.pkg2.module_a <span class="im">import</span> func_a</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="im">from</span> my_package.pkg2.module_b <span class="im">import</span> <span class="op">*</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>أولاً، لاحظ أن فعل الاستيراد <code>import my_package</code> يحدد حزمة لا وحدة. وبالتالي، سينفذ الملف <code>__init__.py</code>، الذي يحتوي على عبارات تعيين (مثل <code>__version__</code>، و<code>DEFAULT_TIMEOUT</code>، وما إلى ذلك) سترتبط بمعرف <code>my_package</code>، ويمكن الوصول إليها باستخدام النقطة (<code>.</code>).</p>
+<p>ثانيًا لاحظ العبارة: <code>from my_package.pkg1 import module_a</code> فهي تحدد وحدة (<code>module_a</code>)، وبالتالي، يتم تنفيذ جميع التعليمات البرمجية في <code>module_a.py</code> والتعيينات تُسنَد للمعرف <code>module_a</code> ويمكن الوصول إليها باستخدام النقطة (<code>.</code>).</p>
+<p>ثالثًا استيراد مباشر للفعل <code>func_a</code> من وحدة <code>module_a</code> في الحزمة الفرعية <code>pkg2</code>.</p>
+<p>أخيرًا الصيغة <code>from ... import *</code> تستورد جميع (<code>*</code>) الأسماء من الوحدة النمطية (باستثناء تلك التي تبدأ بـ <code>__</code>) إلى نطاق التسمية الحالي (في الوحدة التي نحن فيها). بشكل عام، لا ننصح باستعمال هذه الطريقة، حيث قد تؤدي إلى إلغاء أسماء سبق تعريفها لتحل مكانها هذه الأسماء الجديدة، ولكن لا بأس بها لتقليل جهد الكتابةخصوصًا في الجلسات التفاعلية.</p>
+<section id="تثبيت-حزم" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="تثبيت-حزم"><span class="header-section-number">7.1</span> تثبيت حزم</h2>
+<p>لتثبيت حزمة من قاعدة بيانات الحزم <a href="https://pypi.org/">PyPI</a> نستعمل أداة <code>uv</code> على النحو التالي:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">uv</span> add pandas</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>وبعد تثبيت الحزمة ، نستوردها هكذا ونستعملها:</p>
+<div id="ae566d94" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../datasets/students.csv'</span>)</span>
+<span id="cb4-4"><a href="#cb4-4"></a>df</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
-<th>العربية</th>
-<th>الإنجليزية</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Grade</th>
+<th data-quarto-table-cell-role="th">Gender</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>الخطأ النحوي</td>
-<td>Syntactic Error</td>
+<td data-quarto-table-cell-role="th">0</td>
+<td>Mohammed</td>
+<td>19</td>
+<td>88</td>
+<td>M</td>
 </tr>
 <tr class="even">
-<td>الخطأ المنطقي</td>
-<td>Logical Error</td>
+<td data-quarto-table-cell-role="th">1</td>
+<td>Abdullah</td>
+<td>20</td>
+<td>95</td>
+<td>M</td>
 </tr>
 <tr class="odd">
-<td>الخطأ التشغيلي</td>
-<td>Runtime Error</td>
+<td data-quarto-table-cell-role="th">2</td>
+<td>Ahmed</td>
+<td>21</td>
+<td>87</td>
+<td>M</td>
 </tr>
 <tr class="even">
-<td>الاستثناء</td>
-<td>Exception</td>
+<td data-quarto-table-cell-role="th">3</td>
+<td>Khalid</td>
+<td>19</td>
+<td>92</td>
+<td>M</td>
 </tr>
 <tr class="odd">
-<td>أخطاء المحاذاة</td>
-<td>Indentation Error</td>
+<td data-quarto-table-cell-role="th">4</td>
+<td>Sara</td>
+<td>20</td>
+<td>94</td>
+<td>F</td>
 </tr>
 <tr class="even">
-<td>أسلوب الكتابة</td>
-<td>Code Style</td>
+<td data-quarto-table-cell-role="th">5</td>
+<td>Fatima</td>
+<td>22</td>
+<td>89</td>
+<td>F</td>
 </tr>
 <tr class="odd">
-<td>خطأ الحافَّة</td>
-<td>Off-by-one Error</td>
+<td data-quarto-table-cell-role="th">6</td>
+<td>Omar</td>
+<td>21</td>
+<td>91</td>
+<td>M</td>
 </tr>
 <tr class="even">
-<td>المدقق</td>
-<td>Debugger</td>
+<td data-quarto-table-cell-role="th">7</td>
+<td>Norah</td>
+<td>20</td>
+<td>93</td>
+<td>F</td>
 </tr>
 <tr class="odd">
-<td>التدقيق</td>
-<td>Debugging</td>
+<td data-quarto-table-cell-role="th">8</td>
+<td>Turki</td>
+<td>19</td>
+<td>86</td>
+<td>M</td>
 </tr>
 <tr class="even">
-<td>جمل التوكيد</td>
-<td>Assert Statements</td>
-</tr>
-<tr class="odd">
-<td>مراجعة الأقران</td>
-<td>Peer Review</td>
-</tr>
-<tr class="even">
-<td>برمجيات التعاون</td>
-<td>Collaboration Tools</td>
+<td data-quarto-table-cell-role="th">9</td>
+<td>Reem</td>
+<td>21</td>
+<td>90</td>
+<td>F</td>
 </tr>
 </tbody>
 </table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="فائدة-نشر-مكتبتك" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="فائدة-نشر-مكتبتك"><span class="header-section-number">7.2</span> فائدة: نشر مكتبتك</h2>
+<p>يرشدك <a href="https://docs.astral.sh/uv/guides/publish/#preparing-your-project-for-packaging">تحضير مشروعك للتغليف</a> لكيفية تغليف المشاريع لترفعها في قاعدة بيانات الحزم. فيه توضيح كيفية إضافة الملفات والبنية اللازمة لإنشاء الحزمة، وكيفية بناء الحزمة، وكيفية تحميلها إلى <strong>Python Package Index</strong> (PyPI) حتى يمكن تثبيتها باستخدام <code>uv add your-package</code> كما تفعل مع الحزم الأخرى.</p>
 
 
 </section>

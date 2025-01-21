@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>17&nbsp; الخطأ – البايثونية</title>
+<title>20&nbsp; واجهة التطبيقات البرمجية – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -101,11 +101,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "البحث"
   }
 }</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<meta name="twitter:title" content="17&nbsp; الخطأ – البايثونية">
+<meta name="twitter:title" content="20&nbsp; واجهة التطبيقات البرمجية – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/11_errors/cover.png">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/13_web/cover.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -118,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html">باب الخطأ والاستثناء (Errors and Exceptions)</a></li><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">الخطأ</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/13_web/a1_http.html">باب واجهة التطبيقات البرمجية (API)</a></li><li class="breadcrumb-item"><a href="../../chapters/13_web/a1_http.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">واجهة التطبيقات البرمجية</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -476,7 +483,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/11_errors/a1_errors.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/11_errors/a1_errors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
   </div>
 </li>
@@ -516,7 +523,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/13_web/a1_http.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/13_web/a1_http.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">واجهة التطبيقات البرمجية</span></span></a>
   </div>
 </li>
@@ -555,32 +562,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#الخطأ-النحوي-الخطأ-في-المبنى" id="toc-الخطأ-النحوي-الخطأ-في-المبنى" class="nav-link active" data-scroll-target="#الخطأ-النحوي-الخطأ-في-المبنى"><span class="header-section-number">17.1</span> الخطأ النحوي: الخطأ في المبنى</a>
+  <li><a href="#مكتبة-geopy" id="toc-مكتبة-geopy" class="nav-link active" data-scroll-target="#مكتبة-geopy"><span class="header-section-number">20.1</span> مكتبة <code>GeoPy</code></a>
   <ul class="collapse">
-  <li><a href="#فقدان-النقطتين" id="toc-فقدان-النقطتين" class="nav-link" data-scroll-target="#فقدان-النقطتين">فقدان النقطتين <code>:</code></a></li>
-  <li><a href="#علامات-اقتباس-غير-متوازنة" id="toc-علامات-اقتباس-غير-متوازنة" class="nav-link" data-scroll-target="#علامات-اقتباس-غير-متوازنة">علامات اقتباس غير متوازنة</a></li>
-  <li><a href="#اسم-متغير-غير-صالح" id="toc-اسم-متغير-غير-صالح" class="nav-link" data-scroll-target="#اسم-متغير-غير-صالح">اسم متغير غير صالح</a></li>
-  <li><a href="#أخطاء-المحاذاة" id="toc-أخطاء-المحاذاة" class="nav-link" data-scroll-target="#أخطاء-المحاذاة">أخطاء المحاذاة</a></li>
-  <li><a href="#تجويد-العبارة" id="toc-تجويد-العبارة" class="nav-link" data-scroll-target="#تجويد-العبارة">تجويد العبارة</a></li>
+  <li><a href="#مفتاح-التطبيق-api_key" id="toc-مفتاح-التطبيق-api_key" class="nav-link" data-scroll-target="#مفتاح-التطبيق-api_key">مفتاح التطبيق (<code>API_KEY</code>)</a></li>
   </ul></li>
-  <li><a href="#الخطأ-المنطقي-الخطأ-في-المعنى" id="toc-الخطأ-المنطقي-الخطأ-في-المعنى" class="nav-link" data-scroll-target="#الخطأ-المنطقي-الخطأ-في-المعنى"><span class="header-section-number">17.2</span> الخطأ المنطقي: الخطأ في المعنى</a>
+  <li><a href="#http" id="toc-http" class="nav-link" data-scroll-target="#http"><span class="header-section-number">20.2</span> HTTP</a></li>
+  <li><a href="#المكتبة-httpx" id="toc-المكتبة-httpx" class="nav-link" data-scroll-target="#المكتبة-httpx"><span class="header-section-number">20.3</span> المكتبة <code>httpx</code></a>
   <ul class="collapse">
-  <li><a href="#استعمال-الفعل-الخاطئ" id="toc-استعمال-الفعل-الخاطئ" class="nav-link" data-scroll-target="#استعمال-الفعل-الخاطئ">استعمال الفعل الخاطئ</a></li>
-  <li><a href="#استعمال-العامل-الخاطئ" id="toc-استعمال-العامل-الخاطئ" class="nav-link" data-scroll-target="#استعمال-العامل-الخاطئ">استعمال العامل الخاطئ</a></li>
-  <li><a href="#مستوى-محاذاة-خاطئ" id="toc-مستوى-محاذاة-خاطئ" class="nav-link" data-scroll-target="#مستوى-محاذاة-خاطئ">مستوى محاذاة خاطئ</a></li>
-  <li><a href="#خطأ-الحافة" id="toc-خطأ-الحافة" class="nav-link" data-scroll-target="#خطأ-الحافة">خطأ الحافَّة</a></li>
+  <li><a href="#انطلق" id="toc-انطلق" class="nav-link" data-scroll-target="#انطلق">انطلق</a></li>
   </ul></li>
-  <li><a href="#كشف-الأخطاء-المنطقية" id="toc-كشف-الأخطاء-المنطقية" class="nav-link" data-scroll-target="#كشف-الأخطاء-المنطقية"><span class="header-section-number">17.3</span> كشف الأخطاء المنطقية</a></li>
-  <li><a href="#المصطلحات" id="toc-المصطلحات" class="nav-link" data-scroll-target="#المصطلحات"><span class="header-section-number">17.4</span> المصطلحات</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html">باب الخطأ والاستثناء (Errors and Exceptions)</a></li><li class="breadcrumb-item"><a href="../../chapters/11_errors/a1_errors.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">الخطأ</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/13_web/a1_http.html">باب واجهة التطبيقات البرمجية (API)</a></li><li class="breadcrumb-item"><a href="../../chapters/13_web/a1_http.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">واجهة التطبيقات البرمجية</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">الخطأ</span></h1>
+<h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">واجهة التطبيقات البرمجية</span></h1>
 </div>
 
 
@@ -597,256 +596,227 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>ينقسم الخطأ لثلاثة أنواع:</p>
-<ol type="1">
-<li><strong>الخطأ النحوي</strong>: وهو الخطأ في مبنى اللغة؛ أي: مخالفة قواعدها وقوانينها. (Syntactic Error)</li>
-<li><strong>الخطأ المنطقي</strong>: وهو التعبير بخطوات صحيحة في ذاتها لكنها لا تؤول للنتيجة التي نهدف إليها. (Logical Error)</li>
-<li><strong>الخطأ التشغيلي</strong>: ويسمى <strong>الاستثناء</strong> وهو حالة غير مثالية يجب أن يتعامل معها الرنامج. (Runtime Error)
+<p>ترتبط البرمجيات ببعضها عن طريق الشبكة. ويملك بعض الناس بيانات أو معالجة من نوعٍ ما لا يملكه الآخرون، فيتبادل الناس بينهم بالبيع والشراء كمفيدين ومستفيدين.</p>
 <ul>
-<li>يأتي الحديث عنه في <a href="../../chapters/11_errors/a2_exceptions.html">الفصل التالي</a>.</li>
-</ul></li>
-</ol>
-<p>في هذا الفصل، نناقش كل نوع من الأخطاء وكيفية التعامل معها.</p>
-<section id="الخطأ-النحوي-الخطأ-في-المبنى" class="level2" data-number="17.1">
-<h2 data-number="17.1" class="anchored" data-anchor-id="الخطأ-النحوي-الخطأ-في-المبنى"><span class="header-section-number">17.1</span> الخطأ النحوي: الخطأ في المبنى</h2>
-<p>الأخطاء النحوية تتعلق بتركيب اللغة لا أكثر ولا أقل. إليك ثلاثة أمثلة.</p>
-<section id="فقدان-النقطتين" class="level3">
-<h3 class="anchored" data-anchor-id="فقدان-النقطتين">فقدان النقطتين <code>:</code></h3>
-<div id="8e965c43" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">if</span> (x <span class="op">&gt;</span> <span class="dv">5</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="bu">print</span>(<span class="st">"x"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[1], line 1</span>
-<span class="ansi-red-fg">    if (x &gt; 5)</span>
-              ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> expected ':'
-</pre>
-</div>
-</div>
-</div>
-</section>
-<section id="علامات-اقتباس-غير-متوازنة" class="level3">
-<h3 class="anchored" data-anchor-id="علامات-اقتباس-غير-متوازنة">علامات اقتباس غير متوازنة</h3>
-<div id="0c975a63" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">print</span>(<span class="st">"x</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[2], line 1</span>
-<span class="ansi-red-fg">    print("x</span>
-          ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> unterminated string literal (detected at line 1)
-</pre>
-</div>
-</div>
-</div>
-</section>
-<section id="اسم-متغير-غير-صالح" class="level3">
-<h3 class="anchored" data-anchor-id="اسم-متغير-غير-صالح">اسم متغير غير صالح</h3>
-<div id="0850a7c1" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>my<span class="op">-</span>variable <span class="op">=</span> <span class="dv">10</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[3], line 1</span>
-<span class="ansi-red-fg">    my-variable = 10</span>
-    ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> cannot assign to expression here. Maybe you meant '==' instead of '='?
-</pre>
-</div>
-</div>
-</div>
-</section>
-<section id="أخطاء-المحاذاة" class="level3">
-<h3 class="anchored" data-anchor-id="أخطاء-المحاذاة">أخطاء المحاذاة</h3>
-<p>من الأخطاء النحوية الشائعة في بايثون: أخطاء المحاذاة (Indentation Error).</p>
-<p>وذلك أن بايثون تقبل نوعين من المسافات البادئة للسطر؛ إما بحرف المسافة التي بين الكلمات <code>\s</code> أو بحرف المسافة بين الأعمدة <code>\t</code>. فإذا نسخت قطعةً من إحدى مواقع الشبكة، من هنا وهناك، فقد يخلتط عندك الأمران؛ وهذا مما لا تقبله بايثون. لذلك تضبط محررات النصوص عملية النسخ واللصق فتوحِّد المسافة البادئة بأحدهما، حتى لا نهتم لذلك نحن. فهي حروف خفيَّة!</p>
-<p>إليك بعض الأمثلة لما يحصل من أخطاء في المحاذاة:</p>
-<p>عدم وجود مسافة بادئة، عندما تكون متوقعة:</p>
-<div id="ec208e2a" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(<span class="st">"x"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[4], line 2</span>
-<span class="ansi-red-fg">    print("x")</span>
-    ^
-<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> expected an indented block after 'if' statement on line 1
-</pre>
-</div>
-</div>
-</div>
-<p>عدم تطابق المحاذاة:</p>
-<div id="6a0bf175" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    <span class="bu">print</span>(<span class="st">"x"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a>     <span class="bu">print</span>(<span class="st">'y'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[5], line 3</span>
-<span class="ansi-red-fg">    print('y')</span>
-    ^
-<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> unexpected indent
-</pre>
-</div>
-</div>
-</div>
-</section>
-<section id="تجويد-العبارة" class="level3">
-<h3 class="anchored" data-anchor-id="تجويد-العبارة">تجويد العبارة</h3>
-<p>من تجويد العبارة تسمية المتغيرات بما يدل على وظيفتها، مثل:</p>
-<div id="2fbb7027" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>rate <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>hours_per_day <span class="op">=</span> <span class="dv">6</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>days <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a>pay <span class="op">=</span> rate <span class="op">*</span> hours_per_day <span class="op">*</span> days</span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="bu">print</span>(pay)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1500</code></pre>
-</div>
-</div>
-<p>وإن كان ليس من الخطأ النحوي كتابتها بطريقة مختلفة وبأسماء غير معبِّرة، إلا أنه فعلٌ غير مستحسن:</p>
-<div id="5e69d8ae" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>r, hpd, d <span class="op">=</span> <span class="dv">50</span>, <span class="dv">6</span>, <span class="dv">5</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>p <span class="op">=</span> r <span class="op">*</span> hpd <span class="op">*</span> d</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="bu">print</span>(p)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1500</code></pre>
-</div>
-</div>
-<p>وفي هذا نصائح كثيرة، يراجع فيها <a href="https://peps.python.org/pep-0008/">دليل أسلوب الكتابة في بايثون</a>.</p>
-</section>
-</section>
-<section id="الخطأ-المنطقي-الخطأ-في-المعنى" class="level2" data-number="17.2">
-<h2 data-number="17.2" class="anchored" data-anchor-id="الخطأ-المنطقي-الخطأ-في-المعنى"><span class="header-section-number">17.2</span> الخطأ المنطقي: الخطأ في المعنى</h2>
-<p>وهي التي نقصدها حين نقول: <strong>Bug</strong>، ولذلك قيل للبرنامج الذي يساعد في إصلاحها: <strong>Debugger</strong>، وعملية البحث عنها وإصلاحها: <strong>Debugging</strong>.</p>
-<p><strong>الأخطاء المنطقية صامتة</strong>. إذ لا يكتشفها المترجم، وتتسبب في تصرف البرنامج بشكل غير صحيح. الأخطاء المنطقية هي الأصعب في التتبع والإصلاح لأنها ليست واضحة. يمكن أن تكون ناجمة عن:</p>
-<ul>
-<li>افتراضات غير صحيحة</li>
-<li>تطبيق غير صحيح للخوارزمية أو</li>
-<li>تحضير غير صحيح للبيانات</li>
+<li>فالمفيد يسمى مزود الخدمة (provider) أو الخادم (server).</li>
+<li>أما المستفيد يسمى المستخدم (user) أو العميل (client).</li>
 </ul>
-<p>اقرأ المزيد عن <a href="https://en.wikipedia.org/wiki/Software_bug#Types">أنواع الأخطاء</a> وإليك بعض الأمثلة.</p>
-<section id="استعمال-الفعل-الخاطئ" class="level3">
-<h3 class="anchored" data-anchor-id="استعمال-الفعل-الخاطئ">استعمال الفعل الخاطئ</h3>
-<div id="e97f6dc3" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="im">import</span> math</span>
-<span id="cb10-2"><a href="#cb10-2"></a></span>
-<span id="cb10-3"><a href="#cb10-3"></a>square <span class="op">=</span> math.sqrt(<span class="dv">4</span>) <span class="co"># should use math.pow(4, 2) instead</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ولكوْن البرمجيات حرفيَّة جدًّا في التعليمات تتبعها، فلا بد لها من آلية تواصل مضبوطة بين الخادم والعميل؛ وهي ما يُعرف بمصطلح: API (Application Programming Interface)؛ أي: الواجهة البرمجية للتطبيقات. وجاء المصطلح ليكون مبايِنًا لمصلطحين آخرين:</p>
+<ul>
+<li>GUI (Graphical User Interface)؛ أي: الواجهة الرسومية للتطبيقات. (وهي التي تحكُم ما يظهر على الشاشة وكيف يتفاعل المستخدم معها)</li>
+<li>CLI (Command Line Interface)؛ أي: الواجهة الأوامريَّة للتطبيقات. (وهي التي تحكُم ما يظهر على الشاشة السوداء وكيف نتعامل مع البرنامج فيها)</li>
+</ul>
+<p>أما API فهي الواجهة البرمجية؛ أي: هي بين البرامج مع بعضها، وليسَت موجَّهة في الأساس للمستخدم البشري. ويُطلق أحيانًا تجوُّزًا على المكتبة (library) بأنها توفِّر API، وإن لم تتصل بالشبكة. لكنَّ المتبادر للذهن عند استعمال مصطلح API هي الواجهة البرمجية التي يزوِّدُها خادمٌ على الشبكة.</p>
+<p>فأحد طرق التعامل مع الخدمات البرمجية، أن توفِّر هذه الخدمة مكتبةً للاتصال بها، تبدوا كأنها أفعال مُعرَّفة عاديَّة، لكنَّ تفاصيلها تتضمَّن إرسال طلب للخادم المزوِّد ثم الرجوع بجوابه كقيمة لموضع الاستدعاء.</p>
+<section id="مكتبة-geopy" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="مكتبة-geopy"><span class="header-section-number">20.1</span> مكتبة <code>GeoPy</code></h2>
+<p>ونمثل على ذلك بمكتبة <a href="https://geopy.readthedocs.io/en/stable/"><code>GeoPy</code></a> حيث كُتِب في الوصف:</p>
+<blockquote class="blockquote">
+<p>جيوباي هي عميل بايثوني لمجموعة من خدمات شائعة على الشبكة للترميز الجغرافي. فهو يسهل تحديد إحداثيات العناوين والمدن والبلدان والمعالم في جميع أنحاء العالم باستخدام برامج ترميز جغرافي خارجية ومصادر بيانات أخرى.</p>
+</blockquote>
+<p>وننبه مرة أخرى إلى أنها عميل (client) لخدمات خارجية (external services)، وليسَت هي بذاتها متصلة بخدمة؛ فلا توجد خدمة اسمها geopy، وإنما هي مكتبة وسيطة فقط. انظر: <a href="https://geopy.readthedocs.io/en/stable/#geopy-is-not-a-service">geopy is not a service</a>.</p>
+<p>أولاً تثبيت المكتبة باستعمال <code>uv</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">uv</span> add geopy</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ثم نستطيع استيرادها في بايثون:</p>
+<div id="1cd4a404" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> Nominatim</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="استعمال-العامل-الخاطئ" class="level3">
-<h3 class="anchored" data-anchor-id="استعمال-العامل-الخاطئ">استعمال العامل الخاطئ</h3>
-<div id="4edac47f" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>x <span class="op">=</span> <span class="dv">16</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="cf">if</span> (x <span class="op">==</span> <span class="st">"16"</span>):</span>
-<span id="cb11-3"><a href="#cb11-3"></a>    <span class="bu">print</span>(<span class="st">'equal'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ونستعمل الفعل المُنشئ <code>Nominatim</code> الذي يتصل بمزوِّد خدمة خارجية، وهو مزوِّد خدمة جغرافية عالمية تسمى <code>OpenStreetMap</code></p>
+<div id="124dd7fc" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>geolocator <span class="op">=</span> Nominatim(user_agent<span class="op">=</span><span class="st">"pythonia"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="مستوى-محاذاة-خاطئ" class="level3">
-<h3 class="anchored" data-anchor-id="مستوى-محاذاة-خاطئ">مستوى محاذاة خاطئ</h3>
-<p>هنا كانت النية تقتضي أن تكون <code>print(j)</code> داخل الحلقة الداخلية:</p>
-<div id="f9a80743" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
-<span id="cb12-2"><a href="#cb12-2"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
-<span id="cb12-3"><a href="#cb12-3"></a>        <span class="bu">print</span>(i)  </span>
-<span id="cb12-4"><a href="#cb12-4"></a>    <span class="bu">print</span>(j)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>يطلب منَّا الفعل المنشئ أن نعرِّف بأنفسنا بتعيين <code>user_agent</code>، وهذا بحسب ما ورد في توثيق المكتبة. فنكتب أي اسم يدلُّ على التطبيق الذي نعمل عليه الآن.</p>
+<p>نفترض أننا نريد معرفة إحداثيات مدينة الدمام، وهذا هو عمل الفعل <code>geocode</code>:</p>
+<div id="1e4f5d97" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>dammam_location <span class="op">=</span> geolocator.geocode(<span class="st">"Dammam, Saudi Arabia"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>قد يبدوا الفعل عاديًّا، لكنه في الواقع يتصل بالخادم المزوِّد ويطلب منه إرجاع إحداثيات المدينة؛ وهي القيمة التي تخرج لنا فنزلها في متغير <code>dammam_location</code>.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    UserCode --&gt;&gt; GeoPy: .geocode("...")
+    GeoPy --&gt;&gt; OpenStreetMap: Request
+    OpenStreetMap --&gt;&gt; GeoPy: Response
+    GeoPy --&gt;&gt; UserCode: Return
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>وكذلك لمدينة أخرى مثل البحرين:</p>
+<div id="7a315755" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>bahrain_location <span class="op">=</span> geolocator.geocode(<span class="st">"Bahrain"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>ثم بعد أن حصلنا على المعلومات، نستخرج الإحداثيات من المتغيرات التي حصلنا عليها:</p>
+<div id="76a68cf3" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>dammam_coords <span class="op">=</span> (dammam_location.latitude, dammam_location.longitude)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>bahrain_coords <span class="op">=</span> (bahrain_location.latitude, bahrain_location.longitude)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>ثم نحسب المسافة بين المدينتين، باستعمال فعل موجود في وحدة <code>geopy.distance</code>، وهو <code>geodesic</code>:</p>
+<div id="328b76ae" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">from</span> geopy.distance <span class="im">import</span> geodesic</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a>distance <span class="op">=</span> geodesic(dammam_coords, bahrain_coords)</span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="bu">print</span>(<span class="ss">f"Between Dammam and Bahrain is </span><span class="sc">{</span>distance<span class="sc">.</span>kilometers<span class="sc">:.2f}</span><span class="ss"> km"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0
-0
-0
-2
-1
-1
-1
-2</code></pre>
+<pre><code>Between Dammam and Bahrain is 63.61 km</code></pre>
 </div>
 </div>
+<p>وهكذا نكون قد حسبنا المسافة بين المدينتين بالكيلومترات.</p>
+<section id="مفتاح-التطبيق-api_key" class="level3">
+<h3 class="anchored" data-anchor-id="مفتاح-التطبيق-api_key">مفتاح التطبيق (<code>API_KEY</code>)</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://geopy.readthedocs.io/en/stable/_images/geopy_and_geocoding_services.svg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><a href="https://geopy.readthedocs.io/en/stable/#geopy-is-not-a-service">geopy and geocoding services</a></figcaption>
+</figure>
+</div>
+<p>فإن أردت تغيير مزوِّد الخدمة (إما لعدم دقتها أو عدم توفر المعلومات أو أي سبب آخر)، فما عليك إلا استعمال استيراد <code>Geocoder</code> آخر، مثلاً؛ مثلاً <code>TomTom</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> TomTom</span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a>geolocator <span class="op">=</span> TomTom(user_agent<span class="op">=</span><span class="st">"pythonia"</span>, api_key<span class="op">=</span><span class="st">"..."</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>لكن هذا يتطلَّب شيئًا إضافيًّا وهو الحصول على مفتاح متعلِّق بحساب مسجَّل على موقع <a href="https://developer.tomtom.com/">TomTom</a> نفسه. ثم وضع هذا الفتاح هنا. وبهذا المفتاح المرتبط بهذا الحِساب يتمُّ تعبئة الاشتراك والصرف من رصيده. وهكذا تربح الشركة التي وفَّرت هذا النظام المعلوماتي.</p>
 </section>
-<section id="خطأ-الحافة" class="level3">
-<h3 class="anchored" data-anchor-id="خطأ-الحافة">خطأ الحافَّة</h3>
-<p>يكاد يكون أشهر الأخطاء في البرمجة: خطأ الحافَّة. ويسمى (Off-by-one error).</p>
-<p>نشرحه بمثال: النية هنا هي طباعة الأرقام من 5 إلى 0 بما في ذلك 0، ولكن الحلقة تتوقف عند 1.</p>
-<div id="a411589c" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb14-2"><a href="#cb14-2"></a>    <span class="bu">print</span>(i)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="http" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="http"><span class="header-section-number">20.2</span> HTTP</h2>
+<p>ماذا لو لم تتوفَّر مكتبة خاصَّة بمزوِّد الخدمة؟ في هذه الحالة سنكتب نحن تفاصيل الاتصال بالخادم المزوِّد. وذلك يتطلب معرفة لغة التخاطب على الشبكة المسماة: HTTP: Hyper-Text Transfer Protocol. ومن مفاهيمها الرئيسية المهمة بالنسبة لنا:</p>
+<p><strong>الطلب</strong> (request) وهو رسالة لها محتوىً ومُرسِل ومُرسلٌ إليه</p>
+<p><strong>جوابه</strong> (response) وهو مثل الطلب في خصائصه</p>
+<p><strong>الرابط</strong> (URL) هي الصيغة الموحَّدة لتحديد عنوان مورِد (ملف) في فضاء الشبكة.</p>
+<p>فمثلاً، هذا الرابط يحدد موقع ملف اسمه <code>cats.csv</code> على موقع <code>example.com</code>، ويبدأ بـ <code>https://</code> أو <code>http://</code> بدون حرف <code>s</code> الدال على مستوى معيَّن من الأمان: <code>https://example.com/cats.csv</code></p>
+<p><strong>الرؤوس</strong> (headers) هي معلومات عن الطلب نفسه أو محتواه؛ بعضها ضروري وبعضها إضافي.</p>
+<ul>
+<li>مثلاً: <code>Content-Type: text/csv</code> تعني أن البيانات المرسلة عبارة عن ملف بصيغة CSV.</li>
+<li>أو: <code>x-api-key: 1234567890</code> هو مفتاح التطبيق الذي يسمح للطلب بالتعريف بصاحب الحساب لإتاحة الخدمة له.</li>
+</ul>
+<p><strong>المحتوى</strong> (body) هي البيانات المُرْسَلة أو المُسْتَلَمة.</p>
+<ul>
+<li>مثلاً: <code>{"name": "John", "age": 30}</code> هي بيانات عبارة عن قاموس بصيغة JSON.</li>
+</ul>
+<p><strong>رمز الحالة</strong> (status codes) وهي أرقام تأتي في الجواب للإشارة إلى شيء محدد، وتنقسم إلى خمسة نطاقات:</p>
+<ul>
+<li>نطاق <code>100-199</code> (لا تهمنا)</li>
+<li>نطاق <code>200-299</code> تعني أن الطلب تمُّ إنجازه بنجاح.
+<ul>
+<li><code>200 -&gt; OK</code></li>
+<li><code>201 -&gt; Created</code></li>
+<li><code>204 -&gt; No Content</code></li>
+</ul></li>
+<li>نطاق <code>300-399</code> إعادة توجيه
+<ul>
+<li><code>301 -&gt; Moved Permanently</code></li>
+<li><code>302 -&gt; Found (temporarily)</code></li>
+</ul></li>
+<li>نطاق <code>400-499</code> إشكال من جهة العميل
+<ul>
+<li><code>400 -&gt; Bad Request</code></li>
+<li><code>401 -&gt; Unauthorized</code></li>
+<li><code>403 -&gt; Forbidden</code></li>
+<li><code>404 -&gt; Not Found</code></li>
+</ul></li>
+<li>نطاق <code>500-599</code> إشكال من جهة الخادم
+<ul>
+<li><code>500 -&gt; Internal Server Error</code></li>
+<li><code>502 -&gt; Bad Gateway</code></li>
+<li><code>503 -&gt; Service Unavailable</code></li>
+<li><code>504 -&gt; Gateway Timeout</code></li>
+</ul></li>
+</ul>
+<p>انظر: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">HTTP overview</a>.</p>
+</section>
+<section id="المكتبة-httpx" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="المكتبة-httpx"><span class="header-section-number">20.3</span> المكتبة <code>httpx</code></h2>
+<p>ونمثل لمزود خدمة معلومات عن القطط (<a href="https://thecatapi.com/">The Cat API</a>)، وقد حصلنا على مفتاح التطبيق (API KEY) من خلال التسجيل في الموقع.</p>
+<p>توجد في بايثون في المكتبة الأساسية وحدة <code>requests</code>، لكننا سنستخدم مكتبة أخرى تسمى <code>httpx</code>، وهي لها نفس الظاهر وزيادة على ذلك تدعم الفعل اللامتزامن (لكن لا يهمنا اليوم).</p>
+<p>أولاً نثبت المكتبة باستعمال <code>uv</code>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">uv</span> add httpx</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ثم نستورد المكتبة:</p>
+<div id="8b678fc3" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="im">import</span> httpx</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>ولمعرفة الاستفادة من أي مزود خدمة، فإننا ندخل إلى صفحة المطورين، وتسمى (<a href="https://developers.thecatapi.com/">API Documentation</a>). ومنها نعرف أن المسار الذي يجب أن نطلبه هو <code>https://api.thecatapi.com/v1/images/search</code>، وهو يعطينا صورة قطة عشوائية.</p>
+<p>أما المفتاح، فنضعه في الرؤوس (headers) تحت عنوان <code>x-api-key</code> كما يلي:</p>
+<div id="dbec1cb2" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>response <span class="op">=</span> httpx.get(</span>
+<span id="cb12-2"><a href="#cb12-2"></a>    url<span class="op">=</span><span class="st">"https://api.thecatapi.com/v1/images/search"</span>,</span>
+<span id="cb12-3"><a href="#cb12-3"></a>    headers<span class="op">=</span>{<span class="st">"x-api-key"</span>: <span class="st">"live_9Cj8P0h75D5h2D7Y2H8MYEuuTmTXjT412xNlbVBouHxn2sEnAjr1dr4JMfIn4Mr4"</span>}</span>
+<span id="cb12-4"><a href="#cb12-4"></a>)</span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="bu">print</span>(response.status_code)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>5
-4
-3
-2
-1</code></pre>
+<pre><code>200</code></pre>
 </div>
 </div>
-</section>
-</section>
-<section id="كشف-الأخطاء-المنطقية" class="level2" data-number="17.3">
-<h2 data-number="17.3" class="anchored" data-anchor-id="كشف-الأخطاء-المنطقية"><span class="header-section-number">17.3</span> كشف الأخطاء المنطقية</h2>
-<p>لكونها جملاً صحيحة في ذاتها؛ لا يستطيع البرنامج كشف هذه الأخطاء لوحده. بل يجب على من يُدركُ حقيقة المطلوب من البرنامج أن يتكفل بذلك. وهنا تكون الحاجة ماسَّة <strong>لجمل التوكيد</strong>: <code>assert</code> وقد رأيناها كثيرًا.</p>
-<p>و<strong>التدقيق</strong>؛ إذْ أفضل طريقة لحل الأخطاء المنطقية هي تنفيذ القطعة البرمجية والنظر في الناتج، وتتبع المنطق مرة أخرى إلى النص البرمجي سطرًا بسطر. يمكنك استخدام عبارات الطباعة <code>print</code> لتصحيح الأخطاء وفهم تدفق البرنامج. وقد يكون الأفضل من ذلك استعمال <a href="https://code.visualstudio.com/docs/python/debugging"><strong>المدقق</strong></a> (Debugger).</p>
-<p><strong>مراجعة الأقران</strong>: بحيث يطلع على النص البرمجي شخص آخر، فإنه قد يرى منه ما تعذر عليك رؤيته. وقد يتم تنظيمه بين أعضاء الفريق الواحد بأحد برمجيات التعاون مثل: GitHub وGitLab وBitbucket وغيرها. لكن ليس شرطًا أن يكون بطريقة منظَّمة حتى تستفيد منه.</p>
-</section>
-<section id="المصطلحات" class="level2" data-number="17.4">
-<h2 data-number="17.4" class="anchored" data-anchor-id="المصطلحات"><span class="header-section-number">17.4</span> المصطلحات</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>العربية</th>
-<th>الإنجليزية</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>الخطأ النحوي</td>
-<td>Syntactic Error</td>
-</tr>
-<tr class="even">
-<td>الخطأ المنطقي</td>
-<td>Logical Error</td>
-</tr>
-<tr class="odd">
-<td>الخطأ التشغيلي</td>
-<td>Runtime Error</td>
-</tr>
-<tr class="even">
-<td>الاستثناء</td>
-<td>Exception</td>
-</tr>
-<tr class="odd">
-<td>أخطاء المحاذاة</td>
-<td>Indentation Error</td>
-</tr>
-<tr class="even">
-<td>أسلوب الكتابة</td>
-<td>Code Style</td>
-</tr>
-<tr class="odd">
-<td>خطأ الحافَّة</td>
-<td>Off-by-one Error</td>
-</tr>
-<tr class="even">
-<td>المدقق</td>
-<td>Debugger</td>
-</tr>
-<tr class="odd">
-<td>التدقيق</td>
-<td>Debugging</td>
-</tr>
-<tr class="even">
-<td>جمل التوكيد</td>
-<td>Assert Statements</td>
-</tr>
-<tr class="odd">
-<td>مراجعة الأقران</td>
-<td>Peer Review</td>
-</tr>
-<tr class="even">
-<td>برمجيات التعاون</td>
-<td>Collaboration Tools</td>
-</tr>
-</tbody>
-</table>
+<p>غالبًا ستظهر لك النتيجة <code>200</code> وهي تعني <code>OK</code> أي أن كل شيء سار على ما يرام.</p>
+<p>وإذا نظرت إلى النصّ الموجود في الرد (<code>response.text</code>) فإنك ستلاحظ أنه نصُّ مقوْلَب بصيغة JSON التي سبق الحديث عنها:</p>
+<div id="88a33581" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="bu">print</span>(<span class="bu">type</span>(response.text))</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="bu">print</span>(response.text)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'str'&gt;
+[{"id":"24m","url":"https://cdn2.thecatapi.com/images/24m.jpg","width":450,"height":337}]</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    participant Client
+    participant Server
+
+    Client-&gt;&gt;Server: GET /cats.csv HTTP/1.1
+        note right of Server: Request headers: x-api-key
+    activate Server
+    Server-&gt;&gt;+Client: HTTP/1.1 200 OK
+        note right of Server: Response headers: Content-Type: application/json
+        note right of Server: Response body: [ { ... } ]
+    deactivate Server
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>ولكن هذا النص لا يمكن التعامل معه كما هو، لذلك نستخدم الفعل <code>json()</code> لتحويله إلى قائمة بالمعلومات:</p>
+<div id="dab428bb" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>data <span class="op">=</span> response.json()</span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="bu">print</span>(<span class="bu">type</span>(data))</span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="bu">print</span>(data)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'list'&gt;
+[{'id': '24m', 'url': 'https://cdn2.thecatapi.com/images/24m.jpg', 'width': 450, 'height': 337}]</code></pre>
+</div>
+</div>
+<p>الآن أصبح في هيكل بيانات يمكن التعامل معه. فنريد استخراج رابط الصورة منه:</p>
+<div id="c063939c" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>image_url <span class="op">=</span> data[<span class="dv">0</span>][<span class="st">"url"</span>]</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="bu">print</span>(image_url)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>https://cdn2.thecatapi.com/images/24m.jpg</code></pre>
+</div>
+</div>
+<p>لعرض الصورة في صفحة الكتاب نستخدم المكتبة <code>IPython</code> على النحو التالي:</p>
+<div id="4ba75504" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Image, display</span>
+<span id="cb20-2"><a href="#cb20-2"></a></span>
+<span id="cb20-3"><a href="#cb20-3"></a>display(Image(url<span class="op">=</span>image_url))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<img src="https://cdn2.thecatapi.com/images/24m.jpg">
+</div>
+</div>
+<p>وهكذا نكون قد حصلنا على صورة قطة عشوائية.</p>
+<section id="انطلق" class="level3">
+<h3 class="anchored" data-anchor-id="انطلق">انطلق</h3>
+<p><strong>وبهذا تكون قادرًا على التعامل مع أي برمجيَّة توفِّر خدماتها عبر الشبكة. تحتاج فقط أن تُقدِم وتجرِّب حتى تأخذ يدك على الأمر!</strong></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
