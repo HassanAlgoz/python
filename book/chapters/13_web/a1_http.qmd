@@ -1,0 +1,227 @@
+# واجهة التطبيقات البرمجية
+
+ترتبط البرمجيات ببعضها عن طريق الشبكة. ويملك بعض الناس بيانات أو معالجة من نوعٍ ما لا يملكه الآخرون، فيتبادل الناس بينهم بالبيع والشراء كمفيدين ومستفيدين.
+
+- فالمفيد يسمى مزود الخدمة (provider) أو الخادم (server).
+- أما المستفيد يسمى المستخدم (user) أو العميل (client).
+
+ولكوْن البرمجيات حرفيَّة جدًّا في التعليمات تتبعها، فلا بد لها من آلية تواصل مضبوطة بين الخادم والعميل؛ وهي ما يُعرف بمصطلح: API (Application Programming Interface)؛ أي: الواجهة البرمجية للتطبيقات. وجاء المصطلح ليكون مبايِنًا لمصلطحين آخرين:
+
+- GUI (Graphical User Interface)؛ أي: الواجهة الرسومية للتطبيقات. (وهي التي تحكُم ما يظهر على الشاشة وكيف يتفاعل المستخدم معها)
+- CLI (Command Line Interface)؛ أي: الواجهة الأوامريَّة للتطبيقات. (وهي التي تحكُم ما يظهر على الشاشة السوداء وكيف نتعامل مع البرنامج فيها)
+
+أما API فهي الواجهة البرمجية؛ أي: هي بين البرامج مع بعضها، وليسَت موجَّهة في الأساس للمستخدم البشري. ويُطلق أحيانًا تجوُّزًا على المكتبة (library) بأنها توفِّر API، وإن لم تتصل بالشبكة. لكنَّ المتبادر للذهن عند استعمال مصطلح API هي الواجهة البرمجية التي يزوِّدُها خادمٌ على الشبكة.
+
+فأحد طرق التعامل مع الخدمات البرمجية، أن توفِّر هذه الخدمة مكتبةً للاتصال بها، تبدوا كأنها أفعال مُعرَّفة عاديَّة، لكنَّ تفاصيلها تتضمَّن إرسال طلب للخادم المزوِّد ثم الرجوع بجوابه كقيمة لموضع الاستدعاء.
+
+## مكتبة `GeoPy`
+
+ونمثل على ذلك بمكتبة [`GeoPy`](https://geopy.readthedocs.io/en/stable/) حيث كُتِب في الوصف:
+
+> جيوباي هي عميل بايثوني لمجموعة من خدمات شائعة على الشبكة للترميز الجغرافي. فهو يسهل تحديد إحداثيات العناوين والمدن والبلدان والمعالم في جميع أنحاء العالم باستخدام برامج ترميز جغرافي خارجية ومصادر بيانات أخرى.
+
+وننبه مرة أخرى إلى أنها عميل (client) لخدمات خارجية (external services)، وليسَت هي بذاتها متصلة بخدمة؛ فلا توجد خدمة اسمها geopy، وإنما هي مكتبة وسيطة فقط. انظر: [geopy is not a service](https://geopy.readthedocs.io/en/stable/#geopy-is-not-a-service).
+
+أولاً تثبيت المكتبة باستعمال `uv`:
+
+```bash
+uv add geopy
+```
+
+ثم نستطيع استيرادها في بايثون:
+
+```{python}
+from geopy.geocoders import Nominatim
+```
+
+ونستعمل الفعل المُنشئ `Nominatim` الذي يتصل بمزوِّد خدمة خارجية، وهو مزوِّد خدمة جغرافية عالمية تسمى `OpenStreetMap`
+
+```{python}
+geolocator = Nominatim(user_agent="pythonia")
+```
+
+يطلب منَّا الفعل المنشئ أن نعرِّف بأنفسنا بتعيين `user_agent`، وهذا بحسب ما ورد في توثيق المكتبة. فنكتب أي اسم يدلُّ على التطبيق الذي نعمل عليه الآن.
+
+نفترض أننا نريد معرفة إحداثيات مدينة الدمام، وهذا هو عمل الفعل `geocode`:
+
+```{python}
+dammam_location = geolocator.geocode("Dammam, Saudi Arabia")
+```
+
+قد يبدوا الفعل عاديًّا، لكنه في الواقع يتصل بالخادم المزوِّد ويطلب منه إرجاع إحداثيات المدينة؛ وهي القيمة التي تخرج لنا فنزلها في متغير `dammam_location`.
+
+```{mermaid}
+sequenceDiagram
+    UserCode -->> GeoPy: .geocode("...")
+    GeoPy -->> OpenStreetMap: Request
+    OpenStreetMap -->> GeoPy: Response
+    GeoPy -->> UserCode: Return
+```
+
+
+وكذلك لمدينة أخرى مثل البحرين:
+
+```{python}
+bahrain_location = geolocator.geocode("Bahrain")
+```
+
+ثم بعد أن حصلنا على المعلومات، نستخرج الإحداثيات من المتغيرات التي حصلنا عليها:
+
+```{python}
+dammam_coords = (dammam_location.latitude, dammam_location.longitude)
+bahrain_coords = (bahrain_location.latitude, bahrain_location.longitude)
+```
+
+ثم نحسب المسافة بين المدينتين، باستعمال فعل موجود في وحدة `geopy.distance`، وهو `geodesic`:
+
+```{python}
+from geopy.distance import geodesic
+
+distance = geodesic(dammam_coords, bahrain_coords)
+print(f"Between Dammam and Bahrain is {distance.kilometers:.2f} km")
+```
+
+وهكذا نكون قد حسبنا المسافة بين المدينتين بالكيلومترات.
+
+### مفتاح التطبيق (`API_KEY`)
+
+![[geopy and geocoding services](https://geopy.readthedocs.io/en/stable/#geopy-is-not-a-service)](https://geopy.readthedocs.io/en/stable/_images/geopy_and_geocoding_services.svg){width="100%"}
+
+فإن أردت تغيير مزوِّد الخدمة (إما لعدم دقتها أو عدم توفر المعلومات أو أي سبب آخر)، فما عليك إلا استعمال استيراد `Geocoder` آخر، مثلاً؛ مثلاً `TomTom`:
+
+```python
+from geopy.geocoders import TomTom
+
+geolocator = TomTom(user_agent="pythonia", api_key="...")
+```
+
+لكن هذا يتطلَّب شيئًا إضافيًّا وهو الحصول على مفتاح متعلِّق بحساب مسجَّل على موقع [TomTom](https://developer.tomtom.com/) نفسه. ثم وضع هذا الفتاح هنا. وبهذا المفتاح المرتبط بهذا الحِساب يتمُّ تعبئة الاشتراك والصرف من رصيده. وهكذا تربح الشركة التي وفَّرت هذا النظام المعلوماتي.
+
+## HTTP
+
+ماذا لو لم تتوفَّر مكتبة خاصَّة بمزوِّد الخدمة؟ 
+في هذه الحالة سنكتب نحن تفاصيل الاتصال بالخادم المزوِّد.
+وذلك يتطلب معرفة لغة التخاطب على الشبكة المسماة: HTTP: Hyper-Text Transfer Protocol. ومن مفاهيمها الرئيسية المهمة بالنسبة لنا:
+
+**الطلب** (request) وهو رسالة لها محتوىً ومُرسِل ومُرسلٌ إليه
+
+**جوابه** (response) وهو مثل الطلب في خصائصه
+
+**الرابط** (URL) هي الصيغة الموحَّدة لتحديد عنوان مورِد (ملف) في فضاء الشبكة.
+
+فمثلاً، هذا الرابط يحدد موقع ملف اسمه `cats.csv` على موقع `example.com`، ويبدأ بـ `https://` أو `http://` بدون حرف `s` الدال على مستوى معيَّن من الأمان: `https://example.com/cats.csv`
+
+**الرؤوس** (headers) هي معلومات عن الطلب نفسه أو محتواه؛ بعضها ضروري وبعضها إضافي.
+
+- مثلاً: `Content-Type: text/csv` تعني أن البيانات المرسلة عبارة عن ملف بصيغة CSV.
+- أو: `x-api-key: 1234567890` هو مفتاح التطبيق الذي يسمح للطلب بالتعريف بصاحب الحساب لإتاحة الخدمة له.
+
+**المحتوى** (body) هي البيانات المُرْسَلة أو المُسْتَلَمة.
+
+- مثلاً: `{"name": "John", "age": 30}` هي بيانات عبارة عن قاموس بصيغة JSON.
+
+**رمز الحالة** (status codes) وهي أرقام تأتي في الجواب للإشارة إلى شيء محدد، وتنقسم إلى خمسة نطاقات:
+
+- نطاق `100-199` (لا تهمنا)
+- نطاق `200-299` تعني أن الطلب تمُّ إنجازه بنجاح.
+    - `200 -> OK`
+    - `201 -> Created`
+    - `204 -> No Content`
+- نطاق `300-399` إعادة توجيه
+    - `301 -> Moved Permanently`
+    - `302 -> Found (temporarily)`
+- نطاق `400-499` إشكال من جهة العميل
+    - `400 -> Bad Request`
+    - `401 -> Unauthorized`
+    - `403 -> Forbidden`
+    - `404 -> Not Found`
+- نطاق `500-599` إشكال من جهة الخادم
+    - `500 -> Internal Server Error`
+    - `502 -> Bad Gateway`
+    - `503 -> Service Unavailable`
+    - `504 -> Gateway Timeout`
+
+انظر: [HTTP overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview).
+
+## المكتبة `httpx`
+
+ونمثل لمزود خدمة معلومات عن القطط ([The Cat API](https://thecatapi.com/))، وقد حصلنا على مفتاح التطبيق (API KEY) من خلال التسجيل في الموقع.
+
+توجد في بايثون في المكتبة الأساسية وحدة `requests`، لكننا سنستخدم مكتبة أخرى تسمى `httpx`، وهي لها نفس الظاهر وزيادة على ذلك تدعم الفعل اللامتزامن (لكن لا يهمنا اليوم).
+
+أولاً نثبت المكتبة باستعمال `uv`:
+
+```bash
+uv add httpx
+```
+
+ثم نستورد المكتبة:
+
+```{python}
+import httpx
+```
+
+ولمعرفة الاستفادة من أي مزود خدمة، فإننا ندخل إلى صفحة المطورين، وتسمى ([API Documentation](https://developers.thecatapi.com/)). ومنها نعرف أن المسار الذي يجب أن نطلبه هو `https://api.thecatapi.com/v1/images/search`، وهو يعطينا صورة قطة عشوائية.
+
+أما المفتاح، فنضعه في الرؤوس (headers) تحت عنوان `x-api-key` كما يلي:
+
+```{python}
+response = httpx.get(
+    url="https://api.thecatapi.com/v1/images/search",
+    headers={"x-api-key": "live_9Cj8P0h75D5h2D7Y2H8MYEuuTmTXjT412xNlbVBouHxn2sEnAjr1dr4JMfIn4Mr4"}
+)
+print(response.status_code)
+```
+
+غالبًا ستظهر لك النتيجة `200` وهي تعني `OK` أي أن كل شيء سار على ما يرام.
+
+وإذا نظرت إلى النصّ الموجود في الرد (`response.text`) فإنك ستلاحظ أنه نصُّ مقوْلَب بصيغة JSON التي سبق الحديث عنها:
+
+
+```{python}
+print(type(response.text))
+print(response.text)
+```
+
+```{mermaid}
+sequenceDiagram
+    participant Client
+    participant Server
+
+    Client->>Server: GET /cats.csv HTTP/1.1
+        note right of Server: Request headers: x-api-key
+    activate Server
+    Server->>+Client: HTTP/1.1 200 OK
+        note right of Server: Response headers: Content-Type: application/json
+        note right of Server: Response body: [ { ... } ]
+    deactivate Server
+```
+
+ولكن هذا النص لا يمكن التعامل معه كما هو، لذلك نستخدم الفعل `json()` لتحويله إلى قائمة بالمعلومات:
+
+```{python}
+data = response.json()
+print(type(data))
+print(data)
+```
+
+الآن أصبح في هيكل بيانات يمكن التعامل معه. فنريد استخراج رابط الصورة منه:
+
+```{python}
+image_url = data[0]["url"]
+print(image_url)
+```
+
+لعرض الصورة في صفحة الكتاب نستخدم المكتبة `IPython` على النحو التالي:
+
+```{python}
+from IPython.display import Image, display
+
+display(Image(url=image_url))
+```
+
+وهكذا نكون قد حصلنا على صورة قطة عشوائية.
+
+### انطلق
+
+**وبهذا تكون قادرًا على التعامل مع أي برمجيَّة توفِّر خدماتها عبر الشبكة. تحتاج فقط أن تُقدِم وتجرِّب حتى تأخذ يدك على الأمر!**
