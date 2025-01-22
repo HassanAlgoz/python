@@ -145,45 +145,6 @@ user['notifications']['sms']
 
 أما حفظها فسيأتي الكلام عن حفظ البيانات في [باب كتابة الملفات وقراءتها](../08_files_and_directories/a1_serialization.qmd) إن شاء الله.
 
-
-## الذاكرة القريبة
-
-يجوز أن تسجل نتيجة طلب فعل بمدخلات معيَّنة. حتى إذا ما تكرر الطلب نفس المدخلات؛ توفِّر تكلفة استدعائه بإرجاع النتيجة المحفوظة. وهذا يفيد في أمرين:
-
-1. الاقتصاد في موارد المعالجة، خصوصًا عند تعقد العمليات.
-2. تقليل وقت الاستجابة.
-
-ويشترط أن يكون الفعل نقيًّا. (انظر [قسم الفعل النقي في باب الفعل](../04_functions/a1_functions.qmd#الفعل-النقي)).
-
-```{python}
-factorial_table = {
-    0: 1,
-    1: 1,
-    2: 2,
-    3: 6,
-}
-
-def factorial(n):
-    if n not in factorial_table:
-        factorial_table[n] = n * factorial(n - 1)
-    return factorial_table[n]
-```
-
-بل إن بايثون توفر هذه الخاصية للدوال عن طريق **المزيِّن** (decorator) [`@functools.lru_cache`](https://docs.python.org/3/library/functools.html#functools.cache)، هكذا:
-
-```{python}
-import functools
-
-@functools.lru_cache
-def factorial(n):
-    if n == 0:
-        return 1
-    return n * factorial(n - 1)
-```
-
-لاحظ عدم الحاجة لتعريف القاموس `factorial_table`، بل يقوم المزيِّن هو بذلك تلقائيًّا.
-
-
 ## استعمال الإنشاء المختصر
 
 تقدم معنا الكلام عن [الإنشاء المختصر](../05_sequences/a_sequences.qmd#الإنشاء-المختصر-الجملة-الثلاثية). وسنستعرضه الآن مع القاموس.

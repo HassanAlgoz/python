@@ -111,6 +111,13 @@ geolocator = TomTom(user_agent="pythonia", api_key="...")
 
 فمثلاً، هذا الرابط يحدد موقع ملف اسمه `cats.csv` على موقع `example.com`، ويبدأ بـ `https://` أو `http://` بدون حرف `s` الدال على مستوى معيَّن من الأمان: `https://example.com/cats.csv`
 
+**نوع الطلب** (method) وأهمها :
+
+- `GET` للحصول على بيانات
+- `POST` لإرسال بيانات
+- `PUT` لتعديل بيانات
+- `DELETE` لحذف بيانات
+
 **الرؤوس** (headers) هي معلومات عن الطلب نفسه أو محتواه؛ بعضها ضروري وبعضها إضافي.
 
 - مثلاً: `Content-Type: text/csv` تعني أن البيانات المرسلة عبارة عن ملف بصيغة CSV.
@@ -142,6 +149,40 @@ geolocator = TomTom(user_agent="pythonia", api_key="...")
     - `504 -> Gateway Timeout`
 
 انظر: [HTTP overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview).
+
+فصيغة الطلب النصية قد تبدو هكذا:
+
+```
+GET /cats.csv HTTP/1.1
+Host: example.com
+x-api-key: 1234567890
+```
+
+- نوع الطلب: `GET`
+- المسار: `/cats.csv`
+- نسق الطلب: `HTTP/1.1` (وقد يكون `HTTP/2` أو `HTTP/3`)
+- العنوان الرئيسي: `example.com` (وهو الموقع الذي يوجد عليه الملف)
+- الرؤوس: `x-api-key: 1234567890` (وهو مفتاح التطبيق الذي يسمح للطلب بالوصول إلى الخدمة)
+
+فيأتي الجواب هكذا:
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+    { 
+        "id": "1",
+        "name": "Whiskers",
+        "age": 10
+    },
+    { 
+        "id": "2",
+        "name": "Fluffy",
+        "age": 20
+    }
+]
+```
 
 ## المكتبة `httpx`
 

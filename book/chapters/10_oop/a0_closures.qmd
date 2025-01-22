@@ -1,0 +1,159 @@
+# صناعة الأفعال وتزيينها
+
+## صناعة الأفعال
+
+من خصائص الأفعال في بايثون أنها أشياء (مثلها مثل الرقم) يُمكن إرجاعُها عند `return`.
+فمثلاً فعل `make_power` هو فعلٌ مُنشئٌ للأفعال التي تحسِب القوى. المتغير `n` هو متغير محلي للفعل `make_power`، ويمكن أن يستعمل في الفعل `power` الذي يتم إرجاعُه:
+
+```{python}
+def make_power(n):
+    def power(x):
+        return x ** n
+    return power
+```
+
+فيُمكن إنشاء فعل تربيعي وفعل تكعيبي منه، على هذا النحو:
+
+```{python}
+square = make_power(2)
+cube = make_power(3)
+```
+
+ثم يُمكن طلب هذا الفعل من خلال القوسين `()`، كما يلي:
+
+```{python}
+print("Squares:", square(2), square(3))
+print("Cubes:", cube(2), cube(3))
+```
+
+ولو صرَّحنا بالأنواع لكانت الدالة المُنشئة شكلها هكذا:
+
+```{python}
+def make_power(n: float) -> callable:
+    def power(x: float) -> float:
+        return x ** n
+    return power
+```
+
+أما `callable` فمعناه الشيء الذي يقبلُ النداء؛ ويتحقق النداء في بايثون بالقوسين `()`. ومما يقبَلُ النداء: الأفعال.
+
+ويُمكن استعماله هكذا أيضًا في خطوة واحدة، هكذا:
+
+```{python}
+print("Squares:", make_power(2)(2), make_power(2)(3))
+print("Cubes:", make_power(3)(2), make_power(3)(3))
+```
+
+وكذلك يمكن إسناد متغيرات يحتفظ بها الفعل الذي يتم إنشاؤه.
+ونمثل على ذلك بإنشاء العداد `make_counter` على النحو التالي:
+
+```{python}
+def make_counter(start: int, step: int) -> callable:
+    count = start
+    def counter() -> int:
+        nonlocal count
+        count += step
+        return count
+    return counter
+```
+
+ففي القطعة السابقة:
+
+- الفعل المُنشئ هو `make_counter` يقبل عاملين يحكُمان سلوك الفعل الذي يتم إنشاؤه: `counter`
+- تبدأ قيمة `count` بالقيمة المُعطاة `start`
+- وفي تعريف `counter()` نلاحظ كلمة `nonlocal` التي تربط الاسم `count` بالمتغير الذي في النطاق الأعم، أي: نطاق الفعل `make_counter`؛ وذلك حتى يُمكنه تغييره. فلولا هذه الكلمة لم يُمكن تغييره.
+- نلاحظ زيادة `count` بالقيمة المعطاة `step` في فعل الإنشاء
+
+```{python}
+counter = make_counter(10, 2)
+
+x = counter()
+print(x)
+
+y = counter()
+print(y)
+```
+
+## المزيِّن
+
+**المزيِّن** (decorator) هو الفعل الذي يأخذ فعلاً ويرجع لنا فعلاً جديدًا منه.
+وتعريفه العام نحو:
+
+```python
+def decorator(f: callable) -> callable:
+    def new_f():
+        ...
+    return new_f
+```
+
+مثلاً:
+يُمكننا أن نحفظ نتيجة نداء الفعل بمدخلات معيَّنة، حتى إذا ما تكرر الطلب بنفس المدخلات؛ لا نحتاج إلى تنفيذ الفعل بتفاصيله حقيقةً، وإنَّما نعيد القيمة التي سبق حفظها. وهذا يفيد في أمرين:
+
+1. الاقتصاد في موارد المعالجة
+2. تقليل وقت الاستجابة
+
+ويُسمَّى الفعل الذي يحفظ مدخلاته؛ **فعلاً حافظًا** (memoized - من غير الحرف R).
+ويشترط فيه أن يكون الفعل نقيًّا؛ وهو الفعل الذي لا تعتمد مخرجاته إلا على مدخلاته المباشرة.
+
+```{python}
+def memoize(f: callable) -> callable:
+    cache = {}
+    def memoized(x):
+        if x in cache:
+            print("Cache hit!")
+            return cache[x]
+        else:
+            print("miss!")
+            result = f(x)
+            cache[x] = result
+            return result
+    return memoized
+```
+
+فهذا الفعل يُنشئُ فعلاً من فعل.
+
+1. أنشأنا في البداية `cache` قاموسًا لحفظ نتائج الفعل .. أيًّا ما كان الفعل.
+2. عرفنا فعلاً جديدًا يسمَّى `memoized` يحسب نتيجة الفعل المُعطى `f` بالمدخل `x`، ويحفظها في `cache` إذا لم يكن موجودة.
+
+فلو أن لدينا فِعلاً يأخذ مدخلاً واحدًا فقط، يُمكننا جعله فعلاً ذا حافظة، هكذا:
+
+```{python}
+def square(x):
+    return x ** 2
+
+square = memoize(square)
+
+print(square(2))
+print(square(2))
+print(square(3))
+```
+
+1. في أول مرة يرى فيها الفعل `x=2` فإنه يحسِبُ تلك القيمة ثم يحفظها ويرجعها
+2. أما في المرة الثانية عند `x=2` فإنه سبق حفظها في `cache`؛ فلا نحتاج لتشغيل الفعل `square` أصلاً، بل نسترجع النتيجة من `cache`
+3. أما القيمة الجديدة `x=3` فإنها كالقيمة `x=2` أول مرة
+
+ولأن نمط التزيين شائع في البرمجة، فقد خصصت له بايثون علامة خاصة بها: `@`.
+ففي هذا المثال نزيِّن فعل `factorial` بالفعل `memoize`، ليكون ذا ذاكرة ولا يحتاج لحساب العمليات المتسلسلة أكثر من مرة:
+
+```{python}
+@memoize
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+```
+
+بل إن بايثون توفر هذه الخاصية للأفعال عن طريق المزيِّن [`@functools.lru_cache`](https://docs.python.org/3/library/functools.html#functools.cache)، الذي يمكن استيراده من المكتبة الأساسية `functools`.
+وهو الذي يجب استعماله في الواقع؛ إذ يقبل أن يكون الفعل له أي عدد من المدخلات، وليس كما اقتصرنا فيه بالمثال السابق على عامل واحد (`x`). 
+
+فهكذا تكون:
+
+```{python}
+import functools
+
+@functools.lru_cache
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+```
