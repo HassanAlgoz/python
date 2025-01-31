@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ar" xml:lang="ar" dir="rtl"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>19&nbsp; التجريد – البايثونية</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-18c600aae80d5bc93e3bd4e059157cd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "لا يوجد نتائج",
+    "search-matching-documents-text": "الصفحات المطابقة",
+    "search-copy-link-title": "نسخ الرابط إلى الحافظة",
+    "search-hide-matches-text": "إخفاء المطابقات الإضافية",
+    "search-more-match-text": "مطابقة واحدة في هذه الصفحة",
+    "search-more-matches-text": "مطابقات إضافية في هذه الصفحة",
+    "search-clear-button-title": "إزالة",
+    "search-text-placeholder": "ابحث عن...",
+    "search-detached-cancel-button-title": "إلغاء",
+    "search-submit-button-title": "إرسال",
+    "search-label": "البحث"
+  }
+}</script>
+
+
+<meta name="twitter:title" content="19&nbsp; التجريد – البايثونية">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/12_oop/cover.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/12_oop/a1_classes.html">باب البرمجة الشيئية (OOP)</a></li><li class="breadcrumb-item"><a href="../../chapters/12_oop/a2_classes.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">التجريد</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">البايثونية</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/hassanalgoz/python/tree/main/book/" title="الكود المصدر" class="quarto-navigation-tool px-1" aria-label="الكود المصدر"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="التحميل" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="التحميل"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../البايثونية.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            التحميل PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../البايثونية.epub">
+              <i class="bi bi-journal pe-1"></i>
+            التحميل ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="المشاركة" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="المشاركة"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="البحث"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">مقدمة</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">إعداد بيئة التطوير</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/01_intro/a1_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">المقدمة الأولى: لغة البرمجة</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/01_intro/a2_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">المقدمة الثانية: جهاز الحاسب</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">باب الأعداد (Numbers)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/a_numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الأعداد</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تطبيقات</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">مسائل</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">حل المسائل</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">باب الشرط والتكرار (Control Flow)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تطبيقات</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">مسائل</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">حل المسائل</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">باب الأفعال (Functions)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/04_functions/a1_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الأفعال</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/04_functions/a2_recursion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الفعل المتسلسل</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/04_functions/a3_modules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">الاستيراد والتصدير</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/04_functions/apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تطبيقات</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">باب الجمع المرتب (Sequences)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_sequences/a_sequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">الجمع المرتب</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_sequences/apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تطبيقات</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_sequences/problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">مسائل</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">باب الجمع المرقوم (Mapping)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/06_mapping/a_mapping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الجمع المرقوم</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/06_mapping/b_context.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تطبيقات</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/06_mapping/c_problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">مسائل</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">باب النص (Strings)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/07_strings/a1_strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">النص</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/07_strings/a2_unicode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ترميز الحروف</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/07_strings/b_context.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تطبيقات</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">باب الملفات (Files)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/08_files_and_directories/a1_serialization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">الملف</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/08_files_and_directories/a2_directories.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">الدليل</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/08_files_and_directories/b_context.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تطبيقات</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">باب الوقت والتاريخ</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/09_time/a1_time.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">باب الخدمات البرمجية</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/10_integration/a1_http.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">الاستفادة من الخدمات البرمجية</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">باب البرمجة الفعلية (FP)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/11_functional/a1_closures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">صناعة الأفعال وتغييرها</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/11_functional/a2_pipelines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">مسارات المعالجة</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">باب البرمجة الشيئية (OOP)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/12_oop/a1_classes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">الأنواع</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/12_oop/a2_classes.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">التجريد</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
+ <span class="menu-text">باب الخطأ والاستثناء (Errors and Exceptions)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/13_errors/a1_errors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/13_errors/a2_exceptions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الخطأ الواقعي: الاستثناء</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
+ <span class="menu-text">واجهة المستخدم (UI)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/14_cli/a1_ui.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">واجهة المستخدم (GUI)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/14_cli/a2_argparse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">واجهة نافذة الأوامر (CLI)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
+ <span class="menu-text">الملحقات</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../appendix_collections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">خريطة الجُمُوع</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">قاموس المصطلحات</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">المحاور</h2>
+   
+  <ul>
+  <li><a href="#التعميم" id="toc-التعميم" class="nav-link active" data-scroll-target="#التعميم"><span class="header-section-number">19.1</span> التعميم</a></li>
+  <li><a href="#تركيب-النوع-من-النوع" id="toc-تركيب-النوع-من-النوع" class="nav-link" data-scroll-target="#تركيب-النوع-من-النوع"><span class="header-section-number">19.2</span> تركيب النوع من النوع</a>
+  <ul class="collapse">
+  <li><a href="#دخول-النوع-في-صنف-باعتبار-أفعاله" id="toc-دخول-النوع-في-صنف-باعتبار-أفعاله" class="nav-link" data-scroll-target="#دخول-النوع-في-صنف-باعتبار-أفعاله">دخول النوع في صنف باعتبار أفعاله</a></li>
+  </ul></li>
+  <li><a href="#تخصيص-النوع-العام" id="toc-تخصيص-النوع-العام" class="nav-link" data-scroll-target="#تخصيص-النوع-العام"><span class="header-section-number">19.3</span> تخصيص النوع العام</a></li>
+  <li><a href="#تسلسل-النوع" id="toc-تسلسل-النوع" class="nav-link" data-scroll-target="#تسلسل-النوع"><span class="header-section-number">19.4</span> تسلسل النوع</a></li>
+  <li><a href="#المصطلحات" id="toc-المصطلحات" class="nav-link" data-scroll-target="#المصطلحات"><span class="header-section-number">19.5</span> المصطلحات</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/12_oop/a1_classes.html">باب البرمجة الشيئية (OOP)</a></li><li class="breadcrumb-item"><a href="../../chapters/12_oop/a2_classes.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">التجريد</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">التجريد</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ملاحظة
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>هذا الفصل يتطلب تركيزًا أكثر. فهي الأدوات المجردة التي تبنى بها المكتبات المفيدة للمبرمجين أنفسهم. وقد لا يستعملها كثيرًا من يريد برمجة التطبيقات فقط.</p>
+</div>
+</div>
+<p>ومن الخصائص الممتعة في بناء البرمجيات: العلاقات بين المجردات في المستويات المختلفة من التجريد. وسنمثل لذلك بـ:</p>
+<ol type="1">
+<li><strong>التعميم</strong>: بحيث يكون النوع غير مقيَّد بحالة معيَّنة، بل يُخصص عند التعيين.</li>
+<li><strong>التركيب</strong>: مثل تعريف صنف <strong>المضلَّع</strong> أنه مركَّب من <strong>سلسلة + نقاط</strong> ونركِّب من عوامل اللغة ما يجعله من <strong>الجموع</strong></li>
+<li><strong>التخصيص</strong>: حيث نبني صنف <strong>الطابور</strong> باختيار أفعال محددة من السلسلة على نسق ما</li>
+<li><strong>التسلسل</strong>: وهو النوع الذي يرتبط بمثله. كالشجرة، فروعها أصولٌ لفروع، وهكذا يتسلسل حتى نصل إلى الثمار.</li>
+</ol>
+<section id="التعميم" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="التعميم"><span class="header-section-number">19.1</span> التعميم</h2>
+<p>نريد أن نعمم نوع المتجه بحيث لا يتقيد بعنصرين <code>x,y</code> بل يقبل أن يكون أكثر من ذلك:</p>
+<div id="ee3a1a70" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">class</span> Vector:</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="op">*</span>args):</span>
+<span id="cb1-3"><a href="#cb1-3"></a>        <span class="va">self</span>.elements <span class="op">=</span> args</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    </span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="kw">def</span> <span class="fu">__add__</span>(<span class="va">self</span>, other):</span>
+<span id="cb1-6"><a href="#cb1-6"></a>        result <span class="op">=</span> []</span>
+<span id="cb1-7"><a href="#cb1-7"></a>        <span class="cf">if</span> <span class="bu">isinstance</span>(other, Vector):</span>
+<span id="cb1-8"><a href="#cb1-8"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(<span class="va">self</span>.elements)):</span>
+<span id="cb1-9"><a href="#cb1-9"></a>                result.append(<span class="va">self</span>.elements[i] <span class="op">+</span> other.elements[i])</span>
+<span id="cb1-10"><a href="#cb1-10"></a>        <span class="cf">else</span>:</span>
+<span id="cb1-11"><a href="#cb1-11"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(<span class="va">self</span>.elements)):</span>
+<span id="cb1-12"><a href="#cb1-12"></a>                result.append(<span class="va">self</span>.elements[i] <span class="op">+</span> other)        </span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a>        <span class="cf">return</span> Vector(<span class="op">*</span>result)</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    </span>
+<span id="cb1-16"><a href="#cb1-16"></a>    <span class="kw">def</span> <span class="fu">__radd__</span>(<span class="va">self</span>, other):</span>
+<span id="cb1-17"><a href="#cb1-17"></a>        <span class="cf">return</span> <span class="va">self</span> <span class="op">+</span> other</span>
+<span id="cb1-18"><a href="#cb1-18"></a>    </span>
+<span id="cb1-19"><a href="#cb1-19"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb1-20"><a href="#cb1-20"></a>        <span class="cf">return</span> <span class="ss">f"Vector(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>elements<span class="sc">}</span><span class="ss">)"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>لاحظ استعمال النجمة في فعل الإنشاء <code>*args</code> وذلك لتكون عدد العناصر غير مقيدة بحد</li>
+<li>وفي <code>__add__</code> لنا حالتان: ما إذا كان المدخل عبارة عن متجه أو عدد</li>
+<li>أما السطر الأخير منها: <code>return Vector(*result)</code> فعلامة النجمة تفك القائمة بحيث تمرر عناصرها كمعيَّنات منفصلة لفعل الإنشاء الذي تم تعريفه في الأعلى.</li>
+</ul>
+<div id="84497adf" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>v1 <span class="op">=</span> Vector(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>v2 <span class="op">=</span> Vector(<span class="dv">60</span>, <span class="dv">50</span>, <span class="dv">40</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a>v1 <span class="op">+</span> v2</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>Vector((70, 70, 70))</code></pre>
+</div>
+</div>
+<div id="01d78c41" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>v1 <span class="op">+</span> <span class="dv">10</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>Vector((20, 30, 40))</code></pre>
+</div>
+</div>
+<div id="05e3dfe1" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="dv">10</span> <span class="op">+</span> v1</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>Vector((20, 30, 40))</code></pre>
+</div>
+</div>
+</section>
+<section id="تركيب-النوع-من-النوع" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="تركيب-النوع-من-النوع"><span class="header-section-number">19.2</span> تركيب النوع من النوع</h2>
+<p>نبين في المثال كيف نكون نوع المضلَّع من نوع نقطة.</p>
+<p>لو كان عندنا تعريف نوع نقطة ..</p>
+<div id="b1fd7414" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">class</span> Point:</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
+<span id="cb8-3"><a href="#cb8-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
+<span id="cb8-4"><a href="#cb8-4"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
+<span id="cb8-5"><a href="#cb8-5"></a>    </span>
+<span id="cb8-6"><a href="#cb8-6"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb8-7"><a href="#cb8-7"></a>        <span class="cf">return</span> <span class="ss">f"Point(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>    </span>
+<span id="cb8-9"><a href="#cb8-9"></a>    <span class="at">@staticmethod</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>    <span class="kw">def</span> distance(p1, p2):</span>
+<span id="cb8-11"><a href="#cb8-11"></a>        <span class="cf">return</span> ((p1.x <span class="op">-</span> p2.x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (p1.y <span class="op">-</span> p2.y)<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span><span class="fl">0.5</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>يمكننا <strong>تركيب</strong> شيء مكون من النقاط، وهو المضلَّع، على النحو التالي:</p>
+<ul>
+<li>يأخذ فعل الإنشاء <code>__init__</code> سلسلة من النقاط ويعيِّنُها لمتغير اسمه <code>points</code></li>
+<li>يعرض فعل التمثيل <code>__repr__</code> كلمة <code>Polygon</code> وداخل أقواسها يضع تمثيل النقاط</li>
+<li>لاحظ أن فعل <code>perimeter</code> يُنتج قُطر المضلَّع؛ وهو مجموع المسافات بين النقاط</li>
+</ul>
+<div id="bf3fbdc9" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">class</span> Polygon:</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, points):</span>
+<span id="cb9-3"><a href="#cb9-3"></a>        <span class="va">self</span>.points <span class="op">=</span> points</span>
+<span id="cb9-4"><a href="#cb9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb9-6"><a href="#cb9-6"></a>        <span class="cf">return</span> <span class="ss">f"Polygon(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>points<span class="sc">}</span><span class="ss">)"</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a></span>
+<span id="cb9-8"><a href="#cb9-8"></a>    <span class="kw">def</span> perimeter(<span class="va">self</span>):</span>
+<span id="cb9-9"><a href="#cb9-9"></a>        n <span class="op">=</span> <span class="bu">len</span>(<span class="va">self</span>.points)</span>
+<span id="cb9-10"><a href="#cb9-10"></a>        s <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb9-12"><a href="#cb9-12"></a>            s <span class="op">+=</span> Point.distance(<span class="va">self</span>.points[i], <span class="va">self</span>.points[(i<span class="op">+</span><span class="dv">1</span>)<span class="op">%</span>n])</span>
+<span id="cb9-13"><a href="#cb9-13"></a>        <span class="cf">return</span> s</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>لاحظ أن إنشاء المضلَّع يتطلَّب إنشاء نقاط. ولاحظ أننا جعلنا كل نقطة في سطر، لكنها في الحقيقة كلها عناصر لقائمة، وهو واضحٌ بملاحظة القوسين المربعين <code>[ ]</code>:</p>
+<div id="c3bb4c66" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>poly <span class="op">=</span> Polygon([</span>
+<span id="cb10-2"><a href="#cb10-2"></a>    Point(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb10-3"><a href="#cb10-3"></a>    Point(<span class="dv">5</span>, <span class="dv">0</span>),</span>
+<span id="cb10-4"><a href="#cb10-4"></a>    Point(<span class="dv">5</span>, <span class="dv">5</span>),</span>
+<span id="cb10-5"><a href="#cb10-5"></a>    Point(<span class="dv">0</span>, <span class="dv">5</span>),</span>
+<span id="cb10-6"><a href="#cb10-6"></a>])</span>
+<span id="cb10-7"><a href="#cb10-7"></a>poly</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>Polygon([Point(0, 0), Point(5, 0), Point(5, 5), Point(0, 5)])</code></pre>
+</div>
+</div>
+<p>والآن يمكن استعمال فعل حساب المحيط:</p>
+<div id="afb96672" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>poly.perimeter()</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>20.0</code></pre>
+</div>
+</div>
+<section id="دخول-النوع-في-صنف-باعتبار-أفعاله" class="level3">
+<h3 class="anchored" data-anchor-id="دخول-النوع-في-صنف-باعتبار-أفعاله">دخول النوع في صنف باعتبار أفعاله</h3>
+<p>ولأن هذا المركَّب مكوَّن من أفراد، فنريده أن يُشابه <strong>الأنواع الحاوية</strong>، التي لها أفعال معيَّنة. وذلك ممكنٌ باستعمال الأفعال المخصصة:</p>
+<ul>
+<li>العد: <code>len(s)</code> يُسمَّى فعله: <code>__len__</code></li>
+<li>الإشارة: <code>s[i]</code> يُسمَّى فعله: <code>__getitem__</code></li>
+<li>التعيين: <code>s[i] = p</code> يُسمَّى فعله: <code>__setitem__</code></li>
+<li>الحذف: <code>del s[i]</code> يُسمَّى فعله: <code>__delitem__</code></li>
+</ul>
+<p>انظر التوثيق الرسمي لبايثون حول <a href="https://docs.python.org/3/reference/datamodel.html#emulating-container-types">محاكاة أنواع الحاويات</a> لمزيد من المعلومات.</p>
+<div id="bbbcec3f" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">class</span> Polygon:</span>
+<span id="cb14-2"><a href="#cb14-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, points):</span>
+<span id="cb14-3"><a href="#cb14-3"></a>        <span class="va">self</span>.points <span class="op">=</span> points</span>
+<span id="cb14-4"><a href="#cb14-4"></a></span>
+<span id="cb14-5"><a href="#cb14-5"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb14-6"><a href="#cb14-6"></a>        <span class="cf">return</span> <span class="ss">f"Polygon(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>points<span class="sc">}</span><span class="ss">)"</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a></span>
+<span id="cb14-8"><a href="#cb14-8"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</span>
+<span id="cb14-9"><a href="#cb14-9"></a>        <span class="cf">return</span> <span class="bu">len</span>(<span class="va">self</span>.points)</span>
+<span id="cb14-10"><a href="#cb14-10"></a>    </span>
+<span id="cb14-11"><a href="#cb14-11"></a>    <span class="kw">def</span> <span class="fu">__getitem__</span>(<span class="va">self</span>, i):</span>
+<span id="cb14-12"><a href="#cb14-12"></a>        <span class="cf">return</span> <span class="va">self</span>.points[i]</span>
+<span id="cb14-13"><a href="#cb14-13"></a></span>
+<span id="cb14-14"><a href="#cb14-14"></a>    <span class="kw">def</span> <span class="fu">__setitem__</span>(<span class="va">self</span>, i, p):</span>
+<span id="cb14-15"><a href="#cb14-15"></a>        <span class="va">self</span>.points[i] <span class="op">=</span> p</span>
+<span id="cb14-16"><a href="#cb14-16"></a></span>
+<span id="cb14-17"><a href="#cb14-17"></a>    <span class="kw">def</span> <span class="fu">__delitem__</span>(<span class="va">self</span>, i):</span>
+<span id="cb14-18"><a href="#cb14-18"></a>        <span class="kw">del</span> <span class="va">self</span>.points[i]</span>
+<span id="cb14-19"><a href="#cb14-19"></a>    </span>
+<span id="cb14-20"><a href="#cb14-20"></a>    <span class="kw">def</span> perimeter(<span class="va">self</span>):</span>
+<span id="cb14-21"><a href="#cb14-21"></a>        n <span class="op">=</span> <span class="bu">len</span>(<span class="va">self</span>.points)</span>
+<span id="cb14-22"><a href="#cb14-22"></a>        s <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb14-23"><a href="#cb14-23"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb14-24"><a href="#cb14-24"></a>            s <span class="op">+=</span> Point.distance(<span class="va">self</span>.points[i], <span class="va">self</span>.points[(i<span class="op">+</span><span class="dv">1</span>)<span class="op">%</span>n])</span>
+<span id="cb14-25"><a href="#cb14-25"></a>        <span class="cf">return</span> s</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="e80ef19f" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>poly <span class="op">=</span> Polygon([</span>
+<span id="cb15-2"><a href="#cb15-2"></a>    Point(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    Point(<span class="dv">5</span>, <span class="dv">0</span>),</span>
+<span id="cb15-4"><a href="#cb15-4"></a>    Point(<span class="dv">5</span>, <span class="dv">5</span>),</span>
+<span id="cb15-5"><a href="#cb15-5"></a>    Point(<span class="dv">0</span>, <span class="dv">5</span>),</span>
+<span id="cb15-6"><a href="#cb15-6"></a>])</span>
+<span id="cb15-7"><a href="#cb15-7"></a>poly</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>Polygon([Point(0, 0), Point(5, 0), Point(5, 5), Point(0, 5)])</code></pre>
+</div>
+</div>
+<p>والآن نستطيع عدَّ النقاط بالفعل المعروف <code>len</code> الذي بدوْره يستدعي الفعل المتعلق بالشيء <code>__len__</code> (فُهما سواء):</p>
+<div id="0b0bf20a" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="cf">assert</span> <span class="bu">len</span>(poly) <span class="op">==</span> poly.<span class="fu">__len__</span>()</span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="bu">len</span>(poly)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>4</code></pre>
+</div>
+</div>
+<p>بتعريفنا لفعل معرفة الطول، انسجم هذا النوع مع المجموعات مثل القائمة ومجموعة الفرائد والروابط والسلسلة النصية وغيرها.</p>
+<p>وقد تتساءل: هل أي كلمة أكتبها بين الشرطتين السفليتين استطيع استعماله مثل <code>len</code>؟ والجواب: للأسف لا؛ وإنما هي أسماء مخصوصة.</p>
+<p>أما قبول الفعل <code>len</code> لأنواع مغايرة عن بعضها فتسمَّى خاصيَّة <strong>تعدد الأشكال</strong> <a href="https://en.wikipedia.org/wiki/Polymorphism_(computer_science)">(Polymorphism)</a>: أي أن الفعل الواحد يقبل أنواع متعددة في الحقيقة لكنَّها تُظهر نفس السلوك الخارجي. بعبارة أخرى نقول:</p>
+<ul>
+<li>الظاهر: المدخلات والمخرجات واحدة</li>
+<li>الحقيقة: الخوارزمية (التفاصيل) قد تختلف اختلافًا جذريًّا !</li>
+</ul>
+<p>وهذا كثيرٌ في البرمجيات.</p>
+<p>ثم الإشارة برقم أو بشريحة:</p>
+<div id="d48856f6" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="bu">print</span>(poly[<span class="dv">0</span>])</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="bu">print</span>(poly[<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="bu">print</span>(poly[<span class="dv">1</span>:<span class="dv">3</span>])</span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="bu">print</span>(poly[::<span class="op">-</span><span class="dv">1</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Point(0, 0)
+Point(0, 5)
+[Point(5, 0), Point(5, 5)]
+[Point(0, 5), Point(5, 5), Point(5, 0), Point(0, 0)]</code></pre>
+</div>
+</div>
+<p>ثم التعيين:</p>
+<div id="16af13f0" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>poly[<span class="dv">0</span>] <span class="op">=</span> Point(<span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb21-2"><a href="#cb21-2"></a>poly</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>Polygon([Point(10, 10), Point(5, 0), Point(5, 5), Point(0, 5)])</code></pre>
+</div>
+</div>
+<p>وأخيرًا الحذف:</p>
+<div id="e1b24e78" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">del</span> poly[<span class="dv">0</span>]</span>
+<span id="cb23-2"><a href="#cb23-2"></a>poly</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>Polygon([Point(5, 0), Point(5, 5), Point(0, 5)])</code></pre>
+</div>
+</div>
+<p>تبين بهذا محاكاة بعض أفعال الحاويات الأساسية مثل <code>list</code> و<code>set</code> و<code>tuple</code> و<code>str</code> و<code>dict</code>. وقد تقدَّم معنا أن النقطة تستطيع محاكاة الأنواع العددية باستعمال الفعل المخصص للجمع <code>+</code> الذي هو <code>__add__</code>.</p>
+</section>
+</section>
+<section id="تخصيص-النوع-العام" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="تخصيص-النوع-العام"><span class="header-section-number">19.3</span> تخصيص النوع العام</h2>
+<p>يكثر استعمال <strong>الطابور</strong> كهيكل بيانات لحل مجموعة من المسائل بطريقة سهلة. نستعرض في هذا المثال كيفية تخصيص القائمة (<code>list</code>) ذات الأفعال الكثيرة من الحذف والإضافة والتعديل، لنوع له أفعال مختلفة لكنها مبنية عليها.</p>
+<p>الطابور يُعرَّف بفعلين أساسيين:</p>
+<ul>
+<li>الإدخال من جهة</li>
+<li>الإخراج من الجهة المقابلة (بحيث يكون ما دخل أولاً هو الذي يخرج أولاً)</li>
+</ul>
+<p>فهو بهذا أخص من القائمة التي تزيد عليه: الإشارة لعنصر برقمٍ وإمكان تعديله أو حذفه أو الإضافة في الوسط، وغيرها.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Data_Queue.svg/330px-Data_Queue.svg.png" class="img-fluid figure-img"></p>
+<figcaption><a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)">توضيح الطابور</a></figcaption>
+</figure>
+</div>
+<p>فهذا مثال لكتابة نوع الطابور:</p>
+<div id="2905db1a" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">class</span> Queue:</span>
+<span id="cb25-2"><a href="#cb25-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb25-3"><a href="#cb25-3"></a>        <span class="va">self</span>.items <span class="op">=</span> []</span>
+<span id="cb25-4"><a href="#cb25-4"></a></span>
+<span id="cb25-5"><a href="#cb25-5"></a>    <span class="kw">def</span> enqueue(<span class="va">self</span>, item):</span>
+<span id="cb25-6"><a href="#cb25-6"></a>        <span class="co">"""Add an item to the end of the queue"""</span></span>
+<span id="cb25-7"><a href="#cb25-7"></a>        <span class="va">self</span>.items.append(item)</span>
+<span id="cb25-8"><a href="#cb25-8"></a></span>
+<span id="cb25-9"><a href="#cb25-9"></a>    <span class="kw">def</span> dequeue(<span class="va">self</span>):</span>
+<span id="cb25-10"><a href="#cb25-10"></a>        <span class="co">"""Remove an item from the front of the queue"""</span></span>
+<span id="cb25-11"><a href="#cb25-11"></a>        <span class="cf">if</span> <span class="kw">not</span> <span class="va">self</span>.is_empty():</span>
+<span id="cb25-12"><a href="#cb25-12"></a>            <span class="cf">return</span> <span class="va">self</span>.items.pop(<span class="dv">0</span>)</span>
+<span id="cb25-13"><a href="#cb25-13"></a>        <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb25-14"><a href="#cb25-14"></a></span>
+<span id="cb25-15"><a href="#cb25-15"></a>    <span class="kw">def</span> peek(<span class="va">self</span>):</span>
+<span id="cb25-16"><a href="#cb25-16"></a>        <span class="co">"""Return the item at the front without removing it"""</span></span>
+<span id="cb25-17"><a href="#cb25-17"></a>        <span class="cf">if</span> <span class="kw">not</span> <span class="va">self</span>.is_empty():</span>
+<span id="cb25-18"><a href="#cb25-18"></a>            <span class="cf">return</span> <span class="va">self</span>.items[<span class="dv">0</span>]</span>
+<span id="cb25-19"><a href="#cb25-19"></a>        <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb25-20"><a href="#cb25-20"></a></span>
+<span id="cb25-21"><a href="#cb25-21"></a>    <span class="kw">def</span> is_empty(<span class="va">self</span>):</span>
+<span id="cb25-22"><a href="#cb25-22"></a>        <span class="co">"""Check if the queue is empty"""</span></span>
+<span id="cb25-23"><a href="#cb25-23"></a>        <span class="cf">return</span> <span class="bu">len</span>(<span class="va">self</span>.items) <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb25-24"><a href="#cb25-24"></a>    </span>
+<span id="cb25-25"><a href="#cb25-25"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</span>
+<span id="cb25-26"><a href="#cb25-26"></a>        <span class="cf">return</span> <span class="bu">len</span>(<span class="va">self</span>.items)</span>
+<span id="cb25-27"><a href="#cb25-27"></a></span>
+<span id="cb25-28"><a href="#cb25-28"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb25-29"><a href="#cb25-29"></a>        <span class="co">"""Return the underlying list representation"""</span></span>
+<span id="cb25-30"><a href="#cb25-30"></a>        <span class="cf">return</span> <span class="bu">repr</span>(<span class="va">self</span>.items)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>لاحظ أن فعل الإنشاء <code>__init__</code> يعيِّن قائمة فارغة للشيء <code>self</code></li>
+<li>ثم الفعل <code>enqueue</code> يتم بواسطة فعل القائمة <code>append</code></li>
+<li>والفعل <code>dequeue</code> يتم بواسطة فعل القائمة <code>pop</code></li>
+<li>وكذلك <code>peek</code> باستعمال الإشارة بالرقم للعنصر في الموضع <code>0</code></li>
+<li>ثم <code>is_empty</code> بالنظر لطول القائمة بالفعل <code>len</code></li>
+</ul>
+<p>نختبر ذلك الآن:</p>
+<div id="a08b0a36" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>q <span class="op">=</span> Queue()</span>
+<span id="cb26-2"><a href="#cb26-2"></a></span>
+<span id="cb26-3"><a href="#cb26-3"></a>q.enqueue(<span class="dv">1</span>)</span>
+<span id="cb26-4"><a href="#cb26-4"></a>q.enqueue(<span class="dv">2</span>)</span>
+<span id="cb26-5"><a href="#cb26-5"></a>q.enqueue(<span class="dv">3</span>)</span>
+<span id="cb26-6"><a href="#cb26-6"></a></span>
+<span id="cb26-7"><a href="#cb26-7"></a><span class="bu">print</span>(q)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1, 2, 3]</code></pre>
+</div>
+</div>
+<p>نزيل عُنصرًا:</p>
+<div id="77f3ccd4" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>q.dequeue()</span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="bu">print</span>(q)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[2, 3]</code></pre>
+</div>
+</div>
+<p>هل يمكننا معرفة عدد العناصر؟:</p>
+<div id="f6d6a505" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="bu">len</span>(q)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>2</code></pre>
+</div>
+</div>
+<p>صحيح أن القائمة أكثر قدرة (إذْ تتضمن عمليات أكثر)، إلا أن الطابور مخصص لخدمة وظيفة محددة.</p>
+</section>
+<section id="تسلسل-النوع" class="level2" data-number="19.4">
+<h2 data-number="19.4" class="anchored" data-anchor-id="تسلسل-النوع"><span class="header-section-number">19.4</span> تسلسل النوع</h2>
+<p>ومن الأنواع ما يتسليل مثل الشجرة، حيث فروعها قد تكون أصولاً لفروع أخرى. وهكذا يتسلسل الأمر حتى نصل إلى الأوراق / الثمار (القيم الأخيرة).</p>
+<p>ومثل هذا له استعمالات كثيرة في هيكلة البيانات بأمثل بنية تكون فيها أسرع في البحث والإدراج والحذف ونحو ذلك. لكننا نكتفي بمثال نتأمله، نعرف فيه الشجرة الثنائية:</p>
+<div id="b89feabe" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">class</span> BinaryTreeNode:</span>
+<span id="cb32-2"><a href="#cb32-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, value):</span>
+<span id="cb32-3"><a href="#cb32-3"></a>        <span class="va">self</span>.value <span class="op">=</span> value</span>
+<span id="cb32-4"><a href="#cb32-4"></a>        <span class="va">self</span>._left <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb32-5"><a href="#cb32-5"></a>        <span class="va">self</span>._right <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb32-6"><a href="#cb32-6"></a>        <span class="va">self</span>._parent <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb32-7"><a href="#cb32-7"></a>    </span>
+<span id="cb32-8"><a href="#cb32-8"></a>    <span class="at">@property</span></span>
+<span id="cb32-9"><a href="#cb32-9"></a>    <span class="kw">def</span> left(<span class="va">self</span>):</span>
+<span id="cb32-10"><a href="#cb32-10"></a>        <span class="cf">return</span> <span class="va">self</span>._left</span>
+<span id="cb32-11"><a href="#cb32-11"></a></span>
+<span id="cb32-12"><a href="#cb32-12"></a>    <span class="at">@left.setter</span> </span>
+<span id="cb32-13"><a href="#cb32-13"></a>    <span class="kw">def</span> left(<span class="va">self</span>, node):</span>
+<span id="cb32-14"><a href="#cb32-14"></a>        <span class="va">self</span>._left <span class="op">=</span> node</span>
+<span id="cb32-15"><a href="#cb32-15"></a>        <span class="cf">if</span> node <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb32-16"><a href="#cb32-16"></a>            node.parent <span class="op">=</span> <span class="va">self</span></span>
+<span id="cb32-17"><a href="#cb32-17"></a></span>
+<span id="cb32-18"><a href="#cb32-18"></a>    <span class="at">@property</span></span>
+<span id="cb32-19"><a href="#cb32-19"></a>    <span class="kw">def</span> right(<span class="va">self</span>):</span>
+<span id="cb32-20"><a href="#cb32-20"></a>        <span class="cf">return</span> <span class="va">self</span>._right</span>
+<span id="cb32-21"><a href="#cb32-21"></a></span>
+<span id="cb32-22"><a href="#cb32-22"></a>    <span class="at">@right.setter</span></span>
+<span id="cb32-23"><a href="#cb32-23"></a>    <span class="kw">def</span> right(<span class="va">self</span>, node):</span>
+<span id="cb32-24"><a href="#cb32-24"></a>        <span class="va">self</span>._right <span class="op">=</span> node</span>
+<span id="cb32-25"><a href="#cb32-25"></a>        <span class="cf">if</span> node <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb32-26"><a href="#cb32-26"></a>            node.parent <span class="op">=</span> <span class="va">self</span></span>
+<span id="cb32-27"><a href="#cb32-27"></a>    </span>
+<span id="cb32-28"><a href="#cb32-28"></a>    <span class="at">@property</span></span>
+<span id="cb32-29"><a href="#cb32-29"></a>    <span class="kw">def</span> parent(<span class="va">self</span>):</span>
+<span id="cb32-30"><a href="#cb32-30"></a>        <span class="cf">return</span> <span class="va">self</span>._parent</span>
+<span id="cb32-31"><a href="#cb32-31"></a>    </span>
+<span id="cb32-32"><a href="#cb32-32"></a>    <span class="at">@parent.setter</span></span>
+<span id="cb32-33"><a href="#cb32-33"></a>    <span class="kw">def</span> parent(<span class="va">self</span>, node):</span>
+<span id="cb32-34"><a href="#cb32-34"></a>        <span class="va">self</span>._parent <span class="op">=</span> node</span>
+<span id="cb32-35"><a href="#cb32-35"></a></span>
+<span id="cb32-36"><a href="#cb32-36"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb32-37"><a href="#cb32-37"></a>        <span class="cf">if</span> <span class="va">self</span>._left <span class="kw">is</span> <span class="va">None</span> <span class="kw">and</span> <span class="va">self</span>._right <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb32-38"><a href="#cb32-38"></a>            <span class="cf">return</span> <span class="ss">f"(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>value<span class="sc">}</span><span class="ss">)"</span></span>
+<span id="cb32-39"><a href="#cb32-39"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>_left<span class="sc">}</span><span class="ss"> &lt;-- [</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>value<span class="sc">}</span><span class="ss">] --&gt; </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>_right<span class="sc">}</span><span class="ss">"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>تخصيص عملية التعيين</strong>: لاحظ في المثال استعمال <code>.setter</code> بعد اسم المتغير <code>left</code> و<code>right</code> و<code>parent</code>؛ وهذا يعني أن تعيين القيمة للمتغير ستفضي إلى هذا الفعل، فمثلاً حين تقول: <code>tree.left = x</code> فإن هذا الفعل هو الذي سيتم تنفيذه. أما اسم المتغير الذي يحمل القيمة؛ فهو مختبئ عن طريق الشرطة المبتدأة: <code>_left</code> و<code>_right</code> و<code>_parent</code>. وبهذا يتبيَّن كيف لنا أننا نستطيع تخصيص عملية التعيين نفسها.</p>
+<p>والهدف من التخصيص في مثالنا هذا أن نمنع تعيين فرعٍ أيمن أو أيسر لا يعرف أصله: <code>.parent</code>.</p>
+<p>ثم ننشيئ الجشرة، ونصلها بفرعين:</p>
+<div id="99b3a209" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>tree <span class="op">=</span> BinaryTreeNode(<span class="dv">10</span>)</span>
+<span id="cb33-2"><a href="#cb33-2"></a>tree.left <span class="op">=</span> BinaryTreeNode(<span class="dv">5</span>)</span>
+<span id="cb33-3"><a href="#cb33-3"></a>tree.right <span class="op">=</span> BinaryTreeNode(<span class="dv">15</span>)</span>
+<span id="cb33-4"><a href="#cb33-4"></a></span>
+<span id="cb33-5"><a href="#cb33-5"></a>tree</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>(5) &lt;-- [10] --&gt; (15)</code></pre>
+</div>
+</div>
+<p>ثم نفرع عن كل فرعٍ فرعين:</p>
+<div id="af3e51ce" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>tree.left.left <span class="op">=</span> BinaryTreeNode(<span class="dv">3</span>)</span>
+<span id="cb35-2"><a href="#cb35-2"></a>tree.left.right <span class="op">=</span> BinaryTreeNode(<span class="dv">7</span>)</span>
+<span id="cb35-3"><a href="#cb35-3"></a>tree.right.left <span class="op">=</span> BinaryTreeNode(<span class="dv">13</span>)</span>
+<span id="cb35-4"><a href="#cb35-4"></a>tree.right.right <span class="op">=</span> BinaryTreeNode(<span class="dv">17</span>)</span>
+<span id="cb35-5"><a href="#cb35-5"></a></span>
+<span id="cb35-6"><a href="#cb35-6"></a>tree</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>(3) &lt;-- [5] --&gt; (7) &lt;-- [10] --&gt; (13) &lt;-- [15] --&gt; (17)</code></pre>
+</div>
+</div>
+<p>ويمكننا أن نصل من الفرع إلى الأصل باستعمال <code>.parent</code>، هكذا:</p>
+<div id="9131e01b" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>x <span class="op">=</span> tree.left.left</span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="bu">print</span>(<span class="st">'x:'</span>, x)</span>
+<span id="cb37-3"><a href="#cb37-3"></a><span class="bu">print</span>(<span class="st">'x.parent:'</span>, x.parent)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x: (3)
+x.parent: (3) &lt;-- [5] --&gt; (7)</code></pre>
+</div>
+</div>
+<p>نكتفي بهذا القدر.</p>
+</section>
+<section id="المصطلحات" class="level2" data-number="19.5">
+<h2 data-number="19.5" class="anchored" data-anchor-id="المصطلحات"><span class="header-section-number">19.5</span> المصطلحات</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>العربية</th>
+<th>الإنجليزية</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>التجريد</td>
+<td>Abstraction</td>
+</tr>
+<tr class="even">
+<td>التعميم</td>
+<td>Generalization</td>
+</tr>
+<tr class="odd">
+<td>التركيب</td>
+<td>Composition</td>
+</tr>
+<tr class="even">
+<td>التخصيص</td>
+<td>Specialization</td>
+</tr>
+<tr class="odd">
+<td>التسلسل</td>
+<td>Recursion</td>
+</tr>
+<tr class="even">
+<td>المضلَّع</td>
+<td>Polygon</td>
+</tr>
+<tr class="odd">
+<td>النقطة</td>
+<td>Point</td>
+</tr>
+<tr class="even">
+<td>المتجه</td>
+<td>Vector</td>
+</tr>
+<tr class="odd">
+<td>الطابور</td>
+<td>Queue</td>
+</tr>
+<tr class="even">
+<td>الشجرة</td>
+<td>Tree</td>
+</tr>
+<tr class="odd">
+<td>الشجرة الثنائية</td>
+<td>Binary Tree</td>
+</tr>
+<tr class="even">
+<td>العقدة</td>
+<td>Node</td>
+</tr>
+<tr class="odd">
+<td>الفرع</td>
+<td>Branch</td>
+</tr>
+<tr class="even">
+<td>الأصل</td>
+<td>Parent</td>
+</tr>
+<tr class="odd">
+<td>الورقة/الثمرة</td>
+<td>Leaf</td>
+</tr>
+<tr class="even">
+<td>تعدد الأشكال</td>
+<td>Polymorphism</td>
+</tr>
+<tr class="odd">
+<td>هيكل البيانات</td>
+<td>Data Structure</td>
+</tr>
+<tr class="even">
+<td>الأنواع الحاوية</td>
+<td>Container Types</td>
+</tr>
+<tr class="odd">
+<td>الروابط</td>
+<td>Links</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "تم النسخ!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "تم النسخ!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/hassanalgoz\.github\.io\/python\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></div></div></footer></body></html>
