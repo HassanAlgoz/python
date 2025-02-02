@@ -1,4 +1,4 @@
-# واجهة التطبيقات البرمجية
+# الاستفادة من الخدمات البرمجية
 
 ترتبط البرمجيات ببعضها عن طريق الشبكة. ويملك بعض الناس بيانات أو معالجة من نوعٍ ما لا يملكه الآخرون، فيتبادل الناس بينهم بالبيع والشراء كمفيدين ومستفيدين.
 
@@ -97,7 +97,7 @@ geolocator = TomTom(user_agent="pythonia", api_key="...")
 
 لكن هذا يتطلَّب شيئًا إضافيًّا وهو الحصول على مفتاح متعلِّق بحساب مسجَّل على موقع [TomTom](https://developer.tomtom.com/) نفسه. ثم وضع هذا الفتاح هنا. وبهذا المفتاح المرتبط بهذا الحِساب يتمُّ تعبئة الاشتراك والصرف من رصيده. وهكذا تربح الشركة التي وفَّرت هذا النظام المعلوماتي.
 
-## HTTP
+## لغة الشبكة: HTTP
 
 ماذا لو لم تتوفَّر مكتبة خاصَّة بمزوِّد الخدمة؟ 
 في هذه الحالة سنكتب نحن تفاصيل الاتصال بالخادم المزوِّد.
@@ -175,30 +175,20 @@ Content-Type: application/json
 ]
 ```
 
-## المكتبة `httpx`
+## التخاطب مع الخدمات بلغة الشبكة
 
 ونمثل لمزود خدمة معلومات عن القطط ([The Cat API](https://thecatapi.com/))، وقد حصلنا على مفتاح التطبيق (API KEY) من خلال التسجيل في الموقع.
 
-توجد في بايثون في المكتبة الأساسية وحدة `requests`، لكننا سنستخدم مكتبة أخرى تسمى `httpx`، وهي لها نفس الظاهر وزيادة على ذلك تدعم الفعل اللامتزامن (لكن لا يهمنا اليوم).
-
-أولاً نثبت المكتبة باستعمال `uv`:
-
-```bash
-uv add httpx
-```
-
-ثم نستورد المكتبة:
-
-```{python}
-import httpx
-```
+توجد في بايثون في المكتبة الأساسية وحدة `requests`.
 
 ولمعرفة الاستفادة من أي مزود خدمة، فإننا ندخل إلى صفحة المطورين، وتسمى ([API Documentation](https://developers.thecatapi.com/)). ومنها نعرف أن المسار الذي يجب أن نطلبه هو `https://api.thecatapi.com/v1/images/search`، وهو يعطينا صورة قطة عشوائية.
 
 أما المفتاح، فنضعه في الرؤوس (headers) تحت عنوان `x-api-key` كما يلي:
 
 ```{python}
-response = httpx.get(
+import requests
+
+response = requests.get(
     url="https://api.thecatapi.com/v1/images/search",
     headers={"x-api-key": "live_9Cj8P0h75D5h2D7Y2H8MYEuuTmTXjT412xNlbVBouHxn2sEnAjr1dr4JMfIn4Mr4"}
 )
@@ -253,6 +243,67 @@ display(Image(url=image_url))
 ```
 
 وهكذا نكون قد حصلنا على صورة قطة عشوائية.
+
+### مثال آخر
+
+لنأخذ مثالاً آخر على استخدام خدمة برمجية، وهي خدمة الطقس من [OpenWeatherMap](https://openweathermap.org/api/one-call-3). هذه الخدمة تتيح لنا معرفة حالة الطقس في أي مدينة في العالم.
+
+أولاً، نحتاج إلى مفتاح API من الموقع (يمكنك الحصول عليه مجاناً بعد التسجيل). ثم نستخدم مكتبة `requests` للاتصال بالخدمة.
+
+ففي [صفحة التوثيق](https://openweathermap.org/api/one-call-3) قالوا إن طريقة الطلب هي على النحو التالي:
+
+```
+https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
+```
+
+نشرح الرابط حتى تتبين أجزاؤه ليسهل عليك بعد ذلك قراءة أية رابط:
+
+- `https://api.openweathermap.org/data/3.0/onecall` هو الرابط الأساسي للخدمة
+- `?` هي فاصلة أوَّل عامِل (وهو `lat` في هذا المثال،و كان من الممكن أن يكون `lon`)
+- `lat={lat}` هو تعيين للعامل الأوَّل بقيمة `lat` خط العرض
+- `lon={lon}` هو تعيين للعامل الثاني بقيمة `lon` خط الطول
+- `exclude={part}` هو الجزء الذي نريد إهماله من النتائج (سنتركه فارغًا)
+- `appid={API key}` هو مفتاح التطبيق الذي يسمح للطلب بالوصول إلى الخدمة
+
+ونحن نكتبها في بايثون مع مكتبة `requests` على النحو التالي:
+
+```{python}
+from geopy.geocoders import Nominatim
+
+# Get Riyadh coordinates using GeoPy
+geolocator = Nominatim(user_agent="pythonia")
+riyadh_location = geolocator.geocode("Riyadh, Saudi Arabia")
+lat, lon = riyadh_location.latitude, riyadh_location.longitude
+print(f"Riyadh coordinates: {lat}, {lon}")
+```
+
+
+```{python}
+import requests
+
+# Create request object first
+request = requests.Request(
+    'GET',
+    url="https://api.openweathermap.org/data/3.0/onecall",
+    params={
+        "lat": round(lat, 4),
+        "lon": round(lon, 4),
+        "exclude": "minutely,hourly,daily,alerts", 
+        "appid": "4a5417dd3a781b7f64f05178ed423a23"
+    }
+)
+
+# Print the prepared request
+prepared_request = request.prepare()
+print(f"Request URL: {prepared_request.url}")
+print(f"Request method: {prepared_request.method}")
+print(f"Request headers: {prepared_request.headers}")
+
+# Send the request
+session = requests.Session()
+response = session.send(prepared_request)
+print(f"Response: {response}")
+```
 
 ### انطلق
 
