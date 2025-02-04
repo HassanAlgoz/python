@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>تطبيقات – البايثونية</title>
+<title>مسائل – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -102,39 +68,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta name="twitter:title" content="تطبيقات – البايثونية">
+<meta name="twitter:title" content="مسائل – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/04_functions/cover.png">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/10_integration/cover.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -147,7 +84,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/04_functions/a1_functions.html">باب الأفعال</a></li><li class="breadcrumb-item"><a href="../../chapters/04_functions/apps.html">تطبيقات</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/10_integration/a1_http.html">باب الخدمات البرمجية</a></li><li class="breadcrumb-item"><a href="../../chapters/10_integration/problems.html">مسائل</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -332,7 +269,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/04_functions/apps.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/04_functions/apps.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
@@ -488,7 +425,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/10_integration/problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/10_integration/problems.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">مسائل</span></a>
   </div>
 </li>
@@ -614,25 +551,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">المحاور</h2>
-   
-  <ul>
-  <li><a href="#طول-الخط-المستقيم-بين-نقطتين" id="toc-طول-الخط-المستقيم-بين-نقطتين" class="nav-link active" data-scroll-target="#طول-الخط-المستقيم-بين-نقطتين">طول الخط المستقيم بين نقطتين</a></li>
-  <li><a href="#كم-سيكون-عمرك-حين-كذا" id="toc-كم-سيكون-عمرك-حين-كذا" class="nav-link" data-scroll-target="#كم-سيكون-عمرك-حين-كذا">كم سيكون عمرك حين كذا؟</a></li>
-  <li><a href="#حساب-الأجر" id="toc-حساب-الأجر" class="nav-link" data-scroll-target="#حساب-الأجر">حساب الأجر</a></li>
-  <li><a href="#الوزن-الطبيعي" id="toc-الوزن-الطبيعي" class="nav-link" data-scroll-target="#الوزن-الطبيعي">الوزن الطبيعي</a></li>
-  <li><a href="#مجموع-الأرقام-إلى-س" id="toc-مجموع-الأرقام-إلى-س" class="nav-link" data-scroll-target="#مجموع-الأرقام-إلى-س">مجموع الأرقام إلى س</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/04_functions/a1_functions.html">باب الأفعال</a></li><li class="breadcrumb-item"><a href="../../chapters/04_functions/apps.html">تطبيقات</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/10_integration/a1_http.html">باب الخدمات البرمجية</a></li><li class="breadcrumb-item"><a href="../../chapters/10_integration/problems.html">مسائل</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">تطبيقات</h1>
+<h1 class="title">مسائل</h1>
 </div>
 
 
@@ -649,163 +576,30 @@ window.Quarto = {
 </header>
 
 
-<p>تعريف الفعل فعل مساعد للبرمجة وليس هو تنفيذيًّا بذاته. لذا ستكون تطبيقات هذا الجزء عبارة عن <strong>قولَبة التطبيقات السابقة</strong> بتعريفها في أفعال:</p>
-<section id="طول-الخط-المستقيم-بين-نقطتين" class="level2">
-<h2 class="anchored" data-anchor-id="طول-الخط-المستقيم-بين-نقطتين">طول الخط المستقيم بين نقطتين</h2>
-<p>في هذا المثال نعرف نقطتين ثم نحسب المسافة بينهما. <strong>والمسافة الإقليدية</strong> بين نقطتين <span class="math inline">\((x_1, y_1)\)</span> و <span class="math inline">\((x_2, y_2)\)</span> تتبع معادلة <strong>فيثاغورس</strong>:</p>
-<p><span class="math display">\[
-\text{distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
-\]</span></p>
-<p>وتذكر أن:</p>
-<p><span class="math display">\[
-\sqrt{x} = x^{1/2}
-\]</span></p>
-<div id="ac04644a" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> euclidean_distance(x1: <span class="bu">float</span>, y1: <span class="bu">float</span>, x2: <span class="bu">float</span>, y2: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">return</span> ((x2 <span class="op">-</span> x1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1)<span class="op">**</span><span class="dv">2</span>) <span class="op">**</span> <span class="fl">0.5</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="cf">assert</span> euclidean_distance(x1<span class="op">=</span><span class="dv">0</span>, y1<span class="op">=</span><span class="dv">0</span>, x2<span class="op">=</span><span class="dv">3</span>, y2<span class="op">=</span><span class="dv">4</span>) <span class="op">==</span> <span class="fl">5.0</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="كم-سيكون-عمرك-حين-كذا" class="level2">
-<h2 class="anchored" data-anchor-id="كم-سيكون-عمرك-حين-كذا">كم سيكون عمرك حين كذا؟</h2>
-<div id="cebf3539" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> age_at_future_event(age_now: <span class="bu">int</span>, current_year: <span class="bu">int</span>, future_year: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    <span class="cf">return</span> age_now <span class="op">+</span> (future_year <span class="op">-</span> current_year)</span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="cf">assert</span> age_at_future_event(age_now<span class="op">=</span><span class="dv">0</span>, current_year<span class="op">=</span><span class="dv">2000</span>, future_year<span class="op">=</span><span class="dv">2010</span>) <span class="op">==</span> <span class="dv">10</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="cf">assert</span> age_at_future_event(age_now<span class="op">=</span><span class="dv">20</span>, current_year<span class="op">=</span><span class="dv">2000</span>, future_year<span class="op">=</span><span class="dv">2010</span>) <span class="op">==</span> <span class="dv">30</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="حساب-الأجر" class="level2">
-<h2 class="anchored" data-anchor-id="حساب-الأجر">حساب الأجر</h2>
-<div id="02dd4c29" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> gross_pay(hours: <span class="bu">float</span>, per_hour_rate: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    <span class="cf">return</span> hours <span class="op">*</span> per_hour_rate</span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="cf">assert</span> gross_pay(<span class="dv">10</span>, <span class="dv">10</span>) <span class="op">==</span> <span class="dv">100</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="cf">assert</span> gross_pay(<span class="dv">40</span>, <span class="dv">10</span>) <span class="op">==</span> <span class="dv">400</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="الوزن-الطبيعي" class="level2">
-<h2 class="anchored" data-anchor-id="الوزن-الطبيعي">الوزن الطبيعي</h2>
-<p>هذا هو وزن الجسم الموصى به من قبل منظمة الصحة العالمية (WHO) استنادًا إلى قيم مؤشر كتلة الجسم للبالغين. ويستخدم لكل من الرجال والنساء الذين تبلغ أعمارهم 20 عامًا أو أكثر.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><strong>التصنيف</strong></th>
-<th><strong>مدى BMI - kg/m2</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>نحف شديد</td>
-<td>&lt; 16</td>
-</tr>
-<tr class="even">
-<td>نحف متوسط</td>
-<td>16 - 17</td>
-</tr>
-<tr class="odd">
-<td>نحف خفيف</td>
-<td>17 - 18.5</td>
-</tr>
-<tr class="even">
-<td>طبيعي</td>
-<td>18.5 - 25</td>
-</tr>
-<tr class="odd">
-<td>زيادة في الوزن</td>
-<td>25 - 30</td>
-</tr>
-<tr class="even">
-<td>سمنة خفيفة</td>
-<td>30 - 35</td>
-</tr>
-<tr class="odd">
-<td>سمنة ثانية</td>
-<td>35 - 40</td>
-</tr>
-<tr class="even">
-<td>سمنة ثالثة</td>
-<td>&gt; 40</td>
-</tr>
-</tbody>
-</table>
-<p><a href="https://www.calculator.net/bmi-calculator.html">المصدر</a></p>
-<p>لحساب مؤشر كتلة الجسم (BMI)، نستعمل المعادلة التالية:</p>
-<p><span class="math display">\[
-BMI = \frac{weight}{height^2}
-\]</span></p>
-<div id="bab5b29e" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> calculate_bmi(weight: <span class="bu">float</span>, height: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    <span class="cf">return</span> weight <span class="op">/</span> height<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">def</span> classify_bmi(bmi: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="cb4-5"><a href="#cb4-5"></a>    <span class="cf">if</span> bmi <span class="op">&lt;</span> <span class="dv">16</span>:</span>
-<span id="cb4-6"><a href="#cb4-6"></a>        <span class="cf">return</span> <span class="st">'severe_thinness'</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a>    <span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">17</span>:</span>
-<span id="cb4-8"><a href="#cb4-8"></a>        <span class="cf">return</span> <span class="st">'moderate_thinness'</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a>    <span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="fl">18.5</span>:</span>
-<span id="cb4-10"><a href="#cb4-10"></a>        <span class="cf">return</span> <span class="st">'mild_thinness'</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a>    <span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">25</span>:</span>
-<span id="cb4-12"><a href="#cb4-12"></a>        <span class="cf">return</span> <span class="st">'normal'</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a>    <span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">30</span>:</span>
-<span id="cb4-14"><a href="#cb4-14"></a>        <span class="cf">return</span> <span class="st">'overweight'</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a>    <span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">35</span>:</span>
-<span id="cb4-16"><a href="#cb4-16"></a>        <span class="cf">return</span> <span class="st">'obese_class_1'</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a>    <span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">40</span>:</span>
-<span id="cb4-18"><a href="#cb4-18"></a>        <span class="cf">return</span> <span class="st">'obese_class_2'</span></span>
-<span id="cb4-19"><a href="#cb4-19"></a>    <span class="cf">else</span>:</span>
-<span id="cb4-20"><a href="#cb4-20"></a>        <span class="cf">return</span> <span class="st">'obese_class_3'</span></span>
-<span id="cb4-21"><a href="#cb4-21"></a></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="cf">assert</span> classify_bmi(bmi<span class="op">=</span><span class="dv">15</span>) <span class="op">==</span> <span class="st">'severe_thinness'</span></span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="cf">assert</span> classify_bmi(bmi<span class="op">=</span><span class="dv">20</span>) <span class="op">==</span> <span class="st">'normal'</span></span>
-<span id="cb4-24"><a href="#cb4-24"></a><span class="cf">assert</span> classify_bmi(bmi<span class="op">=</span><span class="dv">40</span>) <span class="op">==</span> <span class="st">'obese_class_3'</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="مجموع-الأرقام-إلى-س" class="level2">
-<h2 class="anchored" data-anchor-id="مجموع-الأرقام-إلى-س">مجموع الأرقام إلى س</h2>
-<p>ما نريد صياغته هو مجموع الأرقام من 1 إلى <code>n</code>:</p>
-<div id="782f927b" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> sum_of_numbers(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    <span class="cf">pass</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>حلها بالتكرار باستعمال <code>range</code> لإنشاء تسلسل الأرقام للتكرار عليها، ولاحظ أن النهاية <code>n+1</code> ليكون الرقم الأخير مشمولاً في التكرار:</p>
-<div id="89305e85" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> sum_of_numbers(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb6-2"><a href="#cb6-2"></a>    result <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb6-4"><a href="#cb6-4"></a>        result <span class="op">+=</span> i</span>
-<span id="cb6-5"><a href="#cb6-5"></a>    <span class="cf">return</span> result</span>
-<span id="cb6-6"><a href="#cb6-6"></a></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="cf">assert</span> sum_of_numbers(n<span class="op">=</span><span class="dv">5</span>) <span class="op">==</span> <span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">3</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">15</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="cf">assert</span> sum_of_numbers(n<span class="op">=</span><span class="dv">10</span>) <span class="op">==</span> <span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">3</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span><span class="op">+</span><span class="dv">6</span><span class="op">+</span><span class="dv">7</span><span class="op">+</span><span class="dv">8</span><span class="op">+</span><span class="dv">9</span><span class="op">+</span><span class="dv">10</span> <span class="op">==</span> <span class="dv">55</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>وحلها بالفعل المتسلسل:</p>
-<div id="55a66e22" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> sum_of_numbers(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb7-2"><a href="#cb7-2"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb7-3"><a href="#cb7-3"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a>    <span class="cf">return</span> n <span class="op">+</span> sum_of_numbers(n <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb7-5"><a href="#cb7-5"></a></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="cf">assert</span> sum_of_numbers(n<span class="op">=</span><span class="dv">5</span>) <span class="op">==</span> <span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">3</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">15</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="cf">assert</span> sum_of_numbers(n<span class="op">=</span><span class="dv">10</span>) <span class="op">==</span> <span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">3</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span><span class="op">+</span><span class="dv">6</span><span class="op">+</span><span class="dv">7</span><span class="op">+</span><span class="dv">8</span><span class="op">+</span><span class="dv">9</span><span class="op">+</span><span class="dv">10</span> <span class="op">==</span> <span class="dv">55</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>وإذا صغناها رياضيًّا وعلمنا المعادلة الرياضية، فلا حاجة للتكرار أصلاً:</p>
-<p><span class="math display">\[
-\sum_{i=1}^{n} i = \frac{n(n + 1)}{2}
-\]</span></p>
-<div id="2003021f" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> sum_of_numbers(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb8-2"><a href="#cb8-2"></a>    <span class="cf">return</span> n <span class="op">*</span> (n <span class="op">+</span> <span class="dv">1</span>) <span class="op">//</span> <span class="dv">2</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="cf">assert</span> sum_of_numbers(n<span class="op">=</span><span class="dv">5</span>) <span class="op">==</span> <span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">3</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">15</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="cf">assert</span> sum_of_numbers(n<span class="op">=</span><span class="dv">10</span>) <span class="op">==</span> <span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">3</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span><span class="op">+</span><span class="dv">6</span><span class="op">+</span><span class="dv">7</span><span class="op">+</span><span class="dv">8</span><span class="op">+</span><span class="dv">9</span><span class="op">+</span><span class="dv">10</span> <span class="op">==</span> <span class="dv">55</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>لابد أن جد في موقع المزوِّد توثيقًا لجميع تفاصيله للاستفادة منه. ابحث عل كلمة <strong>API Documentation</strong> أو <strong>Developers</strong> ونحوهما لتجد التوثيق. وقد تجد عنوانًا مثل: بداية سريعة (Quick Start) أو نحوها للبدء. وعادةً ما يتضمن التوثيق:</p>
+<p>وصف جميع <strong>نقاط الالتقاء</strong> (Endpoints) التي تحدد العناوين الفرعية التابعة لعنوان الواجهة الرئيسي. وذلك نحو:</p>
+<p>الآن دورك. عليك قراءة التوثيق بتمعُّن، والتجول في صفحاته حتى تتعلم كيفية استخدام الواجهة البرمجية لتحقيق مهمة واحدة.</p>
+<p><strong>ملاحظة</strong>: بعض الواجهات تتطلب التسجيل للحصول على مفتاح API. وبعضها يحتاج إضافة إلى ذلك شحن الحساب برصيد مثل 5 دولارات. وكل ذلك مبين في التوثيق نفسه.</p>
+<p>جرب استعمال أحد الواجهات البرمجية التالية:</p>
+<ul>
+<li><a href="https://poetrydb.org/index.html">poetrydb</a></li>
+<li><a href="https://newton.vercel.app/">newtown</a></li>
+<li><a href="https://alquran.cloud/api">alquran-cloud</a></li>
+<li><a href="https://pypi.org/project/Wikipedia-API/">Wikipedia</a></li>
+<li><a href="https://api.nasa.gov/">nasa</a></li>
+<li><a href="https://info.arxiv.org/help/api/user-manual.html">arxiv</a></li>
+<li><a href="https://core.telegram.org/">Telegram</a></li>
+<li><a href="https://discord.com/developers/docs/intro">Discord</a></li>
+<li><a href="https://api-docs.deepseek.com/">DeepSeek</a></li>
+</ul>
+<p>فإن أردت البحث عن واجهة برمجية لعمل شيء ما، فاكتب الكلمات المفتاحية + “API” في محرك البحث؛ مثلاً: <code>Google Maps API</code>.</p>
+<p>لابد أن تجد في موقع المزوِّد توثيقًا لجميع تفاصيله للاستفادة منه. ابحث عل كلمة <strong>API Documentation</strong> أو <strong>Developers</strong> ونحوهما لتجد التوثيق. وقد تجد عنوانًا مثل: بداية سريعة (Quick Start) أو نحوها للبدء. وعادةً ما يتضمن التوثيق:</p>
+<ul>
+<li>وصف جميع <strong>نقاط الالتقاء</strong> (Endpoints) التي تحدد العناوين الفرعية التابعة لعنوان الواجهة الرئيسي المبدوء بـ<code>http://</code></li>
+<li>نوع الطلب (method) وهو غالبًا <code>GET</code> لأن معظم ما نريده هو استرجاع بيانات</li>
+</ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1230,4 +1024,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></div></div></footer></body></html>
