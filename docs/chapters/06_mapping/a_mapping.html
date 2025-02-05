@@ -399,7 +399,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">باب حفظ واسترجاع البيانات</span></a>
+ <span class="menu-text">باب صياغة البيانات</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -546,7 +546,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/14_cli/a1_ui.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">واجهة المستخدم (GUI)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">الواجهة الرسومية (GUI)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -638,7 +638,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>انظر <a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableSet">MutableSet</a> في خريطة المجموعات: <a href="../../appendix_collections.html#fig-collections-tree" class="quarto-xref">شكل&nbsp;<span>1</span></a>.</p>
 <p>تنشأ المجموعة الفريدة بالفعل المنشئ <a href="https://docs.python.org/3/library/stdtypes.html#set"><code>set()</code></a>. ويفضل استعمال القوسين المتعرجين <code>{ }</code> بدلاً منه:</p>
-<div id="b30941d4" class="cell" data-execution_count="1">
+<div id="5cfc9726" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>s1 <span class="op">=</span> <span class="bu">set</span>([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>])</span>
 <span id="cb1-2"><a href="#cb1-2"></a>s2 <span class="op">=</span> {<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>}</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="cf">assert</span> s1 <span class="op">==</span> s2</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -665,7 +665,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>وبهذا تعلم أن الجمع المرتَّب رقم كل عنصرٍ فيه هو موضعه من التسلسل.</p>
 <p>أما القائمة مثلاً، فليست معدودة ضمن المرقومات، وذلك لأنها <strong>متغيرة</strong> (تقبل زيادة أو حذف أو تعديل عنصر) وذلك يغير الرقم؛ والشرط في المرقوم ألا يتغير رقمه أبدًا؛ لذا تجد الصف معدودًا ضمن المرقومات وليست القائمة كذلك:</p>
-<div id="30e60740" class="cell" data-execution_count="2">
+<div id="72d977e4" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>s <span class="op">=</span> {<span class="dv">10</span>, <span class="st">'AAA'</span>, <span class="va">True</span>, (<span class="dv">22</span>, <span class="st">'BB'</span>)}</span>
 <span id="cb2-2"><a href="#cb2-2"></a></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="cf">assert</span> <span class="bu">len</span>(s) <span class="op">==</span> <span class="dv">4</span></span>
@@ -675,21 +675,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-7"><a href="#cb2-7"></a><span class="cf">for</span> x <span class="kw">in</span> s:</span>
 <span id="cb2-8"><a href="#cb2-8"></a>    <span class="bu">print</span>(x)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>AAA
+<pre><code>True
 10
-(22, 'BB')
-True</code></pre>
+AAA
+(22, 'BB')</code></pre>
 </div>
 </div>
 <p>باعتبارها مجموعة غير مرتبة، فإنها لا تسجل موقع العنصر أو ترتيب إدراجه. وبالتالي، فإنها لا تقبل الإشارة (<code>xs[i]</code>) أو التقطيع (<code>xs[i:j]</code>) أو أي سلوك يشبه المتسلسلات. لاحظ الخطأ التالي:</p>
-<div id="aac55742" class="cell" data-execution_count="3">
+<div id="11b94c03" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>xs <span class="op">=</span> {<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>}</span>
 <span id="cb4-2"><a href="#cb4-2"></a>xs[<span class="dv">0</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[21], line 2</span>
+Cell <span class="ansi-green-fg">In[3], line 2</span>
 <span class="ansi-green-fg ansi-bold">      1</span> xs <span style="color:rgb(98,98,98)">=</span> {<span style="color:rgb(98,98,98)">10</span>, <span style="color:rgb(98,98,98)">20</span>, <span style="color:rgb(98,98,98)">30</span>}
 <span class="ansi-green-fg">----&gt; 2</span> <span class="ansi-yellow-bg">xs</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">0</span><span class="ansi-yellow-bg">]</span>
 
@@ -703,7 +703,7 @@ Cell <span class="ansi-green-fg">In[21], line 2</span>
 <li>وكذلك تحقق: (الجزئية والشمول والانفاصل).</li>
 </ul>
 <p>وهذه القطعة مثال لجميع هذه العمليات الرياضية:</p>
-<div id="dafe6590" class="cell" data-execution_count="4">
+<div id="9aa93b71" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>set1 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span>
 <span id="cb5-2"><a href="#cb5-2"></a>set2 <span class="op">=</span>          {<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span>
 <span id="cb5-3"><a href="#cb5-3"></a></span>
@@ -792,7 +792,7 @@ Cell <span class="ansi-green-fg">In[21], line 2</span>
 </tbody>
 </table>
 <p>وهذا مثال لاستعمالها:</p>
-<div id="e878d790" class="cell" data-execution_count="5">
+<div id="f93ea5a0" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>set1 <span class="op">=</span> {<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>}</span>
 <span id="cb6-2"><a href="#cb6-2"></a>set2 <span class="op">=</span> {<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>, <span class="st">'D'</span>, <span class="st">'E'</span>}</span>
 <span id="cb6-3"><a href="#cb6-3"></a>set3 <span class="op">=</span> {<span class="st">'سين'</span>, <span class="st">'جيم'</span>, <span class="st">'قاف'</span>}</span>
@@ -805,7 +805,7 @@ Cell <span class="ansi-green-fg">In[21], line 2</span>
 <span id="cb6-10"><a href="#cb6-10"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وهنا بحثٌ سريع جدًا باستعمال جملة التحقق من العضوية (بالتأكيد لا يظهر أثر السرعة في مجموعة صغيرة):</p>
-<div id="6e6b039a" class="cell" data-execution_count="6">
+<div id="f941c1b5" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>languages <span class="op">=</span> {<span class="st">"Arabic"</span>, <span class="st">"English"</span>}</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="cf">if</span> <span class="st">'Python'</span> <span class="kw">not</span> <span class="kw">in</span> languages:</span>
 <span id="cb7-3"><a href="#cb7-3"></a>    <span class="bu">print</span>(<span class="st">'you need to add Python to your languages!'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -814,7 +814,7 @@ Cell <span class="ansi-green-fg">In[21], line 2</span>
 </div>
 </div>
 <p>وتستعمل كذلك لإزالة العناصر المتكررة في أي مجموعة، نحو القطعة التالي. فإننا نحول القائمة إلى مجموعة فرائد فتزول تلك العناصر تلقائيًّا، ثم نعيدها كما كانت:</p>
-<div id="fc889050" class="cell" data-execution_count="7">
+<div id="ce3a24ae" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb9-2"><a href="#cb9-2"></a>unique_numbers <span class="op">=</span> <span class="bu">list</span>(<span class="bu">set</span>(numbers))</span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="bu">print</span>(unique_numbers)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -823,7 +823,7 @@ Cell <span class="ansi-green-fg">In[21], line 2</span>
 </div>
 </div>
 <p>وكذلك من الصف:</p>
-<div id="4a13c200" class="cell" data-execution_count="8">
+<div id="656eefcb" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>t <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
 <span id="cb11-2"><a href="#cb11-2"></a>unique_t <span class="op">=</span> <span class="bu">tuple</span>(<span class="bu">set</span>(t))</span>
 <span id="cb11-3"><a href="#cb11-3"></a><span class="bu">print</span>(unique_t)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -837,7 +837,7 @@ Cell <span class="ansi-green-fg">In[21], line 2</span>
 <p><strong>القاموس</strong> (<a href="https://docs.python.org/3/library/stdtypes.html#dict"><code>dict</code></a>) جمع مرتب من المرقومات الفريدة المشيرة إلى قيمة.</p>
 <p>انظر <a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableMapping">MutableMapping</a> في خريطة الجُمُوع: <a href="../../appendix_collections.html#fig-collections-tree" class="quarto-xref">شكل&nbsp;<span>1</span></a>.</p>
 <p>تنشأ المجموعة الرابطة بالفعل المنشئ <a href="https://docs.python.org/3/library/stdtypes.html#dict"><code>dict()</code></a> ويفضل استعمال القوسين المتعرجين <code>{ }</code> بدلاً منه:</p>
-<div id="0e8a2305" class="cell" data-execution_count="9">
+<div id="8c0b04c0" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>d1 <span class="op">=</span> <span class="bu">dict</span>(key1<span class="op">=</span><span class="st">'value1'</span>, key2<span class="op">=</span><span class="st">'value2'</span>)</span>
 <span id="cb13-2"><a href="#cb13-2"></a>d2 <span class="op">=</span> {<span class="st">'key1'</span>: <span class="st">'value1'</span>, <span class="st">'key2'</span>: <span class="st">'value2'</span>}</span>
 <span id="cb13-3"><a href="#cb13-3"></a><span class="cf">assert</span> d1 <span class="op">==</span> d2</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -869,7 +869,7 @@ Cell <span class="ansi-green-fg">In[21], line 2</span>
 </ul>
 <p>ملاحظة: منذ بايثون 3.7 أصبح القاموس مرتبًا. أي أن الروابط لها ما قبلها ولها ما بعدها بحسب ترتيب إدراجها.</p>
 <p>لاحظ أننا نستعمل مرقومات مختلفة وأيضًا نستعمل قيم مختلفة:</p>
-<div id="a0395e2d" class="cell" data-execution_count="10">
+<div id="6f579531" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>data <span class="op">=</span> {</span>
 <span id="cb14-2"><a href="#cb14-2"></a>    <span class="st">'key1'</span>: <span class="dv">100</span>,</span>
 <span id="cb14-3"><a href="#cb14-3"></a>    <span class="dv">20</span>: <span class="st">'value2'</span>,</span>
@@ -883,7 +883,7 @@ Cell <span class="ansi-green-fg">In[21], line 2</span>
 <span id="cb14-11"><a href="#cb14-11"></a><span class="cf">assert</span> <span class="st">'key1'</span> <span class="kw">not</span> <span class="kw">in</span> data</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ونحصل عليها بالإشارة بمرقوم:</p>
-<div id="18ea511e" class="cell" data-execution_count="11">
+<div id="47064870" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">print</span>(data[<span class="dv">20</span>])</span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="bu">print</span>(data[<span class="st">'c'</span>])</span>
 <span id="cb15-3"><a href="#cb15-3"></a><span class="bu">print</span>(data[(<span class="dv">1</span>, <span class="dv">2</span>)])</span>
@@ -898,12 +898,12 @@ value4</code></pre>
 <section id="إنشاء-قاموس-من-سلسلتين" class="level3">
 <h3 class="anchored" data-anchor-id="إنشاء-قاموس-من-سلسلتين">إنشاء قاموس من سلسلتين</h3>
 <p>ويتحصل القاموس من سلسلتين باستعمال الفعل <a href="https://docs.python.org/3/library/functions.html#zip"><code>zip()</code></a>، كما يلي:</p>
-<div id="fafe4285" class="cell" data-execution_count="12">
+<div id="6820330f" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>students <span class="op">=</span> [<span class="st">'Ahmad'</span>, <span class="st">'Belal'</span>, <span class="st">'Careem'</span>, <span class="st">'David'</span>]</span>
 <span id="cb17-2"><a href="#cb17-2"></a>marks <span class="op">=</span> [<span class="dv">90</span>, <span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">85</span>]</span>
 <span id="cb17-3"><a href="#cb17-3"></a>data <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(students, marks, strict<span class="op">=</span><span class="va">True</span>))</span>
 <span id="cb17-4"><a href="#cb17-4"></a>data</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>{'Ahmad': 90, 'Belal': 80, 'Careem': 75, 'David': 85}</code></pre>
 </div>
 </div>
@@ -917,7 +917,7 @@ value4</code></pre>
 <li>فعل <strong>كل</strong> (<code>all</code>) يتحقق بتحقق جميع العناصر كلها</li>
 </ul>
 <p>فهذه جُمَل التوكيد لجميع الحالات الممكنة لهما:</p>
-<div id="56b0417e" class="cell" data-execution_count="13">
+<div id="303d736e" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="cf">assert</span> <span class="bu">any</span>([<span class="va">True</span>, <span class="va">False</span>]) <span class="op">==</span> <span class="va">True</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="cf">assert</span> <span class="bu">any</span>([<span class="va">True</span>, <span class="va">True</span>]) <span class="op">==</span> <span class="va">True</span></span>
 <span id="cb19-3"><a href="#cb19-3"></a><span class="cf">assert</span> <span class="bu">any</span>([<span class="va">False</span>, <span class="va">False</span>]) <span class="op">==</span> <span class="va">False</span></span>

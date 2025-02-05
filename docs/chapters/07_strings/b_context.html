@@ -399,7 +399,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">باب حفظ واسترجاع البيانات</span></a>
+ <span class="menu-text">باب صياغة البيانات</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -546,7 +546,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/14_cli/a1_ui.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">واجهة المستخدم (GUI)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">الواجهة الرسومية (GUI)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -626,7 +626,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>المؤئر الأول بإصبعك الأيمن: <code>i</code> يبدأ من أول حرف وينتهي عند المنتصف</li>
 <li>المؤئر الثاني بإصبعك الأيسر: <code>j</code> يبدأ من آخر حرف وينتهي عند المنتصف</li>
 </ul>
-<div id="cda1e892" class="cell" data-execution_count="2">
+<div id="474f0c06" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> is_palindrome(word):</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    <span class="co">"""</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="co">    A palindrome word is one that can be read the same way from both ends.</span></span>
@@ -656,7 +656,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-27"><a href="#cb1-27"></a><span class="cf">assert</span> <span class="kw">not</span> is_palindrome(<span class="st">"python"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>بدل الحلقة، وكان لنا أن نكتب باختصار: <code>word == word[::-1]</code> وهي تعني أن النص متناظر إذا كان مساوياً لنفسه بالمقلوب.</p>
-<div id="c3095f81" class="cell" data-execution_count="3">
+<div id="05558ad1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> is_palindrome(word):</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    word <span class="op">=</span> word.lower()</span>
 <span id="cb2-3"><a href="#cb2-3"></a>    word <span class="op">=</span> word.replace(<span class="st">" "</span>, <span class="st">""</span>)</span>
@@ -666,7 +666,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="عد-الكلمات" class="level2">
 <h2 class="anchored" data-anchor-id="عد-الكلمات">عد الكلمات</h2>
 <p>هذا مثال لاستخراج الكلمات (من غير تكرار) من قاموس من العبارات (ثلاثة عبارات). هذه العملية تستعمل كثيرًا في تحليل النصوص إذ نريد أن نعرف جميع الكلمات الواردة في مجموعة من النصوص، ولا نريد الكلمات المعهودة جدًّا (هنا نسميها <code>stop_words</code>)، كما أننا نستعمل <code>.lower()</code> في التعبير الناتج حتى لا يفرق بين الحروف في حالتيها الإنجليزية:</p>
-<div id="68aa112b" class="cell" data-execution_count="4">
+<div id="01413b47" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>stop_words <span class="op">=</span> {<span class="st">'is'</span>, <span class="st">'and'</span>, <span class="st">'the'</span>, <span class="st">'be'</span>, <span class="st">'not'</span>}</span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a>documents <span class="op">=</span> {</span>
@@ -703,7 +703,7 @@ everywhere: 1</code></pre>
 <section id="ترجمة-أفعال" class="level2">
 <h2 class="anchored" data-anchor-id="ترجمة-أفعال">ترجمة أفعال</h2>
 <p>نكتب برنامج يقرأ سطرًا يفعله بعملية حسابية على عوامل محددة. فهو كلغة برمجة بسيطة.</p>
-<div id="7ccdb1b9" class="cell" data-execution_count="5">
+<div id="41071724" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> parse_command(cmd):</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    <span class="co">"""</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="co">    Parse a command and return the result of the operation.</span></span>
@@ -752,7 +752,7 @@ everywhere: 1</code></pre>
 <section id="تلوين-الخارج" class="level2">
 <h2 class="anchored" data-anchor-id="تلوين-الخارج">تلوين الخارج</h2>
 <p>تقبل نافذة الأوامر تغيير لون الطباعة بأحرف تحكُّم معيَّنة تبدأ بالحرف <code>\033</code> وتنتهي بالحرف <code>m</code> على التحو التالي، يمكن استعمالها في ثنايا النص لتغيير لون الحبر، ثم يجب استعمال الحرف الذي يرمز إلى <code>RESET</code> لإعادة اللون إلى الأصل.</p>
-<div id="465b8f7c" class="cell" data-execution_count="6">
+<div id="b7a750b7" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>GREEN <span class="op">=</span> <span class="st">'</span><span class="ch">\033</span><span class="st">[92m'</span>  <span class="co"># ANSI escape code for green text</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>RED <span class="op">=</span> <span class="st">'</span><span class="ch">\033</span><span class="st">[91m'</span>    <span class="co"># ANSI escape code for red text</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a>BLUE <span class="op">=</span> <span class="st">'</span><span class="ch">\033</span><span class="st">[94m'</span>   <span class="co"># ANSI escape code for blue text</span></span>

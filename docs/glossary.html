@@ -403,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">باب حفظ واسترجاع البيانات</span></a>
+ <span class="menu-text">باب صياغة البيانات</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -550,7 +550,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapters/14_cli/a1_ui.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">واجهة المستخدم (GUI)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">الواجهة الرسومية (GUI)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -614,7 +614,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="d793c5d7" class="cell" data-execution_count="2">
+<div id="548a50c0" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>الكود</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, HTML</span>
@@ -648,8 +648,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>Identifier</td>
-<td>مُعرَّف</td>
-<td></td>
+<td>معرِّف</td>
+<td>بالكسر</td>
 </tr>
 <tr class="even">
 <td>Variable</td>
@@ -662,34 +662,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td></td>
 </tr>
 <tr class="even">
+<td>Literal</td>
+<td>حرفي</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Simple Statement</td>
 <td>جملة بسيطة</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Compound Statement</td>
 <td>جملة مركبة</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Expression</td>
 <td>تعبير</td>
 <td>مثل: `x + y`</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Clause</td>
 <td>شطر جملة</td>
 <td>مثل: `if x &gt; y`</td>
 </tr>
-<tr class="even">
-<td>Code Block</td>
-<td>قطعة كود</td>
-<td></td>
-</tr>
 <tr class="odd">
-<td>Cell</td>
-<td>لَبِنَة</td>
-<td>مثل</td>
+<td>Code Block</td>
+<td>قطعة برمجية</td>
+<td></td>
 </tr>
 <tr class="even">
 <td>Operation</td>
@@ -714,7 +714,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>Class</td>
 <td>صنف</td>
-<td></td>
+<td>أو فئة</td>
 </tr>
 <tr class="odd">
 <td>Type</td>
@@ -724,17 +724,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>Container</td>
 <td>حاوية</td>
-<td></td>
+<td>أو حاوي</td>
 </tr>
 <tr class="odd">
 <td>Iterable</td>
-<td>متوالية</td>
-<td>قابل للتكرار (مفعول به)</td>
+<td>مُكرَّر</td>
+<td>بالفتح</td>
 </tr>
 <tr class="even">
 <td>Iterator</td>
 <td>مكرِّر</td>
-<td>فاعل</td>
+<td>بالكسر</td>
 </tr>
 <tr class="odd">
 <td>Reversible</td>
@@ -749,7 +749,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>Sized</td>
 <td>محجَّم</td>
-<td>صفة</td>
+<td>صفة: ذو حجم</td>
 </tr>
 <tr class="even">
 <td>Callable</td>
@@ -758,8 +758,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td>Collection</td>
-<td>مجموعة</td>
-<td></td>
+<td>جمع</td>
+<td>عكس المفرد</td>
 </tr>
 <tr class="even">
 <td>Sequence</td>
@@ -793,7 +793,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>Set</td>
-<td>مجموعة رياضية</td>
+<td>مجموعة</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -852,104 +852,104 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>قيم التعيين للمتغيرات الشكلية</td>
 </tr>
 <tr class="even">
-<td>File</td>
-<td>ملف</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Module</td>
 <td>وحدة</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Package</td>
 <td>حزمة</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Library</td>
 <td>مكتبة</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Framework</td>
 <td>إطار عمل</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Built-in</td>
 <td>مدمج</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>{}</td>
 <td>قوسين معوجين أو قوسين متعرجين</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>[]</td>
 <td>قوسين مربعين</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>()</td>
 <td>قوسين دائريين</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>&lt;&gt;</td>
 <td>قوسين زاويين أو قوسين حادين</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Feedback</td>
 <td>تعقيب</td>
 <td>التعليقات أو الردود التي ترد بعد عرض رأي أو عمل</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Static</td>
 <td>ثابت</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Dynamic</td>
 <td>متغير</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Constant</td>
 <td>ثابت</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Variable</td>
 <td>متغير</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>System Time</td>
 <td>وقت النظام</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Calendar Time</td>
 <td>وقت التقويم</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Epoch</td>
 <td>المرجع الزمني الحاسوبي</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Positional</td>
 <td>مكاني</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Swap</td>
 <td>قَلب</td>
 <td>فعل</td>
+</tr>
+<tr class="odd">
+<td>File</td>
+<td>ملف</td>
+<td></td>
 </tr>
 <tr class="even">
 <td>Path</td>

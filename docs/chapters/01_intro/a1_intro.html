@@ -437,7 +437,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">باب حفظ واسترجاع البيانات</span></a>
+ <span class="menu-text">باب صياغة البيانات</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -584,7 +584,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/14_cli/a1_ui.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">واجهة المستخدم (GUI)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">الواجهة الرسومية (GUI)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -666,7 +666,7 @@ window.Quarto = {
 <section id="القطعة-البرمجية" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="القطعة-البرمجية"><span class="header-section-number">1.1</span> القطعة البرمجية</h2>
 <p>تُنَفَّذُ القطعة بحسب ترتيب جُمَلِها نزولاً من الأعلى.</p>
-<div id="38059fc5" class="cell" data-execution_count="2">
+<div id="e8a0c7b6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>pages <span class="op">=</span> <span class="dv">900</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>speed <span class="op">=</span>  <span class="dv">50</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>finish_time <span class="op">=</span> pages <span class="op">/</span> speed</span>
@@ -873,7 +873,7 @@ async      elif       if         or         yield</code></pre>
 \text{distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
 \]</span></p>
 <p>القطعة:</p>
-<div id="738f4be7" class="cell" data-execution_count="3">
+<div id="c843b332" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> math</span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
 <span id="cb4-3"><a href="#cb4-3"></a>x1, y1 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
@@ -905,7 +905,7 @@ async      elif       if         or         yield</code></pre>
 <p>لتثبيتها نستعمل <code>uv</code> هكذا في سطر الأوامر (النافذة السوداء):</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">uv</span> add pandas</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>ثم نستطيع استعمال المكتبة لقراءة بيانات الطلاب -مثلاً- من ملف CSV:</p>
-<div id="af96f132" class="cell" data-execution_count="4">
+<div id="3a236b31" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
 <span id="cb7-3"><a href="#cb7-3"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../datasets/students.csv'</span>)</span>
@@ -1002,7 +1002,7 @@ async      elif       if         or         yield</code></pre>
 </div>
 </div>
 <p>ثم لعرض ملخصات إحصائية:</p>
-<div id="05c54649" class="cell" data-execution_count="5">
+<div id="4188e225" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df.describe(include<span class="op">=</span>[<span class="st">'number'</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
@@ -1064,7 +1064,7 @@ async      elif       if         or         yield</code></pre>
 </div>
 </div>
 <p>أو تصوير البيانات:</p>
-<div id="29c186ad" class="cell" data-execution_count="6">
+<div id="33fa3181" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>df[<span class="st">'Gender'</span>].value_counts().plot(kind<span class="op">=</span><span class="st">'barh'</span>, color<span class="op">=</span><span class="st">'skyblue'</span>, figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>

@@ -406,7 +406,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">باب حفظ واسترجاع البيانات</span></a>
+ <span class="menu-text">باب صياغة البيانات</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -553,7 +553,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/14_cli/a1_ui.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">واجهة المستخدم (GUI)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">الواجهة الرسومية (GUI)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -654,16 +654,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>أولاً تثبيت المكتبة باستعمال <code>uv</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">uv</span> add geopy</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>ثم نستطيع استيرادها في بايثون:</p>
-<div id="458146aa" class="cell" data-execution_count="1">
+<div id="2c98a4a8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> Nominatim</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ونستعمل الفعل المُنشئ <code>Nominatim</code> الذي يتصل بمزوِّد خدمة خارجية، وهو مزوِّد خدمة جغرافية عالمية تسمى <code>OpenStreetMap</code></p>
-<div id="0ef8d0f9" class="cell" data-execution_count="2">
+<div id="2f215e3a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>geolocator <span class="op">=</span> Nominatim(user_agent<span class="op">=</span><span class="st">"pythonia"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>يطلب منَّا الفعل المنشئ أن نعرِّف بأنفسنا بتعيين <code>user_agent</code>، وهذا بحسب ما ورد في توثيق المكتبة. فنكتب أي اسم يدلُّ على التطبيق الذي نعمل عليه الآن.</p>
 <p>نفترض أننا نريد معرفة إحداثيات مدينة الدمام، وهذا هو عمل الفعل <code>geocode</code>:</p>
-<div id="156362e2" class="cell" data-execution_count="3">
+<div id="a015a974" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>dammam_location <span class="op">=</span> geolocator.geocode(<span class="st">"Dammam, Saudi Arabia"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>قد يبدوا الفعل عاديًّا، لكنه في الواقع يتصل بالخادم المزوِّد ويطلب منه إرجاع إحداثيات المدينة؛ وهي القيمة التي تخرج لنا فنزلها في متغير <code>dammam_location</code>.</p>
@@ -684,16 +684,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>وكذلك لمدينة أخرى مثل البحرين:</p>
-<div id="021151e5" class="cell" data-execution_count="4">
+<div id="68ea917d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>bahrain_location <span class="op">=</span> geolocator.geocode(<span class="st">"Bahrain"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ثم بعد أن حصلنا على المعلومات، نستخرج الإحداثيات من المتغيرات التي حصلنا عليها:</p>
-<div id="0a84f698" class="cell" data-execution_count="5">
+<div id="e4cf5b09" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>dammam_coords <span class="op">=</span> (dammam_location.latitude, dammam_location.longitude)</span>
 <span id="cb6-2"><a href="#cb6-2"></a>bahrain_coords <span class="op">=</span> (bahrain_location.latitude, bahrain_location.longitude)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ثم نحسب المسافة بين المدينتين، باستعمال فعل موجود في وحدة <code>geopy.distance</code>، وهو <code>geodesic</code>:</p>
-<div id="db7b41c7" class="cell" data-execution_count="6">
+<div id="558a0c09" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">from</span> geopy.distance <span class="im">import</span> geodesic</span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
 <span id="cb7-3"><a href="#cb7-3"></a>distance <span class="op">=</span> geodesic(dammam_coords, bahrain_coords)</span>
@@ -791,7 +791,7 @@ Content-Type: application/json
 <p>ونمثل لمزود خدمة معلومات عن القطط (<a href="https://thecatapi.com/">The Cat API</a>)، وقد حصلنا على مفتاح التطبيق (API KEY) من خلال التسجيل في الموقع.</p>
 <p>ولمعرفة الاستفادة من أي مزود خدمة، فإننا ندخل إلى صفحة المطورين، وتسمى (<a href="https://developers.thecatapi.com/">API Documentation</a>). ومنها نعرف أن المسار الذي يجب أن نطلبه هو <code>https://api.thecatapi.com/v1/images/search</code>، وهو يعطينا صورة قطة عشوائية.</p>
 <p>أما المفتاح، فنضعه في الرؤوس (headers) تحت عنوان <code>x-api-key</code> كما يلي:</p>
-<div id="36184dfe" class="cell" data-execution_count="7">
+<div id="53a70a18" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">import</span> httpx</span>
 <span id="cb13-2"><a href="#cb13-2"></a></span>
 <span id="cb13-3"><a href="#cb13-3"></a>response <span class="op">=</span> httpx.get(</span>
@@ -805,12 +805,12 @@ Content-Type: application/json
 </div>
 <p>غالبًا ستظهر لك النتيجة <code>200</code> وهي تعني <code>OK</code> أي أن كل شيء سار على ما يرام.</p>
 <p>وإذا نظرت إلى النصّ الموجود في الرد (<code>response.text</code>) فإنك ستلاحظ أنه نصُّ مقوْلَب بصيغة JSON التي سبق الحديث عنها:</p>
-<div id="a0211caa" class="cell" data-execution_count="8">
+<div id="b33e0063" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">print</span>(<span class="bu">type</span>(response.text))</span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="bu">print</span>(response.text)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'str'&gt;
-[{"id":"b32","url":"https://cdn2.thecatapi.com/images/b32.jpg","width":500,"height":333}]</code></pre>
+[{"id":"MTUyNzY4Mw","url":"https://cdn2.thecatapi.com/images/MTUyNzY4Mw.jpg","width":450,"height":600}]</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="default">
@@ -836,30 +836,30 @@ Content-Type: application/json
 </div>
 </div>
 <p>ولكن هذا النص لا يمكن التعامل معه كما هو، لذلك نستخدم الفعل <code>json()</code> لتحويله إلى قائمة بالمعلومات:</p>
-<div id="650eae23" class="cell" data-execution_count="9">
+<div id="a5055dae" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>data <span class="op">=</span> response.json()</span>
 <span id="cb17-2"><a href="#cb17-2"></a><span class="bu">print</span>(<span class="bu">type</span>(data))</span>
 <span id="cb17-3"><a href="#cb17-3"></a><span class="bu">print</span>(data)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'list'&gt;
-[{'id': 'b32', 'url': 'https://cdn2.thecatapi.com/images/b32.jpg', 'width': 500, 'height': 333}]</code></pre>
+[{'id': 'MTUyNzY4Mw', 'url': 'https://cdn2.thecatapi.com/images/MTUyNzY4Mw.jpg', 'width': 450, 'height': 600}]</code></pre>
 </div>
 </div>
 <p>الآن أصبح في هيكل بيانات يمكن التعامل معه. فنريد استخراج رابط الصورة منه:</p>
-<div id="daed2b28" class="cell" data-execution_count="10">
+<div id="dd22f8d4" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>image_url <span class="op">=</span> data[<span class="dv">0</span>][<span class="st">"url"</span>]</span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="bu">print</span>(image_url)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>https://cdn2.thecatapi.com/images/b32.jpg</code></pre>
+<pre><code>https://cdn2.thecatapi.com/images/MTUyNzY4Mw.jpg</code></pre>
 </div>
 </div>
 <p>لعرض الصورة في صفحة الكتاب نستخدم المكتبة <code>IPython</code> على النحو التالي:</p>
-<div id="5a6c93cd" class="cell" data-execution_count="11">
+<div id="adc025ce" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Image, display</span>
 <span id="cb21-2"><a href="#cb21-2"></a></span>
 <span id="cb21-3"><a href="#cb21-3"></a>display(Image(url<span class="op">=</span>image_url))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<img src="https://cdn2.thecatapi.com/images/b32.jpg">
+<img src="https://cdn2.thecatapi.com/images/MTUyNzY4Mw.jpg">
 </div>
 </div>
 <p>وهكذا نكون قد حصلنا على صورة قطة عشوائية.</p>
@@ -879,7 +879,7 @@ Content-Type: application/json
 <li><code>appid={API key}</code> هو مفتاح التطبيق الذي يسمح للطلب بالوصول إلى الخدمة</li>
 </ul>
 <p>ونحن نكتبها في بايثون مع مكتبة <code>httpx</code> على النحو التالي:</p>
-<div id="5660f3e3" class="cell" data-execution_count="12">
+<div id="9979364c" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="im">import</span> httpx</span>
 <span id="cb23-2"><a href="#cb23-2"></a></span>
 <span id="cb23-3"><a href="#cb23-3"></a>lat <span class="op">=</span> <span class="fl">24.7136</span></span>

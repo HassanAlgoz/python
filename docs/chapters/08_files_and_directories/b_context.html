@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/a1_serialization.html">باب حفظ واسترجاع البيانات</a></li><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/b_context.html">تطبيقات</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/a1_serialization.html">باب صياغة البيانات</a></li><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/b_context.html">تطبيقات</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -399,7 +399,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">باب حفظ واسترجاع البيانات</span></a>
+ <span class="menu-text">باب صياغة البيانات</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -546,7 +546,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/14_cli/a1_ui.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">واجهة المستخدم (GUI)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">الواجهة الرسومية (GUI)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -597,7 +597,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/a1_serialization.html">باب حفظ واسترجاع البيانات</a></li><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/b_context.html">تطبيقات</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/a1_serialization.html">باب صياغة البيانات</a></li><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/b_context.html">تطبيقات</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">تطبيقات</h1>
 </div>
@@ -625,14 +625,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>الثالث يحوي كلمات سلبية</li>
 </ol>
 <p>نريد تصنيف التغريدات بناءً على عدد الكلمات الإيجابية والسلبية فيها.</p>
-<div id="f90f1162" class="cell" data-execution_count="2">
+<div id="064d4342" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a>data_dir <span class="op">=</span> Path(<span class="st">'../../datasets/tweets'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>بعد النظر في شكل الملفات. يتبين لنا أن السطر الواحد يحتوي على “شيء” واحد. وبالتالي سنقسم البيانات على كل سطر.</p>
 <p>ونلاحظ أيضًا وجود أسطر خاوية، يجب التخلص منها.</p>
-<div id="dbad6c6a" class="cell" data-execution_count="3">
+<div id="a3190b33" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> read_lines(file_path: Path) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">str</span>]:</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    <span class="co">"""skips empty lines and converts to lowercase"""</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>    result <span class="op">=</span> []</span>
@@ -645,12 +645,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-10"><a href="#cb2-10"></a>    <span class="cf">return</span> result</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>نستدعي الفعل لقراءة الملفات الثلاث:</p>
-<div id="cc5ee910" class="cell" data-execution_count="4">
+<div id="88e23d93" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>tweets <span class="op">=</span> read_lines(data_dir <span class="op">/</span> <span class="st">'tweets.txt'</span>)</span>
 <span id="cb3-2"><a href="#cb3-2"></a>positive_words <span class="op">=</span> read_lines(data_dir <span class="op">/</span> <span class="st">'words_positive.txt'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3"></a>negative_words <span class="op">=</span> read_lines(data_dir <span class="op">/</span> <span class="st">'words_negative.txt'</span>) </span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="55c03af6" class="cell" data-execution_count="5">
+<div id="8dc26164" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">for</span> i, tweet <span class="kw">in</span> <span class="bu">enumerate</span>(tweets):</span>
 <span id="cb4-2"><a href="#cb4-2"></a>    <span class="bu">print</span>(i, tweet)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -665,7 +665,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 8 قضيت أمسية متعبة مع أصدقائي المزعجين! تشاجرنا كثيراً وتذكرنا أسوأ الذكريات! أشعر بالحزن والضيق من وجودهم في حياتي!</code></pre>
 </div>
 </div>
-<div id="bffb49b9" class="cell" data-execution_count="6">
+<div id="a2b8115a" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">for</span> p <span class="kw">in</span> positive_words:</span>
 <span id="cb6-2"><a href="#cb6-2"></a>    <span class="bu">print</span>(p)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -699,7 +699,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 سعيد</code></pre>
 </div>
 </div>
-<div id="13bcf6da" class="cell" data-execution_count="7">
+<div id="850a80d0" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="cf">for</span> n <span class="kw">in</span> negative_words:</span>
 <span id="cb8-2"><a href="#cb8-2"></a>    <span class="bu">print</span>(n)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -731,7 +731,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>الآن نقوم بتصنيف التغريدات:</p>
-<div id="6d24dd3e" class="cell" data-execution_count="8">
+<div id="128f7c12" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">def</span> classify(text: <span class="bu">str</span>) <span class="op">-&gt;</span> (<span class="bu">int</span>, <span class="bu">int</span>):</span>
 <span id="cb10-2"><a href="#cb10-2"></a>    <span class="co">"""Returns the number of positive and negative words in the text"""</span></span>
 <span id="cb10-3"><a href="#cb10-3"></a>    </span>
@@ -753,7 +753,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-19"><a href="#cb10-19"></a><span class="cf">assert</span> classify(<span class="st">'اذهب إلى الدكان'</span>) <span class="op">==</span> (<span class="dv">0</span>, <span class="dv">0</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>نستدعي الفعل على التغريدات، ونفرز النتائج في ثلاثة قوائم:</p>
-<div id="2e278ff8" class="cell" data-execution_count="9">
+<div id="6b151b69" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>positive_tweets <span class="op">=</span> []</span>
 <span id="cb11-2"><a href="#cb11-2"></a>negative_tweets <span class="op">=</span> []</span>
 <span id="cb11-3"><a href="#cb11-3"></a>neutral_tweets <span class="op">=</span> []</span>
@@ -780,7 +780,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>نعرض التغريدات بحسب التصنيف مرتبة بقوة التصنيف من الأعلى إلى الأسفل:</p>
-<div id="614fa6a8" class="cell" data-execution_count="10">
+<div id="09025319" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="bu">print</span>(<span class="st">'positive_tweets:'</span>)</span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="cf">for</span> tweet, score <span class="kw">in</span> <span class="bu">sorted</span>(positive_tweets, key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>], reverse<span class="op">=</span><span class="va">True</span>):</span>
 <span id="cb13-3"><a href="#cb13-3"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>score<span class="sc">:+}</span><span class="ss"> </span><span class="sc">{</span>tweet<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -793,7 +793,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 +4 أشعر بامتنان عميق للأشخاص الرائعين في حياتي! كل يوم معهم هو هدية جميلة</code></pre>
 </div>
 </div>
-<div id="6a0bb799" class="cell" data-execution_count="11">
+<div id="aceb5ba7" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">print</span>(<span class="st">'negative_tweets:'</span>)</span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="cf">for</span> tweet, score <span class="kw">in</span> <span class="bu">sorted</span>(negative_tweets, key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>]):</span>
 <span id="cb15-3"><a href="#cb15-3"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>score<span class="sc">:+}</span><span class="ss"> </span><span class="sc">{</span>tweet<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -805,7 +805,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 -4 تعذبت اليوم برحلة مزعجة في طريقي، رأيت مناظر مقرفة من حولي وأنا أتحمل ضجيج الطبيعة المزعجة</code></pre>
 </div>
 </div>
-<div id="b8709795" class="cell" data-execution_count="12">
+<div id="25240f2d" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="bu">print</span>(<span class="st">'neutral_tweets:'</span>)</span>
 <span id="cb17-2"><a href="#cb17-2"></a><span class="cf">for</span> tweet, score <span class="kw">in</span> neutral_tweets:</span>
 <span id="cb17-3"><a href="#cb17-3"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>score<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>tweet<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>

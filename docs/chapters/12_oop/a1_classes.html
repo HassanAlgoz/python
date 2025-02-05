@@ -403,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">باب حفظ واسترجاع البيانات</span></a>
+ <span class="menu-text">باب صياغة البيانات</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -550,7 +550,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/14_cli/a1_ui.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">واجهة المستخدم (GUI)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">الواجهة الرسومية (GUI)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -641,7 +641,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>يُعرَّف النوع بالكلمة <code>class</code> ويُبتدأُ غالبًا بتعريف فعل الإنشاء <a href="https://docs.python.org/3/reference/datamodel.html#object.__init__"><code>__init__</code></a> ليتم تعيين الصفات فيه بالإسناد للاسم <code>self</code> الذي يشير إلى الشيء المعين الذي يتم إنشاؤه الآن.</p>
 <p>أما تعريف الأفعال مثل <code>def move</code> فبزيادة المعمول <code>self</code> (نفس) في الابتداء.</p>
 <p>تأمل المثال التالي:</p>
-<div id="75f88752" class="cell" data-execution_count="1">
+<div id="69246954" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb1-3"><a href="#cb1-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
@@ -655,7 +655,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="إنشاء-المعينات" class="level3">
 <h3 class="anchored" data-anchor-id="إنشاء-المعينات">إنشاء المعينات</h3>
 <p>والآن نستطيع إنشاء معيَّنات من هذا النوع ونمرر القيم <code>x, y</code> بحسب ما هو موجود في الفعل المخصص للإنشاء: <code>__init__</code> على النحو التالي:</p>
-<div id="4f5213a2" class="cell" data-execution_count="2">
+<div id="36822675" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>p1 <span class="op">=</span> Point(<span class="dv">3</span>, <span class="dv">4</span>)</span>
 <span id="cb2-2"><a href="#cb2-2"></a>p2 <span class="op">=</span> Point(<span class="dv">7</span>, <span class="dv">1</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -663,7 +663,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="الإشارة-إلى-الصفات-والأفعال" class="level3">
 <h3 class="anchored" data-anchor-id="الإشارة-إلى-الصفات-والأفعال">الإشارة إلى الصفات والأفعال</h3>
 <p>نستعمل حرف النقطة <code>.</code> بعد اسم المعيَّن للإشارة لصفته أو فعله هو، نحو: <code>p1.x</code>:</p>
-<div id="2e4722e7" class="cell" data-execution_count="3">
+<div id="753d8cfe" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>x_diff <span class="op">=</span> <span class="bu">abs</span>(p1.x <span class="op">-</span> p2.x)</span>
 <span id="cb3-2"><a href="#cb3-2"></a>y_diff <span class="op">=</span> <span class="bu">abs</span>(p1.y <span class="op">-</span> p2.y)</span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="bu">print</span>(<span class="ss">f'X difference is </span><span class="sc">{</span>x_diff<span class="sc">}</span><span class="ss"> and Y difference is </span><span class="sc">{</span>y_diff<span class="sc">}</span><span class="ss">.'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -672,7 +672,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>وهذا مثال لطلب الفعل: <code>p1.move()</code></p>
-<div id="4ddaf2b4" class="cell" data-execution_count="4">
+<div id="91b8898c" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>p1.move(<span class="dv">4</span>, <span class="dv">4</span>)</span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(p1.x, p1.y)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -683,14 +683,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="التمثيل" class="level3">
 <h3 class="anchored" data-anchor-id="التمثيل">التمثيل</h3>
 <p>لو أردنا طباعة النقطة، كيف تظهر؟</p>
-<div id="c5261aaf" class="cell" data-execution_count="5">
+<div id="1bb23be1" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">print</span>(p1)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;__main__.Point object at 0x7c45f47bf650&gt;</code></pre>
+<pre><code>&lt;__main__.Point object at 0x720550b92240&gt;</code></pre>
 </div>
 </div>
 <p>لتخصيص طريقة عرض الشيء، بحيث لو طبعناه أو ذكرناه في آخر السطر يظهر البشكل الذي نريده، يمكن تغيير الفعل المخصص <a href="https://docs.python.org/3/reference/datamodel.html#object.__repr__"><code>__repr__</code></a> أي: التمثيل .. هكذا:</p>
-<div id="41f981fb" class="cell" data-execution_count="6">
+<div id="02c2fa68" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb9-2"><a href="#cb9-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb9-3"><a href="#cb9-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
@@ -704,7 +704,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-11"><a href="#cb9-11"></a>        <span class="cf">return</span> <span class="ss">f"Point(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>والآن إن عرفنا نقطة جديدة، ووضعناها على السطر لوحدها ، ستظهر لنا الإحداثيات، لا عنوانها الذاكري:</p>
-<div id="38ac56f6" class="cell" data-execution_count="7">
+<div id="a9aa2d2e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>p <span class="op">=</span> Point(<span class="dv">3</span>, <span class="dv">4</span>)</span>
 <span id="cb10-2"><a href="#cb10-2"></a>p.move(<span class="dv">7</span>, <span class="dv">6</span>)</span>
 <span id="cb10-3"><a href="#cb10-3"></a>p</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -716,7 +716,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="الفعل-الثابت" class="level3">
 <h3 class="anchored" data-anchor-id="الفعل-الثابت">الفعل الثابت</h3>
 <p><strong>الفعل الثابت</strong> هو ما يُسنَدُ للنوع نفسه لا للأعيان. ويتم تثبيت الفعل بعلامة <strong>المزيِّن</strong> <code>@staticmethod</code>. لاحظ عدم وجود <code>self</code> في الفعل الجديد <code>distance</code> لأنه ثابت:</p>
-<div id="afde4485" class="cell" data-execution_count="8">
+<div id="6199ab67" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb12-2"><a href="#cb12-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb12-3"><a href="#cb12-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
@@ -734,7 +734,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-15"><a href="#cb12-15"></a>        <span class="cf">return</span> ((p1.x <span class="op">-</span> p2.x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (p1.y <span class="op">-</span> p2.y)<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span><span class="fl">0.5</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ويتم استدعاؤه بذكر اسم النوع والنقطة <code>.</code>:</p>
-<div id="cdfe505f" class="cell" data-execution_count="9">
+<div id="307a9072" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>a <span class="op">=</span> Point(<span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb13-2"><a href="#cb13-2"></a>b <span class="op">=</span> Point(<span class="dv">1</span>, <span class="dv">0</span>)</span>
 <span id="cb13-3"><a href="#cb13-3"></a></span>
@@ -747,7 +747,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="المتغير-الثابت" class="level3">
 <h3 class="anchored" data-anchor-id="المتغير-الثابت">المتغير الثابت</h3>
 <p>كذلك يُجعل المتغير من النوع الثابت بتعيينه بمحاذاة غيره من الأفعال نحو ما فعلنا هنا بالمتغير <code>distance_type</code>. ولاحظ استعماله في الفعل <code>distance</code> في جملة <code>if-else</code> من غير استعمال <code>self</code> لأننا لا نشير إلى معيَّن:</p>
-<div id="29440efd" class="cell" data-execution_count="10">
+<div id="75bedd94" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb15-2"><a href="#cb15-2"></a>    distance_type <span class="op">=</span> <span class="st">'euclidean'</span></span>
 <span id="cb15-3"><a href="#cb15-3"></a></span>
@@ -777,7 +777,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>في المثال التالي لا نريد للمستفيد أن يعدِّل على الرصيد <code>balance</code> إلا عن طريق الفعل <code>deposit</code> الذي يضمن أن الزيادة تكون موجبة.</p>
 <p>ولاحظ أن استعمال <code>__balance</code> عرفٌ بين المبرمجين في بايثون لنقول أن الصفة مخفيَّة عن المستفيد، وأنه يجب أن لا يغيرها مباشرةً.</p>
 <p>أما المزيِّن <code>@property</code> في الفعل <code>balance</code> فإنه يرجع بقيمة الصفة لا بالصفة نفسها. وذلك ليمنع التعديل عليها.</p>
-<div id="8ddadae1" class="cell" data-execution_count="11">
+<div id="e2005d88" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">class</span> Account:</span>
 <span id="cb16-2"><a href="#cb16-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, balance):</span>
 <span id="cb16-3"><a href="#cb16-3"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
@@ -793,14 +793,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-13"><a href="#cb16-13"></a>    <span class="kw">def</span> balance(<span class="va">self</span>):</span>
 <span id="cb16-14"><a href="#cb16-14"></a>        <span class="cf">return</span> <span class="va">self</span>.__balance</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4a99e242" class="cell" data-execution_count="12">
+<div id="4aff4602" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>a1 <span class="op">=</span> Account(<span class="st">'Adam'</span>, <span class="dv">100</span>)</span>
 <span id="cb17-2"><a href="#cb17-2"></a>a1.balance</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>100</code></pre>
 </div>
 </div>
-<div id="48b4a3b0" class="cell" data-execution_count="13">
+<div id="417b8674" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>a1.deposit(<span class="dv">100</span>)</span>
 <span id="cb19-2"><a href="#cb19-2"></a>a1.balance</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -811,7 +811,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>ولو حاولت التغيير مباشرة فلن تستطيع (من غير الشرطتين السفليتين):</p>
-<div id="1c134573" class="cell" data-execution_count="14">
+<div id="242dc3e6" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>a1.balance <span class="op">=</span> <span class="dv">1000</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -861,7 +861,7 @@ Cell <span class="ansi-green-fg">In[14], line 1</span>
 </div>
 </div>
 <p>ويستعمل الإجراء <code>super()</code> لإعمال إنشاء المُستمدِّ منه في <code>__init__</code>. وتذكر أن علامة النجمة <code>*</code> في وصف متغيرات الإجراء (<code>*sides</code>) تجعل عدد عناصره لا محدودة.</p>
-<div id="049d56b6" class="cell" data-execution_count="15">
+<div id="2de4fd1a" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">class</span> Shape:</span>
 <span id="cb23-2"><a href="#cb23-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="op">*</span>sides):</span>
 <span id="cb23-3"><a href="#cb23-3"></a>        <span class="va">self</span>.sides <span class="op">=</span> sides</span>
@@ -913,7 +913,7 @@ Cell <span class="ansi-green-fg">In[14], line 1</span>
 <span id="cb23-49"><a href="#cb23-49"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(side, side)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>نعين مثلثًا ونطبع على الشاشة:</p>
-<div id="075a7099" class="cell" data-execution_count="16">
+<div id="fb1c368b" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>x <span class="op">=</span> Triangle(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>)</span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="bu">print</span>(<span class="st">"Triangle"</span>)</span>
 <span id="cb24-3"><a href="#cb24-3"></a><span class="bu">print</span>(<span class="st">"Perimeter:"</span>, x.perimeter)</span>
@@ -927,7 +927,7 @@ Sides: a=10, b=10, c=10</code></pre>
 </div>
 </div>
 <p>نعين مستطيلًا ونطبع على الشاشة:</p>
-<div id="e656c5ec" class="cell" data-execution_count="17">
+<div id="97d8ed5b" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>y <span class="op">=</span> Rectangle(<span class="dv">10</span>, <span class="dv">20</span>)</span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="bu">print</span>(<span class="st">"Rectangle"</span>)</span>
 <span id="cb26-3"><a href="#cb26-3"></a><span class="bu">print</span>(<span class="st">"Perimeter:"</span>, y.perimeter)</span>
@@ -963,7 +963,7 @@ Sides: width=10, height=20</code></pre>
 </ol>
 <p>وكذلك المتسلسلة (<code>Sequence</code>) تقبل العكس، وفعلها المخصص هو: <code>__reversed__</code>؛ فبهذا الاعتبار هي من النوع <strong>القابل للعكس</strong> (<code>Reversible</code>).</p>
 <p>فمثلاً: أيُّ شيءٍ يعرِّفُ الفعل <code>len(sized)__ -&gt; int__</code> فإنه ينتمي لنوع <strong>ذوات الحجم</strong> (<code>Sized</code>)، ونمثل لذلك بنوع المتجه في فضاء ثنائي الأبعاد حيث يتكون من عنصرين:</p>
-<div id="28009b88" class="cell" data-execution_count="18">
+<div id="4a4a1a21" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">class</span> Vector:</span>
 <span id="cb28-2"><a href="#cb28-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb28-3"><a href="#cb28-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
@@ -1033,7 +1033,7 @@ Sides: width=10, height=20</code></pre>
 </table>
 <p>(وانظر <a href="https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types">توثيق بايثون لمحاكاة العمليات الرقمية</a>).</p>
 <p>فنستطيع تعريف نوع متجَّه على النحو التالي.</p>
-<div id="664f4896" class="cell" data-execution_count="19">
+<div id="6b5da1a7" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="kw">class</span> Vector:</span>
 <span id="cb34-2"><a href="#cb34-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb34-3"><a href="#cb34-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
@@ -1052,7 +1052,7 @@ Sides: width=10, height=20</code></pre>
 <span id="cb34-16"><a href="#cb34-16"></a>        <span class="cf">return</span> Vector(<span class="va">self</span>.x <span class="op">*</span> other.x, <span class="va">self</span>.y <span class="op">*</span> other.y)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>والآن يمكننا إنشاء متجهين وفعل العمليات المخصصة:</p>
-<div id="09ac690e" class="cell" data-execution_count="20">
+<div id="594954fc" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>v1 <span class="op">=</span> Vector(<span class="dv">1</span>, <span class="dv">2</span>)</span>
 <span id="cb35-2"><a href="#cb35-2"></a>v2 <span class="op">=</span> Vector(<span class="dv">3</span>, <span class="dv">4</span>)</span>
 <span id="cb35-3"><a href="#cb35-3"></a></span>
@@ -1061,20 +1061,20 @@ Sides: width=10, height=20</code></pre>
 <pre><code>Vector(4, 6)</code></pre>
 </div>
 </div>
-<div id="f338a4e0" class="cell" data-execution_count="21">
+<div id="acd4ef2e" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>v1 <span class="op">-</span> v2</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>Vector(-2, -2)</code></pre>
 </div>
 </div>
-<div id="4b36cddf" class="cell" data-execution_count="22">
+<div id="fd8c8cbf" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>v1 <span class="op">*</span> v2</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>Vector(3, 8)</code></pre>
 </div>
 </div>
 <p>ماذا لو أردنا إضافة عمليات بين المتجه والعدد، نحو: <code>v1 + 3</code>? يتطلب ذلك إضافة شرط لفحص النوع، وهو <code>isinstance</code> كالتالي:</p>
-<div id="fd076669" class="cell" data-execution_count="23">
+<div id="20c56ad8" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="kw">class</span> Vector:</span>
 <span id="cb41-2"><a href="#cb41-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb41-3"><a href="#cb41-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
@@ -1102,7 +1102,7 @@ Sides: width=10, height=20</code></pre>
 <span id="cb41-25"><a href="#cb41-25"></a>            <span class="cf">return</span> Vector(<span class="va">self</span>.x <span class="op">*</span> other, <span class="va">self</span>.y <span class="op">*</span> other)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>والآن يمكننا فعل العمليات المخصصة:</p>
-<div id="a2968045" class="cell" data-execution_count="24">
+<div id="372add8c" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>v1 <span class="op">=</span> Vector(<span class="dv">1</span>, <span class="dv">2</span>)</span>
 <span id="cb42-2"><a href="#cb42-2"></a>v1 <span class="op">+</span> <span class="dv">3</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
@@ -1110,7 +1110,7 @@ Sides: width=10, height=20</code></pre>
 </div>
 </div>
 <p>لكن لاحظ أنك لو وضعت العدد أولاً فسيظهر خطأ:</p>
-<div id="4d08ff5e" class="cell" data-execution_count="25">
+<div id="79b75c84" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="dv">3</span> <span class="op">+</span> v1</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -1147,7 +1147,7 @@ Cell <span class="ansi-green-fg">In[25], line 1</span>
 </tbody>
 </table>
 <p>نعدل الفعل بحيث نضيف إليه المقابل:</p>
-<div id="9afbb8d2" class="cell" data-execution_count="26">
+<div id="58daa220" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="kw">class</span> Vector:</span>
 <span id="cb45-2"><a href="#cb45-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb45-3"><a href="#cb45-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
@@ -1166,14 +1166,14 @@ Cell <span class="ansi-green-fg">In[25], line 1</span>
 <span id="cb45-16"><a href="#cb45-16"></a>        <span class="cf">return</span> <span class="va">self</span> <span class="op">+</span> other</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>والآن كلاهما يعمل بشكل صحيح:</p>
-<div id="56b13093" class="cell" data-execution_count="27">
+<div id="b840aa8b" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>v1 <span class="op">=</span> Vector(<span class="dv">1</span>, <span class="dv">2</span>)</span>
 <span id="cb46-2"><a href="#cb46-2"></a><span class="dv">3</span> <span class="op">+</span> v1</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>Vector(4, 5)</code></pre>
 </div>
 </div>
-<div id="18994998" class="cell" data-execution_count="28">
+<div id="12a7c386" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>v1 <span class="op">+</span> <span class="dv">3</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>Vector(4, 5)</code></pre>
