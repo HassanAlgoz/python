@@ -177,18 +177,22 @@ Content-Type: application/json
 
 ## التخاطب مع الخدمات بلغة الشبكة
 
-ونمثل لمزود خدمة معلومات عن القطط ([The Cat API](https://thecatapi.com/))، وقد حصلنا على مفتاح التطبيق (API KEY) من خلال التسجيل في الموقع.
+يجب علينا أولاً تثبيت مكتبة [`httpx`](https://www.python-httpx.org/) باستعمال `uv`:
 
-توجد في بايثون في المكتبة الأساسية وحدة `requests`.
+```bash
+uv add httpx
+```
+
+ونمثل لمزود خدمة معلومات عن القطط ([The Cat API](https://thecatapi.com/))، وقد حصلنا على مفتاح التطبيق (API KEY) من خلال التسجيل في الموقع.
 
 ولمعرفة الاستفادة من أي مزود خدمة، فإننا ندخل إلى صفحة المطورين، وتسمى ([API Documentation](https://developers.thecatapi.com/)). ومنها نعرف أن المسار الذي يجب أن نطلبه هو `https://api.thecatapi.com/v1/images/search`، وهو يعطينا صورة قطة عشوائية.
 
 أما المفتاح، فنضعه في الرؤوس (headers) تحت عنوان `x-api-key` كما يلي:
 
 ```{python}
-import requests
+import httpx
 
-response = requests.get(
+response = httpx.get(
     url="https://api.thecatapi.com/v1/images/search",
     headers={"x-api-key": "live_9Cj8P0h75D5h2D7Y2H8MYEuuTmTXjT412xNlbVBouHxn2sEnAjr1dr4JMfIn4Mr4"}
 )
@@ -265,25 +269,15 @@ https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={par
 - `exclude={part}` هو الجزء الذي نريد إهماله من النتائج (سنتركه فارغًا)
 - `appid={API key}` هو مفتاح التطبيق الذي يسمح للطلب بالوصول إلى الخدمة
 
-ونحن نكتبها في بايثون مع مكتبة `requests` على النحو التالي:
+ونحن نكتبها في بايثون مع مكتبة `httpx` على النحو التالي:
 
 ```{python}
-from geopy.geocoders import Nominatim
+import httpx
 
-# Get Riyadh coordinates using GeoPy
-geolocator = Nominatim(user_agent="pythonia")
-riyadh_location = geolocator.geocode("Riyadh, Saudi Arabia")
-lat, lon = riyadh_location.latitude, riyadh_location.longitude
-print(f"Riyadh coordinates: {lat}, {lon}")
-```
+lat = 24.7136
+lon = 46.6753
 
-
-```{python}
-import requests
-
-# Create request object first
-request = requests.Request(
-    'GET',
+request = httpx.get(
     url="https://api.openweathermap.org/data/3.0/onecall",
     params={
         "lat": round(lat, 4),
@@ -292,18 +286,9 @@ request = requests.Request(
         "appid": "4a5417dd3a781b7f64f05178ed423a23"
     }
 )
-
-# Print the prepared request
-prepared_request = request.prepare()
-print(f"Request URL: {prepared_request.url}")
-print(f"Request method: {prepared_request.method}")
-print(f"Request headers: {prepared_request.headers}")
-
-# Send the request
-session = requests.Session()
-response = session.send(prepared_request)
-print(f"Response: {response}")
 ```
+
+لاحظ تحديد الرابط `url` والمعاملات `params` التي ستوضع في الرابط نفسه.
 
 ### انطلق
 
