@@ -694,7 +694,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>الدمج: <code>s1 + s2</code></li>
 <li>التكرار: <code>s * n</code></li>
 </ul>
-<p>أما تخصيص حرف <code>+</code> للدمج (لا للجمع) ، وحرف <code>*</code> للتكرار (لا للضرب)؛ فسيأتي معنا -إن شاء الله- في فصل تعريف الأفعال المخصوصة في <a href="../10_oop/a1_classes.qmd">باب الأنواع</a>.</p>
+<p>أما تخصيص حرف <code>+</code> للدمج (لا للجمع) ، وحرف <code>*</code> للتكرار (لا للضرب)؛ فسيأتي معنا -إن شاء الله- في فصل تعريف الأفعال المخصوصة في <a href="../../chapters/12_oop/a1_classes.html">باب الأنواع</a>.</p>
 <p>والأنواع على قسمين من حيث قبول التغير بعد الإنشاء:</p>
 <ul>
 <li><strong>متغير</strong> (Mutable): يعني قبوله الإضافة والحذف والتعديل على عناصرها.</li>
@@ -707,7 +707,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>تنشأ <strong>القائمة</strong> بوضع العناصر بين القوسين المربعين <code>[]</code> أو باستعمال الفعل المنشئ <a href="https://docs.python.org/3/library/stdtypes.html#list"><code>list()</code></a>، وهي تسلسل متغير.</li>
 <li>ينشأ <strong>الصف</strong> بوضع العناصر بين القوسين المنحنيين <code>()</code> أو باستعمال الفعل المنشئ <a href="https://docs.python.org/3/library/stdtypes.html#tuple"><code>tuple()</code></a>، وهو تسلسل جامد.</li>
 </ul>
-<div id="2afb2a26" class="cell" data-execution_count="1">
+<div id="2afb2a26" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>s <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>) <span class="op">+</span> (<span class="dv">40</span>, <span class="dv">50</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a>s <span class="op">=</span> s <span class="op">*</span> <span class="dv">2</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="bu">print</span>(s)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -716,7 +716,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>ويقبل إنشاء مجموعة من العناصر مختلفة النوع، بما في ذلك القائمة والصف كعنصر:</p>
-<div id="7bb64ced" class="cell" data-execution_count="2">
+<div id="7bb64ced" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>s <span class="op">=</span> (<span class="dv">10</span>, <span class="st">'A'</span>, <span class="fl">2.0</span>, <span class="va">True</span>, [<span class="st">'B'</span>, <span class="dv">30</span>])</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="bu">print</span>(s)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -724,7 +724,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>نستعرض هنا العضوية والعد والتكرار</p>
-<div id="d76c730e" class="cell" data-execution_count="3">
+<div id="d76c730e" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>s <span class="op">=</span> [<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>]</span>
 <span id="cb5-2"><a href="#cb5-2"></a></span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="cf">assert</span> <span class="dv">100</span> <span class="kw">in</span> s</span>
@@ -743,7 +743,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="الإشارة" class="level3">
 <h3 class="anchored" data-anchor-id="الإشارة">الإشارة</h3>
 <p>تستعمل الإشارة الموضعية لقراءة عنصر من التسلسل. ويجب أن يكون المؤشر رقمًا صحيحًا لا يتجاوز نطاق التسلسل على النحو التالي:</p>
-<div id="08fdb05c" class="cell" data-execution_count="4">
+<div id="08fdb05c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>s <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="cf">assert</span> s[<span class="dv">0</span>] <span class="op">==</span> <span class="dv">10</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="cf">assert</span> s[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> <span class="dv">50</span></span>
@@ -755,7 +755,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  +----+----+----+----+----+
 -5   -4   -3   -2   -1</code></pre>
 <p>شكل الإشارة بالقطعة على نحو: <code>s[start : end : step]</code>. والقيم الابتدائية عند الإغفال هي: <code>s[0:len(s):1]</code>.</p>
-<div id="35fde2aa" class="cell" data-execution_count="5">
+<div id="35fde2aa" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>s <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="cf">assert</span> s[<span class="dv">1</span>:<span class="dv">3</span>] <span class="op">==</span> [<span class="dv">20</span>, <span class="dv">30</span>]</span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="cf">assert</span> s[::<span class="dv">2</span>] <span class="op">==</span> [<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">50</span>]</span>
@@ -765,7 +765,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>لاحظت استعمال الفعل المنشئ <code>slice()</code> في الإشارة بالقطعة، وقد جعلت بايثون علامة <code>:</code> بديلاً عنه.</p>
 <p>وجاز للعنصر الواحد أن يكون مجموعة؛ ومثاله المصفوفة (صفٌّ من صفوف):</p>
-<div id="546337f4" class="cell" data-execution_count="6">
+<div id="546337f4" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>matrix <span class="op">=</span> (</span>
 <span id="cb10-2"><a href="#cb10-2"></a>    (<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>),</span>
 <span id="cb10-3"><a href="#cb10-3"></a>    (<span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>),</span>
@@ -798,7 +798,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  +----+----+----+
 -3   -2   -1</code></pre>
 <p>عناصر نصوص:</p>
-<div id="490d33c5" class="cell" data-execution_count="7">
+<div id="490d33c5" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>ss <span class="op">=</span> [<span class="st">"Apple"</span>, <span class="st">"Banana"</span>, <span class="st">"Orange"</span>, <span class="st">"Lemon"</span>]</span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="cf">assert</span> ss[<span class="dv">1</span>] <span class="op">==</span> <span class="st">"Banana"</span></span>
 <span id="cb15-3"><a href="#cb15-3"></a><span class="cf">assert</span> ss[<span class="op">-</span><span class="dv">1</span>][<span class="dv">0</span>] <span class="op">==</span> <span class="st">"L"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -818,12 +818,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="البحث" class="level3">
 <h3 class="anchored" data-anchor-id="البحث">البحث</h3>
-<div id="7a7f4bfa" class="cell" data-execution_count="8">
+<div id="7a7f4bfa" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>s <span class="op">=</span> (<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'A'</span>)</span>
 <span id="cb18-2"><a href="#cb18-2"></a><span class="cf">assert</span> s.index(<span class="st">'B'</span>) <span class="op">==</span> <span class="dv">1</span></span>
 <span id="cb18-3"><a href="#cb18-3"></a><span class="cf">assert</span> s.count(<span class="st">'A'</span>) <span class="op">==</span> <span class="dv">2</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="aee0245e" class="cell" data-execution_count="9">
+<div id="aee0245e" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>s <span class="op">=</span> (<span class="dv">30</span>, <span class="dv">20</span>, <span class="dv">40</span>, <span class="dv">10</span>, <span class="dv">50</span>)</span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="cf">assert</span> <span class="bu">min</span>(s) <span class="op">==</span> <span class="dv">10</span></span>
 <span id="cb19-3"><a href="#cb19-3"></a><span class="cf">assert</span> <span class="bu">max</span>(s) <span class="op">==</span> <span class="dv">50</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -868,7 +868,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>العكس: <code>l.reverse()</code> أو بالفعل المبني <code>reversed(l)</code></li>
 </ul>
 <p>لاحظ رسالة الخطأ عند محاولة التعديل على الصف، الذي نعرفه بالقوسين المنحنيين <code>()</code>، إذْ هو جامد لا يقبل التغير:</p>
-<div id="b8318786" class="cell" data-execution_count="10">
+<div id="b8318786" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>t <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)</span>
 <span id="cb20-2"><a href="#cb20-2"></a>t[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb20-3"><a href="#cb20-3"></a><span class="bu">print</span>(t)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -886,7 +886,7 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 </div>
 </div>
 <p>لكن هذا مقبول في القائمة، التي نعرفها بالقوسين المربعين <code>[]</code>، لأنها متغيرة:</p>
-<div id="3a80236f" class="cell" data-execution_count="11">
+<div id="3a80236f" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>l <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
 <span id="cb21-2"><a href="#cb21-2"></a>l[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb21-3"><a href="#cb21-3"></a><span class="bu">print</span>(l)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -895,7 +895,7 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 </div>
 </div>
 <p>الاستبدال بالموضع والحذف منه:</p>
-<div id="135ceb1a" class="cell" data-execution_count="12">
+<div id="135ceb1a" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>l <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
 <span id="cb23-2"><a href="#cb23-2"></a>l[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb23-3"><a href="#cb23-3"></a><span class="cf">assert</span> l <span class="op">==</span> [<span class="dv">100</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
@@ -904,7 +904,7 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 <span id="cb23-6"><a href="#cb23-6"></a><span class="cf">assert</span> <span class="dv">100</span> <span class="kw">not</span> <span class="kw">in</span> l</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>الاستبدال بالقطعة والحذف منها</p>
-<div id="d716ec3c" class="cell" data-execution_count="13">
+<div id="d716ec3c" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>l <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
 <span id="cb24-2"><a href="#cb24-2"></a>l[<span class="dv">1</span>:<span class="dv">3</span>] <span class="op">=</span> [<span class="dv">200</span>, <span class="dv">300</span>]</span>
 <span id="cb24-3"><a href="#cb24-3"></a><span class="cf">assert</span> l <span class="op">==</span> [<span class="dv">10</span>, <span class="dv">200</span>, <span class="dv">300</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
@@ -913,25 +913,25 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 <span id="cb24-6"><a href="#cb24-6"></a><span class="cf">assert</span> l <span class="op">==</span> [<span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>الإدراج:</p>
-<div id="e2498744" class="cell" data-execution_count="14">
+<div id="e2498744" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>l <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
 <span id="cb25-2"><a href="#cb25-2"></a>l.insert(<span class="dv">1</span>, <span class="dv">100</span>)</span>
 <span id="cb25-3"><a href="#cb25-3"></a><span class="cf">assert</span> l <span class="op">==</span> [<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>الإزالة:</p>
-<div id="264afde5" class="cell" data-execution_count="15">
+<div id="264afde5" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>l <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
 <span id="cb26-2"><a href="#cb26-2"></a>l.remove(<span class="dv">20</span>)</span>
 <span id="cb26-3"><a href="#cb26-3"></a><span class="cf">assert</span> l <span class="op">==</span> [<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>الإلحاق:</p>
-<div id="856ad9eb" class="cell" data-execution_count="16">
+<div id="856ad9eb" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>l <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
 <span id="cb27-2"><a href="#cb27-2"></a>l.append(<span class="dv">60</span>)</span>
 <span id="cb27-3"><a href="#cb27-3"></a><span class="cf">assert</span> l <span class="op">==</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>الترتيب والعكس:</p>
-<div id="8a4c93a1" class="cell" data-execution_count="17">
+<div id="8a4c93a1" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>l <span class="op">=</span> [<span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">50</span>]</span>
 <span id="cb28-2"><a href="#cb28-2"></a>l.sort()</span>
 <span id="cb28-3"><a href="#cb28-3"></a><span class="cf">assert</span> l <span class="op">==</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
@@ -940,7 +940,7 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 <span id="cb28-6"><a href="#cb28-6"></a><span class="cf">assert</span> l <span class="op">==</span> [<span class="dv">50</span>, <span class="dv">40</span>, <span class="dv">30</span>, <span class="dv">20</span>, <span class="dv">10</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>نزع العنصر الأخير وإرجاعه:</p>
-<div id="3850db49" class="cell" data-execution_count="18">
+<div id="3850db49" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>l <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
 <span id="cb29-2"><a href="#cb29-2"></a>x <span class="op">=</span> l.pop()</span>
 <span id="cb29-3"><a href="#cb29-3"></a><span class="cf">assert</span> x <span class="op">==</span> <span class="dv">50</span></span>
@@ -980,7 +980,7 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 <p>If the step argument is omitted, it defaults to 1.</p>
 <p>If the start argument is omitted, it defaults to 0</p>
 </blockquote>
-<div id="63046be6" class="cell" data-execution_count="19">
+<div id="63046be6" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
 <span id="cb30-2"><a href="#cb30-2"></a>    <span class="bu">print</span>(i)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -993,7 +993,7 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 </div>
 <p>أما التعريف الثاني فيجب تفكيكه لنفهمه: <code>class range(start, stop[, step])</code>.</p>
 <p>وجود الأقواس المربعة <code>[ ]</code> يعني أجزاءً اختياريَّة. فإذًا؛ الجزء الإلزامي هو <code>start, stop</code>؛ فإن عينَّا قيمتين، فتكون الأولى البداية، والثانية النهاية، وتبقى الخطوة على قيمتها الابتدائية <code>step=1</code>.</p>
-<div id="8ffcea08" class="cell" data-execution_count="20">
+<div id="8ffcea08" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>, <span class="dv">10</span>):</span>
 <span id="cb32-2"><a href="#cb32-2"></a>    <span class="bu">print</span>(i)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1005,7 +1005,7 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 </div>
 </div>
 <p>أما إذا عينت الثلاثة جميعًا فسيكون الأول <code>start</code> والثاني <code>stop</code> والثالث <code>step</code>:</p>
-<div id="7f817e66" class="cell" data-execution_count="21">
+<div id="7f817e66" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>):</span>
 <span id="cb34-2"><a href="#cb34-2"></a>    <span class="bu">print</span>(i)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1017,7 +1017,7 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 </div>
 </div>
 <p>ولك أن تعكس النطاق بتعيين <code>step</code> بقيمة سالبة، لكن يجب حينها أن تجعل البداية أعلى من النهاية:</p>
-<div id="03567ad2" class="cell" data-execution_count="22">
+<div id="03567ad2" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>):</span>
 <span id="cb36-2"><a href="#cb36-2"></a>    <span class="bu">print</span>(i)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1035,11 +1035,11 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 </div>
 <section id="التكرار-والإشارة" class="level3">
 <h3 class="anchored" data-anchor-id="التكرار-والإشارة">التكرار والإشارة</h3>
-<div id="727a275d" class="cell" data-execution_count="23">
+<div id="727a275d" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>xs <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>وتُسرَد</strong> المتسلسلة بكلمة <code>for</code>، نحو:</p>
-<div id="7a30d803" class="cell" data-execution_count="24">
+<div id="7a30d803" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="cf">for</span> x <span class="kw">in</span> xs:</span>
 <span id="cb39-2"><a href="#cb39-2"></a>    <span class="bu">print</span>(x)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1052,7 +1052,7 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 </div>
 </div>
 <p>أو بسرد نطاقٍ واستعمال الإشارة بالموضع، نحو:</p>
-<div id="3aae54b2" class="cell" data-execution_count="25">
+<div id="3aae54b2" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(xs)):</span>
 <span id="cb41-2"><a href="#cb41-2"></a>    <span class="bu">print</span>(xs[i])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1065,7 +1065,7 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 </div>
 </div>
 <p>فهذا يفيد في التحكم في السرد، فلو أردنا كل عنصرٍ ثانٍ، نجعل الخطوة <code>2</code> ابتداء من العنصر الثاني <code>1</code>، فنكتبها هكذا:</p>
-<div id="88055edc" class="cell" data-execution_count="26">
+<div id="88055edc" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(xs), <span class="dv">2</span>):</span>
 <span id="cb43-2"><a href="#cb43-2"></a>    <span class="bu">print</span>(xs[i])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1075,7 +1075,7 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 </div>
 </div>
 <p>أو أردنا قراءة الموضع والذي قبله، فهكذا:</p>
-<div id="fca15d2e" class="cell" data-execution_count="27">
+<div id="fca15d2e" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(xs), <span class="dv">2</span>):</span>
 <span id="cb45-2"><a href="#cb45-2"></a>    <span class="bu">print</span>(xs[i<span class="op">-</span><span class="dv">1</span>], xs[i])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1085,7 +1085,7 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 </div>
 </div>
 <p>فإن جوَّزنا التداخل، جعلنا الخطوة <code>1</code>، هكذا:</p>
-<div id="51c50adb" class="cell" data-execution_count="28">
+<div id="51c50adb" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(xs), <span class="dv">1</span>):</span>
 <span id="cb47-2"><a href="#cb47-2"></a>    <span class="bu">print</span>(xs[i<span class="op">-</span><span class="dv">1</span>], xs[i])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1102,7 +1102,7 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 <h3 class="anchored" data-anchor-id="تأجيل-النتيجة">تأجيل النتيجة</h3>
 <p>ويجدر بالذكر أن <strong>النطاق</strong> لا يولد عناصره التي في النطاق فعليًّا؛ بل يحسبها عند الحاجة إليها. فهو بذلك لا يشغل حيِّزًا في الذاكرة إلا لحدوده الثلاثة والرقم المطلوب حالًا. وهو كالصف لا يقبل التعديل.</p>
 <p>نستعمل فعل الإنشاء <code>range()</code> لإنشاء نطاق:</p>
-<div id="fbafb83f" class="cell" data-execution_count="29">
+<div id="fbafb83f" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>r <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span>
 <span id="cb49-2"><a href="#cb49-2"></a>r</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
@@ -1110,7 +1110,7 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 </div>
 </div>
 <p>فحين نسألن عن عضوية عنصر ما في النطاق؛ يتم حساب النطاق بحسبه:</p>
-<div id="c7558a8d" class="cell" data-execution_count="30">
+<div id="c7558a8d" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="bu">print</span>(<span class="dv">11</span> <span class="kw">in</span> r)</span>
 <span id="cb51-2"><a href="#cb51-2"></a><span class="bu">print</span>(<span class="dv">10</span> <span class="kw">in</span> r)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1119,14 +1119,14 @@ True</code></pre>
 </div>
 </div>
 <p>كذلك الفعل عند البحث عن موضع رقمٍ ما:</p>
-<div id="7ad3f480" class="cell" data-execution_count="31">
+<div id="7ad3f480" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a><span class="bu">print</span>(r.index(<span class="dv">10</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>5</code></pre>
 </div>
 </div>
 <p>والإشارة لموضع ما أو قطعة كذلك:</p>
-<div id="47798060" class="cell" data-execution_count="32">
+<div id="47798060" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a><span class="bu">print</span>(r[<span class="dv">5</span>])</span>
 <span id="cb55-2"><a href="#cb55-2"></a><span class="bu">print</span>(r[:<span class="dv">5</span>])</span>
 <span id="cb55-3"><a href="#cb55-3"></a><span class="bu">print</span>(r[<span class="op">-</span><span class="dv">1</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1140,7 +1140,7 @@ range(0, 10, 2)
 <section id="تحقيق-النطاق" class="level3">
 <h3 class="anchored" data-anchor-id="تحقيق-النطاق">تحقيق النطاق</h3>
 <p>المولِّد لا تتحقق عناصره إلا عند الحاجة إليها؛ أي: عند قراءتها. فإذا جعلناه فاعلاً في جملة الإنشاء <code>list</code>؛ تولَّدَت جميع عناصره ووُضِعَت في قائمة:</p>
-<div id="b41cf6b0" class="cell" data-execution_count="33">
+<div id="b41cf6b0" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>evens <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>))</span>
 <span id="cb57-2"><a href="#cb57-2"></a>odds <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">2</span>))</span>
 <span id="cb57-3"><a href="#cb57-3"></a><span class="bu">print</span>(evens)</span>
@@ -1155,14 +1155,14 @@ range(0, 10, 2)
 <section id="ضم-السلاسل-المرتبطة" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="ضم-السلاسل-المرتبطة"><span class="header-section-number">8.4</span> ضم السلاسل المرتبطة</h2>
 <p>هذان تسلسلان مرتبطان:</p>
-<div id="25cf4061" class="cell" data-execution_count="34">
+<div id="25cf4061" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>students <span class="op">=</span> [<span class="st">'Ahmad'</span>, <span class="st">'Belal'</span>, <span class="st">'Camal'</span>, <span class="st">'Dawud'</span>, <span class="st">'Emad'</span>]</span>
 <span id="cb59-2"><a href="#cb59-2"></a>marks <span class="op">=</span> [<span class="dv">90</span>, <span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">85</span>, <span class="dv">95</span>]</span>
 <span id="cb59-3"><a href="#cb59-3"></a></span>
 <span id="cb59-4"><a href="#cb59-4"></a><span class="cf">assert</span> <span class="bu">len</span>(students) <span class="op">==</span> <span class="bu">len</span>(marks)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ويُمكن ضمُّ السلسلتين بحيث ينتج في التكرار عُنصران في كل مرة؛ وذلك بفعل <strong>الضم</strong> <a href="https://docs.python.org/3/library/functions.html#zip"><code>zip()</code></a> الذي يُنتج <strong>مُكَرَّرًا</strong> -بفتح الراء- (<a href="https://docs.python.org/3/glossary.html#term-iterable"><code>Iterable</code></a>). فإذا ضممنا سلسلتين، خرج لنا في كل كرَّة زوج:</p>
-<div id="a1496560" class="cell" data-execution_count="35">
+<div id="a1496560" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a><span class="cf">for</span> x, y <span class="kw">in</span> <span class="bu">zip</span>(students, marks):</span>
 <span id="cb60-2"><a href="#cb60-2"></a>    <span class="bu">print</span>(x, y)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1199,7 +1199,7 @@ Emad 95</code></pre>
 <li>ونوع <code>classes</code> صف (<code>tuple</code>)</li>
 </ul>
 <p>ومع ذلك فإنه يجوز ضمُّها لأن الفعل يقبلُ كُل ما هو مُكَرَّر:</p>
-<div id="5bbef1b5" class="cell" data-execution_count="36">
+<div id="5bbef1b5" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>students <span class="op">=</span> [<span class="st">'Ahmad'</span>, <span class="st">'Belal'</span>, <span class="st">'Camal'</span>, <span class="st">'Dawud'</span>, <span class="st">'Emad'</span>]</span>
 <span id="cb62-2"><a href="#cb62-2"></a>marks <span class="op">=</span> <span class="bu">range</span>(<span class="dv">75</span>, <span class="dv">95</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">5</span>)</span>
 <span id="cb62-3"><a href="#cb62-3"></a>classes <span class="op">=</span> (<span class="st">'A-1'</span>, <span class="st">'A-1'</span>, <span class="st">'A-2'</span>, <span class="st">'A-1'</span>, <span class="st">'A-2'</span>)</span>
@@ -1222,7 +1222,7 @@ Emad 95 A-2</code></pre>
 <section id="القراءة-بالموضع-المشترك" class="level3">
 <h3 class="anchored" data-anchor-id="القراءة-بالموضع-المشترك">القراءة بالموضع المشترك</h3>
 <p>ويكون قراءة التسلسلات المرتبطة أيضًا بسرد مُكَرَّر النطاق، والإشارة إلى كل عنصر بالموضع:</p>
-<div id="97bf3607" class="cell" data-execution_count="37">
+<div id="97bf3607" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(students)):</span>
 <span id="cb64-2"><a href="#cb64-2"></a>    x, y, z <span class="op">=</span> students[i], marks[i], classes[i]</span>
 <span id="cb64-3"><a href="#cb64-3"></a>    <span class="bu">print</span>(x, y, z)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1240,7 +1240,7 @@ Emad 95 A-2</code></pre>
 <h2 data-number="8.5" class="anchored" data-anchor-id="الإنشاء-المختصر-الجملة-الثلاثية"><span class="header-section-number">8.5</span> الإنشاء المختصر: الجملة الثلاثية</h2>
 <p>مما تميزت به لغة بايثون عن غيرها: <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions"><strong>مختصرة الإنشاء</strong></a> (Comprehension)؛ وهي جملة تُنشئ مجموعة مستمَدَّة من مكرر في ثلاث جُمَل في سطرٍ واحدٍ -غالبًا- ووظيفتها: <strong>إنشاء مجموعة مستمَدَّة من مكرر</strong>.</p>
 <p>وليسَت زيادتها في اللغة من باب الضرورة وإنما من باب التحسين. إذْ فيها قوة في التعبير عن جمل كثيرة في مساحة صغيرة. فهذا المثال يعبر عن إنشاء قائمة كل عنصرٍ فيها مربَّعٌ من المكرر <code>range(10)</code> في سطرٍ واحد:</p>
-<div id="17d89721" class="cell" data-execution_count="38">
+<div id="17d89721" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>squares <span class="op">=</span> [x <span class="op">**</span> <span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</span>
 <span id="cb66-2"><a href="#cb66-2"></a>squares</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="38">
@@ -1254,7 +1254,7 @@ Emad 95 A-2</code></pre>
 <li>و<strong>شرط</strong>: والشرطُ ليسَ بشرط؛ فلم يظهر في هذا المثال</li>
 </ol>
 <p>فهي مكافئة للقطعة التالية:</p>
-<div id="37b31cb3" class="cell" data-execution_count="39">
+<div id="37b31cb3" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>squares <span class="op">=</span> []</span>
 <span id="cb68-2"><a href="#cb68-2"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
 <span id="cb68-3"><a href="#cb68-3"></a>    squares.append(x <span class="op">**</span> <span class="dv">2</span>)</span>
@@ -1264,7 +1264,7 @@ Emad 95 A-2</code></pre>
 </div>
 </div>
 <p>ولو أردنا ترشيح الأعداد الزوجية من قائمة، نستطيع استعمال <strong>جملة الشرط</strong> في الاختصار على النحو التالي:</p>
-<div id="14d23d5b" class="cell" data-execution_count="40">
+<div id="14d23d5b" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>numbers <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
 <span id="cb70-2"><a href="#cb70-2"></a>evens <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> numbers <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>]</span>
 <span id="cb70-3"><a href="#cb70-3"></a>evens</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1278,7 +1278,7 @@ Emad 95 A-2</code></pre>
 <li>الشرط: (<code>if x % 2 == 0</code>)</li>
 </ol>
 <p>وهي مكافئة للقطعة التالية:</p>
-<div id="3c86d429" class="cell" data-execution_count="41">
+<div id="3c86d429" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>evens <span class="op">=</span> []</span>
 <span id="cb72-2"><a href="#cb72-2"></a><span class="cf">for</span> x <span class="kw">in</span> numbers:</span>
 <span id="cb72-3"><a href="#cb72-3"></a>    <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
@@ -1296,19 +1296,19 @@ Emad 95 A-2</code></pre>
 <li><code>{expression: expression for item in iterable if condition}</code> للقاموس (<code>dict</code>) وسيأتي الكلام عنه في الباب القادم</li>
 </ul>
 <p>وقد يكون التعبير غير مشتمل على متغير التكرار، نحو:</p>
-<div id="a0955155" class="cell" data-execution_count="42">
+<div id="a0955155" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>numbers <span class="op">=</span> <span class="bu">range</span>(<span class="dv">11</span>)</span>
 <span id="cb74-2"><a href="#cb74-2"></a>evens_count <span class="op">=</span> (<span class="dv">1</span> <span class="cf">for</span> x <span class="kw">in</span> numbers <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>فقد أنشأنا بالقوسين الدائريين <code>( )</code> مولِّدًا يُنتج <code>1</code> لكل عنصر زوجي، بعدد العناصر الزوجية في المكرر <code>numbers</code>. ثم نحقق وجوده بالقراءة، فنقول مثلاً: <code>sum</code> لجمعها كلها:</p>
-<div id="17be04c8" class="cell" data-execution_count="43">
+<div id="17be04c8" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a><span class="bu">sum</span>(evens_count)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>6</code></pre>
 </div>
 </div>
 <p>أو نضعها في جملة واحدة:</p>
-<div id="e3d9b1b6" class="cell" data-execution_count="44">
+<div id="e3d9b1b6" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a><span class="bu">sum</span>(<span class="dv">1</span> <span class="cf">for</span> x <span class="kw">in</span> numbers <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="44">
 <pre><code>6</code></pre>
