@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; الجمع المرقوم – البايثونية</title>
+<title>23&nbsp; الفعل المؤجَّل – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -103,9 +103,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<meta name="twitter:title" content="9&nbsp; الجمع المرقوم – البايثونية">
+<meta name="twitter:title" content="23&nbsp; الفعل المؤجَّل – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/06_mapping/cover.png">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/11_functional/cover.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/06_mapping/a_mapping.html">باب الجمع المرقوم</a></li><li class="breadcrumb-item"><a href="../../chapters/06_mapping/a_mapping.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الجمع المرقوم</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/11_functional/a1_closures.html">باب البرمجة الفعلية</a></li><li class="breadcrumb-item"><a href="../../chapters/11_functional/a2_lazy.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">الفعل المؤجَّل</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -349,7 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/06_mapping/a_mapping.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/06_mapping/a_mapping.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الجمع المرقوم</span></span></a>
   </div>
 </li>
@@ -551,7 +551,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/11_functional/a2_lazy.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/11_functional/a2_lazy.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">الفعل المؤجَّل</span></span></a>
   </div>
 </li>
@@ -590,22 +590,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#المجموعة" id="toc-المجموعة" class="nav-link active" data-scroll-target="#المجموعة"><span class="header-section-number">9.1</span> المجموعة</a></li>
-  <li><a href="#القاموس" id="toc-القاموس" class="nav-link" data-scroll-target="#القاموس"><span class="header-section-number">9.2</span> القاموس</a>
+  <li><a href="#الفعل-النكرة" id="toc-الفعل-النكرة" class="nav-link active" data-scroll-target="#الفعل-النكرة"><span class="header-section-number">23.1</span> الفعل النكرة</a></li>
+  <li><a href="#فعل-التحويل" id="toc-فعل-التحويل" class="nav-link" data-scroll-target="#فعل-التحويل"><span class="header-section-number">23.2</span> فعل التحويل</a></li>
+  <li><a href="#الفعل-المؤجل" id="toc-الفعل-المؤجل" class="nav-link" data-scroll-target="#الفعل-المؤجل"><span class="header-section-number">23.3</span> الفعل المؤجَّل</a>
   <ul class="collapse">
-  <li><a href="#إنشاء-قاموس-من-سلسلتين" id="toc-إنشاء-قاموس-من-سلسلتين" class="nav-link" data-scroll-target="#إنشاء-قاموس-من-سلسلتين">إنشاء قاموس من سلسلتين</a></li>
+  <li><a href="#دفعات-المعالجة" id="toc-دفعات-المعالجة" class="nav-link" data-scroll-target="#دفعات-المعالجة">دفعات المعالجة</a></li>
   </ul></li>
-  <li><a href="#أفعال-التحقق" id="toc-أفعال-التحقق" class="nav-link" data-scroll-target="#أفعال-التحقق"><span class="header-section-number">9.3</span> أفعال التحقق</a></li>
-  <li><a href="#المصطلحات" id="toc-المصطلحات" class="nav-link" data-scroll-target="#المصطلحات"><span class="header-section-number">9.4</span> المصطلحات</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/06_mapping/a_mapping.html">باب الجمع المرقوم</a></li><li class="breadcrumb-item"><a href="../../chapters/06_mapping/a_mapping.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الجمع المرقوم</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/11_functional/a1_closures.html">باب البرمجة الفعلية</a></li><li class="breadcrumb-item"><a href="../../chapters/11_functional/a2_lazy.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">الفعل المؤجَّل</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الجمع المرقوم</span></h1>
+<h1 class="title"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">الفعل المؤجَّل</span></h1>
 </div>
 
 
@@ -622,430 +621,123 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>بعد أن رأينا التلسلسل الذي هو نوع مجموعة مرتبة. ننتقل في درسنا هذا للبحث في نوعين آخرين يندرجان تحت الجمع <strong>المرقوم</strong> (وسيأتي بيان معنى الرقم):</p>
-<ul>
-<li>المجموعة: <code>set</code> ويعبر عنها بالقوسين المتعرجين <code>{ }</code></li>
-<li>القاموس: <code>dict</code> وهي بالقوسين المتعرجين لكن عناصرها روابط <code>{ key: value }</code></li>
-</ul>
-<section id="المجموعة" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="المجموعة"><span class="header-section-number">9.1</span> المجموعة</h2>
-<p><strong>المجموعة</strong> (<a href="https://docs.python.org/3/reference/datamodel.html#set-types"><code>set</code></a>) هي جمع متغير يحوي أشياء مرقومة فريدة بلا ترتيب.</p>
-<ul>
-<li><strong>متغيرة</strong>: يعني أنها تقبل الإضافة والحذف والتعديل على عناصرها</li>
-<li><strong>فريدة</strong>: يعني أن العنصر لا يتكرر فيها</li>
-<li><strong>مرقومة</strong>: يعني أن عناصرها يجب أن تكون قابلة للرقم (<code>hash</code>)</li>
-<li><strong>بلا ترتيب</strong>: يعني أن العنصر ليس له موقع محدد فيها فليس له ما قبله وليس له ما بعده</li>
-</ul>
-<p>انظر <a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableSet">MutableSet</a> في خريطة المجموعات: <a href="../../appendix_collections.html#fig-collections-tree" class="quarto-xref">شكل&nbsp;<span>1</span></a>.</p>
-<p>تنشأ المجموعة الفريدة بالفعل المنشئ <a href="https://docs.python.org/3/library/stdtypes.html#set"><code>set()</code></a>. ويفضل استعمال القوسين المتعرجين <code>{ }</code> بدلاً منه:</p>
-<div id="5cfc9726" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>s1 <span class="op">=</span> <span class="bu">set</span>([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>])</span>
-<span id="cb1-2"><a href="#cb1-2"></a>s2 <span class="op">=</span> {<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>}</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="cf">assert</span> s1 <span class="op">==</span> s2</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="الفعل-النكرة" class="level2" data-number="23.1">
+<h2 data-number="23.1" class="anchored" data-anchor-id="الفعل-النكرة"><span class="header-section-number">23.1</span> الفعل النكرة</h2>
+<p><strong>الفعل النكرة</strong> (anonymous) هو فعل معيَّن بلا اسمٍ؛ يميَّز بكلمة <a href="https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions"><code>lambda</code></a> بخلاف المعرفة المميز بكلمة <code>def</code>. وهو -في باثيون- لا يقبل إلا جملة واحدةً وتكونُ هي جُملة الرجوع (<code>return</code>) ويستغني عن ذكرها. وهو مستعملٌ بكثرة في البرمجة، وإن كانت إضافته إلى اللغة ليست من باب الضرورة لكن من باب الاختصار في التعبير.</p>
+<p>ويأتي على النحو التالي:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">lambda</span> parameters: returned_expression</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>فيجوز أن تكتب:</p>
+<div id="cf71f284" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>square <span class="op">=</span> <span class="kw">lambda</span> x: x <span class="op">*</span> x</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>تقبل المجموعة لكونها <strong>جمعًا</strong> (<a href="https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes">Collection</a>) العمليات التالية:</p>
-<ul>
-<li>العد: <code>len(s)</code></li>
-<li>التكرار: <code>for x in s</code></li>
-<li>العضوية: <code>x not in s</code></li>
-</ul>
-<p>وباعتبارها مجموعة متغيرة (<a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableSet">MutableSet</a>)، فإنها تقبل الأفعال التالية:</p>
-<ul>
-<li>الإضافة: <code>add</code></li>
-<li>الحذف: <code>discard</code></li>
-<li>نزع عنصر عشوائي: <code>pop</code></li>
-<li>المحو: <code>clear</code></li>
-</ul>
-<p>ذكرنا أن شرط عضوية العنصر أن يكون مرقومًا؛ وهذا <strong>يجعل عملية البحث فيها قفزة واحدة</strong> (<code>O(1)</code>)؛ إذْ يتم حساب الرقم بالفعل <code>hash()</code> الذي <strong>يشير لعنوان القيمة في الذاكرة</strong>.</p>
-<p><strong>المرقوم</strong> (<a href="https://docs.python.org/3/glossary.html#term-hashable"><code>Hashable</code></a>): هو ما يقبل الفعل <code>hash()</code> الذي يحول الشيء إلى رقم فريد. ومنه:</p>
-<ul>
-<li>النص (<code>str</code>) له خوارزمية معيَّنة لرقْمه</li>
-<li>الرقم (<code>int</code>) رقْمه هو نفسه</li>
-<li>الصف (<code>tuple</code>) رقْمه هو رقم عناصره (فيجب أن تكون جميع عناصره مرقومة)</li>
-</ul>
-<p>وبهذا تعلم أن الجمع المرتَّب رقم كل عنصرٍ فيه هو موضعه من التسلسل.</p>
-<p>أما القائمة مثلاً، فليست معدودة ضمن المرقومات، وذلك لأنها <strong>متغيرة</strong> (تقبل زيادة أو حذف أو تعديل عنصر) وذلك يغير الرقم؛ والشرط في المرقوم ألا يتغير رقمه أبدًا؛ لذا تجد الصف معدودًا ضمن المرقومات وليست القائمة كذلك:</p>
-<div id="72d977e4" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>s <span class="op">=</span> {<span class="dv">10</span>, <span class="st">'AAA'</span>, <span class="va">True</span>, (<span class="dv">22</span>, <span class="st">'BB'</span>)}</span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="cf">assert</span> <span class="bu">len</span>(s) <span class="op">==</span> <span class="dv">4</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="cf">assert</span> <span class="dv">22</span> <span class="kw">not</span> <span class="kw">in</span> s</span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="cf">assert</span> (<span class="dv">22</span>, <span class="st">'BB'</span>) <span class="kw">in</span> s</span>
-<span id="cb2-6"><a href="#cb2-6"></a></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="cf">for</span> x <span class="kw">in</span> s:</span>
-<span id="cb2-8"><a href="#cb2-8"></a>    <span class="bu">print</span>(x)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>فقد تمَّ تعيين الفعل المُنكَر إلى متغيِّر. ثم يجري استعماله هكذا:</p>
+<div id="c34d8da2" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>square(<span class="dv">2</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>4</code></pre>
+</div>
+</div>
+<p>ونمثل له بما قد سبق تعريفه في الفعل داخل الفعل المنشئ <code>make_power</code> الذي كان شكله هكذا:</p>
+<div id="d400fe5d" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> make_power(n):</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="kw">def</span> power(x):</span>
+<span id="cb5-3"><a href="#cb5-3"></a>        <span class="cf">return</span> x <span class="op">**</span> n</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    <span class="cf">return</span> power</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>فيمكننا أن نعرِّف الفعل الذي في الداخل بلا اسمٍ فنختصر العبارة هكذا:</p>
+<div id="5e049ec4" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> make_power(n):</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="cf">return</span> <span class="kw">lambda</span> x: x <span class="op">**</span> n</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>وطريقة استعماله كما سبق:</p>
+<div id="2baef705" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>square <span class="op">=</span> make_power(<span class="dv">2</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a>cube <span class="op">=</span> make_power(<span class="dv">3</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="cf">assert</span> square(<span class="dv">2</span>) <span class="op">==</span> <span class="dv">4</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="cf">assert</span> cube(<span class="dv">2</span>) <span class="op">==</span> <span class="dv">8</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="فعل-التحويل" class="level2" data-number="23.2">
+<h2 data-number="23.2" class="anchored" data-anchor-id="فعل-التحويل"><span class="header-section-number">23.2</span> فعل التحويل</h2>
+<p><strong>فعل التحويل</strong> أو التطبيق (<a href="https://docs.python.org/3/library/functions.html#map"><code>map</code></a>) يأخذُ فِعلاً ليطبِّقَهُ على مُكرَّر -بفتح الراء- أو أكثر (لوجود النجمة: <code>*</code>) ويُنتِجُ مُكرِّرًا -بكسر الراء- (<a href="https://docs.python.org/3/glossary.html#term-iterator"><code>Iterator</code></a>). إذ وتعريفُه هكذا:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">map</span>(function, iterable, <span class="op">*</span>iterables) <span class="op">-&gt;</span> iterator</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>أما المكررات، فقد مرَّ معنا أن القائمة، والصف، والقاموس، والنص من جنس ما يقبل التكرار. (راجع شجرة الجموع في الملحق: <a href="../../appendix_collections.html#fig-collections-tree" class="quarto-xref">شكل&nbsp;<span>1</span></a>)</p>
+<p>وبالمثال يتضح المقال:</p>
+<div id="06d7c6ed" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>square <span class="op">=</span> <span class="kw">lambda</span> x: x <span class="op">*</span> x</span>
+<span id="cb9-2"><a href="#cb9-2"></a>xs <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>]</span>
+<span id="cb9-3"><a href="#cb9-3"></a>squared <span class="op">=</span> <span class="bu">map</span>(square, xs)</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="bu">print</span>(squared)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>True
-10
-AAA
-(22, 'BB')</code></pre>
+<pre><code>&lt;map object at 0x7592014d8310&gt;</code></pre>
 </div>
 </div>
-<p>باعتبارها مجموعة غير مرتبة، فإنها لا تسجل موقع العنصر أو ترتيب إدراجه. وبالتالي، فإنها لا تقبل الإشارة (<code>xs[i]</code>) أو التقطيع (<code>xs[i:j]</code>) أو أي سلوك يشبه المتسلسلات. لاحظ الخطأ التالي:</p>
-<div id="11b94c03" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>xs <span class="op">=</span> {<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>}</span>
-<span id="cb4-2"><a href="#cb4-2"></a>xs[<span class="dv">0</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[3], line 2</span>
-<span class="ansi-green-fg ansi-bold">      1</span> xs <span style="color:rgb(98,98,98)">=</span> {<span style="color:rgb(98,98,98)">10</span>, <span style="color:rgb(98,98,98)">20</span>, <span style="color:rgb(98,98,98)">30</span>}
-<span class="ansi-green-fg">----&gt; 2</span> <span class="ansi-yellow-bg">xs</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">0</span><span class="ansi-yellow-bg">]</span>
-
-<span class="ansi-red-fg">TypeError</span>: 'set' object is not subscriptable</pre>
+<p>لكن لاحظ أننا عند طباعة النتيجة، فإن الذي يظهرُ شيءٌ من النوع <code>map</code> وليست قائمة بتربيع الأعداد. وذلك لأن الفعل <strong>مؤجَّل</strong>. وقد مرَّ معنا في باب الجمع المرتَّب أنَّ الفعل <code>range</code> أيضًا من الأفعال المؤجَّلة. ولتفعيله نستخدم أحد أفعال القراءة التي منها: <strong>فعل الإنشاء</strong> <code>list</code> فنمرر له الفعل هكذا <code>list(squared)</code> ليتمَّ إنشاء قائمة من المُكرَّر الناتج من عملية التحويل.</p>
+<div id="f0c5b03d" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="bu">list</span>(squared)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>[4, 16, 36]</code></pre>
 </div>
 </div>
-</div>
-<p>وتقبل المجموعة الفريدة ما تقبله المجموعة في الرياضيات من عمليات:</p>
-<ul>
-<li>التقاطع والاتحاد والفرق، والفرق التماثلي</li>
-<li>وكذلك تحقق: (الجزئية والشمول والانفاصل).</li>
-</ul>
-<p>وهذه القطعة مثال لجميع هذه العمليات الرياضية:</p>
-<div id="9aa93b71" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>set1 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span>
-<span id="cb5-2"><a href="#cb5-2"></a>set2 <span class="op">=</span>          {<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a>union <span class="op">=</span> set1 <span class="op">|</span> set2</span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="cf">assert</span> union <span class="op">==</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span>
-<span id="cb5-6"><a href="#cb5-6"></a></span>
-<span id="cb5-7"><a href="#cb5-7"></a>intersection <span class="op">=</span> set1 <span class="op">&amp;</span> set2</span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="cf">assert</span> intersection <span class="op">==</span> {<span class="dv">4</span>, <span class="dv">5</span>}</span>
-<span id="cb5-9"><a href="#cb5-9"></a></span>
-<span id="cb5-10"><a href="#cb5-10"></a>diff1 <span class="op">=</span> set1 <span class="op">-</span> set2</span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="cf">assert</span> diff1 <span class="op">==</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
-<span id="cb5-12"><a href="#cb5-12"></a></span>
-<span id="cb5-13"><a href="#cb5-13"></a>diff2 <span class="op">=</span> set2 <span class="op">-</span> set1</span>
-<span id="cb5-14"><a href="#cb5-14"></a><span class="cf">assert</span> diff2 <span class="op">==</span> {<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span>
-<span id="cb5-15"><a href="#cb5-15"></a></span>
-<span id="cb5-16"><a href="#cb5-16"></a>symmetric_difference <span class="op">=</span> set1 <span class="op">^</span> set2</span>
-<span id="cb5-17"><a href="#cb5-17"></a><span class="cf">assert</span> symmetric_difference <span class="op">==</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>نصيحة: من الأفضل استعمال اسم الفعل بدلاً من العلامة التي تقابله حيث أنها تقبل أي نوع من المتكررات (Iterables) ولا تقتصر على مجموعة فقط (<code>set</code>).</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 39%">
-<col style="width: 19%">
-<col style="width: 41%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>العملية</th>
-<th>العلامة</th>
-<th>الفعل المكافئ</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>الاتحاد</td>
-<td><code>set1 | set2</code></td>
-<td><code>set1.union(set2)</code></td>
-</tr>
-<tr class="even">
-<td>التقاطع</td>
-<td><code>set1 &amp; set2</code></td>
-<td><code>set1.intersection(set2)</code></td>
-</tr>
-<tr class="odd">
-<td>الفرق</td>
-<td><code>set1 - set2</code></td>
-<td><code>set1.difference(set2)</code></td>
-</tr>
-<tr class="even">
-<td>الفرق التماثلي</td>
-<td><code>set1 ^ set2</code></td>
-<td><code>set1.symmetric_difference(set2)</code></td>
-</tr>
-</tbody>
-</table>
-<p>وكذلك لدينا أفعال تحقق الجزئية والشمول والانفصال:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 39%">
-<col style="width: 19%">
-<col style="width: 41%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>العملية</th>
-<th>العلامة</th>
-<th>الفعل المكافئ</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>تحقق الجزئية</td>
-<td><code>set1 &lt;= set2</code></td>
-<td><code>set1.issubset(set2)</code></td>
-</tr>
-<tr class="even">
-<td>تحقق الشمول</td>
-<td><code>set1 &gt;= set2</code></td>
-<td><code>set1.issuperset(set2)</code></td>
-</tr>
-<tr class="odd">
-<td>تحقق الانفصال</td>
-<td><code>len(set1 &amp; set2) == 0</code></td>
-<td><code>set1.isdisjoint(set2)</code></td>
-</tr>
-</tbody>
-</table>
-<p>وهذا مثال لاستعمالها:</p>
-<div id="f93ea5a0" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>set1 <span class="op">=</span> {<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>}</span>
-<span id="cb6-2"><a href="#cb6-2"></a>set2 <span class="op">=</span> {<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>, <span class="st">'D'</span>, <span class="st">'E'</span>}</span>
-<span id="cb6-3"><a href="#cb6-3"></a>set3 <span class="op">=</span> {<span class="st">'سين'</span>, <span class="st">'جيم'</span>, <span class="st">'قاف'</span>}</span>
-<span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="cf">assert</span> (set1 <span class="op">&lt;=</span> set2) <span class="op">==</span> set1.issubset(set2)</span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="cf">assert</span> (set2 <span class="op">&gt;=</span> set1) <span class="op">==</span> set2.issuperset(set1)</span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="cf">assert</span> (</span>
-<span id="cb6-8"><a href="#cb6-8"></a>    set3.isdisjoint(set1 <span class="op">|</span> set2) <span class="op">==</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a>    (<span class="bu">len</span>(set3 <span class="op">&amp;</span> (set1 <span class="op">|</span> set2)) <span class="op">==</span> <span class="dv">0</span>)</span>
-<span id="cb6-10"><a href="#cb6-10"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>وهنا بحثٌ سريع جدًا باستعمال جملة التحقق من العضوية (بالتأكيد لا يظهر أثر السرعة في مجموعة صغيرة):</p>
-<div id="f941c1b5" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>languages <span class="op">=</span> {<span class="st">"Arabic"</span>, <span class="st">"English"</span>}</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="cf">if</span> <span class="st">'Python'</span> <span class="kw">not</span> <span class="kw">in</span> languages:</span>
-<span id="cb7-3"><a href="#cb7-3"></a>    <span class="bu">print</span>(<span class="st">'you need to add Python to your languages!'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>you need to add Python to your languages!</code></pre>
+<p>ولا فرق عنده بين الفعل المنكر والمعرَّف:</p>
+<div id="18c23a93" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">def</span> lower(x):</span>
+<span id="cb13-2"><a href="#cb13-2"></a>    <span class="cf">return</span> x.lower()</span>
+<span id="cb13-3"><a href="#cb13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4"></a>xs <span class="op">=</span> [<span class="st">"The"</span>, <span class="st">"Cat"</span>, <span class="st">"Sat"</span>, <span class="st">"On"</span>, <span class="st">"The"</span>, <span class="st">"Mat"</span>]</span>
+<span id="cb13-5"><a href="#cb13-5"></a>result <span class="op">=</span> <span class="bu">map</span>(lower, xs)</span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="bu">list</span>(result)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>['the', 'cat', 'sat', 'on', 'the', 'mat']</code></pre>
 </div>
 </div>
-<p>وتستعمل كذلك لإزالة العناصر المتكررة في أي مجموعة، نحو القطعة التالي. فإننا نحول القائمة إلى مجموعة فرائد فتزول تلك العناصر تلقائيًّا، ثم نعيدها كما كانت:</p>
-<div id="ce3a24ae" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
-<span id="cb9-2"><a href="#cb9-2"></a>unique_numbers <span class="op">=</span> <span class="bu">list</span>(<span class="bu">set</span>(numbers))</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="bu">print</span>(unique_numbers)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1, 2, 3, 4, 5]</code></pre>
-</div>
-</div>
-<p>وكذلك من الصف:</p>
-<div id="656eefcb" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>t <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb11-2"><a href="#cb11-2"></a>unique_t <span class="op">=</span> <span class="bu">tuple</span>(<span class="bu">set</span>(t))</span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="bu">print</span>(unique_t)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(1, 2, 3, 4, 5)</code></pre>
+<p>ويرد استعمال فعل التحويل بتعيين فعله نكرةً هكذا:</p>
+<div id="b9ad0504" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>xs <span class="op">=</span> [<span class="st">"The"</span>, <span class="st">"Cat"</span>, <span class="st">"Sat"</span>, <span class="st">"On"</span>, <span class="st">"The"</span>, <span class="st">"Mat"</span>]</span>
+<span id="cb15-2"><a href="#cb15-2"></a>result <span class="op">=</span> <span class="bu">map</span>(<span class="kw">lambda</span> x: x.lower(), xs)</span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="bu">list</span>(result)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>['the', 'cat', 'sat', 'on', 'the', 'mat']</code></pre>
 </div>
 </div>
 </section>
-<section id="القاموس" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="القاموس"><span class="header-section-number">9.2</span> القاموس</h2>
-<p><strong>القاموس</strong> (<a href="https://docs.python.org/3/library/stdtypes.html#dict"><code>dict</code></a>) جمع مرتب من المرقومات الفريدة المشيرة إلى قيمة.</p>
-<p>انظر <a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableMapping">MutableMapping</a> في خريطة الجُمُوع: <a href="../../appendix_collections.html#fig-collections-tree" class="quarto-xref">شكل&nbsp;<span>1</span></a>.</p>
-<p>تنشأ المجموعة الرابطة بالفعل المنشئ <a href="https://docs.python.org/3/library/stdtypes.html#dict"><code>dict()</code></a> ويفضل استعمال القوسين المتعرجين <code>{ }</code> بدلاً منه:</p>
-<div id="8c0b04c0" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>d1 <span class="op">=</span> <span class="bu">dict</span>(key1<span class="op">=</span><span class="st">'value1'</span>, key2<span class="op">=</span><span class="st">'value2'</span>)</span>
-<span id="cb13-2"><a href="#cb13-2"></a>d2 <span class="op">=</span> {<span class="st">'key1'</span>: <span class="st">'value1'</span>, <span class="st">'key2'</span>: <span class="st">'value2'</span>}</span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="cf">assert</span> d1 <span class="op">==</span> d2</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="الفعل-المؤجل" class="level2" data-number="23.3">
+<h2 data-number="23.3" class="anchored" data-anchor-id="الفعل-المؤجل"><span class="header-section-number">23.3</span> الفعل المؤجَّل</h2>
+<p><strong>الفعل المؤجَّل</strong> (lazy evaluation) -بعكس الفعل العادي الذي نتيجته عاجلة تأتي عند طلبه مباشرة- فإن نتيجته لا تحصُل إلا عند الحاجة إليها. وذلك للاقتصاد في المعالجَة والذاكرة إلى حين حدوث أحد أمرين: طلب قراءة أو طلب كتابة. وذلك يتمثل في:</p>
+<ul>
+<li>الإشارة إلى عنصرٍ منه بالتكرار: <code>for x in xs</code> وحينها فإنَّ الذي يُحسبُ حقيقةً هو ما وصل إليه التكرار، ولا يُحسب ما بعده إلا عند الوصول إليه.</li>
+<li>السؤال عن العضويَّة في المُكرر: <code>x in xs</code></li>
+<li>الإنشاء منه: <code>list(xs)</code> أو <code>set(xs)</code> ونحوهما</li>
+<li>الإشارة (بالموضِع أو بالشريحة): <code>xs[1]</code> أو <code>xs[2:4]</code> (إن كان المكرر مرتبًا)</li>
+</ul>
+<p>ننظر في هذا المثال:</p>
+<div id="fe37a506" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>xs <span class="op">=</span> [<span class="st">"The"</span>, <span class="st">"Cat"</span>, <span class="st">"Sat"</span>, <span class="st">"On"</span>, <span class="st">"The"</span>, <span class="st">"Mat"</span>]</span>
+<span id="cb17-2"><a href="#cb17-2"></a>result <span class="op">=</span> <span class="bu">map</span>(<span class="kw">lambda</span> x: x.lower(), xs)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>اصطلاحات: نسمي <code>key1</code> المرقوم ونسمي <code>value1</code> القيمة؛ وهما معًا نسميهما <strong>رابطًا</strong>.</p>
-<p>ومن حيث كون القاموس <strong>جمعًا</strong> (<code>Collection</code>)، فإنه يقبل الأفعال ثلاثة:</p>
-<ul>
-<li>العضوية: <code>x not in d</code></li>
-<li>العد: <code>len(d)</code></li>
-<li>التكرار: <code>for x in d</code></li>
-</ul>
-<p>ويقبل القاموس لكونه <strong>دالة</strong> (<a href="https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes"><code>Mapping</code></a>) الأفعال التالية:</p>
-<ul>
-<li>الإشارة بمرقوم: <code>dict[key]</code></li>
-<li>الإشارة بمرقوم أو إرجاع قيمة ابتدائية: <code>dict.get(key[, default])</code></li>
-</ul>
-<p>ويجوز التكرار بثلاثة طرق:</p>
-<ul>
-<li>كر الروابط: <code>for key, value in d.items()</code></li>
-<li>كر المرقومات: <code>for key in d.keys()</code></li>
-<li>كر القيم: <code>for value in d.values()</code></li>
-</ul>
-<p>ولكونه <strong>دالة متغيرة</strong> (<a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableMapping"><code>MutableMapping</code></a>)، فإنه يقبل الأفعال التالية:</p>
-<ul>
-<li>التعديل بمرقوم: <code>dict[key] = value</code></li>
-<li>الحذف بمرقوم: <code>del dict[key]</code></li>
-<li>نزع بمرقوم وإرجاع القيمة: <code>x = dict.pop(key)</code></li>
-<li>التحديث بدالَّة أو بمكرر روابط: <code>dict.update(mapping)</code></li>
-</ul>
-<p>ملاحظة: منذ بايثون 3.7 أصبح القاموس مرتبًا. أي أن الروابط لها ما قبلها ولها ما بعدها بحسب ترتيب إدراجها.</p>
-<p>لاحظ أننا نستعمل مرقومات مختلفة وأيضًا نستعمل قيم مختلفة:</p>
-<div id="6f579531" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>data <span class="op">=</span> {</span>
-<span id="cb14-2"><a href="#cb14-2"></a>    <span class="st">'key1'</span>: <span class="dv">100</span>,</span>
-<span id="cb14-3"><a href="#cb14-3"></a>    <span class="dv">20</span>: <span class="st">'value2'</span>,</span>
-<span id="cb14-4"><a href="#cb14-4"></a>    <span class="st">'c'</span>: [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="va">True</span>],</span>
-<span id="cb14-5"><a href="#cb14-5"></a>    (<span class="dv">1</span>, <span class="dv">2</span>): <span class="st">'value3'</span>,</span>
-<span id="cb14-6"><a href="#cb14-6"></a>    (<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>): <span class="st">'value4'</span>,</span>
-<span id="cb14-7"><a href="#cb14-7"></a>}</span>
-<span id="cb14-8"><a href="#cb14-8"></a></span>
-<span id="cb14-9"><a href="#cb14-9"></a><span class="cf">assert</span> <span class="bu">len</span>(data) <span class="op">==</span> <span class="dv">5</span></span>
-<span id="cb14-10"><a href="#cb14-10"></a><span class="kw">del</span> data[<span class="st">'key1'</span>]</span>
-<span id="cb14-11"><a href="#cb14-11"></a><span class="cf">assert</span> <span class="st">'key1'</span> <span class="kw">not</span> <span class="kw">in</span> data</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>ونحصل عليها بالإشارة بمرقوم:</p>
-<div id="47064870" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">print</span>(data[<span class="dv">20</span>])</span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="bu">print</span>(data[<span class="st">'c'</span>])</span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="bu">print</span>(data[(<span class="dv">1</span>, <span class="dv">2</span>)])</span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="bu">print</span>(data[(<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>)])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>سنستعمل السؤال عن العضوية:</p>
+<div id="6b7e15bf" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="bu">print</span>(<span class="st">'cat'</span> <span class="kw">in</span> result)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>value2
-[10, 20, 30, True]
-value3
-value4</code></pre>
+<pre><code>True</code></pre>
 </div>
 </div>
-<section id="إنشاء-قاموس-من-سلسلتين" class="level3">
-<h3 class="anchored" data-anchor-id="إنشاء-قاموس-من-سلسلتين">إنشاء قاموس من سلسلتين</h3>
-<p>ويتحصل القاموس من سلسلتين باستعمال الفعل <a href="https://docs.python.org/3/library/functions.html#zip"><code>zip()</code></a>، كما يلي:</p>
-<div id="6820330f" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>students <span class="op">=</span> [<span class="st">'Ahmad'</span>, <span class="st">'Belal'</span>, <span class="st">'Careem'</span>, <span class="st">'David'</span>]</span>
-<span id="cb17-2"><a href="#cb17-2"></a>marks <span class="op">=</span> [<span class="dv">90</span>, <span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">85</span>]</span>
-<span id="cb17-3"><a href="#cb17-3"></a>data <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(students, marks, strict<span class="op">=</span><span class="va">True</span>))</span>
-<span id="cb17-4"><a href="#cb17-4"></a>data</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ولو حاولت الآن للوصول إلى النتيجة فإنك ستفاجأ بأن العناصر إلى العنصر <code>cat</code> استنفذت (وهي كلمة <code>the</code> الأولى):</p>
+<div id="732751f5" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="bu">list</span>(result)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
-<pre><code>{'Ahmad': 90, 'Belal': 80, 'Careem': 75, 'David': 85}</code></pre>
+<pre><code>['sat', 'on', 'the', 'mat']</code></pre>
 </div>
 </div>
-</section>
-</section>
-<section id="أفعال-التحقق" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="أفعال-التحقق"><span class="header-section-number">9.3</span> أفعال التحقق</h2>
-<p>أفعال التحقق تقبل مُكرَّرًا (Iterable)، وتنتج قيمة صواب (<code>True</code>) أو خطأ (<code>False</code>). وقد عرفنا أن الصف والقائمة والقاموس كلها من جنس المُكرَّر. وهما فعلان:</p>
-<ul>
-<li>فعل <strong>أي</strong> (<code>any</code>) يتحقق بوجود عنصرٍ واحد متحقق على الأقل</li>
-<li>فعل <strong>كل</strong> (<code>all</code>) يتحقق بتحقق جميع العناصر كلها</li>
-</ul>
-<p>فهذه جُمَل التوكيد لجميع الحالات الممكنة لهما:</p>
-<div id="303d736e" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="cf">assert</span> <span class="bu">any</span>([<span class="va">True</span>, <span class="va">False</span>]) <span class="op">==</span> <span class="va">True</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="cf">assert</span> <span class="bu">any</span>([<span class="va">True</span>, <span class="va">True</span>]) <span class="op">==</span> <span class="va">True</span></span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="cf">assert</span> <span class="bu">any</span>([<span class="va">False</span>, <span class="va">False</span>]) <span class="op">==</span> <span class="va">False</span></span>
-<span id="cb19-4"><a href="#cb19-4"></a></span>
-<span id="cb19-5"><a href="#cb19-5"></a><span class="cf">assert</span> <span class="bu">all</span>([<span class="va">True</span>, <span class="va">True</span>]) <span class="op">==</span> <span class="va">True</span></span>
-<span id="cb19-6"><a href="#cb19-6"></a><span class="cf">assert</span> <span class="bu">all</span>([<span class="va">True</span>, <span class="va">False</span>]) <span class="op">==</span> <span class="va">False</span></span>
-<span id="cb19-7"><a href="#cb19-7"></a><span class="cf">assert</span> <span class="bu">all</span>([<span class="va">False</span>, <span class="va">False</span>]) <span class="op">==</span> <span class="va">False</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>وذلك باعتبار ما يصير إليه المُكَرَّر.</p>
-</section>
-<section id="المصطلحات" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="المصطلحات"><span class="header-section-number">9.4</span> المصطلحات</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>العربية</th>
-<th>الإنجليزية</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>جمع مرقوم</td>
-<td>Hashable Collection</td>
-</tr>
-<tr class="even">
-<td>مجموعة</td>
-<td>Set</td>
-</tr>
-<tr class="odd">
-<td>قاموس</td>
-<td>Dictionary</td>
-</tr>
-<tr class="even">
-<td>متغير</td>
-<td>Mutable</td>
-</tr>
-<tr class="odd">
-<td>فريد</td>
-<td>Unique</td>
-</tr>
-<tr class="even">
-<td>مرقوم</td>
-<td>Hashable</td>
-</tr>
-<tr class="odd">
-<td>بلا ترتيب</td>
-<td>Unordered</td>
-</tr>
-<tr class="even">
-<td>العد</td>
-<td>Length</td>
-</tr>
-<tr class="odd">
-<td>التكرار</td>
-<td>Iteration</td>
-</tr>
-<tr class="even">
-<td>العضوية</td>
-<td>Membership</td>
-</tr>
-<tr class="odd">
-<td>الإضافة</td>
-<td>Add</td>
-</tr>
-<tr class="even">
-<td>الحذف</td>
-<td>Discard</td>
-</tr>
-<tr class="odd">
-<td>نزع</td>
-<td>Pop</td>
-</tr>
-<tr class="even">
-<td>المحو</td>
-<td>Clear</td>
-</tr>
-<tr class="odd">
-<td>التقاطع</td>
-<td>Intersection</td>
-</tr>
-<tr class="even">
-<td>الاتحاد</td>
-<td>Union</td>
-</tr>
-<tr class="odd">
-<td>الفرق</td>
-<td>Difference</td>
-</tr>
-<tr class="even">
-<td>الفرق التماثلي</td>
-<td>Symmetric Difference</td>
-</tr>
-<tr class="odd">
-<td>الجزئية</td>
-<td>Subset</td>
-</tr>
-<tr class="even">
-<td>الشمول</td>
-<td>Superset</td>
-</tr>
-<tr class="odd">
-<td>الانفصال</td>
-<td>Disjoint</td>
-</tr>
-<tr class="even">
-<td>رابط</td>
-<td>Entry</td>
-</tr>
-<tr class="odd">
-<td>مرقوم</td>
-<td>Key</td>
-</tr>
-<tr class="even">
-<td>قيمة</td>
-<td>Value</td>
-</tr>
-<tr class="odd">
-<td>دالة</td>
-<td>Mapping</td>
-</tr>
-<tr class="even">
-<td>دالة متغيرة</td>
-<td>Mutable Mapping</td>
-</tr>
-</tbody>
-</table>
+<p>وذلك لأن العناصر يتم معالجتها بالترتيب، فالسؤال عن العضويَّة أتم القدر الكافي للوصول إلى إجابته ثم توقف. ثم جاء فعل الإنجاء <code>list</code> ولا بدل له من قراءة جميع العناصر، ولذا ظهرت، لكنه لا يقرأ إلا متا تبقى منها.</p>
+<section id="دفعات-المعالجة" class="level3">
+<h3 class="anchored" data-anchor-id="دفعات-المعالجة">دفعات المعالجة</h3>
+<p>ولعل علَّة الاقتصاد في خطوات المعالجة ومساحة الذاكرة غير مبررة بهذا المثال البسيط. لكنَّ لو أردنا معالجة قائمة مكونة من عشرة آلاف رابط من الصُّور عالية الدقَّة كبيرة الحجم؛ فإن إمكانيات الحاسب قد لا تتحمل؛ وحينها يجب الاقتصاد. فاستعمال الأفعال المؤجَّلة تعني أننا ندخل العناصر في مسار المعالجة من أوِّلِه إلى آخره، ثم ندخل العنصر الثاني، والثالث، وهكذا … حتى ننتهي.</p>
+<p>وإذا جعلتَ العُنصُرَ الواحدَ حِزمة عناصر، أصبح لديك <strong>دفعات</strong> من العناصر (Batches)؛ حيث تدخل عشرة عناصر، ثم العشرة الثانية، ثم الثالثة، وهكذا؛ وهو المعمول به في معالجة البيانات الضخمة (Big Data). ويتم اختيار حجم الدفعة بقدر لا يزيد على سعة الذاكرة.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

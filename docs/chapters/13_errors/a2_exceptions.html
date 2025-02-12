@@ -555,8 +555,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/11_functional/a2_pipelines.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">مسارات المعالجة</span></span></a>
+  <a href="../../chapters/11_functional/a2_lazy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">الفعل المؤجَّل</span></span></a>
   </div>
 </li>
       </ul>
@@ -594,7 +594,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#الفرق-بين-الوقاية-والتدارك" id="toc-الفرق-بين-الوقاية-والتدارك" class="nav-link active" data-scroll-target="#الفرق-بين-الوقاية-والتدارك"><span class="header-section-number">19.1</span> الفرق بين الوقاية والتدارك</a>
+  <li><a href="#الفرق-بين-الوقاية-والعلاج" id="toc-الفرق-بين-الوقاية-والعلاج" class="nav-link active" data-scroll-target="#الفرق-بين-الوقاية-والعلاج"><span class="header-section-number">19.1</span> الفرق بين الوقاية والعلاج</a>
   <ul class="collapse">
   <li><a href="#الحالة-الأولى-أن-يستوعبه-السياق" id="toc-الحالة-الأولى-أن-يستوعبه-السياق" class="nav-link" data-scroll-target="#الحالة-الأولى-أن-يستوعبه-السياق">الحالة الأولى: أن يستوعبه السياق</a></li>
   <li><a href="#الحالة-الثانية-ألا-يستوعبه-السياق" id="toc-الحالة-الثانية-ألا-يستوعبه-السياق" class="nav-link" data-scroll-target="#الحالة-الثانية-ألا-يستوعبه-السياق">الحالة الثانية: ألا يستوعبه السياق</a></li>
@@ -670,10 +670,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>وللتعامل مع الخطأ حين يستوعبه السياق طريقتان:</p>
 <ol type="1">
 <li><strong>الوقاية</strong>: توقُّع حالات الخطأ والتحقق من عدمها قبل الإقدام على العملية.</li>
-<li><strong>التدارك</strong>: ترك العملية لترجع بالخطأ؛ ثم نتعامل معه بحسبه.</li>
+<li><strong>العلاج</strong>: ترك العملية لترجع بالخطأ؛ ثم نتعامل معه بحسبه.</li>
 </ol>
-<section id="الفرق-بين-الوقاية-والتدارك" class="level2" data-number="19.1">
-<h2 data-number="19.1" class="anchored" data-anchor-id="الفرق-بين-الوقاية-والتدارك"><span class="header-section-number">19.1</span> الفرق بين الوقاية والتدارك</h2>
+<section id="الفرق-بين-الوقاية-والعلاج" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="الفرق-بين-الوقاية-والعلاج"><span class="header-section-number">19.1</span> الفرق بين الوقاية والعلاج</h2>
 <p>هذا الفعل مسؤول عن تهيئة البرنامج، ومن خطواته أنه يقرأ ملف الضبط المخصص <code>custom_config.json</code>. وفي هذه الحالة قد يحصل خطأ. إذْ قد لا يكون الملف موجودًا أصلا!</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> initialize_program():</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    <span class="co"># ... code before</span></span>
@@ -689,7 +689,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6"></a>        <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'default.json'</span>)</span>
 <span id="cb2-7"><a href="#cb2-7"></a>    <span class="co"># ... code after</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>وقد تقول، حسنًا ماذا يكون لو عُدم ملف <code>default.json</code> أيضًا؟ فنقول: لا بأس أن يحصل خطأ يوقف البرنامج. إذْ ذاك يعتبر خطأ منطقيًّا يجب إصلاحه بإضافة الملف، وليس ثمة مجال لأن يصلحه النص البرمجي بنفسه.</p>
-<p>أما <strong>التدارك</strong> فيكون بجملة <code>try-except</code> على النحو التالي:</p>
+<p>أما <strong>العلاج</strong> فيكون بجملة <code>try-except</code> على النحو التالي:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> initialize_program():</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    <span class="co"># ... code before</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>    <span class="cf">try</span>:</span>
@@ -697,7 +697,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-5"><a href="#cb3-5"></a>    <span class="cf">except</span> <span class="pp">FileNotFoundError</span>:</span>
 <span id="cb3-6"><a href="#cb3-6"></a>        <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'default.json'</span>)</span>
 <span id="cb3-7"><a href="#cb3-7"></a>    <span class="co"># ... code after</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>أما استعمال الوقاية ففيه شك بوجود <strong>فجوة زمنية</strong> بين عملية التحقق من وجود الملف وبين قراءته. فالحاسب تتوارد عليه البرمجيات، ولا يستأثر به برنامج واحد. فإذا تغيَّر الحال في هذه الفجوة الزمنية وعاد بالنقض على التحقق بعد حصوله انتفت الفائدة منه. لذا <strong>فالتدارك أضمن</strong>.</p>
+<p>أما استعمال الوقاية ففيه شك بوجود <strong>فجوة زمنية</strong> بين عملية التحقق من وجود الملف وبين قراءته. فالحاسب تتوارد عليه البرمجيات، ولا يستأثر به برنامج واحد. فإذا تغيَّر الحال في هذه الفجوة الزمنية وعاد بالنقض على التحقق بعد حصوله انتفت الفائدة منه. لذا <strong>فالعلاج أضمن</strong>.</p>
+<p>ولا نستطيع أن نقول أن “الوقاية خير من العلاج”، بل بحسب الحالة يختار المبرمج الأفضل.</p>
 <section id="الحالة-الأولى-أن-يستوعبه-السياق" class="level3">
 <h3 class="anchored" data-anchor-id="الحالة-الأولى-أن-يستوعبه-السياق">الحالة الأولى: أن يستوعبه السياق</h3>
 <section id="فإن-كان-خطأ-جديدا" class="level4">
@@ -712,7 +713,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="وإن-كان-خطا-مرفوعا" class="level4">
 <h4 class="anchored" data-anchor-id="وإن-كان-خطا-مرفوعا">وإن كان خطًا مرفوعًا</h4>
 <p>وقد مثلنا له بفتح الملف، ونمثل له بمثال آخر:</p>
-<div id="441d9f0e" class="cell" data-execution_count="1">
+<div id="441d9f0e" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> get_user_guess() <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    <span class="bu">print</span>(<span class="st">'Please enter a number'</span>)</span>
 <span id="cb5-3"><a href="#cb5-3"></a>    guess <span class="op">=</span> <span class="bu">input</span>()</span>
@@ -813,7 +814,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="indexerror-keyerror"><code>IndexError</code> &amp; <code>KeyError</code></h3>
 <p><strong>السبب</strong>: الرقم الذي استعمل في عملية الإشارة <code>[index]list</code> (قائمة) أو <code>dict[key]</code> (قاموس) يشير لما هو خارج المجموعة.</p>
 <p>نحو:</p>
-<div id="e4abbf85" class="cell" data-execution_count="2">
+<div id="e4abbf85" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>my_list <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>]</span>
 <span id="cb10-2"><a href="#cb10-2"></a>idx <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb10-3"><a href="#cb10-3"></a>value <span class="op">=</span> my_list[idx]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -835,13 +836,13 @@ Cell <span class="ansi-green-fg">In[2], line 3</span>
 <span id="cb11-2"><a href="#cb11-2"></a>    value <span class="op">=</span> my_list[idx]</span>
 <span id="cb11-3"><a href="#cb11-3"></a><span class="cf">else</span>:</span>
 <span id="cb11-4"><a href="#cb11-4"></a>    <span class="co"># do something else</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>أو بالتدارك:</p>
+<p>أو بالعلاج:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="cf">try</span>:</span>
 <span id="cb12-2"><a href="#cb12-2"></a>    value <span class="op">=</span> my_list[idx]</span>
 <span id="cb12-3"><a href="#cb12-3"></a><span class="cf">except</span> <span class="pp">IndexError</span>:</span>
 <span id="cb12-4"><a href="#cb12-4"></a>    <span class="co"># do something else</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>وكذلك في القاموس، نحو:</p>
-<div id="db22e483" class="cell" data-execution_count="3">
+<div id="db22e483" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>my_dict <span class="op">=</span> {<span class="st">'A'</span>: <span class="dv">10</span>, <span class="st">'B'</span>: <span class="dv">20</span>, <span class="st">'C'</span>: <span class="dv">30</span>}</span>
 <span id="cb13-2"><a href="#cb13-2"></a>key <span class="op">=</span> <span class="st">'Z'</span></span>
 <span id="cb13-3"><a href="#cb13-3"></a>value <span class="op">=</span> my_dict[key]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -865,7 +866,7 @@ Cell <span class="ansi-green-fg">In[3], line 3</span>
 <span id="cb14-4"><a href="#cb14-4"></a>    <span class="co"># do something else</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>أو هكذا (تعيين قيمة ابتدائية):</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>value <span class="op">=</span> my_dict.get(key, <span class="dv">0</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>أو بالتدارك:</p>
+<p>أو بالعلاج:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="cf">try</span>:</span>
 <span id="cb16-2"><a href="#cb16-2"></a>    value <span class="op">=</span> my_dict[key]</span>
 <span id="cb16-3"><a href="#cb16-3"></a><span class="cf">except</span> <span class="pp">KeyError</span>:</span>
@@ -878,7 +879,7 @@ Cell <span class="ansi-green-fg">In[3], line 3</span>
 <li>فإن أسنِد إلى كائن؛ وقع <code>AttributeError</code></li>
 <li>وإلا وقع <code>NameError</code></li>
 </ul>
-<div id="86f8adc8" class="cell" data-execution_count="4">
+<div id="86f8adc8" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>a <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a>a <span class="op">+</span> X</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -893,7 +894,7 @@ Cell <span class="ansi-green-fg">In[4], line 2</span>
 </div>
 </div>
 </div>
-<div id="fe532bce" class="cell" data-execution_count="5">
+<div id="fe532bce" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>some_function(<span class="dv">55</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -906,7 +907,7 @@ Cell <span class="ansi-green-fg">In[5], line 1</span>
 </div>
 </div>
 </div>
-<div id="bf31a189" class="cell" data-execution_count="6">
+<div id="bf31a189" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">class</span> A:</span>
 <span id="cb19-2"><a href="#cb19-2"></a>    <span class="cf">pass</span></span>
 <span id="cb19-3"><a href="#cb19-3"></a></span>
@@ -925,7 +926,7 @@ Cell <span class="ansi-green-fg">In[6], line 5</span>
 </div>
 </div>
 </div>
-<div id="3b3d6c6f" class="cell" data-execution_count="7">
+<div id="3b3d6c6f" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>a.do_something()</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -952,7 +953,7 @@ Cell <span class="ansi-green-fg">In[7], line 1</span>
 <section id="تعريف-أخطاء-جديدة" class="level2" data-number="19.5">
 <h2 data-number="19.5" class="anchored" data-anchor-id="تعريف-أخطاء-جديدة"><span class="header-section-number">19.5</span> تعريف أخطاء جديدة</h2>
 <p>تعريف الخطأ يكون بتعريف نوع جديد يرث من النوع <code>Exception</code>، وهذا ما يحققه السطر الأول بين القوسين. وتستطيع أن ترث ممن يرث، فتتكون لديك فروع من هذا الخطأ:</p>
-<div id="bd1c57ff" class="cell" data-execution_count="8">
+<div id="bd1c57ff" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">class</span> ParentError(<span class="pp">Exception</span>):</span>
 <span id="cb21-2"><a href="#cb21-2"></a>    <span class="cf">pass</span></span>
 <span id="cb21-3"><a href="#cb21-3"></a></span>
@@ -977,12 +978,12 @@ Cell <span class="ansi-green-fg">In[7], line 1</span>
 </div>
 </div>
 <p>وهذا الفعل يحصل فيه الخطأ بطريقة مصطنعة لكنها توضح ما نريد، وهو الخطأ الفرعي <code>XError</code> الذي يرث من الخطأ الأصلي <code>ParentError</code>:</p>
-<div id="8a9743e8" class="cell" data-execution_count="9">
+<div id="8a9743e8" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">def</span> do_something():</span>
 <span id="cb22-2"><a href="#cb22-2"></a>    <span class="cf">raise</span> XError(<span class="st">'Something went wrong'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ثم حين نفحص، تسطيع أن نطابق بالأصل أو الفرع:</p>
-<div id="6d2b30fc" class="cell" data-execution_count="10">
+<div id="6d2b30fc" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="cf">try</span>:</span>
 <span id="cb23-2"><a href="#cb23-2"></a>    do_something()</span>
 <span id="cb23-3"><a href="#cb23-3"></a><span class="cf">except</span> ParentError <span class="im">as</span> e:</span>
@@ -1032,7 +1033,7 @@ Cell <span class="ansi-green-fg">In[7], line 1</span>
 <td>If-else</td>
 </tr>
 <tr class="odd">
-<td>التدارك</td>
+<td>العلاج</td>
 <td>Try-except</td>
 </tr>
 <tr class="even">
