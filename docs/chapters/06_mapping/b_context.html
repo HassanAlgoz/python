@@ -596,7 +596,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#الكلمة-ومعناها" id="toc-الكلمة-ومعناها" class="nav-link active" data-scroll-target="#الكلمة-ومعناها">الكلمة ومعناها</a></li>
+  <li><a href="#البحث-عن-عنصر-في-مجموعة" id="toc-البحث-عن-عنصر-في-مجموعة" class="nav-link active" data-scroll-target="#البحث-عن-عنصر-في-مجموعة">البحث عن عنصر في مجموعة</a></li>
+  <li><a href="#إزالة-العناصر-المتكررة" id="toc-إزالة-العناصر-المتكررة" class="nav-link" data-scroll-target="#إزالة-العناصر-المتكررة">إزالة العناصر المتكررة</a></li>
+  <li><a href="#الكلمة-ومعناها" id="toc-الكلمة-ومعناها" class="nav-link" data-scroll-target="#الكلمة-ومعناها">الكلمة ومعناها</a></li>
   <li><a href="#ربط-الأسماء-بالأرقام" id="toc-ربط-الأسماء-بالأرقام" class="nav-link" data-scroll-target="#ربط-الأسماء-بالأرقام">ربط الأسماء بالأرقام</a></li>
   <li><a href="#اختصار-الروابط-الطويلة" id="toc-اختصار-الروابط-الطويلة" class="nav-link" data-scroll-target="#اختصار-الروابط-الطويلة">اختصار الروابط الطويلة</a></li>
   <li><a href="#الاختصارات" id="toc-الاختصارات" class="nav-link" data-scroll-target="#الاختصارات">الاختصارات</a></li>
@@ -629,66 +631,99 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="البحث-عن-عنصر-في-مجموعة" class="level2">
+<h2 class="anchored" data-anchor-id="البحث-عن-عنصر-في-مجموعة">البحث عن عنصر في مجموعة</h2>
+<p>وهنا بحثٌ سريع جدًا باستعمال جملة التحقق من العضوية:</p>
+<div id="3fee43dd" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>languages <span class="op">=</span> {<span class="st">"Arabic"</span>, <span class="st">"English"</span>}</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="cf">if</span> <span class="st">'Python'</span> <span class="kw">not</span> <span class="kw">in</span> languages:</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="bu">print</span>(<span class="st">'You need to learn Python to talk to a computer!'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>You need to learn Python to talk to a computer!</code></pre>
+</div>
+</div>
+</section>
+<section id="إزالة-العناصر-المتكررة" class="level2">
+<h2 class="anchored" data-anchor-id="إزالة-العناصر-المتكررة">إزالة العناصر المتكررة</h2>
+<p>وتستعمل كذلك لإزالة العناصر المتكررة في أي مجموعة، نحو القطعة التالي. فإننا نحول القائمة إلى مجموعة فرائد فتزول تلك العناصر تلقائيًّا، ثم نعيدها كما كانت:</p>
+<div id="099d9173" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb3-2"><a href="#cb3-2"></a>unique_numbers <span class="op">=</span> <span class="bu">list</span>(<span class="bu">set</span>(numbers))</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="bu">print</span>(unique_numbers)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1, 2, 3, 4, 5]</code></pre>
+</div>
+</div>
+<p>وكذلك من الصف:</p>
+<div id="ceebfc7d" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>t <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>unique_t <span class="op">=</span> <span class="bu">tuple</span>(<span class="bu">set</span>(t))</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="bu">print</span>(unique_t)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1, 2, 3, 4, 5)</code></pre>
+</div>
+</div>
+</section>
 <section id="الكلمة-ومعناها" class="level2">
 <h2 class="anchored" data-anchor-id="الكلمة-ومعناها">الكلمة ومعناها</h2>
 <p>القاموس بالمعنى الذي يشير إليه اللفظ. نفترض أن لدينا قاموسًا يحتوي على ترجمة بعض الكلمات من الإنجليزية إلى العربية:</p>
-<div id="3353a591" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>english_to_arabic <span class="op">=</span> {</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="st">'apple'</span>: <span class="st">'تفاحة'</span>,</span>
-<span id="cb1-3"><a href="#cb1-3"></a>    <span class="st">'banana'</span>: <span class="st">'موزة'</span>,</span>
-<span id="cb1-4"><a href="#cb1-4"></a>    <span class="st">'orange'</span>: <span class="st">'برتقالة'</span>,</span>
-<span id="cb1-5"><a href="#cb1-5"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="08840141" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>english_to_arabic <span class="op">=</span> {</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="st">'apple'</span>: <span class="st">'تفاحة'</span>,</span>
+<span id="cb7-3"><a href="#cb7-3"></a>    <span class="st">'banana'</span>: <span class="st">'موزة'</span>,</span>
+<span id="cb7-4"><a href="#cb7-4"></a>    <span class="st">'orange'</span>: <span class="st">'برتقالة'</span>,</span>
+<span id="cb7-5"><a href="#cb7-5"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="ربط-الأسماء-بالأرقام" class="level2">
 <h2 class="anchored" data-anchor-id="ربط-الأسماء-بالأرقام">ربط الأسماء بالأرقام</h2>
 <p>مثلاً: دليل أرقام الهواتف هو قاموس:</p>
-<div id="ae54ab19" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>name_to_phone <span class="op">=</span> {</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    <span class="st">'Adam'</span>: <span class="st">'966xxxxxxxxx'</span>,</span>
-<span id="cb2-3"><a href="#cb2-3"></a>    <span class="st">'Mohammed'</span>: <span class="st">'966xxxxxxxxx'</span>,</span>
-<span id="cb2-4"><a href="#cb2-4"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1883c065" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>name_to_phone <span class="op">=</span> {</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    <span class="st">'Adam'</span>: <span class="st">'966xxxxxxxxx'</span>,</span>
+<span id="cb8-3"><a href="#cb8-3"></a>    <span class="st">'Mohammed'</span>: <span class="st">'966xxxxxxxxx'</span>,</span>
+<span id="cb8-4"><a href="#cb8-4"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وكذلك دليل أسماء النطاق (DNS: Domain Name System) على شبكة الانرتنت هو قاموس:</p>
-<div id="4198ff40" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>domain_to_ip <span class="op">=</span> {</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    <span class="st">'google.com'</span>: <span class="st">'172.217.14.206'</span>,</span>
-<span id="cb3-3"><a href="#cb3-3"></a>    <span class="st">'wikipedia.org'</span>: <span class="st">'103.86.96.10'</span>,</span>
-<span id="cb3-4"><a href="#cb3-4"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9efe92c0" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>domain_to_ip <span class="op">=</span> {</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    <span class="st">'google.com'</span>: <span class="st">'172.217.14.206'</span>,</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    <span class="st">'wikipedia.org'</span>: <span class="st">'103.86.96.10'</span>,</span>
+<span id="cb9-4"><a href="#cb9-4"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="اختصار-الروابط-الطويلة" class="level2">
 <h2 class="anchored" data-anchor-id="اختصار-الروابط-الطويلة">اختصار الروابط الطويلة</h2>
 <p>من استعمالات القاموس: اختصار الروابط الطويلة في روابط قصيرة.</p>
-<div id="0e471fa4" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>short_to_full <span class="op">=</span> {</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    <span class="st">'google'</span>: <span class="st">'https://www.google.com'</span>,</span>
-<span id="cb4-3"><a href="#cb4-3"></a>    <span class="st">'python'</span>: <span class="st">'https://www.python.org'</span>,</span>
-<span id="cb4-4"><a href="#cb4-4"></a>    <span class="st">'wiki'</span>: <span class="st">'https://www.wikipedia.org'</span>,</span>
-<span id="cb4-5"><a href="#cb4-5"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c4506253" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>short_to_full <span class="op">=</span> {</span>
+<span id="cb10-2"><a href="#cb10-2"></a>    <span class="st">'google'</span>: <span class="st">'https://www.google.com'</span>,</span>
+<span id="cb10-3"><a href="#cb10-3"></a>    <span class="st">'python'</span>: <span class="st">'https://www.python.org'</span>,</span>
+<span id="cb10-4"><a href="#cb10-4"></a>    <span class="st">'wiki'</span>: <span class="st">'https://www.wikipedia.org'</span>,</span>
+<span id="cb10-5"><a href="#cb10-5"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="الاختصارات" class="level2">
 <h2 class="anchored" data-anchor-id="الاختصارات">الاختصارات</h2>
 <p>أو الاختصارات إلى الكلمة التامة:</p>
-<div id="37fc284d" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>abb_to_full <span class="op">=</span> {</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    <span class="st">'ASAP'</span>: <span class="st">'As Soon As Possible'</span>,</span>
-<span id="cb5-3"><a href="#cb5-3"></a>    <span class="st">'BRB'</span>: <span class="st">'Be Right Back'</span>,</span>
-<span id="cb5-4"><a href="#cb5-4"></a>    <span class="st">'DIY'</span>: <span class="st">'Do It Yourself'</span>,</span>
-<span id="cb5-5"><a href="#cb5-5"></a>    <span class="st">'EDA'</span>: <span class="st">'Exploratory Data Analysis'</span>,</span>
-<span id="cb5-6"><a href="#cb5-6"></a>    <span class="st">'FYI'</span>: <span class="st">'For Your Information'</span>,</span>
-<span id="cb5-7"><a href="#cb5-7"></a>    <span class="st">'SAR'</span>: <span class="st">'Saudi Riyal'</span>,</span>
-<span id="cb5-8"><a href="#cb5-8"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b4955ec3" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>abb_to_full <span class="op">=</span> {</span>
+<span id="cb11-2"><a href="#cb11-2"></a>    <span class="st">'ASAP'</span>: <span class="st">'As Soon As Possible'</span>,</span>
+<span id="cb11-3"><a href="#cb11-3"></a>    <span class="st">'BRB'</span>: <span class="st">'Be Right Back'</span>,</span>
+<span id="cb11-4"><a href="#cb11-4"></a>    <span class="st">'DIY'</span>: <span class="st">'Do It Yourself'</span>,</span>
+<span id="cb11-5"><a href="#cb11-5"></a>    <span class="st">'EDA'</span>: <span class="st">'Exploratory Data Analysis'</span>,</span>
+<span id="cb11-6"><a href="#cb11-6"></a>    <span class="st">'FYI'</span>: <span class="st">'For Your Information'</span>,</span>
+<span id="cb11-7"><a href="#cb11-7"></a>    <span class="st">'SAR'</span>: <span class="st">'Saudi Riyal'</span>,</span>
+<span id="cb11-8"><a href="#cb11-8"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ويمكن عكس القاموس بالطريقة التالية:</p>
-<div id="9bf220c2" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>full_to_abb <span class="op">=</span> {}</span>
-<span id="cb6-2"><a href="#cb6-2"></a></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="cf">for</span> key, value <span class="kw">in</span> abb_to_full.items():</span>
-<span id="cb6-4"><a href="#cb6-4"></a>    full_to_abb[value] <span class="op">=</span> key</span>
-<span id="cb6-5"><a href="#cb6-5"></a></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="bu">print</span>(full_to_abb)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="aa5838f7" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>full_to_abb <span class="op">=</span> {}</span>
+<span id="cb12-2"><a href="#cb12-2"></a></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="cf">for</span> key, value <span class="kw">in</span> abb_to_full.items():</span>
+<span id="cb12-4"><a href="#cb12-4"></a>    full_to_abb[value] <span class="op">=</span> key</span>
+<span id="cb12-5"><a href="#cb12-5"></a></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="bu">print</span>(full_to_abb)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{'As Soon As Possible': 'ASAP', 'Be Right Back': 'BRB', 'Do It Yourself': 'DIY', 'Exploratory Data Analysis': 'EDA', 'For Your Information': 'FYI', 'Saudi Riyal': 'SAR'}</code></pre>
 </div>
@@ -697,34 +732,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="سلة-المشتريات" class="level2">
 <h2 class="anchored" data-anchor-id="سلة-المشتريات">سلة المشتريات</h2>
 <p>نفترض أن لدينا سلة تحتوي على مشتريات العميل (<code>basket</code>)، ونريد حساب القيمة الإجمالية لها، ولدينا قائمة بأسعار الفواكه. فنعرف الأسعار على أنها قاموس <code>prices</code> بحيث يشير اسم الفاكهة إلى سعرها (قيمتها المالية).</p>
-<div id="89a3321d" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>prices <span class="op">=</span> {</span>
-<span id="cb8-2"><a href="#cb8-2"></a>    <span class="st">'apple'</span>: <span class="fl">15.25</span>,</span>
-<span id="cb8-3"><a href="#cb8-3"></a>    <span class="st">'banana'</span>: <span class="fl">10.50</span>,</span>
-<span id="cb8-4"><a href="#cb8-4"></a>    <span class="st">'orange'</span>: <span class="fl">5.75</span>,</span>
-<span id="cb8-5"><a href="#cb8-5"></a>    <span class="st">'cantaloupe'</span>: <span class="fl">40.00</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="aa862e33" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>prices <span class="op">=</span> {</span>
+<span id="cb14-2"><a href="#cb14-2"></a>    <span class="st">'apple'</span>: <span class="fl">15.25</span>,</span>
+<span id="cb14-3"><a href="#cb14-3"></a>    <span class="st">'banana'</span>: <span class="fl">10.50</span>,</span>
+<span id="cb14-4"><a href="#cb14-4"></a>    <span class="st">'orange'</span>: <span class="fl">5.75</span>,</span>
+<span id="cb14-5"><a href="#cb14-5"></a>    <span class="st">'cantaloupe'</span>: <span class="fl">40.00</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>يجوز تحديث الأسعار هكذا:</p>
-<div id="e9dd1891" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>prices[<span class="st">'banana'</span>] <span class="op">=</span> <span class="dv">12</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="92c0a953" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>prices[<span class="st">'banana'</span>] <span class="op">=</span> <span class="dv">12</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>أو بالمجموع هكذا:</p>
-<div id="418c81a9" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>prices.update({<span class="st">'banana'</span>: <span class="dv">12</span>, <span class="st">'orange'</span>: <span class="dv">15</span>})</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d91ad02f" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>prices.update({<span class="st">'banana'</span>: <span class="dv">12</span>, <span class="st">'orange'</span>: <span class="dv">15</span>})</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>والآن نفترض أن لدينا قائمة بالفواكه التي يريدها العميل:</p>
-<div id="1f5dd16c" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>basket <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>, <span class="st">'banana'</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c5e7c6ba" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>basket <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>, <span class="st">'banana'</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>نحسب سعر كل فاكهة في السلة بناءً على الأسعار الموجودة في القاموس:</p>
-<div id="a0251d4b" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="cf">for</span> fruit <span class="kw">in</span> basket:</span>
-<span id="cb12-4"><a href="#cb12-4"></a>    total <span class="op">+=</span> prices[fruit]</span>
-<span id="cb12-5"><a href="#cb12-5"></a></span>
-<span id="cb12-6"><a href="#cb12-6"></a><span class="bu">print</span>(total)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a5be7c70" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="cf">for</span> fruit <span class="kw">in</span> basket:</span>
+<span id="cb18-4"><a href="#cb18-4"></a>    total <span class="op">+=</span> prices[fruit]</span>
+<span id="cb18-5"><a href="#cb18-5"></a></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="bu">print</span>(total)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>69.5</code></pre>
 </div>
@@ -734,25 +769,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="تسجيل-تفضيلات-المستخدم">تسجيل تفضيلات المستخدم</h2>
 <p>يجوز أن تكون قيمة المرقوم قاموسًا؛ وهذا يعني أن القاموس قد يتضمن قاموسًا.</p>
 <p>هذا المثال يوضح استعمالًا شائعًا لذلك، وهو ترتيب معلومات أو تفضيلات المستخدم.</p>
-<div id="9946608e" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>user <span class="op">=</span> {</span>
-<span id="cb14-2"><a href="#cb14-2"></a>    <span class="st">'name'</span>: <span class="st">'Adam'</span>,</span>
-<span id="cb14-3"><a href="#cb14-3"></a>    <span class="st">'language'</span>: <span class="st">'Arabic'</span>,</span>
-<span id="cb14-4"><a href="#cb14-4"></a>    <span class="st">'phone'</span>: <span class="st">'966xxxxxxxxx'</span>,</span>
-<span id="cb14-5"><a href="#cb14-5"></a>    <span class="st">'last_updated'</span>: <span class="st">'2021-09-01'</span>,</span>
-<span id="cb14-6"><a href="#cb14-6"></a>    <span class="st">'age'</span>: <span class="dv">25</span>,</span>
-<span id="cb14-7"><a href="#cb14-7"></a>    <span class="st">'notifications'</span>: {</span>
-<span id="cb14-8"><a href="#cb14-8"></a>        <span class="st">'email'</span>: <span class="va">True</span>,</span>
-<span id="cb14-9"><a href="#cb14-9"></a>        <span class="st">'sms'</span>: <span class="va">False</span>,</span>
-<span id="cb14-10"><a href="#cb14-10"></a>        <span class="st">'push'</span>: <span class="va">True</span></span>
-<span id="cb14-11"><a href="#cb14-11"></a>    },</span>
-<span id="cb14-12"><a href="#cb14-12"></a>    <span class="st">'emails'</span>: [<span class="st">'example1@domain.com'</span>, <span class="st">'example2@domain.com'</span>]</span>
-<span id="cb14-13"><a href="#cb14-13"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="39c4bcf7" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>user <span class="op">=</span> {</span>
+<span id="cb20-2"><a href="#cb20-2"></a>    <span class="st">'name'</span>: <span class="st">'Adam'</span>,</span>
+<span id="cb20-3"><a href="#cb20-3"></a>    <span class="st">'language'</span>: <span class="st">'Arabic'</span>,</span>
+<span id="cb20-4"><a href="#cb20-4"></a>    <span class="st">'phone'</span>: <span class="st">'966xxxxxxxxx'</span>,</span>
+<span id="cb20-5"><a href="#cb20-5"></a>    <span class="st">'last_updated'</span>: <span class="st">'2021-09-01'</span>,</span>
+<span id="cb20-6"><a href="#cb20-6"></a>    <span class="st">'age'</span>: <span class="dv">25</span>,</span>
+<span id="cb20-7"><a href="#cb20-7"></a>    <span class="st">'notifications'</span>: {</span>
+<span id="cb20-8"><a href="#cb20-8"></a>        <span class="st">'email'</span>: <span class="va">True</span>,</span>
+<span id="cb20-9"><a href="#cb20-9"></a>        <span class="st">'sms'</span>: <span class="va">False</span>,</span>
+<span id="cb20-10"><a href="#cb20-10"></a>        <span class="st">'push'</span>: <span class="va">True</span></span>
+<span id="cb20-11"><a href="#cb20-11"></a>    },</span>
+<span id="cb20-12"><a href="#cb20-12"></a>    <span class="st">'emails'</span>: [<span class="st">'example1@domain.com'</span>, <span class="st">'example2@domain.com'</span>]</span>
+<span id="cb20-13"><a href="#cb20-13"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وللوصول إلى قيمة مضمَّنة، نستعمل الإشارة مرتين، هكذا:</p>
-<div id="e0892899" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>user[<span class="st">'notifications'</span>][<span class="st">'sms'</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div id="bcc75052" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>user[<span class="st">'notifications'</span>][<span class="st">'sms'</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>False</code></pre>
 </div>
 </div>
@@ -762,52 +797,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="استعمال-الإنشاء-المختصر">استعمال الإنشاء المختصر</h2>
 <p>تقدم معنا الكلام عن <a href="../../chapters/05_sequences/a_sequences.html#الإنشاء-المختصر-الجملة-الثلاثية">الإنشاء المختصر</a>. وسنستعرضه الآن مع القاموس.</p>
 <p>عكس قاموس بحيث تصبح الدلائل هي القيم والقيم هي الدلائل:</p>
-<div id="b11ee263" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>idx2label <span class="op">=</span> {</span>
-<span id="cb17-2"><a href="#cb17-2"></a>    <span class="dv">0</span>: <span class="st">'cat'</span>,</span>
-<span id="cb17-3"><a href="#cb17-3"></a>    <span class="dv">1</span>: <span class="st">'dog'</span>,</span>
-<span id="cb17-4"><a href="#cb17-4"></a>    <span class="dv">2</span>: <span class="st">'bird'</span>,</span>
-<span id="cb17-5"><a href="#cb17-5"></a>}</span>
-<span id="cb17-6"><a href="#cb17-6"></a></span>
-<span id="cb17-7"><a href="#cb17-7"></a>label2idx <span class="op">=</span> {label: idx <span class="cf">for</span> idx, label <span class="kw">in</span> idx2label.items()}</span>
-<span id="cb17-8"><a href="#cb17-8"></a>label2idx</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div id="e64fea8c" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>idx2label <span class="op">=</span> {</span>
+<span id="cb23-2"><a href="#cb23-2"></a>    <span class="dv">0</span>: <span class="st">'cat'</span>,</span>
+<span id="cb23-3"><a href="#cb23-3"></a>    <span class="dv">1</span>: <span class="st">'dog'</span>,</span>
+<span id="cb23-4"><a href="#cb23-4"></a>    <span class="dv">2</span>: <span class="st">'bird'</span>,</span>
+<span id="cb23-5"><a href="#cb23-5"></a>}</span>
+<span id="cb23-6"><a href="#cb23-6"></a></span>
+<span id="cb23-7"><a href="#cb23-7"></a>label2idx <span class="op">=</span> {label: idx <span class="cf">for</span> idx, label <span class="kw">in</span> idx2label.items()}</span>
+<span id="cb23-8"><a href="#cb23-8"></a>label2idx</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>{'cat': 0, 'dog': 1, 'bird': 2}</code></pre>
 </div>
 </div>
 <p>هنا مثال لقاموس من الفواكه، نريد ترشيح ما قيمته أقل من 20:</p>
-<div id="5898e925" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>menu <span class="op">=</span> {</span>
-<span id="cb19-2"><a href="#cb19-2"></a>    <span class="st">'apple'</span>: <span class="dv">15</span>,</span>
-<span id="cb19-3"><a href="#cb19-3"></a>    <span class="st">'banana'</span>: <span class="dv">10</span>,</span>
-<span id="cb19-4"><a href="#cb19-4"></a>    <span class="st">'orange'</span>: <span class="dv">5</span>,</span>
-<span id="cb19-5"><a href="#cb19-5"></a>    <span class="st">'cantaloupe'</span>: <span class="dv">40</span></span>
-<span id="cb19-6"><a href="#cb19-6"></a>}</span>
-<span id="cb19-7"><a href="#cb19-7"></a></span>
-<span id="cb19-8"><a href="#cb19-8"></a>filtered_menu <span class="op">=</span> {key: value <span class="cf">for</span> key, value <span class="kw">in</span> menu.items() <span class="cf">if</span> value <span class="op">&lt;</span> <span class="dv">20</span>}</span>
-<span id="cb19-9"><a href="#cb19-9"></a>filtered_menu</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div id="8e34e511" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>menu <span class="op">=</span> {</span>
+<span id="cb25-2"><a href="#cb25-2"></a>    <span class="st">'apple'</span>: <span class="dv">15</span>,</span>
+<span id="cb25-3"><a href="#cb25-3"></a>    <span class="st">'banana'</span>: <span class="dv">10</span>,</span>
+<span id="cb25-4"><a href="#cb25-4"></a>    <span class="st">'orange'</span>: <span class="dv">5</span>,</span>
+<span id="cb25-5"><a href="#cb25-5"></a>    <span class="st">'cantaloupe'</span>: <span class="dv">40</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a>}</span>
+<span id="cb25-7"><a href="#cb25-7"></a></span>
+<span id="cb25-8"><a href="#cb25-8"></a>filtered_menu <span class="op">=</span> {key: value <span class="cf">for</span> key, value <span class="kw">in</span> menu.items() <span class="cf">if</span> value <span class="op">&lt;</span> <span class="dv">20</span>}</span>
+<span id="cb25-9"><a href="#cb25-9"></a>filtered_menu</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>{'apple': 15, 'banana': 10, 'orange': 5}</code></pre>
 </div>
 </div>
 <p>وهذا مثال أكثر تعقيدًا. نطبق خصم 20% فقط على العناصر التي يكون سعرها أعلى من المتوسط، مع الحفاظ على بقية الأسعار كما هي. لاحظ أن التعبير هنا هو تعيين شرطي: <code>value * (1 - discount) if value &gt; avg_price else value</code> وليس هو قطعة الترشيح (<code>if</code>)؛ إذ تلك تأتي في نهاية الجملة، بعد قطعة التكرار (<code>for</code>).</p>
-<div id="b7140adf" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>menu <span class="op">=</span> {</span>
-<span id="cb21-2"><a href="#cb21-2"></a>    <span class="st">'apple'</span>: <span class="dv">15</span>,</span>
-<span id="cb21-3"><a href="#cb21-3"></a>    <span class="st">'banana'</span>: <span class="dv">10</span>,</span>
-<span id="cb21-4"><a href="#cb21-4"></a>    <span class="st">'orange'</span>: <span class="dv">5</span>,</span>
-<span id="cb21-5"><a href="#cb21-5"></a>    <span class="st">'cantaloupe'</span>: <span class="dv">40</span></span>
-<span id="cb21-6"><a href="#cb21-6"></a>}</span>
-<span id="cb21-7"><a href="#cb21-7"></a></span>
-<span id="cb21-8"><a href="#cb21-8"></a>avg_price <span class="op">=</span> <span class="bu">sum</span>(menu.values()) <span class="op">/</span> <span class="bu">len</span>(menu)</span>
-<span id="cb21-9"><a href="#cb21-9"></a>discount <span class="op">=</span> <span class="fl">0.20</span></span>
-<span id="cb21-10"><a href="#cb21-10"></a></span>
-<span id="cb21-11"><a href="#cb21-11"></a>discounted_menu <span class="op">=</span> {</span>
-<span id="cb21-12"><a href="#cb21-12"></a>    key: value <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> discount) <span class="cf">if</span> value <span class="op">&gt;</span> avg_price <span class="cf">else</span> value</span>
-<span id="cb21-13"><a href="#cb21-13"></a>    <span class="cf">for</span> key, value <span class="kw">in</span> menu.items()</span>
-<span id="cb21-14"><a href="#cb21-14"></a>}</span>
-<span id="cb21-15"><a href="#cb21-15"></a>discounted_menu</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div id="f4ec1a6e" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>menu <span class="op">=</span> {</span>
+<span id="cb27-2"><a href="#cb27-2"></a>    <span class="st">'apple'</span>: <span class="dv">15</span>,</span>
+<span id="cb27-3"><a href="#cb27-3"></a>    <span class="st">'banana'</span>: <span class="dv">10</span>,</span>
+<span id="cb27-4"><a href="#cb27-4"></a>    <span class="st">'orange'</span>: <span class="dv">5</span>,</span>
+<span id="cb27-5"><a href="#cb27-5"></a>    <span class="st">'cantaloupe'</span>: <span class="dv">40</span></span>
+<span id="cb27-6"><a href="#cb27-6"></a>}</span>
+<span id="cb27-7"><a href="#cb27-7"></a></span>
+<span id="cb27-8"><a href="#cb27-8"></a>avg_price <span class="op">=</span> <span class="bu">sum</span>(menu.values()) <span class="op">/</span> <span class="bu">len</span>(menu)</span>
+<span id="cb27-9"><a href="#cb27-9"></a>discount <span class="op">=</span> <span class="fl">0.20</span></span>
+<span id="cb27-10"><a href="#cb27-10"></a></span>
+<span id="cb27-11"><a href="#cb27-11"></a>discounted_menu <span class="op">=</span> {</span>
+<span id="cb27-12"><a href="#cb27-12"></a>    key: value <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> discount) <span class="cf">if</span> value <span class="op">&gt;</span> avg_price <span class="cf">else</span> value</span>
+<span id="cb27-13"><a href="#cb27-13"></a>    <span class="cf">for</span> key, value <span class="kw">in</span> menu.items()</span>
+<span id="cb27-14"><a href="#cb27-14"></a>}</span>
+<span id="cb27-15"><a href="#cb27-15"></a>discounted_menu</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>{'apple': 15, 'banana': 10, 'orange': 5, 'cantaloupe': 32.0}</code></pre>
 </div>
 </div>
@@ -815,18 +850,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="استعمال-أفعال-التحقق" class="level2">
 <h2 class="anchored" data-anchor-id="استعمال-أفعال-التحقق">استعمال أفعال التحقق</h2>
 <p>وننظر إلى المثال التالي لتوضيح الفائدة من أفعال التحقق. نفترض أننا نريد أن نعرف هل أحد هذه الكلمات يبدأ بالحرف: <code>ال</code>:</p>
-<div id="080f91cd" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>words <span class="op">=</span> [<span class="st">"السلام"</span>, <span class="st">"ثلاثة"</span>, <span class="st">"دعسوقة"</span>, <span class="st">"السيف"</span>]</span>
-<span id="cb23-2"><a href="#cb23-2"></a>mask <span class="op">=</span> [s.startswith(<span class="st">"ال"</span>) <span class="cf">for</span> s <span class="kw">in</span> words]</span>
-<span id="cb23-3"><a href="#cb23-3"></a><span class="bu">print</span>(mask)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="69255ecc" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>words <span class="op">=</span> [<span class="st">"السلام"</span>, <span class="st">"ثلاثة"</span>, <span class="st">"دعسوقة"</span>, <span class="st">"السيف"</span>]</span>
+<span id="cb29-2"><a href="#cb29-2"></a>mask <span class="op">=</span> [s.startswith(<span class="st">"ال"</span>) <span class="cf">for</span> s <span class="kw">in</span> words]</span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="bu">print</span>(mask)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[True, False, False, True]</code></pre>
 </div>
 </div>
 <p>وهذه نتيجة استعمال فعلي التحقق:</p>
-<div id="20ec1482" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="bu">print</span>(<span class="st">"أي منها يبدأ بالحرف: ال"</span>, <span class="bu">any</span>(mask))</span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="bu">print</span>(<span class="st">"كلها يبدأ بالحرف: ال"</span>, <span class="bu">all</span>(mask))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9b8bcf85" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="bu">print</span>(<span class="st">"أي منها يبدأ بالحرف: ال"</span>, <span class="bu">any</span>(mask))</span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="bu">print</span>(<span class="st">"كلها يبدأ بالحرف: ال"</span>, <span class="bu">all</span>(mask))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>أي منها يبدأ بالحرف: ال True
 كلها يبدأ بالحرف: ال False</code></pre>
@@ -837,49 +872,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>هل اجتاز جميع الطلاب الامتحان؟</li>
 <li>هل اجتاز أي طالب الامتحان؟</li>
 </ul>
-<div id="427dbbb0" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>students <span class="op">=</span> [</span>
-<span id="cb27-2"><a href="#cb27-2"></a>    {<span class="st">'name'</span>: <span class="st">'علي'</span>, <span class="st">'passed'</span>: <span class="va">True</span>},</span>
-<span id="cb27-3"><a href="#cb27-3"></a>    {<span class="st">'name'</span>: <span class="st">'خالد'</span>, <span class="st">'passed'</span>: <span class="va">False</span>},</span>
-<span id="cb27-4"><a href="#cb27-4"></a>    {<span class="st">'name'</span>: <span class="st">'فاطمة'</span>, <span class="st">'passed'</span>: <span class="va">True</span>}</span>
-<span id="cb27-5"><a href="#cb27-5"></a>]</span>
-<span id="cb27-6"><a href="#cb27-6"></a></span>
-<span id="cb27-7"><a href="#cb27-7"></a><span class="co"># هل اجتاز جميع الطلاب الامتحان؟</span></span>
-<span id="cb27-8"><a href="#cb27-8"></a>all_passed <span class="op">=</span> <span class="bu">all</span>(s[<span class="st">'passed'</span>] <span class="cf">for</span> s <span class="kw">in</span> students)  <span class="co"># False (لأن خالد لم يجتز)</span></span>
-<span id="cb27-9"><a href="#cb27-9"></a></span>
-<span id="cb27-10"><a href="#cb27-10"></a><span class="co"># هل اجتاز أي طالب الامتحان؟</span></span>
-<span id="cb27-11"><a href="#cb27-11"></a>any_passed <span class="op">=</span> <span class="bu">any</span>(s[<span class="st">'passed'</span>] <span class="cf">for</span> s <span class="kw">in</span> students)  <span class="co"># True (لأن علي وفاطمة اجتازا)</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4b911b8d" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>students <span class="op">=</span> [</span>
+<span id="cb33-2"><a href="#cb33-2"></a>    {<span class="st">'name'</span>: <span class="st">'علي'</span>, <span class="st">'passed'</span>: <span class="va">True</span>},</span>
+<span id="cb33-3"><a href="#cb33-3"></a>    {<span class="st">'name'</span>: <span class="st">'خالد'</span>, <span class="st">'passed'</span>: <span class="va">False</span>},</span>
+<span id="cb33-4"><a href="#cb33-4"></a>    {<span class="st">'name'</span>: <span class="st">'فاطمة'</span>, <span class="st">'passed'</span>: <span class="va">True</span>}</span>
+<span id="cb33-5"><a href="#cb33-5"></a>]</span>
+<span id="cb33-6"><a href="#cb33-6"></a></span>
+<span id="cb33-7"><a href="#cb33-7"></a><span class="co"># هل اجتاز جميع الطلاب الامتحان؟</span></span>
+<span id="cb33-8"><a href="#cb33-8"></a>all_passed <span class="op">=</span> <span class="bu">all</span>(s[<span class="st">'passed'</span>] <span class="cf">for</span> s <span class="kw">in</span> students)  <span class="co"># False (لأن خالد لم يجتز)</span></span>
+<span id="cb33-9"><a href="#cb33-9"></a></span>
+<span id="cb33-10"><a href="#cb33-10"></a><span class="co"># هل اجتاز أي طالب الامتحان؟</span></span>
+<span id="cb33-11"><a href="#cb33-11"></a>any_passed <span class="op">=</span> <span class="bu">any</span>(s[<span class="st">'passed'</span>] <span class="cf">for</span> s <span class="kw">in</span> students)  <span class="co"># True (لأن علي وفاطمة اجتازا)</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ومن أمثلته تحقيق البيانات:</p>
 <p>اشتراط وجوب وجود المرقومين: <code>name</code> و <code>email</code> في القاموس:</p>
-<div id="fc80089c" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>data <span class="op">=</span> {</span>
-<span id="cb28-2"><a href="#cb28-2"></a>    <span class="st">'name'</span>: <span class="st">'Adam'</span>,</span>
-<span id="cb28-3"><a href="#cb28-3"></a>    <span class="st">'email'</span>: <span class="st">'adam@example.com'</span>,</span>
-<span id="cb28-4"><a href="#cb28-4"></a>}</span>
-<span id="cb28-5"><a href="#cb28-5"></a></span>
-<span id="cb28-6"><a href="#cb28-6"></a><span class="cf">if</span> <span class="bu">all</span>(<span class="kw">not</span> data.get(key) <span class="cf">for</span> key <span class="kw">in</span> [<span class="st">"name"</span>, <span class="st">"email"</span>]):</span>
-<span id="cb28-7"><a href="#cb28-7"></a>    <span class="bu">print</span>(<span class="st">"البيانات غير مكتملة"</span>)</span>
-<span id="cb28-8"><a href="#cb28-8"></a><span class="cf">else</span>:</span>
-<span id="cb28-9"><a href="#cb28-9"></a>    <span class="bu">print</span>(<span class="st">"البيانات مكتملة"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e8f226ee" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>data <span class="op">=</span> {</span>
+<span id="cb34-2"><a href="#cb34-2"></a>    <span class="st">'name'</span>: <span class="st">'Adam'</span>,</span>
+<span id="cb34-3"><a href="#cb34-3"></a>    <span class="st">'email'</span>: <span class="st">'adam@example.com'</span>,</span>
+<span id="cb34-4"><a href="#cb34-4"></a>}</span>
+<span id="cb34-5"><a href="#cb34-5"></a></span>
+<span id="cb34-6"><a href="#cb34-6"></a><span class="cf">if</span> <span class="bu">all</span>(<span class="kw">not</span> data.get(key) <span class="cf">for</span> key <span class="kw">in</span> [<span class="st">"name"</span>, <span class="st">"email"</span>]):</span>
+<span id="cb34-7"><a href="#cb34-7"></a>    <span class="bu">print</span>(<span class="st">"البيانات غير مكتملة"</span>)</span>
+<span id="cb34-8"><a href="#cb34-8"></a><span class="cf">else</span>:</span>
+<span id="cb34-9"><a href="#cb34-9"></a>    <span class="bu">print</span>(<span class="st">"البيانات مكتملة"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>البيانات مكتملة</code></pre>
 </div>
 </div>
 <p>فحص ما إذا كان أجاب الشخص بأحد الأجوبة التالية:</p>
-<div id="19bcec57" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>answer <span class="op">=</span> <span class="st">"مكة"</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a></span>
-<span id="cb30-3"><a href="#cb30-3"></a>answer_set <span class="op">=</span> {</span>
-<span id="cb30-4"><a href="#cb30-4"></a>    <span class="st">"مكة"</span>,</span>
-<span id="cb30-5"><a href="#cb30-5"></a>    <span class="st">"المدينة"</span>,</span>
-<span id="cb30-6"><a href="#cb30-6"></a>    <span class="st">"المسجد الحرام"</span>,</span>
-<span id="cb30-7"><a href="#cb30-7"></a>    <span class="st">"المسجد النبوي"</span>,</span>
-<span id="cb30-8"><a href="#cb30-8"></a>}</span>
-<span id="cb30-9"><a href="#cb30-9"></a><span class="cf">if</span> <span class="bu">any</span>(a <span class="op">==</span> answer <span class="cf">for</span> a <span class="kw">in</span> answer_set):</span>
-<span id="cb30-10"><a href="#cb30-10"></a>    <span class="bu">print</span>(<span class="st">"صواب"</span>)</span>
-<span id="cb30-11"><a href="#cb30-11"></a><span class="cf">else</span>:</span>
-<span id="cb30-12"><a href="#cb30-12"></a>    <span class="bu">print</span>(<span class="st">"خطأ"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8ca9d147" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>answer <span class="op">=</span> <span class="st">"مكة"</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a></span>
+<span id="cb36-3"><a href="#cb36-3"></a>answer_set <span class="op">=</span> {</span>
+<span id="cb36-4"><a href="#cb36-4"></a>    <span class="st">"مكة"</span>,</span>
+<span id="cb36-5"><a href="#cb36-5"></a>    <span class="st">"المدينة"</span>,</span>
+<span id="cb36-6"><a href="#cb36-6"></a>    <span class="st">"المسجد الحرام"</span>,</span>
+<span id="cb36-7"><a href="#cb36-7"></a>    <span class="st">"المسجد النبوي"</span>,</span>
+<span id="cb36-8"><a href="#cb36-8"></a>}</span>
+<span id="cb36-9"><a href="#cb36-9"></a><span class="cf">if</span> <span class="bu">any</span>(a <span class="op">==</span> answer <span class="cf">for</span> a <span class="kw">in</span> answer_set):</span>
+<span id="cb36-10"><a href="#cb36-10"></a>    <span class="bu">print</span>(<span class="st">"صواب"</span>)</span>
+<span id="cb36-11"><a href="#cb36-11"></a><span class="cf">else</span>:</span>
+<span id="cb36-12"><a href="#cb36-12"></a>    <span class="bu">print</span>(<span class="st">"خطأ"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>صواب</code></pre>
 </div>
