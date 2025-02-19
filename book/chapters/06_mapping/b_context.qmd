@@ -1,5 +1,32 @@
 # تطبيقات {.unnumbered}
 
+## البحث عن عنصر في مجموعة
+
+وهنا بحثٌ سريع جدًا باستعمال جملة التحقق من العضوية:
+
+```{python}
+languages = {"Arabic", "English"}
+if 'Python' not in languages:
+    print('You need to learn Python to talk to a computer!')
+```
+
+## إزالة العناصر المتكررة
+
+وتستعمل كذلك لإزالة العناصر المتكررة في أي مجموعة، نحو القطعة التالي. فإننا نحول القائمة إلى مجموعة فرائد فتزول تلك العناصر تلقائيًّا، ثم نعيدها كما كانت:
+
+```{python}
+numbers = [1, 2, 2, 3, 4, 4, 5]
+unique_numbers = list(set(numbers))
+print(unique_numbers)
+```
+
+وكذلك من الصف:
+
+```{python}
+t = (1, 2, 2, 3, 4, 4, 5)
+unique_t = tuple(set(t))
+print(unique_t)
+```
 
 ## الكلمة ومعناها
 
