@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>21&nbsp; الواجهة الرسومية (GUI) – البايثونية</title>
+<title>21&nbsp; واجهة البرنامج – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,9 +69,11 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta name="twitter:title" content="21&nbsp; الواجهة الرسومية (GUI) – البايثونية">
+<meta name="twitter:title" content="21&nbsp; واجهة البرنامج – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/14_cli/cover.png">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/assets/users/dev_to_user.png">
+<meta name="twitter:image-height" content="309">
+<meta name="twitter:image-width" content="855">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -84,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/14_cli/a1_ui.html">واجهة المستخدم (UI)</a></li><li class="breadcrumb-item"><a href="../../chapters/14_cli/a1_ui.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الواجهة الرسومية (GUI)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/14_cli/a1_ui.html">واجهة البرنامج</a></li><li class="breadcrumb-item"><a href="../../chapters/14_cli/a1_ui.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">واجهة البرنامج</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -486,7 +488,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
- <span class="menu-text">واجهة المستخدم (UI)</span></a>
+ <span class="menu-text">واجهة البرنامج</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -495,7 +497,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/14_cli/a1_ui.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الواجهة الرسومية (GUI)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">واجهة البرنامج</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -562,20 +564,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#واجهة-سطح-المكتب" id="toc-واجهة-سطح-المكتب" class="nav-link active" data-scroll-target="#واجهة-سطح-المكتب">واجهة سطح المكتب</a></li>
-  <li><a href="#واجهة-المتصفح" id="toc-واجهة-المتصفح" class="nav-link" data-scroll-target="#واجهة-المتصفح">واجهة المتصفِّح</a></li>
-  <li><a href="#واجهة-تطبيقات-الأجهزة-الكفية-واللوحية" id="toc-واجهة-تطبيقات-الأجهزة-الكفية-واللوحية" class="nav-link" data-scroll-target="#واجهة-تطبيقات-الأجهزة-الكفية-واللوحية">واجهة تطبيقات الأجهزة الكفية واللوحية</a></li>
-  <li><a href="#واجهة-نافذة-الأوامر" id="toc-واجهة-نافذة-الأوامر" class="nav-link" data-scroll-target="#واجهة-نافذة-الأوامر">واجهة نافذة الأوامر</a></li>
-  <li><a href="#واجهة-التطبيقات-البرمجية-api" id="toc-واجهة-التطبيقات-البرمجية-api" class="nav-link" data-scroll-target="#واجهة-التطبيقات-البرمجية-api">واجهة التطبيقات البرمجية (API)</a></li>
+  <li><a href="#واجهة-الأجهزة-المكتبية" id="toc-واجهة-الأجهزة-المكتبية" class="nav-link active" data-scroll-target="#واجهة-الأجهزة-المكتبية"><span class="header-section-number">21.1</span> واجهة الأجهزة المكتبية</a></li>
+  <li><a href="#واجهة-متصفحي-الشبكة" id="toc-واجهة-متصفحي-الشبكة" class="nav-link" data-scroll-target="#واجهة-متصفحي-الشبكة"><span class="header-section-number">21.2</span> واجهة متصفحي الشبكة</a></li>
+  <li><a href="#واجهة-تطبيقات-الجوال" id="toc-واجهة-تطبيقات-الجوال" class="nav-link" data-scroll-target="#واجهة-تطبيقات-الجوال"><span class="header-section-number">21.3</span> واجهة تطبيقات الجوال</a></li>
+  <li><a href="#واجهة-نافذة-الأوامر" id="toc-واجهة-نافذة-الأوامر" class="nav-link" data-scroll-target="#واجهة-نافذة-الأوامر"><span class="header-section-number">21.4</span> واجهة نافذة الأوامر</a></li>
+  <li><a href="#واجهة-التطبيقات-البرمجية" id="toc-واجهة-التطبيقات-البرمجية" class="nav-link" data-scroll-target="#واجهة-التطبيقات-البرمجية"><span class="header-section-number">21.5</span> واجهة التطبيقات البرمجية</a></li>
+  <li><a href="#تأليف-المكتبة" id="toc-تأليف-المكتبة" class="nav-link" data-scroll-target="#تأليف-المكتبة"><span class="header-section-number">21.6</span> تأليف المكتبة</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/14_cli/a1_ui.html">واجهة المستخدم (UI)</a></li><li class="breadcrumb-item"><a href="../../chapters/14_cli/a1_ui.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الواجهة الرسومية (GUI)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/14_cli/a1_ui.html">واجهة البرنامج</a></li><li class="breadcrumb-item"><a href="../../chapters/14_cli/a1_ui.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">واجهة البرنامج</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الواجهة الرسومية (GUI)</span></h1>
+<h1 class="title"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">واجهة البرنامج</span></h1>
 </div>
 
 
@@ -592,45 +595,105 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>يُستعمل مصطلح <strong>واجهة المستخدم</strong> (User Interface) كثيرًا في البرمجة. ويُقصدُ به الشيء الظاهر الذي يراه المستفيد من البرنامج ويتعامل معه. أما الحرف <strong>G</strong> في <strong>GUI</strong> فللدلالة على أنها بصرية أو رسومية أو مرئية (Graphical).</p>
-<p>فإذا نظرنا للسيارة؛ فإن الواجهة تتألف من: المِقْوَد، ودوَّاستي الوقود والمكابح، وناقل الحركة، مما هو ظاهر ويتعامل معه السائق بشكل مباشر. وكذلك لوحة القيادة التي تعرِض درجة الحرارة ومؤشر الوقود والسرعة ونحو ذلك. لكن السيارة في الحقيقة تتكون من أشياء معقَّدة ومركَّبة لكنَّها مخفية وراء هذه البساطة.</p>
-<p>وإذا تأملنا المشتري من السوق، فإنَّه يتعامل بشكل مباشر بالنظر إلى السلع التي أمامه، ويتكلم مع البائع ويشتري منه بواسطة النقد. فهذه الواجهة التي بينه وبين السلعة؛ فهو لا يحتاج ليشتريها أن يعرف عن خطوط الإنتاج والتوزيع وإدارة المصانع ونحو ذلك. فالأمر بسيطٌ بالنسبة للمشتري.</p>
-<p>البرمجيات في الأصل ليس لها واجهة مرئية إلا بجهد خاصّ لإنشاء هذه الواجهة، واختلاف أنظمة التشغيل يجعل هذا الأمر صعبًا على المطورين، فالواجهة التي على نظام ويندوز لها طريقة تختلف عن واجهة لينكس، وتختلف عن واجهة الماك. وكذلك تختلف الواجهات في الأجهزة اللوحية.</p>
-<p>ولدينا في تصميم الواجهة خيارات:</p>
-<section id="واجهة-سطح-المكتب" class="level3">
-<h3 class="anchored" data-anchor-id="واجهة-سطح-المكتب">واجهة سطح المكتب</h3>
-<p>إذا أردت إنشاء واجهة رسومية لأجهزة سطح المكتب، ودون الخروج من بايثون، فلديك مكتبة <code>tkinter</code> لكنها غير مناسبة للأجهزة اللوحية والكفية، وإنما للأجهزة المكتبية. وقد وَجدتُ توصية في توثيق بايثون بكتاب: <a href="https://tkdocs.com/book.html">Tkinter الحديثة لمطوري بايثون المشغولين</a>.</p>
+<p>ماذا بعد كتابة القطع البرمجيَّة من أفعال وأنواع وصفات ومجردات؟ هل هي في شكلها هذا جاهزة لخدمة المستفيد؟ وللجواب عن هذا السؤال نسأل فنقول: من هو المستفيد؟</p>
+<p>قد يكون المستفيد هو مستخدم الانترنت عن طريق تطبيق المتصفِّح ، أو عن طريق التطبيق الخاص بالبرنامج.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../assets/users/dev_to_user.png" class="img-fluid figure-img"></p>
+<figcaption>المستخدم العادي</figcaption>
+</figure>
+</div>
+<p>يُستعمل مصطلح <strong>واجهة المستخدم</strong> (User Interface) للدلالة على الشيء الظاهر للمستخدم والذي به يستفيد من البرنامج ويتعامل معه. فحرف <strong>G</strong> في <strong>GUI</strong> فللدلالة على أنها بصرية أو رسومية أو مرئية (Graphical). وهذا مثل قولهم: اللغة الطبيعية (Natural Language) ليفرقوا بينها وبين لغة البرمجة. فهنا خُصصت الواجهة بأنها رسومية لأن الواجهة البسيطة للبرامج في الأصل نصيَّة أوامريَّة .. وهي الشاشة السوداء.</p>
+<p>وصناعة واجهة المستخدم الرسومية (GUI) تدخل فيه عوامل أهمها نظام التشغيل:</p>
+<ul>
+<li>واجهة الأجهزة المكتبية، أنظمة تشغيلها: Windows, Linux, MacOS</li>
+<li>واجهة الأجهزة الكفية واللوحية، أنظمة تشغيلها: Android, iOS</li>
+</ul>
+<p>فكل نظام له تفاصيله الخاصَّة لبناء الواجهة الرسومية عليه؛ والعقبة التي تحاول تسهيلها بعض البرمجيات المبنية اليوم هي: كتابة الكود مرة واحدة لتظهر نفس الواجهة على جميع الأنظمة (أو حتى أن تتكيف بحسب النظام). وهذا مجال لا يزال الاختراع فيه قائمًا.</p>
+<section id="واجهة-الأجهزة-المكتبية" class="level2" data-number="21.1">
+<h2 data-number="21.1" class="anchored" data-anchor-id="واجهة-الأجهزة-المكتبية"><span class="header-section-number">21.1</span> واجهة الأجهزة المكتبية</h2>
+<p>فمكتبة <code>tkinter</code> هي في بايثون لكتابة قطعة الواجهة مرة واحدة لتعمل على جميع أنواع أنظمة الأجهزة المكتبية. وقد وجدتُ في توثيق بايثون إشارة إلى كتاب <a href="https://tkdocs.com/book.html">Tkinter الحديثة لمطوري بايثون المشغولين</a>.</p>
 </section>
-<section id="واجهة-المتصفح" class="level3">
-<h3 class="anchored" data-anchor-id="واجهة-المتصفح">واجهة المتصفِّح</h3>
-<p>إذا أردت إنشاء موقع إلكتروني بحيث تكون الواجهة صفحة على الشبكة، والنص البرمجي البايثوني خادم (server) من جهة أخرى عبر الشبكة. وهذا يلزم فيه تعلُّم لغة HTML و CSS وهما لغتان وصفيَّتان -وليستا أوامِرِيَّتيْن كبايثون- ولغةٌ ثالثة أوامريَّة هي جافاسكريبت (JavaScript). فيمكنك أن تبدأ بها هُنا على <a href="https://www.freecodecamp.org/learn/">منصة FreeCodeCamp</a> التعليمية غير الربحية.</p>
+<section id="واجهة-متصفحي-الشبكة" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="واجهة-متصفحي-الشبكة"><span class="header-section-number">21.2</span> واجهة متصفحي الشبكة</h2>
+<p>وقال آخرون لماذا لا نستفيد من كون الجميع يستخدم تطبيق متصفِّح المواقع لتصفّح الشبكة العالمية (الإنترنت). إذْ تظهر للمستخدمين بشكل موحَّد (إلى حدٍّ ما) على اختلاف أنظمة أجهزتهم: فالنصوص والروابط والأزرار والقوائم والشرائط والصور ونحوها .. تم العمل عليها في المتصفحات منذ بداية الإنترنت. وبهذا خرجت <strong>تطبيقات المتصفِّح</strong> (Web Applications) إلى جانب <strong>المواقع</strong> (Websites) المعروفة؛ إذْ تشاركها في الأدوات البرمجية.</p>
+<p>فإذا أردت إنشاء موقع إلكتروني بحيث يمكن زيارة التطبيق بزيارة صفحته على الشبكة. فلغات البرمجة الأصلية في صناعة تلك الواجهة هي ثلاثة: HTML و CSS وهما لغتان وصفيَّتان -وليستا أوامِرِيَّتيْن كبايثون- ولغةٌ ثالثة أوامريَّة هي جافاسكريبت (JavaScript). فيمكنك أن تبدأ بها هُنا على <a href="https://www.freecodecamp.org/learn/">منصة FreeCodeCamp</a> التعليمية غير الربحية.</p>
+<p>ثم تبني بإحدى المكتبات البرمجية الخاصة التي تجمع هذه اللغات الثلاثة. ومن أشهرها:</p>
+<ul>
+<li><a href="https://react.dev/">React</a></li>
+<li><a href="https://vuejs.org/">Vue</a></li>
+</ul>
 <p>وقد ظهرت بدائل موجَّهة لإخفاء تفاصيل تلك اللغات الثلاث خلف واجهة برمجيَّة أبسط من خلال بايثون؛ وذلك مثل <a href="https://streamlit.io/">Streamlit</a> و <a href="https://www.gradio.app/">Gradio</a> وكذلك مؤخرًا <a href="https://monsterui.answer.ai/">MonsterUI</a>. فقد تكون هذه أفضل لمن لا يريد التعمُّق في تفاصيل صناعة الواجهة.</p>
+<p>وفي كلا الحالتين؛ فإن النص البرمجي الذي تعلمنا كتابته في بايثون لن يضيعَ سدىً؛ فإنَّ البرمجيَّة التي تتصل بقاعدة البيانات والتي فيها التعقيد تكون في خادمٍ يقف وراء هذه الواجهة. وسيأتي الحديث عن ذلك إن شاء الله.</p>
 </section>
-<section id="واجهة-تطبيقات-الأجهزة-الكفية-واللوحية" class="level3">
-<h3 class="anchored" data-anchor-id="واجهة-تطبيقات-الأجهزة-الكفية-واللوحية">واجهة تطبيقات الأجهزة الكفية واللوحية</h3>
-<p>إذا أردت إنشاء واجهة للأجهزة الجوَّالة الكفيَّة واللوحيَّة (وأيضًا المكتبيَّة)؛ فقد يكون الحل الأمثل لذلك استعمال <a href="https://flutter.dev/">حزمة برمجيات فلتر (Flutter)</a> المطورة من قِبَل شركة غوغل (Google) التي تستعمل لغة دارت (Dart).</p>
-<p>والخيار الآخر:</p>
+<section id="واجهة-تطبيقات-الجوال" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="واجهة-تطبيقات-الجوال"><span class="header-section-number">21.3</span> واجهة تطبيقات الجوال</h2>
+<p>قد تكتفي بصناعة واجهة تطبيقك يمكن الوصول إليها بمتصفح الشبكة، فلا تحتاج لصناعة واجهة خاصَّة بنظام جوال معيَّن. إلا أنك قد تفقد بعض الميزات (وهذا أمر ليسَ تقنيًّا بَحتًا بل فيه جانب اقتصادي / تنظيمي متعمَّد). وهذا يضطرُّك لتخصيص قطعة برمجيَّة لأنظمة الجوال.</p>
+<p>المسلك الأول: أن تكتب قطعتين:</p>
 <ul>
-<li>أن تتعلم اللغة الخاصة <a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app">بالتطوير على أنظمة آندرويد</a></li>
-<li>وتتعلم لغةً أخرى <a href="https://developer.apple.com/ios/planning/">للتطوير على أنظمة iOS</a></li>
+<li>الأولى <a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app">قطعة خاصَّة بأنظمة آندرويد</a></li>
+<li>الثانية: <a href="https://developer.apple.com/ios/planning/">قطعة خاصَّة بأنظمة iOS</a></li>
+</ul>
+<p>والمسلك الثاني: أن تكتب قطعة واحدة باستعمال <a href="https://flutter.dev/">حزمة برمجيات فلتر (Flutter)</a> المطورة من قِبَل شركة غوغل (Google) التي تستعمل لغة دارت (Dart). وهدفها إنشاء واجهات التطبيقات على مختلف أنظمة التشغيل: الجوَّالة الكفيَّة أو اللوحيَّة أو المكتبيَّة.</p>
+</section>
+<section id="واجهة-نافذة-الأوامر" class="level2" data-number="21.4">
+<h2 data-number="21.4" class="anchored" data-anchor-id="واجهة-نافذة-الأوامر"><span class="header-section-number">21.4</span> واجهة نافذة الأوامر</h2>
+<p>وتسمى <strong>واجهة نافذة الأوامر</strong> فهي صالحة للمبرمج أو التقني الذي ألِف استعمال الشاشة السوداء؛ لأنها تظهر عليها.</p>
+<p>ومن ميزاتها أنها لا تتطلَّب جهدًا كبيرًا في صناعتها مقارنة بالواجهة الرسومية (GUI) لذا فإن كثيرًا من البرمجيات المفيدة تبدأ بهذا الشكل. وبعضها لا يفيد المستخدم العادي لأنها أدواة مخصوصة في البرمجة أو البرمجيات فتبقى هكذا.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../assets/users/dev_to_techie.png" class="img-fluid figure-img"></p>
+<figcaption>المستخدم التقني</figcaption>
+</figure>
+</div>
+<p>وفيها مسلكان:</p>
+<ul>
+<li>الأول: <strong>واجهة نصيَّة تأخذ وتعطي بالكتابة</strong>: فلها مكتبة <a href="https://docs.python.org/3/library/argparse.html">argparse</a> وهي أشهر لسهولتها. وقد <a href="../../chapters/14_cli/a2_argparse.html">أفردنا لها فصلاً</a>.</li>
+<li>الثاني: <strong>واجهة رسوميَّة على نافذة الأوامر النصيَّة</strong> (Terminal User Interface - TUI) وهي أجمل. ومن أشهر مكتباتها <a href="https://www.textualize.io/">Textualize</a>.</li>
 </ul>
 </section>
-<section id="واجهة-نافذة-الأوامر" class="level3">
-<h3 class="anchored" data-anchor-id="واجهة-نافذة-الأوامر">واجهة نافذة الأوامر</h3>
-<p>أما خيارات التطوير للمستخدمين المبرمجين، فمنها: واجهة نافذة الأوامر. فهي أسهلها من حيث البناء فلا تحتاج لقطع برمجية معقَّدة لبناء الواجهة الرسومية. ونحن ندرك أن ذلك ليس للمستخدم العادي، ولكن لمن لا يهاب الشاشة السوداء. وهي موضوع القسم التالي.</p>
-<p>وقد تجد مكتبة <a href="https://www.textualize.io/">Textualize</a> أكثر جاذبية للمستخدمين، إذ هي واجهة رسومية على نافذة الأوامر نفسها (Temrinal User Interface - TUI)</p>
+<section id="واجهة-التطبيقات-البرمجية" class="level2" data-number="21.5">
+<h2 data-number="21.5" class="anchored" data-anchor-id="واجهة-التطبيقات-البرمجية"><span class="header-section-number">21.5</span> واجهة التطبيقات البرمجية</h2>
+<p><strong>واجهة التطبيقات البرمجية</strong> (Application Programming Interface - API) هي أشهر من مجموع ما سبق كله؛ لأنها تتعلق بتخاطب البرمجيات مع بعضها لا مع المستخدم المباشر (وكل ما سبق موجَّه للمستخدم المباشر). وتخاطب البرمجيات أكثرُ بكثير؛ إذ أن المستخدم بضغطة زر واحدة قد يتسبب في حوار بين 20 خادمًا لتحقيق ما يريد.</p>
+<p>فإذا نظرنا للسيارة؛ فإن الواجهة تتألف من: المِقْوَد، ودوَّاستي الوقود والمكابح، وناقل الحركة، مما هو ظاهر ويتعامل معه السائق بشكل مباشر. وكذلك لوحة القيادة التي تعرِض مؤشر الوقود والسرعة ودرجة الحرارة ونحو ذلك. لكن السيارة في الحقيقة تتكون من أشياء معقَّدة ومركَّبة لكنَّها مخفية وراء هذه البساطة.</p>
+<p>وإذا تأملنا المشتري من السوق، فإنَّه يتعامل بشكل مباشر بالنظر إلى السلع التي أمامه، ويتكلم مع البائع ويشتري منه بواسطة النقد. فهذه الواجهة التي بينه وبين السلعة؛ فهو لا يحتاج ليشتريها أن يعرف عن خطوط الإنتاج والتوزيع وإدارة المصانع ونحو ذلك. فالأمر بسيطٌ بالنسبة للمشتري.</p>
+<p>فنتصوَّر الشبكة العالميَّة أنها مكوَّنة من أجهزة تقدِّم خدمات لبعضها، وقليلٌ منها يواجه المستخدمين الأصليين (العملاء / الزبائن) بشكل مباشر. والصورة التالية توضِّح أنواعًا من الترابطات (وليس موضوعنا الآن).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/NetworkTopologies.svg/508px-NetworkTopologies.svg.png" class="img-fluid figure-img"></p>
+<figcaption>أنواع الترابطات بين البرمجيات على الشبكة العالمية</figcaption>
+</figure>
+</div>
+<p>وقد كنا في حال المستفيد عندما استخدمناها في <a href="../../chapters/10_integration/a1_http.html">باب الاستفادة من الخدمات البرمجية</a>، عن طريق مكتبة <code>httpx</code> و <code>geopy</code> للتمثيل على ذلك. وسؤالنا الآن: <strong>كيف تُصنع مثل هذه الواجهة؟</strong></p>
+<p>فمن المكتبات في بايثون المشهورة في صناعة واجهة التطبيقات البرمجية (API):</p>
+<ol type="1">
+<li>مكتبة <a href="https://fastapi.tiangolo.com/">FastAPI</a>: “أداء عالي، سهل التعلم، سريع في البرمجة، جاهز للإنتاج”</li>
+<li>مكتبة <a href="https://flask.palletsprojects.com/">Flask</a>: “تم تصميمه لجعل عملية البدء سريعة وسهلة، مع القدرة على التوسع في التطبيقات المعقدة.”</li>
+<li>مكتبة <a href="https://www.djangoproject.com/">Django</a>: “تسهيل إنشاء تطبيقات ويب أفضل بسرعة أكبر وباستخدام قدر أقل من التعليمات البرمجية.”</li>
+</ol>
+<p><strong>ولا يضر بأيها بدأت</strong>.</p>
+<p>وتتم الاستفادة كما تقدَّم في <a href="../../chapters/10_integration/a1_http.html">باب الاستفادة من الخدمات البرمجية</a> عن طريقة مكتبة تتخاطب بلغة HTTP ولو اختلفت لغة البرمجة للبرنامج المستفيد. فقد تكون اللغات مثل: <strong>Go</strong> أو <strong>Java</strong> أو <strong>C#</strong> أو <strong>JavaScript</strong> أو حتى <strong>Python</strong> نفسها، لكنه برنامج منفصل.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../assets/users/server_to_clients.png" class="img-fluid figure-img"></p>
+<figcaption>البرامج المستفيدة</figcaption>
+</figure>
+</div>
 </section>
-<section id="واجهة-التطبيقات-البرمجية-api" class="level3">
-<h3 class="anchored" data-anchor-id="واجهة-التطبيقات-البرمجية-api">واجهة التطبيقات البرمجية (API)</h3>
-<p>وقد تقدَّم معنا في باب الاستفادة من الخدمات البرمجية، استعمالها عن طريق مكتبة <code>httpx</code> و <code>geopy</code> كمثال.</p>
-<p><strong>واجهة التطبيقات البرمجية</strong> (API) هي الأكثر وجودًا في العالم، لأن تخاطب البرمجيات مع بعضها أكثر بكثير من تخاطبها مع المستخدمين. بل إنك بضغطة زر واحدة قد تتسبب في تشغيل 10 برمجيات تتخاطب حتى تحقق لك ما تريد.</p>
-<p>ومن <strong>أطر العمل البرمجية</strong> (Frameworks) التي تستخدم لبناء الواجهات البرمجية:</p>
-<ul>
-<li>إطار <a href="https://fastapi.tiangolo.com/">FastAPI</a></li>
-<li>إطار <a href="https://flask.palletsprojects.com/">Flask</a></li>
-<li>إطار <a href="https://www.djangoproject.com/">Django</a></li>
-</ul>
-<p>والفرق بين الإطار والمكتبة، أن الإطارَ يفرِضُ طريقة ترتيب ملفات المشروع، وعادةً ما يكون الإطار مجموعة مكتبات تحت غطاءٍ واحد.</p>
+<section id="تأليف-المكتبة" class="level2" data-number="21.6">
+<h2 data-number="21.6" class="anchored" data-anchor-id="تأليف-المكتبة"><span class="header-section-number">21.6</span> تأليف المكتبة</h2>
+<p>مصطلح <strong>المكتبة</strong> (Library) فيه تشبيه لكون القطعة البرمجية كتابةً كلغات التواصل البشري المكتوبة (العربية والصنية والألمانية وغيرها) وكوْن الكتب حاوياتٍ للعلوم والمعارف التي يأخذ منها المريد حاجته منها. فكذلك الحزمة البرمجيَّة كمجموعة الكتب في هذه المكتبة؛ المختصَّة بصناعةً معيَّنة.</p>
+<p>فالمبرمج الذي يُسهِم بفعل جديد أو نوعٍ جديد، أو طريقة جديدة في نظم أنواع وأفعال معيَّنة، فإنَّ مبرمجًا آخر قد يستعمل ذلك بجملة الاستيراد <code>import</code>. فهنا المستفيد والمفيد كلاهما مبرمج.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../assets/users/dev_to_dev.png" class="img-fluid figure-img"></p>
+<figcaption>مبرمج ومبرمج</figcaption>
+</figure>
+</div>
+<p>فتقع الكتابة من حادّ الذهن وطويل البال لتبسيط أنواع معقَّدة من العمليات على غيره ممن يكسل عن ذلك أو يعجز.</p>
+<p>وتقع الكتابة من ذي الخبرة والممارسة لبناء إطار عملٍ برمجيّ يسهِّل على المبتدئ أو غيره عمله في سياق أو نوع من المشاريع.</p>
+<p>وتقع الكتابة من عميقي العلم بتفاصيل ودقائق المعالجة الحاسوبيَّة باعتبار التطبيقات الشائعة وواقع الأجهزة المختلفة صفاتها، لتمكين غيرهم من الاستفادة من ذلك بصورة سهلة وميسرة.</p>
+<p>وتتظافر جهود المجتمع البرمجي في صناعة المكتبات ومشاركتها فيما بينهم، ويبني بعضهم على جهد بعض. وقد يكون ذلك المجتمع منغلقًا في شركات عملاقة أو يكون مفتوحًا على العالم. وقد يكون الغرض من هذا الانفتاح الرغبة في النفع المتبادل من التشارك نفسه، أو قد يكون من إيقاع نوعٍ من الهيبة وإبراز الأولويَّة في مجالٍ من المجالات لحيازة السَّبْق في الفرص الاستثماريَّة والتعاونات الربحيَّة.</p>
 
 
 </section>
