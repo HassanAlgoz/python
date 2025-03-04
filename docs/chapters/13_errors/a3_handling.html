@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; الإشارة للملفات – البايثونية</title>
+<title>21&nbsp; الوقاية والعلاج – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -103,9 +103,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<meta name="twitter:title" content="12&nbsp; الإشارة للملفات – البايثونية">
+<meta name="twitter:title" content="21&nbsp; الوقاية والعلاج – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/08_files_and_directories/cover.png">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/13_errors/cover.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/a0_path.html">باب صياغة البيانات</a></li><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/a0_path.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">الإشارة للملفات</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/13_errors/a1_errors.html">باب الخطأ والاستثناء</a></li><li class="breadcrumb-item"><a href="../../chapters/13_errors/a3_handling.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الوقاية والعلاج</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -407,7 +407,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/08_files_and_directories/a0_path.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/08_files_and_directories/a0_path.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">الإشارة للملفات</span></span></a>
   </div>
 </li>
@@ -517,7 +517,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/13_errors/a3_handling.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/13_errors/a3_handling.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الوقاية والعلاج</span></span></a>
   </div>
 </li>
@@ -608,17 +608,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#موضع-الملفات" id="toc-موضع-الملفات" class="nav-link active" data-scroll-target="#موضع-الملفات"><span class="header-section-number">12.1</span> موضع الملفات</a></li>
-  <li><a href="#قراءة-وكتابة-الملفات" id="toc-قراءة-وكتابة-الملفات" class="nav-link" data-scroll-target="#قراءة-وكتابة-الملفات"><span class="header-section-number">12.2</span> قراءة وكتابة الملفات</a></li>
+  <li><a href="#الفرق-بين-الوقاية-والعلاج" id="toc-الفرق-بين-الوقاية-والعلاج" class="nav-link active" data-scroll-target="#الفرق-بين-الوقاية-والعلاج"><span class="header-section-number">21.1</span> الفرق بين الوقاية والعلاج</a>
+  <ul class="collapse">
+  <li><a href="#الحالة-الأولى-أن-يستوعبه-السياق" id="toc-الحالة-الأولى-أن-يستوعبه-السياق" class="nav-link" data-scroll-target="#الحالة-الأولى-أن-يستوعبه-السياق">الحالة الأولى: أن يستوعبه السياق</a></li>
+  <li><a href="#الحالة-الثانية-ألا-يستوعبه-السياق" id="toc-الحالة-الثانية-ألا-يستوعبه-السياق" class="nav-link" data-scroll-target="#الحالة-الثانية-ألا-يستوعبه-السياق">الحالة الثانية: ألا يستوعبه السياق</a></li>
+  </ul></li>
+  <li><a href="#إلتقاط-جميع-الأخطاء" id="toc-إلتقاط-جميع-الأخطاء" class="nav-link" data-scroll-target="#إلتقاط-جميع-الأخطاء"><span class="header-section-number">21.2</span> إلتقاط جميع الأخطاء</a></li>
+  <li><a href="#منظور-آخر-للخطأ" id="toc-منظور-آخر-للخطأ" class="nav-link" data-scroll-target="#منظور-آخر-للخطأ"><span class="header-section-number">21.3</span> منظور آخر للخطأ</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/a0_path.html">باب صياغة البيانات</a></li><li class="breadcrumb-item"><a href="../../chapters/08_files_and_directories/a0_path.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">الإشارة للملفات</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/13_errors/a1_errors.html">باب الخطأ والاستثناء</a></li><li class="breadcrumb-item"><a href="../../chapters/13_errors/a3_handling.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الوقاية والعلاج</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">الإشارة للملفات</span></h1>
+<h1 class="title"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الوقاية والعلاج</span></h1>
 </div>
 
 
@@ -635,132 +640,138 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="موضع-الملفات" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="موضع-الملفات"><span class="header-section-number">12.1</span> موضع الملفات</h2>
-<p>تقع الملفات في جهاز الحاسب ضمن ملفات أخرى على هذا النحو (في أنظمة ويندوز Windows):</p>
-<pre><code>C:\
-└── Users
-    └── Adam
-        └── MyProject
-            ├── data
-            │   └── datafile.csv
-            └── scripts
-                └── analysis.py</code></pre>
-<p>فالحرف الأوَّل في الأعلى (<code>C:</code>) يمثِّل مكان جهاز التخزين. وإن رأيت <code>D:</code> أو <code>E:</code> فيعني أن الملفات تخزن في جهازين آخرين.</p>
-<p>وقد تتساءل لماذا لم نبدأ بالحرف <code>A:</code> أو <code>B:</code>؟ وسبب ذلك تاريخي. وذلك أنَّهما كانا محجوزين للإشارة لجهاز تخزين عتيق يسمى القرص المرن (floppy disk)، ولم يعد يستعمل.</p>
-<p>أما في أنظمة لينكس (Linux) وماك (MacOS) فإن الأصل يعبَّر عنه لا بحرف، وإنما <strong>بالمسار الجذر</strong>: <code>/</code> على النحو التالي:</p>
-<pre><code>/
-└── home
-    └── adam
-        ├── projects
-            └── myproject
-                ├── data
-                │   └── datafile.csv
-                └── scripts
-                    └── analysis.py</code></pre>
-<p>وتسمى الملفات المتضمنة لملفات أخرى: <strong>دليل</strong> (Directory). وهو الذي يعبَّر عنه فيما ترى في الواجهة الرسومية على شكل <strong>مجلَّد</strong> (Folder).</p>
-<p>فإذًا الملفات على نوعين:</p>
-<ol type="1">
-<li><strong>ملف</strong> (File): وهو الذي يحوي بيانات نصية أو ثنائية. مثل:
-<ul>
-<li><code>datafile.csv</code> ملف بيانات جدولية</li>
-<li><code>analysis.py</code> ملف برنامج بايثون</li>
-</ul></li>
-<li><strong>دليل</strong> (Directory): وهو قائمة من الملفات والأدلة. مثل:
-<ul>
-<li><code>data</code> دليل / مجلد البيانات</li>
-<li><code>myproject</code> دليل / مجلد المشروع</li>
-</ul></li>
-</ol>
-<p><strong>صيغة الملف</strong> (File Extension) تُعرَفُ بالحروف بعد آخر نقطة. مثل:</p>
-<ul>
-<li><code>datafile.csv</code> صيغة <code>csv</code></li>
-<li><code>analysis.py</code> صيغة <code>py</code></li>
-</ul>
-<p><strong>المسار</strong> هو نص يحدد موقع الملف في النظام. وهو ضربان:</p>
-<ol type="1">
-<li><strong>مطلق</strong> (absolute): يحدد المسار بشكل كامل بدءًا من الجذر.</li>
-<li><strong>نسبي</strong> (relative): يحدد المسار بالنسبة لموقع الملف الحالي.
-<ul>
-<li>معنى النقطة <code>.</code> هو الدليل الحالي.</li>
-<li>معنى النقطتين <code>..</code> الصعود مرة</li>
-</ul></li>
-</ol>
-<div class="ltr">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Path</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Absolute</td>
-<td><code>/home/adam/projects/myproject/scripts/analysis.py</code></td>
-</tr>
-<tr class="even">
-<td>Relative</td>
-<td><code>../data/datafile.csv</code></td>
-</tr>
-</tbody>
-</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>فالمسار الثاني بالنسبة للملف <code>analysis.py</code> صحيح، لكن ليس بالنسبة لأي ملف آخر غيره خارج نفس المجلد. فهو صعودٌ للأعلى مرةً، ثم الدخول إلى الدليل <code>data</code> الذي يقع أسفله، ثم الوصول إلى الملف <code>datafile.csv</code>.</p>
+<div class="callout-title-container flex-fill">
+نصيحة
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>خشيةً الإملال أقول لعلك تعود بعد بناء برنامجٍ أو اثنين لهذه المقالة لأنها مفصَّلة إلى حدٍّ لم نصل إليه بعد (لكني أبقيتها هنا لاتصالها بالباب). فإن علمت من نفسك قدرةً فأهلا.</p>
+</div>
+</div>
+<p>تصوَّر أن البرنامج سلسلة من الأفعال بحيث يختص كل فعل بمهمة معيَّنة (بناءً على مدخلاته يُعطي مخرجاته) فإننا نتعمَّد أن يكون وعيُه محدودًا بمدخلاته حتى نقلل من تشابك قطع النص البرمجي حتى نيسِّر على أنفسنا التحقق من صحَّة المنطق. وهذه فكرة <strong>ظرف التنفيذ</strong> الذي سبق الحديث عنها في <a href="../../chapters/04_functions/a1_functions.html">باب الفعل</a>.</p>
+<p>فللخطأ حالتان -لا غير- في علاقتها مع من يتعامل معه:</p>
+<ol type="1">
+<li><strong>يستوعبه السياق</strong>: أن يكون في وعي الفعل (الظرف) ما يمكن به معالجته</li>
+<li><strong>لا يستوعبه السياق</strong>: ألا يكون كذلك فيرفعه (يرجع به) للفعل المستدعي له (الذي هو أكثرُ وَعيًا منه) ليعالجه
+<ul>
+<li>وهذا يتسلسل حتى يصل إلى الإنسان (سواءً المستفيد أو المبرمج): برسالة تفيد في العثور عليه والتعامل معه.</li>
+</ul></li>
+</ol>
+<p>ومنشؤ الخطأ أحد أمرين:</p>
+<ol type="1">
+<li><strong>خطأ مرفوع</strong>: تم رفعه من فعل مستدعى في السياق الحالي.</li>
+<li><strong>خطأ جديد</strong>: تم اكتشاف حالة تتوقف تكملة الفعل على إصلاحها.</li>
+</ol>
+<p>وللتعامل مع الخطأ حين يستوعبه السياق طريقتان:</p>
+<ol type="1">
+<li><strong>الوقاية</strong>: توقُّع حالات الخطأ والتحقق من عدمها قبل الإقدام على العملية.</li>
+<li><strong>العلاج</strong>: ترك العملية لترجع بالخطأ؛ ثم نتعامل معه بحسبه.</li>
+</ol>
+<section id="الفرق-بين-الوقاية-والعلاج" class="level2" data-number="21.1">
+<h2 data-number="21.1" class="anchored" data-anchor-id="الفرق-بين-الوقاية-والعلاج"><span class="header-section-number">21.1</span> الفرق بين الوقاية والعلاج</h2>
+<p>هذا الفعل مسؤول عن تهيئة البرنامج، ومن خطواته أنه يقرأ ملف الضبط المخصص <code>custom_config.json</code>. وفي هذه الحالة قد يحصل خطأ. إذْ قد لا يكون الملف موجودًا أصلا!</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> initialize_program():</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co"># ... code before</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'custom_config.json'</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="co"># ... code after</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ففي هذه الحالة يحصل استثناء من نوع <code>FileNotFoundError</code>.</p>
+<p>فإذا اخترنا طريق <strong>الوقاية</strong> فإننا أولاً نلتمس وجوده قبل فتحه. ونتعامل مع حالة الخطأ هذه (أي: عدمه)، بأن -مثلاً- نقرأ ملف الضبط الافتراضي <code>default.json</code> بدلاً من الملف المطلوب. والفرق بين هذا الملف والذي قبله أننا موقنون بوجوده، والأوَّل وجوده مظنون إذْ الذي يضعه هو المستخدم.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> initialize_program():</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="co"># ... code before</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="cf">if</span> os.path.exists(<span class="st">'custom_config.json'</span>):</span>
+<span id="cb2-4"><a href="#cb2-4"></a>        <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'custom_config.json'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="cf">else</span>:</span>
+<span id="cb2-6"><a href="#cb2-6"></a>        <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'default.json'</span>)</span>
+<span id="cb2-7"><a href="#cb2-7"></a>    <span class="co"># ... code after</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>وقد تقول، حسنًا ماذا يكون لو عُدم ملف <code>default.json</code> أيضًا؟ فنقول: لا بأس أن يحصل خطأ يوقف البرنامج. إذْ ذاك يعتبر خطأ منطقيًّا يجب إصلاحه بإضافة الملف، وليس ثمة مجال لأن يصلحه النص البرمجي بنفسه.</p>
+<p>أما <strong>العلاج</strong> فيكون بجملة <code>try-except</code> على النحو التالي:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> initialize_program():</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="co"># ... code before</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="cf">try</span>:</span>
+<span id="cb3-4"><a href="#cb3-4"></a>        <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'custom_config.json'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="cf">except</span> <span class="pp">FileNotFoundError</span>:</span>
+<span id="cb3-6"><a href="#cb3-6"></a>        <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'default.json'</span>)</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    <span class="co"># ... code after</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>أما استعمال الوقاية ففيه شك بوجود <strong>فجوة زمنية</strong> بين عملية التحقق من وجود الملف وبين قراءته. فالحاسب تتوارد عليه البرمجيات، ولا يستأثر به برنامج واحد. فإذا تغيَّر الحال في هذه الفجوة الزمنية وعاد بالنقض على التحقق بعد حصوله انتفت الفائدة منه. لذا <strong>فالعلاج أضمن</strong>.</p>
+<p>ولا نستطيع أن نقول أن “الوقاية خير من العلاج”، بل بحسب الحالة يختار المبرمج الأفضل.</p>
+<section id="الحالة-الأولى-أن-يستوعبه-السياق" class="level3">
+<h3 class="anchored" data-anchor-id="الحالة-الأولى-أن-يستوعبه-السياق">الحالة الأولى: أن يستوعبه السياق</h3>
+<section id="فإن-كان-خطأ-جديدا" class="level4">
+<h4 class="anchored" data-anchor-id="فإن-كان-خطأ-جديدا">فإن كان خطأ جديدًا</h4>
+<p>مثاله ما لو لم تكن أحد الصفات محددة، فيمكن تعيينها بقيمة ابتدائية، ولا يلزمنا تصعيد الخطأ:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> save_user(user: <span class="bu">dict</span>):</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="cf">if</span> <span class="st">'language'</span> <span class="kw">not</span> <span class="kw">in</span> user:</span>
+<span id="cb4-3"><a href="#cb4-3"></a>        user[<span class="st">'language'</span>] <span class="op">=</span> <span class="st">'ar'</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="co"># ... rest of the code</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>    save_to_database(user)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="قراءة-وكتابة-الملفات" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="قراءة-وكتابة-الملفات"><span class="header-section-number">12.2</span> قراءة وكتابة الملفات</h2>
-<p>فيه ثلاثة خطوات:</p>
-<ol type="1">
-<li>نفتح الملف <a href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a>: وهذا طلبٌ من نظام التشغيل الإذنَ (بحسب <code>mode</code> الإذن بالقراءة <code>r</code> أو الإذن بالكتابة <code>w</code> أو الإذن بالقراءة والكتابة <code>rw</code>)؛ ونحصل في النتيجة على مؤشر يشير إليه.</li>
-<li>. نقرأ الملف<code>file.read()</code> فيتم نسخ محتواه من التخزين إلى الذاكرة</li>
-<li>ولا بُد من تسريحه بعد الفراغ منه باستعمال <code>file.close()</code></li>
-</ol>
-<p>وذلك على النحو التالي:</p>
-<div id="8b90bc6e" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="bu">file</span><span class="op">=</span><span class="st">'../../datasets/example_root/a/a.txt'</span>, mode<span class="op">=</span><span class="st">'r'</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>content <span class="op">=</span> f.read()</span>
-<span id="cb3-3"><a href="#cb3-3"></a>f.close()</span>
-<span id="cb3-4"><a href="#cb3-4"></a></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="bu">print</span>(content)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>lorem ipsum dolfet
-weilfur badem zelfur</code></pre>
+<section id="وإن-كان-خطا-مرفوعا" class="level4">
+<h4 class="anchored" data-anchor-id="وإن-كان-خطا-مرفوعا">وإن كان خطًا مرفوعًا</h4>
+<p>وقد مثلنا له بفتح الملف، ونمثل له بمثال آخر:</p>
+<div id="facc8f7f" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> get_user_guess() <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="bu">print</span>(<span class="st">'Please enter a number'</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    guess <span class="op">=</span> <span class="bu">input</span>()</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    <span class="cf">try</span>:</span>
+<span id="cb5-5"><a href="#cb5-5"></a>        guess <span class="op">=</span> <span class="bu">int</span>(guess)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb5-7"><a href="#cb5-7"></a>        <span class="bu">print</span>(<span class="ss">f'The value "</span><span class="sc">{</span>guess<span class="sc">}</span><span class="ss">" is not a number'</span>)</span>
+<span id="cb5-8"><a href="#cb5-8"></a>        guess <span class="op">=</span> get_user_guess() <span class="co"># recursive call</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>    <span class="cf">return</span> guess</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>وهكذا نكتب في الملف باستعمال <code>file.write()</code>، بعد فتح الملف بوضع الكتابة <code>'w'</code> في <code>open(mode='w')</code>:</p>
-<div id="ea40bb36" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>content <span class="op">=</span> <span class="st">"""Salam everyone,</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="st">I hope you are enjoying the course,</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="st">Thank you.</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="st">"""</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a></span>
-<span id="cb5-7"><a href="#cb5-7"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="bu">file</span><span class="op">=</span><span class="st">'../../datasets/example_root/a/zzz.txt'</span>, mode<span class="op">=</span><span class="st">'w'</span>)</span>
-<span id="cb5-8"><a href="#cb5-8"></a>f.write(content)</span>
-<span id="cb5-9"><a href="#cb5-9"></a>f.close()</span>
-<span id="cb5-10"><a href="#cb5-10"></a></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="bu">print</span>(content)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Salam everyone,
-I hope you are enjoying the course,
-
-Thank you.
-</code></pre>
-</div>
-</div>
-<p>انظر <a href="https://docs.python.org/3/library/pathlib.html#reading-and-writing-files">توثيق قراءة وكتابة الملفات</a>.</p>
-<p>ولأن الإغلاق ضروري بعد كل فتح؛ فقد وفرت بايثون لذلك مركبًا لغويًّا يُعرف <strong>بإدارة السياق</strong>. فالملف نوعٌ يعتبر <a href="https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers"><strong>مدير سياق</strong> (Context Manager)</a> فيجوز استعمال <code>with</code> وتضمين القطعة في سياقها الذي يتكفل بإغلاق الملف تلقائيّا عند نهاية آخر جملة في قطعة داخلها. وذلك على النحو التالي:</p>
-<div id="174cc083" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>contents <span class="op">=</span> <span class="st">''</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="bu">file</span><span class="op">=</span><span class="st">'../../datasets/example_root/a/a.txt'</span>, mode<span class="op">=</span><span class="st">'r'</span>) <span class="im">as</span> f:</span>
-<span id="cb7-3"><a href="#cb7-3"></a>    contents <span class="op">=</span> f.read()</span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="bu">print</span>(contents)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>lorem ipsum dolfet
-weilfur badem zelfur</code></pre>
-</div>
-</div>
+</section>
+</section>
+<section id="الحالة-الثانية-ألا-يستوعبه-السياق" class="level3">
+<h3 class="anchored" data-anchor-id="الحالة-الثانية-ألا-يستوعبه-السياق">الحالة الثانية: ألا يستوعبه السياق</h3>
+<section id="فإن-كان-خطأ-جديدا-1" class="level4">
+<h4 class="anchored" data-anchor-id="فإن-كان-خطأ-جديدا-1">فإن كان خطأ جديدًا</h4>
+<p>في هذا المثال يجب أن تكون الوحدة إحدى القيم المسموحة: <code>C</code> أو <code>F</code>. وإلا فلا حيلة للفعل أن يتم وظيفته. لذا نرفع خطأ جديدًا بجملة <code>raise</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> convert_temperature(value: <span class="bu">float</span>, unit: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="cf">if</span> unit <span class="kw">not</span> <span class="kw">in</span> {<span class="st">'C'</span>, <span class="st">'F'</span>}:</span>
+<span id="cb6-3"><a href="#cb6-3"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"Invalid unit: </span><span class="sc">{</span>unit<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    </span>
+<span id="cb6-5"><a href="#cb6-5"></a>    <span class="cf">if</span> unit <span class="op">==</span> <span class="st">'C'</span>:</span>
+<span id="cb6-6"><a href="#cb6-6"></a>        <span class="cf">return</span> value <span class="op">*</span> <span class="dv">9</span><span class="op">/</span><span class="dv">5</span> <span class="op">+</span> <span class="dv">32</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a>    <span class="cf">elif</span> unit <span class="op">==</span> <span class="st">'F'</span>:</span>
+<span id="cb6-8"><a href="#cb6-8"></a>        <span class="cf">return</span> (value <span class="op">-</span> <span class="dv">32</span>) <span class="op">*</span> <span class="dv">5</span><span class="op">/</span><span class="dv">9</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="وإن-كان-خطا-مرفوعا-1" class="level4">
+<h4 class="anchored" data-anchor-id="وإن-كان-خطا-مرفوعا-1">وإن كان خطًا مرفوعًا</h4>
+<p>ففي هذا المثال عملية قسمة قد يحصل فيها قسمة على صفر في <code>(a / b)</code>، فيرتفع خطأ اسمه <code>ZeroDivisionError</code> من تلك العملية. والحقيقة أننا في هذا السياق ليس لنا أن نعدِّل الرقم، بل نريد لمن استدعى الفعل أن يعلم بالخطأ، ولسنا نريد إضافة معلومة أخرى فوق ذلك. لذا نسكت عنه (أي: لا نضع <code>try-except</code>) وهذا يجعله ينتقل مباشرة للفعل المستدعي.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> divide_lists(list1: <span class="bu">list</span>, list2: <span class="bu">list</span>) <span class="op">-&gt;</span> <span class="bu">list</span>:</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    result <span class="op">=</span> []</span>
+<span id="cb7-3"><a href="#cb7-3"></a>    <span class="cf">for</span> a, b <span class="kw">in</span> <span class="bu">zip</span>(list1, list2):</span>
+<span id="cb7-4"><a href="#cb7-4"></a>        result.append(a <span class="op">/</span> b)</span>
+<span id="cb7-5"><a href="#cb7-5"></a>    <span class="cf">return</span> result</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>فإن من الأخطاء ما <strong>يتعذر على البرنامج معالجته بنفسه</strong>:</p>
+<ul>
+<li>إذا كانت المشكلة بامتلاء الذاكرة في الجهاز؛ فإن البرنامج ليس له إلا أن يخرج برسالة للمستخدم أو المسؤول عن الجهاز .. وليس للبرنامج أن يمسح بيانات المستخدم!</li>
+<li>أما إذا كانت المشكلة في تأخر الإجابة من الخادم مثلاً، فقد نعيد المحاول مرة أخرى بعد ثوانٍ، ونعيدها لعددٍ محدد من المرات، أملاً في الحصول على إجابة. ثم بعد ذلك لا يمكن إلا أن نظهر رسالة خطأ إن نفدت جميع المحاولات.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="إلتقاط-جميع-الأخطاء" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="إلتقاط-جميع-الأخطاء"><span class="header-section-number">21.2</span> إلتقاط جميع الأخطاء</h2>
+<p>من الخطأ في المنطق البرمجي إلتقاط جميع الأخطاء في الأفعال باستعمال <code>except Exception</code> وهو النوع الشامل لجميع الأخطاء. فهذه الطريقة لا تخبرنا بنوع الخطأ وبالتالي لا نتعامل معه بحسبه، وإنما غاية ما تحقق هو منع تصعيد الخطأ لأعلى طبقة، إذْ حين يحصل ذلك توقف بايثون البرنامج (وعندها تظهر سلسلة الطلبات).</p>
+<p>لكن يجوز ذلك في قطع النص البرمجي التي يُراد لها الاستمرار، وإن فشلَ شيئٌ فيها. مثلاً: لا تريد للخادم أن يتوقف تمامًا بمجرد حصول خطأ واحد في أحد خيوط التنفيذ الخاصة بخدمة أحد الطلبات. ففي مثل ذلك يسوغ استخدام <code>except Exception</code> الشاملة. انظر مثلاً <a href="https://github.com/pallets/flask/blob/2fec0b206c6e83ea813ab26597e15c96fab08be7/src/flask/app.py#L893-L900">قطعة النص البرمجي في إطار الويب فلاسك المسؤول عن استقبال الطلبات</a>.</p>
+</section>
+<section id="منظور-آخر-للخطأ" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="منظور-آخر-للخطأ"><span class="header-section-number">21.3</span> منظور آخر للخطأ</h2>
+<p>فائدة: لدينا طريقتان في التعامل مع الخطأ الواقعي، واختارت بايثون طريقة الاستثناء:</p>
+<p>الأولى: <strong>رفع قيمة الخطأ بالاسثناء</strong>: لغات مثل C++ (1979)، Java (1998)، Python (1991) و JavaScript (1995) ترمي/ترفع الاستثناءات باستعمال عبارة مثلة <code>raise</code> أو عبارة <code>throw</code> على حسب اللغة. وتكون معالجة الخطأ بجملة <code>try-catch</code> أو <code>try-except</code>.</p>
+<p>الثانية: <strong>الرجوع بقيمة الخطأ</strong>: اللغات الحديثة مثل Go (2009) و Rust (2015) ببساطة تعيد الخطأ كشيء (قيمة) عند حدوثه باستعمال جملة <code>return</code> التي في الفعل. وتكون معالجة الخطأ بجملة شرطية عاديَّة نحو: <code>if error == error_type</code></p>
+<p>وبعض اللغات مثل: C (1978) وكذلك C++ (1985) تخلط بين النوعين!</p>
+<hr>
+<p><strong>المراجع</strong>:</p>
+<ul>
+<li>Miguel Grinberg: <a href="https://blog.miguelgrinberg.com/post/the-ultimate-guide-to-error-handling-in-python">The Ultimate Guide to Error Handling in Python</a></li>
+</ul>
 
 
 </section>
