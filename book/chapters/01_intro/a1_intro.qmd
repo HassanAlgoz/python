@@ -206,6 +206,8 @@ uv add pandas
 
 ثم نستطيع استعمال المكتبة لقراءة بيانات الطلاب -مثلاً- من ملف CSV:
 
+<div class="ltr">
+
 ```{python}
 import pandas as pd
 
@@ -213,17 +215,27 @@ df = pd.read_csv('../../datasets/students.csv')
 df
 ```
 
+</div>
+
 ثم لعرض ملخصات إحصائية:
+
+<div class="ltr">
 
 ```{python}
 df.describe(include=['number'])
 ```
 
+</div>
+
 أو تصوير البيانات:
 
+<div class="ltr">
+
 ```{python}
-df['Gender'].value_counts().plot(kind='barh', color='skyblue', figsize=(4, 3))
+df['Done'].value_counts().plot(kind='bar', color='skyblue', figsize=(4, 3), rot=0)
 ```
+
+</div>
 
 هكذا بكل بساطة.
 
