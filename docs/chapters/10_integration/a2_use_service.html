@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; المقدمة الثانية: جهاز الحاسب – البايثونية</title>
+<title>21&nbsp; الخدمة البرمجية – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,10 +20,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -71,13 +105,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<meta name="twitter:title" content="2&nbsp; المقدمة الثانية: جهاز الحاسب – البايثونية">
+<meta name="twitter:title" content="21&nbsp; الخدمة البرمجية – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/assets/IOHw_Intro.png">
-<meta name="twitter:image-height" content="440">
-<meta name="twitter:image-width" content="660">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/10_integration/cover.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -90,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/01_intro/a2_intro.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">المقدمة الثانية: جهاز الحاسب</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/10_integration/a1_use_library.html">تكامل البرمجيات</a></li><li class="breadcrumb-item"><a href="../../chapters/10_integration/a2_use_service.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الخدمة البرمجية</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -172,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/01_intro/a2_intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/01_intro/a2_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">المقدمة الثانية: جهاز الحاسب</span></span></a>
   </div>
 </li>
@@ -483,7 +518,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/10_integration/a2_use_service.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/10_integration/a2_use_service.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الخدمة البرمجية</span></span></a>
   </div>
 </li>
@@ -528,20 +563,28 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#وحدة-المعالجة-المركزية" id="toc-وحدة-المعالجة-المركزية" class="nav-link active" data-scroll-target="#وحدة-المعالجة-المركزية">وحدة المعالجة المركزية</a></li>
-  <li><a href="#أجهزة-الإدخال-والإخراج" id="toc-أجهزة-الإدخال-والإخراج" class="nav-link" data-scroll-target="#أجهزة-الإدخال-والإخراج">أجهزة الإدخال والإخراج</a></li>
-  <li><a href="#الذاكرة" id="toc-الذاكرة" class="nav-link" data-scroll-target="#الذاكرة">الذاكرة</a></li>
-  <li><a href="#نظام-التشغيل" id="toc-نظام-التشغيل" class="nav-link" data-scroll-target="#نظام-التشغيل">نظام التشغيل</a></li>
-  <li><a href="#خلاصة" id="toc-خلاصة" class="nav-link" data-scroll-target="#خلاصة">خلاصة</a></li>
+  <li><a href="#لغة-التخاطب-بين-الخادم-والمخدوم" id="toc-لغة-التخاطب-بين-الخادم-والمخدوم" class="nav-link active" data-scroll-target="#لغة-التخاطب-بين-الخادم-والمخدوم">لغة التخاطب بين الخادم والمخدوم</a>
+  <ul class="collapse">
+  <li><a href="#العنوان-الموحد-للمورد" id="toc-العنوان-الموحد-للمورد" class="nav-link" data-scroll-target="#العنوان-الموحد-للمورد">العنوان الموحد للمورِد</a></li>
+  <li><a href="#الوسطاء" id="toc-الوسطاء" class="nav-link" data-scroll-target="#الوسطاء">الوسطاء</a></li>
+  <li><a href="#الطلب-والجواب" id="toc-الطلب-والجواب" class="nav-link" data-scroll-target="#الطلب-والجواب">الطلب والجواب</a></li>
+  </ul></li>
+  <li><a href="#الواجهة-البرمجية-للتطيبقات" id="toc-الواجهة-البرمجية-للتطيبقات" class="nav-link" data-scroll-target="#الواجهة-البرمجية-للتطيبقات">الواجهة البرمجية للتطيبقات</a>
+  <ul class="collapse">
+  <li><a href="#المثال-الأول" id="toc-المثال-الأول" class="nav-link" data-scroll-target="#المثال-الأول">المثال الأوَّل</a></li>
+  <li><a href="#المثال-الثاني-التخاطب-عبر-httpx" id="toc-المثال-الثاني-التخاطب-عبر-httpx" class="nav-link" data-scroll-target="#المثال-الثاني-التخاطب-عبر-httpx">المثال الثاني: التخاطب عبر <code>httpx</code></a></li>
+  <li><a href="#المثال-الثالث" id="toc-المثال-الثالث" class="nav-link" data-scroll-target="#المثال-الثالث">المثال الثالث</a></li>
+  <li><a href="#انطلق-بالتطبيق" id="toc-انطلق-بالتطبيق" class="nav-link" data-scroll-target="#انطلق-بالتطبيق">انطلق بالتطبيق</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/10_integration/a1_use_library.html">تكامل البرمجيات</a></li><li class="breadcrumb-item"><a href="../../chapters/10_integration/a2_use_service.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الخدمة البرمجية</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">المقدمة الثانية: جهاز الحاسب</span></h1>
+<h1 class="title"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الخدمة البرمجية</span></h1>
 </div>
 
 
@@ -558,89 +601,376 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>رغم تعقيد الحواسيب اليوم، فهي ترجع إلى <a href="https://ar.wikipedia.org/wiki/%D9%85%D8%B9%D9%85%D8%A7%D8%B1%D9%8A%D8%A9_%D9%81%D9%88%D9%86_%D9%86%D9%8A%D9%88%D9%85%D8%A7%D9%86"><strong>معمارية فون نعيمان</strong></a> (بالإنجليزية: <a href="https://en.wikipedia.org/wiki/Von_Neumann_architecture">Von Neumann architecture</a>) وهي مجموعة من القواعد الأساسية وضعها العالم الرياضي جون فون نعيمان ومعاونوه عام 1945م وتُستعمل حتى الأن في تصميم الحاسبات.</p>
+<p>ترتبط البرمجيات ببعضها عن طريق الشبكة. ويملك بعض الناس بيانات أو معالجة من نوعٍ ما لا يملكه الآخرون، فيتبادل الناس بينهم بالبيع والشراء كمفيدين ومستفيدين.</p>
+<ul>
+<li>فأما <strong>المفيد</strong> فيسمى المزوِّد (provider) أو الخادم (server) باعتبار المنتج أو الخدمة البرمجية.</li>
+<li>وأما <strong>المستفيد</strong> فيسمى المستخدم (user) أو العميل (client) أو المستهلك (consumer).</li>
+</ul>
+<section id="لغة-التخاطب-بين-الخادم-والمخدوم" class="level2">
+<h2 class="anchored" data-anchor-id="لغة-التخاطب-بين-الخادم-والمخدوم">لغة التخاطب بين الخادم والمخدوم</h2>
+<p>وإذا عرفنا أن لغات البشر تصل إلى الآلاف؛ والناس تلجأ إلى لغة وسيطة للتواصل بينهم مثل الإنجليزية أو الأوردية أو العربية الفصيحة، فالحال -من باب أولى- يصعب على الآلات الصماء التي تتبع أوامر بشكلٍ حرفيّ أن تتخاطَب إلا بضبط طريقة التواصل بقواعد صارمة، ويتفق الجميع على التخاطب بها ولو اختلفت لغات البرمجة.</p>
+<p>ولهذا اختُرِعَت <strong>لغة نقل النص التشعُّبي</strong> HTTP (Hyper-text Transfer Protocol). والمقصود بالتشعُّب وجود الروابِط في صفحات الانرتنت التي تنقلك من نصٍّ إلى نصّ. وهذه النصوص ما هي إلا وصفٌ لمحتويات الصفحة التي تظهر أمامك؛ يُفسِّرُها البرنامج المتصفِّح الذي تستعمله على جهازك، لتظهر لك الفقرات والخطوط العريضة والألوان والتنسيق والصور التوضيحية والجداول والمقاطع والملفات ونصوص البرمجيات الملوَّنة والملفات المضمَّنة والمبدَّفة … وكل ما رأيت قطُّ في صفحة على الانرتنت. واللغة هذه تسمَّى <strong>لغة وصف النص التشعُّبي</strong>: HTML (Hyper-text Markup Language) وكذلك ما رأيت قط داخل أي تطبيقٍ من شاشة جوالٍ أو لوحي؛ فهي موصوفةٌ بنفس الطريقة بلغة أشمل معروفة بالأقواس المثلثة <code>&lt;XML&gt;</code> اسمها XML.</p>
+<p>لكن الذي يهمُّنا أن لغة نقل النص التشعبي؛ لم تقتصر على النصوص ذات الروابط، بل وُظِّفَت لنقل أي نوع من البيانات عبر الشبكة بما فيها النصوص التي لا تحتوي على أية روابط (تشعبات). فإن البرمجيات تصوغ رسائلها بينها بلغة HTTP لتتواصل فيما بينها ويتم بينها التخادُم (مستفيد ومفيد). ومضمون الرسائل التي بينها عادةً ما يكون نصًّا مُصاغًا بصيغة XML أو JSON .. وقد يكون ملفًّا ثنائيًّا يحوي صورةً أو مقطعًا أو نصًّا.</p>
+<p>ومن نظائر لغة التخاطب HTTP على الشبكة أيضًا:</p>
+<ul>
+<li>SMTP, IMAP, POP للبريد الإلكتروني</li>
+<li>FTP لنقل الملفات</li>
+<li>Web Socket لتبادل المعلومات على خط حي مفتوح</li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/Lists_of_network_protocols">وغيرها كثير جدًّا</a>. إلا أن لغة HTTP خصصت للتصفح على شبكة الإنرتنت.</p>
+<section id="العنوان-الموحد-للمورد" class="level3">
+<h3 class="anchored" data-anchor-id="العنوان-الموحد-للمورد">العنوان الموحد للمورِد</h3>
+<p>واصطلاح <strong>عنوان المورِد الموحَّد</strong> URL (Uniform Resource Locator) هو الذي نقصده عندما نقول <strong>رابط</strong> (Link أو Hyper-link reference وتختصر <code>href</code>) لأن صياغة الروابط عادةً ما تتبع هذه الصيغة الموحَّدة. وهي التي تتضمَّنُ عادةً جزئيَّة <code>com.</code> أو <code>net.</code> ونحوهما؛ وتتضمن بعدها مسارًا فرعيًّا. ونمثل على ذلك:</p>
+<pre><code>https://github.com/HassanAlgoz/python</code></pre>
+<p>ففيه:</p>
+<ul>
+<li>الصياغة: <code>https</code> (ونظائرها: <code>ws</code> و <code>ftp</code> فكل من هذه لغات تخاطب على الانترنت)</li>
+<li>عنوان الاستضافة: <code>github.com</code></li>
+<li>المسار الفرعي: <code>HassanAlgoz/</code></li>
+<li>المورِد: <code>python</code></li>
+</ul>
+<p>ويكون الرابط على النحو التالي:</p>
+<pre><code>https://user:pass@sub.example.com:8080/p/a/t/h?query=string#hash</code></pre>
+<p><a href="https://nodejs.org/api/url.html#url-strings-and-url-objects">وانظر هنا</a> إن أردت معرفة أسماء جميع أجزاء الرابط.</p>
+<p>أما مصطلح <strong>المورِد</strong> (Resource) عامٌّ يشمل شيئًا مُجرَّدًا يتم الوصول إليه بعنوان مُصاغٍ بصيغة متفقٍ عليها. سواءٌ كان موجودًا قبل الوصول إليه، أو يتمُّ إنتاجه متى طُلِب.</p>
+<p>والرابط يشبه استدعاء الفعل. لاحظ أننا في بايثون نستدعي الفعل <code>pow</code> من الوحدة <code>math</code> ونمرر العوامل <code>2, 3</code> إليه:</p>
+<div id="f97382eb" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> math</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a>math.<span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>8.0</code></pre>
+</div>
+</div>
+<p>وهكذا كما هو موضح في الجدول:</p>
+<div class="ltr">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Origin (الأصل)</th>
+<th>Path (المسار)</th>
+<th>Query (المعاملات)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>https://api.openweathermap.org</code></td>
+<td><code>/weather</code></td>
+<td><code>?city=London</code></td>
+</tr>
+<tr class="even">
+<td><code>math</code></td>
+<td><code>pow</code></td>
+<td><code>2, 3</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>فكما أننا نطلب الفعل <code>pow</code> من الوحدة <code>math</code> ونمرر العوامل <code>2, 3</code> إليه</li>
+<li>فكذلك نطلب المورِد <code>/weather</code> من الموقع <code>https://api.openweathermap.org</code> ونمرر العوامل <code>?city=London</code> إليه
+<ul>
+<li>العامل يبتدأ بعلامة الاستفهام <code>?</code> ثم اسم العامل <code>city</code> وقيمته <code>London</code> وهو اسم المدينة</li>
+</ul></li>
+</ul>
+<p>فالطريقة الأولى تستخدم في لغات البرمجة، والثانية هي مثيلتها في لغة التخاطب الموحَّدة HTTP.</p>
+</section>
+<section id="الوسطاء" class="level3">
+<h3 class="anchored" data-anchor-id="الوسطاء">الوسطاء</h3>
+<p>وقد وصفنا أن الطلب مخرجه من جهاز المستفيد ومدخله إلى جهاز المفيد؛ وذلك باعتبار المآل. لكن على وجه التفصيل؛ هو يمر عن طريق شبكة الانترنت عبر عدة <strong>وسطاء</strong> (proxy) حتى يصل إلى موقعه، وهو ما تنظِّمه مؤسسات الاتصالات والشبكات والمعلومات عبر الجغرافيات. وقد تكون هذه وسطاء تجارية،</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Von_Neumann_Architecture-ar.svg/450px-Von_Neumann_Architecture-ar.svg.png" class="img-fluid figure-img"></p>
-<figcaption>“صورة: بنية فون نيومان. بقلم ميشيل باكني (1989-). متوفرة تحت رخصة المشاع الإبداعي نسب المصنف - الترخيص بالمثل 4.0 دولي. المصدر: كومنز ويكيميديا (https://commons.wikimedia.org/wiki/File:Von_Neumann_architecture.svg)”</figcaption>
+<p><img src="https://mdn.github.io/shared-assets/images/diagrams/http/overview/client-server-chain.svg" class="img-fluid figure-img"></p>
+<figcaption>الوسطاء بين الخادم والمخدوم</figcaption>
 </figure>
 </div>
-<section id="وحدة-المعالجة-المركزية" class="level2">
-<h2 class="anchored" data-anchor-id="وحدة-المعالجة-المركزية">وحدة المعالجة المركزية</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/AMD_Ryzen_7_1800X.jpg/1280px-AMD_Ryzen_7_1800X.jpg" class="img-fluid figure-img"></p>
-<figcaption>بقلم براين وونغ - https://www.flickr.com/photos/57993471@N06/37962336546/</figcaption>
-</figure>
+<p>ومن وظائفها:</p>
+<ul>
+<li>التخزين (caching) لتسريع خدمة الطلبات المتكررة</li>
+<li>الترشيح (filtering) للوقاية من الفيروسات أو التحكم بالمحتوى المسموح</li>
+<li>توزيع الجهد (load balancing) وعادة ما يكون هذا الوسيط أقرب شيء إلى مجموعة خوادم متماثلة، يتم توزيع الطلبات المتكاثرة بينها لتتعاون في خدمتها ولا يتأخر جواب أحد منها</li>
+<li>التحقق (authentication) السماح المشروط بتسجيل أو اشتراك أو مكان معين</li>
+<li>التسجيل (logging) لمتابعة جميع الطلبات لغرض الكشف عن المشاكل أو معرفة الاختراقات أو الانتهاكات للأنظمة</li>
+</ul>
+</section>
+<section id="الطلب-والجواب" class="level3">
+<h3 class="anchored" data-anchor-id="الطلب-والجواب">الطلب والجواب</h3>
+<p>ومن مفاهيم لغة التخاطب عبر تطبيقات الشبكة (HTTP) أيضًا:</p>
+<p><strong>الطلب</strong> (request) وهو الرسالة التي تشمل:</p>
+<ul>
+<li><strong>محتوى</strong>: <code>body / content</code></li>
+<li><strong>العميل</strong> (المُرسِل): <code>user-agent</code></li>
+<li><strong>المستضيف</strong> (المُرسَل إليه): <code>Host</code></li>
+</ul>
+<p><strong>نوع الطلب</strong> (method) وأهمها:</p>
+<ul>
+<li><code>GET</code> لطلب الحصول على مورِد معيَّن</li>
+<li><code>DELETE</code> لطلب حذف مورِد معيَّن</li>
+</ul>
+<p>ففيهما يتمُّ تحديد عنوان المورِد.</p>
+<p>ثم لدينا:</p>
+<ul>
+<li><code>POST</code> لطلب إنشاء مورِد؛ يتمُّ تحديد تفاصيل الإنشاء في محتوى الرسالة</li>
+<li><code>PUT</code> لطلب تعديل مورِد؛ يتمُّ تحديد تفاصيل التعديل في محتوى الرسالة</li>
+</ul>
+<p><strong>الرؤوس</strong> (headers) هي معلومات عن المعلومات التي في الطلب نفسه أو محتواه؛ بعضها أصلي وبعضها إضافي.</p>
+<ul>
+<li>مثلاً: <code>Content-Type: text/csv</code> تعني أن البيانات المرسلة عبارة عن ملف بصيغة CSV. وهو أصلي.</li>
+<li>أما الإضافي فيبدأ بحرف <code>X</code> على هذا النحو: <code>x-api-key: 1234567890</code> هو مفتاح التطبيق الذي يسمح للطلب بالتعريف بصاحب الحساب لإتاحة الخدمة له.</li>
+</ul>
+<p><strong>المحتوى</strong> (body) هي البيانات المُرْسَلة أو المُسْتَلَمة؛ سواءٌ في الطلب أو جوابه.</p>
+<ul>
+<li>مثلاً: <code>{"name": "John", "age": 30}</code> هي بيانات عبارة عن قاموس بصيغة JSON.</li>
+</ul>
+<p><strong>جواب الطلب</strong> (response) وهو مثل الطلب في خصائصه؛ إلا أنَّه موجَّه بالعكس .. من الخادم إلى المخدوم.</p>
+<p><strong>رمز حالة الطلب</strong> (status code) وتنقسِم إلى نطاقات، وكثيرٌ منها مُهمَل غير مُستعمل:</p>
+<ul>
+<li>نطاق <code>100-199</code> (فقط للعلم - ولا تهمنا)</li>
+<li>نطاق <code>200-299</code> تعني أن الطلب تمُّ إنجازه بنجاح.</li>
+<li>نطاق <code>300-399</code> إعادة توجيه</li>
+<li>نطاق <code>400-499</code> إشكال من جهة العميل
+<ul>
+<li><code>400 -&gt; Bad Request</code> البيانات المُرسلة ليست صالحة</li>
+<li><code>401 -&gt; Unauthorized</code> المفتاح مفقود أو غير صالح</li>
+<li><code>403 -&gt; Forbidden</code> المفتاح صالح لكن ليس كافيًا للوصول</li>
+<li><code>404 -&gt; Not Found</code> ما طلبته غير موجود</li>
+</ul></li>
+<li>نطاق <code>500-599</code> إشكال من جهة الخادم</li>
+</ul>
+<p>فصيغة الطلب النصية تبدو هكذا:</p>
+<pre><code>GET /cats.csv HTTP/1.1
+Host: example.com
+x-api-key: 1234567890</code></pre>
+<ul>
+<li>نوع الطلب: <code>GET</code></li>
+<li>المسار: <code>/cats.csv</code></li>
+<li>نوع اللغة: <code>HTTP/1.1</code> (وقد يكون <code>HTTP/2</code> أو <code>HTTP/3</code>)</li>
+<li>العنوان الرئيسي: <code>example.com</code> (وهو الموقع الذي يوجد عليه الملف)</li>
+<li>الرؤوس: <code>x-api-key: 1234567890</code> (وهو مفتاح التطبيق الذي يسمح للطلب بالوصول إلى الخدمة)</li>
+</ul>
+<p>فيأتي الجواب هكذا مثلاً بصيغة <code>JSON</code> كقائمة فيها عُنصران:</p>
+<pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+    { 
+        "id": "1",
+        "name": "Whiskers",
+        "age": 10
+    },
+    { 
+        "id": "2",
+        "name": "Fluffy",
+        "age": 20
+    }
+]</code></pre>
+<p>لكننا سنستعمل بايثون لتسهيل صياغة الطلب وتفسير جوابه في هذا الدرس.</p>
+<p>لمزيد من التفاصيل راجع: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">HTTP overview</a>.</p>
+</section>
+</section>
+<section id="الواجهة-البرمجية-للتطيبقات" class="level2">
+<h2 class="anchored" data-anchor-id="الواجهة-البرمجية-للتطيبقات">الواجهة البرمجية للتطيبقات</h2>
+<p>وبفضل تراكم الجهود في البرمجة؛ فقد سُهِّل التخطاب بين البرمجيات بما يُعرف بصفة عامة بمصطلح <strong>الواجهة البرمجية للتطبيقات</strong> (API - Application Programming Interface)؛ فهي تُجرِّدُ تفاصيل لغة التخاطب إلى حدٍّ كبير. ويُطلق أحيانًا تجوُّزًا على المكتبة (library) والحزمة (package) بأنَّها واجهة API أو أن لها واجهة .. وإن لم تتصل بالشبكة أصلاً. لكنَّ المتبادر للذهن عند استعمال مصطلح API هي الواجهة البرمجية التي يزوِّدُها خادمٌ لعميلٍ عبر الشبكة.</p>
+<p>فأحد طرق التعامل مع الخدمات البرمجية، أن توفِّر هذه الخدمة مكتبةً للاتصال بها، تبدوا كأنها أفعال مُعرَّفة عاديَّة، لكنَّ تفاصيلها تتضمَّن إرسال طلب للخادم المزوِّد ثم الرجوع بجوابه كقيمة لموضع الاستدعاء.</p>
+<section id="المثال-الأول" class="level3">
+<h3 class="anchored" data-anchor-id="المثال-الأول">المثال الأوَّل</h3>
+<p>ونمثل على ذلك بمكتبة <a href="https://geopy.readthedocs.io/en/stable/"><code>GeoPy</code></a> حيث كُتِب في الوصف:</p>
+<blockquote class="blockquote">
+<p>جيوباي هي عميل بايثوني لمجموعة من خدمات شائعة على الشبكة للترميز الجغرافي. فهو يسهل تحديد إحداثيات العناوين والمدن والبلدان والمعالم في جميع أنحاء العالم باستخدام برامج ترميز جغرافي خارجية ومصادر بيانات أخرى.</p>
+</blockquote>
+<p>وننبه مرة أخرى إلى أنها عميل (client) لخدمات خارجية (external services)، وليسَت هي بذاتها متصلة بخدمة؛ فلا توجد خدمة اسمها geopy، وإنما هي مكتبة وسيطة فقط. انظر: <a href="https://geopy.readthedocs.io/en/stable/#geopy-is-not-a-service">geopy is not a service</a>.</p>
+<p>أولاً تثبيت المكتبة باستعمال <code>uv</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">uv</span> add geopy</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ثم نستطيع استيرادها في بايثون:</p>
+<div id="8efc34a7" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> Nominatim</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>وحدة المعالجة المركزية</strong> (Central Processing Unit - CPU) وهي التي يُعبأ فيها البرنامج المترجَم ليتم تنفيذه. وتتكون من شيئين:</p>
-<p><strong>وحدة التحكم</strong> وهي التي تتحكم في سيْر العمليات:</p>
-<ul>
-<li>حين نريد أن نكرر عمليَّةً ما عدة مرات، أو نريد أن نعلق تنفيذ عمليَّة ما بشرط</li>
-<li>حين نريد <strong>القراءة أو الكتابة</strong> من وإلى خارج وحدة المعالجة المركزيَّة</li>
-</ul>
-<p><strong>وحدة الحساب والمنطق</strong> تنفذ تعليمات المنطق الرقمي كالجمع والطرح والمقارنة والرجوع ونحو ذلك.</p>
-</section>
-<section id="أجهزة-الإدخال-والإخراج" class="level2">
-<h2 class="anchored" data-anchor-id="أجهزة-الإدخال-والإخراج">أجهزة الإدخال والإخراج</h2>
-<p>وحتى يكون للبرنامج فائدة؛ فلا بُدَّ له من منفَذٍ تدخل منه المعطيات من الواقع، ومنفذٍ آخر تخرجُ منه نتائج معالجته. وقد اصطلح الناس على الاختصار I / O إشارة إلى الإنجليزية Input / Output لهذين الأمرين. فمن ذلك:</p>
-<ul>
-<li><strong>جهاز إدخال</strong>: لوحة المفاتيح (Keyboard)، والمؤشر (Mouse)، والكاميرا، ولاقط الصوت</li>
-<li><strong>جهاز إخراج</strong>: الطابعة، والسماعات، والشاشة</li>
-<li><strong>جهاز إدخال وإخراج</strong>: جهاز التخزين الدائم الذي تُحفظ فيه الملفات، ومِقبَس الشبكة الذي يتصل بالإنترنت (وبالتالي يتصل بالحواسيب الآخرى)</li>
-</ul>
-<p><img src="../../assets/IOHw_Intro.png"></p>
-<p>ويصوِّرُها نظام التشغيل للغة البرمجة على أنها <strong>ملفات</strong> (Files) مثل سائر الملفات.</p>
-<ol type="1">
-<li>فالإدخال يكون بالقراءة منها بالأمر: <code>read</code></li>
-<li>والإخراج يكون بالكتابة عليها بالأمر: <code>write</code></li>
-</ol>
-<p>وقد رأينا عملية: <code>print()</code> حيث هي أمر بالكتابة في الملف الذي يمثِّل النافذة المتصل بها البرنامج.</p>
-</section>
-<section id="الذاكرة" class="level2">
-<h2 class="anchored" data-anchor-id="الذاكرة">الذاكرة</h2>
-<p>أما <strong>الذاكرة</strong> فتحمل البرنامج المترجَم ليتمَّ إدخاله لوحدة المعالجة، وكذلك تحمل البيانات التي نريد معالجتها، والنتائج الجزئية بين عمليَّة والتي بعدها، والنتائج النهائيَّة؛ ربما إلى حين كتابتها في الخارج.</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/2015_Pami%C4%99%C4%87_DDR3_1GB.jpg" width="500"></p>
-</section>
-<section id="نظام-التشغيل" class="level2">
-<h2 class="anchored" data-anchor-id="نظام-التشغيل">نظام التشغيل</h2>
-<p>ويتولى <strong>نظام التشغيل</strong> إدارة الموارد من ملفات، وأجهزة إدخال وإخراج، وذاكرة ومعالجة؛ بين الجهاز (المعدن) والبرمجيات (المنطق).</p>
-<ul>
-<li>فالجهاز له ذاكرة مشتركة يتولى نظام التشغيل توزيعها بين البرامج بحيث لا يتعدَّى برنامجٌ حدوده إلى آخر؛ لأن ذلك يسبب إشكاليات لا يمكن حلها. وإذا انتهى منها برنامجٌ أعادها لنظام التشغيل ليتصرف بها.</li>
-<li>وله معالج مركزي؛ يتولى تشغيل البرامج عليه جدولٌ يضعه نظام التشغيل ويسيِّر البرامج عليه.</li>
-<li>وهكذا في بقية الموارد من أجهزة إخراج وإدخال.</li>
-</ul>
+<p>ونستعمل الفعل المُنشئ <code>Nominatim</code> الذي يتصل بمزوِّد خدمة خارجية، وهو مزوِّد خدمة جغرافية عالمية تسمى <code>OpenStreetMap</code></p>
+<div id="981274e9" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>geolocator <span class="op">=</span> Nominatim(user_agent<span class="op">=</span><span class="st">"pythonia"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>يطلب منَّا الفعل المنشئ أن نعرِّف بأنفسنا بتعيين <code>user_agent</code>، وهذا بحسب ما ورد في توثيق المكتبة. فنكتب أي اسم يدلُّ على التطبيق الذي نعمل عليه الآن.</p>
+<p>نفترض أننا نريد معرفة إحداثيات مدينة الدمام، وهذا هو عمل الفعل <code>geocode</code>:</p>
+<div id="fab57b15" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>dammam_location <span class="op">=</span> geolocator.geocode(<span class="st">"Dammam, Saudi Arabia"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>قد يبدوا الفعل عاديًّا، لكنه في الواقع يتصل بالخادم المزوِّد ويطلب منه إرجاع إحداثيات المدينة؛ وهي القيمة التي تخرج لنا فنزلها في متغير <code>dammam_location</code>.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">graph TD
-    A[التطبيقات البرمجية &lt;br&gt; Application Programs]
-    A --&gt; B[نظام التشغيل &lt;br&gt; Operating System]
-    B --&gt; C[المعدن &lt;br&gt; Hardware]
-    C --&gt; D[وحدة المعالجة المركزية &lt;br&gt; CPU]
-    C --&gt; E[أجهزة الإدخال والإخراج &lt;br&gt; I/O Devices]
-    C --&gt; F[الذاكرة &lt;br&gt; Memory]
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#bbf,stroke:#333,stroke-width:2px
-    style C fill:#ddf,stroke:#333,stroke-width:2px
-    style D fill:#fdd,stroke:#333,stroke-width:2px
-    style E fill:#fdd,stroke:#333,stroke-width:2px
-    style F fill:#fdd,stroke:#333,stroke-width:2px
+<pre class="mermaid mermaid-js">sequenceDiagram
+    UserCode --&gt;&gt; GeoPy: .geocode("...")
+    GeoPy --&gt;&gt; OpenStreetMap: Request
+    OpenStreetMap --&gt;&gt; GeoPy: Response
+    GeoPy --&gt;&gt; UserCode: Return
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
+<p>وكذلك لمدينة أخرى مثل البحرين:</p>
+<div id="dd67043d" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>bahrain_location <span class="op">=</span> geolocator.geocode(<span class="st">"Bahrain"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>ثم بعد أن حصلنا على المعلومات، نستخرج الإحداثيات من المتغيرات التي حصلنا عليها:</p>
+<div id="c3d91d65" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>dammam_coords <span class="op">=</span> (dammam_location.latitude, dammam_location.longitude)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>bahrain_coords <span class="op">=</span> (bahrain_location.latitude, bahrain_location.longitude)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>ثم نحسب المسافة بين المدينتين، باستعمال فعل موجود في وحدة <code>geopy.distance</code>، وهو <code>geodesic</code>:</p>
+<div id="83640e68" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">from</span> geopy.distance <span class="im">import</span> geodesic</span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a>distance <span class="op">=</span> geodesic(dammam_coords, bahrain_coords)</span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="bu">print</span>(<span class="ss">f"Between Dammam and Bahrain is </span><span class="sc">{</span>distance<span class="sc">.</span>kilometers<span class="sc">:.2f}</span><span class="ss"> km"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Between Dammam and Bahrain is 63.61 km</code></pre>
+</div>
+</div>
+<p>وهكذا نكون قد حسبنا المسافة بين المدينتين بالكيلومترات.</p>
+<section id="مفتاح-الواجهة-البرمجية-api_key" class="level4">
+<h4 class="anchored" data-anchor-id="مفتاح-الواجهة-البرمجية-api_key">مفتاح الواجهة البرمجية (<code>API_KEY</code>)</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://geopy.readthedocs.io/en/stable/_images/geopy_and_geocoding_services.svg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><a href="https://geopy.readthedocs.io/en/stable/#geopy-is-not-a-service">geopy and geocoding services</a></figcaption>
+</figure>
+</div>
+<p>فإن أردت تغيير مزوِّد الخدمة (إما لعدم دقتها أو عدم توفر المعلومات أو أي سبب آخر)، فما عليك إلا استعمال استيراد <code>Geocoder</code> آخر، مثلاً؛ مثلاً <code>TomTom</code>:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> TomTom</span>
+<span id="cb15-2"><a href="#cb15-2"></a></span>
+<span id="cb15-3"><a href="#cb15-3"></a>geolocator <span class="op">=</span> TomTom(user_agent<span class="op">=</span><span class="st">"pythonia"</span>, api_key<span class="op">=</span><span class="st">"..."</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>لكن هذا يتطلَّب شيئًا إضافيًّا وهو الحصول على مفتاح متعلِّق بحساب مسجَّل على موقع <a href="https://developer.tomtom.com/">TomTom</a> نفسه. ثم وضع هذا الفتاح هنا. وبهذا المفتاح المرتبط بهذا الحِساب يتمُّ تعبئة الاشتراك والصرف من رصيده. وهكذا تربح الشركة التي وفَّرت هذا النظام المعلوماتي.</p>
 </section>
-<section id="خلاصة" class="level2">
-<h2 class="anchored" data-anchor-id="خلاصة">خلاصة</h2>
-<p>تبيَّن لنا أن الجهاز لا يكون مفيدًا إلا باتصاله بالعالَم المحيط به. وذلك يكون بأجهزة الإدخال للنظر في معطياته، وبأجهزة الإخراج للتأثير فيه. والمعالجةُ هي محوَر ذلك كله.</p>
+</section>
+<section id="المثال-الثاني-التخاطب-عبر-httpx" class="level3">
+<h3 class="anchored" data-anchor-id="المثال-الثاني-التخاطب-عبر-httpx">المثال الثاني: التخاطب عبر <code>httpx</code></h3>
+<p>ماذا لو لم تتوفَّر مكتبة خاصَّة بمزوِّد الخدمة؟ في هذه الحالة سنكتب نحن تفاصيل الاتصال بالخادم المزوِّد. وذلك يتطلب معرفة لغة التخاطب بين الخادم والعميل (HTTP).</p>
+<p>يجب علينا أولاً تثبيت مكتبة <a href="https://www.python-httpx.org/"><code>httpx</code></a> باستعمال <code>uv</code>:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="ex">uv</span> add httpx</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ونمثل لمزود خدمة معلومات عن القطط (<a href="https://thecatapi.com/">The Cat API</a>)، وقد حصلنا على مفتاح التطبيق (API KEY) من خلال التسجيل في الموقع.</p>
+<p>ولمعرفة الاستفادة من أي مزود خدمة، فإننا ندخل إلى صفحة المطورين، وتسمى (<a href="https://developers.thecatapi.com/">API Documentation</a>). ومنها نعرف أن المسار الذي يجب أن نطلبه هو <code>https://api.thecatapi.com/v1/images/search</code>، وهو يعطينا صورة قط عشوائية.</p>
+<p>أما المفتاح، فنضعه في الرؤوس (headers) تحت عنوان <code>x-api-key</code> كما يلي:</p>
+<div id="edf6512f" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="im">import</span> httpx</span>
+<span id="cb17-2"><a href="#cb17-2"></a></span>
+<span id="cb17-3"><a href="#cb17-3"></a>response <span class="op">=</span> httpx.get(</span>
+<span id="cb17-4"><a href="#cb17-4"></a>    url<span class="op">=</span><span class="st">"https://api.thecatapi.com/v1/images/search"</span>,</span>
+<span id="cb17-5"><a href="#cb17-5"></a>    headers<span class="op">=</span>{<span class="st">"x-api-key"</span>: <span class="st">"live_9Cj8P0h75D5h2D7Y2H8MYEuuTmTXjT412xNlbVBouHxn2sEnAjr1dr4JMfIn4Mr4"</span>}</span>
+<span id="cb17-6"><a href="#cb17-6"></a>)</span>
+<span id="cb17-7"><a href="#cb17-7"></a><span class="bu">print</span>(response.status_code)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>200</code></pre>
+</div>
+</div>
+<p>غالبًا ستظهر لك النتيجة <code>200</code> وهي تعني <code>OK</code> أي أن كل شيء سار على ما يرام.</p>
+<p>وإذا نظرت إلى النصّ الموجود في الرد (<code>response.text</code>) فإنك ستلاحظ أنه نصُّ مقوْلَب بصيغة JSON التي سبق الحديث عنها:</p>
+<div id="dcddec42" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="bu">print</span>(<span class="bu">type</span>(response.text))</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="bu">print</span>(response.text)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'str'&gt;
+[{"id":"MTg5MjQ2MQ","url":"https://cdn2.thecatapi.com/images/MTg5MjQ2MQ.jpg","width":500,"height":444}]</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    participant Client
+    participant Server
+
+    Client-&gt;&gt;Server: GET /cats.csv HTTP/1.1
+        note right of Server: Request headers: x-api-key
+    activate Server
+    Server-&gt;&gt;+Client: HTTP/1.1 200 OK
+        note right of Server: Response headers: Content-Type: application/json
+        note right of Server: Response body: [ { ... } ]
+    deactivate Server
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>ولكن هذا النص لا يمكن التعامل معه كما هو، لذلك نستخدم الفعل <code>json()</code> لتحويله إلى قائمة بالمعلومات:</p>
+<div id="f91d08ad" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>data <span class="op">=</span> response.json()</span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="bu">print</span>(<span class="bu">type</span>(data))</span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="bu">print</span>(data)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'list'&gt;
+[{'id': 'MTg5MjQ2MQ', 'url': 'https://cdn2.thecatapi.com/images/MTg5MjQ2MQ.jpg', 'width': 500, 'height': 444}]</code></pre>
+</div>
+</div>
+<p>الآن أصبح في هيكل بيانات يمكن التعامل معه. فنريد استخراج رابط الصورة منه:</p>
+<div id="900ba66a" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>image_url <span class="op">=</span> data[<span class="dv">0</span>][<span class="st">"url"</span>]</span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="bu">print</span>(image_url)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>https://cdn2.thecatapi.com/images/MTg5MjQ2MQ.jpg</code></pre>
+</div>
+</div>
+<p>فهذا الرابط، لو نسخته وأدخلته في المتصفح فستظهر لك صورة القط.</p>
+<div id="a30863a7" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>الكود</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># caption: نستعمل هذا الكود لعرض الصورة في صفحة الكتاب</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a></span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="im">from</span> IPython.display <span class="im">import</span> Image, display</span>
+<span id="cb25-4"><a href="#cb25-4"></a></span>
+<span id="cb25-5"><a href="#cb25-5"></a>display(Image(url<span class="op">=</span>image_url))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<img src="https://cdn2.thecatapi.com/images/MTg5MjQ2MQ.jpg">
+</div>
+</div>
+</section>
+<section id="المثال-الثالث" class="level3">
+<h3 class="anchored" data-anchor-id="المثال-الثالث">المثال الثالث</h3>
+<p>لنأخذ مثالاً آخر على استخدام خدمة برمجية، وهي خدمة الطقس من <a href="https://openweathermap.org/api/one-call-3">OpenWeatherMap</a>. هذه الخدمة تتيح لنا معرفة حالة الطقس في أي مدينة في العالم.</p>
+<p>أولاً، نحتاج إلى مفتاح API من الموقع (يمكنك الحصول عليه مجاناً بعد التسجيل). ثم نستخدم مكتبة <code>httpx</code> للاتصال بالخدمة.</p>
+<p>ففي <a href="https://openweathermap.org/api/one-call-3">صفحة التوثيق</a> قالوا إن طريقة الطلب هي على النحو التالي:</p>
+<pre><code>https://api.openweathermap.org/data/3.0/onecall?lat={lat}&amp;lon={lon}&amp;exclude={part}&amp;appid={API key}</code></pre>
+<p>نشرح الرابط حتى تتبين أجزاؤه ليسهل عليك بعد ذلك قراءة أية رابط:</p>
+<ul>
+<li><code>https://api.openweathermap.org/data/3.0/onecall</code> هو الرابط الأساسي للخدمة</li>
+<li><code>?</code> هي فاصلة أوَّل عامِل (وهو <code>lat</code> في هذا المثال،و كان من الممكن أن يكون <code>lon</code>)</li>
+<li><code>lat={lat}</code> هو تعيين للعامل الأوَّل بقيمة <code>lat</code> خط العرض</li>
+<li><code>lon={lon}</code> هو تعيين للعامل الثاني بقيمة <code>lon</code> خط الطول</li>
+<li><code>exclude={part}</code> هو الجزء الذي نريد إهماله من النتائج (سنتركه فارغًا)</li>
+<li><code>appid={API key}</code> هو مفتاح التطبيق الذي يسمح للطلب بالوصول إلى الخدمة</li>
+</ul>
+<p>ونحن نكتبها في بايثون مع مكتبة <code>httpx</code> على النحو التالي:</p>
+<div id="05edf902" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="im">import</span> httpx</span>
+<span id="cb27-2"><a href="#cb27-2"></a></span>
+<span id="cb27-3"><a href="#cb27-3"></a>lat <span class="op">=</span> <span class="fl">24.7136</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a>lon <span class="op">=</span> <span class="fl">46.6753</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a></span>
+<span id="cb27-6"><a href="#cb27-6"></a>request <span class="op">=</span> httpx.get(</span>
+<span id="cb27-7"><a href="#cb27-7"></a>    url<span class="op">=</span><span class="st">"https://api.openweathermap.org/data/3.0/onecall"</span>,</span>
+<span id="cb27-8"><a href="#cb27-8"></a>    params<span class="op">=</span>{</span>
+<span id="cb27-9"><a href="#cb27-9"></a>        <span class="st">"lat"</span>: <span class="bu">round</span>(lat, <span class="dv">4</span>),</span>
+<span id="cb27-10"><a href="#cb27-10"></a>        <span class="st">"lon"</span>: <span class="bu">round</span>(lon, <span class="dv">4</span>),</span>
+<span id="cb27-11"><a href="#cb27-11"></a>        <span class="st">"exclude"</span>: <span class="st">"minutely,hourly,daily,alerts"</span>, </span>
+<span id="cb27-12"><a href="#cb27-12"></a>        <span class="st">"appid"</span>: <span class="st">"4a5417dd3a781b7f64f05178ed423a23"</span></span>
+<span id="cb27-13"><a href="#cb27-13"></a>    }</span>
+<span id="cb27-14"><a href="#cb27-14"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>لاحظ تحديد الرابط <code>url</code> والمعاملات <code>params</code> التي ستوضع في الرابط نفسه.</p>
+</section>
+<section id="انطلق-بالتطبيق" class="level3">
+<h3 class="anchored" data-anchor-id="انطلق-بالتطبيق">انطلق بالتطبيق</h3>
+<p><strong>وبهذا تكون قادرًا على التعامل مع أي برمجيَّة توفِّر خدماتها عبر الشبكة. تحتاج فقط أن تُقدِم وتجرِّب حتى تأخذ يدك على الأمر!</strong></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
