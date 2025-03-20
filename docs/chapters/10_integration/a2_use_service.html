@@ -568,10 +568,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#العنوان-الموحد-للمورد" id="toc-العنوان-الموحد-للمورد" class="nav-link" data-scroll-target="#العنوان-الموحد-للمورد">العنوان الموحد للمورِد</a></li>
   <li><a href="#الوسطاء" id="toc-الوسطاء" class="nav-link" data-scroll-target="#الوسطاء">الوسطاء</a></li>
   <li><a href="#الطلب-والجواب" id="toc-الطلب-والجواب" class="nav-link" data-scroll-target="#الطلب-والجواب">الطلب والجواب</a></li>
-  </ul></li>
-  <li><a href="#الواجهة-البرمجية-للتطيبقات" id="toc-الواجهة-البرمجية-للتطيبقات" class="nav-link" data-scroll-target="#الواجهة-البرمجية-للتطيبقات">الواجهة البرمجية للتطيبقات</a>
-  <ul class="collapse">
-  <li><a href="#المثال-الأول" id="toc-المثال-الأول" class="nav-link" data-scroll-target="#المثال-الأول">المثال الأوَّل</a></li>
   <li><a href="#المثال-الثاني-التخاطب-عبر-httpx" id="toc-المثال-الثاني-التخاطب-عبر-httpx" class="nav-link" data-scroll-target="#المثال-الثاني-التخاطب-عبر-httpx">المثال الثاني: التخاطب عبر <code>httpx</code></a></li>
   <li><a href="#المثال-الثالث" id="toc-المثال-الثالث" class="nav-link" data-scroll-target="#المثال-الثالث">المثال الثالث</a></li>
   <li><a href="#انطلق-بالتطبيق" id="toc-انطلق-بالتطبيق" class="nav-link" data-scroll-target="#انطلق-بالتطبيق">انطلق بالتطبيق</a></li>
@@ -634,7 +630,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://nodejs.org/api/url.html#url-strings-and-url-objects">وانظر هنا</a> إن أردت معرفة أسماء جميع أجزاء الرابط.</p>
 <p>أما مصطلح <strong>المورِد</strong> (Resource) عامٌّ يشمل شيئًا مُجرَّدًا يتم الوصول إليه بعنوان مُصاغٍ بصيغة متفقٍ عليها. سواءٌ كان موجودًا قبل الوصول إليه، أو يتمُّ إنتاجه متى طُلِب.</p>
 <p>والرابط يشبه استدعاء الفعل. لاحظ أننا في بايثون نستدعي الفعل <code>pow</code> من الوحدة <code>math</code> ونمرر العوامل <code>2, 3</code> إليه:</p>
-<div id="f97382eb" class="cell" data-execution_count="2">
+<div id="4d2bd617" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> math</span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a>math.<span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -767,113 +763,34 @@ Content-Type: application/json
 <p>لكننا سنستعمل بايثون لتسهيل صياغة الطلب وتفسير جوابه في هذا الدرس.</p>
 <p>لمزيد من التفاصيل راجع: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">HTTP overview</a>.</p>
 </section>
-</section>
-<section id="الواجهة-البرمجية-للتطيبقات" class="level2">
-<h2 class="anchored" data-anchor-id="الواجهة-البرمجية-للتطيبقات">الواجهة البرمجية للتطيبقات</h2>
-<p>وبفضل تراكم الجهود في البرمجة؛ فقد سُهِّل التخطاب بين البرمجيات بما يُعرف بصفة عامة بمصطلح <strong>الواجهة البرمجية للتطبيقات</strong> (API - Application Programming Interface)؛ فهي تُجرِّدُ تفاصيل لغة التخاطب إلى حدٍّ كبير. ويُطلق أحيانًا تجوُّزًا على المكتبة (library) والحزمة (package) بأنَّها واجهة API أو أن لها واجهة .. وإن لم تتصل بالشبكة أصلاً. لكنَّ المتبادر للذهن عند استعمال مصطلح API هي الواجهة البرمجية التي يزوِّدُها خادمٌ لعميلٍ عبر الشبكة.</p>
-<p>فأحد طرق التعامل مع الخدمات البرمجية، أن توفِّر هذه الخدمة مكتبةً للاتصال بها، تبدوا كأنها أفعال مُعرَّفة عاديَّة، لكنَّ تفاصيلها تتضمَّن إرسال طلب للخادم المزوِّد ثم الرجوع بجوابه كقيمة لموضع الاستدعاء.</p>
-<section id="المثال-الأول" class="level3">
-<h3 class="anchored" data-anchor-id="المثال-الأول">المثال الأوَّل</h3>
-<p>ونمثل على ذلك بمكتبة <a href="https://geopy.readthedocs.io/en/stable/"><code>GeoPy</code></a> حيث كُتِب في الوصف:</p>
-<blockquote class="blockquote">
-<p>جيوباي هي عميل بايثوني لمجموعة من خدمات شائعة على الشبكة للترميز الجغرافي. فهو يسهل تحديد إحداثيات العناوين والمدن والبلدان والمعالم في جميع أنحاء العالم باستخدام برامج ترميز جغرافي خارجية ومصادر بيانات أخرى.</p>
-</blockquote>
-<p>وننبه مرة أخرى إلى أنها عميل (client) لخدمات خارجية (external services)، وليسَت هي بذاتها متصلة بخدمة؛ فلا توجد خدمة اسمها geopy، وإنما هي مكتبة وسيطة فقط. انظر: <a href="https://geopy.readthedocs.io/en/stable/#geopy-is-not-a-service">geopy is not a service</a>.</p>
-<p>أولاً تثبيت المكتبة باستعمال <code>uv</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">uv</span> add geopy</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>ثم نستطيع استيرادها في بايثون:</p>
-<div id="8efc34a7" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> Nominatim</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>ونستعمل الفعل المُنشئ <code>Nominatim</code> الذي يتصل بمزوِّد خدمة خارجية، وهو مزوِّد خدمة جغرافية عالمية تسمى <code>OpenStreetMap</code></p>
-<div id="981274e9" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>geolocator <span class="op">=</span> Nominatim(user_agent<span class="op">=</span><span class="st">"pythonia"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>يطلب منَّا الفعل المنشئ أن نعرِّف بأنفسنا بتعيين <code>user_agent</code>، وهذا بحسب ما ورد في توثيق المكتبة. فنكتب أي اسم يدلُّ على التطبيق الذي نعمل عليه الآن.</p>
-<p>نفترض أننا نريد معرفة إحداثيات مدينة الدمام، وهذا هو عمل الفعل <code>geocode</code>:</p>
-<div id="fab57b15" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>dammam_location <span class="op">=</span> geolocator.geocode(<span class="st">"Dammam, Saudi Arabia"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>قد يبدوا الفعل عاديًّا، لكنه في الواقع يتصل بالخادم المزوِّد ويطلب منه إرجاع إحداثيات المدينة؛ وهي القيمة التي تخرج لنا فنزلها في متغير <code>dammam_location</code>.</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">sequenceDiagram
-    UserCode --&gt;&gt; GeoPy: .geocode("...")
-    GeoPy --&gt;&gt; OpenStreetMap: Request
-    OpenStreetMap --&gt;&gt; GeoPy: Response
-    GeoPy --&gt;&gt; UserCode: Return
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p>وكذلك لمدينة أخرى مثل البحرين:</p>
-<div id="dd67043d" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>bahrain_location <span class="op">=</span> geolocator.geocode(<span class="st">"Bahrain"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>ثم بعد أن حصلنا على المعلومات، نستخرج الإحداثيات من المتغيرات التي حصلنا عليها:</p>
-<div id="c3d91d65" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>dammam_coords <span class="op">=</span> (dammam_location.latitude, dammam_location.longitude)</span>
-<span id="cb12-2"><a href="#cb12-2"></a>bahrain_coords <span class="op">=</span> (bahrain_location.latitude, bahrain_location.longitude)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>ثم نحسب المسافة بين المدينتين، باستعمال فعل موجود في وحدة <code>geopy.distance</code>، وهو <code>geodesic</code>:</p>
-<div id="83640e68" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">from</span> geopy.distance <span class="im">import</span> geodesic</span>
-<span id="cb13-2"><a href="#cb13-2"></a></span>
-<span id="cb13-3"><a href="#cb13-3"></a>distance <span class="op">=</span> geodesic(dammam_coords, bahrain_coords)</span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="bu">print</span>(<span class="ss">f"Between Dammam and Bahrain is </span><span class="sc">{</span>distance<span class="sc">.</span>kilometers<span class="sc">:.2f}</span><span class="ss"> km"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Between Dammam and Bahrain is 63.61 km</code></pre>
-</div>
-</div>
-<p>وهكذا نكون قد حسبنا المسافة بين المدينتين بالكيلومترات.</p>
-<section id="مفتاح-الواجهة-البرمجية-api_key" class="level4">
-<h4 class="anchored" data-anchor-id="مفتاح-الواجهة-البرمجية-api_key">مفتاح الواجهة البرمجية (<code>API_KEY</code>)</h4>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://geopy.readthedocs.io/en/stable/_images/geopy_and_geocoding_services.svg" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption><a href="https://geopy.readthedocs.io/en/stable/#geopy-is-not-a-service">geopy and geocoding services</a></figcaption>
-</figure>
-</div>
-<p>فإن أردت تغيير مزوِّد الخدمة (إما لعدم دقتها أو عدم توفر المعلومات أو أي سبب آخر)، فما عليك إلا استعمال استيراد <code>Geocoder</code> آخر، مثلاً؛ مثلاً <code>TomTom</code>:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> TomTom</span>
-<span id="cb15-2"><a href="#cb15-2"></a></span>
-<span id="cb15-3"><a href="#cb15-3"></a>geolocator <span class="op">=</span> TomTom(user_agent<span class="op">=</span><span class="st">"pythonia"</span>, api_key<span class="op">=</span><span class="st">"..."</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>لكن هذا يتطلَّب شيئًا إضافيًّا وهو الحصول على مفتاح متعلِّق بحساب مسجَّل على موقع <a href="https://developer.tomtom.com/">TomTom</a> نفسه. ثم وضع هذا الفتاح هنا. وبهذا المفتاح المرتبط بهذا الحِساب يتمُّ تعبئة الاشتراك والصرف من رصيده. وهكذا تربح الشركة التي وفَّرت هذا النظام المعلوماتي.</p>
-</section>
-</section>
 <section id="المثال-الثاني-التخاطب-عبر-httpx" class="level3">
 <h3 class="anchored" data-anchor-id="المثال-الثاني-التخاطب-عبر-httpx">المثال الثاني: التخاطب عبر <code>httpx</code></h3>
 <p>ماذا لو لم تتوفَّر مكتبة خاصَّة بمزوِّد الخدمة؟ في هذه الحالة سنكتب نحن تفاصيل الاتصال بالخادم المزوِّد. وذلك يتطلب معرفة لغة التخاطب بين الخادم والعميل (HTTP).</p>
 <p>يجب علينا أولاً تثبيت مكتبة <a href="https://www.python-httpx.org/"><code>httpx</code></a> باستعمال <code>uv</code>:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="ex">uv</span> add httpx</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">uv</span> add httpx</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>ونمثل لمزود خدمة معلومات عن القطط (<a href="https://thecatapi.com/">The Cat API</a>)، وقد حصلنا على مفتاح التطبيق (API KEY) من خلال التسجيل في الموقع.</p>
 <p>ولمعرفة الاستفادة من أي مزود خدمة، فإننا ندخل إلى صفحة المطورين، وتسمى (<a href="https://developers.thecatapi.com/">API Documentation</a>). ومنها نعرف أن المسار الذي يجب أن نطلبه هو <code>https://api.thecatapi.com/v1/images/search</code>، وهو يعطينا صورة قط عشوائية.</p>
 <p>أما المفتاح، فنضعه في الرؤوس (headers) تحت عنوان <code>x-api-key</code> كما يلي:</p>
-<div id="edf6512f" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="im">import</span> httpx</span>
-<span id="cb17-2"><a href="#cb17-2"></a></span>
-<span id="cb17-3"><a href="#cb17-3"></a>response <span class="op">=</span> httpx.get(</span>
-<span id="cb17-4"><a href="#cb17-4"></a>    url<span class="op">=</span><span class="st">"https://api.thecatapi.com/v1/images/search"</span>,</span>
-<span id="cb17-5"><a href="#cb17-5"></a>    headers<span class="op">=</span>{<span class="st">"x-api-key"</span>: <span class="st">"live_9Cj8P0h75D5h2D7Y2H8MYEuuTmTXjT412xNlbVBouHxn2sEnAjr1dr4JMfIn4Mr4"</span>}</span>
-<span id="cb17-6"><a href="#cb17-6"></a>)</span>
-<span id="cb17-7"><a href="#cb17-7"></a><span class="bu">print</span>(response.status_code)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3af79899" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">import</span> httpx</span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a>response <span class="op">=</span> httpx.get(</span>
+<span id="cb8-4"><a href="#cb8-4"></a>    url<span class="op">=</span><span class="st">"https://api.thecatapi.com/v1/images/search"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5"></a>    headers<span class="op">=</span>{<span class="st">"x-api-key"</span>: <span class="st">"live_9Cj8P0h75D5h2D7Y2H8MYEuuTmTXjT412xNlbVBouHxn2sEnAjr1dr4JMfIn4Mr4"</span>}</span>
+<span id="cb8-6"><a href="#cb8-6"></a>)</span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="bu">print</span>(response.status_code)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>200</code></pre>
 </div>
 </div>
 <p>غالبًا ستظهر لك النتيجة <code>200</code> وهي تعني <code>OK</code> أي أن كل شيء سار على ما يرام.</p>
 <p>وإذا نظرت إلى النصّ الموجود في الرد (<code>response.text</code>) فإنك ستلاحظ أنه نصُّ مقوْلَب بصيغة JSON التي سبق الحديث عنها:</p>
-<div id="dcddec42" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="bu">print</span>(<span class="bu">type</span>(response.text))</span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="bu">print</span>(response.text)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ac3f3f06" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">print</span>(<span class="bu">type</span>(response.text))</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="bu">print</span>(response.text)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'str'&gt;
-[{"id":"MTg5MjQ2MQ","url":"https://cdn2.thecatapi.com/images/MTg5MjQ2MQ.jpg","width":500,"height":444}]</code></pre>
+[{"id":"di1","url":"https://cdn2.thecatapi.com/images/di1.jpg","width":640,"height":552}]</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="default">
@@ -899,35 +816,35 @@ Content-Type: application/json
 </div>
 </div>
 <p>ولكن هذا النص لا يمكن التعامل معه كما هو، لذلك نستخدم الفعل <code>json()</code> لتحويله إلى قائمة بالمعلومات:</p>
-<div id="f91d08ad" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>data <span class="op">=</span> response.json()</span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="bu">print</span>(<span class="bu">type</span>(data))</span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="bu">print</span>(data)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="11314577" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>data <span class="op">=</span> response.json()</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="bu">print</span>(<span class="bu">type</span>(data))</span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="bu">print</span>(data)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'list'&gt;
-[{'id': 'MTg5MjQ2MQ', 'url': 'https://cdn2.thecatapi.com/images/MTg5MjQ2MQ.jpg', 'width': 500, 'height': 444}]</code></pre>
+[{'id': 'di1', 'url': 'https://cdn2.thecatapi.com/images/di1.jpg', 'width': 640, 'height': 552}]</code></pre>
 </div>
 </div>
 <p>الآن أصبح في هيكل بيانات يمكن التعامل معه. فنريد استخراج رابط الصورة منه:</p>
-<div id="900ba66a" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>image_url <span class="op">=</span> data[<span class="dv">0</span>][<span class="st">"url"</span>]</span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="bu">print</span>(image_url)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cb0d4686" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>image_url <span class="op">=</span> data[<span class="dv">0</span>][<span class="st">"url"</span>]</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="bu">print</span>(image_url)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>https://cdn2.thecatapi.com/images/MTg5MjQ2MQ.jpg</code></pre>
+<pre><code>https://cdn2.thecatapi.com/images/di1.jpg</code></pre>
 </div>
 </div>
 <p>فهذا الرابط، لو نسخته وأدخلته في المتصفح فستظهر لك صورة القط.</p>
-<div id="a30863a7" class="cell" data-execution_count="13">
+<div id="d6d0084f" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>الكود</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># caption: نستعمل هذا الكود لعرض الصورة في صفحة الكتاب</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a></span>
-<span id="cb25-3"><a href="#cb25-3"></a><span class="im">from</span> IPython.display <span class="im">import</span> Image, display</span>
-<span id="cb25-4"><a href="#cb25-4"></a></span>
-<span id="cb25-5"><a href="#cb25-5"></a>display(Image(url<span class="op">=</span>image_url))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># caption: نستعمل هذا الكود لعرض الصورة في صفحة الكتاب</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="im">from</span> IPython.display <span class="im">import</span> Image, display</span>
+<span id="cb16-4"><a href="#cb16-4"></a></span>
+<span id="cb16-5"><a href="#cb16-5"></a>display(Image(url<span class="op">=</span>image_url))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<img src="https://cdn2.thecatapi.com/images/MTg5MjQ2MQ.jpg">
+<img src="https://cdn2.thecatapi.com/images/di1.jpg">
 </div>
 </div>
 </section>
@@ -947,21 +864,21 @@ Content-Type: application/json
 <li><code>appid={API key}</code> هو مفتاح التطبيق الذي يسمح للطلب بالوصول إلى الخدمة</li>
 </ul>
 <p>ونحن نكتبها في بايثون مع مكتبة <code>httpx</code> على النحو التالي:</p>
-<div id="05edf902" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="im">import</span> httpx</span>
-<span id="cb27-2"><a href="#cb27-2"></a></span>
-<span id="cb27-3"><a href="#cb27-3"></a>lat <span class="op">=</span> <span class="fl">24.7136</span></span>
-<span id="cb27-4"><a href="#cb27-4"></a>lon <span class="op">=</span> <span class="fl">46.6753</span></span>
-<span id="cb27-5"><a href="#cb27-5"></a></span>
-<span id="cb27-6"><a href="#cb27-6"></a>request <span class="op">=</span> httpx.get(</span>
-<span id="cb27-7"><a href="#cb27-7"></a>    url<span class="op">=</span><span class="st">"https://api.openweathermap.org/data/3.0/onecall"</span>,</span>
-<span id="cb27-8"><a href="#cb27-8"></a>    params<span class="op">=</span>{</span>
-<span id="cb27-9"><a href="#cb27-9"></a>        <span class="st">"lat"</span>: <span class="bu">round</span>(lat, <span class="dv">4</span>),</span>
-<span id="cb27-10"><a href="#cb27-10"></a>        <span class="st">"lon"</span>: <span class="bu">round</span>(lon, <span class="dv">4</span>),</span>
-<span id="cb27-11"><a href="#cb27-11"></a>        <span class="st">"exclude"</span>: <span class="st">"minutely,hourly,daily,alerts"</span>, </span>
-<span id="cb27-12"><a href="#cb27-12"></a>        <span class="st">"appid"</span>: <span class="st">"4a5417dd3a781b7f64f05178ed423a23"</span></span>
-<span id="cb27-13"><a href="#cb27-13"></a>    }</span>
-<span id="cb27-14"><a href="#cb27-14"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8b2511c4" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="im">import</span> httpx</span>
+<span id="cb18-2"><a href="#cb18-2"></a></span>
+<span id="cb18-3"><a href="#cb18-3"></a>lat <span class="op">=</span> <span class="fl">24.7136</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>lon <span class="op">=</span> <span class="fl">46.6753</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a></span>
+<span id="cb18-6"><a href="#cb18-6"></a>request <span class="op">=</span> httpx.get(</span>
+<span id="cb18-7"><a href="#cb18-7"></a>    url<span class="op">=</span><span class="st">"https://api.openweathermap.org/data/3.0/onecall"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8"></a>    params<span class="op">=</span>{</span>
+<span id="cb18-9"><a href="#cb18-9"></a>        <span class="st">"lat"</span>: <span class="bu">round</span>(lat, <span class="dv">4</span>),</span>
+<span id="cb18-10"><a href="#cb18-10"></a>        <span class="st">"lon"</span>: <span class="bu">round</span>(lon, <span class="dv">4</span>),</span>
+<span id="cb18-11"><a href="#cb18-11"></a>        <span class="st">"exclude"</span>: <span class="st">"minutely,hourly,daily,alerts"</span>, </span>
+<span id="cb18-12"><a href="#cb18-12"></a>        <span class="st">"appid"</span>: <span class="st">"4a5417dd3a781b7f64f05178ed423a23"</span></span>
+<span id="cb18-13"><a href="#cb18-13"></a>    }</span>
+<span id="cb18-14"><a href="#cb18-14"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>لاحظ تحديد الرابط <code>url</code> والمعاملات <code>params</code> التي ستوضع في الرابط نفسه.</p>
 </section>
