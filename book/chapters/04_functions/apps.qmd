@@ -103,19 +103,6 @@ def sum_of_numbers(n: int) -> int:
     pass
 ```
 
-حلها بالتكرار باستعمال `range` لإنشاء تسلسل الأرقام للتكرار عليها، ولاحظ أن النهاية `n+1` ليكون الرقم الأخير مشمولاً في التكرار:
-
-```{python}
-def sum_of_numbers(n: int) -> int:
-    result = 0
-    for i in range(1, n + 1):
-        result += i
-    return result
-
-assert sum_of_numbers(n=5) == 1+2+3+4+5 == 15
-assert sum_of_numbers(n=10) == 1+2+3+4+5+6+7+8+9+10 == 55
-```
-
 وحلها بالإجراء المتسلسل:
 
 ```{python}
