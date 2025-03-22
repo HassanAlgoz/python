@@ -23,18 +23,18 @@
 
 ## الملف في بايثون
 
-يجرِّد [الملف](https://docs.python.org/3/glossary.html#term-file-object) فعلين أساسيين: القراءة: `.read()` والكتابة: `.write()` وذلك بعد فتحه [`open()`](https://docs.python.org/3/library/functions.html#open) كما يجب بعد الفراغ منه أن تغلقه بالفعل `close()` فهذه الأربعة هي ما يشكل الملف وهي فلسفة نظام يونكس (Unix) ومن حذا حذوه مثل نظام ماك (MacOS) بخلاف نظام ويندوز (Windows) فإنه لا يلتزم بذلك دائمًا.
+يجرِّد [الملف](https://docs.python.org/3/glossary.html#term-file-object) فعلين أساسيين: القراءة: `.read()` والكتابة: `.write()` وذلك بعد فتحه [`open()`](https://docs.python.org/3/library/functions.html#open) كما يجب بعد الفراغ منه أن تغلقه بالإجراء `close()` فهذه الأربعة هي ما يشكل الملف وهي فلسفة نظام يونكس (Unix) ومن حذا حذوه مثل نظام ماك (MacOS) بخلاف نظام ويندوز (Windows) فإنه لا يلتزم بذلك دائمًا.
 
 وقد تقع الكتابة عيْنًا على أحد ثلاثة منافذ يمثلها **الملف**:
 
 1. إلى **منفذ تخزين** وهي الملفات التي اعتدنا رؤيتها والضغط على أشكالها المختلفة بحسب نوعها مثلاً: `data.csv`, `my_code.py`, `configuration.yaml`.
-2. إلى [**مخرَج لوحة الأفعال**](https://docs.python.org/3/library/sys.html#sys.stdout) ليظهر على الشاشة. وهو فرعان:
-    - **منفذ العادة** وهو الذي توجَّه إليه الأحرف عندما نستعمل الفعل [`print()`](https://docs.python.org/3/library/functions.html#print) (أو عندما تكتب اسم المعرَّف كآخر فعل في دفتر جوبتر فهو يستعمل الفعل [`display()`](https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html) ضمنيًّا)
+2. إلى [**مخرَج لوحة الإجراءات**](https://docs.python.org/3/library/sys.html#sys.stdout) ليظهر على الشاشة. وهو فرعان:
+    - **منفذ العادة** وهو الذي توجَّه إليه الأحرف عندما نستعمل الإجراء [`print()`](https://docs.python.org/3/library/functions.html#print) (أو عندما تكتب اسم المعرَّف كآخر فعل في دفتر جوبتر فهو يستعمل الإجراء [`display()`](https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html) ضمنيًّا)
     - **منفذ الأخطاء** وهو الذي توجَّه إليه رسالة الخطأ عادةً
 3. إلى [**منفذ مِقْبَس**](https://en.wikipedia.org/wiki/Unix_domain_socket) (Socket) **للتواصل مع برنامج آخر** سواءً  كان البرنامج في نفس الجهاز أو عبر الشبكة.
 
 أما عملية القراءة `.read()` فتقع عيْنًا:
 
 1. من منفذ تخزين (قرص تخزين أو ذاكرة دائمة)
-2. من [منفذ مدخلات لوحة الأفعال](https://docs.python.org/3/library/sys.html#sys.stdin) والذي يمكن إدخاله مثلاً عن طريق فعل [`input()`](https://docs.python.org/3/library/functions.html#input)
+2. من [منفذ مدخلات لوحة الإجراءات](https://docs.python.org/3/library/sys.html#sys.stdin) والذي يمكن إدخاله مثلاً عن طريق فعل [`input()`](https://docs.python.org/3/library/functions.html#input)
 3. من منفذ مقبس (الشبكة)

@@ -23,7 +23,7 @@
 
 انظر [MutableSet](https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableSet) في خريطة المجموعات: @fig-collections-tree.
 
-تنشأ المجموعة الفريدة بالفعل المنشئ [`set()`](https://docs.python.org/3/library/stdtypes.html#set). أو بالقوسين المتعرجين `{ }`:
+تنشأ المجموعة الفريدة بالإجراء المنشئ [`set()`](https://docs.python.org/3/library/stdtypes.html#set). أو بالقوسين المتعرجين `{ }`:
 
 ```{python}
 s1 = set([10, 20, 30])
@@ -37,7 +37,7 @@ assert s1 == s2
 - التكرار: `for x in s`
 - العضوية: `x not in s`
 
-وباعتبارها مجموعة متغيرة ([MutableSet](https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableSet))، فإنها تقبل الأفعال التالية:
+وباعتبارها مجموعة متغيرة ([MutableSet](https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableSet))، فإنها تقبل الإجراءات التالية:
 
 - الإضافة: `add`
 - الحذف: `discard`
@@ -48,7 +48,7 @@ assert s1 == s2
 
 ونبسِّط عمليَّة الرَّقم بمثال فنقول: إن إحدى طرق رَقْمِ الكلمة أن تجمع أرقام حروفها وتقسم على عدد ثابت ثم تأخذ باقي القسمة. فتقول: `(99+97+116) % 100 = 12`. (ملاحظة: علامة `%` هي لباقي القسمة) ويكون هذا الرقم (`12`) هو رمز الكلمة `cat`، ثم يستخدم هذا الرقم في الدلالة على موضع تخزين العنصر في الذاكرة. ولن نخوض في تفاصيل ذلك لأنها دون التطبيق.
 
-**المرقوم** ([`Hashable`](https://docs.python.org/3/glossary.html#term-hashable)): هو ما يقبل الفعل `hash()` الذي يحول الشيء إلى رقم يرمز إليه. ومنه:
+**المرقوم** ([`Hashable`](https://docs.python.org/3/glossary.html#term-hashable)): هو ما يقبل الإجراء `hash()` الذي يحول الشيء إلى رقم يرمز إليه. ومنه:
 
 - الرقم (`int`) رقْمه هو نفسه
 - النص (`str`) له خوارزمية معيَّنة لرقْمه ([انظر هنا للاستزادة](https://cp-algorithms.com/string/string-hashing.html))
@@ -124,9 +124,9 @@ set2 - set1
 set1 ^ set2
 ```
 
-نصيحة: من الأفضل استعمال اسم الفعل بدلاً من العلامة التي تقابله حيث أنها تقبل أي نوع من المتكررات (Iterables) ولا تقتصر على نوع المجموعة فقط (`set`). أي، استعمل ما يقابلها كما هو موضَّح في الجدول:
+نصيحة: من الأفضل استعمال اسم الإجراء بدلاً من العلامة التي تقابله حيث أنها تقبل أي نوع من المتكررات (Iterables) ولا تقتصر على نوع المجموعة فقط (`set`). أي، استعمل ما يقابلها كما هو موضَّح في الجدول:
 
-| العملية                        | العلامة        | الفعل المكافئ                  |
+| العملية                        | العلامة        | الإجراء المكافئ                  |
 |--------------------------------|----------------|----------------------------------|
 | الاتحاد                        | `set1 | set2`  | `set1.union(set2)`               |
 | التقاطع                       | `set1 & set2`  | `set1.intersection(set2)`        |
@@ -135,7 +135,7 @@ set1 ^ set2
 
 وكذلك لدينا أفعال تحقق الجزئية والشمول والانفصال:
 
-| العملية                        | العلامة        | الفعل المكافئ                  |
+| العملية                        | العلامة        | الإجراء المكافئ                  |
 |--------------------------------|----------------|----------------------------------|
 | تحقق الجزئية                   | `set1 <= set2` | `set1.issubset(set2)`            |
 | تحقق الشمول                    | `set1 >= set2` | `set1.issuperset(set2)`          |
@@ -170,7 +170,7 @@ assert C.isdisjoint(B)
 
 انظر [MutableMapping](https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableMapping) في خريطة الجُمُوع: @fig-collections-tree.
 
-تنشأ المجموعة الرابطة بالفعل المنشئ [`dict()`](https://docs.python.org/3/library/stdtypes.html#dict) أو  بالقوسين المتعرجين `{ }`:
+تنشأ المجموعة الرابطة بالإجراء المنشئ [`dict()`](https://docs.python.org/3/library/stdtypes.html#dict) أو  بالقوسين المتعرجين `{ }`:
 
 ```{python}
 d1 = dict(key1='value1', key2='value2')
@@ -182,13 +182,13 @@ assert d1 == d2
 
 واخترت في ترجمة المصطلح الصفة الأصلية بدلا من ترجمتة كلمة `key` إلى مفتاح. والصفة الأساسية هي: الرَّقم؛ فسميته مرقومًا.
 
-ومن حيث كون القاموس **جمعًا** (`Collection`)، فإنه يقبل الأفعال ثلاثة:
+ومن حيث كون القاموس **جمعًا** (`Collection`)، فإنه يقبل الإجراءات ثلاثة:
 
 - العضوية: `x not in d`
 - العد: `len(d)`
 - التكرار: `for x in d`
 
-ويقبل القاموس لكونه **دالة** ([`Mapping`](https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes)) الأفعال التالية:
+ويقبل القاموس لكونه **دالة** ([`Mapping`](https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes)) الإجراءات التالية:
 
 - الإشارة بمرقوم: `dict[key]`
 - الإشارة بمرقوم أو إرجاع قيمة ابتدائية: `dict.get(key[, default])`
@@ -199,7 +199,7 @@ assert d1 == d2
 - كر المرقومات: `for key in d.keys()`
 - كر القيم: `for value in d.values()`
 
-ولكونه **دالة متغيرة** ([`MutableMapping`](https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableMapping))، فإنه يقبل الأفعال التالية:
+ولكونه **دالة متغيرة** ([`MutableMapping`](https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableMapping))، فإنه يقبل الإجراءات التالية:
 
 - التعديل بمرقوم: `dict[key] = value`
 - الحذف بمرقوم: `del dict[key]`
@@ -235,7 +235,7 @@ print(data[('a', 'b', 'c')])
 
 ### إنشاء قاموس من سلسلتين
 
-ويتحصل القاموس من سلسلتين باستعمال الفعل [`zip()`](https://docs.python.org/3/library/functions.html#zip)، كما يلي:
+ويتحصل القاموس من سلسلتين باستعمال الإجراء [`zip()`](https://docs.python.org/3/library/functions.html#zip)، كما يلي:
 
 ```{python}
 students = ['Ahmad', 'Belal', 'Careem', 'David']
@@ -249,7 +249,7 @@ data
 
 أفعال التحقق تقبل مُكرَّرًا (Iterable)، وتنتج قيمة صواب (`True`) أو خطأ (`False`).
 وقد عرفنا أن الصف والقائمة والقاموس كلها من جنس المُكرَّر.
-وهما فعلان:
+وهما إجراءان:
 
 - فعل **أي** (`any`) يتحقق بوجود عنصرٍ واحد متحقق على الأقل
 - فعل **كل** (`all`) يتحقق بتحقق جميع العناصر كلها
