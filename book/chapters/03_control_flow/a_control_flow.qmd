@@ -1,6 +1,5 @@
-# الشرط والتكرار
 
-يسير تنفيذ الجمل البرمجية في اللغات **الإجرائية** -مثل بايثون- من الأعلى للأسفل. فإذا كتبنا النص البرمجي التالي:
+إن بايثون من اللغات **الأمرية** (Imperative). أي أن الجمل البرمجية خطوات متتالية تنفذ من الأعلى للأسفل.
 
 :::: {.columns}
 ::: {.column width="35%"}
@@ -28,14 +27,14 @@ print(x)
 
 ## الجملة الشرطية
 
-الجملة الشرطية هي جملة مركَّبة من كلمة `if` وتعبير منطقي ثم الجمل التي يتعلق تنفيذها بناءً على هذا الشرط (وتكون داخل المحاذاة):
+الجملة الشرطية هي جملة مركَّبة من كلمة `if` وتعبير منطقي ثم الجمل التي يتعلق تنفيذها بناءً على هذا الشرط. ويجب أن تكون حذوها:
 
 :::: {.columns}
 ::: {.column width="35%"}
 ```{mermaid}
 flowchart TD
     IF{{if cond}} -- False --> X["Outside"]
-    IF -- True --> Y["Inside"]
+    IF -- True --> Y["Inside"] --> X["Outside"]
 
   style IF fill:#82aeff, stroke:#333, stroke-width:2px;
   linkStyle 0 color:red;
@@ -109,7 +108,7 @@ if True:
 :::
 ::::
 
-يؤدي النص البرمجي السابق إلى خطأ منطقي لن يظهر أبدًا كخطأ ولن يوقف البرنامج. لذا كن حذرًا مع المحاذاة في كتابة نص برمجي بايثون!
+يؤدي النص البرمجي السابق إلى خطأ منطقي لن يظهر أبدًا كخطأ ولن يوقف البرنامج. لذا كن حذرًا مع المحاذاة في بايثون!
 
 
 ## التعبيرات المنطقية
@@ -149,7 +148,7 @@ print(b2)
 
 ### تركيب الشروط
 
-يجوز دمج عدة شروط بعمليات الجمع والتخيير والحصر والعكس، فناتجها منطقي ملخص في الجدول التالي:
+يجوز دمج عدة شروط بعمليات الجمع والتخيير والحصر والعكس، فناتجها المنطقي ملخص في الجدول التالي:
 
 | A | B | AND | OR  | XOR |
 |----------|----------|----------|---------|------------------|
@@ -160,7 +159,7 @@ print(b2)
 
 - **الجمع**: AND (**و**): تخرج 1 فقط إذا كان كلا المدخلين 1.
 - **التخيير**: OR (**أو**): تخرج 1 إذا كان أحد المدخلين على الأقل 1.
-- **الحصر**: XOR (**أو الحصرية**): تخرج 1 إذا كان المدخلان مختلفين.
+- **الحصر**: XOR (**أو الحصرية**): تخرج 1 إذا كان أحد المدخلين 1 والآخر 0.
 - **العكس**: NOT (**ليس**): تخرج عكس المدخل (1 يصبح 0، و0 يصبح 1).
 
 على سبيل المثال:
@@ -179,6 +178,23 @@ if age > 18 and weight > 45:
 - `weight > 45` تؤول إلى `True` لأن `weight=50` وهو أكبر من `45`
 - فتكون الجملة إذًا: `True and True` وهي تؤول إلى `True`
 
+<div class="ltr">
+
+```{mermaid}
+graph BT
+  RESULT((.))
+  ROOT{and} -- True --> RESULT
+  middle_left{"&gt;"} -- True --> ROOT
+  middle_right{"&gt;"} -- True --> ROOT
+  left_left[age] -- "20" --> middle_left
+  left_right[18] -- "18" --> middle_left
+  right_left[weight] -- "50" --> middle_right
+  right_right[45] -- "45" --> middle_right
+
+```
+
+</div>
+
 تستعمل الأقواس لتجميع الشروط لإيقاع الترتيب المنطقي المراد:
 
 ```{python}
@@ -195,6 +211,26 @@ if age < 16 or (temperature < 20 and not is_wearing_coat):
 - `not is_wearing_coat` تؤول إلى `False` لأن `is_wearing_coat=True` وهي عكسها
 - إذًا الجملة بين القوسين `(temperature < 20 and not is_wearing_coat)` تؤول إلى `True and False` وهي تؤول إلى `False`
 - إذًا الجملة `age < 16 or (False)` تؤول إلى `False or False` وهي تؤول إلى `False`
+
+<div class="ltr">
+
+```{mermaid}
+graph BT
+  RESULT((.))
+  ROOT{or} -- False --> RESULT
+  middle_left{"&lt;"} -- False --> ROOT
+  middle_right{and} -- False --> ROOT
+  left_left[age] -- "16" --> middle_left
+  left_right[16] -- "16" --> middle_left
+  right_middle{"&lt;"} -- True --> middle_right
+  right_not{not} -- False --> middle_right
+  right_temp[temperature] -- "15" --> right_middle
+  right_val[20] -- "20" --> right_middle
+  right_coat[is_wearing_coat] -- True --> right_not
+```
+
+</div>
+
 
 يُنظَر للشرط بأكمله كقيمة منطقية واحدة تكون `True` أو `False` ولا بأس بتجزئته حينما يسهل بذلك الفهم:
 
@@ -363,8 +399,12 @@ print(status)
 
 ويحصل **تسلسل التعيين المشروط** بالصيغة التالية:
 
-:::: {.columns}
-::: {.column width="35%"}
+```{python}
+score = 75
+grade = "A" if score >= 90 else "B" if score >= 80 else "C"
+print(grade)
+```
+
 ```{mermaid}
 flowchart TD
   S1["score = 75"] --> IF1
@@ -376,15 +416,6 @@ flowchart TD
   style IF2 fill:#82aeff, stroke:#333, stroke-width:2px;
   linkStyle 2,4 color:red;
 ```
-:::
-::: {.column width="65%"}
-```{python}
-score = 75
-grade = "A" if score >= 90 else "B" if score >= 80 else "C"
-print(grade)
-```
-:::
-::::
 
 
 ## تضمين الجمل الشرطية
@@ -475,7 +506,7 @@ else:
 
 فللتكرار طريقتان:
 
-- **سرد مكرر** (`for`): حيث يعيَّن متغير التكرار لكل عنصر في المكرر، واحدًا تلوَ الآخر. (وسيأتي ذكره في [باب المتسلسلات](../05_sequences/a_sequences.qmd))
+- **سرد مكرر** (`for`): حيث يعيَّن متغير التكرار لكل عنصر في المكرر، واحدًا تلوَ الآخر. (وسيأتي ذكره في [باب الجمع المرتب](../05_sequences/a_sequences.qmd))
 - **التكرار بشرط** (`while`): حيث يستمر التكرار مادام الشرط متحققًا. (وهو موضوع هذا القسم)
 
 ### التكرار بشرط
@@ -653,9 +684,9 @@ print('Done')
 
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%203%3A%0A%20%20%20%20j%20%3D%200%0A%20%20%20%20while%20j%20%3C%203%3A%0A%20%20%20%20%20%20%20%20if%20i%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20%20%20print%28i,%20j%29%0A%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
-### الملحقات بالانتفاء
+### الملحق بعدم الوقوع
 
-في الجمل التي سياقها معرفة ما تؤول إليه القيمة إما الوقوع (`True`) أو عدمه (`False`)، فإن الجدول التالي يوضح ما يُلحَقُ بعدم الوقوع (`False`):
+إذا قلنا أن الوقوع (`True`) عدمه (`False`) ؛فإن بايثون تلحق بعض القيم بعدم الوقوع:
 
 - `False`
 - `None`
@@ -666,6 +697,15 @@ print('Done')
 - `()`
 - `{}`
 - `set()`
+
+وما عدا ذلك فملحق بالوقوع (`True`).
+
+```{python}
+if False or None or 0 or 0.0 or '' or [] or () or {} or set():
+    print('True')
+else:
+    print('False')
+```
 
 
 ## المصطلحات
