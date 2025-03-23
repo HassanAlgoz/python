@@ -74,6 +74,79 @@ distance = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
 print(distance)
 ```
 
+## الزيادة
+
+إذا كنت تقضي في القراءة 15 دقيقة في اليوم.
+ثم أحببت أن تزيد في كل أسبوع 5 دقائق.
+فكم ستكون الزيادة في 10 أسابيع؟
+
+```{python}
+today = 15
+increase = 5
+weeks = 9
+
+total = today + (increase * weeks)
+print(total)
+```
+
+أو لحساب كل أسبوع:
+
+```{python}
+increase = 5
+
+w1 = 15
+w2 = w1 + increase
+w3 = w2 + increase
+w4 = w3 + increase
+w5 = w4 + increase
+w6 = w5 + increase
+w7 = w6 + increase
+w8 = w7 + increase
+w9 = w8 + increase
+w10 = w9 + increase
+
+print(w1, w2, w3, w4, w5, w6, w7, w8, w9, w10)
+```
+
+## النمو
+
+إذا كان عدد الأرانب في السنة الأولى 100.
+وكان عدد الأرانب يزيد بنسبة 11.7% في اليوم.
+فكم سيكون عدد الأرانب في اليوم السابع؟
+
+```{python}
+rabbits = 100
+growth_rate = 0.117
+days = 7
+
+total = rabbits * (1 + growth_rate) ** days
+print(total)
+```
+
+أو لحساب كل يوم:
+
+```{python}
+import math
+
+growth_rate = 0.117
+
+day1 = 100
+day2 = day1 * (1 + growth_rate)
+day3 = day2 * (1 + growth_rate)
+day4 = day3 * (1 + growth_rate)
+day5 = day4 * (1 + growth_rate)
+day6 = day5 * (1 + growth_rate)
+day7 = day6 * (1 + growth_rate)
+
+print(math.floor(day1))
+print(math.floor(day2))
+print(math.floor(day3))
+print(math.floor(day4))
+print(math.floor(day5))
+print(math.floor(day6))
+print(math.floor(day7))
+```
+
 ## نسبة التغير
 
 إذا كان معدل قراءتك في الأسبوع الثاني 15 دقيقة، وكان معدل قراءتك في الأسبوع الأول 10 دقائق، فكم نسبة الزيادة في معدل قراءتك؟

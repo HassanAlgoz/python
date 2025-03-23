@@ -1,5 +1,103 @@
 # مسائل {.unnumbered}
 
+## المحاذاة
+
+ما هي المشكلة في هذه القطعة البرمجية؟ وكيف تحلها؟
+
+```{python}
+#| error: true
+
+if True:
+print('Inside')
+print('Outside')
+```
+
+## تركيب الشروط
+
+اعكس هذه العبارة الشرطة المرسومة بكتابة القطعة البرمجية التي تمثلها:
+
+<div class="ltr">
+
+```{mermaid}
+graph BT
+  RESULT((if))
+  ROOT{and} -- True --> RESULT
+  middle_left{"&gt;"} -- True --> ROOT
+  middle_right{"&gt;"} -- True --> ROOT
+  left_left[age] -- "20" --> middle_left
+  left_right[18] -- "18" --> middle_left
+  right_left[weight] -- "50" --> middle_right
+  right_right[45] -- "45" --> middle_right
+
+```
+
+</div>
+
+## ارسم الشجرة الثائية
+
+ارسم الشجرة الثنائية للعبارة الشرطية في القطعة البرمجية التالية:
+
+```{python}
+age = 16
+temperature = 15
+is_wearing_coat = True
+
+if age < 16 or (temperature < 20 and not is_wearing_coat):
+  print("I suggest you don't go outside")
+```
+
+## الجملة الشرطية المتكاملة
+
+ما هو حاصل تنفيذ هذه القطعة (فقط بالنظر إليها يجب أن تعرف):
+
+```{python}
+x = 1
+
+if x < 0:
+    x = 0
+    print('Set to zero')
+elif x == 0:
+    print('Zero')
+elif x == 1:
+    print('Single')
+else:
+    print('More')
+
+print("Always:", x)
+```
+
+## جملة التعيين المشروط
+
+كيف تكتب هذه الجملة بطريقة مختصرة؟
+
+```{python}
+speed = 45
+
+if speed > 50:
+  message = 'Too fast!'
+else:
+  message = 'Okay'
+
+print(message)
+```
+
+## جملة التعيين المشروط
+
+وماذا عن هذه الجملة، كيف تكتبها مختصرة؟
+
+```{python}
+temperature = 25
+
+if temperature > 30:
+  comfort = 'Hot'
+elif temperature > 15:
+  comfort = 'Comfortable'
+else:
+  comfort = 'Cold'
+
+print(comfort)
+```
+
 ## الوزن الطبيعي
 
 هذا هو وزن الجسم الموصى به من قبل منظمة الصحة العالمية (WHO) استنادًا إلى قيم مؤشر كتلة الجسم للبالغين. ويستخدم لكل من الرجال والنساء الذين تبلغ أعمارهم 20 عامًا أو أكثر.
@@ -31,8 +129,20 @@ $$
 المطلوب:
 
 1. احسب بالمعادلة السابقة مؤشر كتلة الجسم لوزنك
-2. اكتب جملاً شرطية تستعمل الجدول لتصنيف الوزن
+2. اكتب جملاً شرطية مضمنة تستعمل الجدول لتصنيف الوزن
 3. اطبع النتيجة
+
+ملاحظة: يجب أن تكون الجمل الشرطية تستعمل التضمين على النحو التالي:
+
+```python
+if <boolean expression>:
+    if <boolean expression>:
+        <code>
+    else:
+        <code>
+else:
+    <code>
+```
 
 ## مجموع الأرقام إلى س
 
@@ -50,19 +160,63 @@ $$
 - استعمل حلقة `while` لجمع الأرقام من `1` إلى العدد الذي أدخله المستخدم
 - اطبع النتيجة
 
+## اكتب القطعة بحلقة تكرار
+
+اكتب القطعة البرمجية التالية بحلقة تكرار:
+
+```{python}
+increase = 5
+
+w1 = 15
+w2 = w1 + increase
+w3 = w2 + increase
+w4 = w3 + increase
+w5 = w4 + increase
+w6 = w5 + increase
+w7 = w6 + increase
+w8 = w7 + increase
+w9 = w8 + increase
+w10 = w9 + increase
+
+print(w1, w2, w3, w4, w5, w6, w7, w8, w9, w10)
+```
+
+## اكتب القطعة بحلقة تكرار
+
+وكذلك اكتب القطعة التالية بحلقة تكرار:
+
+```{python}
+import math
+
+growth_rate = 0.117
+
+day1 = 100
+day2 = day1 * (1 + growth_rate)
+day3 = day2 * (1 + growth_rate)
+day4 = day3 * (1 + growth_rate)
+day5 = day4 * (1 + growth_rate)
+day6 = day5 * (1 + growth_rate)
+day7 = day6 * (1 + growth_rate)
+
+print(math.floor(day1))
+print(math.floor(day2))
+print(math.floor(day3))
+print(math.floor(day4))
+print(math.floor(day5))
+print(math.floor(day6))
+print(math.floor(day7))
+```
+
 ## التغير النسبي
 
 إذا كنت تمارس الرياضة وتزيد في وزن الحمل 10% أسبوعيًّا .. فإذا بدأت بوزن 20 كيلو، فإلى كم كيلوا ستصل في الأسبوع الثاني عشر؟ (بعد ثلاثة أشهر)
-
-قد مرت علينا هذه المسألة، لكن الآن المطلوب حلها بالتكرار.
-
 
 ## متحدث آلي
 
 اكتب برنامج يجمع البيانات التالية من المستخدم (الزبون):
 
 - اسم الزبون: الرسالة "أتشرف باسمك، مثلا: محمد أحمد"
-- رقم الهاتف: الرسالة "زودنا برقم جوالك، يبدأ بـ966"
+- رقم الهاتف: الرسالة "زودنا برقم جوالك، يبدأ بمفتاح الدولة، مثلاً بـ966"
 - المدينة: الرسالة "ممكن تحدد مدينتك؟"
 - اسم الحي: الرسالة "الرجاء قم بكتابة اسم الحي"
 
