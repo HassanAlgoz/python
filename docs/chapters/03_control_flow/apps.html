@@ -280,7 +280,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الجملة الشرطية</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -306,7 +306,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">باب الأفعال</span></a>
+ <span class="menu-text">باب الإجراءات</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -315,13 +315,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/04_functions/a1_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الأفعال</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الإجراءات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/04_functions/a2_recursion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الفعل المتسلسل</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الإجراء المتسلسل</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -623,7 +623,7 @@ window.Quarto = {
 <section id="تسجيل-الدخول" class="level2">
 <h2 class="anchored" data-anchor-id="تسجيل-الدخول">تسجيل الدخول</h2>
 <ul>
-<li>استخدم الفعل <code>input()</code> لطلب <code>اسم المستخدم (username)</code> و <code>كلمة المرور (password)</code> من المستخدم وخزن كل منهما في متغير مناسب</li>
+<li>استخدم الإجراء <code>input()</code> لطلب <code>اسم المستخدم (username)</code> و <code>كلمة المرور (password)</code> من المستخدم وخزن كل منهما في متغير مناسب</li>
 <li>إذا كان اسم المستخدم هو <code>"admin"</code> وكلمة المرور هي <code>"abc123"</code>، اطبع: <code>"Welcome admin"</code></li>
 <li>أو إذا كان اسم المستخدم هو <code>"backdoor"</code> وكلمة المرور هي <code>"let me in"</code>، اطبع: <code>"Nobody knows!"</code></li>
 <li>خلاف ذلك، اطبع: <code>"Access denied!"</code></li>
@@ -651,7 +651,7 @@ window.Quarto = {
 <li>وجود حلقة <code>while</code> لإعادة المحاولة ثلاث مرات فقط</li>
 <li>وجود جملة <code>break</code> لإنهاء الحلقة إذا تم التسجيل بنجاح
 <ul>
-<li>لا توجد <code>break</code> في جزئية <code>else</code> الأخيرة وذلك لأن عدد المحاولات يزيد في كل مرة ليؤول الفعل إلى انتفاء شرط الدوران</li>
+<li>لا توجد <code>break</code> في جزئية <code>else</code> الأخيرة وذلك لأن عدد المحاولات يزيد في كل مرة ليؤول الإجراء إلى انتفاء شرط الدوران</li>
 </ul></li>
 </ul>
 </section>
@@ -673,7 +673,7 @@ window.Quarto = {
 <li>نعين المتغير <code>total = 0</code> لتجميع النتائج</li>
 <li>نستعمل حلقة لا نهائية: <code>while True</code> لأننا نريد أن يستمر البرنامج إلى أن يكتب المستخدم <code>quit</code></li>
 <li>نطلب من المستخدم أن يدخل عددًا، ونضع ما أدخَل في متغير: <code>user_input</code></li>
-<li>هذا المتغير نوعه: <code>str</code> (نصي) لأن الفعل <code>input()</code> يعطينا قيمة نصية</li>
+<li>هذا المتغير نوعه: <code>str</code> (نصي) لأن الإجراء <code>input()</code> يعطينا قيمة نصية</li>
 <li>إن كان المدخل كلمة <code>quit</code>، نكسر الحلقة بـ: <code>break</code></li>
 <li>وإلا:
 <ul>
@@ -685,6 +685,7 @@ window.Quarto = {
 </section>
 <section id="برنامج-تفاعلي" class="level2">
 <h2 class="anchored" data-anchor-id="برنامج-تفاعلي">برنامج تفاعلي</h2>
+<p>جرب انسخ هذا البرنامج واختبره بنفسك حتى تفهمه.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>inventory <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="cf">while</span> <span class="va">True</span>:</span>
@@ -721,7 +722,7 @@ window.Quarto = {
 <p><span class="math display">\[
 !n = n(n-1)(n-2)\cdots 1
 \]</span></p>
-<div id="c74b707d" class="cell" data-execution_count="1">
+<div id="c74b707d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>i <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>j <span class="op">=</span> i</span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="cf">while</span> j <span class="op">&gt;</span> <span class="dv">1</span>:</span>

@@ -280,7 +280,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الجملة الشرطية</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -306,7 +306,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">باب الأفعال</span></a>
+ <span class="menu-text">باب الإجراءات</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -315,13 +315,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/04_functions/a1_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الأفعال</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الإجراءات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/04_functions/a2_recursion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الفعل المتسلسل</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الإجراء المتسلسل</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -601,6 +601,7 @@ window.Quarto = {
   <li><a href="#دمج-الاثنين-في-فعل-واحد" id="toc-دمج-الاثنين-في-فعل-واحد" class="nav-link" data-scroll-target="#دمج-الاثنين-في-فعل-واحد">دمج الاثنين في فعل واحد</a></li>
   <li><a href="#ضم-الأقران" id="toc-ضم-الأقران" class="nav-link" data-scroll-target="#ضم-الأقران">ضم الأقران</a></li>
   </ul></li>
+  <li><a href="#خوارزمية-البحث-الثنائي" id="toc-خوارزمية-البحث-الثنائي" class="nav-link" data-scroll-target="#خوارزمية-البحث-الثنائي">خوارزمية البحث الثنائي</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
@@ -634,7 +635,7 @@ window.Quarto = {
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>fruits <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span>]</span>
 <span id="cb1-2"><a href="#cb1-2"></a>prices <span class="op">=</span> [    <span class="fl">1.5</span>,      <span class="fl">2.0</span>,      <span class="fl">1.0</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>املأ تفاصيل الفعل حتى يحسب مجموع السلة:</p>
+<p>املأ تفاصيل الإجراء حتى يحسب مجموع السلة:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> calculate_total_price(shopping_list: <span class="bu">list</span>[<span class="bu">str</span>]) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    <span class="co">"""Calculate the total price of the shopping list."""</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>    <span class="cf">pass</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -658,15 +659,15 @@ window.Quarto = {
 <ul>
 <li>عدد الأيام
 <ul>
-<li>يمكنك استعمال الفعل <code>len()</code></li>
+<li>يمكنك استعمال الإجراء <code>len()</code></li>
 </ul></li>
 <li>مجموع المبيعات لكل أسبوع على حدة
 <ul>
-<li>يمكنك استعمال الفعل <code>sum()</code> واستعمال الإشارة بقطعة <code>[:7]</code> للأسبوع الأول</li>
+<li>يمكنك استعمال الإجراء <code>sum()</code> واستعمال الإشارة بقطعة <code>[:7]</code> للأسبوع الأول</li>
 </ul></li>
 <li>متوسط المبيعات لكل أسبوع على حدة والانحراف المعياري
 <ul>
-<li>يمكنك استعمال الفعل <code>statistics.mean()</code> و <code>statistics.stdev()</code></li>
+<li>يمكنك استعمال الإجراء <code>statistics.mean()</code> و <code>statistics.stdev()</code></li>
 </ul></li>
 <li>متوسط المبيعات خلال الشهر والانحراف المعياري</li>
 </ul>
@@ -790,9 +791,13 @@ Samir: 31</code></pre>
 <span id="cb16-6"><a href="#cb16-6"></a>        <span class="cf">assert</span> <span class="st">"Mohammed"</span> <span class="kw">in</span> p</span>
 <span id="cb16-7"><a href="#cb16-7"></a>    <span class="cf">if</span> <span class="st">"Salem"</span> <span class="kw">in</span> p:</span>
 <span id="cb16-8"><a href="#cb16-8"></a>        <span class="cf">assert</span> <span class="st">"Samir"</span> <span class="kw">in</span> p</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-
 </section>
+</section>
+<section id="خوارزمية-البحث-الثنائي" class="level2">
+<h2 class="anchored" data-anchor-id="خوارزمية-البحث-الثنائي">خوارزمية البحث الثنائي</h2>
+<p>ألق نظرة على هذا <a href="https://youtu.be/eVuPCG5eIr4?si=4TLxMZDwnROaVmQP">المقطع المرئي</a> وحاول أن تفهم الفكرة من الخوارزمية، ثم طبقها.</p>
+
+
 </section>
 
 </main> <!-- /main -->

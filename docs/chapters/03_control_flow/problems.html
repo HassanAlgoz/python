@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -67,6 +101,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "البحث"
   }
 }</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -246,7 +284,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الجملة الشرطية</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -272,7 +310,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">باب الأفعال</span></a>
+ <span class="menu-text">باب الإجراءات</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -281,13 +319,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/04_functions/a1_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الأفعال</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الإجراءات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/04_functions/a2_recursion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الفعل المتسلسل</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الإجراء المتسلسل</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -557,8 +595,16 @@ window.Quarto = {
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#الوزن-الطبيعي" id="toc-الوزن-الطبيعي" class="nav-link active" data-scroll-target="#الوزن-الطبيعي">الوزن الطبيعي</a></li>
+  <li><a href="#المحاذاة" id="toc-المحاذاة" class="nav-link active" data-scroll-target="#المحاذاة">المحاذاة</a></li>
+  <li><a href="#تركيب-الشروط" id="toc-تركيب-الشروط" class="nav-link" data-scroll-target="#تركيب-الشروط">تركيب الشروط</a></li>
+  <li><a href="#ارسم-الشجرة-الثائية" id="toc-ارسم-الشجرة-الثائية" class="nav-link" data-scroll-target="#ارسم-الشجرة-الثائية">ارسم الشجرة الثائية</a></li>
+  <li><a href="#الجملة-الشرطية-المتكاملة" id="toc-الجملة-الشرطية-المتكاملة" class="nav-link" data-scroll-target="#الجملة-الشرطية-المتكاملة">الجملة الشرطية المتكاملة</a></li>
+  <li><a href="#جملة-التعيين-المشروط" id="toc-جملة-التعيين-المشروط" class="nav-link" data-scroll-target="#جملة-التعيين-المشروط">جملة التعيين المشروط</a></li>
+  <li><a href="#جملة-التعيين-المشروط-1" id="toc-جملة-التعيين-المشروط-1" class="nav-link" data-scroll-target="#جملة-التعيين-المشروط-1">جملة التعيين المشروط</a></li>
+  <li><a href="#الوزن-الطبيعي" id="toc-الوزن-الطبيعي" class="nav-link" data-scroll-target="#الوزن-الطبيعي">الوزن الطبيعي</a></li>
   <li><a href="#مجموع-الأرقام-إلى-س" id="toc-مجموع-الأرقام-إلى-س" class="nav-link" data-scroll-target="#مجموع-الأرقام-إلى-س">مجموع الأرقام إلى س</a></li>
+  <li><a href="#اكتب-القطعة-بحلقة-تكرار" id="toc-اكتب-القطعة-بحلقة-تكرار" class="nav-link" data-scroll-target="#اكتب-القطعة-بحلقة-تكرار">اكتب القطعة بحلقة تكرار</a></li>
+  <li><a href="#اكتب-القطعة-بحلقة-تكرار-1" id="toc-اكتب-القطعة-بحلقة-تكرار-1" class="nav-link" data-scroll-target="#اكتب-القطعة-بحلقة-تكرار-1">اكتب القطعة بحلقة تكرار</a></li>
   <li><a href="#التغير-النسبي" id="toc-التغير-النسبي" class="nav-link" data-scroll-target="#التغير-النسبي">التغير النسبي</a></li>
   <li><a href="#متحدث-آلي" id="toc-متحدث-آلي" class="nav-link" data-scroll-target="#متحدث-آلي">متحدث آلي</a></li>
   </ul>
@@ -586,6 +632,122 @@ window.Quarto = {
 </header>
 
 
+<section id="المحاذاة" class="level2">
+<h2 class="anchored" data-anchor-id="المحاذاة">المحاذاة</h2>
+<p>ما هي المشكلة في هذه القطعة البرمجية؟ وكيف تحلها؟</p>
+<div id="c3837b66" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="bu">print</span>(<span class="st">'Inside'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">print</span>(<span class="st">'Outside'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[1], line 2</span>
+<span class="ansi-red-fg">    print('Inside')</span>
+    ^
+<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> expected an indented block after 'if' statement on line 1
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section id="تركيب-الشروط" class="level2">
+<h2 class="anchored" data-anchor-id="تركيب-الشروط">تركيب الشروط</h2>
+<p>اعكس هذه العبارة الشرطة المرسومة بكتابة القطعة البرمجية التي تمثلها:</p>
+<div class="ltr">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph BT
+  RESULT((if))
+  ROOT{and} -- True --&gt; RESULT
+  middle_left{"&amp;gt;"} -- True --&gt; ROOT
+  middle_right{"&amp;gt;"} -- True --&gt; ROOT
+  left_left[age] -- "20" --&gt; middle_left
+  left_right[18] -- "18" --&gt; middle_left
+  right_left[weight] -- "50" --&gt; middle_right
+  right_right[45] -- "45" --&gt; middle_right
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ارسم-الشجرة-الثائية" class="level2">
+<h2 class="anchored" data-anchor-id="ارسم-الشجرة-الثائية">ارسم الشجرة الثائية</h2>
+<p>ارسم الشجرة الثنائية للعبارة الشرطية في القطعة البرمجية التالية:</p>
+<div id="e1979a18" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>age <span class="op">=</span> <span class="dv">16</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>temperature <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>is_wearing_coat <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="cf">if</span> age <span class="op">&lt;</span> <span class="dv">16</span> <span class="kw">or</span> (temperature <span class="op">&lt;</span> <span class="dv">20</span> <span class="kw">and</span> <span class="kw">not</span> is_wearing_coat):</span>
+<span id="cb2-6"><a href="#cb2-6"></a>  <span class="bu">print</span>(<span class="st">"I suggest you don't go outside"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="الجملة-الشرطية-المتكاملة" class="level2">
+<h2 class="anchored" data-anchor-id="الجملة-الشرطية-المتكاملة">الجملة الشرطية المتكاملة</h2>
+<p>ما هو حاصل تنفيذ هذه القطعة (فقط بالنظر إليها يجب أن تعرف):</p>
+<div id="9ad16265" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    x <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="bu">print</span>(<span class="st">'Set to zero'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="cf">elif</span> x <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    <span class="bu">print</span>(<span class="st">'Zero'</span>)</span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="cf">elif</span> x <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb3-9"><a href="#cb3-9"></a>    <span class="bu">print</span>(<span class="st">'Single'</span>)</span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="cf">else</span>:</span>
+<span id="cb3-11"><a href="#cb3-11"></a>    <span class="bu">print</span>(<span class="st">'More'</span>)</span>
+<span id="cb3-12"><a href="#cb3-12"></a></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="bu">print</span>(<span class="st">"Always:"</span>, x)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Single
+Always: 1</code></pre>
+</div>
+</div>
+</section>
+<section id="جملة-التعيين-المشروط" class="level2">
+<h2 class="anchored" data-anchor-id="جملة-التعيين-المشروط">جملة التعيين المشروط</h2>
+<p>كيف تكتب هذه الجملة بطريقة مختصرة؟</p>
+<div id="a12ea176" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>speed <span class="op">=</span> <span class="dv">45</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="cf">if</span> speed <span class="op">&gt;</span> <span class="dv">50</span>:</span>
+<span id="cb5-4"><a href="#cb5-4"></a>  message <span class="op">=</span> <span class="st">'Too fast!'</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="cf">else</span>:</span>
+<span id="cb5-6"><a href="#cb5-6"></a>  message <span class="op">=</span> <span class="st">'Okay'</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="bu">print</span>(message)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Okay</code></pre>
+</div>
+</div>
+</section>
+<section id="جملة-التعيين-المشروط-1" class="level2">
+<h2 class="anchored" data-anchor-id="جملة-التعيين-المشروط-1">جملة التعيين المشروط</h2>
+<p>وماذا عن هذه الجملة، كيف تكتبها مختصرة؟</p>
+<div id="b842d7e2" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>temperature <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">30</span>:</span>
+<span id="cb7-4"><a href="#cb7-4"></a>  comfort <span class="op">=</span> <span class="st">'Hot'</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="cf">elif</span> temperature <span class="op">&gt;</span> <span class="dv">15</span>:</span>
+<span id="cb7-6"><a href="#cb7-6"></a>  comfort <span class="op">=</span> <span class="st">'Comfortable'</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="cf">else</span>:</span>
+<span id="cb7-8"><a href="#cb7-8"></a>  comfort <span class="op">=</span> <span class="st">'Cold'</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="bu">print</span>(comfort)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Comfortable</code></pre>
+</div>
+</div>
+</section>
 <section id="الوزن-الطبيعي" class="level2">
 <h2 class="anchored" data-anchor-id="الوزن-الطبيعي">الوزن الطبيعي</h2>
 <p>هذا هو وزن الجسم الموصى به من قبل منظمة الصحة العالمية (WHO) استنادًا إلى قيم مؤشر كتلة الجسم للبالغين. ويستخدم لكل من الرجال والنساء الذين تبلغ أعمارهم 20 عامًا أو أكثر.</p>
@@ -644,9 +806,17 @@ BMI = \frac{weight}{height^2}
 <p>المطلوب:</p>
 <ol type="1">
 <li>احسب بالمعادلة السابقة مؤشر كتلة الجسم لوزنك</li>
-<li>اكتب جملاً شرطية تستعمل الجدول لتصنيف الوزن</li>
+<li>اكتب جملاً شرطية مضمنة تستعمل الجدول لتصنيف الوزن</li>
 <li>اطبع النتيجة</li>
 </ol>
+<p>ملاحظة: يجب أن تكون الجمل الشرطية تستعمل التضمين على النحو التالي:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="cf">if</span> <span class="op">&lt;</span>boolean expression<span class="op">&gt;</span>:</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    <span class="cf">if</span> <span class="op">&lt;</span>boolean expression<span class="op">&gt;</span>:</span>
+<span id="cb9-3"><a href="#cb9-3"></a>        <span class="op">&lt;</span>code<span class="op">&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-5"><a href="#cb9-5"></a>        <span class="op">&lt;</span>code<span class="op">&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="cf">else</span>:</span>
+<span id="cb9-7"><a href="#cb9-7"></a>    <span class="op">&lt;</span>code<span class="op">&gt;</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="مجموع-الأرقام-إلى-س" class="level2">
 <h2 class="anchored" data-anchor-id="مجموع-الأرقام-إلى-س">مجموع الأرقام إلى س</h2>
@@ -656,7 +826,7 @@ BMI = \frac{weight}{height^2}
 \]</span></p>
 <p>تعليمات التطبيق:</p>
 <ul>
-<li>استخدم الفعل <code>input()</code> لطلب إدخال العدد من المستخدم</li>
+<li>استخدم الإجراء <code>input()</code> لطلب إدخال العدد من المستخدم</li>
 <li>القيمة المدخلة ستكون من النوع النصي وليس العددي؛ لذا:
 <ul>
 <li>حول القيمة المدخلة إلى عدد باستخدام <code>int()</code> أو <code>float()</code></li>
@@ -665,17 +835,73 @@ BMI = \frac{weight}{height^2}
 <li>اطبع النتيجة</li>
 </ul>
 </section>
+<section id="اكتب-القطعة-بحلقة-تكرار" class="level2">
+<h2 class="anchored" data-anchor-id="اكتب-القطعة-بحلقة-تكرار">اكتب القطعة بحلقة تكرار</h2>
+<p>اكتب القطعة البرمجية التالية بحلقة تكرار:</p>
+<div id="5563d0ca" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>increase <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a>w1 <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>w2 <span class="op">=</span> w1 <span class="op">+</span> increase</span>
+<span id="cb10-5"><a href="#cb10-5"></a>w3 <span class="op">=</span> w2 <span class="op">+</span> increase</span>
+<span id="cb10-6"><a href="#cb10-6"></a>w4 <span class="op">=</span> w3 <span class="op">+</span> increase</span>
+<span id="cb10-7"><a href="#cb10-7"></a>w5 <span class="op">=</span> w4 <span class="op">+</span> increase</span>
+<span id="cb10-8"><a href="#cb10-8"></a>w6 <span class="op">=</span> w5 <span class="op">+</span> increase</span>
+<span id="cb10-9"><a href="#cb10-9"></a>w7 <span class="op">=</span> w6 <span class="op">+</span> increase</span>
+<span id="cb10-10"><a href="#cb10-10"></a>w8 <span class="op">=</span> w7 <span class="op">+</span> increase</span>
+<span id="cb10-11"><a href="#cb10-11"></a>w9 <span class="op">=</span> w8 <span class="op">+</span> increase</span>
+<span id="cb10-12"><a href="#cb10-12"></a>w10 <span class="op">=</span> w9 <span class="op">+</span> increase</span>
+<span id="cb10-13"><a href="#cb10-13"></a></span>
+<span id="cb10-14"><a href="#cb10-14"></a><span class="bu">print</span>(w1, w2, w3, w4, w5, w6, w7, w8, w9, w10)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>15 20 25 30 35 40 45 50 55 60</code></pre>
+</div>
+</div>
+</section>
+<section id="اكتب-القطعة-بحلقة-تكرار-1" class="level2">
+<h2 class="anchored" data-anchor-id="اكتب-القطعة-بحلقة-تكرار-1">اكتب القطعة بحلقة تكرار</h2>
+<p>وكذلك اكتب القطعة التالية بحلقة تكرار:</p>
+<div id="05a0e821" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="im">import</span> math</span>
+<span id="cb12-2"><a href="#cb12-2"></a></span>
+<span id="cb12-3"><a href="#cb12-3"></a>growth_rate <span class="op">=</span> <span class="fl">0.117</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a></span>
+<span id="cb12-5"><a href="#cb12-5"></a>day1 <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>day2 <span class="op">=</span> day1 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
+<span id="cb12-7"><a href="#cb12-7"></a>day3 <span class="op">=</span> day2 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
+<span id="cb12-8"><a href="#cb12-8"></a>day4 <span class="op">=</span> day3 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
+<span id="cb12-9"><a href="#cb12-9"></a>day5 <span class="op">=</span> day4 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
+<span id="cb12-10"><a href="#cb12-10"></a>day6 <span class="op">=</span> day5 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
+<span id="cb12-11"><a href="#cb12-11"></a>day7 <span class="op">=</span> day6 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
+<span id="cb12-12"><a href="#cb12-12"></a></span>
+<span id="cb12-13"><a href="#cb12-13"></a><span class="bu">print</span>(math.floor(day1))</span>
+<span id="cb12-14"><a href="#cb12-14"></a><span class="bu">print</span>(math.floor(day2))</span>
+<span id="cb12-15"><a href="#cb12-15"></a><span class="bu">print</span>(math.floor(day3))</span>
+<span id="cb12-16"><a href="#cb12-16"></a><span class="bu">print</span>(math.floor(day4))</span>
+<span id="cb12-17"><a href="#cb12-17"></a><span class="bu">print</span>(math.floor(day5))</span>
+<span id="cb12-18"><a href="#cb12-18"></a><span class="bu">print</span>(math.floor(day6))</span>
+<span id="cb12-19"><a href="#cb12-19"></a><span class="bu">print</span>(math.floor(day7))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>100
+111
+124
+139
+155
+173
+194</code></pre>
+</div>
+</div>
+</section>
 <section id="التغير-النسبي" class="level2">
 <h2 class="anchored" data-anchor-id="التغير-النسبي">التغير النسبي</h2>
 <p>إذا كنت تمارس الرياضة وتزيد في وزن الحمل 10% أسبوعيًّا .. فإذا بدأت بوزن 20 كيلو، فإلى كم كيلوا ستصل في الأسبوع الثاني عشر؟ (بعد ثلاثة أشهر)</p>
-<p>قد مرت علينا هذه المسألة، لكن الآن المطلوب حلها بالتكرار.</p>
 </section>
 <section id="متحدث-آلي" class="level2">
 <h2 class="anchored" data-anchor-id="متحدث-آلي">متحدث آلي</h2>
 <p>اكتب برنامج يجمع البيانات التالية من المستخدم (الزبون):</p>
 <ul>
 <li>اسم الزبون: الرسالة “أتشرف باسمك، مثلا: محمد أحمد”</li>
-<li>رقم الهاتف: الرسالة “زودنا برقم جوالك، يبدأ بـ966”</li>
+<li>رقم الهاتف: الرسالة “زودنا برقم جوالك، يبدأ بمفتاح الدولة، مثلاً بـ966”</li>
 <li>المدينة: الرسالة “ممكن تحدد مدينتك؟”</li>
 <li>اسم الحي: الرسالة “الرجاء قم بكتابة اسم الحي”</li>
 </ul>

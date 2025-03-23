@@ -258,7 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الجملة الشرطية</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -284,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">باب الأفعال</span></a>
+ <span class="menu-text">باب الإجراءات</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -293,13 +293,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/04_functions/a1_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الأفعال</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الإجراءات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/04_functions/a2_recursion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الفعل المتسلسل</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الإجراء المتسلسل</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -762,7 +762,7 @@ x-api-key: live_9Cj8P0h75D5h2D7Y2H8MYEuuTmTXjT412xNlbVBouHxn2sEnAjr1dr4JMfIn4Mr4
 <li><code>connection: keep-alive</code> تعني أن العميل يريد الحفاظ على الاتصال بالخادم</li>
 <li><code>user-agent: python-httpx/0.28.1</code> هي ترويسة إجبارية ولا يهم ما تكون قيمتها. لكنها تعرِّف بهوية العميل</li>
 </ul>
-<p>وبعد ذلك نرسل الطلب بالفعل <code>send</code> ونحصل على جواب <code>response</code>:</p>
+<p>وبعد ذلك نرسل الطلب بالإجراء <code>send</code> ونحصل على جواب <code>response</code>:</p>
 <div id="b19b2459" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>response <span class="op">=</span> client.send(request)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -811,7 +811,7 @@ content-length: 103
 [{"id":"rw09G0crt","url":"https://cdn2.thecatapi.com/images/rw09G0crt.jpg","width":2400,"height":1714}]</code></pre>
 </div>
 </div>
-<p>ولكن هذا النص لا يمكن التعامل معه كما هو، لذلك نستخدم الفعل <code>json()</code> لتفسيره إلى شيء في بايثون (قائمة):</p>
+<p>ولكن هذا النص لا يمكن التعامل معه كما هو، لذلك نستخدم الإجراء <code>json()</code> لتفسيره إلى شيء في بايثون (قائمة):</p>
 <div id="2cef1984" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>data <span class="op">=</span> response.json()</span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="bu">print</span>(<span class="bu">type</span>(data))</span>
@@ -844,7 +844,7 @@ content-length: 103
 </section>
 <section id="مثال-خدمة-الطقس" class="level2">
 <h2 class="anchored" data-anchor-id="مثال-خدمة-الطقس">مثال: خدمة الطقس</h2>
-<p>والرابط يشبه استدعاء الفعل. لاحظ أننا في بايثون نستدعي الفعل <code>pow</code> من الوحدة <code>math</code> ونمرر العوامل <code>2, 3</code> إليه على هذا النحو:</p>
+<p>والرابط يشبه استدعاء الإجراء. لاحظ أننا في بايثون نستدعي الإجراء <code>pow</code> من الوحدة <code>math</code> ونمرر العوامل <code>2, 3</code> إليه على هذا النحو:</p>
 <div id="f5facad9" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="im">import</span> math</span>
 <span id="cb21-2"><a href="#cb21-2"></a></span>
@@ -878,7 +878,7 @@ content-length: 103
 </table>
 </div>
 <ul>
-<li>فكما أننا نطلب الفعل <code>pow</code> من الوحدة <code>math</code> ونمرر العوامل <code>2, 3</code> إليه</li>
+<li>فكما أننا نطلب الإجراء <code>pow</code> من الوحدة <code>math</code> ونمرر العوامل <code>2, 3</code> إليه</li>
 <li>فكذلك نطلب المورِد <code>/weather</code> من الموقع <code>https://api.openweathermap.org</code> ونمرر العوامل <code>?city=London</code> إليه
 <ul>
 <li>العامل يبتدأ بعلامة الاستفهام <code>?</code> ثم اسم العامل <code>city</code> وقيمته <code>London</code> وهو اسم المدينة</li>

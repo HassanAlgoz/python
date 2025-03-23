@@ -251,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الجملة الشرطية</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -277,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">باب الأفعال</span></a>
+ <span class="menu-text">باب الإجراءات</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -286,13 +286,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/04_functions/a1_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الأفعال</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الإجراءات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/04_functions/a2_recursion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الفعل المتسلسل</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الإجراء المتسلسل</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -570,7 +570,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#إنشاء-قاموس-من-سلسلتين" id="toc-إنشاء-قاموس-من-سلسلتين" class="nav-link" data-scroll-target="#إنشاء-قاموس-من-سلسلتين">إنشاء قاموس من سلسلتين</a></li>
   </ul></li>
-  <li><a href="#أفعال-التحقق" id="toc-أفعال-التحقق" class="nav-link" data-scroll-target="#أفعال-التحقق">أفعال التحقق</a></li>
+  <li><a href="#إجراءات-التحقق" id="toc-إجراءات-التحقق" class="nav-link" data-scroll-target="#إجراءات-التحقق">إجراءات التحقق</a></li>
   <li><a href="#المصطلحات" id="toc-المصطلحات" class="nav-link" data-scroll-target="#المصطلحات">المصطلحات</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
@@ -613,7 +613,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>بلا ترتيب</strong>: يعني أن العنصر ليس له موقع محدد فيها فليس له ما قبله وليس له ما بعده</li>
 </ul>
 <p>انظر <a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableSet">MutableSet</a> في خريطة المجموعات: <a href="../../appendix_collections.html#fig-collections-tree" class="quarto-xref">شكل&nbsp;<span>1</span></a>.</p>
-<p>تنشأ المجموعة الفريدة بالفعل المنشئ <a href="https://docs.python.org/3/library/stdtypes.html#set"><code>set()</code></a>. أو بالقوسين المتعرجين <code>{ }</code>:</p>
+<p>تنشأ المجموعة الفريدة بالإجراء المنشئ <a href="https://docs.python.org/3/library/stdtypes.html#set"><code>set()</code></a>. أو بالقوسين المتعرجين <code>{ }</code>:</p>
 <div id="05be95ce" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>s1 <span class="op">=</span> <span class="bu">set</span>([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>])</span>
 <span id="cb1-2"><a href="#cb1-2"></a>s2 <span class="op">=</span> {<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>}</span>
@@ -625,7 +625,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>التكرار: <code>for x in s</code></li>
 <li>العضوية: <code>x not in s</code></li>
 </ul>
-<p>وباعتبارها مجموعة متغيرة (<a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableSet">MutableSet</a>)، فإنها تقبل الأفعال التالية:</p>
+<p>وباعتبارها مجموعة متغيرة (<a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableSet">MutableSet</a>)، فإنها تقبل الإجراءات التالية:</p>
 <ul>
 <li>الإضافة: <code>add</code></li>
 <li>الحذف: <code>discard</code></li>
@@ -634,7 +634,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>ذكرنا أن شرط عضوية العنصر في <strong>المجموعة</strong> (<code>set</code>) وفي <strong>القاموس</strong> (<code>dict</code>) أن يكون مرقومًا؛ أي: قابلًا للرقم، أي: أن يُرمَزَ إليه برَقَم. ومعلومٌ أن الحروف أصلها أرقام: فكلمة <code>cat</code> مكونة من ثلاثة أرقام هي: 99, 97, 116.</p>
 <p>ونبسِّط عمليَّة الرَّقم بمثال فنقول: إن إحدى طرق رَقْمِ الكلمة أن تجمع أرقام حروفها وتقسم على عدد ثابت ثم تأخذ باقي القسمة. فتقول: <code>(99+97+116) % 100 = 12</code>. (ملاحظة: علامة <code>%</code> هي لباقي القسمة) ويكون هذا الرقم (<code>12</code>) هو رمز الكلمة <code>cat</code>، ثم يستخدم هذا الرقم في الدلالة على موضع تخزين العنصر في الذاكرة. ولن نخوض في تفاصيل ذلك لأنها دون التطبيق.</p>
-<p><strong>المرقوم</strong> (<a href="https://docs.python.org/3/glossary.html#term-hashable"><code>Hashable</code></a>): هو ما يقبل الفعل <code>hash()</code> الذي يحول الشيء إلى رقم يرمز إليه. ومنه:</p>
+<p><strong>المرقوم</strong> (<a href="https://docs.python.org/3/glossary.html#term-hashable"><code>Hashable</code></a>): هو ما يقبل الإجراء <code>hash()</code> الذي يحول الشيء إلى رقم يرمز إليه. ومنه:</p>
 <ul>
 <li>الرقم (<code>int</code>) رقْمه هو نفسه</li>
 <li>النص (<code>str</code>) له خوارزمية معيَّنة لرقْمه (<a href="https://cp-algorithms.com/string/string-hashing.html">انظر هنا للاستزادة</a>)</li>
@@ -743,7 +743,7 @@ Cell <span class="ansi-green-fg">In[211], line 2</span>
 <pre><code>{1, 2, 3, 6, 7, 8}</code></pre>
 </div>
 </div>
-<p>نصيحة: من الأفضل استعمال اسم الفعل بدلاً من العلامة التي تقابله حيث أنها تقبل أي نوع من المتكررات (Iterables) ولا تقتصر على نوع المجموعة فقط (<code>set</code>). أي، استعمل ما يقابلها كما هو موضَّح في الجدول:</p>
+<p>نصيحة: من الأفضل استعمال اسم الإجراء بدلاً من العلامة التي تقابله حيث أنها تقبل أي نوع من المتكررات (Iterables) ولا تقتصر على نوع المجموعة فقط (<code>set</code>). أي، استعمل ما يقابلها كما هو موضَّح في الجدول:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 39%">
@@ -754,7 +754,7 @@ Cell <span class="ansi-green-fg">In[211], line 2</span>
 <tr class="header">
 <th>العملية</th>
 <th>العلامة</th>
-<th>الفعل المكافئ</th>
+<th>الإجراء المكافئ</th>
 </tr>
 </thead>
 <tbody>
@@ -780,7 +780,7 @@ Cell <span class="ansi-green-fg">In[211], line 2</span>
 </tr>
 </tbody>
 </table>
-<p>وكذلك لدينا أفعال تحقق الجزئية والشمول والانفصال:</p>
+<p>وكذلك لدينا إجراءات تحقق الجزئية والشمول والانفصال:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 39%">
@@ -791,7 +791,7 @@ Cell <span class="ansi-green-fg">In[211], line 2</span>
 <tr class="header">
 <th>العملية</th>
 <th>العلامة</th>
-<th>الفعل المكافئ</th>
+<th>الإجراء المكافئ</th>
 </tr>
 </thead>
 <tbody>
@@ -839,7 +839,7 @@ Cell <span class="ansi-green-fg">In[211], line 2</span>
 <h2 class="anchored" data-anchor-id="القاموس">القاموس</h2>
 <p><strong>القاموس</strong> (<a href="https://docs.python.org/3/library/stdtypes.html#dict"><code>dict</code></a>) جمع مرتب من المرقومات الفريدة المشيرة إلى قيمة.</p>
 <p>انظر <a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableMapping">MutableMapping</a> في خريطة الجُمُوع: <a href="../../appendix_collections.html#fig-collections-tree" class="quarto-xref">شكل&nbsp;<span>1</span></a>.</p>
-<p>تنشأ المجموعة الرابطة بالفعل المنشئ <a href="https://docs.python.org/3/library/stdtypes.html#dict"><code>dict()</code></a> أو بالقوسين المتعرجين <code>{ }</code>:</p>
+<p>تنشأ المجموعة الرابطة بالإجراء المنشئ <a href="https://docs.python.org/3/library/stdtypes.html#dict"><code>dict()</code></a> أو بالقوسين المتعرجين <code>{ }</code>:</p>
 <div id="38a08055" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>d1 <span class="op">=</span> <span class="bu">dict</span>(key1<span class="op">=</span><span class="st">'value1'</span>, key2<span class="op">=</span><span class="st">'value2'</span>)</span>
 <span id="cb20-2"><a href="#cb20-2"></a>d2 <span class="op">=</span> {<span class="st">'key1'</span>: <span class="st">'value1'</span>, <span class="st">'key2'</span>: <span class="st">'value2'</span>}</span>
@@ -847,13 +847,13 @@ Cell <span class="ansi-green-fg">In[211], line 2</span>
 </div>
 <p>اصطلاحات: نسمي <code>key1</code> المرقوم ونسمي <code>value1</code> القيمة؛ وهما معًا نسميهما <strong>رابطًا</strong>.</p>
 <p>واخترت في ترجمة المصطلح الصفة الأصلية بدلا من ترجمتة كلمة <code>key</code> إلى مفتاح. والصفة الأساسية هي: الرَّقم؛ فسميته مرقومًا.</p>
-<p>ومن حيث كون القاموس <strong>جمعًا</strong> (<code>Collection</code>)، فإنه يقبل الأفعال ثلاثة:</p>
+<p>ومن حيث كون القاموس <strong>جمعًا</strong> (<code>Collection</code>)، فإنه يقبل الإجراءات ثلاثة:</p>
 <ul>
 <li>العضوية: <code>x not in d</code></li>
 <li>العد: <code>len(d)</code></li>
 <li>التكرار: <code>for x in d</code></li>
 </ul>
-<p>ويقبل القاموس لكونه <strong>دالة</strong> (<a href="https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes"><code>Mapping</code></a>) الأفعال التالية:</p>
+<p>ويقبل القاموس لكونه <strong>دالة</strong> (<a href="https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes"><code>Mapping</code></a>) الإجراءات التالية:</p>
 <ul>
 <li>الإشارة بمرقوم: <code>dict[key]</code></li>
 <li>الإشارة بمرقوم أو إرجاع قيمة ابتدائية: <code>dict.get(key[, default])</code></li>
@@ -864,7 +864,7 @@ Cell <span class="ansi-green-fg">In[211], line 2</span>
 <li>كر المرقومات: <code>for key in d.keys()</code></li>
 <li>كر القيم: <code>for value in d.values()</code></li>
 </ul>
-<p>ولكونه <strong>دالة متغيرة</strong> (<a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableMapping"><code>MutableMapping</code></a>)، فإنه يقبل الأفعال التالية:</p>
+<p>ولكونه <strong>دالة متغيرة</strong> (<a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableMapping"><code>MutableMapping</code></a>)، فإنه يقبل الإجراءات التالية:</p>
 <ul>
 <li>التعديل بمرقوم: <code>dict[key] = value</code></li>
 <li>الحذف بمرقوم: <code>del dict[key]</code></li>
@@ -901,7 +901,7 @@ value4</code></pre>
 </div>
 <section id="إنشاء-قاموس-من-سلسلتين" class="level3">
 <h3 class="anchored" data-anchor-id="إنشاء-قاموس-من-سلسلتين">إنشاء قاموس من سلسلتين</h3>
-<p>ويتحصل القاموس من سلسلتين باستعمال الفعل <a href="https://docs.python.org/3/library/functions.html#zip"><code>zip()</code></a>، كما يلي:</p>
+<p>ويتحصل القاموس من سلسلتين باستعمال الإجراء <a href="https://docs.python.org/3/library/functions.html#zip"><code>zip()</code></a>، كما يلي:</p>
 <div id="ca18cf44" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>students <span class="op">=</span> [<span class="st">'Ahmad'</span>, <span class="st">'Belal'</span>, <span class="st">'Careem'</span>, <span class="st">'David'</span>]</span>
 <span id="cb24-2"><a href="#cb24-2"></a>marks <span class="op">=</span> [<span class="dv">90</span>, <span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">85</span>]</span>
@@ -913,9 +913,9 @@ value4</code></pre>
 </div>
 </section>
 </section>
-<section id="أفعال-التحقق" class="level2">
-<h2 class="anchored" data-anchor-id="أفعال-التحقق">أفعال التحقق</h2>
-<p>أفعال التحقق تقبل مُكرَّرًا (Iterable)، وتنتج قيمة صواب (<code>True</code>) أو خطأ (<code>False</code>). وقد عرفنا أن الصف والقائمة والقاموس كلها من جنس المُكرَّر. وهما فعلان:</p>
+<section id="إجراءات-التحقق" class="level2">
+<h2 class="anchored" data-anchor-id="إجراءات-التحقق">إجراءات التحقق</h2>
+<p>إجراءات التحقق تقبل مُكرَّرًا (Iterable)، وتنتج قيمة صواب (<code>True</code>) أو خطأ (<code>False</code>). وقد عرفنا أن الصف والقائمة والقاموس كلها من جنس المُكرَّر. وهما إجراءان:</p>
 <ul>
 <li>فعل <strong>أي</strong> (<code>any</code>) يتحقق بوجود عنصرٍ واحد متحقق على الأقل</li>
 <li>فعل <strong>كل</strong> (<code>all</code>) يتحقق بتحقق جميع العناصر كلها</li>

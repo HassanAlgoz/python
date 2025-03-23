@@ -289,7 +289,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الجملة الشرطية</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -315,7 +315,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">باب الأفعال</span></a>
+ <span class="menu-text">باب الإجراءات</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -324,13 +324,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/04_functions/a1_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الأفعال</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الإجراءات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/04_functions/a2_recursion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الفعل المتسلسل</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الإجراء المتسلسل</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -602,7 +602,7 @@ window.Quarto = {
   <ul>
   <li><a href="#القطعة-البرمجية" id="toc-القطعة-البرمجية" class="nav-link active" data-scroll-target="#القطعة-البرمجية">القطعة البرمجية</a></li>
   <li><a href="#الكلمات" id="toc-الكلمات" class="nav-link" data-scroll-target="#الكلمات">الكلمات</a></li>
-  <li><a href="#الأنواع-والأفعال-المبنية" id="toc-الأنواع-والأفعال-المبنية" class="nav-link" data-scroll-target="#الأنواع-والأفعال-المبنية">الأنواع والأفعال المبنية</a></li>
+  <li><a href="#الأنواع-والإجراءات-المبنية" id="toc-الأنواع-والإجراءات-المبنية" class="nav-link" data-scroll-target="#الأنواع-والإجراءات-المبنية">الأنواع والإجراءات المبنية</a></li>
   <li><a href="#نمو-اللغة" id="toc-نمو-اللغة" class="nav-link" data-scroll-target="#نمو-اللغة">نمو اللغة</a>
   <ul class="collapse">
   <li><a href="#المكتبة-الأساسية" id="toc-المكتبة-الأساسية" class="nav-link" data-scroll-target="#المكتبة-الأساسية">المكتبة الأساسية</a></li>
@@ -637,8 +637,8 @@ window.Quarto = {
 <p>وفي هذا المثال عرضٌ لقطع برمجية في بايثون وشرحٌ لعملها، وليس المطلوب أي شيء منها أو تأمُّلَه ومحاولة فهمه بل هذه نظرة عامَّة لتكوين تصوُّر مُجْمَل عمّا سيأتي إن شاء الله.</p>
 <section id="القطعة-البرمجية" class="level2">
 <h2 class="anchored" data-anchor-id="القطعة-البرمجية">القطعة البرمجية</h2>
-<p>تُنَفَّذُ القطعة بحسب ترتيب جُمَلِها نزولاً من الأعلى.</p>
-<div id="d2cab55d" class="cell" data-execution_count="1">
+<p>تُنَفَّذُ القطعة (Code Snippet) بحسب ترتيب جُمَلِها نزولاً من الأعلى.</p>
+<div id="d2cab55d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>pages <span class="op">=</span> <span class="dv">900</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>speed <span class="op">=</span>  <span class="dv">50</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>finish_time <span class="op">=</span> pages <span class="op">/</span> speed</span>
@@ -691,17 +691,17 @@ window.Quarto = {
 <li>المحاولة: <code>try ...</code></li>
 <li>السياق: <code>with ...</code></li>
 <li>المطابقة: <code>match ...</code></li>
-<li>تعريف الفعل: <code>def ...</code></li>
+<li>تعريف الإجراء: <code>def ...</code></li>
 <li>تعريف النوع: <code>class ...</code></li>
-<li>الروتينات المتزامنة: <code>async def ...</code></li>
-<li>قوائم معلمات النوع: <code>[T1[, T2, ...]]</code></li>
+<li>تعريف الإجراء غير المتزامن: <code>async def ...</code></li>
+<li>قائمة الأنواع المتغيرة: <code>[T1[, T2, ...]]</code></li>
 </ul>
 </div>
 </div>
 </section>
 <section id="الكلمات" class="level2">
 <h2 class="anchored" data-anchor-id="الكلمات">الكلمات</h2>
-<p>أول أنواع الكلمة هو <a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords">المفردات الأصلية في لغة بايثون</a> التي لها معنىً خاصّ مفهوم لدى بايثون وتستعمل في جُمَل محددة. وهي 35 كلمة:</p>
+<p>أول أنواع الكلمة هو <a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords"><strong>المفردات الأصلية</strong></a> (Keywords) التي لها معنىً خاصّ مفهوم لدى بايثون وتستعمل في جُمَل محددة. وهي 35 كلمة:</p>
 <pre><code>False      await      else       import     pass
 None       break      except     in         raise
 True       class      finally    is         return
@@ -716,7 +716,7 @@ async      elif       if         or         yield</code></pre>
 <p>ومن الحروف <strong>علامات الابتداء والوَقف</strong>، نحو: <code>( )</code> و <code>[ ]</code> و <code>{ }</code> <strong>والفصل</strong>، نحو: <code>,</code> (الفاصلة اللاتينية) و <code>:</code> (النقطتان الرأسِيَّتان) و <code>=</code> (علامة التعيين) ، وتُسمى جميعًا <a href="https://docs.python.org/3/reference/lexical_analysis.html#delimiters"><strong>المحددات</strong> (<em>Delimiters</em>)</a>.</p>
 <ul>
 <li>فالأقواس <code>()</code> في العبارة: <code>(y + z) * (a + b)</code> لتحديد ترتيب العمليات</li>
-<li>والأقواس <code>()</code> في العبارة: <code>print(x, y, z)</code> لتحديد عوامل الفعل: أي: المتغيرات التي نمررها له</li>
+<li>والأقواس <code>()</code> في العبارة: <code>print(x, y, z)</code> لتحديد عوامل الإجراء: أي: المتغيرات التي نمررها له</li>
 <li>والأقواس <code>()</code> في العبارة: <code>(10, 20, 30)</code> لتحديد صف من الأرقام</li>
 </ul>
 <p>ومن الحروف <a href="https://docs.python.org/3/reference/lexical_analysis.html#operators"><strong>المعاملات</strong> (<em>Operators</em>)</a>، نحو: <code>+</code> و <code>*</code> و <code>/</code> و <code>**</code> و <code>==</code></p>
@@ -727,9 +727,9 @@ async      elif       if         or         yield</code></pre>
 <li>فإن كان <code>x = 5</code> و <code>y = "Belal"</code> فهما من نوع <strong>الرقم</strong> و <strong>النص</strong> فليسَ بمعرَّف</li>
 </ul>
 </section>
-<section id="الأنواع-والأفعال-المبنية" class="level2">
-<h2 class="anchored" data-anchor-id="الأنواع-والأفعال-المبنية">الأنواع والأفعال المبنية</h2>
-<p>ومن الأنواع والأفعال ما هو <strong>مبنيُّ</strong> (<em>Built-in</em>) في لغة بايثون:</p>
+<section id="الأنواع-والإجراءات-المبنية" class="level2">
+<h2 class="anchored" data-anchor-id="الأنواع-والإجراءات-المبنية">الأنواع والإجراءات المبنية</h2>
+<p>ومن الأنواع والإجراءات ما هو <strong>مبنيُّ</strong> (<em>Built-in</em>) في لغة بايثون:</p>
 <p><a href="https://docs.python.org/3/library/stdtypes.html"><strong>الأنواع المبنية</strong></a> مثل:</p>
 <ul>
 <li>الرقم: <code>int</code>, <code>float</code>, <code>complex</code> للحساب</li>
@@ -760,11 +760,11 @@ async      elif       if         or         yield</code></pre>
 </div>
 </div>
 <p>وسيأتي تفصيلها في أبوابها إن شاء الله.</p>
-<p><a href="https://docs.python.org/3/library/functions.html"><strong>الأفعال المبنية</strong></a> مثل: <code>print</code>, <code>sum</code>, <code>max</code>, <code>min</code>, <code>len</code></p>
+<p><a href="https://docs.python.org/3/library/functions.html"><strong>الإجراءات المبنية</strong></a> مثل: <code>print</code>, <code>sum</code>, <code>max</code>, <code>min</code>, <code>len</code></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>الفعل</th>
+<th>الإجراء</th>
 <th>Function</th>
 </tr>
 </thead>
@@ -823,20 +823,20 @@ async      elif       if         or         yield</code></pre>
 </tr>
 </tbody>
 </table>
-<p>وغيرها كثير لا يفيد حصره هنا. ولا تزال اللغة تتطوَّر ويُزادُ فيها من هذه الأنواع والأفعال.</p>
+<p>وغيرها كثير لا يفيد حصره هنا. ولا تزال اللغة تتطوَّر ويُزادُ فيها من هذه الأنواع والإجراءات.</p>
 </section>
 <section id="نمو-اللغة" class="level2">
 <h2 class="anchored" data-anchor-id="نمو-اللغة">نمو اللغة</h2>
 <p>ومن خواص لغة البرمجة: إنشاء مركبات لغوية جديدة، وذلك بشيئين:</p>
 <ol type="1">
 <li><strong>تعريف أنواع</strong> جديدة؛ بجملة <code>class</code></li>
-<li><strong>تعريف أفعال</strong> جديدة؛ بجملة <code>def</code></li>
+<li><strong>تعريف إجراءات</strong> جديدة؛ بجملة <code>def</code></li>
 </ol>
 <p>فأضاف مطوروا بايثون أنفسهم إلى اللغة ما يسمى <strong>بالمكتبة الأساسية</strong> (<em>Standard Library</em>)، ومن أقسامها:</p>
 <ul>
-<li>وحدة <a href="https://docs.python.org/3/library/math.html"><code>math</code></a> التي تضم مجموعة أفعال تعنى بالعمليات الرياضية على الأعداد</li>
-<li>وحدة <a href="https://docs.python.org/3/library/statistics.html"><code>statistics</code></a> التي تضم مجموعة أفعال تعنى بالإحصاء</li>
-<li>وحدة <a href="https://docs.python.org/3/library/datetime.html"><code>datetime</code></a> التي تضم مجموعة أنواع وأفعال تعنى بالوقت والتاريخ</li>
+<li>وحدة <a href="https://docs.python.org/3/library/math.html"><code>math</code></a> التي تضم مجموعة إجراءات تعنى بالعمليات الرياضية على الأعداد</li>
+<li>وحدة <a href="https://docs.python.org/3/library/statistics.html"><code>statistics</code></a> التي تضم مجموعة إجراءات تعنى بالإحصاء</li>
+<li>وحدة <a href="https://docs.python.org/3/library/datetime.html"><code>datetime</code></a> التي تضم مجموعة أنواع وإجراءات تعنى بالوقت والتاريخ</li>
 </ul>
 <section id="المكتبة-الأساسية" class="level3">
 <h3 class="anchored" data-anchor-id="المكتبة-الأساسية">المكتبة الأساسية</h3>
@@ -845,7 +845,7 @@ async      elif       if         or         yield</code></pre>
 \text{distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
 \]</span></p>
 <p>القطعة:</p>
-<div id="5da93e66" class="cell" data-execution_count="2">
+<div id="5da93e66" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> math</span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
 <span id="cb4-3"><a href="#cb4-3"></a>x1, y1 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
@@ -867,7 +867,7 @@ async      elif       if         or         yield</code></pre>
 <li><code>**</code> هي عملية تربيع العدد</li>
 <li><code>math.sqrt</code> هي فعل حساب الجذر التربيعي</li>
 </ul></li>
-<li>طباعة النتيجة: <code>print(distance)</code> وفيه:</li>
+<li>طباعة النتيجة: <code>print(distance)</code></li>
 </ul>
 </section>
 <section id="المكتبات-المساهمة" class="level3">
@@ -878,7 +878,7 @@ async      elif       if         or         yield</code></pre>
 <div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">uv</span> add pandas</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>ثم نستطيع استعمال المكتبة لقراءة بيانات الطلاب -مثلاً- من ملف CSV:</p>
 <div class="ltr">
-<div id="01ba3e25" class="cell" data-execution_count="3">
+<div id="01ba3e25" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
 <span id="cb7-3"><a href="#cb7-3"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../datasets/students.csv'</span>)</span>
@@ -942,7 +942,7 @@ async      elif       if         or         yield</code></pre>
 </div>
 <p>ثم لعرض ملخصات إحصائية:</p>
 <div class="ltr">
-<div id="4c09ef4f" class="cell" data-execution_count="4">
+<div id="4c09ef4f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df.describe(include<span class="op">=</span>[<span class="st">'number'</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <div>
@@ -1006,7 +1006,7 @@ async      elif       if         or         yield</code></pre>
 </div>
 <p>أو تصوير البيانات:</p>
 <div class="ltr">
-<div id="3f158532" class="cell" data-execution_count="5">
+<div id="3f158532" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>df[<span class="st">'Done'</span>].value_counts().plot(kind<span class="op">=</span><span class="st">'bar'</span>, color<span class="op">=</span><span class="st">'skyblue'</span>, figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>), rot<span class="op">=</span><span class="dv">0</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1018,7 +1018,7 @@ async      elif       if         or         yield</code></pre>
 </div>
 </div>
 <p>هكذا بكل بساطة.</p>
-<p>فإذًا .. هنا دور <strong>المجتمع</strong> (<em>Community</em>) ليبني باللغة: بمفرداتها وجملها ومكتبتها الأساسية والخارجية، ليبني فوق ذلك ما يخدم أغراضه. فلكل فئة من الناس تركيب حزمة جديدة مكونة من أنواع وأفعال مركبة مبنية على غيرها ، ثم يوفرونها لغيرهم. وهكذا تنمو اللغة ، حزمةً تِلو الأخرى بحسب إسهامات كل مجتمع برمجي بما يهتم به.</p>
+<p>فإذًا .. هنا دور <strong>المجتمع</strong> (<em>Community</em>) ليبني باللغة: بمفرداتها وجملها ومكتبتها الأساسية والخارجية، ليبني فوق ذلك ما يخدم أغراضه. فلكل فئة من الناس تركيب حزمة جديدة مكونة من أنواع وإجراءات مركبة مبنية على غيرها ، ثم يوفرونها لغيرهم. وهكذا تنمو اللغة ، حزمةً تِلو الأخرى بحسب إسهامات كل مجتمع برمجي بما يهتم به.</p>
 <p>ومن مكامن القوة في لغة بايثون: أنها <strong>متوافقة مع لغتي C/C++</strong> إذْ يُمكن كتابة برمجيات عالية الأداء والكفاءة بهما مستفيدين من الحزم الموجودة فيهما، ثم توفيق ذلك ليكون كمكتبة في لغة بايثون.</p>
 <p>فالمجتمعات البرمجية في بايثون كثيرة ومتعددة في اهتماماتها. منها على سبيل المثال:</p>
 <ul>
@@ -1029,7 +1029,7 @@ async      elif       if         or         yield</code></pre>
 </ul></li>
 <li><strong>تحليل البيانات وتصويرها</strong>:
 <ul>
-<li><a href="https://pandas.pydata.org/">pandas</a> - لتحليل البيانات المرصوصة</li>
+<li><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">pandas</a> - لتحليل البيانات المرصوصة</li>
 <li><a href="https://seaborn.pydata.org/">seaborn</a> - لتصوير البيانات الإحصائية على أساس Matplotlib.</li>
 <li><a href="https://matplotlib.org/">matplotlib</a> - مكتبة شاملة لإنشاء تصورات ثابتة ومتحركة وتفاعلية.</li>
 </ul></li>

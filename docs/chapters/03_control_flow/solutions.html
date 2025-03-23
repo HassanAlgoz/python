@@ -280,7 +280,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الجملة الشرطية</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -306,7 +306,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">باب الأفعال</span></a>
+ <span class="menu-text">باب الإجراءات</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -315,13 +315,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/04_functions/a1_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الأفعال</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الإجراءات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/04_functions/a2_recursion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الفعل المتسلسل</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الإجراء المتسلسل</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -593,6 +593,8 @@ window.Quarto = {
   <ul>
   <li><a href="#الوزن-الطبيعي" id="toc-الوزن-الطبيعي" class="nav-link active" data-scroll-target="#الوزن-الطبيعي">الوزن الطبيعي</a></li>
   <li><a href="#مجموع-الأرقام-إلى-س" id="toc-مجموع-الأرقام-إلى-س" class="nav-link" data-scroll-target="#مجموع-الأرقام-إلى-س">مجموع الأرقام إلى س</a></li>
+  <li><a href="#اكتب-القطعة-بحلقة-تكرار" id="toc-اكتب-القطعة-بحلقة-تكرار" class="nav-link" data-scroll-target="#اكتب-القطعة-بحلقة-تكرار">اكتب القطعة بحلقة تكرار</a></li>
+  <li><a href="#اكتب-القطعة-بحلقة-تكرار-1" id="toc-اكتب-القطعة-بحلقة-تكرار-1" class="nav-link" data-scroll-target="#اكتب-القطعة-بحلقة-تكرار-1">اكتب القطعة بحلقة تكرار</a></li>
   <li><a href="#التغير-النسبي" id="toc-التغير-النسبي" class="nav-link" data-scroll-target="#التغير-النسبي">التغير النسبي</a></li>
   <li><a href="#متحدث-آلي" id="toc-متحدث-آلي" class="nav-link" data-scroll-target="#متحدث-آلي">متحدث آلي</a></li>
   </ul>
@@ -681,29 +683,38 @@ BMI = \frac{weight}{height^2}
 <li>اكتب جملاً شرطية تستعمل الجدول لتصنيف الوزن</li>
 <li>اطبع النتيجة</li>
 </ol>
-<div id="32a85263" class="cell" data-execution_count="1">
+<div id="ff68d4a0" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>height <span class="op">=</span> <span class="fl">1.70</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>weight <span class="op">=</span> <span class="dv">95</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>bmi <span class="op">=</span> weight <span class="op">/</span> height<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="cf">if</span> bmi <span class="op">&lt;</span> <span class="dv">16</span>:</span>
-<span id="cb1-6"><a href="#cb1-6"></a>    <span class="bu">print</span>(<span class="st">'severe_thinness'</span>)</span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">17</span>:</span>
-<span id="cb1-8"><a href="#cb1-8"></a>    <span class="bu">print</span>(<span class="st">'moderate_thinness'</span>)</span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="fl">18.5</span>:</span>
-<span id="cb1-10"><a href="#cb1-10"></a>    <span class="bu">print</span>(<span class="st">'mild_thinness'</span>)</span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">25</span>:</span>
-<span id="cb1-12"><a href="#cb1-12"></a>    <span class="bu">print</span>(<span class="st">'normal'</span>)</span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">30</span>:</span>
-<span id="cb1-14"><a href="#cb1-14"></a>    <span class="bu">print</span>(<span class="st">'overweight'</span>)</span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">35</span>:</span>
-<span id="cb1-16"><a href="#cb1-16"></a>    <span class="bu">print</span>(<span class="st">'obese_class_1'</span>)</span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">40</span>:</span>
-<span id="cb1-18"><a href="#cb1-18"></a>    <span class="bu">print</span>(<span class="st">'obese_class_2'</span>)</span>
-<span id="cb1-19"><a href="#cb1-19"></a><span class="cf">else</span>:</span>
-<span id="cb1-20"><a href="#cb1-20"></a>    <span class="bu">print</span>(<span class="st">'obese_class_3'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5"></a>word <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>category <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="cf">if</span> bmi <span class="op">&lt;</span> <span class="fl">18.5</span>:</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    word <span class="op">=</span> <span class="st">'thin'</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>    <span class="cf">if</span> bmi <span class="op">&lt;</span> <span class="dv">16</span>:</span>
+<span id="cb1-11"><a href="#cb1-11"></a>        category <span class="op">=</span> <span class="st">'severe'</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>    <span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">17</span>:</span>
+<span id="cb1-13"><a href="#cb1-13"></a>        category <span class="op">=</span> <span class="st">'moderate'</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-15"><a href="#cb1-15"></a>        category <span class="op">=</span> <span class="st">'mild'</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">25</span>:</span>
+<span id="cb1-17"><a href="#cb1-17"></a>    word <span class="op">=</span> <span class="st">'normal'</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="cf">else</span>:</span>
+<span id="cb1-19"><a href="#cb1-19"></a>    word <span class="op">=</span> <span class="st">'overweight'</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a>    <span class="cf">if</span> bmi <span class="op">&lt;</span> <span class="dv">30</span>:</span>
+<span id="cb1-21"><a href="#cb1-21"></a>        category <span class="op">=</span> <span class="st">'class 1'</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a>    <span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">35</span>:</span>
+<span id="cb1-23"><a href="#cb1-23"></a>        category <span class="op">=</span> <span class="st">'class 2'</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a>    <span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">40</span>:</span>
+<span id="cb1-25"><a href="#cb1-25"></a>        category <span class="op">=</span> <span class="st">'class 3'</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-27"><a href="#cb1-27"></a>        category <span class="op">=</span> <span class="st">'class 4'</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a></span>
+<span id="cb1-29"><a href="#cb1-29"></a><span class="bu">print</span>(word, category)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>obese_class_1</code></pre>
+<pre><code>overweight class 2</code></pre>
 </div>
 </div>
 </section>
@@ -715,7 +726,7 @@ BMI = \frac{weight}{height^2}
 \]</span></p>
 <p>تعليمات التطبيق:</p>
 <ul>
-<li>استخدم الفعل <code>input()</code> لطلب إدخال العدد من المستخدم</li>
+<li>استخدم الإجراء <code>input()</code> لطلب إدخال العدد من المستخدم</li>
 <li>القيمة المدخلة ستكون من النوع النصي وليس العددي؛ لذا:
 <ul>
 <li>حول القيمة المدخلة إلى عدد باستخدام <code>int()</code> أو <code>float()</code></li>
@@ -734,15 +745,109 @@ BMI = \frac{weight}{height^2}
 <span id="cb3-9"><a href="#cb3-9"></a></span>
 <span id="cb3-10"><a href="#cb3-10"></a><span class="bu">print</span>(<span class="st">'sum is:'</span>, total)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="اكتب-القطعة-بحلقة-تكرار" class="level2">
+<h2 class="anchored" data-anchor-id="اكتب-القطعة-بحلقة-تكرار">اكتب القطعة بحلقة تكرار</h2>
+<p>اكتب القطعة البرمجية التالية بحلقة تكرار:</p>
+<div id="b92a1757" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>increase <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>w1 <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>w2 <span class="op">=</span> w1 <span class="op">+</span> increase</span>
+<span id="cb4-5"><a href="#cb4-5"></a>w3 <span class="op">=</span> w2 <span class="op">+</span> increase</span>
+<span id="cb4-6"><a href="#cb4-6"></a>w4 <span class="op">=</span> w3 <span class="op">+</span> increase</span>
+<span id="cb4-7"><a href="#cb4-7"></a>w5 <span class="op">=</span> w4 <span class="op">+</span> increase</span>
+<span id="cb4-8"><a href="#cb4-8"></a>w6 <span class="op">=</span> w5 <span class="op">+</span> increase</span>
+<span id="cb4-9"><a href="#cb4-9"></a>w7 <span class="op">=</span> w6 <span class="op">+</span> increase</span>
+<span id="cb4-10"><a href="#cb4-10"></a>w8 <span class="op">=</span> w7 <span class="op">+</span> increase</span>
+<span id="cb4-11"><a href="#cb4-11"></a>w9 <span class="op">=</span> w8 <span class="op">+</span> increase</span>
+<span id="cb4-12"><a href="#cb4-12"></a>w10 <span class="op">=</span> w9 <span class="op">+</span> increase</span>
+<span id="cb4-13"><a href="#cb4-13"></a></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="bu">print</span>(w1, w2, w3, w4, w5, w6, w7, w8, w9, w10)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>15 20 25 30 35 40 45 50 55 60</code></pre>
+</div>
+</div>
+<p>الجواب:</p>
+<div id="74b6a12d" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>value <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>increase <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>weeks <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="cf">while</span> i <span class="op">&lt;</span> weeks:</span>
+<span id="cb6-7"><a href="#cb6-7"></a>    value <span class="op">+=</span> increase</span>
+<span id="cb6-8"><a href="#cb6-8"></a>    <span class="bu">print</span>(value, end<span class="op">=</span><span class="st">' '</span>)</span>
+<span id="cb6-9"><a href="#cb6-9"></a>    i <span class="op">+=</span> <span class="dv">1</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>20 25 30 35 40 45 50 55 60 65 </code></pre>
+</div>
+</div>
+<p><strong>ملاحظة</strong>: استعمال <code>print(value, end=' ')</code> يجعل الناتج يظهر في سطر واحد. وذلك لأن <code>end='\n'</code> في الأصل وتعني سطرًا جديدًا.</p>
+</section>
+<section id="اكتب-القطعة-بحلقة-تكرار-1" class="level2">
+<h2 class="anchored" data-anchor-id="اكتب-القطعة-بحلقة-تكرار-1">اكتب القطعة بحلقة تكرار</h2>
+<p>اكتب القطعة التالية بحلقة تكرار:</p>
+<div id="82acadad" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">import</span> math</span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a>growth_rate <span class="op">=</span> <span class="fl">0.117</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a>day1 <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>day2 <span class="op">=</span> day1 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
+<span id="cb8-7"><a href="#cb8-7"></a>day3 <span class="op">=</span> day2 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
+<span id="cb8-8"><a href="#cb8-8"></a>day4 <span class="op">=</span> day3 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
+<span id="cb8-9"><a href="#cb8-9"></a>day5 <span class="op">=</span> day4 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
+<span id="cb8-10"><a href="#cb8-10"></a>day6 <span class="op">=</span> day5 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
+<span id="cb8-11"><a href="#cb8-11"></a>day7 <span class="op">=</span> day6 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
+<span id="cb8-12"><a href="#cb8-12"></a></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="bu">print</span>(math.floor(day1))</span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="bu">print</span>(math.floor(day2))</span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="bu">print</span>(math.floor(day3))</span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="bu">print</span>(math.floor(day4))</span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="bu">print</span>(math.floor(day5))</span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="bu">print</span>(math.floor(day6))</span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="bu">print</span>(math.floor(day7))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>100
+111
+124
+139
+155
+173
+194</code></pre>
+</div>
+</div>
+<p>الجواب:</p>
+<div id="4a15fcba" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="im">import</span> math</span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a>day <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>growth_rate <span class="op">=</span> <span class="fl">0.117</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a></span>
+<span id="cb10-6"><a href="#cb10-6"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">6</span>:</span>
+<span id="cb10-8"><a href="#cb10-8"></a>    day <span class="op">*=</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
+<span id="cb10-9"><a href="#cb10-9"></a>    <span class="bu">print</span>(math.floor(day))</span>
+<span id="cb10-10"><a href="#cb10-10"></a>    i <span class="op">+=</span> <span class="dv">1</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>111
+124
+139
+155
+173
+194</code></pre>
+</div>
+</div>
+</section>
 <section id="التغير-النسبي" class="level2">
 <h2 class="anchored" data-anchor-id="التغير-النسبي">التغير النسبي</h2>
 <p>إذا كنت تمارس الرياضة وتزيد في وزن الحمل 10% أسبوعيًّا .. فإذا بدأت بوزن 20 كيلو، فإلى كم كيلوا ستصل في الأسبوع الثاني عشر؟ (بعد ثلاثة أشهر)</p>
 <p>قد مرت علينا هذه المسألة، لكن الآن المطلوب حلها بالتكرار.</p>
-<div id="006253c2" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>weight <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="cf">for</span> week <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</span>
-<span id="cb4-3"><a href="#cb4-3"></a>    weight <span class="op">+=</span> weight <span class="op">*</span> <span class="fl">0.1</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="bu">print</span>(weight)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1290080d" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>weight <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="cf">for</span> week <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</span>
+<span id="cb12-3"><a href="#cb12-3"></a>    weight <span class="op">+=</span> weight <span class="op">*</span> <span class="fl">0.1</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="bu">print</span>(weight)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>62.768567534419994</code></pre>
 </div>
@@ -763,63 +868,63 @@ BMI = \frac{weight}{height^2}
 <li>في حال التعديل، يطلب الآلي من المستخدم تحديد الشيء الذي يريد تعديله ليتم تعديله</li>
 <li>في حال إلغاء الطلب: الرسالة “تم إلغاء طلب التبرع”</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="bu">print</span>(<span class="st">"""مرحبا بك في خدمة التبرع</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="st">فضلا أريد منك تزويدي ببعض المعلومات ..</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="st">"""</span>)</span>
-<span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="bu">print</span>(<span class="st">'أتشرف باسمك، مثلا: محمد أحمد'</span>)</span>
-<span id="cb6-6"><a href="#cb6-6"></a>name <span class="op">=</span> <span class="bu">input</span>()</span>
-<span id="cb6-7"><a href="#cb6-7"></a></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="bu">print</span>(<span class="st">'زودنا برقم جوالك، يبدأ بـ966'</span>)</span>
-<span id="cb6-9"><a href="#cb6-9"></a>phone <span class="op">=</span> <span class="bu">input</span>()</span>
-<span id="cb6-10"><a href="#cb6-10"></a></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="bu">print</span>(<span class="st">'ممكن تحدد مدينتك؟'</span>)</span>
-<span id="cb6-12"><a href="#cb6-12"></a>city <span class="op">=</span> <span class="bu">input</span>()</span>
-<span id="cb6-13"><a href="#cb6-13"></a></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="bu">print</span>(<span class="st">'الرجاء قم بكتابة اسم الحي'</span>)</span>
-<span id="cb6-15"><a href="#cb6-15"></a>neighborhood <span class="op">=</span> <span class="bu">input</span>()</span>
-<span id="cb6-16"><a href="#cb6-16"></a></span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="bu">print</span>(<span class="st">'name:'</span>, name)</span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="bu">print</span>(<span class="st">'phone:'</span>, phone)</span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="bu">print</span>(<span class="st">'city:'</span>, city)</span>
-<span id="cb6-20"><a href="#cb6-20"></a><span class="bu">print</span>(<span class="st">'neighborhood:'</span>, neighborhood)</span>
-<span id="cb6-21"><a href="#cb6-21"></a></span>
-<span id="cb6-22"><a href="#cb6-22"></a><span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb6-23"><a href="#cb6-23"></a>    <span class="bu">print</span>(<span class="st">'هل تود تأكيد طلب التبرع؟'</span>)</span>
-<span id="cb6-24"><a href="#cb6-24"></a>    <span class="bu">print</span>(<span class="st">'1. تأكيد الطلب'</span>)</span>
-<span id="cb6-25"><a href="#cb6-25"></a>    <span class="bu">print</span>(<span class="st">'2. تعديل الطلب'</span>)</span>
-<span id="cb6-26"><a href="#cb6-26"></a>    <span class="bu">print</span>(<span class="st">'3. إلغاء الطلب'</span>)</span>
-<span id="cb6-27"><a href="#cb6-27"></a>    user_confirmation <span class="op">=</span> <span class="bu">input</span>()</span>
-<span id="cb6-28"><a href="#cb6-28"></a></span>
-<span id="cb6-29"><a href="#cb6-29"></a>    <span class="cf">if</span> user_confirmation <span class="op">==</span> <span class="st">'1'</span>:</span>
-<span id="cb6-30"><a href="#cb6-30"></a>        <span class="bu">print</span>(<span class="st">'تم تأكيد الطلب برقم 12345 سيتواصل معك ممثل خدمة العملاء في غضون 15 دقيقة علمًا أن ساعات العمل من 9 صباحًا إلى 5 مساءً'</span>)</span>
-<span id="cb6-31"><a href="#cb6-31"></a>        <span class="cf">break</span></span>
-<span id="cb6-32"><a href="#cb6-32"></a>    <span class="cf">elif</span> user_confirmation <span class="op">==</span> <span class="st">'2'</span>:</span>
-<span id="cb6-33"><a href="#cb6-33"></a>        <span class="bu">print</span>(<span class="st">'ما الشيء الذي تريد تعديله؟'</span>)</span>
-<span id="cb6-34"><a href="#cb6-34"></a>        <span class="bu">print</span>(<span class="st">'1. الاسم'</span>)</span>
-<span id="cb6-35"><a href="#cb6-35"></a>        <span class="bu">print</span>(<span class="st">'2. رقم الهاتف'</span>)</span>
-<span id="cb6-36"><a href="#cb6-36"></a>        <span class="bu">print</span>(<span class="st">'3. المدينة'</span>)</span>
-<span id="cb6-37"><a href="#cb6-37"></a>        <span class="bu">print</span>(<span class="st">'4. اسم الحي'</span>)</span>
-<span id="cb6-38"><a href="#cb6-38"></a>        user_modification <span class="op">=</span> <span class="bu">input</span>()</span>
-<span id="cb6-39"><a href="#cb6-39"></a>        <span class="cf">match</span> user_modification:</span>
-<span id="cb6-40"><a href="#cb6-40"></a>            <span class="cf">case</span> <span class="st">'1'</span>:</span>
-<span id="cb6-41"><a href="#cb6-41"></a>                <span class="bu">print</span>(<span class="st">'اسم الزبون'</span>)</span>
-<span id="cb6-42"><a href="#cb6-42"></a>                name <span class="op">=</span> <span class="bu">input</span>()</span>
-<span id="cb6-43"><a href="#cb6-43"></a>            <span class="cf">case</span> <span class="st">'2'</span>:</span>
-<span id="cb6-44"><a href="#cb6-44"></a>                <span class="bu">print</span>(<span class="st">'رقم الهاتف'</span>)</span>
-<span id="cb6-45"><a href="#cb6-45"></a>                phone <span class="op">=</span> <span class="bu">input</span>()</span>
-<span id="cb6-46"><a href="#cb6-46"></a>            <span class="cf">case</span> <span class="st">'3'</span>:</span>
-<span id="cb6-47"><a href="#cb6-47"></a>                <span class="bu">print</span>(<span class="st">'المدينة'</span>)</span>
-<span id="cb6-48"><a href="#cb6-48"></a>                city <span class="op">=</span> <span class="bu">input</span>()</span>
-<span id="cb6-49"><a href="#cb6-49"></a>            <span class="cf">case</span> <span class="st">'4'</span>:</span>
-<span id="cb6-50"><a href="#cb6-50"></a>                <span class="bu">print</span>(<span class="st">'اسم الحي'</span>)</span>
-<span id="cb6-51"><a href="#cb6-51"></a>                neighborhood <span class="op">=</span> <span class="bu">input</span>()</span>
-<span id="cb6-52"><a href="#cb6-52"></a>            <span class="cf">case</span> _:</span>
-<span id="cb6-53"><a href="#cb6-53"></a>                <span class="bu">print</span>(<span class="st">'إختيار غير موجود'</span>)</span>
-<span id="cb6-54"><a href="#cb6-54"></a></span>
-<span id="cb6-55"><a href="#cb6-55"></a>    <span class="cf">elif</span> user_confirmation <span class="op">==</span> <span class="st">'3'</span>:</span>
-<span id="cb6-56"><a href="#cb6-56"></a>        <span class="bu">print</span>(<span class="st">'تم إلغاء طلب التبرع'</span>)</span>
-<span id="cb6-57"><a href="#cb6-57"></a>        <span class="cf">break</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="bu">print</span>(<span class="st">"""مرحبا بك في خدمة التبرع</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="st">فضلا أريد منك تزويدي ببعض المعلومات ..</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="st">"""</span>)</span>
+<span id="cb14-4"><a href="#cb14-4"></a></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="bu">print</span>(<span class="st">'أتشرف باسمك، مثلا: محمد أحمد'</span>)</span>
+<span id="cb14-6"><a href="#cb14-6"></a>name <span class="op">=</span> <span class="bu">input</span>()</span>
+<span id="cb14-7"><a href="#cb14-7"></a></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="bu">print</span>(<span class="st">'زودنا برقم جوالك، يبدأ بـ966'</span>)</span>
+<span id="cb14-9"><a href="#cb14-9"></a>phone <span class="op">=</span> <span class="bu">input</span>()</span>
+<span id="cb14-10"><a href="#cb14-10"></a></span>
+<span id="cb14-11"><a href="#cb14-11"></a><span class="bu">print</span>(<span class="st">'ممكن تحدد مدينتك؟'</span>)</span>
+<span id="cb14-12"><a href="#cb14-12"></a>city <span class="op">=</span> <span class="bu">input</span>()</span>
+<span id="cb14-13"><a href="#cb14-13"></a></span>
+<span id="cb14-14"><a href="#cb14-14"></a><span class="bu">print</span>(<span class="st">'الرجاء قم بكتابة اسم الحي'</span>)</span>
+<span id="cb14-15"><a href="#cb14-15"></a>neighborhood <span class="op">=</span> <span class="bu">input</span>()</span>
+<span id="cb14-16"><a href="#cb14-16"></a></span>
+<span id="cb14-17"><a href="#cb14-17"></a><span class="bu">print</span>(<span class="st">'name:'</span>, name)</span>
+<span id="cb14-18"><a href="#cb14-18"></a><span class="bu">print</span>(<span class="st">'phone:'</span>, phone)</span>
+<span id="cb14-19"><a href="#cb14-19"></a><span class="bu">print</span>(<span class="st">'city:'</span>, city)</span>
+<span id="cb14-20"><a href="#cb14-20"></a><span class="bu">print</span>(<span class="st">'neighborhood:'</span>, neighborhood)</span>
+<span id="cb14-21"><a href="#cb14-21"></a></span>
+<span id="cb14-22"><a href="#cb14-22"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb14-23"><a href="#cb14-23"></a>    <span class="bu">print</span>(<span class="st">'هل تود تأكيد طلب التبرع؟'</span>)</span>
+<span id="cb14-24"><a href="#cb14-24"></a>    <span class="bu">print</span>(<span class="st">'1. تأكيد الطلب'</span>)</span>
+<span id="cb14-25"><a href="#cb14-25"></a>    <span class="bu">print</span>(<span class="st">'2. تعديل الطلب'</span>)</span>
+<span id="cb14-26"><a href="#cb14-26"></a>    <span class="bu">print</span>(<span class="st">'3. إلغاء الطلب'</span>)</span>
+<span id="cb14-27"><a href="#cb14-27"></a>    user_confirmation <span class="op">=</span> <span class="bu">input</span>()</span>
+<span id="cb14-28"><a href="#cb14-28"></a></span>
+<span id="cb14-29"><a href="#cb14-29"></a>    <span class="cf">if</span> user_confirmation <span class="op">==</span> <span class="st">'1'</span>:</span>
+<span id="cb14-30"><a href="#cb14-30"></a>        <span class="bu">print</span>(<span class="st">'تم تأكيد الطلب برقم 12345 سيتواصل معك ممثل خدمة العملاء في غضون 15 دقيقة علمًا أن ساعات العمل من 9 صباحًا إلى 5 مساءً'</span>)</span>
+<span id="cb14-31"><a href="#cb14-31"></a>        <span class="cf">break</span></span>
+<span id="cb14-32"><a href="#cb14-32"></a>    <span class="cf">elif</span> user_confirmation <span class="op">==</span> <span class="st">'2'</span>:</span>
+<span id="cb14-33"><a href="#cb14-33"></a>        <span class="bu">print</span>(<span class="st">'ما الشيء الذي تريد تعديله؟'</span>)</span>
+<span id="cb14-34"><a href="#cb14-34"></a>        <span class="bu">print</span>(<span class="st">'1. الاسم'</span>)</span>
+<span id="cb14-35"><a href="#cb14-35"></a>        <span class="bu">print</span>(<span class="st">'2. رقم الهاتف'</span>)</span>
+<span id="cb14-36"><a href="#cb14-36"></a>        <span class="bu">print</span>(<span class="st">'3. المدينة'</span>)</span>
+<span id="cb14-37"><a href="#cb14-37"></a>        <span class="bu">print</span>(<span class="st">'4. اسم الحي'</span>)</span>
+<span id="cb14-38"><a href="#cb14-38"></a>        user_modification <span class="op">=</span> <span class="bu">input</span>()</span>
+<span id="cb14-39"><a href="#cb14-39"></a>        <span class="cf">match</span> user_modification:</span>
+<span id="cb14-40"><a href="#cb14-40"></a>            <span class="cf">case</span> <span class="st">'1'</span>:</span>
+<span id="cb14-41"><a href="#cb14-41"></a>                <span class="bu">print</span>(<span class="st">'اسم الزبون'</span>)</span>
+<span id="cb14-42"><a href="#cb14-42"></a>                name <span class="op">=</span> <span class="bu">input</span>()</span>
+<span id="cb14-43"><a href="#cb14-43"></a>            <span class="cf">case</span> <span class="st">'2'</span>:</span>
+<span id="cb14-44"><a href="#cb14-44"></a>                <span class="bu">print</span>(<span class="st">'رقم الهاتف'</span>)</span>
+<span id="cb14-45"><a href="#cb14-45"></a>                phone <span class="op">=</span> <span class="bu">input</span>()</span>
+<span id="cb14-46"><a href="#cb14-46"></a>            <span class="cf">case</span> <span class="st">'3'</span>:</span>
+<span id="cb14-47"><a href="#cb14-47"></a>                <span class="bu">print</span>(<span class="st">'المدينة'</span>)</span>
+<span id="cb14-48"><a href="#cb14-48"></a>                city <span class="op">=</span> <span class="bu">input</span>()</span>
+<span id="cb14-49"><a href="#cb14-49"></a>            <span class="cf">case</span> <span class="st">'4'</span>:</span>
+<span id="cb14-50"><a href="#cb14-50"></a>                <span class="bu">print</span>(<span class="st">'اسم الحي'</span>)</span>
+<span id="cb14-51"><a href="#cb14-51"></a>                neighborhood <span class="op">=</span> <span class="bu">input</span>()</span>
+<span id="cb14-52"><a href="#cb14-52"></a>            <span class="cf">case</span> _:</span>
+<span id="cb14-53"><a href="#cb14-53"></a>                <span class="bu">print</span>(<span class="st">'إختيار غير موجود'</span>)</span>
+<span id="cb14-54"><a href="#cb14-54"></a></span>
+<span id="cb14-55"><a href="#cb14-55"></a>    <span class="cf">elif</span> user_confirmation <span class="op">==</span> <span class="st">'3'</span>:</span>
+<span id="cb14-56"><a href="#cb14-56"></a>        <span class="bu">print</span>(<span class="st">'تم إلغاء طلب التبرع'</span>)</span>
+<span id="cb14-57"><a href="#cb14-57"></a>        <span class="cf">break</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

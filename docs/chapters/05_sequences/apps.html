@@ -280,7 +280,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/03_control_flow/a_control_flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الشرط والتكرار</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">الجملة الشرطية</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -306,7 +306,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">باب الأفعال</span></a>
+ <span class="menu-text">باب الإجراءات</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -315,13 +315,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/04_functions/a1_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الأفعال</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الإجراءات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/04_functions/a2_recursion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الفعل المتسلسل</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الإجراء المتسلسل</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -625,7 +625,7 @@ window.Quarto = {
 <section id="فرز-البيانات" class="level2">
 <h2 class="anchored" data-anchor-id="فرز-البيانات">فرز البيانات</h2>
 <p>تصور أن لدينا قائمة من الأرقام الموجبة والسالبة في مجموعة واحدة، ونريد فصلها لمجموعتين:</p>
-<div id="c970616d" class="cell" data-execution_count="1">
+<div id="c970616d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>numbers <span class="op">=</span> [<span class="op">-</span><span class="dv">11</span>, <span class="op">-</span><span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="op">-</span><span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="op">-</span><span class="dv">18</span>, <span class="op">-</span><span class="dv">19</span>, <span class="dv">20</span>]</span>
 <span id="cb1-2"><a href="#cb1-2"></a>positives <span class="op">=</span> []</span>
 <span id="cb1-3"><a href="#cb1-3"></a>negatives <span class="op">=</span> []</span>
@@ -644,7 +644,7 @@ negatives: [-11, -12, -15, -18, -19]</code></pre>
 </div>
 </div>
 <p>أو باستعمال الإنشاء المختصر:</p>
-<div id="8995b813" class="cell" data-execution_count="2">
+<div id="8995b813" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>numbers <span class="op">=</span> [<span class="op">-</span><span class="dv">11</span>, <span class="op">-</span><span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="op">-</span><span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="op">-</span><span class="dv">18</span>, <span class="op">-</span><span class="dv">19</span>, <span class="dv">20</span>]</span>
 <span id="cb3-2"><a href="#cb3-2"></a>positives <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> numbers <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">0</span>]</span>
 <span id="cb3-3"><a href="#cb3-3"></a>negatives <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> numbers <span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">0</span>]</span>
@@ -659,14 +659,14 @@ negatives: [-11, -12, -15, -18, -19]</code></pre>
 </section>
 <section id="تجزئة-البيانات" class="level2">
 <h2 class="anchored" data-anchor-id="تجزئة-البيانات">تجزئة البيانات</h2>
-<p>هذا الفعل يقسم قائمة إلى جزئين بنسبة محددة:</p>
-<div id="540ed1de" class="cell" data-execution_count="3">
+<p>هذا الإجراء يقسم قائمة إلى جزئين بنسبة محددة:</p>
+<div id="540ed1de" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> split(data: <span class="bu">list</span>, ratio: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">list</span>, <span class="bu">list</span>]:</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    idx <span class="op">=</span> <span class="bu">int</span>(<span class="bu">len</span>(data) <span class="op">*</span> ratio)</span>
 <span id="cb5-3"><a href="#cb5-3"></a>    <span class="cf">return</span> data[:idx], data[idx:]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>نختبر الفعل ونلاحظ أن الناتج من نوع صف (<code>tuple</code>). فنستعمل التعيين المتعدد لاستخراج القيم من الصف:</p>
-<div id="b0436893" class="cell" data-execution_count="4">
+<p>نختبر الإجراء ونلاحظ أن الناتج من نوع صف (<code>tuple</code>). فنستعمل التعيين المتعدد لاستخراج القيم من الصف:</p>
+<div id="b0436893" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>xs <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">90</span>, <span class="dv">100</span>]</span>
 <span id="cb6-2"><a href="#cb6-2"></a>a, b <span class="op">=</span> split(xs, <span class="fl">0.80</span>)</span>
 <span id="cb6-3"><a href="#cb6-3"></a></span>
@@ -677,7 +677,7 @@ negatives: [-11, -12, -15, -18, -19]</code></pre>
 <section id="البحث-في-قائمة-صفوف" class="level2">
 <h2 class="anchored" data-anchor-id="البحث-في-قائمة-صفوف">البحث في قائمة صفوف</h2>
 <p>لاحظ أن كل عنصر في القائمة هو صف من ثلاثة عناصر، ولاحظ وجود علامة <code>|</code> في بيان نوع الناتج، وتعني التخيير بين النوعين المذكورين:</p>
-<div id="34fb7a1e" class="cell" data-execution_count="5">
+<div id="34fb7a1e" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> search_verb(verb: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">str</span>, <span class="bu">str</span>, <span class="bu">str</span>] <span class="op">|</span> <span class="va">None</span>:</span>
 <span id="cb7-2"><a href="#cb7-2"></a>    dictionary <span class="op">=</span> [</span>
 <span id="cb7-3"><a href="#cb7-3"></a>        (<span class="st">"ذهب"</span>, <span class="st">"يذهب"</span>, <span class="st">"ذاهب"</span>),</span>
@@ -698,7 +698,7 @@ negatives: [-11, -12, -15, -18, -19]</code></pre>
 <section id="الحساب-بين-البيانات-المترابطة" class="level2">
 <h2 class="anchored" data-anchor-id="الحساب-بين-البيانات-المترابطة">الحساب بين البيانات المترابطة</h2>
 <p>افترض أن لديك قائمة بالمصروفات والإيرادات لكل رُبع من السنة، وتريد حساب صافي الربح لكل ربع على حدة، ثم جمعها لتحصل على الربح الإجمالي للسنة.</p>
-<div id="f26ea024" class="cell" data-execution_count="6">
+<div id="f26ea024" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>monthly_income  <span class="op">=</span> [<span class="dv">52000</span>, <span class="dv">51000</span>, <span class="dv">48000</span>]</span>
 <span id="cb9-2"><a href="#cb9-2"></a>monthly_expense <span class="op">=</span> [<span class="dv">46800</span>, <span class="dv">45900</span>, <span class="dv">43200</span>]</span>
 <span id="cb9-3"><a href="#cb9-3"></a>monthly_net <span class="op">=</span> []</span>
@@ -714,7 +714,7 @@ annual net: 15100</code></pre>
 </div>
 </div>
 <p>أو باستعمال الإنشاء المختصر:</p>
-<div id="a2f16b3e" class="cell" data-execution_count="7">
+<div id="a2f16b3e" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>monthly_income  <span class="op">=</span> [<span class="dv">52000</span>, <span class="dv">51000</span>, <span class="dv">48000</span>]</span>
 <span id="cb11-2"><a href="#cb11-2"></a>monthly_expense <span class="op">=</span> [<span class="dv">46800</span>, <span class="dv">45900</span>, <span class="dv">43200</span>]</span>
 <span id="cb11-3"><a href="#cb11-3"></a>monthly_net <span class="op">=</span> [inc <span class="op">-</span> exp <span class="cf">for</span> inc, exp <span class="kw">in</span> <span class="bu">zip</span>(monthly_income, monthly_expense)]</span>
@@ -727,7 +727,7 @@ annual net: 15100</code></pre>
 </div>
 </div>
 <p>وإن شئت أن تجعلها فعلاً مستقلاً، ولاحظ أن التعريف يُفرق على عدة أسطر إذا طال.</p>
-<div id="e51ca18d" class="cell" data-execution_count="8">
+<div id="e51ca18d" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">def</span> calculate_net(</span>
 <span id="cb13-2"><a href="#cb13-2"></a>    monthly_income: <span class="bu">list</span>[<span class="bu">float</span>],</span>
 <span id="cb13-3"><a href="#cb13-3"></a>    monthly_expense: <span class="bu">list</span>[<span class="bu">float</span>]</span>
@@ -747,7 +747,7 @@ annual net: 15100</code></pre>
 d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
 \]</span></p>
 <p>نريد استعماله لقائمة من النقاط لمعرفة النقاط المجاورة.</p>
-<div id="17e4f196" class="cell" data-execution_count="9">
+<div id="17e4f196" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>points <span class="op">=</span> [(<span class="dv">1</span>, <span class="dv">2</span>), (<span class="dv">3</span>, <span class="dv">4</span>), (<span class="dv">5</span>, <span class="dv">6</span>), (<span class="dv">7</span>, <span class="dv">8</span>)]</span>
 <span id="cb14-2"><a href="#cb14-2"></a>x1, y1 <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">4</span>)</span>
 <span id="cb14-3"><a href="#cb14-3"></a></span>
@@ -775,8 +775,8 @@ min distance index: 1
 nearest point to (2, 4) is (3, 4)</code></pre>
 </div>
 </div>
-<p>فلنجعلها فعلاً، وسنفصِّلُ في الوصف حتى نبيِّنَ وظيفة الفعل لأي مستفيد بما يهمه، فنذكر الماهية ولا نذكر الكيفية التفصيلية:</p>
-<div id="61d0133e" class="cell" data-execution_count="10">
+<p>فلنجعلها فعلاً، وسنفصِّلُ في الوصف حتى نبيِّنَ وظيفة الإجراء لأي مستفيد بما يهمه، فنذكر الماهية ولا نذكر الكيفية التفصيلية:</p>
+<div id="61d0133e" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">def</span> nearest_point(</span>
 <span id="cb16-2"><a href="#cb16-2"></a>    points: <span class="bu">list</span>[<span class="bu">tuple</span>[<span class="bu">float</span>, <span class="bu">float</span>]],</span>
 <span id="cb16-3"><a href="#cb16-3"></a>    point: <span class="bu">tuple</span>[<span class="bu">float</span>, <span class="bu">float</span>]</span>
@@ -809,7 +809,7 @@ nearest point to (2, 4) is (3, 4)</code></pre>
 <section id="أمثلة-إضافية-على-الإنشاء-المختصر" class="level2">
 <h2 class="anchored" data-anchor-id="أمثلة-إضافية-على-الإنشاء-المختصر">أمثلة إضافية على الإنشاء المختصر</h2>
 <p>يمكن استعمال اختصار من اختصار على النحو التالي. في هذا المثال نفرد قائمة مكونة من قوائم عددية، فنحوِّلها لتكون قائمة واحدة مكوَّنة من جميع هذه الأرقام:</p>
-<div id="39946a1d" class="cell" data-execution_count="11">
+<div id="39946a1d" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>vec <span class="op">=</span> [[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]]</span>
 <span id="cb17-2"><a href="#cb17-2"></a>[num <span class="cf">for</span> elem <span class="kw">in</span> vec <span class="cf">for</span> num <span class="kw">in</span> elem]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
@@ -817,7 +817,7 @@ nearest point to (2, 4) is (3, 4)</code></pre>
 </div>
 </div>
 <p>إذا كتبناها من غير اختصار فشكلها كالتالي (لاحظ استعملنا متغير <code>flat</code> لتجميع القيَم المفردة):</p>
-<div id="0044c762" class="cell" data-execution_count="12">
+<div id="0044c762" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>flat <span class="op">=</span> []</span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="cf">for</span> elem <span class="kw">in</span> vec:</span>
 <span id="cb19-3"><a href="#cb19-3"></a>    <span class="cf">for</span> num <span class="kw">in</span> elem:</span>
@@ -828,7 +828,7 @@ nearest point to (2, 4) is (3, 4)</code></pre>
 </div>
 </div>
 <p>وهذا مثال لحاصل الضرب الديكارتي بين مجموعتين رياضيتين:</p>
-<div id="fb49bb69" class="cell" data-execution_count="13">
+<div id="fb49bb69" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>colors <span class="op">=</span> [<span class="st">'red'</span>, <span class="st">'green'</span>]</span>
 <span id="cb21-2"><a href="#cb21-2"></a>shapes <span class="op">=</span> [<span class="st">'circle'</span>, <span class="st">'square'</span>]</span>
 <span id="cb21-3"><a href="#cb21-3"></a>cartesian_product <span class="op">=</span> [(color, shape) <span class="cf">for</span> color <span class="kw">in</span> colors <span class="cf">for</span> shape <span class="kw">in</span> shapes]</span>
