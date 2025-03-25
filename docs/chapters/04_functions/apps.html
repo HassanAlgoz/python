@@ -592,9 +592,9 @@ window.Quarto = {
    
   <ul>
   <li><a href="#طول-الخط-المستقيم-بين-نقطتين" id="toc-طول-الخط-المستقيم-بين-نقطتين" class="nav-link active" data-scroll-target="#طول-الخط-المستقيم-بين-نقطتين">طول الخط المستقيم بين نقطتين</a></li>
-  <li><a href="#كم-سيكون-عمرك-حين-كذا" id="toc-كم-سيكون-عمرك-حين-كذا" class="nav-link" data-scroll-target="#كم-سيكون-عمرك-حين-كذا">كم سيكون عمرك حين كذا؟</a></li>
+  <li><a href="#كم-عمرك-يومئذ" id="toc-كم-عمرك-يومئذ" class="nav-link" data-scroll-target="#كم-عمرك-يومئذ">كم عمرك يومئذ؟</a></li>
   <li><a href="#حساب-الأجر" id="toc-حساب-الأجر" class="nav-link" data-scroll-target="#حساب-الأجر">حساب الأجر</a></li>
-  <li><a href="#الوزن-الطبيعي" id="toc-الوزن-الطبيعي" class="nav-link" data-scroll-target="#الوزن-الطبيعي">الوزن الطبيعي</a></li>
+  <li><a href="#سحب-الرصيد" id="toc-سحب-الرصيد" class="nav-link" data-scroll-target="#سحب-الرصيد">سحب الرصيد</a></li>
   <li><a href="#مجموع-الأرقام-إلى-س" id="toc-مجموع-الأرقام-إلى-س" class="nav-link" data-scroll-target="#مجموع-الأرقام-إلى-س">مجموع الأرقام إلى س</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
@@ -632,137 +632,107 @@ window.Quarto = {
 <p><span class="math display">\[
 \sqrt{x} = x^{1/2}
 \]</span></p>
-<div id="f0c3761b" class="cell" data-execution_count="2">
+<div id="14d46807" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> euclidean_distance(x1: <span class="bu">float</span>, y1: <span class="bu">float</span>, x2: <span class="bu">float</span>, y2: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">return</span> ((x2 <span class="op">-</span> x1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1)<span class="op">**</span><span class="dv">2</span>) <span class="op">**</span> <span class="fl">0.5</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="cf">assert</span> euclidean_distance(x1<span class="op">=</span><span class="dv">0</span>, y1<span class="op">=</span><span class="dv">0</span>, x2<span class="op">=</span><span class="dv">3</span>, y2<span class="op">=</span><span class="dv">4</span>) <span class="op">==</span> <span class="fl">5.0</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="bu">print</span>(euclidean_distance(x1<span class="op">=</span><span class="dv">0</span>, y1<span class="op">=</span><span class="dv">0</span>, x2<span class="op">=</span><span class="dv">3</span>, y2<span class="op">=</span><span class="dv">4</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5.0</code></pre>
+</div>
 </div>
 </section>
-<section id="كم-سيكون-عمرك-حين-كذا" class="level2">
-<h2 class="anchored" data-anchor-id="كم-سيكون-عمرك-حين-كذا">كم سيكون عمرك حين كذا؟</h2>
-<div id="ddc02b44" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> age_at_future_event(age_now: <span class="bu">int</span>, current_year: <span class="bu">int</span>, future_year: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    <span class="cf">return</span> age_now <span class="op">+</span> (future_year <span class="op">-</span> current_year)</span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="cf">assert</span> age_at_future_event(age_now<span class="op">=</span><span class="dv">0</span>, current_year<span class="op">=</span><span class="dv">2000</span>, future_year<span class="op">=</span><span class="dv">2010</span>) <span class="op">==</span> <span class="dv">10</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="cf">assert</span> age_at_future_event(age_now<span class="op">=</span><span class="dv">20</span>, current_year<span class="op">=</span><span class="dv">2000</span>, future_year<span class="op">=</span><span class="dv">2010</span>) <span class="op">==</span> <span class="dv">30</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="كم-عمرك-يومئذ" class="level2">
+<h2 class="anchored" data-anchor-id="كم-عمرك-يومئذ">كم عمرك يومئذ؟</h2>
+<div id="bb788c19" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> age_at(age_now: <span class="bu">int</span>, current_year: <span class="bu">int</span>, at_year: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="cf">return</span> age_now <span class="op">+</span> (at_year <span class="op">-</span> current_year)</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="bu">print</span>(age_at(<span class="dv">0</span>, <span class="dv">2000</span>, <span class="dv">2010</span>)) <span class="co"># بعد الولادة</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="bu">print</span>(age_at(<span class="dv">20</span>, <span class="dv">2000</span>, <span class="dv">2010</span>)) <span class="co"># في المستقبل</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="bu">print</span>(age_at(<span class="dv">20</span>, <span class="dv">2000</span>, <span class="dv">1995</span>)) <span class="co"># في الماضي</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>10
+30
+15</code></pre>
+</div>
 </div>
 </section>
 <section id="حساب-الأجر" class="level2">
 <h2 class="anchored" data-anchor-id="حساب-الأجر">حساب الأجر</h2>
-<div id="fcc25f63" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> gross_pay(hours: <span class="bu">float</span>, per_hour_rate: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    <span class="cf">return</span> hours <span class="op">*</span> per_hour_rate</span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="cf">assert</span> gross_pay(<span class="dv">10</span>, <span class="dv">10</span>) <span class="op">==</span> <span class="dv">100</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="cf">assert</span> gross_pay(<span class="dv">40</span>, <span class="dv">10</span>) <span class="op">==</span> <span class="dv">400</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1a559d3b" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> gross_pay(hours: <span class="bu">float</span>, per_hour_rate: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="cf">return</span> hours <span class="op">*</span> per_hour_rate</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="bu">print</span>(gross_pay(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="bu">print</span>(gross_pay(<span class="dv">40</span>, <span class="dv">10</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>100
+400</code></pre>
+</div>
 </div>
 </section>
-<section id="الوزن-الطبيعي" class="level2">
-<h2 class="anchored" data-anchor-id="الوزن-الطبيعي">الوزن الطبيعي</h2>
-<p>هذا هو وزن الجسم الموصى به من قبل منظمة الصحة العالمية (WHO) استنادًا إلى قيم مؤشر كتلة الجسم للبالغين. ويستخدم لكل من الرجال والنساء الذين تبلغ أعمارهم 20 عامًا أو أكثر.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><strong>التصنيف</strong></th>
-<th><strong>مدى BMI - kg/m2</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>نحف شديد</td>
-<td>&lt; 16</td>
-</tr>
-<tr class="even">
-<td>نحف متوسط</td>
-<td>16 - 17</td>
-</tr>
-<tr class="odd">
-<td>نحف خفيف</td>
-<td>17 - 18.5</td>
-</tr>
-<tr class="even">
-<td>طبيعي</td>
-<td>18.5 - 25</td>
-</tr>
-<tr class="odd">
-<td>زيادة في الوزن</td>
-<td>25 - 30</td>
-</tr>
-<tr class="even">
-<td>سمنة خفيفة</td>
-<td>30 - 35</td>
-</tr>
-<tr class="odd">
-<td>سمنة ثانية</td>
-<td>35 - 40</td>
-</tr>
-<tr class="even">
-<td>سمنة ثالثة</td>
-<td>&gt; 40</td>
-</tr>
-</tbody>
-</table>
-<p><a href="https://www.calculator.net/bmi-calculator.html">المصدر</a></p>
-<p>لحساب مؤشر كتلة الجسم (BMI)، نستعمل المعادلة التالية:</p>
-<p><span class="math display">\[
-BMI = \frac{weight}{height^2}
-\]</span></p>
-<div id="626ec8c0" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> calculate_bmi(weight: <span class="bu">float</span>, height: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    <span class="cf">return</span> weight <span class="op">/</span> height<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">def</span> classify_bmi(bmi: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="cb4-5"><a href="#cb4-5"></a>    <span class="cf">if</span> bmi <span class="op">&lt;</span> <span class="dv">16</span>:</span>
-<span id="cb4-6"><a href="#cb4-6"></a>        <span class="cf">return</span> <span class="st">'severe_thinness'</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a>    <span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">17</span>:</span>
-<span id="cb4-8"><a href="#cb4-8"></a>        <span class="cf">return</span> <span class="st">'moderate_thinness'</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a>    <span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="fl">18.5</span>:</span>
-<span id="cb4-10"><a href="#cb4-10"></a>        <span class="cf">return</span> <span class="st">'mild_thinness'</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a>    <span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">25</span>:</span>
-<span id="cb4-12"><a href="#cb4-12"></a>        <span class="cf">return</span> <span class="st">'normal'</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a>    <span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">30</span>:</span>
-<span id="cb4-14"><a href="#cb4-14"></a>        <span class="cf">return</span> <span class="st">'overweight'</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a>    <span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">35</span>:</span>
-<span id="cb4-16"><a href="#cb4-16"></a>        <span class="cf">return</span> <span class="st">'obese_class_1'</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a>    <span class="cf">elif</span> bmi <span class="op">&lt;</span> <span class="dv">40</span>:</span>
-<span id="cb4-18"><a href="#cb4-18"></a>        <span class="cf">return</span> <span class="st">'obese_class_2'</span></span>
-<span id="cb4-19"><a href="#cb4-19"></a>    <span class="cf">else</span>:</span>
-<span id="cb4-20"><a href="#cb4-20"></a>        <span class="cf">return</span> <span class="st">'obese_class_3'</span></span>
-<span id="cb4-21"><a href="#cb4-21"></a></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="cf">assert</span> classify_bmi(bmi<span class="op">=</span><span class="dv">15</span>) <span class="op">==</span> <span class="st">'severe_thinness'</span></span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="cf">assert</span> classify_bmi(bmi<span class="op">=</span><span class="dv">20</span>) <span class="op">==</span> <span class="st">'normal'</span></span>
-<span id="cb4-24"><a href="#cb4-24"></a><span class="cf">assert</span> classify_bmi(bmi<span class="op">=</span><span class="dv">40</span>) <span class="op">==</span> <span class="st">'obese_class_3'</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="سحب-الرصيد" class="level2">
+<h2 class="anchored" data-anchor-id="سحب-الرصيد">سحب الرصيد</h2>
+<ol type="1">
+<li>أولاً، تأكد من وجود رصيد كافٍ لدى المستخدم.</li>
+<li>إذا كان الأمر كذلك، فتأكد من وجود رصيد كافٍ في جهاز الصراف الآلي لصرف المبلغ المطلوب.</li>
+</ol>
+<div id="ef45d7a2" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> withdraw_cash(balance, amount, atm_cash):</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="cf">if</span> balance <span class="op">&gt;=</span> amount:</span>
+<span id="cb7-3"><a href="#cb7-3"></a>        <span class="cf">if</span> atm_cash <span class="op">&gt;=</span> amount:</span>
+<span id="cb7-4"><a href="#cb7-4"></a>            balance <span class="op">-=</span> amount</span>
+<span id="cb7-5"><a href="#cb7-5"></a>            atm_cash <span class="op">-=</span> amount</span>
+<span id="cb7-6"><a href="#cb7-6"></a>            <span class="bu">print</span>(<span class="st">"Withdrawal successful!"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7"></a>        <span class="cf">else</span>:</span>
+<span id="cb7-8"><a href="#cb7-8"></a>            <span class="bu">print</span>(<span class="st">"ATM does not have enough cash."</span>)</span>
+<span id="cb7-9"><a href="#cb7-9"></a>    <span class="cf">else</span>:</span>
+<span id="cb7-10"><a href="#cb7-10"></a>        <span class="bu">print</span>(<span class="st">"Insufficient balance."</span>)</span>
+<span id="cb7-11"><a href="#cb7-11"></a></span>
+<span id="cb7-12"><a href="#cb7-12"></a>withdraw_cash(balance<span class="op">=</span><span class="dv">500</span>, amount<span class="op">=</span><span class="dv">200</span>, atm_cash<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb7-13"><a href="#cb7-13"></a>withdraw_cash(balance<span class="op">=</span><span class="dv">500</span>, amount<span class="op">=</span><span class="dv">200</span>, atm_cash<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb7-14"><a href="#cb7-14"></a>withdraw_cash(balance<span class="op">=</span><span class="dv">500</span>, amount<span class="op">=</span><span class="dv">600</span>, atm_cash<span class="op">=</span><span class="dv">1000</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Withdrawal successful!
+ATM does not have enough cash.
+Insufficient balance.</code></pre>
+</div>
 </div>
 </section>
 <section id="مجموع-الأرقام-إلى-س" class="level2">
 <h2 class="anchored" data-anchor-id="مجموع-الأرقام-إلى-س">مجموع الأرقام إلى س</h2>
 <p>ما نريد صياغته هو مجموع الأرقام من 1 إلى <code>n</code>:</p>
-<div id="c9964bd0" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> sum_of_numbers(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    <span class="cf">pass</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="dec5ada6" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> sum_of_numbers(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    <span class="cf">pass</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وحلها بالإجراء المتسلسل:</p>
-<div id="bf0b3a1d" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> sum_of_numbers(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb6-2"><a href="#cb6-2"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb6-3"><a href="#cb6-3"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a>    <span class="cf">return</span> n <span class="op">+</span> sum_of_numbers(n <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb6-5"><a href="#cb6-5"></a></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="cf">assert</span> sum_of_numbers(n<span class="op">=</span><span class="dv">5</span>) <span class="op">==</span> <span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">3</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">15</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="cf">assert</span> sum_of_numbers(n<span class="op">=</span><span class="dv">10</span>) <span class="op">==</span> <span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">3</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span><span class="op">+</span><span class="dv">6</span><span class="op">+</span><span class="dv">7</span><span class="op">+</span><span class="dv">8</span><span class="op">+</span><span class="dv">9</span><span class="op">+</span><span class="dv">10</span> <span class="op">==</span> <span class="dv">55</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f8ac255e" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">def</span> sum_of_numbers(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb10-2"><a href="#cb10-2"></a>    <span class="co"># Terminal case (نهاية)</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb10-4"><a href="#cb10-4"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>    <span class="co"># Recursive case (تسلسل)</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>    <span class="cf">return</span> n <span class="op">+</span> sum_of_numbers(n <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb10-7"><a href="#cb10-7"></a></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="bu">print</span>(sum_of_numbers(n<span class="op">=</span><span class="dv">5</span>))</span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="bu">print</span>(sum_of_numbers(n<span class="op">=</span><span class="dv">10</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>15
+55</code></pre>
+</div>
 </div>
 <p>وإذا صغناها رياضيًّا وعلمنا المعادلة الرياضية، فلا حاجة للتكرار أصلاً:</p>
 <p><span class="math display">\[
 \sum_{i=1}^{n} i = \frac{n(n + 1)}{2}
 \]</span></p>
-<div id="26fe78fe" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> sum_of_numbers(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb7-2"><a href="#cb7-2"></a>    <span class="cf">return</span> n <span class="op">*</span> (n <span class="op">+</span> <span class="dv">1</span>) <span class="op">//</span> <span class="dv">2</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="cf">assert</span> sum_of_numbers(n<span class="op">=</span><span class="dv">5</span>) <span class="op">==</span> <span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">3</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">15</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="cf">assert</span> sum_of_numbers(n<span class="op">=</span><span class="dv">10</span>) <span class="op">==</span> <span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">3</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span><span class="op">+</span><span class="dv">6</span><span class="op">+</span><span class="dv">7</span><span class="op">+</span><span class="dv">8</span><span class="op">+</span><span class="dv">9</span><span class="op">+</span><span class="dv">10</span> <span class="op">==</span> <span class="dv">55</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9829c3a4" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">def</span> sum_of_numbers(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb12-2"><a href="#cb12-2"></a>    <span class="cf">return</span> n <span class="op">*</span> (n <span class="op">+</span> <span class="dv">1</span>) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="cf">assert</span> sum_of_numbers(n<span class="op">=</span><span class="dv">5</span>) <span class="op">==</span> <span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">3</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="cf">assert</span> sum_of_numbers(n<span class="op">=</span><span class="dv">10</span>) <span class="op">==</span> <span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">3</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span><span class="op">+</span><span class="dv">6</span><span class="op">+</span><span class="dv">7</span><span class="op">+</span><span class="dv">8</span><span class="op">+</span><span class="dv">9</span><span class="op">+</span><span class="dv">10</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

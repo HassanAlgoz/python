@@ -592,7 +592,6 @@ window.Quarto = {
    
   <ul>
   <li><a href="#مثال-المضروب" id="toc-مثال-المضروب" class="nav-link active" data-scroll-target="#مثال-المضروب">مثال: المضروب</a></li>
-  <li><a href="#المصطلحات" id="toc-المصطلحات" class="nav-link" data-scroll-target="#المصطلحات">المصطلحات</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
@@ -631,8 +630,7 @@ window.Quarto = {
 <p>هذا مبحثٌ شيِّق، وقد يكون فيه شيءٌ من الصعوبة، لكنّ فيه أدوات فعَّالة في استعمال المنطق البرمجي لأقصى مدى. لكنها غير مطلوبة لفهم ما يأتي من الأبواب.</p>
 </div>
 </div>
-<p><strong>الإجراء المتسلسل</strong> (Recursive Function): هو إجراء يطلب نفسه؛ بشكل مباشر أو غير مباشر.</p>
-<p>وحتى يكون مثمرًا: يجب أن تؤول سلسلة الطلبات هذه إلى جملة تُنهي التسلسل.</p>
+<p><strong>الإجراء المتسلسل</strong> (Recursive Function): هو إجراء يطلب نفسه؛ بشكل مباشر أو غير مباشر. وحتى يكون مثمرًا: يجب أن تؤول سلسلة الطلبات هذه إلى جملة تُنهي التسلسل.</p>
 <section id="مثال-المضروب" class="level2">
 <h2 class="anchored" data-anchor-id="مثال-المضروب">مثال: المضروب</h2>
 <p>فمثلا: تعرف الرياضيات <strong>مضروب العدد</strong></p>
@@ -660,13 +658,13 @@ window.Quarto = {
 \end{align*}
 \]</span></p>
 <p>إذاً نعرِّف المعادلة في بايثون هكذا:</p>
-<div id="e4f7e96d" class="cell" data-execution_count="2">
+<div id="619bebbe" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> factorial(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co"># Recursive case</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co"># Recursive case (تسلسل)</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>    <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
 <span id="cb1-4"><a href="#cb1-4"></a>        recursive_result <span class="op">=</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span>
 <span id="cb1-5"><a href="#cb1-5"></a>        <span class="cf">return</span> n <span class="op">*</span> recursive_result</span>
-<span id="cb1-6"><a href="#cb1-6"></a>    <span class="co"># Terminal case</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="co"># Terminal case (نهاية)</span></span>
 <span id="cb1-7"><a href="#cb1-7"></a>    <span class="cf">return</span> <span class="dv">1</span></span>
 <span id="cb1-8"><a href="#cb1-8"></a></span>
 <span id="cb1-9"><a href="#cb1-9"></a>factorial(<span class="dv">5</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -680,19 +678,19 @@ window.Quarto = {
 <li><code>return 1</code> هي الجملة التي تنهي التسلسل</li>
 </ul>
 <p>وهنا قطعة نص برمجي نستعملها لتصور تسلسل الطلبات:</p>
-<div id="442526b2" class="cell" data-execution_count="3">
+<div id="7de5b7dd" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>الكود</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> factorial(n: <span class="bu">int</span>, depth: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a>    <span class="co"># Recursive case</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="co"># Recursive case (تسلسل)</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'  '</span> <span class="op">*</span> depth<span class="sc">}</span><span class="ss">Call factorial(</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">)"</span>)</span>
 <span id="cb3-5"><a href="#cb3-5"></a>    <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
 <span id="cb3-6"><a href="#cb3-6"></a>        result <span class="op">=</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>, depth <span class="op">+</span> <span class="dv">1</span>)</span>
 <span id="cb3-7"><a href="#cb3-7"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'  '</span> <span class="op">*</span> depth<span class="sc">}</span><span class="ss">Return </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss"> from factorial(</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">)"</span>)</span>
 <span id="cb3-8"><a href="#cb3-8"></a>        <span class="cf">return</span> result</span>
 <span id="cb3-9"><a href="#cb3-9"></a>    </span>
-<span id="cb3-10"><a href="#cb3-10"></a>    <span class="co"># Terminal case</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>    <span class="co"># Terminal case (نهاية)</span></span>
 <span id="cb3-11"><a href="#cb3-11"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'  '</span> <span class="op">*</span> depth<span class="sc">}</span><span class="ss">Return 1 from factorial(</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">)"</span>)</span>
 <span id="cb3-12"><a href="#cb3-12"></a>    <span class="cf">return</span> <span class="dv">1</span></span>
 <span id="cb3-13"><a href="#cb3-13"></a></span>
@@ -725,55 +723,6 @@ Return 120 from factorial(5)</code></pre>
 <p>طلب الإجراء المتسلسل يؤدي إلى ظروف متداخلة تؤول إلى ظرف واحد في النهاية.</p>
 <p>يستعمل الإجراء المتسلسل وكذلك هياكل البيانات المتسلسلة بشكل كبير في الخوارزميات الفعالة.</p>
 <p>يسهل كتابة بعض الخوارزميات باستعمال الإجراء المتسلسل. لكن قد تكون (أحياًنا) أقل أداءً من استعمال الحلقات.</p>
-</section>
-<section id="المصطلحات" class="level2">
-<h2 class="anchored" data-anchor-id="المصطلحات">المصطلحات</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>العربية</th>
-<th>الإنجليزية</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>إجراء متسلسل</td>
-<td>Recursive Procedure</td>
-</tr>
-<tr class="even">
-<td>طلب ذاتي</td>
-<td>Recursive Call</td>
-</tr>
-<tr class="odd">
-<td>ظرف تنفيذ</td>
-<td>Execution Context</td>
-</tr>
-<tr class="even">
-<td>تكديس</td>
-<td>Stack</td>
-</tr>
-<tr class="odd">
-<td>تسلسل</td>
-<td>Recursion</td>
-</tr>
-<tr class="even">
-<td>حالة منتهية</td>
-<td>Terminal Case</td>
-</tr>
-<tr class="odd">
-<td>حالة متسلسلة</td>
-<td>Recursive Case</td>
-</tr>
-<tr class="even">
-<td>هياكل بيانات متسلسلة</td>
-<td>Recursive Data Structures</td>
-</tr>
-<tr class="odd">
-<td>خوارزمية</td>
-<td>Algorithm</td>
-</tr>
-</tbody>
-</table>
 
 
 </section>
