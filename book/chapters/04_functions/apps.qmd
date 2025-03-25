@@ -44,54 +44,26 @@ assert gross_pay(10, 10) == 100
 assert gross_pay(40, 10) == 400
 ```
 
-## الوزن الطبيعي
+## سحب الرصيد
 
-هذا هو وزن الجسم الموصى به من قبل منظمة الصحة العالمية (WHO) استنادًا إلى قيم مؤشر كتلة الجسم للبالغين. ويستخدم لكل من الرجال والنساء الذين تبلغ أعمارهم 20 عامًا أو أكثر.
-
-| **التصنيف** | **مدى BMI - kg/m2** |
-| --- | --- |
-| نحف شديد | < 16 |
-| نحف متوسط | 16 - 17 |
-| نحف خفيف | 17 - 18.5 |
-| طبيعي | 18.5 - 25 |
-| زيادة في الوزن | 25 - 30 |
-| سمنة خفيفة | 30 - 35 |
-| سمنة ثانية | 35 - 40 |
-| سمنة ثالثة | > 40 |
-
-[المصدر](https://www.calculator.net/bmi-calculator.html)
-
-لحساب مؤشر كتلة الجسم (BMI)، نستعمل المعادلة التالية:
-
-$$
-BMI = \frac{weight}{height^2}
-$$
+1. أولاً، تأكد من وجود رصيد كافٍ لدى المستخدم.
+2. إذا كان الأمر كذلك، فتأكد من وجود رصيد كافٍ في جهاز الصراف الآلي لصرف المبلغ المطلوب.
 
 ```{python}
-def calculate_bmi(weight: float, height: float) -> float:
-    return weight / height**2
-
-def classify_bmi(bmi: float) -> str:
-    if bmi < 16:
-        return 'severe_thinness'
-    elif bmi < 17:
-        return 'moderate_thinness'
-    elif bmi < 18.5:
-        return 'mild_thinness'
-    elif bmi < 25:
-        return 'normal'
-    elif bmi < 30:
-        return 'overweight'
-    elif bmi < 35:
-        return 'obese_class_1'
-    elif bmi < 40:
-        return 'obese_class_2'
+def withdraw_cash(balance, amount, atm_cash):
+    if balance >= amount:
+        if atm_cash >= amount:
+            balance -= amount
+            atm_cash -= amount
+            print("Withdrawal successful!")
+        else:
+            print("ATM does not have enough cash.")
     else:
-        return 'obese_class_3'
+        print("Insufficient balance.")
 
-assert classify_bmi(bmi=15) == 'severe_thinness'
-assert classify_bmi(bmi=20) == 'normal'
-assert classify_bmi(bmi=40) == 'obese_class_3'
+withdraw_cash(balance=500, amount=200, atm_cash=1000)
+withdraw_cash(balance=500, amount=200, atm_cash=100)
+withdraw_cash(balance=500, amount=600, atm_cash=1000)
 ```
 
 ## مجموع الأرقام إلى س
@@ -107,8 +79,10 @@ def sum_of_numbers(n: int) -> int:
 
 ```{python}
 def sum_of_numbers(n: int) -> int:
+    # Terminal case (نهاية)
     if n == 1:
         return 1
+    # Recursive case (تسلسل)
     return n + sum_of_numbers(n - 1)
 
 assert sum_of_numbers(n=5) == 1+2+3+4+5 == 15
