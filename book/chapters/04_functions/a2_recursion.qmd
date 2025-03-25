@@ -5,7 +5,6 @@
 :::
 
 **الإجراء المتسلسل** (Recursive Function): هو إجراء يطلب نفسه؛ بشكل مباشر أو غير مباشر.
-
 وحتى يكون مثمرًا: يجب أن تؤول سلسلة الطلبات هذه إلى جملة تُنهي التسلسل.
 
 ## مثال: المضروب
@@ -46,11 +45,11 @@ $$
 
 ```{python}
 def factorial(n: int) -> int:
-    # Recursive case
+    # Recursive case (تسلسل)
     if n > 0:
         recursive_result = factorial(n - 1)
         return n * recursive_result
-    # Terminal case
+    # Terminal case (نهاية)
     return 1
 
 factorial(5)
@@ -68,14 +67,14 @@ factorial(5)
 
 def factorial(n: int, depth: int = 0) -> int:
 
-    # Recursive case
+    # Recursive case (تسلسل)
     print(f"{'  ' * depth}Call factorial({n})")
     if n > 0:
         result = n * factorial(n - 1, depth + 1)
         print(f"{'  ' * depth}Return {result} from factorial({n})")
         return result
     
-    # Terminal case
+    # Terminal case (نهاية)
     print(f"{'  ' * depth}Return 1 from factorial({n})")
     return 1
 
@@ -92,18 +91,3 @@ factorial(5)
 يستعمل الإجراء المتسلسل وكذلك هياكل البيانات المتسلسلة بشكل كبير في الخوارزميات الفعالة.
 
 يسهل كتابة بعض الخوارزميات باستعمال الإجراء المتسلسل. لكن قد تكون (أحياًنا) أقل أداءً من استعمال الحلقات.
-
-
-## المصطلحات
-
-| العربية | الإنجليزية |
-|----------|------------|
-| إجراء متسلسل | Recursive Procedure |
-| طلب ذاتي | Recursive Call |
-| ظرف تنفيذ | Execution Context |
-| تكديس | Stack |
-| تسلسل | Recursion |
-| حالة منتهية | Terminal Case |
-| حالة متسلسلة | Recursive Case |
-| هياكل بيانات متسلسلة | Recursive Data Structures |
-| خوارزمية | Algorithm |

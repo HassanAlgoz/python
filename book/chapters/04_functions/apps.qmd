@@ -21,17 +21,18 @@ $$
 def euclidean_distance(x1: float, y1: float, x2: float, y2: float) -> float:
     return ((x2 - x1)**2 + (y2 - y1)**2) ** 0.5
 
-assert euclidean_distance(x1=0, y1=0, x2=3, y2=4) == 5.0
+print(euclidean_distance(x1=0, y1=0, x2=3, y2=4))
 ```
 
-## كم سيكون عمرك حين كذا؟
+## كم عمرك يومئذ؟
 
 ```{python}
-def age_at_future_event(age_now: int, current_year: int, future_year: int) -> int:
-    return age_now + (future_year - current_year)
+def age_at(age_now: int, current_year: int, at_year: int) -> int:
+    return age_now + (at_year - current_year)
 
-assert age_at_future_event(age_now=0, current_year=2000, future_year=2010) == 10
-assert age_at_future_event(age_now=20, current_year=2000, future_year=2010) == 30
+print(age_at(0, 2000, 2010)) # بعد الولادة
+print(age_at(20, 2000, 2010)) # في المستقبل
+print(age_at(20, 2000, 1995)) # في الماضي
 ```
 
 ## حساب الأجر
@@ -40,8 +41,8 @@ assert age_at_future_event(age_now=20, current_year=2000, future_year=2010) == 3
 def gross_pay(hours: float, per_hour_rate: float) -> float:
     return hours * per_hour_rate
 
-assert gross_pay(10, 10) == 100
-assert gross_pay(40, 10) == 400
+print(gross_pay(10, 10))
+print(gross_pay(40, 10))
 ```
 
 ## سحب الرصيد
@@ -85,8 +86,8 @@ def sum_of_numbers(n: int) -> int:
     # Recursive case (تسلسل)
     return n + sum_of_numbers(n - 1)
 
-assert sum_of_numbers(n=5) == 1+2+3+4+5 == 15
-assert sum_of_numbers(n=10) == 1+2+3+4+5+6+7+8+9+10 == 55
+print(sum_of_numbers(n=5))
+print(sum_of_numbers(n=10))
 ```
 
 وإذا صغناها رياضيًّا وعلمنا المعادلة الرياضية، فلا حاجة للتكرار أصلاً:
@@ -99,6 +100,6 @@ $$
 def sum_of_numbers(n: int) -> int:
     return n * (n + 1) // 2
 
-assert sum_of_numbers(n=5) == 1+2+3+4+5 == 15
-assert sum_of_numbers(n=10) == 1+2+3+4+5+6+7+8+9+10 == 55
+assert sum_of_numbers(n=5) == 1+2+3+4+5
+assert sum_of_numbers(n=10) == 1+2+3+4+5+6+7+8+9+10
 ```
