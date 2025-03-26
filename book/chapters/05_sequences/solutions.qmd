@@ -1,4 +1,4 @@
-# مسائل {.unnumbered}
+# حل المسائل {.unnumbered}
 
 ## إنشاء قائمة
 
@@ -10,6 +10,10 @@
 - `"علي"`
 - `"فصيل"`
 
+```{python}
+students = ["عمرو", "لؤي", "محمد", "علي", "فصيل"]
+```
+
 ## قائمة الطلاب
 
 من القائمة السابقة تريد تحصيل التالي:
@@ -18,9 +22,26 @@
 - كم عدد الطلاب؟
 - اسرد الفائمة
 
+```{python}
+print("لؤي" in students)
+print(len(students))
+for s in students:
+    print("Student:", s)
+```
+
 ## أضف طالبًا جديدًا
 
 أضف طالبًا جديدًا إلى القائمة، وهو: `"زياد"`.
+
+```{python}
+students.append("زياد")
+```
+
+أو
+
+```python
+students = students + ["زياد"]
+```
 
 ## بالإشارة
 
@@ -28,18 +49,31 @@
 - من هو آخر طالب؟
 - من هو الطالب الذي في المنتصف؟
 
+```{python}
+print(students[0])
+print(students[-1])
+print(students[len(students) // 2])
+```
+
 ## بالقطعة
 
 - من هم الطلاب باستثناء الأول والأخير؟
-- من هم الطلاب الثلاثة الأُخَر
+- من هم الطلاب الثلاثة من النهاية
 - من هم الطلاب الذين في موضع فردي؟
 - من هم الطلاب الذين في موضع زوجي؟
+
+```{python}
+print(students[1:-1])
+print(students[:-3])
+print(students[::2])
+print(students[1::2])
+```
 
 ## متوسط المبيعات اليومية
 
 - لديك قائمة بالمبيعات اليومية.
 
-```python
+```{python}
 daily_sales = [
     10, 12, 10, 15, 13, 14, 10,
     19, 14, 12, 8, 10, 11, 12,
@@ -58,21 +92,66 @@ daily_sales = [
     - يمكنك استعمال الإجراء `statistics.mean()` و `statistics.stdev()`
 - متوسط المبيعات خلال الشهر والانحراف المعياري
 
+```{python}
+import statistics
+
+print(len(daily_sales))
+for i in range(0, len(daily_sales), 7):
+    print("Week", i//7+1)
+    print("Sales:", sum(daily_sales[i:i+7]))
+    print("Mean:", round(statistics.mean(daily_sales[i:i+7]), 2))
+    print("Std:",  round(statistics.stdev(daily_sales[i:i+7]), 2))
+    print()
+```
+
 ## سلة مشتريات
 
 لديك قائمة بالفواكه وأسعارها:
 
-```python
+```{python}
 fruits = ["apple", "banana", "orange"]
 prices = [    1.5,      2.0,      1.0]
 ```
 
 احسب حاصل مشتريات كل سلة وفق قائمة الأسعار:
 
-```python
+```{python}
 basket1 = ["apple", "apple", "apple"]
 basket2 = ["banana", "apple"]
 basket3 = []
+```
+
+للسلة الواحدة نكتب هكذا
+
+```{python}
+total = 0
+for item in basket1:
+    total += prices[fruits.index(item)]
+print(total)
+```
+
+لجميع السلال يمكن أن نضيف حلقة أخرى:
+
+```{python}
+totals = []
+for basket in [basket1, basket2, basket3]:
+    total = 0
+    for item in basket:
+        total += prices[fruits.index(item)]
+    totals.append(total)
+print(totals)
+```
+
+ونستطيع أن نجمع المجموعات كلها:
+
+```{python}
+print(sum(totals))
+```
+
+أو نكتبها التعبير المختصر:
+
+```{python}
+print(sum([sum(prices[fruits.index(item)] for item in basket) for basket in [basket1, basket2, basket3]]))
 ```
 
 ## ضرب متجهين
@@ -85,7 +164,7 @@ $$
 
 أي أن كل عنصر من المتجه الأول يضرب في العنصر المناظر له في المتجه الثاني، ويُجْمَعُ ناتج ذلك كله.
 
-```python
+```{python}
 u = (1, 2, 3)
 v = (4, 5, 6)
 ```
@@ -112,3 +191,19 @@ $$
                      &= 14
 \end{align*}
 $$
+
+نضم العناصر المتقابلة من المتجهين ونجمع حاصل ضربهما:
+
+```{python}
+result = 0
+for a, b in zip(u, v):
+    result += a * b
+print(result)
+```
+
+```{python}
+result = 0
+for a, b in zip(u, u):
+    result += a * b
+print(result)
+```
