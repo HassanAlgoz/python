@@ -1,33 +1,5 @@
 # تطبيقات {.unnumbered}
 
-## البحث عن عنصر في مجموعة
-
-وهنا بحثٌ سريع جدًا باستعمال جملة التحقق من العضوية:
-
-```{python}
-languages = {"Arabic", "English"}
-if 'Python' not in languages:
-    print('You need to learn Python to talk to a computer!')
-```
-
-## إزالة العناصر المتكررة
-
-وتستعمل كذلك لإزالة العناصر المتكررة في أي مجموعة، نحو القطعة التالي. فإننا نحول القائمة إلى مجموعة فرائد فتزول تلك العناصر تلقائيًّا، ثم نعيدها كما كانت:
-
-```{python}
-numbers = [1, 2, 2, 3, 4, 4, 5]
-unique_numbers = list(set(numbers))
-print(unique_numbers)
-```
-
-وكذلك من الصف:
-
-```{python}
-t = (1, 2, 2, 3, 4, 4, 5)
-unique_t = tuple(set(t))
-print(unique_t)
-```
-
 ## الكلمة ومعناها
 
 القاموس بالمعنى الذي يشير إليه اللفظ. نفترض أن لدينا قاموسًا يحتوي على ترجمة بعض الكلمات من الإنجليزية إلى العربية:
@@ -51,7 +23,9 @@ name_to_phone = {
 }
 ```
 
-وكذلك دليل أسماء النطاق (DNS: Domain Name System) على شبكة الانرتنت هو قاموس:
+## دليل أسماء النطاقات
+
+وكذلك دليل أسماء النطاقات (DNS: Domain Name System) على شبكة الانرتنت هو قاموس:
 
 ```{python}
 domain_to_ip = {
@@ -72,7 +46,7 @@ short_to_full = {
 }
 ```
 
-## الاختصارات
+## الكلمات المختصرة
 
 أو الاختصارات إلى الكلمة التامة:
 
@@ -87,17 +61,36 @@ abb_to_full = {
 }
 ```
 
-ويمكن عكس القاموس بالطريقة التالية:
+
+## الأجزاء المنتمية إلى الكل
+
+أو الاختصارات إلى الكلمة التامة:
 
 ```{python}
-full_to_abb = {}
-
-for key, value in abb_to_full.items():
-    full_to_abb[value] = key
-
-print(full_to_abb)
+animal_class = {
+    "Dog": "Mammalia",
+    "Cat": "Mammalia",
+    "Elephant": "Mammalia",
+    "Snake": "Reptilia",
+    "Lizard": "Reptilia",
+    "Frog": "Amphibia",
+}
 ```
 
+نريد عكس هذه القائمة أيضًا بحيث نستطيع أن نعرف من الصنف كل الحيوانات المتنمية إليه.
+
+نأتي على جميع المفاتيح في القاموس الأول ونضيفها بحسب القيمة التي تقابلها:
+
+```{python}
+class_animal = {}
+for animal, clazz in animal_class.items():
+    if clazz not in class_animal:
+        class_animal[clazz] = []
+    class_animal[clazz].append(animal)
+class_animal
+```
+
+لاحظ استعمال اسم `clazz` بدل `class` لأن كلمة `class` أصلية في لغة بايثون فلا يجوز استعمالها كمتغير.
 
 ## سلة المشتريات
 
@@ -116,12 +109,14 @@ prices = {
 
 ```{python}
 prices['banana'] = 12
+prices['orange'] = 15
 ```
 
-أو بالمجموع هكذا:
+أو تحديثها بالإجراء `update()`:
 
 ```{python}
 prices.update({'banana': 12, 'orange': 15})
+prices
 ```
 
 والآن نفترض أن لدينا قائمة بالفواكه التي يريدها العميل:
@@ -141,53 +136,26 @@ for fruit in basket:
 print(total)
 ```
 
-
-## تسجيل تفضيلات المستخدم
-
-يجوز أن تكون قيمة المرقوم قاموسًا؛ وهذا يعني أن القاموس قد يتضمن قاموسًا.
-
-هذا المثال يوضح استعمالًا شائعًا لذلك، وهو ترتيب معلومات أو تفضيلات المستخدم.
+أو تستطيع أن تعدها أولاً ثم تضربها بالسعر:
 
 ```{python}
-user = {
-    'name': 'Adam',
-    'language': 'Arabic',
-    'phone': '966xxxxxxxxx',
-    'last_updated': '2021-09-01',
-    'age': 25,
-    'notifications': {
-        'email': True,
-        'sms': False,
-        'push': True
-    },
-    'emails': ['example1@domain.com', 'example2@domain.com']
-}
+counts = dict()
+for fruit in set(basket):
+    counts[fruit] = basket.count(fruit)
+counts
 ```
 
-وللوصول إلى قيمة مضمَّنة، نستعمل الإشارة مرتين، هكذا:
+ثم تضربها بالسعر:
 
 ```{python}
-user['notifications']['sms']
+total = sum(counts[fruit] * prices[fruit] for fruit in counts)
+total
 ```
 
-أما حفظها فسيأتي الكلام عن حفظ البيانات في [باب كتابة الملفات وقراءتها](../08_files_and_directories/a1_serialization.qmd) إن شاء الله.
 
 ## استعمال الإنشاء المختصر
 
 تقدم معنا الكلام عن [الإنشاء المختصر](../05_sequences/a_sequences.qmd#الإنشاء-المختصر-الجملة-الثلاثية). وسنستعرضه الآن مع القاموس.
-
-عكس قاموس بحيث تصبح الدلائل هي القيم والقيم هي الدلائل:
-
-```{python}
-idx2label = {
-    0: 'cat',
-    1: 'dog',
-    2: 'bird',
-}
-
-label2idx = {label: idx for idx, label in idx2label.items()}
-label2idx
-```
 
 هنا مثال لقاموس من الفواكه، نريد ترشيح ما قيمته أقل من 20:
 
@@ -199,7 +167,7 @@ menu = {
     'cantaloupe': 40
 }
 
-filtered_menu = {key: value for key, value in menu.items() if value < 20}
+filtered_menu = {k: v for k, v in menu.items() if v < 20}
 filtered_menu
 ```
 
@@ -217,78 +185,8 @@ avg_price = sum(menu.values()) / len(menu)
 discount = 0.20
 
 discounted_menu = {
-    key: value * (1 - discount) if value > avg_price else value
-    for key, value in menu.items()
+    k: v * (1 - discount) if v > avg_price else v
+    for k, v in menu.items()
 }
 discounted_menu
-```
-
-## استعمال إجراءات التحقق
-
-وننظر إلى المثال التالي لتوضيح الفائدة من إجراءات التحقق.
-نفترض أننا نريد أن نعرف هل أحد هذه الكلمات يبدأ بالحرف: `ال`:
-
-```{python}
-words = ["السلام", "ثلاثة", "دعسوقة", "السيف"]
-mask = [s.startswith("ال") for s in words]
-print(mask)
-```
-
-وهذه نتيجة استعمال فعلي التحقق:
-
-```{python}
-print("أي منها يبدأ بالحرف: ال", any(mask))
-print("كلها يبدأ بالحرف: ال", all(mask))
-```
-
-ونمثل عليه بمثال آخر من القاموس:
-
-- هل اجتاز جميع الطلاب الامتحان؟
-- هل اجتاز أي طالب الامتحان؟
-
-```{python}
-students = [
-    {'name': 'علي', 'passed': True},
-    {'name': 'خالد', 'passed': False},
-    {'name': 'فاطمة', 'passed': True}
-]
-
-# هل اجتاز جميع الطلاب الامتحان؟
-all_passed = all(s['passed'] for s in students)  # False (لأن خالد لم يجتز)
-
-# هل اجتاز أي طالب الامتحان؟
-any_passed = any(s['passed'] for s in students)  # True (لأن علي وفاطمة اجتازا)
-```
-
-ومن أمثلته تحقيق البيانات:
-
-اشتراط وجوب وجود المرقومين: `name` و `email` في القاموس:
-
-```{python}
-data = {
-    'name': 'Adam',
-    'email': 'adam@example.com',
-}
-
-if all(not data.get(key) for key in ["name", "email"]):
-	print("البيانات غير مكتملة")
-else:
-	print("البيانات مكتملة")
-```
-
-فحص ما إذا كان أجاب الشخص بأحد الأجوبة التالية:
-
-```{python}
-answer = "مكة"
-
-answer_set = {
-    "مكة",
-    "المدينة",
-    "المسجد الحرام",
-    "المسجد النبوي",
-}
-if any(a == answer for a in answer_set):
-	print("صواب")
-else:
-	print("خطأ")
 ```

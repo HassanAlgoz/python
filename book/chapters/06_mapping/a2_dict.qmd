@@ -1,0 +1,149 @@
+# القاموس
+
+**القاموس** ([`dict`](https://docs.python.org/3/library/stdtypes.html#dict)) جمع متغير مرتب، العنصر فيه مرقوم فريد مقابل لقيمة.
+
+- **متغير**: يعني أنها تقبل الإضافة والحذف والتعديل
+- **مرتب**: يعني أن لكل عنصرٍ موضعًا بالنسبة لبدايته.
+- **مرقوم**: هي القابلة للرقم (`hash`) - وسيأتي بيانه
+- **فريد**: يعني أن العنصر لا يتكرر فيها
+- **مقابل لقيمة**: أي أن لكل عنصر قيمة مرتبطة به. وهذه الخاصية التي تميز القاموس (`dict`) عن المجموعة (`set`)
+
+تنشأ المجموعة الرابطة بالإجراء المنشئ [`dict()`](https://docs.python.org/3/library/stdtypes.html#dict) أو  بالقوسين المتعرجين `{}` وذلك على النحو التالي:
+
+```{python}
+d = {'key1': 'value1', 'key2': 'value2'}
+d1 = dict(key1='value1', key2='value2')
+d2 = dict([('key1', 'value1'), ('key2', 'value2')])
+assert d == d1 == d2
+```
+
+وفي كل **اقتران** نضيفه إلى قائمة الاقتران (القاموس):
+
+- يسمى المتغير `key1` **المفتاح** (ويشترط أن يكون مرقومًا)
+- ويسمى ما يقترن به **بالقيمة** `value1`
+
+ومن حيث كون القاموس من نوع **الجمع** (`Collection`)، فإنه يقبل الإجراءات ثلاثة:
+
+- العضوية: `x not in d`
+- العد: `len(d)`
+- التكرار: `for x in d`
+
+ويقبل القاموس لكونه **اقترانًا** ([`Mapping`](https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes)) الإجراءات التالية:
+
+- الإشارة مفتاح: `dict[key]`
+- الإشارة بمفتاح مع الرجوع بقيمة ابتدائية إن لم يُعثَر عليه: `dict.get(key[, default])`
+
+ولكونه **اقترانًا متغيرًا** ([`MutableMapping`](https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableMapping))، فإنه يقبل الإجراءات التالية:
+
+- التعديل بمفتاح: `dict[key] = value`
+- الحذف بمفتاح: `del dict[key]`
+- نزع بمفتاح وإرجاع القيمة: `x = dict.pop(key)`
+- التحديث: `dict.update(mapping)`
+
+راجع خريطة الجموع: @fig-collections-tree.
+
+وهذه كذلك، كلها مرقومات، ولا يشترط أن تكون متجانسة (من نفس النوع)، كما يلي:
+
+```{python}
+data = {
+    'key1': 100,
+    20: 'value2',
+    'c': [10, 20, 30, True],
+    (1, 2): 'value3',
+    ('a', 'b', 'c'): 'value4',
+}
+
+assert len(data) == 5
+del data['key1']
+assert 'key1' not in data
+```
+
+ونحصل عليها بالإشارة بمرقوم:
+
+```{python}
+print(data[20])
+print(data['c'])
+print(data[(1, 2)])
+print(data[('a', 'b', 'c')])
+```
+
+## التضمين
+
+يجوز جعل القيمة نفسها قاموسًا. ومثال ذلك حفظ اختيارات المستخدم هكذا:
+
+```{python}
+user = {
+    'name': 'Adam',
+    'language': 'Arabic',
+    'phone': '966xxxxxxxxx',
+    'last_updated': '2021-09-01',
+    'age': 25,
+    'notifications': {
+        'email': True,
+        'sms': False,
+        'push': True
+    },
+    'emails': ['example1@domain.com', 'example2@domain.com']
+}
+```
+
+وللوصول إلى قيمة مضمَّنة، نستعمل الإشارة بالمفتاح مرتين، هكذا:
+
+```{python}
+user['notifications']['push']
+```
+
+
+## التكرار
+
+ويجوز التكرار بثلاثة طرق:
+
+- كر العناصر: `for key, value in d.items()`
+- كر المفاتيح: `for key in d.keys()`
+- كر القيم: `for value in d.values()`
+
+مثال:
+
+```{python}
+d = {
+    'A': 'Salam',
+    'B': 'Hello',
+    'C': 'Hi',
+}
+for value in d.values():
+    print(value)
+```
+
+## عكس القاموس
+
+إذا أردت عكس القاموس بحيث يصير المفتاح مكان القيمة والقيمة مكان المفتاح، فبهذه الطريقة:
+
+```{python}
+d = {
+    'ASAP': 'As soon as possible',
+    'TBD': 'To be determined',
+    'IDK': 'I don\'t know',
+}
+inverse = dict()
+for k, v in d.items():
+    inverse[v] = k
+inverse
+```
+
+أو بالجملة المختصرة:
+
+```{python}
+inverse = {v: k for k, v in d.items()}
+inverse
+```
+
+## إنشاء قاموس من سلسلتين
+
+ويتحصل القاموس من سلسلتين باستعمال الإجراء [`zip()`](https://docs.python.org/3/library/functions.html#zip)، كما يلي:
+
+```{python}
+students = ['Ahmad', 'Belal', 'Camal', 'Dawood']
+marks    = [     90,      80,      75,       85]
+data = dict(zip(students, marks))
+data
+```
