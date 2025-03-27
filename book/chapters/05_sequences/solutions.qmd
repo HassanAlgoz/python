@@ -118,7 +118,6 @@ prices = [    1.5,      2.0,      1.0]
 ```{python}
 basket1 = ["apple", "apple", "apple"]
 basket2 = ["banana", "apple"]
-basket3 = []
 ```
 
 للسلة الواحدة نكتب هكذا
@@ -134,7 +133,7 @@ print(total)
 
 ```{python}
 totals = []
-for basket in [basket1, basket2, basket3]:
+for basket in [basket1, basket2]:
     total = 0
     for item in basket:
         total += prices[fruits.index(item)]
@@ -151,7 +150,7 @@ print(sum(totals))
 أو نكتبها التعبير المختصر:
 
 ```{python}
-print(sum([sum(prices[fruits.index(item)] for item in basket) for basket in [basket1, basket2, basket3]]))
+print(sum([sum(prices[fruits.index(item)] for item in basket) for basket in [basket1, basket2]]))
 ```
 
 ## ضرب متجهين

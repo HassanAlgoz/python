@@ -1,5 +1,103 @@
 # تطبيقات {.unnumbered}
 
+## ترتيب قائمة الأسماء
+
+```{python}
+names = [
+    "Yousef",
+    "Ali",
+    "Belal",
+]
+list.sort(names)
+names
+```
+
+## ضم القوائم
+
+```{python}
+class1_marks = [
+    ("Yousef", 80),
+    ("Ali", 70),
+    ("Belal", 90),
+]
+class2_marks = [
+    ("Dawood", 85),
+    ("Muhammad", 75),
+    ("Yaser", 95),
+]
+student_marks = class1_marks + class2_marks
+student_marks
+```
+
+نتأكد من عدد الطلاب:
+
+```{python}
+assert len(student_marks) == len(class1_marks) + len(class2_marks)
+```
+
+## ترتيب قائمة صفوف
+
+```{python}
+marks = [mark for name, mark in student_marks]
+
+result = []
+for mark in sorted(marks, reverse=True):
+    for row in student_marks:
+        if row[1] == mark:
+            result.append(row)
+result
+```
+
+ولو أردنا أسماء الثلاثة الأوَل:
+
+```{python}
+high = [x[0] for x in result[:3]]
+high
+```
+
+ونستطيع أن نأخذ أسماء الطلبة الأضعف في الدرجات حتى نفهم الأسباب ونحاول أن نرفع من مستواهم الدراسي. ولاحظ هنا نستعمل فك الأقواس بدل تحديد الموضع بالرقم:
+
+```{python}
+low = [name for name, mark in result[-3:]]
+low
+```
+
+## توزيع نماذج الاختبار
+
+تصور أن لدينا نموذجين من الاختبار، ونريد أن نوزعها بحيث يأخذ نصفهم النموذج الأول والنصف الثاني يأخي النموذج الثاني، لكن نريد أن يكون التوزيع بحسب الصف الذي يجلس فيه الطلاب.
+
+نفترض أن كل صف يجلس فيه ثلاثة طلاب، ونريد أن نجعل لكل صف نموذجًا.
+
+```{python}
+students = [
+    'Ahmad',
+    'Belal',
+    'Camal',
+    'Dawood',
+    'Emad',
+    'Faris',
+    'Ghaith',
+    'Hussain',
+]
+```
+
+نمر على قائمة الأسماء بخطوة مقدارها 3 (عدد الطلاب في كل صف):
+
+```{python}
+for i in range(0, len(students), 3):
+    print(students[i:i+3])
+```
+
+والآن نريد أن نحدد لكل صف نموذجًا. نحقق ذلك بعملية باقي القسمة لمعرفة ما إذا كان العدد يقبل القسمة على 2؛ إذ به يعرف الزوجي، والآخر هو الفردي:
+
+```{python}
+for i in range(0, len(students), 3):
+    if i % 2 == 0:
+        print(students[i:i+3], 'test1')
+    else:
+        print(students[i:i+3], 'test2')
+```
+
 ## فرز البيانات
 
 تصور أن لدينا قائمة من الأرقام الموجبة والسالبة في مجموعة واحدة، ونريد فصلها لمجموعتين:
@@ -30,31 +128,198 @@ print('positives:', positives)
 print('negatives:', negatives)
 ```
 
-## الحساب بين البيانات المترابطة
+## المحاسبة المالية
 
 افترض أن لديك قائمة بالمصروفات والإيرادات لكل رُبع من السنة، وتريد حساب صافي الربح لكل ربع على حدة، ثم جمعها لتحصل على الربح الإجمالي للسنة.
 
 ```{python}
-monthly_income  = [52000, 51000, 48000]
-monthly_expense = [46800, 45900, 43200]
-monthly_net = []
-for inc, exp in zip(monthly_income, monthly_expense):
-    result = inc - exp
-    monthly_net.append(result)
+income  = [52000, 51000, 48000, 50000]
+expense = [46800, 45900, 43200, 47000]
+net     = [    0,     0,     0,     0]
+for i in range(len(income)):
+    net[i] = income[i] - expense[i]
 
-print("monthly net:", monthly_net)
-print("annual net:", sum(monthly_net))
+print("quarterly net:", net)
+print("   annual net:", sum(net))
+```
+
+أو باستعمال `zip` للتكرار على مضموم القائمتين:
+
+```{python}
+income  = [52000, 51000, 48000, 50000]
+expense = [46800, 45900, 43200, 47000]
+net = []
+for inc, exp in zip(income, expense):
+    net.append(inc - exp)
+
+print("quarterly net:", net)
+print("   annual net:", sum(net))
 ```
 
 أو باستعمال الإنشاء المختصر:
 
 ```{python}
-monthly_income  = [52000, 51000, 48000]
-monthly_expense = [46800, 45900, 43200]
-monthly_net = [inc - exp for inc, exp in zip(monthly_income, monthly_expense)]
+income  = [52000, 51000, 48000, 50000]
+expense = [46800, 45900, 43200, 47000]
+net = [inc - exp for inc, exp in zip(income, expense)]
 
-print("monthly net:", monthly_net)
-print("annual net:", sum(monthly_net))
+print("quarterly net:", net)
+print("   annual net:", sum(net))
+```
+
+## أسعار السلة
+
+لديك قائمة بالأسعار:
+
+```{python}
+prices = [
+    ('apple', 10),
+    ('banana', 20),
+    ('orange', 30),
+    ('mango', 40),
+    ('pineapple', 50),
+]
+```
+
+وتريد حساب مجمل سلة مشتريات لأحد الزبائن:
+
+```{python}
+basket1 = [
+    ('apple', 2),
+    ('mango', 1)
+]
+basket2 = [
+    ('banana', 1),
+    ('orange', 2),
+    ('pineapple', 1),
+]
+```
+
+نكرر على العناصر
+
+```{python}
+total_basket1 = 0
+for fruit, count in basket1:
+    for label, price in prices:
+        if fruit == label:
+            total_basket1 += price * count
+print(total_basket1)
+```
+
+وكذلك للسلة الثانية:
+
+```{python}
+total_basket2 = 0
+for fruit, count in basket2:
+    for label, price in prices:
+        if fruit == label:
+            total_basket2 += price * count
+print(total_basket2)
+```
+
+## إدارة الطلبات
+
+```{python}
+orders = []
+```
+
+وتدخل الطلبات بإجراء الإلحاق `append` للقائمة:
+
+```{python}
+x = (('kabab', 'kabab', 'shawerma', 'water', 'water'), '8:45 PM')
+orders.append(x)
+```
+
+وهكذا الطلبات اللاحقة:
+
+```{python}
+orders.append((('falafel', 'hummus', 'tea'), '8:48 PM'))
+orders.append((('kabab', 'tabbouleh', 'water'), '8:52 PM'))
+```
+
+وإننا حين ننجز الطلبات أو نعرضها، يكون بالترتيب التي دخلت به من الأول:
+
+```{python}
+for order in orders:
+    print(order)
+```
+
+وإذا أنجزنا الطلب (بالترتيب)، نزيله من القائمة:
+
+```{python}
+finished = orders.pop(0)
+print('done:', finished)
+
+print('remaining:')
+for order in orders:
+    print(order)
+```
+
+أو هب أن الزبون الأخير ألغى الطلب، فإننا نزيله هكذا:
+
+```{python}
+cancelled = orders.pop(-1)
+print('cancelled:', cancelled)
+
+print('remaining:')
+for order in orders:
+    print(order)
+```
+
+ملاحظة: `pop(-1)` تساوي `pop()` إذ القيمة الابتدائية هي `-1`.
+
+## إزالة العناصر المتكررة
+
+هب أننا وجدنا الطلب أدخل بالخطأ مرتين، ونريد إزالة التكرارات الموجودة في قائمة الطلبات كلها:
+
+```{python}
+orders = [
+    (('falafel', 'hummus', 'tea'), '8:42 PM'),
+    (('kabab', 'kabab', 'shawerma', 'water', 'water'), '8:45 PM'),
+    (('kabab', 'kabab', 'shawerma', 'water', 'water'), '8:45 PM'),
+    (('falafel', 'hummus', 'tea'), '8:50 PM'),
+]
+```
+
+لاحظ أن الطلب الأول والأخير ليسا مكررين، وذلك لأنهما في وقتين مختلفين، أم الطلبان في الوسط فهما في نفس الوقت بالضبط، ونريد إزالة مثل هذا التكرار:
+
+```{python}
+result = []
+for order in orders:
+    if order not in result:
+        result.append(order)
+result
+```
+
+## تعديل الطلب
+
+نريد أن نتابع حالة الطلب، ونعدلها إذا أنهينا الطلب. لن نستطيع ذلك إذا حاولنا تعديل الصف `()`، بل يجب أولًا أن نجعل قائمة الطلبات مكونة من قوائم `[]` وليس من صفوف:
+
+```{python}
+orders = [
+    [('falafel', 'hummus', 'tea'), '8:42 PM', 'PENDING'],
+    [('kabab', 'kabab', 'shawerma', 'water', 'water'), '8:45 PM', 'PENDING'],
+    [('falafel', 'hummus', 'tea'), '8:50 PM', 'PENDING'],
+]
+```
+
+```{python}
+orders[0][2] = 'DONE'
+```
+
+والآن نستطيع فرز الطلبات بحسب حالة الطلب:
+
+```{python}
+orders_done = [order for order in orders if order[2] == 'DONE']
+orders_pending = [order for order in orders if order[2] == 'PENDING']
+
+print('done:')
+for order in orders_done:
+    print(order)
+
+print('pending:')
+for order in orders_pending:
+    print(order)
 ```
 
 ## معرفة النقاط المجاورة
@@ -68,7 +333,7 @@ $$
 نريد استعماله لقائمة من النقاط لمعرفة النقاط المجاورة.
 
 ```{python}
-points = [(1, 2), (3, 4), (5, 6), (7, 8)]
+points = [(1, 2), (5, 6), (7, 8), (3, 4)]
 x1, y1 = (2, 4)
 
 distances = []
@@ -76,12 +341,12 @@ distances = []
 for x2, y2 in points:
   d = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
   distances.append(d)
-  print(f'distance from {x2, y2} to {x1, y1} is {d}')
+  print(f'distance from {x1, y1} to {x2, y2} is {d}')
 
 min_distance = min(distances)
 min_distance_index = distances.index(min_distance)
 
-print('min distance index:', min_distance_index)
+print('min distance index:', min_distance_index, 'with distance:', min_distance)
 
 nearest_point = points[min_distance_index]
 
