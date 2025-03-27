@@ -1,6 +1,5 @@
 # القاموس
 
-
 <div class="ltr">
 
 ```{mermaid}
@@ -38,6 +37,73 @@ assert d == d1 == d2
 
 - يسمى المتغير `key1` **المفتاح** (ويشترط أن يكون مرقومًا)
 - ويسمى ما يقترن به **بالقيمة** `value1`
+
+يستعمل القاموس في كثير من السياقات في البرمجة، وهو من أهم هياكل البيانات.
+
+## استعمالات القاموس
+
+### الكلمة ومعناها
+
+القاموس بالمعنى الذي يشير إليه اللفظ. نفترض أن لدينا قاموسًا يحتوي على ترجمة بعض الكلمات من الإنجليزية إلى العربية:
+
+```{python}
+english_to_arabic = {
+    'apple': 'تفاحة',
+    'banana': 'موزة',
+    'orange': 'برتقالة',
+}
+```
+
+### ربط الأسماء بالأرقام
+
+مثلاً: دليل أرقام الهواتف هو قاموس:
+
+```{python}
+name_to_phone = {
+    'Adam': '966xxxxxxxxx',
+    'Mohammed': '966xxxxxxxxx',
+}
+```
+
+### دليل أسماء النطاقات
+
+وكذلك دليل أسماء النطاقات (DNS: Domain Name System) على شبكة الانرتنت هو قاموس:
+
+```{python}
+domain_to_ip = {
+    'google.com': '172.217.14.206',
+    'wikipedia.org': '103.86.96.10',
+}
+```
+
+### اختصار الروابط الطويلة
+
+من استعمالات القاموس: اختصار الروابط الطويلة في روابط قصيرة.
+
+```{python}
+short_to_full = {
+    'google': 'https://www.google.com',
+    'python': 'https://www.python.org',
+    'wiki': 'https://www.wikipedia.org',
+}
+```
+
+### الكلمات المختصرة
+
+أو الاختصارات إلى الكلمة التامة:
+
+```{python}
+abb_to_full = {
+    'ASAP': 'As Soon As Possible',
+    'BRB': 'Be Right Back',
+    'DIY': 'Do It Yourself',
+    'EDA': 'Exploratory Data Analysis',
+    'FYI': 'For Your Information',
+    'SAR': 'Saudi Riyal',
+}
+```
+
+## القاموس (`dict`)
 
 ومن حيث كون القاموس من نوع **الجمع** (`Collection`)، فإنه يقبل الإجراءات ثلاثة:
 
