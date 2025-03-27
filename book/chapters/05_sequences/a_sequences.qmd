@@ -53,6 +53,28 @@
 3.  **المجال** ([`range`](https://docs.python.org/3/library/stdtypes.html#range)) ويُعبَّرُ عنه بالإجراء المنشئ `range()`.
 4.  **النص** ([`str`](https://docs.python.org/3/library/stdtypes.html#str)) ويُعبَّرُ عنه بالتنصيص المفرد `''` أو المزدوج `""`
 
+
+<div class="ltr">
+
+```{mermaid}
+%% | label: fig-sequences
+%% | fig-cap: شجرة أنواع التسلسل
+flowchart TD
+    Collection[<b>الجمع</b> <br> <code>Collection</code>]
+    Collection --> Sequence[<b>التسلسل</b> <br> <code>Sequence</code>]
+    Sequence --> MutableSequence[<b>التسلسل المتغير</b> <br> <code>MutableSequence</code>]
+    MutableSequence --> list[<b>القائمة</b> <br> <code>list</code>]
+    Sequence --> tuple[<b>الصف</b> <br> <code>tuple</code>]
+    Sequence --> range[<b>المجال</b> <br> <code>range</code>]
+    Sequence --> str[<b>النص</b> <br> <code>str</code>]
+```
+
+</div>
+
+
+وراجع خريطة المجموعات: @fig-collections-tree
+
+
 فهذه الأربعة تقبل الإجراءات التالية (المتغير `s` هو التسلسل هنا):
 
 -   الإشارة:

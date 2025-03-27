@@ -1,5 +1,22 @@
 # المجموعة
 
+
+<div class="ltr">
+
+```{mermaid}
+%% | label: fig-set
+%% | fig-cap: شجرة أنواع المجموعة
+flowchart TD
+    Collection[<b>الجمع</b> <br> <code>Collection</code>]
+    Collection --> Set[<b>المجموعة</b> <br> <code>Set</code>]
+    Set --> set[<b>المجموعة المتغيرة</b> <br> <code>set</code>]
+    Set --> frozenset[<b>المجموعة الجامدة</b> <br> <code>frozenset</code>]
+```
+
+</div>
+
+وراجع خريطة المجموعات: @fig-collections-tree
+
 **المجموعة** ([`set`](https://docs.python.org/3/reference/datamodel.html#set-types)) هي جمع متغير من عناصر مرقومة فريدة بلا ترتيب.
 
 - **متغير**: يعني أنها تقبل الإضافة والحذف والتعديل
@@ -29,8 +46,6 @@ assert s == s1 == s2 == s3
 - الحذف: `discard`
 - نزع عنصر عشوائي: `pop`
 - المحو: `clear`
-
-وراجع خريطة المجموعات: @fig-collections-tree
 
 ولا يشترط **تجانس العناصر**؛ بل يجوز أن تكون أنواعها مختلفة:
 
