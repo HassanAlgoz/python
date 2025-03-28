@@ -1,0 +1,167 @@
+# تطبيقات {.unnumbered}
+
+## طول الخط المستقيم بين نقطتين
+
+في هذا المثال نعرف نقطتين ثم نحسب المسافة بينهما. **والمسافة الإقليدية** بين نقطتين $(x_1, y_1)$ و $(x_2, y_2)$ تتبع معادلة **فيثاغورس**:
+
+$$
+\text{distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+$$
+
+وتذكر أن:
+
+$$
+\sqrt{x} = x^{1/2}
+$$
+
+
+```{python}
+def euclidean_distance(x1: float, y1: float, x2: float, y2: float) -> float:
+    return ((x2 - x1)**2 + (y2 - y1)**2) ** 0.5
+
+print(euclidean_distance(x1=0, y1=0, x2=3, y2=4))
+print(euclidean_distance(1, 1, -2, -2))
+```
+
+## تجزئة البيانات
+
+هذا الإجراء يقسم قائمة إلى جزئين بنسبة محددة:
+
+```{python}
+def split(data: list, ratio: float) -> tuple[list, list]:
+    idx = int(len(data) * ratio)
+    return data[:idx], data[idx:]
+```
+
+نختبر الإجراء ونلاحظ أن الناتج من نوع صف (`tuple`). فنستعمل التعيين المتعدد لاستخراج القيم من الصف:
+
+```{python}
+xs = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+a, b = split(xs, 0.80)
+
+assert a == [10, 20, 30, 40, 50, 60, 70, 80]
+assert b == [90, 100]
+```
+
+
+## سحب الرصيد
+
+نريد أن نعرف إجراء سحب الرصيد لأي مستخدم ولأي جهاز صراف آلي ولأي مبلغ:
+
+1. أولاً، تأكد من وجود رصيد كافٍ لدى المستخدم.
+2. إذا كان الأمر كذلك، فتأكد من وجود رصيد كافٍ في جهاز الصراف الآلي لصرف المبلغ المطلوب.
+
+```{python}
+def withdraw_cash(balance, amount, atm_cash):
+    if balance >= amount:
+        if atm_cash >= amount:
+            balance -= amount
+            atm_cash -= amount
+            print("Withdrawal successful!")
+        else:
+            print("ATM does not have enough cash.")
+    else:
+        print("Insufficient balance.")
+
+withdraw_cash(500, 200, 1000)
+withdraw_cash(500, 200, 100)
+withdraw_cash(500, 600, 1000)
+```
+
+## الكلمة المتناظرة
+
+في هذا المثال نوضح استعمال مؤشرين على نفس النص لمعرفة ما إذا كانت الكلمة متناظرة:
+
+- المؤئر الأول بإصبعك الأيمن: `i` يبدأ من أول حرف وينتهي عند المنتصف
+- المؤئر الثاني بإصبعك الأيسر: `j` يبدأ من آخر حرف وينتهي عند المنتصف
+
+```{python}
+def is_palindrome(word):
+    """
+    A palindrome word is one that can be read the same way from both ends.
+    """
+
+    # إزالة الاختلافات في الحروف الكبيرة والصغيرة
+    word = word.lower()
+    
+    # إزالة الفواصل (لتطابق الكلمات مثل: "Race car")
+    word = word.replace(" ", "")
+
+    # التحقق من أن الكلمة متناظرة
+    for i in range(len(word) // 2):
+        j = len(word) - i - 1
+        if word[i] != word[j]:
+            return False
+    return True
+
+# الاختبارات
+assert is_palindrome("radar")
+assert is_palindrome("level") 
+assert is_palindrome("madam")
+assert is_palindrome("توت")
+assert is_palindrome("خوخ")
+assert is_palindrome("Race car")
+assert is_palindrome("حصان ناصح")
+assert not is_palindrome("python")
+```
+
+بدل الحلقة، وكان لنا أن نكتب باختصار: `word == word[::-1]` وهي تعني أن النص متناظر إذا كان مساوياً لنفسه بالمقلوب.
+
+```{python}
+def is_palindrome(word):
+    word = word.lower()
+    word = word.replace(" ", "")
+    return word == word[::-1]
+```
+
+
+## تصحيح الإملاء
+
+اكتب فعلًا يصحح الإخطاء الشائعة في الإملاء العربي.
+
+- إبدال التاء المربوطة بالهاء: مكتبه، لعبه، روايه
+- إبدال الظاء بالضاد والعكس: ظابط، قرظ، ضهر
+- زيادة الياء: أحسنتي، رأيتكي
+
+والمطلوب فقط تصحيح الأخطاء المذكورة.
+
+```{python}
+corrections_map = {
+    'مكتبه': 'مكتبة',
+    'لعبه': 'لعبة',
+    'روايه': 'رواية',
+    'ظابط': 'ضابط',
+    'قرظ': 'قرض',
+    'ضهر': 'ظهر',
+    'أحسنتي': 'أحسنت',
+    'رأيتكي': 'رأيتك',
+}
+
+def correct_spelling(sentence: str) -> str:
+    words = sentence.split()
+    result = []
+    for word in words:
+        al = word.startswith('ال')
+        if al:
+            word = word[2:]
+        correction = corrections_map.get(word, word)
+        if al:
+            correction = 'ال' + correction
+        result.append(correction)
+    return ' '.join(result)
+```
+
+```{python}
+assert (
+    correct_spelling('المكتبه فيها الروايه التي أبحث عنها') ==
+    'المكتبة فيها الرواية التي أبحث عنها'
+)
+
+assert (
+    correct_spelling('أعطاك الظابط القرظ بعد الضهر') ==
+    'أعطاك الضابط القرض بعد الظهر'
+)
+
+assert (
+    correct_spelling('رأيتكي أحسنتي') == 'رأيتك أحسنت')
+```
