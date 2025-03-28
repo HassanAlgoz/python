@@ -1,0 +1,363 @@
+# الحلول {.unnumbered}
+
+## حساب العمر
+
+اكتب إجراء يحسب عمرك في أي سنة معينة.
+
+```{python}
+def age_at(age_now: int, current_year: int, at_year: int) -> int:
+    return age_now + (at_year - current_year)
+    
+
+print(age_at(0, 2000, 2010)) # بعد الولادة
+print(age_at(20, 2000, 2010)) # في المستقبل
+print(age_at(20, 2000, 1995)) # في الماضي
+```
+
+## حساب الأجر
+
+عرِّف الإجراء الذي يحسب الأجر بعاملين:
+
+- `hours: float`: عدد الساعات التي يعملها الموظف
+- `per_hour_rate: float`: سعر الساعة الواحدة
+
+واجعل نوع العائد `float` كذلك باستعمال `-> float`.
+
+```{python}
+def salary(hours: float, per_hour_rate: float) -> float:
+    return hours * per_hour_rate
+```
+
+ثم اختبر الإجراء باستعمال جمل توكيدية: `assert`.
+
+```{python}
+assert salary(6, 30) == 180
+assert salary(per_hour_rate=50, hours=10) == 500
+```
+
+
+## توحيد الصيغة
+
+في هذا المثال، تعود هذه النصوص كلها إلى نفس المعنى.
+
+- ('medina', 'madinah', 'madina', 'al madinah', 'al madina', 'medina', 'madinah', 'madina', 'المدينة', 'مدينة'),
+- ('mecca', 'makkah', 'makka', 'makkah', 'makkah', 'مكة', 'مكه'),
+
+المطلوب إنشاء قاموس بحيث لو أعطيته أحد هذه الكلمات كمفتاح، فإنها جميعًا تؤول إلى صيغة موحدة:
+
+أولاً نعرّف قاموسًا يحول جميع التصريفات إلى نفس الصيغة:
+
+```{python}
+city_map = {
+    'medina': 'madinah',
+    'madinah': 'madinah',
+    'madina': 'madinah',
+    'al madinah': 'madinah', 
+    'al madina': 'madinah',
+    'المدينة': 'madinah',
+    'مدينة': 'madinah',
+
+    'mecca': 'makkah',
+    'makkah': 'makkah',
+    'makka': 'makkah',
+    'مكة': 'makkah',
+    'مكه': 'makkah',
+}
+```
+
+- نعرف الإجراء بأنه يأخذ نصًّا `str` ويُنتج نصًّا `str` آخر.
+- ولأن الحروف الإنجليزية قد تحوي أحرفًا كبيرة، فإننا نحولها جميعًا إلى صيغة صغيرة: `.lower()`
+- وأخيرًا نستعمل هذا النص كمفتاح لنسحب القيمة؛ الصيغة الموحَّدة
+
+```{python}
+
+def normalize_city_name(city_name: str) -> str:
+    text = city_name.lower()
+    return city_map[text]
+```
+
+نختبر الإجراء باستعمال جمل توكيدية: `assert`.
+
+```{python}
+assert (
+    'madinah' ==
+    normalize_city_name('المدينة') ==
+    normalize_city_name('al madinah') ==
+    normalize_city_name('medina')
+)
+
+assert (
+    'makkah' ==
+    normalize_city_name('مكة') ==
+    normalize_city_name('makkah') ==
+    normalize_city_name('makka') ==
+    normalize_city_name('mecca')
+)
+```
+
+
+## حساب الجُمَّل
+
+> [حِسَاب الجُمَّل](https://ar.wikipedia.org/wiki/%D8%AD%D8%B3%D8%A7%D8%A8_%D8%A7%D9%84%D8%AC%D9%85%D9%84) وهو حساب استخدم في اللغات السامية؛ حيث نجده مستعملًا في بلاد الهند قديمًا، وعند اليهود؛ فالأبجدية العبرية تتطابق مع الأبجدية العربية حتى حرف التاء (أبجد، هوز، حطي، كلمن، سعفص، قرشت) أي تتكون من 22 حرفا وتزيد العربية: (ثخذ، ضظغ). واستخدمه المسلمون في تثبيت التاريخ. لكل حرف مدلول رقمي يبدأ بالرقم 1 وينتهي عند الرقم 1000.
+
+| حساب الجمَّل |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| ا | 1 | ي | 10 | ق | 100 | غ | 1000 |
+| ب | 2 | ك | 20 | ر | 200 | بغ | 2000 |
+| جـ | 3 | ل | 30 | ش | 300 | جغ | 3000 |
+| د | 4 | م | 40 | ت | 400 | دغ | 4000 |
+| هـ | 5 | ن | 50 | ث | 500 | هغ | 5000 |
+| و | 6 | س | 60 | خ | 600 | وغ | 6000 |
+| ز | 7 | ع | 70 | ذ | 700 | زغ | 7000 |
+| ح | 8 | ف | 80 | ض | 800 | حغ | 8000 |
+| ط | 9 | ص | 90 | ظ | 900 | طغ | 9000 |
+
+اكتب تفاصيل الإجراء الذي يحسب الجمَّل لكلمة معينة.
+
+أولاً نعرّف قاموسًا يحول الحروف إلى أرقام:
+
+```{python}
+gematria_map = {
+    'ا': 1, 'ي': 10, 'ق': 100, 'غ': 1000,
+    'ب': 2, 'ك': 20, 'ر': 200, 'بغ': 2000,
+    'ج': 3, 'ل': 30, 'ش': 300, 'جغ': 3000,
+    'د': 4, 'م': 40, 'ت': 400, 'دغ': 4000,
+    'ه': 5, 'ن': 50, 'ث': 500, 'هغ': 5000,
+    'و': 6, 'س': 60, 'خ': 600, 'وغ': 6000,
+    'ز': 7, 'ع': 70, 'ذ': 700, 'زغ': 7000,
+    'ح': 8, 'ف': 80, 'ض': 800, 'حغ': 8000,
+    'ط': 9, 'ص': 90, 'ظ': 900, 'طغ': 9000,
+}
+```
+
+ثم نعرّف الإجراء بأنه يأخذ نصًّا `str` ويُنتج رقمًا `int`:
+
+```{python}
+
+def gematria(word: str) -> int:
+    total = 0
+    for i in range(0, len(word), 2):
+        pair = word[i:i+2]
+        if pair in gematria_map:
+            total += gematria_map[pair]
+        else:
+            a, b = pair
+            if a in gematria_map:
+                total += gematria_map[a]
+            if b in gematria_map:
+                total += gematria_map[b]
+    return total
+```
+
+- يبدأ الحساب بمتغير `total` يساوي 0
+- نأتي على الكلمة حرفين ثم ننتقل منهما إلى الحرفين التاليين (وذلك بتحديد حجم الخطوة: 2) `for i in range(0, len(word), 2)`
+- نقرأ الحرفين معًا: `pair = word[i:i+2]` من الموضع `i` إلى الموضع `i+2`؛ فهذه شريحة مكوَّنة من نص فيه حرفان
+- إذا كان هذ الزوج موجودًا في القاموس `gematria_map`، فإننا نضيف قيمته إلى المتغير `total`
+- فإن لم يكن موجودًا فإننا نعتبر كل حرفٍ على حدة: `a, b = pair`
+- فإن كان الأول موجودًا في القاموس فإننا نضيف قيمته إلى المتغير `total`
+- وإن كان الثاني موجودًا في القاموس فإننا نضيف قيمته إلى المتغير `total`
+- وأخيرًا نعيد المتغير `return total`
+
+فإذا أرادوا كتابة الرقم (1240) كتبوا «غرم»، لأن الغين 1,000، والراء 200، والميم 40، فكانوا يراعون عند تركيب الجُمّل أن يكون الحرف المعبر عن العدد الأكبر في المقدمة، ثم يليه الأصغر منه وهكذا دواليك فنجد من الأمثلة على ذلك:
+
+```{python}
+assert gematria('غرم') == 1240
+assert gematria('رب') == 202
+assert gematria('ريح') == 218
+assert gematria('شعب') == 372
+```
+
+يقال أنه عندما توفي السلطان الظاهر برقوق أول سلاطين المماليك البرجية، قام بعض الظرفاء بصياغة عبارة تحدد تاريخ وفاته فقال: «وفاة برقوق في المشمش»، وعندما نحسب تاريخ وفاة برقوق وهي «في المشمش» يكون الناتج:
+
+(80+10+1+30+40+300+40+300) = 801، وبالتالي فتكون العبارة: «وفاة برقوق 801» هجرية وذلك صحيح.
+
+```{python}
+assert gematria('في المشمش') == 801 == 80+10+1+30+40+300+40+300
+```
+
+يقال أيضاً أن شاعراً يسمى الدّلنجاوي مات فرثاه صديق له فقال:
+
+| | |
+|----------------------------|-----------------------------|
+| سألتُ الشّعرَ هل لكَ من صديقٍ   | وقد سكنَ الدّلنجاويّ لحــده    |
+| فصاحَ وخرّ مغشياً عليــــه    | وأصبح راقداً في القبر عنــده |
+| فقلتُ لمن يقول الشعر أقْصِــر | لقد أرّختُ: مات الشعرُ بعـده   |
+
+ويتضح لنا أن تاريخ الوفاة يكون في معرفة حساب العبارة «مات الشعرُ بعدَهُ»، فيكون الحساب:
+
+(40+1+400+1+30+300+70+200+2+70+4+5) = (1123)، وذلك يعني أن الشاعر الدلنجاوي توفي في عام 1123 للهجرة.
+
+```{python}
+assert gematria('مات الشعر بعده') == 1123 == 40+1+400+1+30+300+70+200+2+70+4+5
+```
+
+
+## ضم الأقران
+
+ماذا لو أردت أن تضم قائمة من الأشخاص بحيث يكون فارق العمر بينهم أقل ما يمكن؟
+
+```
+Ahmad: 24
+Mohannad: 17
+Mohammed: 16
+Salem: 32
+Ali: 26
+Samir: 31
+```
+
+أولاً سنرتب القائمة بناءً على العمر، ثم نأخذ العناصر اثنين اثنين، وبذلك نكون حققنا الهدف.
+
+```{python}
+def make_pairs_by_age_diff(items: list[tuple[str, int]]) -> list[tuple[str, str]]:
+    """Make pairs of people by their age difference minimum."""
+    ages = [age for name, age in items]
+    ages.sort()
+    items_sorted = []
+    for age in ages:
+        for i in items:
+            if i[1] == age:
+                items_sorted.append(i)
+    pairs = []
+    for i in range(len(items_sorted) - 1):
+        pairs.append((items_sorted[i], items_sorted[i+1]))
+    return pairs
+```
+
+```{python}
+peers = [
+    ("Ahmad", 24),
+    ("Mohannad", 17),
+    ("Mohammed", 16),
+    ("Salem", 32),
+    ("Ali", 26),
+    ("Samir", 31),
+]
+```
+
+الاختبارات
+
+```{python}
+pairs = make_pairs_by_age_diff(peers)
+for p in pairs:
+    if "Ahmad" in p:
+        assert "Ali" in p
+    if "Mohannad" in p:
+        assert "Mohammed" in p
+    if "Salem" in p:
+        assert "Samir" in p
+```
+
+## التوفيق بين مجموعتين
+
+مسألة التوفيق بين مجموعتين تجدها في سياقات كثيرة.
+
+نريد في هذا التمرين التوفيق بين أشخاص وما لديهم من مهارات وبين شركات وما تطلبها من هذه المهارات.
+
+يمكن أن تبدأ بهذا الشكل لإيجاد كمية التوافق:
+
+```{python}
+have = {"A", "X", "Y"}
+want = {"A", "B", "C", "D"}
+print("نسبة الإعجاب:", len(set.intersection(have, want)) / len(want))
+```
+
+وفي العادة تكون البيانات مضمنة في قائمة على النحو التالي:
+
+```{python}
+haves = [
+	{
+		"name": "Ahmad",
+		"skills": [
+			"Python",
+			"Go",
+			"JavaScript",
+		],
+	},
+	{
+		"name": "Jawad",
+		"skills": [
+			"Negotiation",
+			"Communication",
+			"Business",
+			"Marketing",
+		],
+	},
+]
+
+wants = [
+	{
+		"job": "Data Scientist",
+		"requirements": [
+			"Python",
+			"Machine Learning",
+			"Statistics",
+		],
+	},
+	{
+		"job": "Sales Manager",
+		"requirements": [
+			"Negotiation",
+			"Communication",
+		],
+	},
+]
+```
+
+نعالجها لكل عنصر في قائمة `wants`:
+
+```{python}
+ratios = {}
+for want in wants:
+    for have in haves:
+        ratio = len(set.intersection(set(want["requirements"]), set(have["skills"]))) / len(want["requirements"])
+        if want['job'] not in ratios:
+            ratios[want['job']] = {}
+        ratios[want['job']][have['name']] = ratio
+ratios
+```
+
+الآن نرتب كل وظيفة بحسب الأعلى توافقًا.
+
+أولاً نكتب دالة ترتِّب قاموسًا، ثم سنستعملها:
+
+```{python}
+def sort_nested_dict(d: dict) -> dict:
+    """Sorts a dictionary by values"""
+    result = {}
+    for key in d.keys():
+        result[key] = {}
+        values = [v for v in d[key].values()]
+        values.sort(reverse=True)
+        for v1 in values:
+            for k, v2 in d[key].items():
+                if v2 == v1:
+                    result[key][k] = v2
+    return result
+```
+
+```{python}
+sorted_ratios = sort_nested_dict(ratios)
+sorted_ratios
+```
+
+ولكثرة الحاجة لترتيب البيانات، فإن إجراء `sorted` متعدد الاستعمالات في بايثون. انظر [Sorting Basics و Key Functions](https://docs.python.org/3/howto/sorting.html) من توثيق بايثون تحت عنوان: "HOW TO".
+
+```{python}
+for k, v in ratios.items():
+    sorted_ratios[k] = sorted(v.items(), key=lambda x: x[1], reverse=True)
+sorted_ratios
+```
+
+فأول المرشحين في علوم البيانات هو:
+
+```{python}
+sorted_ratios["Data Scientist"][0][0]
+```
+
+وأول المرشحين في المبيعات هو:
+
+```{python}
+sorted_ratios["Sales Manager"][0][0]
+```
+
+
