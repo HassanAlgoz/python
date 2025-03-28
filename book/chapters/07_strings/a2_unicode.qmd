@@ -65,14 +65,19 @@ print(ord('ُ'), hex(ord('ُ')))
 لمعرفة أرقام الحروف في نصٍّ ما؛ نستعمل التكرار هكذا:
 
 ```{python}
-def get_unicode_points(s):
-    codes = []
-    for c in s:
-        codes.append(ord(c))
-    return codes
+s = "'Arabian'"
+codes = []
+for c in s:
+    codes.append(ord(c))
+print(codes)
+```
 
-print(get_unicode_points('Arabian'))
-print(get_unicode_points('السَّلَامُ عَلَيْكُمْ'))
+```{python}
+s = 'السَّلَامُ عَلَيْكُمْ'
+codes = []
+for c in s:
+    codes.append(ord(c))
+print(codes)
 ```
 
 فهذه هي الحروف في الواقع، إلا أننا نتعامل مع شيء مجرَّد في لغات البرمجة العالية غالبًا ما يسمى `str`.
