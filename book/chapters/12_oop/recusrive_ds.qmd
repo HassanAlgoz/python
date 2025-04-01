@@ -1,0 +1,83 @@
+
+## تسلسل النوع
+
+ومن الأنواع ما يتسليل مثل الشجرة، حيث فروعها قد تكون أصولاً لفروع أخرى. وهكذا يتسلسل الأمر حتى نصل إلى الأوراق / الثمار (القيم الأخيرة).
+
+ومثل هذا له استعمالات كثيرة في هيكلة البيانات بأمثل بنية تكون فيها أسرع في البحث والإدراج والحذف ونحو ذلك. لكننا نكتفي بمثال نتأمله، نعرف فيه الشجرة الثنائية:
+
+```{python}
+class BinaryTreeNode:
+    def __init__(self, value):
+        self.value = value
+        self._left = None
+        self._right = None
+        self._parent = None
+    
+    @property
+    def left(self):
+        return self._left
+
+    @left.setter 
+    def left(self, node):
+        self._left = node
+        if node is not None:
+            node.parent = self
+
+    @property
+    def right(self):
+        return self._right
+
+    @right.setter
+    def right(self, node):
+        self._right = node
+        if node is not None:
+            node.parent = self
+    
+    @property
+    def parent(self):
+        return self._parent
+    
+    @parent.setter
+    def parent(self, node):
+        self._parent = node
+
+    def __repr__(self):
+        if self._left is None and self._right is None:
+            return f"({self.value})"
+        return f"{self._left} <-- [{self.value}] --> {self._right}"
+```
+
+**تخصيص عملية التعيين**:  لاحظ في المثال استعمال `.setter` بعد اسم المتغير `left` و`right` و`parent`؛ وهذا يعني أن تعيين القيمة للمتغير ستفضي إلى هذا الإجراء، فمثلاً حين تقول: `tree.left = x` فإن هذا الإجراء هو الذي سيتم تنفيذه. أما اسم المتغير الذي يحمل القيمة؛ فهو مختبئ عن طريق الشرطة المبتدأة: `_left` و`_right` و`_parent`. وبهذا يتبيَّن كيف لنا أننا نستطيع تخصيص عملية التعيين نفسها.
+
+والهدف من التخصيص في مثالنا هذا أن نمنع تعيين فرعٍ أيمن أو أيسر لا يعرف أصله: `.parent`.
+
+ثم ننشيئ الجشرة، ونصلها بفرعين:
+
+```{python}
+tree = BinaryTreeNode(10)
+tree.left = BinaryTreeNode(5)
+tree.right = BinaryTreeNode(15)
+
+tree
+```
+
+ثم نفرع عن كل فرعٍ فرعين:
+
+```{python}
+tree.left.left = BinaryTreeNode(3)
+tree.left.right = BinaryTreeNode(7)
+tree.right.left = BinaryTreeNode(13)
+tree.right.right = BinaryTreeNode(17)
+
+tree
+```
+
+ويمكننا أن نصل من الفرع إلى الأصل باستعمال `.parent`، هكذا:
+
+```{python}
+x = tree.left.left
+print('x:', x)
+print('x.parent:', x.parent)
+```
+
+نكتفي بهذا القدر.

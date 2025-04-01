@@ -1,0 +1,20 @@
+
+## الرقم
+
+Explain:
+
+- [HashSet](https://www.w3schools.com/dsa/dsa_data_hashsets.php) and
+- [HashMap](https://www.w3schools.com/dsa/dsa_data_hashmaps.php)
+
+- https://cp-algorithms.com/string/string-hashing.html
+- https://www.geeksforgeeks.org/hash-table-data-structure/?utm_source=chatgpt.com
+
+ذكرنا أن شرط عضوية العنصر في **المجموعة** (`set`) وفي **القاموس** (`dict`) أن يكون مرقومًا؛ أي: قابلًا للرقم، أي: أن يُرمَزَ إليه برَقَم. ومعلومٌ أن الحروف أصلها أرقام: فكلمة `cat` مكونة من ثلاثة أرقام هي: 99, 97, 116.
+
+ونبسِّط عمليَّة الرَّقم بمثال فنقول: إن إحدى طرق رَقْمِ الكلمة أن تجمع أرقام حروفها وتقسم على عدد ثابت ثم تأخذ باقي القسمة. فتقول: `(99+97+116) % 100 = 12`. (ملاحظة: علامة `%` هي لباقي القسمة) ويكون هذا الرقم (`12`) هو رمز الكلمة `cat`، ثم يستخدم هذا الرقم في الدلالة على موضع تخزين العنصر في الذاكرة. ولن نخوض في تفاصيل ذلك لأنها دون التطبيق.
+
+**المرقوم** ([`Hashable`](https://docs.python.org/3/glossary.html#term-hashable)): هو ما يقبل الإجراء `hash()` الذي يحول الشيء إلى رقم يرمز إليه. ومنه:
+
+- الرقم (`int`) رقْمه هو نفسه
+- النص (`str`) له خوارزمية معيَّنة لرقْمه ([انظر هنا للاستزادة](https://cp-algorithms.com/string/string-hashing.html))
+- الصف (`tuple`) رقْمه هو رقم عناصره (فيجب أن تكون جميع عناصره مرقومة)
