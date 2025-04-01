@@ -113,18 +113,19 @@ async      elif       if         or         yield
 -   الجمع: `list`, `tuple`, `range`, `set`, `dict` لغير المفرد
 
 ```{mermaid}
-graph RL
-    A[الأنواع المبنية] --> B[الرقم <br> number]
-    A --> C[النص <br> str]
-    B --> E[صحيح <br> int]
-    B --> F[عشري <br> float]
-    B --> G[مركب <br> complex]
-    A --> D[الجمع <br> collection]
-    D --> H[قائمة <br> list]
-    D --> I[صف <br> tuple]
-    D --> J[نطاق <br> range]
-    D --> K[مجموعة <br> set]
-    D --> L[قاموس <br> dict]
+graph TD
+    A[<b>شيء</b> <br> <code>Object</code>] --> B[<b>رقم</b> <br> <code>Number</code>]
+    B --> E[<b>صحيح</b> <br> <code>int</code>]
+    B --> F[<b>عشري</b> <br> <code>float</code>]
+    B --> G[<b>مركب</b> <br> <code>Complex</code>]
+    A --> D[<b>جمع</b> <br> <code>Collection</code>]
+    D --> M[<b>تسلسل</b> <br> <code>Sequence</code>]
+    M --> C[<b>نص</b> <br> <code>str</code>]
+    M --> H[<b>قائمة</b> <br> <code>list</code>]
+    M --> I[<b>صف</b> <br> <code>tuple</code>]
+    M --> J[<b>نطاق</b> <br> <code>range</code>]
+    D --> K[<b>مجموعة</b> <br> <code>set</code>]
+    D --> L[<b>قاموس</b> <br> <code>dict</code>]
 ```
 
 وسيأتي تفصيلها في أبوابها إن شاء الله.
