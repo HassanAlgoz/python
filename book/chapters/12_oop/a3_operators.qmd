@@ -85,7 +85,7 @@ v1 * v2
 ماذا لو أردنا إضافة عمليات بين المتجه والعدد، نحو: `v1 + 3`? يتطلب ذلك إضافة شرط لفحص النوع، وهو `isinstance` كالتالي:
 
 ```{python}
-class Vector:
+class Vector2D:
     def __init__(self, x, y):
         self.x = x
         self.y = y
@@ -94,28 +94,28 @@ class Vector:
         return f"Vector({self.x}, {self.y})"
     
     def __add__(self, other):
-        if isinstance(other, Vector):
-            return Vector(self.x + other.x, self.y + other.y)
+        if isinstance(other, Vector2D):
+            return Vector2D(self.x + other.x, self.y + other.y)
         else:
-            return Vector(self.x + other, self.y + other)
+            return Vector2D(self.x + other, self.y + other)
     
     def __sub__(self, other):
-        if isinstance(other, Vector):
-            return Vector(self.x - other.x, self.y - other.y)
+        if isinstance(other, Vector2D):
+            return Vector2D(self.x - other.x, self.y - other.y)
         else:
-            return Vector(self.x - other, self.y - other)
+            return Vector2D(self.x - other, self.y - other)
     
     def __mul__(self, other):
-        if isinstance(other, Vector):
-            return Vector(self.x * other.x, self.y * other.y)
+        if isinstance(other, Vector2D):
+            return Vector2D(self.x * other.x, self.y * other.y)
         else:
-            return Vector(self.x * other, self.y * other)
+            return Vector2D(self.x * other, self.y * other)
 ```
 
 وهكذا يصبح التفاعل بين المتجَّه والعدد، وهما نوعان مختلفان (`int` و `Vector`):
 
 ```{python}
-v1 = Vector(1, 2)
+v1 = Vector2D(1, 2)
 v1 + 3
 ```
 
@@ -137,7 +137,7 @@ v1 + 3
 نعدل الإجراء بحيث نضيف إليه المقابل:
 
 ```{python}
-class Vector:
+class Vector2D:
     def __init__(self, x, y):
         self.x = x
         self.y = y
@@ -146,10 +146,10 @@ class Vector:
         return f"Vector({self.x}, {self.y})"
     
     def __add__(self, other):
-        if isinstance(other, Vector):
-            return Vector(self.x + other.x, self.y + other.y)
+        if isinstance(other, Vector2D):
+            return Vector2D(self.x + other.x, self.y + other.y)
         else:
-            return Vector(self.x + other, self.y + other)
+            return Vector2D(self.x + other, self.y + other)
 
     def __radd__(self, other):
         return self + other
@@ -158,7 +158,7 @@ class Vector:
 والآن كلاهما يعمل بشكل صحيح:
 
 ```{python}
-v1 = Vector(1, 2)
+v1 = Vector2D(1, 2)
 3 + v1
 ```
 
