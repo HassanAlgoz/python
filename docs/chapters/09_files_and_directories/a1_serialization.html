@@ -423,6 +423,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">مسائل</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/08_procedural/solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">الحلول</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -471,14 +477,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/12_oop/a1_classes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/12_oop/a1_objects.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">الأنواع</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/12_oop/a2_classes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">التجريد</span></span></a>
+  <a href="../../chapters/12_oop/a2_composition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">استمداد الأنواع</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/12_oop/a3_operators.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">المعاملات المخصصة</span></span></a>
   </div>
 </li>
       </ul>
@@ -495,13 +507,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/13_errors/a1_errors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/13_errors/a2_exceptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">الاستثناء</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الاستثناء</span></span></a>
   </div>
 </li>
       </ul>
@@ -518,7 +530,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/14_time/a1_time.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
   </div>
 </li>
       </ul>
@@ -535,19 +547,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/15_using/a1_use_library.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">مكتبة البرمجيات</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">مكتبة البرمجيات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/15_using/a2_use_sdk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">الخدمات البرمجية</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">الخدمات البرمجية</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/15_using/a3_use_http.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">التخاطب عبر الشبكة</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">التخاطب عبر الشبكة</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -631,9 +643,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><strong>الصف</strong>: <code>[v1, v2, ...]</code></li>
 <li><strong>الربط</strong>: <code>{k1: v1, k2: v2, ...}</code></li>
-<li><strong>التضمين</strong>: وهو جعل العنصر نفسه صفًّا أو ارتباطًا</li>
+<li><strong>التضمين</strong>: وهو جعل العنصر نفسه صفًّا أو ارتباطًا
+<ul>
+<li>تضمين الصف لصفوف: <code>[[v1, v2, ...], [v1, v2, ...], ...]</code></li>
+<li>تضمين الصف لروابط: <code>[{k1: v1, k2: v2, ...}, {k1: v1, k2: v2, ...}, ...]</code></li>
+<li>تضمين الروابط لصفوف: <code>{k1: [v1, v2, ...], k2: [v1, v2, ...], ...}</code></li>
+<li>تضمين الروابط لروابط: <code>{k1: {k2: v2, k3: v3, ...}, k2: {k4: v4, k5: v5, ...}, ...}</code></li>
+</ul></li>
 </ol>
-<p>فالصفوف تتميز بكون كل صفٍّ فيها تدوينًا لمجموعة خصائص تشترك في العمود كله. أما الارتباط ففيه مرونة؛ فمجموعة الارتباطات لا تُلزِم كل ارتباط أن يكون له ذات خصائص الارتباط الذي قبله. والتقسيمات تُنتج التضمين.</p>
+<p>فالصفوف تتميز بكون كل صفٍّ فيها تدوينًا لمجموعة خصائص تشترك في العمود كله. أما الارتباط ففيه مرونة؛ فمجموعة الارتباطات لا تُلزِم كل ارتباط أن يكون له ذات خصائص الارتباط الذي قبله.</p>
 <section id="الارتباط-والتضمين" class="level2">
 <h2 class="anchored" data-anchor-id="الارتباط-والتضمين">الارتباط والتضمين</h2>
 <p>سنمثل باستعمال <a href="https://docs.python.org/3/library/json.html">الوحدة المدمجة <code>json</code></a> ذات وظائف القراءة والكتابة لملفات مصاغة على شكل json. فإن كنت تتعامل مع صيغ أخرى انظر في الوثائق:</p>
@@ -641,11 +659,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="https://docs.python.org/3/library/xml.html">الوحدة المدمجة <code>xml</code></a> لصيغة <code>xml</code>.</li>
 <li>أو <a href="https://pyyaml.org/wiki/PyYAMLDocumentation">مكتبة <code>pyyaml</code></a> لصيغة <code>yaml</code>.</li>
 </ul>
-<div id="564e6f61" class="cell" data-execution_count="1">
+<div id="564e6f61" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> json</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>لنفترض أن لدينا <code>user_preferences</code> محفوظًا في القاموس، ونريد حفظه في ملف json:</p>
-<div id="6c7e82ae" class="cell" data-execution_count="2">
+<p>لنفترض أن لدينا <code>user_preferences</code> محفوظًا في القاموس التالي، ونريد حفظه في ملف json:</p>
+<div id="6c7e82ae" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>user_preferences <span class="op">=</span> {</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    <span class="st">'theme'</span>: <span class="st">'dark'</span>,</span>
 <span id="cb2-3"><a href="#cb2-3"></a>    <span class="st">'language'</span>: <span class="st">'Arabic'</span>,</span>
@@ -659,12 +677,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-11"><a href="#cb2-11"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>لنكتبها في الملف نستعمال <code>json.dump</code> على النحو التالي:</p>
-<div id="4a2baf97" class="cell" data-execution_count="3">
+<div id="4a2baf97" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/user_preferences.json'</span>, mode<span class="op">=</span><span class="st">'w'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    json.dump(user_preferences, <span class="bu">file</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>فإذا أردنا قراءتها استعمال <code>json.load</code> على النحو التالي:</p>
-<div id="831dc71a" class="cell" data-execution_count="4">
+<p>فإذا أردنا قراءتها نستعمل <code>json.load</code> على النحو التالي:</p>
+<div id="831dc71a" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/user_preferences.json'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb4-2"><a href="#cb4-2"></a>    data <span class="op">=</span> json.load(<span class="bu">file</span>)</span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="bu">print</span>(data)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -687,11 +705,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>كائن <a href="https://docs.python.org/3/library/csv.html#csv.reader"><code>reader</code></a> لعمليات القراءة</li>
 <li>وكائن آخر منفصل اسمه <a href="https://docs.python.org/3/library/csv.html#csv.writer"><code>writer</code></a> يحوي عمليات الكتابة</li>
 </ul>
-<div id="6d68ecfd" class="cell" data-execution_count="5">
+<div id="6d68ecfd" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> csv</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>لنكتب قائمة من الطلاب إلى ملف CSV. لاحظ، لدينا قائمة من قوائم، حيث تمثل كل قائمة داخلية صفًا لوحدها:</p>
-<div id="540f71bf" class="cell" data-execution_count="6">
+<div id="540f71bf" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>header <span class="op">=</span> [<span class="st">'Name'</span>, <span class="st">'Age'</span>, <span class="st">'Grade'</span>]</span>
 <span id="cb7-2"><a href="#cb7-2"></a>rows <span class="op">=</span> [</span>
 <span id="cb7-3"><a href="#cb7-3"></a>    [<span class="st">'Adam'</span>, <span class="dv">22</span>, <span class="dv">90</span>],</span>
@@ -700,7 +718,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-6"><a href="#cb7-6"></a>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>نكتبها على النحو التالي:</p>
-<div id="05fe12bd" class="cell" data-execution_count="7">
+<div id="05fe12bd" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/students.csv'</span>, mode<span class="op">=</span><span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb8-2"><a href="#cb8-2"></a>    writer <span class="op">=</span> csv.writer(<span class="bu">file</span>)</span>
 <span id="cb8-3"><a href="#cb8-3"></a>    writer.writerow(header)</span>
@@ -708,7 +726,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>ملاحظة، يمكنك محاولة فتح الملف مباشرة من مستكشف الملفات. حاول فتحه باستخدام Excel أو Google Sheet أو أي برنامج جداول بيانات آخر. إذا فتحته باستخدام محرر نصوص، سترى البيانات كملف CSV؛ حرفيًا قيم مفصولة بفواصل.</p>
 <p>الآن، دعنا نقرأه كهيكل بيانات في بايثون: كقائمة من القوائم.</p>
-<div id="189ca046" class="cell" data-execution_count="8">
+<div id="189ca046" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/students.csv'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb9-2"><a href="#cb9-2"></a>    reader <span class="op">=</span> csv.reader(<span class="bu">file</span>)</span>
 <span id="cb9-3"><a href="#cb9-3"></a>    <span class="cf">for</span> row <span class="kw">in</span> reader:</span>
@@ -721,7 +739,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>لنحاول حساب متوسط درجات الطلاب.</p>
-<div id="c87ce032" class="cell" data-execution_count="9">
+<div id="c87ce032" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>students <span class="op">=</span> []</span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/students.csv'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb11-3"><a href="#cb11-3"></a>    reader <span class="op">=</span> csv.reader(<span class="bu">file</span>)</span>
@@ -730,7 +748,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-6"><a href="#cb11-6"></a>        students.append(row)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>الآن بعد أن حفظناها في القائمة <code>students</code>، دعونا نقوم ببعض العمليات الحسابية.</p>
-<div id="6c34d660" class="cell" data-execution_count="10">
+<div id="6c34d660" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>grades <span class="op">=</span> [s[<span class="dv">2</span>] <span class="cf">for</span> s <span class="kw">in</span> students]</span>
 <span id="cb12-2"><a href="#cb12-2"></a>avg <span class="op">=</span> <span class="bu">sum</span>(grades) <span class="op">/</span> <span class="bu">len</span>(grades)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -746,7 +764,7 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 </div>
 </div>
 <p>هذا الخطأ متوقع عند قراءة الملفات لأنها دائمًا تعتبر من نوع <code>str</code>، ولذلك نضطر لتحويل القيَم العددية إلى <code>int</code> لفعل عمليات رياضية:</p>
-<div id="b3d5200c" class="cell" data-execution_count="11">
+<div id="b3d5200c" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>grades <span class="op">=</span> [<span class="bu">int</span>(s[<span class="dv">2</span>]) <span class="cf">for</span> s <span class="kw">in</span> students]</span>
 <span id="cb13-2"><a href="#cb13-2"></a>avg <span class="op">=</span> <span class="bu">sum</span>(grades) <span class="op">/</span> <span class="bu">len</span>(grades)</span>
 <span id="cb13-3"><a href="#cb13-3"></a>avg</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -755,7 +773,7 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 </div>
 </div>
 <p>يمكنك أيضًا قراءة وكتابة البيانات في شكل قاموس باستخدام الكائنات <a href="https://docs.python.org/3/library/csv.html#csv.DictReader"><code>DictReader</code></a> و<a href="https://docs.python.org/3/library/csv.html#csv.DictWriter"><code>DictWriter</code></a>.</p>
-<div id="d7b55cb3" class="cell" data-execution_count="12">
+<div id="d7b55cb3" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/students.csv'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb15-2"><a href="#cb15-2"></a>    reader <span class="op">=</span> csv.DictReader(<span class="bu">file</span>)</span>
 <span id="cb15-3"><a href="#cb15-3"></a>    <span class="cf">for</span> row <span class="kw">in</span> reader:</span>

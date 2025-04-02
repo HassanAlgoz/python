@@ -461,6 +461,12 @@ window.Quarto = {
  <span class="menu-text">مسائل</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/08_procedural/solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">الحلول</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -509,14 +515,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/12_oop/a1_classes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/12_oop/a1_objects.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">الأنواع</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/12_oop/a2_classes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">التجريد</span></span></a>
+  <a href="../../chapters/12_oop/a2_composition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">استمداد الأنواع</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/12_oop/a3_operators.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">المعاملات المخصصة</span></span></a>
   </div>
 </li>
       </ul>
@@ -533,13 +545,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/13_errors/a1_errors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/13_errors/a2_exceptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">الاستثناء</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الاستثناء</span></span></a>
   </div>
 </li>
       </ul>
@@ -556,7 +568,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/14_time/a1_time.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
   </div>
 </li>
       </ul>
@@ -573,19 +585,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/15_using/a1_use_library.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">مكتبة البرمجيات</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">مكتبة البرمجيات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/15_using/a2_use_sdk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">الخدمات البرمجية</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">الخدمات البرمجية</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/15_using/a3_use_http.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">التخاطب عبر الشبكة</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">التخاطب عبر الشبكة</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -770,18 +782,19 @@ async      elif       if         or         yield</code></pre>
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">graph RL
-    A[الأنواع المبنية] --&gt; B[الرقم &lt;br&gt; number]
-    A --&gt; C[النص &lt;br&gt; str]
-    B --&gt; E[صحيح &lt;br&gt; int]
-    B --&gt; F[عشري &lt;br&gt; float]
-    B --&gt; G[مركب &lt;br&gt; complex]
-    A --&gt; D[الجمع &lt;br&gt; collection]
-    D --&gt; H[قائمة &lt;br&gt; list]
-    D --&gt; I[صف &lt;br&gt; tuple]
-    D --&gt; J[نطاق &lt;br&gt; range]
-    D --&gt; K[مجموعة &lt;br&gt; set]
-    D --&gt; L[قاموس &lt;br&gt; dict]
+<pre class="mermaid mermaid-js">graph TD
+    A[&lt;b&gt;شيء&lt;/b&gt; &lt;br&gt; &lt;code&gt;Object&lt;/code&gt;] --&gt; B[&lt;b&gt;رقم&lt;/b&gt; &lt;br&gt; &lt;code&gt;Number&lt;/code&gt;]
+    B --&gt; E[&lt;b&gt;صحيح&lt;/b&gt; &lt;br&gt; &lt;code&gt;int&lt;/code&gt;]
+    B --&gt; F[&lt;b&gt;عشري&lt;/b&gt; &lt;br&gt; &lt;code&gt;float&lt;/code&gt;]
+    B --&gt; G[&lt;b&gt;مركب&lt;/b&gt; &lt;br&gt; &lt;code&gt;Complex&lt;/code&gt;]
+    A --&gt; D[&lt;b&gt;جمع&lt;/b&gt; &lt;br&gt; &lt;code&gt;Collection&lt;/code&gt;]
+    D --&gt; M[&lt;b&gt;تسلسل&lt;/b&gt; &lt;br&gt; &lt;code&gt;Sequence&lt;/code&gt;]
+    M --&gt; C[&lt;b&gt;نص&lt;/b&gt; &lt;br&gt; &lt;code&gt;str&lt;/code&gt;]
+    M --&gt; H[&lt;b&gt;قائمة&lt;/b&gt; &lt;br&gt; &lt;code&gt;list&lt;/code&gt;]
+    M --&gt; I[&lt;b&gt;صف&lt;/b&gt; &lt;br&gt; &lt;code&gt;tuple&lt;/code&gt;]
+    M --&gt; J[&lt;b&gt;نطاق&lt;/b&gt; &lt;br&gt; &lt;code&gt;range&lt;/code&gt;]
+    D --&gt; K[&lt;b&gt;مجموعة&lt;/b&gt; &lt;br&gt; &lt;code&gt;set&lt;/code&gt;]
+    D --&gt; L[&lt;b&gt;قاموس&lt;/b&gt; &lt;br&gt; &lt;code&gt;dict&lt;/code&gt;]
 </pre>
 </div>
 <p></p></figure><p></p>

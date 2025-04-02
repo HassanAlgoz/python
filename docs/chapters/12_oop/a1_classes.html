@@ -109,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <meta name="twitter:title" content="17&nbsp; الأنواع – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/12_oop/cover.jpeg">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/assets/Venn_Programming_Paradigms_ar.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -427,6 +427,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">مسائل</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/08_procedural/solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">الحلول</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -482,7 +488,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/12_oop/a2_classes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">التجريد</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">المعاملات المخصصة</span></span></a>
   </div>
 </li>
       </ul>
@@ -599,16 +605,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#إنشاء-المعينات" id="toc-إنشاء-المعينات" class="nav-link" data-scroll-target="#إنشاء-المعينات">إنشاء المعينات</a></li>
   <li><a href="#الإشارة-إلى-الصفات-والإجراءات" id="toc-الإشارة-إلى-الصفات-والإجراءات" class="nav-link" data-scroll-target="#الإشارة-إلى-الصفات-والإجراءات">الإشارة إلى الصفات والإجراءات</a></li>
-  <li><a href="#التمثيل" id="toc-التمثيل" class="nav-link" data-scroll-target="#التمثيل">التمثيل</a></li>
+  </ul></li>
+  <li><a href="#العرض" id="toc-العرض" class="nav-link" data-scroll-target="#العرض">العرض</a></li>
   <li><a href="#الإجراء-الثابت" id="toc-الإجراء-الثابت" class="nav-link" data-scroll-target="#الإجراء-الثابت">الإجراء الثابت</a></li>
   <li><a href="#المتغير-الثابت" id="toc-المتغير-الثابت" class="nav-link" data-scroll-target="#المتغير-الثابت">المتغير الثابت</a></li>
-  </ul></li>
-  <li><a href="#التغليف-encapsulation" id="toc-التغليف-encapsulation" class="nav-link" data-scroll-target="#التغليف-encapsulation">التغليف (Encapsulation)</a></li>
-  <li><a href="#تصنيف-الأنواع" id="toc-تصنيف-الأنواع" class="nav-link" data-scroll-target="#تصنيف-الأنواع">تصنيف الأنواع</a></li>
-  <li><a href="#التصنيف-الاسمي-الوراثة-inheritance" id="toc-التصنيف-الاسمي-الوراثة-inheritance" class="nav-link" data-scroll-target="#التصنيف-الاسمي-الوراثة-inheritance">التصنيف الاسمي: الوراثة (Inheritance)</a></li>
-  <li><a href="#التصنيف-العملي-التركيب-composition" id="toc-التصنيف-العملي-التركيب-composition" class="nav-link" data-scroll-target="#التصنيف-العملي-التركيب-composition">التصنيف العملي: التركيب (Composition)</a></li>
-  <li><a href="#المعاملات-operators" id="toc-المعاملات-operators" class="nav-link" data-scroll-target="#المعاملات-operators">المعاملات (Operators)</a></li>
-  <li><a href="#المصطلحات" id="toc-المصطلحات" class="nav-link" data-scroll-target="#المصطلحات">المصطلحات</a></li>
+  <li><a href="#تغليف-العمليات" id="toc-تغليف-العمليات" class="nav-link" data-scroll-target="#تغليف-العمليات">تغليف العمليات</a></li>
+  <li><a href="#هيكل-البيانات" id="toc-هيكل-البيانات" class="nav-link" data-scroll-target="#هيكل-البيانات">هيكل البيانات</a></li>
+  <li><a href="#الكومة-stack" id="toc-الكومة-stack" class="nav-link" data-scroll-target="#الكومة-stack">الكومة (<code>Stack</code>)</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
@@ -634,15 +637,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>تتخذ بايثون نموذجًا في البرمجة يسمى <strong>البرمجة الشيئية</strong> (Object Oriented Programming)؛ وفكرتها تدور حول إسناد المتغيرات والإجراءات <strong>لشيء</strong> مُعَيَّنٍ من <strong>نوع</strong> ما.</p>
-<p>فمثلاً: نوع القائمة يُنشأُ مِنهُ قائمة معيَّنة (هي الشيء) يُسنَدُ إليها إجراءات الإضافة والحذف والتعديل فتحدثُ فيها. فيُمكن أن يكون لدينا قائمتان الأولى شيء والثانية شيءٌ آخر مختلفٌ عنه ولو تطابقت أسماء الإجراءات والمتغيرات بينهما. ويُمكن دمجهما بفعل رمز الجمع <code>+</code>، وهكذا ..</p>
-<p>فكل شيء له نوعٌ كما عرفنا. وقد يندرج النوع تحت نوعٍ آخر أو يكون هو باعتبارٍ ما. والنوعُ الأشملُ الذي تدخل تحته جميع الأنواع يسمَّى <strong>الشيء</strong> بـ(أل) التعريف (Object).</p>
+<p>وقد عرفنا أن من طرائق البرمجة في بايثون:</p>
+<ul>
+<li>الأمرية (Imperative): تعليمات ينفذها البرنامج بتسلسل</li>
+<li>الإجرائية (Procedural): إجراءات تستدعي إجراءات بشكل هرمي</li>
+<li>والآن نعرف أنها أيضًا <strong>شيئية</strong> (Object-oriented): أشياء لها صفات وأفعال وتفاعلات مع أشياء أخرى قد تنتمي إلى نفس النوع</li>
+</ul>
+<div class="text-center">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../assets/Venn_Programming_Paradigms_ar.jpg" class="img-fluid figure-img"></p>
+<figcaption>الطرائق البرمجية: الشيئية، الأمرية، الإجرائية</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../assets/Venn_Programming_Paradigms.jpg" class="img-fluid figure-img"></p>
+<figcaption>Programming Paradigms: Object-oriented, Procedural, Imperative</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>وقد كنا نتعامل مع أشياء طيلة هذه الفترة؛ بدءًا بالرقم (<code>Number</code>) ومرورًا بفروعه: (<code>int</code>) و (<code>float</code>) و (<code>bool</code>)، مرورًا بالقائمة (<code>list</code>) والصف (<code>tuple</code>) والنطاق (<code>range</code>) والنص (<code>str</code>)، وكذلك المجموعة (<code>set</code>) والقاموس (<code>dict</code>).</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+    A[&lt;b&gt;شيء&lt;/b&gt; &lt;br&gt; &lt;code&gt;Object&lt;/code&gt;] --&gt; B[&lt;b&gt;رقم&lt;/b&gt; &lt;br&gt; &lt;code&gt;Number&lt;/code&gt;]
+    B --&gt; E[&lt;b&gt;صحيح&lt;/b&gt; &lt;br&gt; &lt;code&gt;int&lt;/code&gt;]
+    B --&gt; F[&lt;b&gt;عشري&lt;/b&gt; &lt;br&gt; &lt;code&gt;float&lt;/code&gt;]
+    B --&gt; G[&lt;b&gt;مركب&lt;/b&gt; &lt;br&gt; &lt;code&gt;Complex&lt;/code&gt;]
+    A --&gt; D[&lt;b&gt;جمع&lt;/b&gt; &lt;br&gt; &lt;code&gt;Collection&lt;/code&gt;]
+    D --&gt; M[&lt;b&gt;تسلسل&lt;/b&gt; &lt;br&gt; &lt;code&gt;Sequence&lt;/code&gt;]
+    M --&gt; C[&lt;b&gt;نص&lt;/b&gt; &lt;br&gt; &lt;code&gt;str&lt;/code&gt;]
+    M --&gt; H[&lt;b&gt;قائمة&lt;/b&gt; &lt;br&gt; &lt;code&gt;list&lt;/code&gt;]
+    M --&gt; I[&lt;b&gt;صف&lt;/b&gt; &lt;br&gt; &lt;code&gt;tuple&lt;/code&gt;]
+    M --&gt; J[&lt;b&gt;نطاق&lt;/b&gt; &lt;br&gt; &lt;code&gt;range&lt;/code&gt;]
+    D --&gt; K[&lt;b&gt;مجموعة&lt;/b&gt; &lt;br&gt; &lt;code&gt;set&lt;/code&gt;]
+    D --&gt; L[&lt;b&gt;قاموس&lt;/b&gt; &lt;br&gt; &lt;code&gt;dict&lt;/code&gt;]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>وكل الأنواع من نوع <strong>شيء</strong> (Object). ثم تتفرع الأنواع وتتفرع. وقد يدخل النوع في أكثر من نوع بحسب الاعتبار (يأتي تفصيله).</p>
+<p>ففكرة <strong>البرمجة الشيئية</strong> تدور حول إسناد المتغيرات والإجراءات <strong>لشيء</strong> مُعَيَّنٍ من <strong>نوع</strong> ما. ونشبه هذه الأشياء بالمحسوسات فيقال أنها أشياء ذات صفات وأفعال؛ إشارةً إلى المتغيرات والإجراءات المسندة إليها. ومن هذه الأفعال ما يكون بين الأشياء؛ فهو <strong>تفاعل</strong> بين نوع ونوع.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../assets/Object_Capsule.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>الشيء</figcaption>
+</figure>
+</div>
+<p>فمثلاً: نوع القائمة (<code>list</code>) يُنشأُ مِنهُ قائمة معيَّنة (هي الشيء: <code>xs = [1, 2, 3]</code>) يُسنَدُ إليها إجراءات الإضافة (<code>xs.append</code>) والحذف (<code>xs.remove</code>) والتعديل (<code>xs[i] = x</code>) ونحو ذلك.</p>
+<p>وأما التفاعلات؛ فهي علي قسمين:</p>
+<p>الأول: <strong>بين الشيء ونظيره</strong> (من نفس النوع)؛ وذلك نحو تعريف: <code>list + list = list</code> بحيث تعرَّف علامة <code>+</code> بين الشيئين بعملية الدمج (لا الجمع). وكان من الممكن أن تعرَّف بأنها جمع.</p>
+<p>الثاني: <strong>بين الشيء وخلافه</strong> (من نوع آخر)؛ وذلك نحو: <code>list.append(Any)</code> فإن القائمة تقبل في فعل الإلحاق (<code>append</code>) أي نوع. ويمكن تقييد النوع الذي يقبله الفعل كما كنا نفعل في الإجراءات؛ إذْ الأفعال ما هي إلا إجراءات مُسندة إلى نوع.</p>
 <section id="تعريف-النوع" class="level2">
 <h2 class="anchored" data-anchor-id="تعريف-النوع">تعريف النوع</h2>
-<p>يُعرَّف النوع بالكلمة <code>class</code> ويُبتدأُ غالبًا بتعريف فعل الإنشاء <a href="https://docs.python.org/3/reference/datamodel.html#object.__init__"><code>__init__</code></a> ليتم تعيين الصفات فيه بالإسناد للاسم <code>self</code> الذي يشير إلى الشيء المعين الذي يتم إنشاؤه الآن.</p>
-<p>أما تعريف الإجراءات مثل <code>def move</code> فبزيادة المعمول <code>self</code> (نفس) في الابتداء.</p>
+<p>يُعرَّف النوع بالكلمة <code>class</code> (<strong>صِنْف</strong>) ويُبتدأُ غالبًا بتعريف <strong>إجراء الإنشاء</strong> <a href="https://docs.python.org/3/reference/datamodel.html#object.__init__"><code>__init__</code></a> (Initialization) ليتم تعيين <strong>الصفات</strong> (Properties) فيه بالإسناد للاسم <code>self</code> (<strong>نَفْس</strong>) الذي يشير إلى <strong>الشيء المعيَّن</strong> (Instance) الذي يتم إنشاؤه في هذا الإجراء.</p>
+<p>أما تعريف <strong>الأفعال</strong> (Methods) مثل <code>def move</code> فبزيادة عامل النفس (<code>self</code>) في الابتداء.</p>
 <p>تأمل المثال التالي:</p>
-<div id="69246954" class="cell" data-execution_count="2">
+<div id="4b0c95f7" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb1-3"><a href="#cb1-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
@@ -652,11 +714,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7"></a>        <span class="va">self</span>.x <span class="op">+=</span> dx</span>
 <span id="cb1-8"><a href="#cb1-8"></a>        <span class="va">self</span>.y <span class="op">+=</span> dy</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>حيث عرفنا نوعًا جديدًا هو النقطة (Point) وجعلنا له متغيرين: <code>x</code> و <code>y</code> متعلقين بكل معيَّنٍ منها، وكذلك جعلنا له فعل الحركة (move) لتحريك النقطة بمقدارٍ ما (<code>dx, dy</code>).</p>
+<p>حيث عرفنا:</p>
+<ul>
+<li>الصنف/النوع: <code>Point</code></li>
+<li>الصفتان: <code>x, y</code> المسندة إلى كل معيَّن يتم إنشاؤه من هذا النوع</li>
+<li>الإجراء: <code>move</code> وهو كذلك مسند إلى كل معيَّن يتم إنشاؤه من هذا النوع</li>
+</ul>
 <section id="إنشاء-المعينات" class="level3">
 <h3 class="anchored" data-anchor-id="إنشاء-المعينات">إنشاء المعينات</h3>
 <p>والآن نستطيع إنشاء معيَّنات من هذا النوع ونمرر القيم <code>x, y</code> بحسب ما هو موجود في الإجراء المخصص للإنشاء: <code>__init__</code> على النحو التالي:</p>
-<div id="36822675" class="cell" data-execution_count="3">
+<div id="223de4f9" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>p1 <span class="op">=</span> Point(<span class="dv">3</span>, <span class="dv">4</span>)</span>
 <span id="cb2-2"><a href="#cb2-2"></a>p2 <span class="op">=</span> Point(<span class="dv">7</span>, <span class="dv">1</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -664,7 +731,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="الإشارة-إلى-الصفات-والإجراءات" class="level3">
 <h3 class="anchored" data-anchor-id="الإشارة-إلى-الصفات-والإجراءات">الإشارة إلى الصفات والإجراءات</h3>
 <p>نستعمل حرف النقطة <code>.</code> بعد اسم المعيَّن للإشارة لصفته أو فعله هو، نحو: <code>p1.x</code>:</p>
-<div id="753d8cfe" class="cell" data-execution_count="4">
+<div id="4f24c46a" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>x_diff <span class="op">=</span> <span class="bu">abs</span>(p1.x <span class="op">-</span> p2.x)</span>
 <span id="cb3-2"><a href="#cb3-2"></a>y_diff <span class="op">=</span> <span class="bu">abs</span>(p1.y <span class="op">-</span> p2.y)</span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="bu">print</span>(<span class="ss">f'X difference is </span><span class="sc">{</span>x_diff<span class="sc">}</span><span class="ss"> and Y difference is </span><span class="sc">{</span>y_diff<span class="sc">}</span><span class="ss">.'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -673,7 +740,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>وهذا مثال لطلب الإجراء: <code>p1.move()</code></p>
-<div id="91b8898c" class="cell" data-execution_count="5">
+<div id="83415858" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>p1.move(<span class="dv">4</span>, <span class="dv">4</span>)</span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(p1.x, p1.y)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -681,17 +748,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="التمثيل" class="level3">
-<h3 class="anchored" data-anchor-id="التمثيل">التمثيل</h3>
-<p>لو أردنا طباعة النقطة، كيف تظهر؟</p>
-<div id="1bb23be1" class="cell" data-execution_count="6">
+</section>
+<section id="العرض" class="level2">
+<h2 class="anchored" data-anchor-id="العرض">العرض</h2>
+<p>ماذا لو أردت عرض النقطة، بحيث لو وضعتها في جملة <code>print</code> فإنها تظهر كإحداثيات؟ لو حاولت ذلك الآن، فستجد أن الناتج هو محل الشيء في الذاكرة:</p>
+<div id="6bb39bb0" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">print</span>(p1)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;__main__.Point object at 0x720550b92240&gt;</code></pre>
+<pre><code>&lt;__main__.Point object at 0x7d35f0bba060&gt;</code></pre>
 </div>
 </div>
-<p>لتخصيص طريقة عرض الشيء، بحيث لو طبعناه أو ذكرناه في آخر السطر يظهر البشكل الذي نريده، يمكن تغيير الإجراء المخصص <a href="https://docs.python.org/3/reference/datamodel.html#object.__repr__"><code>__repr__</code></a> أي: التمثيل .. هكذا:</p>
-<div id="02c2fa68" class="cell" data-execution_count="7">
+<p>يستعمل الفعل الخاص <a href="https://docs.python.org/3/reference/datamodel.html#object.__repr__"><code>__repr__</code></a>، ويعني <strong>التمثيل</strong> (Representation) لتخصيص طريقة عرض الشيء؛ سواءٌ إذا تم تمرير في <code>print</code> أو في آخر سطر من الخلية. كل ما عليك هو إعادة قيمة نصيَّة من ذلك الفعل.</p>
+<div id="d9a7b607" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb9-2"><a href="#cb9-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb9-3"><a href="#cb9-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
@@ -704,591 +772,203 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-10"><a href="#cb9-10"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
 <span id="cb9-11"><a href="#cb9-11"></a>        <span class="cf">return</span> <span class="ss">f"Point(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>والآن إن عرفنا نقطة جديدة، ووضعناها على السطر لوحدها ، ستظهر لنا الإحداثيات، لا عنوانها الذاكري:</p>
-<div id="a9aa2d2e" class="cell" data-execution_count="8">
+<p>والآن إن عرفنا نقطة جديدة، ووضعناها على السطر لوحدها ، ستظهر لنا الإحداثيات، لا عنوانها في الذاكرة:</p>
+<div id="42c6ca0e" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>p <span class="op">=</span> Point(<span class="dv">3</span>, <span class="dv">4</span>)</span>
 <span id="cb10-2"><a href="#cb10-2"></a>p.move(<span class="dv">7</span>, <span class="dv">6</span>)</span>
 <span id="cb10-3"><a href="#cb10-3"></a>p</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>Point(10, 10)</code></pre>
 </div>
 </div>
 </section>
-<section id="الإجراء-الثابت" class="level3">
-<h3 class="anchored" data-anchor-id="الإجراء-الثابت">الإجراء الثابت</h3>
-<p><strong>الإجراء الثابت</strong> هو ما يُسنَدُ للنوع نفسه لا للأعيان. ويتم تثبيت الإجراء بعلامة <strong>المزيِّن</strong> <code>@staticmethod</code>. لاحظ عدم وجود <code>self</code> في الإجراء الجديد <code>distance</code> لأنه ثابت:</p>
-<div id="6199ab67" class="cell" data-execution_count="9">
+<section id="الإجراء-الثابت" class="level2">
+<h2 class="anchored" data-anchor-id="الإجراء-الثابت">الإجراء الثابت</h2>
+<p><strong>الإجراء الثابت</strong>: هو الإجراء المسند إلى النوع لا للمعيَّن.</p>
+<p>فيمكن إسناد الإجراء للجنس لا للشيء الواحد، وذلك بإضافة المعدِّل <code>@staticmethod</code> عليه. ونمثل لذلك بإجراء حساب المسافة بين نقطتين: <code>distance</code>. ولاحظ عدم وجود <code>self</code> فيه:</p>
+<div id="a3c2e1db" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb12-2"><a href="#cb12-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb12-3"><a href="#cb12-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
 <span id="cb12-4"><a href="#cb12-4"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
 <span id="cb12-5"><a href="#cb12-5"></a>    </span>
-<span id="cb12-6"><a href="#cb12-6"></a>    <span class="kw">def</span> move(<span class="va">self</span>, dx, dy):</span>
-<span id="cb12-7"><a href="#cb12-7"></a>        <span class="va">self</span>.x <span class="op">+=</span> dx</span>
-<span id="cb12-8"><a href="#cb12-8"></a>        <span class="va">self</span>.y <span class="op">+=</span> dy</span>
-<span id="cb12-9"><a href="#cb12-9"></a>    </span>
-<span id="cb12-10"><a href="#cb12-10"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
-<span id="cb12-11"><a href="#cb12-11"></a>        <span class="cf">return</span> <span class="ss">f"Point(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span></span>
-<span id="cb12-12"><a href="#cb12-12"></a>                </span>
-<span id="cb12-13"><a href="#cb12-13"></a>    <span class="at">@staticmethod</span></span>
-<span id="cb12-14"><a href="#cb12-14"></a>    <span class="kw">def</span> distance(p1, p2):</span>
-<span id="cb12-15"><a href="#cb12-15"></a>        <span class="cf">return</span> ((p1.x <span class="op">-</span> p2.x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (p1.y <span class="op">-</span> p2.y)<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span><span class="fl">0.5</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-6"><a href="#cb12-6"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb12-7"><a href="#cb12-7"></a>        <span class="cf">return</span> <span class="ss">f"Point(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a>    </span>
+<span id="cb12-9"><a href="#cb12-9"></a>    <span class="at">@staticmethod</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a>    <span class="kw">def</span> distance(p1, p2, distance_type<span class="op">=</span><span class="st">'euclidean'</span>):</span>
+<span id="cb12-11"><a href="#cb12-11"></a>        <span class="cf">if</span> distance_type <span class="op">==</span> <span class="st">'euclidean'</span>:</span>
+<span id="cb12-12"><a href="#cb12-12"></a>            <span class="cf">return</span> ((p1.x <span class="op">-</span> p2.x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (p1.y <span class="op">-</span> p2.y)<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span><span class="fl">0.5</span></span>
+<span id="cb12-13"><a href="#cb12-13"></a>        <span class="cf">elif</span> distance_type <span class="op">==</span> <span class="st">'manhattan'</span>:</span>
+<span id="cb12-14"><a href="#cb12-14"></a>            <span class="cf">return</span> <span class="bu">abs</span>(p1.x <span class="op">-</span> p2.x) <span class="op">+</span> <span class="bu">abs</span>(p1.y <span class="op">-</span> p2.y)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>ويتم استدعاؤه بذكر اسم النوع والنقطة <code>.</code>:</p>
-<div id="307a9072" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>a <span class="op">=</span> Point(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb13-2"><a href="#cb13-2"></a>b <span class="op">=</span> Point(<span class="dv">1</span>, <span class="dv">0</span>)</span>
+</section>
+<section id="المتغير-الثابت" class="level2">
+<h2 class="anchored" data-anchor-id="المتغير-الثابت">المتغير الثابت</h2>
+<p><strong>المتغير الثابت</strong>: هو المتغير المسند إلى النوع لا للمعيَّن.</p>
+<p>يُسنَد المتغير للنوع بتعيينه بمحاذاة غيره من الإجراءات نحو ما فعلنا هنا بالمتغير <code>decor</code>. ولاحظ استعماله في الإجراء <code>__repr__</code> في جملة <code>if-else</code> من غير استعمال <code>self</code> لأننا لا نشير إلى معيَّن.</p>
+<div id="55e6a3d0" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">class</span> Point:</span>
+<span id="cb13-2"><a href="#cb13-2"></a>    decor <span class="op">=</span> <span class="st">'&lt;&gt;'</span></span>
 <span id="cb13-3"><a href="#cb13-3"></a></span>
-<span id="cb13-4"><a href="#cb13-4"></a>Point.distance(a, b)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>1.4142135623730951</code></pre>
-</div>
-</div>
-</section>
-<section id="المتغير-الثابت" class="level3">
-<h3 class="anchored" data-anchor-id="المتغير-الثابت">المتغير الثابت</h3>
-<p>كذلك يُجعل المتغير من النوع الثابت بتعيينه بمحاذاة غيره من الإجراءات نحو ما فعلنا هنا بالمتغير <code>distance_type</code>. ولاحظ استعماله في الإجراء <code>distance</code> في جملة <code>if-else</code> من غير استعمال <code>self</code> لأننا لا نشير إلى معيَّن:</p>
-<div id="75bedd94" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">class</span> Point:</span>
-<span id="cb15-2"><a href="#cb15-2"></a>    distance_type <span class="op">=</span> <span class="st">'euclidean'</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a></span>
-<span id="cb15-4"><a href="#cb15-4"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
-<span id="cb15-5"><a href="#cb15-5"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
-<span id="cb15-6"><a href="#cb15-6"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
-<span id="cb15-7"><a href="#cb15-7"></a>    </span>
-<span id="cb15-8"><a href="#cb15-8"></a>    <span class="kw">def</span> move(<span class="va">self</span>, dx, dy):</span>
-<span id="cb15-9"><a href="#cb15-9"></a>        <span class="va">self</span>.x <span class="op">+=</span> dx</span>
-<span id="cb15-10"><a href="#cb15-10"></a>        <span class="va">self</span>.y <span class="op">+=</span> dy</span>
-<span id="cb15-11"><a href="#cb15-11"></a>    </span>
-<span id="cb15-12"><a href="#cb15-12"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
-<span id="cb15-13"><a href="#cb15-13"></a>        <span class="cf">return</span> <span class="ss">f"Point(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span></span>
-<span id="cb15-14"><a href="#cb15-14"></a>    </span>
-<span id="cb15-15"><a href="#cb15-15"></a>    <span class="at">@staticmethod</span></span>
-<span id="cb15-16"><a href="#cb15-16"></a>    <span class="kw">def</span> distance(p1, p2):</span>
-<span id="cb15-17"><a href="#cb15-17"></a>        <span class="cf">if</span> Point.distance_type <span class="op">==</span> <span class="st">'euclidean'</span>:</span>
-<span id="cb15-18"><a href="#cb15-18"></a>            <span class="cf">return</span> ((p1.x <span class="op">-</span> p2.x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (p1.y <span class="op">-</span> p2.y)<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span><span class="fl">0.5</span></span>
-<span id="cb15-19"><a href="#cb15-19"></a>        <span class="cf">elif</span> Point.distance_type <span class="op">==</span> <span class="st">'manhattan'</span>:</span>
-<span id="cb15-20"><a href="#cb15-20"></a>            <span class="cf">return</span> <span class="bu">abs</span>(p1.x <span class="op">-</span> p2.x) <span class="op">+</span> <span class="bu">abs</span>(p1.y <span class="op">-</span> p2.y)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-4"><a href="#cb13-4"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
+<span id="cb13-5"><a href="#cb13-5"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
+<span id="cb13-6"><a href="#cb13-6"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
+<span id="cb13-7"><a href="#cb13-7"></a>    </span>
+<span id="cb13-8"><a href="#cb13-8"></a>    <span class="kw">def</span> move(<span class="va">self</span>, dx, dy):</span>
+<span id="cb13-9"><a href="#cb13-9"></a>        <span class="va">self</span>.x <span class="op">+=</span> dx</span>
+<span id="cb13-10"><a href="#cb13-10"></a>        <span class="va">self</span>.y <span class="op">+=</span> dy</span>
+<span id="cb13-11"><a href="#cb13-11"></a>    </span>
+<span id="cb13-12"><a href="#cb13-12"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb13-13"><a href="#cb13-13"></a>        <span class="cf">if</span> Point.decor <span class="op">==</span> <span class="st">'&lt;&gt;'</span>:</span>
+<span id="cb13-14"><a href="#cb13-14"></a>            <span class="cf">return</span> <span class="ss">f"&lt;</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">&gt;"</span></span>
+<span id="cb13-15"><a href="#cb13-15"></a>        <span class="cf">elif</span> Point.decor <span class="op">==</span> <span class="st">'()'</span>:</span>
+<span id="cb13-16"><a href="#cb13-16"></a>            <span class="cf">return</span> <span class="ss">f"(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-</section>
-<section id="التغليف-encapsulation" class="level2">
-<h2 class="anchored" data-anchor-id="التغليف-encapsulation">التغليف (Encapsulation)</h2>
-<p>فكرة <strong>التغليف</strong> في البرمجة الشيئية هي إبعاد التفاصيل عن المستفيد.</p>
-<p>في المثال التالي لا نريد للمستفيد أن يعدِّل على الرصيد <code>balance</code> إلا عن طريق الإجراء <code>deposit</code> الذي يضمن أن الزيادة تكون موجبة.</p>
-<p>ولاحظ أن استعمال <code>__balance</code> عرفٌ بين المبرمجين في بايثون لنقول أن الصفة مخفيَّة عن المستفيد، وأنه يجب أن لا يغيرها مباشرةً.</p>
-<p>أما المزيِّن <code>@property</code> في الإجراء <code>balance</code> فإنه يرجع بقيمة الصفة لا بالصفة نفسها. وذلك ليمنع التعديل عليها.</p>
-<div id="e2005d88" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">class</span> Account:</span>
-<span id="cb16-2"><a href="#cb16-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, balance):</span>
-<span id="cb16-3"><a href="#cb16-3"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
-<span id="cb16-4"><a href="#cb16-4"></a>        <span class="va">self</span>.__balance <span class="op">=</span> balance</span>
-<span id="cb16-5"><a href="#cb16-5"></a></span>
-<span id="cb16-6"><a href="#cb16-6"></a>    <span class="kw">def</span> deposit(<span class="va">self</span>, amount):</span>
-<span id="cb16-7"><a href="#cb16-7"></a>        <span class="cf">if</span> amount <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
-<span id="cb16-8"><a href="#cb16-8"></a>            <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"must be positive"</span>)</span>
-<span id="cb16-9"><a href="#cb16-9"></a>        <span class="va">self</span>.__balance <span class="op">+=</span> amount</span>
-<span id="cb16-10"><a href="#cb16-10"></a>        <span class="bu">print</span>(<span class="st">'time of deposit:'</span>, <span class="st">'2027-07-07'</span>)</span>
-<span id="cb16-11"><a href="#cb16-11"></a></span>
-<span id="cb16-12"><a href="#cb16-12"></a>    <span class="at">@property</span></span>
-<span id="cb16-13"><a href="#cb16-13"></a>    <span class="kw">def</span> balance(<span class="va">self</span>):</span>
-<span id="cb16-14"><a href="#cb16-14"></a>        <span class="cf">return</span> <span class="va">self</span>.__balance</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="تغليف-العمليات" class="level2">
+<h2 class="anchored" data-anchor-id="تغليف-العمليات">تغليف العمليات</h2>
+<p><strong>تغليف العمليات</strong> (Encapsulation) هو توسُّطها قبليات أو بعديات.</p>
+<p>في المثال التالي لا نريد للمستفيد أن يعدِّل على الرصيد <code>balance</code> إلا عن طريق الإجراء <code>deposit</code> الذي يضمن أمرين:</p>
+<ul>
+<li><strong>قبليات</strong> (pre-conditions): كاشتراط أن الزيادة تكون موجبة قبل البدء</li>
+<li><strong>بعديات</strong> (post-conditions): ضمان تسجيل تاريخ العملية بعد التمام</li>
+</ul>
+<p>يتم ذلك في بايثون عن طريق جعل الصفة نفسها (<code>balance</code>) <strong>مخفيَّة</strong>، ونبدلها بصفة <strong>محميَّة</strong>: <code>__balance</code> بشرطتين سفليتين متقدِّمة. ثم نُبرِزُ الصفة عن طريق فعل قراءة؛ وذلك باستعمال <strong>المعدِّل</strong> <code>@property</code>، وهو يجعل الفعل <code>balance</code> يبرز كصفة بلا قوسين للاستدعاء <code>balance()</code> وذلك يعني أن مجرَّد عملية الوصول إلى الصفة (بعلامة النقطة: <code>.</code>) هو في الحقيقة استدعاء لفعل يعود بقيمة، لا بالصفة التي يمكن تعديلها.</p>
+<div id="79a7fd0b" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">class</span> Account:</span>
+<span id="cb14-2"><a href="#cb14-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, balance):</span>
+<span id="cb14-3"><a href="#cb14-3"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb14-4"><a href="#cb14-4"></a>        <span class="va">self</span>.__balance <span class="op">=</span> balance</span>
+<span id="cb14-5"><a href="#cb14-5"></a></span>
+<span id="cb14-6"><a href="#cb14-6"></a>    <span class="co"># الإيداع</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a>    <span class="kw">def</span> deposit(<span class="va">self</span>, amount):</span>
+<span id="cb14-8"><a href="#cb14-8"></a>        <span class="co"># قبليات الإيداع</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a>        <span class="cf">if</span> amount <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
+<span id="cb14-10"><a href="#cb14-10"></a>            <span class="bu">print</span>(<span class="st">"must be positive"</span>)</span>
+<span id="cb14-11"><a href="#cb14-11"></a>            <span class="cf">return</span></span>
+<span id="cb14-12"><a href="#cb14-12"></a>        </span>
+<span id="cb14-13"><a href="#cb14-13"></a>        <span class="co"># الإيداع نفسه</span></span>
+<span id="cb14-14"><a href="#cb14-14"></a>        <span class="va">self</span>.__balance <span class="op">+=</span> amount</span>
+<span id="cb14-15"><a href="#cb14-15"></a></span>
+<span id="cb14-16"><a href="#cb14-16"></a>        <span class="co"># بعديات الإيداع</span></span>
+<span id="cb14-17"><a href="#cb14-17"></a>        <span class="bu">print</span>(<span class="st">'time of deposit:'</span>, <span class="st">'2027-07-07'</span>)</span>
+<span id="cb14-18"><a href="#cb14-18"></a></span>
+<span id="cb14-19"><a href="#cb14-19"></a>    <span class="at">@property</span></span>
+<span id="cb14-20"><a href="#cb14-20"></a>    <span class="kw">def</span> balance(<span class="va">self</span>):</span>
+<span id="cb14-21"><a href="#cb14-21"></a>        <span class="cf">return</span> <span class="va">self</span>.__balance</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4aff4602" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>a1 <span class="op">=</span> Account(<span class="st">'Adam'</span>, <span class="dv">100</span>)</span>
-<span id="cb17-2"><a href="#cb17-2"></a>a1.balance</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<p>نقوم الآن بإنشاء هذا الشيء الذي يمثِّل حساب المستخدم (<code>Account</code>)، ثم نصِل إلى الصفة بعلامة النقطة: <code>a1.balance</code>؛ فيكون ذلك استدعاءً للإجراء الذي تم وضع المعدِّل <code>@property</code> عليه ليكون الوصول إليه كالصفة:</p>
+<div id="154cb2ce" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>a1 <span class="op">=</span> Account(<span class="st">'Adam'</span>, <span class="dv">100</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a>a1.balance</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>100</code></pre>
 </div>
 </div>
-<div id="417b8674" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>a1.deposit(<span class="dv">100</span>)</span>
-<span id="cb19-2"><a href="#cb19-2"></a>a1.balance</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>time of deposit: 2027-07-07</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="13">
-<pre><code>200</code></pre>
-</div>
-</div>
-<p>ولو حاولت التغيير مباشرة فلن تستطيع (من غير الشرطتين السفليتين):</p>
-<div id="242dc3e6" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>a1.balance <span class="op">=</span> <span class="dv">1000</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ولو حاولت التغيير مباشرة على الصفة فإنك أصلاً لن تجد اسمها مُسندًا إلى الشيء:</p>
+<div id="86aebe97" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>a1.balance <span class="op">=</span> <span class="dv">1000</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[14], line 1</span>
+Cell <span class="ansi-green-fg">In[29], line 1</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">a1</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">balance</span> <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(98,98,98)">1000</span>
 
 <span class="ansi-red-fg">AttributeError</span>: property 'balance' of 'Account' object has no setter</pre>
 </div>
 </div>
 </div>
-</section>
-<section id="تصنيف-الأنواع" class="level2">
-<h2 class="anchored" data-anchor-id="تصنيف-الأنواع">تصنيف الأنواع</h2>
-<p>تصنف الأنواع في البرمجة بطريقتين:</p>
-<ul>
-<li><strong>تصنيف اسمي</strong>: حيث يتم التصريح بأن النوع فلان، يستمد من النوع فلان (وقد يتعدد). وتتم <strong>بالوراثة</strong> (Inheritance)</li>
-<li><strong>تصنيف عملي</strong>: حيث يكون اعتبار التصنيف بحسب إجراءات النوع. وتتم <strong>بالواجهة</strong> (Interface) وهو نوعٌ من <strong>التركيب</strong> (Composition)</li>
-</ul>
-</section>
-<section id="التصنيف-الاسمي-الوراثة-inheritance" class="level2">
-<h2 class="anchored" data-anchor-id="التصنيف-الاسمي-الوراثة-inheritance">التصنيف الاسمي: الوراثة (Inheritance)</h2>
-<p><strong>الوراثة</strong>: أن يندرج النوع تحت نوعٍ آخر؛ فهو يستمد منه ويزيد عليه صفةً أو فعلاً (أو أكثر).</p>
-<p>وهو اسميٌّ لأن المعتبر هو أسماء الأنواع؛ فتقول:</p>
-<ul>
-<li><strong>الشكل</strong> هو ما كان له محيط</li>
-<li><strong>المستطيل</strong> شكلٌ (إذًا له محيط) و فوق ذلك فإنه له: طولًا وعرضًا ومساحة</li>
-<li><strong>والمثلث</strong> شكلٌ (إذًا له محيط) و فوق ذلك فإنه له: ثلاثةَ أضلاعٍ ومساحة</li>
-<li>أما <strong>المربع</strong> فهو مستطيل (إذًا له محيط لأن المستطيل شكل، وله طول وعرض ومساحة): لكن عرضه وطوله متساويان</li>
-</ul>
-<p>وهذه شجرة التوارث للأنواع المذكورة:</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart BT
-  Shape
-  Rectangle -- "is a" --&gt; Shape
-  Square -- "is a" --&gt; Rectangle
-  Triangle -- "is a" --&gt; Shape
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p>ويستعمل الإجراء <code>super()</code> لإعمال إنشاء المُستمدِّ منه في <code>__init__</code>. وتذكر أن علامة النجمة <code>*</code> في وصف متغيرات الإجراء (<code>*sides</code>) تجعل عدد عناصره لا محدودة.</p>
-<div id="2de4fd1a" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">class</span> Shape:</span>
-<span id="cb23-2"><a href="#cb23-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="op">*</span>sides):</span>
-<span id="cb23-3"><a href="#cb23-3"></a>        <span class="va">self</span>.sides <span class="op">=</span> sides</span>
-<span id="cb23-4"><a href="#cb23-4"></a>    </span>
-<span id="cb23-5"><a href="#cb23-5"></a>    <span class="at">@property</span></span>
-<span id="cb23-6"><a href="#cb23-6"></a>    <span class="kw">def</span> perimeter(<span class="va">self</span>):</span>
-<span id="cb23-7"><a href="#cb23-7"></a>        <span class="cf">return</span> <span class="bu">sum</span>(<span class="va">self</span>.sides)</span>
-<span id="cb23-8"><a href="#cb23-8"></a></span>
-<span id="cb23-9"><a href="#cb23-9"></a><span class="kw">class</span> Rectangle(Shape):</span>
-<span id="cb23-10"><a href="#cb23-10"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
-<span id="cb23-11"><a href="#cb23-11"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(width, height, width, height)</span>
-<span id="cb23-12"><a href="#cb23-12"></a>    </span>
-<span id="cb23-13"><a href="#cb23-13"></a>    <span class="at">@property</span></span>
-<span id="cb23-14"><a href="#cb23-14"></a>    <span class="kw">def</span> width(<span class="va">self</span>):</span>
-<span id="cb23-15"><a href="#cb23-15"></a>        <span class="cf">return</span> <span class="va">self</span>.sides[<span class="dv">0</span>]</span>
-<span id="cb23-16"><a href="#cb23-16"></a>    </span>
-<span id="cb23-17"><a href="#cb23-17"></a>    <span class="at">@property</span></span>
-<span id="cb23-18"><a href="#cb23-18"></a>    <span class="kw">def</span> height(<span class="va">self</span>):</span>
-<span id="cb23-19"><a href="#cb23-19"></a>        <span class="cf">return</span> <span class="va">self</span>.sides[<span class="dv">1</span>]</span>
-<span id="cb23-20"><a href="#cb23-20"></a>    </span>
-<span id="cb23-21"><a href="#cb23-21"></a>    <span class="at">@property</span></span>
-<span id="cb23-22"><a href="#cb23-22"></a>    <span class="kw">def</span> area(<span class="va">self</span>):</span>
-<span id="cb23-23"><a href="#cb23-23"></a>        <span class="cf">return</span> <span class="va">self</span>.width <span class="op">*</span> <span class="va">self</span>.height</span>
-<span id="cb23-24"><a href="#cb23-24"></a>    </span>
-<span id="cb23-25"><a href="#cb23-25"></a><span class="kw">class</span> Triangle(Shape):</span>
-<span id="cb23-26"><a href="#cb23-26"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, a, b, c):</span>
-<span id="cb23-27"><a href="#cb23-27"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(a, b, c)</span>
-<span id="cb23-28"><a href="#cb23-28"></a></span>
-<span id="cb23-29"><a href="#cb23-29"></a>    <span class="at">@property</span></span>
-<span id="cb23-30"><a href="#cb23-30"></a>    <span class="kw">def</span> a(<span class="va">self</span>):</span>
-<span id="cb23-31"><a href="#cb23-31"></a>        <span class="cf">return</span> <span class="va">self</span>.sides[<span class="dv">0</span>]</span>
-<span id="cb23-32"><a href="#cb23-32"></a>    </span>
-<span id="cb23-33"><a href="#cb23-33"></a>    <span class="at">@property</span></span>
-<span id="cb23-34"><a href="#cb23-34"></a>    <span class="kw">def</span> b(<span class="va">self</span>):</span>
-<span id="cb23-35"><a href="#cb23-35"></a>        <span class="cf">return</span> <span class="va">self</span>.sides[<span class="dv">1</span>]</span>
-<span id="cb23-36"><a href="#cb23-36"></a>    </span>
-<span id="cb23-37"><a href="#cb23-37"></a>    <span class="at">@property</span></span>
-<span id="cb23-38"><a href="#cb23-38"></a>    <span class="kw">def</span> c(<span class="va">self</span>):</span>
-<span id="cb23-39"><a href="#cb23-39"></a>        <span class="cf">return</span> <span class="va">self</span>.sides[<span class="dv">2</span>]</span>
-<span id="cb23-40"><a href="#cb23-40"></a>    </span>
-<span id="cb23-41"><a href="#cb23-41"></a>    <span class="at">@property</span></span>
-<span id="cb23-42"><a href="#cb23-42"></a>    <span class="kw">def</span> area(<span class="va">self</span>):</span>
-<span id="cb23-43"><a href="#cb23-43"></a>        s <span class="op">=</span> <span class="va">self</span>.perimeter <span class="op">/</span> <span class="dv">2</span></span>
-<span id="cb23-44"><a href="#cb23-44"></a>        <span class="cf">return</span> (s <span class="op">*</span> (s <span class="op">-</span> <span class="va">self</span>.a) <span class="op">*</span> (s <span class="op">-</span> <span class="va">self</span>.b) <span class="op">*</span> (s <span class="op">-</span> <span class="va">self</span>.c))<span class="op">**</span><span class="fl">0.5</span></span>
-<span id="cb23-45"><a href="#cb23-45"></a>    </span>
-<span id="cb23-46"><a href="#cb23-46"></a></span>
-<span id="cb23-47"><a href="#cb23-47"></a><span class="kw">class</span> Square(Rectangle):</span>
-<span id="cb23-48"><a href="#cb23-48"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, side):</span>
-<span id="cb23-49"><a href="#cb23-49"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(side, side)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>نعين مثلثًا ونطبع على الشاشة:</p>
-<div id="fb1c368b" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>x <span class="op">=</span> Triangle(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>)</span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="bu">print</span>(<span class="st">"Triangle"</span>)</span>
-<span id="cb24-3"><a href="#cb24-3"></a><span class="bu">print</span>(<span class="st">"Perimeter:"</span>, x.perimeter)</span>
-<span id="cb24-4"><a href="#cb24-4"></a><span class="bu">print</span>(<span class="st">"Area:"</span>, <span class="bu">round</span>(x.area, <span class="dv">2</span>))</span>
-<span id="cb24-5"><a href="#cb24-5"></a><span class="bu">print</span>(<span class="ss">f"Sides: a=</span><span class="sc">{</span>x<span class="sc">.</span>a<span class="sc">}</span><span class="ss">, b=</span><span class="sc">{</span>x<span class="sc">.</span>b<span class="sc">}</span><span class="ss">, c=</span><span class="sc">{</span>x<span class="sc">.</span>c<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>لكن يجوز فقط قراءة الصفة (قيمتها) لا التعديل عليها، هكذا (بعد الإيداع مثلاً):</p>
+<div id="f8cdde5d" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>a1.deposit(<span class="dv">100</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a>a1.balance</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Triangle
-Perimeter: 30
-Area: 43.3
-Sides: a=10, b=10, c=10</code></pre>
+<pre><code>time of deposit: 2027-07-07</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>200</code></pre>
 </div>
 </div>
-<p>نعين مستطيلًا ونطبع على الشاشة:</p>
-<div id="97d8ed5b" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>y <span class="op">=</span> Rectangle(<span class="dv">10</span>, <span class="dv">20</span>)</span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="bu">print</span>(<span class="st">"Rectangle"</span>)</span>
-<span id="cb26-3"><a href="#cb26-3"></a><span class="bu">print</span>(<span class="st">"Perimeter:"</span>, y.perimeter)</span>
-<span id="cb26-4"><a href="#cb26-4"></a><span class="bu">print</span>(<span class="st">"Area:"</span>, <span class="bu">round</span>(y.area, <span class="dv">2</span>))</span>
-<span id="cb26-5"><a href="#cb26-5"></a><span class="bu">print</span>(<span class="ss">f"Sides: width=</span><span class="sc">{</span>y<span class="sc">.</span>width<span class="sc">}</span><span class="ss">, height=</span><span class="sc">{</span>y<span class="sc">.</span>height<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>وليظهر أثر الحماية، نجرِّب إيداع مبلغ سالب، ولاحظ رسالة الخطأ:</p>
+<div id="c8531063" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>a1.deposit(<span class="op">-</span><span class="dv">44</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rectangle
-Perimeter: 60
-Area: 200
-Sides: width=10, height=20</code></pre>
+<pre><code>must be positive</code></pre>
 </div>
 </div>
-<p>وتجد في شجرة المجموعات <a href="../../appendix_collections.html#fig-collections-tree" class="quarto-xref">شكل&nbsp;<span>1</span></a> أن المجموعات المتغيرة نوع مخصص من الأنواع الجامدة:</p>
+<p>وهكذا نتصوَّر الشيء كأنه آلة مزوَّّدة بآليات عامَّة يسهل استعمالها في ظروف كثيرة بحيث تغير هذه الآليات من حالة الشيء في كل مرة ليؤدي وظائف معقَّدة لا تتم بسهول بمجرَّد إجراء ذو خطوات محددة دائمًا بتسلسل واحد.</p>
+</section>
+<section id="هيكل-البيانات" class="level2">
+<h2 class="anchored" data-anchor-id="هيكل-البيانات">هيكل البيانات</h2>
+<p>تختلف كفاءة استرجاع البيانات وكتابتها والتعديل عليها بحسب شكل هذه البيانات في الذاكرة وشكلها على جهاز التخزين فعليًّا. وهذا ما نسميه <strong>بهيكلة البيانات</strong> (Data Structure). ومن أمثلة ذلك:</p>
 <ul>
-<li>القائمة (<code>list</code>) مخصصة من التسلسل المتغير (<code>MutableSequence</code>) الذي هو من نوع التسلسل (<code>Sequence</code>).</li>
-<li>المجموعة (<code>set</code>) مخصصة من المجموعة المتغيرة (<code>MutableSet</code>) التي هي من نوع المجموعة (<code>Set</code>).</li>
-<li>القاموس (<code>dict</code>) مخصص من القاموس المتغير (<code>MutableMapping</code>) الذي هو من نوع القاموس (<code>Mapping</code>).</li>
+<li>المصفوفة (Array)</li>
+<li>الشجرة (Tree)</li>
+<li>الرسم (Graph)</li>
 </ul>
+<p>وغيرها كثير. وسنمثل على ذلك بتشكيل الكومة في بايثون:</p>
 </section>
-<section id="التصنيف-العملي-التركيب-composition" class="level2">
-<h2 class="anchored" data-anchor-id="التصنيف-العملي-التركيب-composition">التصنيف العملي: التركيب (Composition)</h2>
-<p>ويسمى بالإنجليزية أحيانًا <strong>Duck Typing</strong> إشارة إلى العبارة: “إذا كان الحيوان يمشي مثل البطة، ويبطبط مثلها؛ فهو بطة!”.</p>
-<div class="ltr">
-<blockquote class="blockquote">
-<p>If it walks like a duck, and quacks like a duck, then it must be a duck</p>
-</blockquote>
+<section id="الكومة-stack" class="level2">
+<h2 class="anchored" data-anchor-id="الكومة-stack">الكومة (<code>Stack</code>)</h2>
+<p>نريد أن نعرِّف نوعًا من <strong>هياكل البيانات</strong> يسمى <strong>الكومة</strong> (Stack)، وكأنه يمثِّل مجموعة مكدسة من الأوراق؛ إذ له فعلين:</p>
+<ul>
+<li>وضع ورقة: <code>push(item)</code> وكأنك تضع ورقة فوق الأوراق السابقة</li>
+<li>سحب ورقة: <code>pop()</code> وكأنك تسحب ورقةً من الأعلى</li>
+<li>لمحة سريعة: <code>peek()</code> وكأنك تنظر إلى الورقة العليا دون سحبها</li>
+</ul>
+<p>وأقرب شيء له في بايثون هو القائمة (<code>list</code>) ولذلك ستكون هي تمثيلها الداخلي.</p>
+<div id="0162b507" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">class</span> Stack:</span>
+<span id="cb23-2"><a href="#cb23-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb23-3"><a href="#cb23-3"></a>        <span class="va">self</span>.items <span class="op">=</span> []</span>
+<span id="cb23-4"><a href="#cb23-4"></a></span>
+<span id="cb23-5"><a href="#cb23-5"></a>    <span class="kw">def</span> push(<span class="va">self</span>, item):</span>
+<span id="cb23-6"><a href="#cb23-6"></a>        <span class="va">self</span>.items.append(item)</span>
+<span id="cb23-7"><a href="#cb23-7"></a>    </span>
+<span id="cb23-8"><a href="#cb23-8"></a>    <span class="kw">def</span> pop(<span class="va">self</span>):</span>
+<span id="cb23-9"><a href="#cb23-9"></a>        <span class="cf">return</span> <span class="va">self</span>.items.pop()</span>
+<span id="cb23-10"><a href="#cb23-10"></a>    </span>
+<span id="cb23-11"><a href="#cb23-11"></a>    <span class="kw">def</span> peek(<span class="va">self</span>):</span>
+<span id="cb23-12"><a href="#cb23-12"></a>        <span class="cf">return</span> <span class="va">self</span>.items[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb23-13"><a href="#cb23-13"></a></span>
+<span id="cb23-14"><a href="#cb23-14"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb23-15"><a href="#cb23-15"></a>        <span class="cf">return</span> <span class="ss">f"|</span><span class="sc">{</span><span class="st">'|'</span><span class="sc">.</span>join(<span class="bu">str</span>(item) <span class="cf">for</span> item <span class="kw">in</span> <span class="va">self</span>.items)<span class="sc">}</span><span class="ss">&gt;"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>ومثاله في نفس شجرة المجموعات <a href="../../appendix_collections.html#fig-collections-tree" class="quarto-xref">شكل&nbsp;<span>1</span></a> هو نوع <strong>الجمع</strong> (<code>Collection</code>)، حيث له ثلاثة اعتبارات:</p>
-<ol type="1">
-<li>كونه يقبل العضويَّة: <code>x in s</code> وفعله هو: <code>__contains__</code> يصنف أنه حاوٍ (<code>Container</code>)</li>
-<li>كونه يقبل التكرار: <code>for x in s</code> وفعله هو: <code>__iter__</code> يصنف أنه مكرَّر (<code>Iterable</code>)</li>
-<li>كونه يقبل العد: <code>len(s)</code> وفعله هو: <code>__len__</code> يصنف أنه محجَّم (<code>Sized</code>)</li>
-</ol>
-<p>وكذلك المتسلسلة (<code>Sequence</code>) تقبل العكس، وفعلها المخصص هو: <code>__reversed__</code>؛ فبهذا الاعتبار هي من النوع <strong>القابل للعكس</strong> (<code>Reversible</code>).</p>
-<p>فمثلاً: أيُّ شيءٍ يعرِّفُ الإجراء <code>len(sized)__ -&gt; int__</code> فإنه ينتمي لنوع <strong>ذوات الحجم</strong> (<code>Sized</code>)، ونمثل لذلك بنوع المتجه في فضاء ثنائي الأبعاد حيث يتكون من عنصرين:</p>
-<div id="4a4a1a21" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">class</span> Vector:</span>
-<span id="cb28-2"><a href="#cb28-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
-<span id="cb28-3"><a href="#cb28-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
-<span id="cb28-4"><a href="#cb28-4"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
-<span id="cb28-5"><a href="#cb28-5"></a></span>
-<span id="cb28-6"><a href="#cb28-6"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</span>
-<span id="cb28-7"><a href="#cb28-7"></a>        <span class="cf">return</span> <span class="dv">2</span></span>
-<span id="cb28-8"><a href="#cb28-8"></a></span>
-<span id="cb28-9"><a href="#cb28-9"></a>v1 <span class="op">=</span> Vector(<span class="dv">10</span>, <span class="dv">20</span>)</span>
-<span id="cb28-10"><a href="#cb28-10"></a><span class="bu">len</span>(v1)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>2</code></pre>
-</div>
-</div>
-<p>ولاحظ عدم وجود ذكر للنوع <code>Sized</code> البتة، بل المُعتَبَرُ وجود الإجراء <code>__len__</code> حتى ينطبق التصنيف.</p>
-<p>ويكثر فيه المجرَّداتُ ذات الإجراء الواحد أو الإجراءين. لأننا نريد أشياء كثيرة تنتمي بحسب ما يكون فيها من إجراءات.</p>
-</section>
-<section id="المعاملات-operators" class="level2">
-<h2 class="anchored" data-anchor-id="المعاملات-operators">المعاملات (Operators)</h2>
-<p>تأمل التالي وتوقَّع النتيجة وعلل إجابتك. ما هي نتيجة:</p>
-<p>الأول:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>] <span class="op">+</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>الثاني:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>] <span class="op">*</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>الثالث:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>] <span class="op">*</span> <span class="dv">5</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>الرابع:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>] <span class="op">-</span> <span class="dv">3</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>كل الذي سبق، قد تم تعريفه في بايثون لهذه الأنواع التي تراها بالتحديد عن طريق إجراءات مخصصة. وإليك هذا الجدول للمعاملات المخصصة:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>مثال معامله</th>
-<th>الإجراء</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>self + other</code></td>
-<td><code>__add__</code></td>
-</tr>
-<tr class="even">
-<td><code>self - other</code></td>
-<td><code>__sub__</code></td>
-</tr>
-<tr class="odd">
-<td><code>self * other</code></td>
-<td><code>__mul__</code></td>
-</tr>
-<tr class="even">
-<td><code>self / other</code></td>
-<td><code>__truediv__</code></td>
-</tr>
-<tr class="odd">
-<td><code>self // other</code></td>
-<td><code>__floordiv__</code></td>
-</tr>
-<tr class="even">
-<td><code>self % other</code></td>
-<td><code>__mod__</code></td>
-</tr>
-<tr class="odd">
-<td><code>self ** other</code></td>
-<td><code>__pow__</code></td>
-</tr>
-</tbody>
-</table>
-<p>(وانظر <a href="https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types">توثيق بايثون لمحاكاة العمليات الرقمية</a>).</p>
-<p>فنستطيع تعريف نوع متجَّه على النحو التالي.</p>
-<div id="6b5da1a7" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="kw">class</span> Vector:</span>
-<span id="cb34-2"><a href="#cb34-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
-<span id="cb34-3"><a href="#cb34-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
-<span id="cb34-4"><a href="#cb34-4"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
-<span id="cb34-5"><a href="#cb34-5"></a>    </span>
-<span id="cb34-6"><a href="#cb34-6"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
-<span id="cb34-7"><a href="#cb34-7"></a>        <span class="cf">return</span> <span class="ss">f"Vector(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span></span>
-<span id="cb34-8"><a href="#cb34-8"></a>    </span>
-<span id="cb34-9"><a href="#cb34-9"></a>    <span class="kw">def</span> <span class="fu">__add__</span>(<span class="va">self</span>, other):</span>
-<span id="cb34-10"><a href="#cb34-10"></a>        <span class="cf">return</span> Vector(<span class="va">self</span>.x <span class="op">+</span> other.x, <span class="va">self</span>.y <span class="op">+</span> other.y)</span>
-<span id="cb34-11"><a href="#cb34-11"></a>    </span>
-<span id="cb34-12"><a href="#cb34-12"></a>    <span class="kw">def</span> <span class="fu">__sub__</span>(<span class="va">self</span>, other):</span>
-<span id="cb34-13"><a href="#cb34-13"></a>        <span class="cf">return</span> Vector(<span class="va">self</span>.x <span class="op">-</span> other.x, <span class="va">self</span>.y <span class="op">-</span> other.y)</span>
-<span id="cb34-14"><a href="#cb34-14"></a>    </span>
-<span id="cb34-15"><a href="#cb34-15"></a>    <span class="kw">def</span> <span class="fu">__mul__</span>(<span class="va">self</span>, other):</span>
-<span id="cb34-16"><a href="#cb34-16"></a>        <span class="cf">return</span> Vector(<span class="va">self</span>.x <span class="op">*</span> other.x, <span class="va">self</span>.y <span class="op">*</span> other.y)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>والآن يمكننا إنشاء متجهين وفعل العمليات المخصصة:</p>
-<div id="594954fc" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>v1 <span class="op">=</span> Vector(<span class="dv">1</span>, <span class="dv">2</span>)</span>
-<span id="cb35-2"><a href="#cb35-2"></a>v2 <span class="op">=</span> Vector(<span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb35-3"><a href="#cb35-3"></a></span>
-<span id="cb35-4"><a href="#cb35-4"></a>v1 <span class="op">+</span> v2</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
-<pre><code>Vector(4, 6)</code></pre>
+<ul>
+<li>فعل الإنشاء يُسنِد قائمة فارغة إلى الشيء (<code>self</code>)</li>
+<li>فعل <code>push</code> يضيف إلى آخر هذه القائمة بالفعل <code>append</code></li>
+<li>فعل <code>pop</code> يأخذ آخر عنصر من القائمة بالفعل <code>pop</code> (وهو إزالة مع أخذ)</li>
+<li>فعل <code>__repr__</code> يعطينا تمثيلاً للكومة بالاعتماد على تمثيل القائمة</li>
+</ul>
+<p>نجرب الآن أن ننشئها ثم نضع أربعة عناصر فيها ونظهرها:</p>
+<div id="6f11031d" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>s <span class="op">=</span> Stack()</span>
+<span id="cb24-2"><a href="#cb24-2"></a>s.push(<span class="dv">10</span>)</span>
+<span id="cb24-3"><a href="#cb24-3"></a>s.push(<span class="dv">20</span>)</span>
+<span id="cb24-4"><a href="#cb24-4"></a>s.push(<span class="dv">30</span>)</span>
+<span id="cb24-5"><a href="#cb24-5"></a>s.push(<span class="dv">400</span>)</span>
+<span id="cb24-6"><a href="#cb24-6"></a><span class="bu">print</span>(s)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>|10|20|30|400&gt;</code></pre>
 </div>
 </div>
-<div id="acd4ef2e" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>v1 <span class="op">-</span> v2</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
-<pre><code>Vector(-2, -2)</code></pre>
+<p>والآن نسحب عنصرًا (من الأخير)، ونظهرها:</p>
+<div id="255e13ee" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>s.pop()</span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="bu">print</span>(s)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>|10|20|30&gt;</code></pre>
 </div>
 </div>
-<div id="fd8c8cbf" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>v1 <span class="op">*</span> v2</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
-<pre><code>Vector(3, 8)</code></pre>
+<p>ويمكن النظر في العنصر الأعلى دون سحبه بالفعل <code>peek</code>:</p>
+<div id="6a65b5e8" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="bu">print</span>(s.peek())</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>30</code></pre>
 </div>
 </div>
-<p>ماذا لو أردنا إضافة عمليات بين المتجه والعدد، نحو: <code>v1 + 3</code>? يتطلب ذلك إضافة شرط لفحص النوع، وهو <code>isinstance</code> كالتالي:</p>
-<div id="20c56ad8" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="kw">class</span> Vector:</span>
-<span id="cb41-2"><a href="#cb41-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
-<span id="cb41-3"><a href="#cb41-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
-<span id="cb41-4"><a href="#cb41-4"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
-<span id="cb41-5"><a href="#cb41-5"></a>    </span>
-<span id="cb41-6"><a href="#cb41-6"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
-<span id="cb41-7"><a href="#cb41-7"></a>        <span class="cf">return</span> <span class="ss">f"Vector(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span></span>
-<span id="cb41-8"><a href="#cb41-8"></a>    </span>
-<span id="cb41-9"><a href="#cb41-9"></a>    <span class="kw">def</span> <span class="fu">__add__</span>(<span class="va">self</span>, other):</span>
-<span id="cb41-10"><a href="#cb41-10"></a>        <span class="cf">if</span> <span class="bu">isinstance</span>(other, Vector):</span>
-<span id="cb41-11"><a href="#cb41-11"></a>            <span class="cf">return</span> Vector(<span class="va">self</span>.x <span class="op">+</span> other.x, <span class="va">self</span>.y <span class="op">+</span> other.y)</span>
-<span id="cb41-12"><a href="#cb41-12"></a>        <span class="cf">else</span>:</span>
-<span id="cb41-13"><a href="#cb41-13"></a>            <span class="cf">return</span> Vector(<span class="va">self</span>.x <span class="op">+</span> other, <span class="va">self</span>.y <span class="op">+</span> other)</span>
-<span id="cb41-14"><a href="#cb41-14"></a>    </span>
-<span id="cb41-15"><a href="#cb41-15"></a>    <span class="kw">def</span> <span class="fu">__sub__</span>(<span class="va">self</span>, other):</span>
-<span id="cb41-16"><a href="#cb41-16"></a>        <span class="cf">if</span> <span class="bu">isinstance</span>(other, Vector):</span>
-<span id="cb41-17"><a href="#cb41-17"></a>            <span class="cf">return</span> Vector(<span class="va">self</span>.x <span class="op">-</span> other.x, <span class="va">self</span>.y <span class="op">-</span> other.y)</span>
-<span id="cb41-18"><a href="#cb41-18"></a>        <span class="cf">else</span>:</span>
-<span id="cb41-19"><a href="#cb41-19"></a>            <span class="cf">return</span> Vector(<span class="va">self</span>.x <span class="op">-</span> other, <span class="va">self</span>.y <span class="op">-</span> other)</span>
-<span id="cb41-20"><a href="#cb41-20"></a>    </span>
-<span id="cb41-21"><a href="#cb41-21"></a>    <span class="kw">def</span> <span class="fu">__mul__</span>(<span class="va">self</span>, other):</span>
-<span id="cb41-22"><a href="#cb41-22"></a>        <span class="cf">if</span> <span class="bu">isinstance</span>(other, Vector):</span>
-<span id="cb41-23"><a href="#cb41-23"></a>            <span class="cf">return</span> Vector(<span class="va">self</span>.x <span class="op">*</span> other.x, <span class="va">self</span>.y <span class="op">*</span> other.y)</span>
-<span id="cb41-24"><a href="#cb41-24"></a>        <span class="cf">else</span>:</span>
-<span id="cb41-25"><a href="#cb41-25"></a>            <span class="cf">return</span> Vector(<span class="va">self</span>.x <span class="op">*</span> other, <span class="va">self</span>.y <span class="op">*</span> other)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>والآن يمكننا فعل العمليات المخصصة:</p>
-<div id="372add8c" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>v1 <span class="op">=</span> Vector(<span class="dv">1</span>, <span class="dv">2</span>)</span>
-<span id="cb42-2"><a href="#cb42-2"></a>v1 <span class="op">+</span> <span class="dv">3</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
-<pre><code>Vector(4, 5)</code></pre>
-</div>
-</div>
-<p>لكن لاحظ أنك لو وضعت العدد أولاً فسيظهر خطأ:</p>
-<div id="79b75c84" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="dv">3</span> <span class="op">+</span> v1</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[25], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> <span style="color:rgb(98,98,98)" class="ansi-yellow-bg">3</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">+</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">v1</span>
-
-<span class="ansi-red-fg">TypeError</span>: unsupported operand type(s) for +: 'int' and 'Vector'</pre>
-</div>
-</div>
-</div>
-<p>هذا لأن عملية الجمع الآن لا تنظر في نوع العدد (<code>int</code>) ولا تجد فيه قبولاً للمتجه (فقد عرفناه للتو). ولحل هذه المشكلة توفر بايثون لكل فعل مخصص مقابل يبدأ بحرف <code>r</code> على النحو التالي:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>المعامل</th>
-<th>الإجراء</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>other + self</code></td>
-<td><code>__radd__</code></td>
-</tr>
-<tr class="even">
-<td><code>other - self</code></td>
-<td><code>__rsub__</code></td>
-</tr>
-<tr class="odd">
-<td><code>other * self</code></td>
-<td><code>__rmul__</code></td>
-</tr>
-</tbody>
-</table>
-<p>نعدل الإجراء بحيث نضيف إليه المقابل:</p>
-<div id="58daa220" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="kw">class</span> Vector:</span>
-<span id="cb45-2"><a href="#cb45-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
-<span id="cb45-3"><a href="#cb45-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
-<span id="cb45-4"><a href="#cb45-4"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
-<span id="cb45-5"><a href="#cb45-5"></a>    </span>
-<span id="cb45-6"><a href="#cb45-6"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
-<span id="cb45-7"><a href="#cb45-7"></a>        <span class="cf">return</span> <span class="ss">f"Vector(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span></span>
-<span id="cb45-8"><a href="#cb45-8"></a>    </span>
-<span id="cb45-9"><a href="#cb45-9"></a>    <span class="kw">def</span> <span class="fu">__add__</span>(<span class="va">self</span>, other):</span>
-<span id="cb45-10"><a href="#cb45-10"></a>        <span class="cf">if</span> <span class="bu">isinstance</span>(other, Vector):</span>
-<span id="cb45-11"><a href="#cb45-11"></a>            <span class="cf">return</span> Vector(<span class="va">self</span>.x <span class="op">+</span> other.x, <span class="va">self</span>.y <span class="op">+</span> other.y)</span>
-<span id="cb45-12"><a href="#cb45-12"></a>        <span class="cf">else</span>:</span>
-<span id="cb45-13"><a href="#cb45-13"></a>            <span class="cf">return</span> Vector(<span class="va">self</span>.x <span class="op">+</span> other, <span class="va">self</span>.y <span class="op">+</span> other)</span>
-<span id="cb45-14"><a href="#cb45-14"></a></span>
-<span id="cb45-15"><a href="#cb45-15"></a>    <span class="kw">def</span> <span class="fu">__radd__</span>(<span class="va">self</span>, other):</span>
-<span id="cb45-16"><a href="#cb45-16"></a>        <span class="cf">return</span> <span class="va">self</span> <span class="op">+</span> other</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>والآن كلاهما يعمل بشكل صحيح:</p>
-<div id="b840aa8b" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>v1 <span class="op">=</span> Vector(<span class="dv">1</span>, <span class="dv">2</span>)</span>
-<span id="cb46-2"><a href="#cb46-2"></a><span class="dv">3</span> <span class="op">+</span> v1</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
-<pre><code>Vector(4, 5)</code></pre>
-</div>
-</div>
-<div id="12a7c386" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>v1 <span class="op">+</span> <span class="dv">3</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
-<pre><code>Vector(4, 5)</code></pre>
-</div>
-</div>
-</section>
-<section id="المصطلحات" class="level2">
-<h2 class="anchored" data-anchor-id="المصطلحات">المصطلحات</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>العربية</th>
-<th>الإنجليزية</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>البرمجة الشيئية</td>
-<td>Object-Oriented Programming</td>
-</tr>
-<tr class="even">
-<td>الشيء</td>
-<td>Object</td>
-</tr>
-<tr class="odd">
-<td>النوع</td>
-<td>Class</td>
-</tr>
-<tr class="even">
-<td>الصفة</td>
-<td>Attribute</td>
-</tr>
-<tr class="odd">
-<td>الإجراء</td>
-<td>Method</td>
-</tr>
-<tr class="even">
-<td>المعيَّن</td>
-<td>Instance</td>
-</tr>
-<tr class="odd">
-<td>التغليف</td>
-<td>Encapsulation</td>
-</tr>
-<tr class="even">
-<td>الوراثة</td>
-<td>Inheritance</td>
-</tr>
-<tr class="odd">
-<td>التركيب</td>
-<td>Composition</td>
-</tr>
-<tr class="even">
-<td>الواجهة</td>
-<td>Interface</td>
-</tr>
-<tr class="odd">
-<td>التصنيف الاسمي</td>
-<td>Nominal Classification</td>
-</tr>
-<tr class="even">
-<td>التصنيف العملي</td>
-<td>Practical Classification</td>
-</tr>
-<tr class="odd">
-<td>المعاملات</td>
-<td>Operators</td>
-</tr>
-<tr class="even">
-<td>الجموع</td>
-<td>Collections</td>
-</tr>
-<tr class="odd">
-<td>المجموعة المتغيرة</td>
-<td>Mutable Set</td>
-</tr>
-<tr class="even">
-<td>القاموس</td>
-<td>Dictionary</td>
-</tr>
-<tr class="odd">
-<td>القاموس المتغير</td>
-<td>Mutable Dictionary</td>
-</tr>
-<tr class="even">
-<td>التسلسل</td>
-<td>Sequence</td>
-</tr>
-<tr class="odd">
-<td>التسلسل المتغير</td>
-<td>Mutable Sequence</td>
-</tr>
-<tr class="even">
-<td>القابل للعكس</td>
-<td>Reversible</td>
-</tr>
-<tr class="odd">
-<td>ذو الحجم</td>
-<td>Sized</td>
-</tr>
-<tr class="even">
-<td>المتجه</td>
-<td>Vector</td>
-</tr>
-<tr class="odd">
-<td>المزيِّن</td>
-<td>Decorator</td>
-</tr>
-<tr class="even">
-<td>الإجراء الثابت</td>
-<td>Static Method</td>
-</tr>
-</tbody>
-</table>
 
 
 </section>
