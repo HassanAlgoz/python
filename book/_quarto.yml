@@ -4,9 +4,8 @@ project:
   preview:
     port: 4200
     browser: true
-    navigate: true
-  # post-render:
-  #   - post-render.py
+    navigate: false
+
 
 jupyter: python3
 
@@ -28,20 +27,19 @@ dir: rtl
 
 book:
   title: "البايثونية"
-  image: cover.jpeg
   author: "حسان القوز"
   date: "2024-12-13"
-  favicon: logo.png
+  favicon: favicon.png
+  cover-image: cover.jpeg
   twitter-card: true
   site-url: https://hassanalgoz.github.io/python/
   search: true
   repo-url: https://github.com/hassanalgoz/python
   repo-actions: [issue]
   repo-subdir: book
-  downloads: [pdf, epub]
   sharing: [twitter, facebook]
 
-  page-navigation: false
+  page-navigation: true
 
   chapters:
     - index.qmd
@@ -115,7 +113,11 @@ book:
     - appendix_collections.qmd
     - glossary.qmd
 
-bibliography: references.bib
+comments:
+  utterances:
+    repo: HassanAlgoz/python
+    label: Comment
+    issue-term: title
 
 format:
   html:
