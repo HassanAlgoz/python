@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ar" xml:lang="ar" dir="rtl"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -64,13 +64,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../logo.png" rel="icon" type="image/png">
+<link href="../../chapters/15_using/problems.html" rel="next">
+<link href="../../chapters/15_using/a2_use_sdk.html" rel="prev">
+<link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-18c600aae80d5bc93e3bd4e059157cd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -112,8 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <meta name="twitter:title" content="25&nbsp; التخاطب عبر الشبكة – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/15_using/cover.jpeg">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar floating">
@@ -141,28 +142,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../../">البايثونية</a> 
-        <div class="sidebar-tools-main tools-wide">
+        <div class="sidebar-tools-main">
     <a href="https://github.com/hassanalgoz/python/tree/main/book/" title="الكود المصدر" class="quarto-navigation-tool px-1" aria-label="الكود المصدر"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="التحميل" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="التحميل"><i class="bi bi-download"></i></a>
+      <a href="" title="المشاركة" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="المشاركة"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="../../البايثونية.pdf">
-              <i class="bi bi-file-pdf pe-1"></i>
-            التحميل PDF
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="../../البايثونية.epub">
-              <i class="bi bi-journal pe-1"></i>
-            التحميل ePub
-            </a>
-          </li>
-      </ul>
-    </div>
-    <div class="dropdown">
-      <a href="" title="المشاركة" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="المشاركة"><i class="bi bi-share"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
               <i class="bi bi-twitter pe-1"></i>
@@ -751,7 +735,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="b5c29828" class="cell" data-execution_count="1">
+<div id="b5c29828" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> httpx</span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
 <span id="cb4-3"><a href="#cb4-3"></a>client <span class="op">=</span> httpx.Client()</span>
@@ -765,7 +749,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-11"><a href="#cb4-11"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وفي الواقع يتم تكوين الطلب كنص (string) بهذا الشكل (ونحن هنا نطبعه بصيغته النصية لغرضٍ تعليمي):</p>
-<div id="8a1ad378" class="cell" data-execution_count="2">
+<div id="8a1ad378" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="bu">print</span>(<span class="ss">f"""</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="sc">{</span>request<span class="sc">.</span>method<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>request<span class="sc">.</span>url<span class="sc">.</span>path<span class="sc">}</span><span class="ss"> HTTP/1.1</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="sc">{</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="sc">.</span>join([<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> k, v <span class="kw">in</span> request.headers.items()])<span class="sc">}</span></span>
@@ -804,11 +788,11 @@ x-api-key: live_9Cj8P0h75D5h2D7Y2H8MYEuuTmTXjT412xNlbVBouHxn2sEnAjr1dr4JMfIn4Mr4
 <li><code>user-agent: python-httpx/0.28.1</code> هي ترويسة إجبارية ولا يهم ما تكون قيمتها. لكنها تعرِّف بهوية العميل</li>
 </ul>
 <p>وبعد ذلك نرسل الطلب بالإجراء <code>send</code> ونحصل على جواب <code>response</code>:</p>
-<div id="1d86a2f9" class="cell" data-execution_count="3">
+<div id="1d86a2f9" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>response <span class="op">=</span> client.send(request)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>والجواب نفسه له الصيغة النصية التالية:</p>
-<div id="fd6969f8" class="cell" data-execution_count="4">
+<div id="fd6969f8" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="bu">print</span>(<span class="ss">f"""</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="sc">{</span>response<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>response<span class="sc">.</span>reason_phrase<span class="sc">}</span></span>
 <span id="cb11-3"><a href="#cb11-3"></a><span class="sc">{</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="sc">.</span>join([<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> k, v <span class="kw">in</span> response.headers.items()])<span class="sc">}</span></span>
@@ -844,7 +828,7 @@ content-length: 89
 <p>ولاحظ أن آخر سطرٍ هو المحتوى:</p>
 <pre><code>[{"id": ... ,"url": ... , ... }]</code></pre>
 <p>وإذا نظرت إلى النصّ الموجود في محتوى الرد (<code>response.text</code>) فإنك ستلاحظ أنه نصُّ مقوْلَب بصيغة JSON التي سبق الحديث عنها:</p>
-<div id="8bfde690" class="cell" data-execution_count="5">
+<div id="8bfde690" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="bu">print</span>(<span class="bu">type</span>(response.text))</span>
 <span id="cb14-2"><a href="#cb14-2"></a><span class="bu">print</span>(response.text)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -853,7 +837,7 @@ content-length: 89
 </div>
 </div>
 <p>ولكن هذا النص لا يمكن التعامل معه كما هو، لذلك نستخدم الإجراء <code>json()</code> لتفسيره إلى شيء في بايثون (قائمة):</p>
-<div id="7f1bf09e" class="cell" data-execution_count="6">
+<div id="7f1bf09e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>data <span class="op">=</span> response.json()</span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="bu">print</span>(<span class="bu">type</span>(data))</span>
 <span id="cb16-3"><a href="#cb16-3"></a><span class="bu">print</span>(data)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -863,7 +847,7 @@ content-length: 89
 </div>
 </div>
 <p>الآن أصبح في هيكل بيانات يمكن التعامل معه. فنريد استخراج رابط الصورة منه:</p>
-<div id="3ee77844" class="cell" data-execution_count="7">
+<div id="3ee77844" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>image_url <span class="op">=</span> data[<span class="dv">0</span>][<span class="st">"url"</span>]</span>
 <span id="cb18-2"><a href="#cb18-2"></a><span class="bu">print</span>(image_url)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -871,7 +855,7 @@ content-length: 89
 </div>
 </div>
 <p>فهذا الرابط، لو نسخته وأدخلته في المتصفح فستظهر لك صورة القط.</p>
-<div id="b0f6b375" class="cell" data-code-caption="نستعمل هذا الكود لعرض الصورة في صفحة الكتاب" data-execution_count="8">
+<div id="b0f6b375" class="cell" data-code-caption="نستعمل هذا الكود لعرض الصورة في صفحة الكتاب" data-execution_count="9">
 <details class="code-fold">
 <summary>الكود</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Image, display</span>
@@ -886,7 +870,7 @@ content-length: 89
 <section id="مثال-خدمة-الطقس" class="level2">
 <h2 class="anchored" data-anchor-id="مثال-خدمة-الطقس">مثال: خدمة الطقس</h2>
 <p>والرابط يشبه استدعاء الإجراء. لاحظ أننا في بايثون نستدعي الإجراء <code>pow</code> من الوحدة <code>math</code> ونمرر العوامل <code>2, 3</code> إليه على هذا النحو:</p>
-<div id="b65eaa7d" class="cell" data-execution_count="9">
+<div id="b65eaa7d" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="im">import</span> math</span>
 <span id="cb21-2"><a href="#cb21-2"></a></span>
 <span id="cb21-3"><a href="#cb21-3"></a>math.<span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -941,7 +925,7 @@ content-length: 89
 <li><code>appid={API key}</code> هو مفتاح التطبيق الذي يسمح للطلب بالوصول إلى الخدمة</li>
 </ul>
 <p>ونحن نكتبها في بايثون مع مكتبة <code>httpx</code> على النحو التالي:</p>
-<div id="961762c3" class="cell" data-execution_count="10">
+<div id="961762c3" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="im">import</span> httpx</span>
 <span id="cb23-2"><a href="#cb23-2"></a></span>
 <span id="cb23-3"><a href="#cb23-3"></a>latitude <span class="op">=</span> <span class="fl">24.7136</span></span>
@@ -966,7 +950,7 @@ content-length: 89
 </div>
 </div>
 <p>أو اختصارًا باستعمال <code>httpx.get</code> مباشرةً هكذا:</p>
-<div id="fd95dec2" class="cell" data-execution_count="11">
+<div id="fd95dec2" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="im">import</span> httpx</span>
 <span id="cb25-2"><a href="#cb25-2"></a></span>
 <span id="cb25-3"><a href="#cb25-3"></a>latitude <span class="op">=</span> <span class="fl">24.7136</span></span>
@@ -1413,6 +1397,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://utteranc.es/client.js" repo="HassanAlgoz/python" issue-term="title" theme="github-light" crossorigin="anonymous" async="">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/15_using/a2_use_sdk.html" class="pagination-link" aria-label="الخدمات البرمجية">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">الخدمات البرمجية</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/15_using/problems.html" class="pagination-link" aria-label="مسائل">
+        <span class="nav-page-text">مسائل</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

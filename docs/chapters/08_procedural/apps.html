@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ar" xml:lang="ar" dir="rtl"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -64,13 +64,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../logo.png" rel="icon" type="image/png">
+<link href="../../chapters/08_procedural/problems.html" rel="next">
+<link href="../../chapters/08_procedural/a3_recursion.html" rel="prev">
+<link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-18c600aae80d5bc93e3bd4e059157cd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -134,8 +136,7 @@ window.Quarto = {
 
 <meta name="twitter:title" content="تطبيقات – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/08_procedural/cover.jpeg">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar floating">
@@ -163,28 +164,11 @@ window.Quarto = {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../../">البايثونية</a> 
-        <div class="sidebar-tools-main tools-wide">
+        <div class="sidebar-tools-main">
     <a href="https://github.com/hassanalgoz/python/tree/main/book/" title="الكود المصدر" class="quarto-navigation-tool px-1" aria-label="الكود المصدر"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="التحميل" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="التحميل"><i class="bi bi-download"></i></a>
+      <a href="" title="المشاركة" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="المشاركة"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="../../البايثونية.pdf">
-              <i class="bi bi-file-pdf pe-1"></i>
-            التحميل PDF
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="../../البايثونية.epub">
-              <i class="bi bi-journal pe-1"></i>
-            التحميل ePub
-            </a>
-          </li>
-      </ul>
-    </div>
-    <div class="dropdown">
-      <a href="" title="المشاركة" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="المشاركة"><i class="bi bi-share"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
               <i class="bi bi-twitter pe-1"></i>
@@ -672,7 +656,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \sqrt{x} = x^{1/2}
 \]</span></p>
-<div id="c9f4f609" class="cell" data-execution_count="1">
+<div id="c9f4f609" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> euclidean_distance(x1: <span class="bu">float</span>, y1: <span class="bu">float</span>, x2: <span class="bu">float</span>, y2: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">return</span> ((x2 <span class="op">-</span> x1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1)<span class="op">**</span><span class="dv">2</span>) <span class="op">**</span> <span class="fl">0.5</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
@@ -687,13 +671,13 @@ window.Quarto = {
 <section id="تجزئة-البيانات" class="level2">
 <h2 class="anchored" data-anchor-id="تجزئة-البيانات">تجزئة البيانات</h2>
 <p>هذا الإجراء يقسم قائمة إلى جزئين بنسبة محددة:</p>
-<div id="09e89c01" class="cell" data-execution_count="2">
+<div id="09e89c01" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> split(data: <span class="bu">list</span>, ratio: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">list</span>, <span class="bu">list</span>]:</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    idx <span class="op">=</span> <span class="bu">int</span>(<span class="bu">len</span>(data) <span class="op">*</span> ratio)</span>
 <span id="cb3-3"><a href="#cb3-3"></a>    <span class="cf">return</span> data[:idx], data[idx:]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>نختبر الإجراء ونلاحظ أن الناتج من نوع صف (<code>tuple</code>). فنستعمل التعيين المتعدد لاستخراج القيم من الصف:</p>
-<div id="6e2f4535" class="cell" data-execution_count="3">
+<div id="6e2f4535" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>xs <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">90</span>, <span class="dv">100</span>]</span>
 <span id="cb4-2"><a href="#cb4-2"></a>a, b <span class="op">=</span> split(xs, <span class="fl">0.80</span>)</span>
 <span id="cb4-3"><a href="#cb4-3"></a></span>
@@ -708,7 +692,7 @@ window.Quarto = {
 <li>أولاً، تأكد من وجود رصيد كافٍ لدى المستخدم.</li>
 <li>إذا كان الأمر كذلك، فتأكد من وجود رصيد كافٍ في جهاز الصراف الآلي لصرف المبلغ المطلوب.</li>
 </ol>
-<div id="08d79f6a" class="cell" data-execution_count="4">
+<div id="08d79f6a" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> withdraw_cash(balance, amount, atm_cash):</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    <span class="cf">if</span> balance <span class="op">&gt;=</span> amount:</span>
 <span id="cb5-3"><a href="#cb5-3"></a>        <span class="cf">if</span> atm_cash <span class="op">&gt;=</span> amount:</span>
@@ -737,7 +721,7 @@ Insufficient balance.</code></pre>
 <li>المؤئر الأول بإصبعك الأيمن: <code>i</code> يبدأ من أول حرف وينتهي عند المنتصف</li>
 <li>المؤئر الثاني بإصبعك الأيسر: <code>j</code> يبدأ من آخر حرف وينتهي عند المنتصف</li>
 </ul>
-<div id="fe7beaa1" class="cell" data-execution_count="5">
+<div id="fe7beaa1" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> is_palindrome(word):</span>
 <span id="cb7-2"><a href="#cb7-2"></a>    <span class="co">"""</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="co">    A palindrome word is one that can be read the same way from both ends.</span></span>
@@ -767,7 +751,7 @@ Insufficient balance.</code></pre>
 <span id="cb7-27"><a href="#cb7-27"></a><span class="cf">assert</span> <span class="kw">not</span> is_palindrome(<span class="st">"python"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>بدل الحلقة، وكان لنا أن نكتب باختصار: <code>word == word[::-1]</code> وهي تعني أن النص متناظر إذا كان مساوياً لنفسه بالمقلوب.</p>
-<div id="f222a454" class="cell" data-execution_count="6">
+<div id="f222a454" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> is_palindrome(word):</span>
 <span id="cb8-2"><a href="#cb8-2"></a>    word <span class="op">=</span> word.lower()</span>
 <span id="cb8-3"><a href="#cb8-3"></a>    word <span class="op">=</span> word.replace(<span class="st">" "</span>, <span class="st">""</span>)</span>
@@ -783,7 +767,7 @@ Insufficient balance.</code></pre>
 <li>زيادة الياء: أحسنتي، رأيتكي</li>
 </ul>
 <p>والمطلوب فقط تصحيح الأخطاء المذكورة.</p>
-<div id="87a2ef19" class="cell" data-execution_count="7">
+<div id="87a2ef19" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>corrections_map <span class="op">=</span> {</span>
 <span id="cb9-2"><a href="#cb9-2"></a>    <span class="st">'مكتبه'</span>: <span class="st">'مكتبة'</span>,</span>
 <span id="cb9-3"><a href="#cb9-3"></a>    <span class="st">'لعبه'</span>: <span class="st">'لعبة'</span>,</span>
@@ -808,7 +792,7 @@ Insufficient balance.</code></pre>
 <span id="cb9-22"><a href="#cb9-22"></a>        result.append(correction)</span>
 <span id="cb9-23"><a href="#cb9-23"></a>    <span class="cf">return</span> <span class="st">' '</span>.join(result)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="62bea4e4" class="cell" data-execution_count="8">
+<div id="62bea4e4" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="cf">assert</span> (</span>
 <span id="cb10-2"><a href="#cb10-2"></a>    correct_spelling(<span class="st">'المكتبه فيها الروايه التي أبحث عنها'</span>) <span class="op">==</span></span>
 <span id="cb10-3"><a href="#cb10-3"></a>    <span class="st">'المكتبة فيها الرواية التي أبحث عنها'</span></span>
@@ -1244,6 +1228,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://utteranc.es/client.js" repo="HassanAlgoz/python" issue-term="title" theme="github-light" crossorigin="anonymous" async="">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/08_procedural/a3_recursion.html" class="pagination-link" aria-label="الإجراء المتسلسل">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">الإجراء المتسلسل</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/08_procedural/problems.html" class="pagination-link" aria-label="مسائل">
+        <span class="nav-page-text">مسائل</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
