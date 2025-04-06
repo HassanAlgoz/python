@@ -7,8 +7,8 @@
 %% | fig-cap: شجرة أنواع القاموس
 flowchart TD
     Collection[<b>الجمع</b> <br> <code>Collection</code>]
-    Collection --> Mapping[<b>الاقتران</b> <br> <code>Mapping</code>]
-    Mapping --> MutableMapping[<b>الاقتران المتغير</b> <br> <code>MutableMapping</code>]
+    Collection --> Mapping[<b>المقابلة</b> <br> <code>Mapping</code>]
+    Mapping --> MutableMapping[<b>المقابلة المتغيرة</b> <br> <code>MutableMapping</code>]
     MutableMapping --> dict[<b>القاموس</b> <br> <code>dict</code>]
 ```
 
@@ -16,15 +16,15 @@ flowchart TD
 
 وراجع خريطة المجموعات: @fig-collections-tree
 
-**القاموس** ([`dict`](https://docs.python.org/3/library/stdtypes.html#dict)) جمع متغير مرتب، العنصر فيه مرقوم فريد مقابل لقيمة.
+**القاموس** ([`dict`](https://docs.python.org/3/library/stdtypes.html#dict)) جمع متغير مرتب، العنصر فيه مرقَّم فريد مقابل لقيمة.
 
 - **متغير**: يعني أنها تقبل الإضافة والحذف والتعديل
 - **مرتب**: يعني أن لكل عنصرٍ موضعًا بالنسبة لبدايته.
-- **مرقوم**: هي القابلة للرقم (`hash`) - وسيأتي بيانه
+- **مرقَّم**: فيكون لكل عنصر رقم هو ناتج عن عملية **التجزئة** ([Hash](https://docs.python.org/3/glossary.html#term-hashable))
 - **فريد**: يعني أن العنصر لا يتكرر فيها
 - **مقابل لقيمة**: أي أن لكل عنصر قيمة مرتبطة به. وهذه الخاصية التي تميز القاموس (`dict`) عن المجموعة (`set`)
 
-تنشأ المجموعة الرابطة بالإجراء المنشئ [`dict()`](https://docs.python.org/3/library/stdtypes.html#dict) أو  بالقوسين المتعرجين `{}` وذلك على النحو التالي:
+ينشأ القاموس بالإجراء المنشئ [`dict()`](https://docs.python.org/3/library/stdtypes.html#dict) أو  بالقوسين المتعرجين `{}` وذلك على النحو التالي:
 
 ```{python}
 d = {'key1': 'value1', 'key2': 'value2'}
@@ -33,10 +33,10 @@ d2 = dict([('key1', 'value1'), ('key2', 'value2')])
 assert d == d1 == d2
 ```
 
-وفي كل **اقتران** نضيفه إلى قائمة الاقتران (القاموس):
+ولاحظ أن القاموس عبارة عن مجموعة اقترانات أو مقابلات:
 
-- يسمى المتغير `key1` **المفتاح** (ويشترط أن يكون مرقومًا)
-- ويسمى ما يقترن به **بالقيمة** `value1`
+- فيسمى المتغير `key1` **المفتاح** (ويشترط أن يكون قابلًا للتجزئة - `hash`)
+- ويسمى ما يقترن به (مثل `value1`) **بالقيمة**
 
 يستعمل القاموس في كثير من السياقات في البرمجة، وهو من أهم هياكل البيانات.
 
@@ -111,12 +111,12 @@ abb_to_full = {
 - العد: `len(d)`
 - التكرار: `for x in d`
 
-ويقبل القاموس لكونه **اقترانًا** ([`Mapping`](https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes)) الإجراءات التالية:
+ويقبل القاموس لكونه **مقابلة** ([`Mapping`](https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes)) الإجراءات التالية:
 
 - الإشارة مفتاح: `dict[key]`
 - الإشارة بمفتاح مع الرجوع بقيمة ابتدائية إن لم يُعثَر عليه: `dict.get(key[, default])`
 
-ولكونه **اقترانًا متغيرًا** ([`MutableMapping`](https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableMapping))، فإنه يقبل الإجراءات التالية:
+ولكونه **مقابلة متغيرة** ([`MutableMapping`](https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableMapping))، فإنه يقبل الإجراءات التالية:
 
 - التعديل بمفتاح: `dict[key] = value`
 - الحذف بمفتاح: `del dict[key]`
@@ -125,14 +125,23 @@ abb_to_full = {
 
 راجع خريطة الجموع: @fig-collections-tree.
 
-وهذه كذلك، كلها مرقومات، ولا يشترط أن تكون متجانسة (من نفس النوع)، كما يلي:
+وهذه كذلك، كلها قابلة للتجزئة، ولا يشترط أن تكون متجانسة (من نفس النوع)، كما يلي:
 
 ```{python}
 data = {
+    # مقابلة نص بعدد
     'key1': 100,
+
+    # مقابلة عدد بنص
     20: 'value2',
+
+    # مقابلة نص بقائمة
     'c': [10, 20, 30, True],
+
+    # مقابلة صف من أعداد بنص
     (1, 2): 'value3',
+
+    # مقابلة صف من نصوص بنص
     ('a', 'b', 'c'): 'value4',
 }
 
@@ -141,7 +150,7 @@ del data['key1']
 assert 'key1' not in data
 ```
 
-ونحصل عليها بالإشارة بمرقوم:
+ونحصل عليها بالإشارة بأحد المفاتيح:
 
 ```{python}
 print(data[20])
@@ -181,9 +190,9 @@ user['notifications']['push']
 
 ويجوز التكرار بثلاثة طرق:
 
-- كر العناصر: `for key, value in d.items()`
 - كر المفاتيح: `for key in d.keys()`
 - كر القيم: `for value in d.values()`
+- كر العناصر: `for key, value in d.items()` (ينتج عنها أزواج (`2-tuple`) من الفاتيح والقيم)
 
 مثال:
 
