@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>24&nbsp; الخدمات البرمجية – البايثونية</title>
+<title>تطبيقات – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../chapters/15_using/a3_use_http.html" rel="next">
-<link href="../../chapters/15_using/a1_use_library.html" rel="prev">
+<link href="../../chapters/12_oop/a1_objects.html" rel="next">
+<link href="../../chapters/09_files_and_directories/a2_directories.html" rel="prev">
 <link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -103,18 +103,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "البحث"
   }
 }</script>
-<meta name="mermaid-theme" content="neutral">
-<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<meta name="twitter:title" content="24&nbsp; الخدمات البرمجية – البايثونية">
+<meta name="twitter:title" content="تطبيقات – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/assets/WAN Network.png">
-<meta name="twitter:image-height" content="869">
-<meta name="twitter:image-width" content="1159">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar floating">
@@ -126,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/15_using/a1_use_library.html">تكامل البرمجيات</a></li><li class="breadcrumb-item"><a href="../../chapters/15_using/a2_use_sdk.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">الخدمات البرمجية</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/09_files_and_directories/a0_path.html">باب صياغة البيانات</a></li><li class="breadcrumb-item"><a href="../../chapters/09_files_and_directories/b_apps.html">تطبيقات</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -474,7 +467,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/09_files_and_directories/b_apps.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/09_files_and_directories/b_apps.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
@@ -543,7 +536,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/15_using/a2_use_sdk.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/15_using/a2_use_sdk.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">الخدمات البرمجية</span></span></a>
   </div>
 </li>
@@ -594,19 +587,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#الخادم-والعميل" id="toc-الخادم-والعميل" class="nav-link active" data-scroll-target="#الخادم-والعميل">الخادم والعميل</a></li>
-  <li><a href="#مكتبة-العميل" id="toc-مكتبة-العميل" class="nav-link" data-scroll-target="#مكتبة-العميل">مكتبة العميل</a></li>
-  <li><a href="#مكتبة-جيوباي-مثالا" id="toc-مكتبة-جيوباي-مثالا" class="nav-link" data-scroll-target="#مكتبة-جيوباي-مثالا">مكتبة جيوباي مثالاً</a></li>
-  <li><a href="#مفتاح-الواجهة-البرمجية-api_key" id="toc-مفتاح-الواجهة-البرمجية-api_key" class="nav-link" data-scroll-target="#مفتاح-الواجهة-البرمجية-api_key">مفتاح الواجهة البرمجية (<code>API_KEY</code>)</a></li>
+  <li><a href="#تصنيف-التغريدات" id="toc-تصنيف-التغريدات" class="nav-link active" data-scroll-target="#تصنيف-التغريدات">تصنيف التغريدات</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/15_using/a1_use_library.html">تكامل البرمجيات</a></li><li class="breadcrumb-item"><a href="../../chapters/15_using/a2_use_sdk.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">الخدمات البرمجية</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/09_files_and_directories/a0_path.html">باب صياغة البيانات</a></li><li class="breadcrumb-item"><a href="../../chapters/09_files_and_directories/b_apps.html">تطبيقات</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">الخدمات البرمجية</span></h1>
+<h1 class="title">تطبيقات</h1>
 </div>
 
 
@@ -623,146 +613,203 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>نتصوَّر <strong>الشبكة العالميَّة</strong> (الإنْتَرنِت) بأنها مجموعة أجهزة مترابطة بأشكال ارتباطات مختلفة. وكما هي السنة بين الأفراد والمؤسسات أن يخدم بعضهم بعضًا، ويتبادلون المنافع؛ فكذلك صار في العصر الرقمي تخادم عن طريق الحواسيب عبر الشبكة.</p>
-<p>وكما أن المعادن موزعة مكامنها في طيات أطراف الأرض؛ فإن البيانات (المواد الخام) والمعلومات (المعالجة) وآليات المعالجة (الأجهزة والخوارزميات) كذلك؛ يتفاضل الناس فيما بينهم فيها. فيكون بينهم تبادل المنافع.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../../assets/WAN Network.png" class="img-fluid figure-img"></p>
-<figcaption>شبكة محليَّة مرتبطة بموجِّه يربطها بشبكة أكبر (الشبكة العالمية) - الصورة من <a href="https://www.cloudflare.com/learning/network-layer/what-is-a-wan/">CloudFlare</a></figcaption>
-</figure>
+<section id="تصنيف-التغريدات" class="level2">
+<h2 class="anchored" data-anchor-id="تصنيف-التغريدات">تصنيف التغريدات</h2>
+<p>لدينا ثلاثة ملفات:</p>
+<ol type="1">
+<li>الأول يحوي تغريدات</li>
+<li>الثاني يحوي كلمات إيجابية</li>
+<li>الثالث يحوي كلمات سلبية</li>
+</ol>
+<p>نريد تصنيف التغريدات بناءً على عدد الكلمات الإيجابية والسلبية فيها.</p>
+<div id="351fc84a" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>data_dir <span class="op">=</span> Path(<span class="st">'../../datasets/tweets'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>فالصورة هذه توضِّح أن <strong>الشبكة المحليَّة</strong> (<a href="https://en.wikipedia.org/wiki/Local_area_network">Local Area Network - LAN</a>) -الذي يكون جهاز أحدنا فردًا من أفرادها- مرتبطةٌ بموجِّه (Router) يكون بمثابة البوابة إلى الشبكات الأخرى. فأي اتصال يكون بيننا وبين العالم يمرُّ عبره.</p>
-<p>وأما <strong>شبكة الشبكات</strong> فتسمى (<a href="https://en.wikipedia.org/wiki/Wide_area_network">Wide Area Network - WAN</a>)؛ وهكذا ببساطة نتصوَّر الشبكة العالمية؛ الإنترنت.</p>
-<section id="الخادم-والعميل" class="level2">
-<h2 class="anchored" data-anchor-id="الخادم-والعميل">الخادم والعميل</h2>
-<p>وعندما ننظر إلى أفراد التبادلات المعلوماتية بين الحواسيب، فإن أحد الطرفين يكون له دوْر العميل والآخر يكون له دوْر الخادم؛ ثم قد ينعكس الدوْر:</p>
-<ul>
-<li>فأما <strong>الخادم</strong> (Server) فيسمى كذلك المزوِّد (Provider) باعتبار المنتَج أو الخدمة البرمجية.</li>
-<li>وأما <strong>العميل</strong> (Client) فيسمى كذلك المستخدم (User) أو المستهلك (Consumer).</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Client-server-model.svg/1200px-Client-server-model.svg.png" class="img-fluid figure-img"></p>
-<figcaption>خادم لعدة عملاء</figcaption>
-</figure>
+<p>بعد النظر في شكل الملفات. يتبين لنا أن السطر الواحد يحتوي على “شيء” واحد. وبالتالي سنقسم البيانات على كل سطر.</p>
+<p>ونلاحظ أيضًا وجود أسطر خاوية، يجب التخلص منها.</p>
+<div id="4e72a2fa" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> read_lines(file_path: Path) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">str</span>]:</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="co">"""skips empty lines and converts to lowercase"""</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    result <span class="op">=</span> []</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="cf">with</span> <span class="bu">open</span>(file_path, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb2-5"><a href="#cb2-5"></a>        <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
+<span id="cb2-6"><a href="#cb2-6"></a>            x <span class="op">=</span> line.strip()</span>
+<span id="cb2-7"><a href="#cb2-7"></a>            <span class="cf">if</span> <span class="bu">len</span>(x) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb2-8"><a href="#cb2-8"></a>                x <span class="op">=</span> x.lower()</span>
+<span id="cb2-9"><a href="#cb2-9"></a>                result.append(x)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    <span class="cf">return</span> result</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="مكتبة-العميل" class="level2">
-<h2 class="anchored" data-anchor-id="مكتبة-العميل">مكتبة العميل</h2>
-<p>تسهل بعض المكتبات الوصول إلى خوادم مخصوصة؛ وتسمى المكتبة حينئذٍ <strong>عدة تطوير البرمجية</strong> (SDK - Software Development Kit)، أو: <strong>مكتبة العميل</strong> (<a href="https://cloud.google.com/apis/docs/client-libraries-explained">Client Library</a>).</p>
-<p>فأحد طرق التعامل مع الخدمات البرمجية، أن توفِّر هذه الخدمة مكتبةً للاتصال بها، تبدوا كأنها إجراءات مُعرَّفة عاديَّة، لكنَّ تفاصيلها تتضمَّن إرسال طلب للخادم المزوِّد ثم الرجوع بجوابه كقيمة لموضع الاستدعاء.</p>
-</section>
-<section id="مكتبة-جيوباي-مثالا" class="level2">
-<h2 class="anchored" data-anchor-id="مكتبة-جيوباي-مثالا">مكتبة جيوباي مثالاً</h2>
-<p>ونمثل على ذلك بمكتبة <a href="https://geopy.readthedocs.io/en/stable/"><code>GeoPy</code></a> حيث كُتِب في الوصف:</p>
-<blockquote class="blockquote">
-<p>جيوباي هو عميل بايثوني لمجموعة من خدمات شائعة على الشبكة للترميز الجغرافي. فهو يسهل تحديد إحداثيات العناوين والمدن والبلدان والمعالم في جميع أنحاء العالم باستخدام برامج ترميز جغرافي خارجية ومصادر بيانات أخرى.</p>
-</blockquote>
-<p>أولاً <a href="https://geopy.readthedocs.io/en/stable/#installation">تثبيت المكتبة</a> باستعمال <code>uv</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">uv</span> add geopy</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>وهذا العميل يمكن ضبطه للاختيار من مجموعة خوادم. وسنختار العميل <code>Nominatim</code> الذي يتصل بمزوِّد خدمة خارجية، وهو مزوِّد خدمة جغرافية عالمية تسمى <code>OpenStreetMap</code>.</p>
-<div id="5342e7a0" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> Nominatim</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>نستدعي الإجراء لقراءة الملفات الثلاث:</p>
+<div id="7a180471" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>tweets <span class="op">=</span> read_lines(data_dir <span class="op">/</span> <span class="st">'tweets.txt'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>positive_words <span class="op">=</span> read_lines(data_dir <span class="op">/</span> <span class="st">'words_positive.txt'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>negative_words <span class="op">=</span> read_lines(data_dir <span class="op">/</span> <span class="st">'words_negative.txt'</span>) </span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>يطلب منَّا الإجراء المنشئ التصريح بهويَّة للتطبيق؛ وذلك بتعيين <code>user_agent</code>، وهذا بحسب ما ورد في توثيق المكتبة. فنكتب أي اسم يدلُّ على التطبيق الذي نعمل عليه الآن، وسنختار الاسم <code>pythonia</code> .. ولك أن تختار أي اسم آخر.</p>
-<div id="a20e9103" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>geolocator <span class="op">=</span> Nominatim(user_agent<span class="op">=</span><span class="st">"pythonia"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>نفترض أننا نريد معرفة إحداثيات مدينة الدمام، وهذا هو عمل الإجراء <code>geocode</code>:</p>
-<div id="9ca1ae42" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>dammam_location <span class="op">=</span> geolocator.geocode(<span class="st">"Dammam, Saudi Arabia"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>قد يبدوا الإجراء عاديًّا، لكنه في الواقع يتصل بالخادم المزوِّد ويسأله عن إحداثيات المدينة.</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">sequenceDiagram
-    UserCode --&gt;&gt; GeoPy: .geocode("...")
-    GeoPy --&gt;&gt; OpenStreetMap: Request
-    OpenStreetMap --&gt;&gt; GeoPy: Response
-    GeoPy --&gt;&gt; UserCode: Return
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p>جرب اطبع النتيجة لتعرف ما هو هذا الشيء الذي تتعامل معه. وكذلك اطبع نوعه:</p>
-<div id="568029e8" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="bu">print</span>(dammam_location)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(<span class="bu">type</span>(dammam_location))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="622e5191" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">for</span> i, tweet <span class="kw">in</span> <span class="bu">enumerate</span>(tweets):</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="bu">print</span>(i, tweet)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>الدمام, محافظة الدمام, المنطقة الشرقية, 32242, السعودية
-&lt;class 'geopy.location.Location'&gt;</code></pre>
+<pre><code>0 أشعر بامتنان عميق للأشخاص الرائعين في حياتي! كل يوم معهم هو هدية جميلة
+1 الزهور المتفتحة تملأ المكان بألوانها الزاهية وعطرها الفواح! والعصافير تغرد بأجمل الألحان تحت أشعة الشمس الدافئة! يوم مثالي بكل تفاصيله
+2 الرجل العجوز قدوة في العطاء والكرم! يسعد دائماً بمساعدة الآخرين ويترك أثراً طيباً في كل من حوله! محبوب من الجميع لطيبة قلبه
+3 أتمنى لكم جميعاً يوماً مشرقاً مليئاً بالإنجازات والنجاحات! متحمس جداً لرؤية ابتساماتكم السعيدة!
+4 متحمس جداً للتحديات الجديدة! كل يوم فرصة للتعلم والنمو والتطور!
+5 تعذبت اليوم برحلة مزعجة في طريقي، رأيت مناظر مقرفة من حولي وأنا أتحمل ضجيج الطبيعة المزعجة
+6 صباح سيئ! استيقظت متأخراً وشربت فنجان قهوة مر. متوتر وقلق من لقاء زملائي المزعجين في العمل!
+7 أصوات الحياة من حولي تملأني إرهاقاً! أتعذب بالعمل من المنزل وأشعر بالملل والإحباط!
+8 قضيت أمسية متعبة مع أصدقائي المزعجين! تشاجرنا كثيراً وتذكرنا أسوأ الذكريات! أشعر بالحزن والضيق من وجودهم في حياتي!</code></pre>
 </div>
 </div>
-<p>تبيَّن لنا أن النوع هو: <code>geopy.location.Location</code> وبالبحث في توثيق المكتبة، وجدنا تفاصيلها هنا: <a href="https://geopy.readthedocs.io/en/stable/index.html#geopy.location.Location">geopy.location.Location</a>. حيث كُتب:</p>
-<div class="ltr">
-<blockquote class="blockquote">
-<p>Contains a parsed geocoder response. Can be iterated over as (<code>location&lt;String&gt;</code>, (<code>latitude&lt;float&gt;</code>, <code>longitude&lt;float&gt;</code>)). Or one can access the properties address, latitude, longitude, or raw. The last is a dictionary of the geocoder’s response for this item.</p>
-</blockquote>
-</div>
-<p>وبهذا نعرف أنها تتكون من ثلاثة معلومات، ويمكن الوصول لها بطرق مختلفة.</p>
-<p>الطريقة الأولى معقدة ولذلك سنتركها.</p>
-<p>الطريقة الثانية (عن طريق الصفات):</p>
-<div id="68b24b51" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">print</span>(dammam_location.address)</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="bu">print</span>(dammam_location.latitude)</span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="bu">print</span>(dammam_location.longitude)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ceb9b19c" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">for</span> p <span class="kw">in</span> positive_words:</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="bu">print</span>(p)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>الدمام, محافظة الدمام, المنطقة الشرقية, 32242, السعودية
-26.4367824
-50.1039991</code></pre>
+<pre><code>ممتن
+امتنان
+رائع
+جميل
+هدية
+زاهية
+فواح
+أجمل
+دافئة
+مثالي
+قدوة
+عطاء
+كرم
+يسعد
+مساعدة
+طيب
+محبوب
+مشرق
+إنجازات
+نجاحات
+متحمس
+ابتسامات
+سعيدة
+تعلم
+نمو
+تطور
+فرصة
+سعيد</code></pre>
 </div>
 </div>
-<p>الطريقة الثالثة (عن طريق القاموس):</p>
-<div id="1bc21263" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="bu">print</span>(dammam_location.raw)</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="bu">print</span>(<span class="bu">type</span>(dammam_location.raw)) <span class="co"># قاموس</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="86df61c2" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="cf">for</span> n <span class="kw">in</span> negative_words:</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    <span class="bu">print</span>(n)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'place_id': 40859854, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'node', 'osm_id': 287865393, 'lat': '26.4367824', 'lon': '50.1039991', 'class': 'place', 'type': 'city', 'place_rank': 16, 'importance': 0.5524619823312412, 'addresstype': 'city', 'name': 'الدمام', 'display_name': 'الدمام, محافظة الدمام, المنطقة الشرقية, 32242, السعودية', 'boundingbox': ['26.2767824', '26.5967824', '49.9439991', '50.2639991']}
-&lt;class 'dict'&gt;</code></pre>
+<pre><code>تعذب
+مزعج
+مقرف
+ضجيج
+سيئ
+متأخر
+مر
+متوتر
+قلق
+إرهاق
+أتعذب
+ملل
+إحباط
+متعب
+تشاجر
+أسوأ
+حزن
+ضيق
+مزعجين
+متضايق
+مرهق
+فائت
+غير مرتاح
+وحيد
+حزين</code></pre>
 </div>
 </div>
-<p>وكذلك لمدينة أخرى مثل البحرين:</p>
-<div id="a1b5bbdd" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>bahrain_location <span class="op">=</span> geolocator.geocode(<span class="st">"Bahrain"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>الآن نقوم بتصنيف التغريدات:</p>
+<div id="e92e3344" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">def</span> classify(text: <span class="bu">str</span>) <span class="op">-&gt;</span> (<span class="bu">int</span>, <span class="bu">int</span>):</span>
+<span id="cb10-2"><a href="#cb10-2"></a>    <span class="co">"""Returns the number of positive and negative words in the text"""</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>    </span>
+<span id="cb10-4"><a href="#cb10-4"></a>    positive_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>    <span class="cf">for</span> word <span class="kw">in</span> positive_words:</span>
+<span id="cb10-6"><a href="#cb10-6"></a>        <span class="cf">if</span> word <span class="kw">in</span> text:</span>
+<span id="cb10-7"><a href="#cb10-7"></a>            positive_count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>    </span>
+<span id="cb10-9"><a href="#cb10-9"></a>    negative_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a>    <span class="cf">for</span> word <span class="kw">in</span> negative_words:</span>
+<span id="cb10-11"><a href="#cb10-11"></a>        <span class="cf">if</span> word <span class="kw">in</span> text:</span>
+<span id="cb10-12"><a href="#cb10-12"></a>            negative_count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a>    </span>
+<span id="cb10-14"><a href="#cb10-14"></a>    <span class="cf">return</span> positive_count, negative_count</span>
+<span id="cb10-15"><a href="#cb10-15"></a></span>
+<span id="cb10-16"><a href="#cb10-16"></a><span class="cf">assert</span> classify(<span class="st">'أنا سعيد'</span>) <span class="op">==</span> (<span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb10-17"><a href="#cb10-17"></a><span class="cf">assert</span> classify(<span class="st">'أنا حزين'</span>) <span class="op">==</span> (<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb10-18"><a href="#cb10-18"></a><span class="cf">assert</span> classify(<span class="st">'سعيد حزين اليوم'</span>) <span class="op">==</span> (<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="cf">assert</span> classify(<span class="st">'اذهب إلى الدكان'</span>) <span class="op">==</span> (<span class="dv">0</span>, <span class="dv">0</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>ثم بعد أن حصلنا على المعلومات، نستخرج الإحداثيات من المتغيرات التي حصلنا عليها:</p>
-<div id="2cf6f6ef" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>dammam_coords <span class="op">=</span> (dammam_location.latitude, dammam_location.longitude)</span>
-<span id="cb12-2"><a href="#cb12-2"></a>bahrain_coords <span class="op">=</span> (bahrain_location.latitude, bahrain_location.longitude)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>ثم نحسب المسافة بين المدينتين، باستعمال فعل موجود في وحدة <a href="https://geopy.readthedocs.io/en/stable/#module-geopy.distance"><code>geopy.distance</code></a>، وهو <code>geodesic</code>. وأنبه مرة أخرى أن معرفة مثل ذلك يكون بتصفح فهرس المكتبة.</p>
-<div id="c411dbb6" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">from</span> geopy.distance <span class="im">import</span> geodesic</span>
-<span id="cb13-2"><a href="#cb13-2"></a></span>
-<span id="cb13-3"><a href="#cb13-3"></a>distance <span class="op">=</span> geodesic(dammam_coords, bahrain_coords)</span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="bu">print</span>(<span class="ss">f"Between Dammam and Bahrain is </span><span class="sc">{</span>distance<span class="sc">.</span>kilometers<span class="sc">:.2f}</span><span class="ss"> km"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>نستدعي الإجراء على التغريدات، ونفرز النتائج في ثلاثة قوائم:</p>
+<div id="61ffbc04" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>positive_tweets <span class="op">=</span> []</span>
+<span id="cb11-2"><a href="#cb11-2"></a>negative_tweets <span class="op">=</span> []</span>
+<span id="cb11-3"><a href="#cb11-3"></a>neutral_tweets <span class="op">=</span> []</span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="cf">for</span> tweet <span class="kw">in</span> tweets:</span>
+<span id="cb11-5"><a href="#cb11-5"></a>    pos, neg <span class="op">=</span> classify(tweet)</span>
+<span id="cb11-6"><a href="#cb11-6"></a>    score <span class="op">=</span> pos <span class="op">-</span> neg</span>
+<span id="cb11-7"><a href="#cb11-7"></a>    <span class="bu">print</span>(<span class="ss">f'-</span><span class="sc">{</span>neg<span class="sc">}</span><span class="ss"> +</span><span class="sc">{</span>pos<span class="sc">}</span><span class="ss"> = </span><span class="sc">{</span>score<span class="sc">:+}</span><span class="ss">'</span>)</span>
+<span id="cb11-8"><a href="#cb11-8"></a>    <span class="cf">if</span> score <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb11-9"><a href="#cb11-9"></a>        positive_tweets.append((tweet, score))</span>
+<span id="cb11-10"><a href="#cb11-10"></a>    <span class="cf">elif</span> score <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb11-11"><a href="#cb11-11"></a>        negative_tweets.append((tweet, score))</span>
+<span id="cb11-12"><a href="#cb11-12"></a>    <span class="cf">else</span>:</span>
+<span id="cb11-13"><a href="#cb11-13"></a>        neutral_tweets.append((tweet, score))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Between Dammam and Bahrain is 63.61 km</code></pre>
+<pre><code>-0 +4 = +4
+-0 +5 = +5
+-0 +7 = +7
+-0 +7 = +7
+-0 +5 = +5
+-4 +0 = -4
+-7 +0 = -7
+-5 +0 = -5
+-7 +0 = -7</code></pre>
 </div>
 </div>
-<p>وهكذا نكون قد حسبنا المسافة بين المدينتين بالكيلومترات، باستعمال مكتبة أعطتنا الإحداثيات للمدينتين، وكذلك أعطتنا معالجة المسافة بينهما.</p>
-</section>
-<section id="مفتاح-الواجهة-البرمجية-api_key" class="level2">
-<h2 class="anchored" data-anchor-id="مفتاح-الواجهة-البرمجية-api_key">مفتاح الواجهة البرمجية (<code>API_KEY</code>)</h2>
-<p>قلنا أن مكتبة العميل هذه تمكِّنك من الوصول إلى عدة خدمات جيومكانية. ويجدر بالذكر أننها تتفاضل في دقة الحساب، وسرعة الجواب، وكمية الطلبات المسموحة إليها.</p>
-<p>لذلك قد تضطر لتسجيل حساب وتشحنه بالمال برصيد، ثم تستعمل الخدمة عن طريق هذا الحساب. والطريقة التي يعرف بها الخادم أن البرنامج مخوَّل باستعمال رصيد هذا الحساب هي عبر <strong>مفتاح الواجهة البرمجية</strong> (<a href="https://en.wikipedia.org/wiki/API_key">API Key</a>).</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://geopy.readthedocs.io/en/stable/_images/geopy_and_geocoding_services.svg" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>مكتبة جيوباي وخدمات الترميز الجغرافي</figcaption>
-</figure>
+<p>نعرض التغريدات بحسب التصنيف مرتبة بقوة التصنيف من الأعلى إلى الأسفل:</p>
+<div id="51e99bab" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="bu">print</span>(<span class="st">'positive_tweets:'</span>)</span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="cf">for</span> tweet, score <span class="kw">in</span> <span class="bu">sorted</span>(positive_tweets, key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>], reverse<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb13-3"><a href="#cb13-3"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>score<span class="sc">:+}</span><span class="ss"> </span><span class="sc">{</span>tweet<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>positive_tweets:
++7 الرجل العجوز قدوة في العطاء والكرم! يسعد دائماً بمساعدة الآخرين ويترك أثراً طيباً في كل من حوله! محبوب من الجميع لطيبة قلبه
++7 أتمنى لكم جميعاً يوماً مشرقاً مليئاً بالإنجازات والنجاحات! متحمس جداً لرؤية ابتساماتكم السعيدة!
++5 الزهور المتفتحة تملأ المكان بألوانها الزاهية وعطرها الفواح! والعصافير تغرد بأجمل الألحان تحت أشعة الشمس الدافئة! يوم مثالي بكل تفاصيله
++5 متحمس جداً للتحديات الجديدة! كل يوم فرصة للتعلم والنمو والتطور!
++4 أشعر بامتنان عميق للأشخاص الرائعين في حياتي! كل يوم معهم هو هدية جميلة</code></pre>
 </div>
-<p>فإن أردت تغيير مزوِّد الخدمة (إما لعدم دقتها أو عدم توفر المعلومات أو أي سبب آخر)، فما عليك إلا استعمال استيراد <code>Geocoder</code> آخر. ونمثل لذلك بعميل يتصل بخدمة <code>TomTom</code>:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> TomTom</span>
-<span id="cb15-2"><a href="#cb15-2"></a></span>
-<span id="cb15-3"><a href="#cb15-3"></a>geolocator <span class="op">=</span> TomTom(user_agent<span class="op">=</span><span class="st">"pythonia"</span>, api_key<span class="op">=</span><span class="st">"..."</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>لكن هذا يتطلَّب شيئًا إضافيًّا وهو الحصول على مفتاح متعلِّق بحساب مسجَّل على موقع <a href="https://developer.tomtom.com/">TomTom</a> نفسه. ثم وضع هذا الفتاح هنا. وبهذا المفتاح المرتبط بهذا الحِساب يتمُّ تعبئة الاشتراك والصرف من رصيده.</p>
-<p>وهذه أحد مصادر دخل شركات المعلومات.</p>
+</div>
+<div id="3e7fcd09" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">print</span>(<span class="st">'negative_tweets:'</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="cf">for</span> tweet, score <span class="kw">in</span> <span class="bu">sorted</span>(negative_tweets, key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>]):</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>score<span class="sc">:+}</span><span class="ss"> </span><span class="sc">{</span>tweet<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>negative_tweets:
+-7 صباح سيئ! استيقظت متأخراً وشربت فنجان قهوة مر. متوتر وقلق من لقاء زملائي المزعجين في العمل!
+-7 قضيت أمسية متعبة مع أصدقائي المزعجين! تشاجرنا كثيراً وتذكرنا أسوأ الذكريات! أشعر بالحزن والضيق من وجودهم في حياتي!
+-5 أصوات الحياة من حولي تملأني إرهاقاً! أتعذب بالعمل من المنزل وأشعر بالملل والإحباط!
+-4 تعذبت اليوم برحلة مزعجة في طريقي، رأيت مناظر مقرفة من حولي وأنا أتحمل ضجيج الطبيعة المزعجة</code></pre>
+</div>
+</div>
+<div id="e93cf655" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="bu">print</span>(<span class="st">'neutral_tweets:'</span>)</span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="cf">for</span> tweet, score <span class="kw">in</span> neutral_tweets:</span>
+<span id="cb17-3"><a href="#cb17-3"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>score<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>tweet<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>neutral_tweets:</code></pre>
+</div>
+</div>
 
 
 </section>
@@ -1189,13 +1236,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../chapters/15_using/a1_use_library.html" class="pagination-link" aria-label="مكتبة البرمجيات">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">مكتبة البرمجيات</span></span>
+      <a href="../../chapters/09_files_and_directories/a2_directories.html" class="pagination-link" aria-label="الدليل">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">الدليل</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../chapters/15_using/a3_use_http.html" class="pagination-link" aria-label="التخاطب عبر الشبكة">
-        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">التخاطب عبر الشبكة</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../chapters/12_oop/a1_objects.html" class="pagination-link" aria-label="الأنواع">
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">الأنواع</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>24&nbsp; الخدمات البرمجية – البايثونية</title>
+<title>تطبيقات – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../chapters/15_using/a3_use_http.html" rel="next">
-<link href="../../chapters/15_using/a1_use_library.html" rel="prev">
+<link href="../../chapters/06_mapping/c_problems.html" rel="next">
+<link href="../../chapters/06_mapping/a2_dict.html" rel="prev">
 <link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -103,18 +103,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "البحث"
   }
 }</script>
-<meta name="mermaid-theme" content="neutral">
-<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<meta name="twitter:title" content="24&nbsp; الخدمات البرمجية – البايثونية">
+<meta name="twitter:title" content="تطبيقات – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/assets/WAN Network.png">
-<meta name="twitter:image-height" content="869">
-<meta name="twitter:image-width" content="1159">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar floating">
@@ -126,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/15_using/a1_use_library.html">تكامل البرمجيات</a></li><li class="breadcrumb-item"><a href="../../chapters/15_using/a2_use_sdk.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">الخدمات البرمجية</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/06_mapping/a1_set.html">باب الجمع المرقَّم</a></li><li class="breadcrumb-item"><a href="../../chapters/06_mapping/b_apps.html">تطبيقات</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -340,7 +333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/06_mapping/b_apps.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/06_mapping/b_apps.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
@@ -543,7 +536,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/15_using/a2_use_sdk.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/15_using/a2_use_sdk.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">الخدمات البرمجية</span></span></a>
   </div>
 </li>
@@ -594,19 +587,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#الخادم-والعميل" id="toc-الخادم-والعميل" class="nav-link active" data-scroll-target="#الخادم-والعميل">الخادم والعميل</a></li>
-  <li><a href="#مكتبة-العميل" id="toc-مكتبة-العميل" class="nav-link" data-scroll-target="#مكتبة-العميل">مكتبة العميل</a></li>
-  <li><a href="#مكتبة-جيوباي-مثالا" id="toc-مكتبة-جيوباي-مثالا" class="nav-link" data-scroll-target="#مكتبة-جيوباي-مثالا">مكتبة جيوباي مثالاً</a></li>
-  <li><a href="#مفتاح-الواجهة-البرمجية-api_key" id="toc-مفتاح-الواجهة-البرمجية-api_key" class="nav-link" data-scroll-target="#مفتاح-الواجهة-البرمجية-api_key">مفتاح الواجهة البرمجية (<code>API_KEY</code>)</a></li>
+  <li><a href="#الأجزاء-المنتمية-إلى-الكل" id="toc-الأجزاء-المنتمية-إلى-الكل" class="nav-link active" data-scroll-target="#الأجزاء-المنتمية-إلى-الكل">الأجزاء المنتمية إلى الكل</a></li>
+  <li><a href="#سلة-المشتريات" id="toc-سلة-المشتريات" class="nav-link" data-scroll-target="#سلة-المشتريات">سلة المشتريات</a></li>
+  <li><a href="#استعمال-الإنشاء-المختصر" id="toc-استعمال-الإنشاء-المختصر" class="nav-link" data-scroll-target="#استعمال-الإنشاء-المختصر">استعمال الإنشاء المختصر</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/15_using/a1_use_library.html">تكامل البرمجيات</a></li><li class="breadcrumb-item"><a href="../../chapters/15_using/a2_use_sdk.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">الخدمات البرمجية</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/06_mapping/a1_set.html">باب الجمع المرقَّم</a></li><li class="breadcrumb-item"><a href="../../chapters/06_mapping/b_apps.html">تطبيقات</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">الخدمات البرمجية</span></h1>
+<h1 class="title">تطبيقات</h1>
 </div>
 
 
@@ -623,146 +615,134 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>نتصوَّر <strong>الشبكة العالميَّة</strong> (الإنْتَرنِت) بأنها مجموعة أجهزة مترابطة بأشكال ارتباطات مختلفة. وكما هي السنة بين الأفراد والمؤسسات أن يخدم بعضهم بعضًا، ويتبادلون المنافع؛ فكذلك صار في العصر الرقمي تخادم عن طريق الحواسيب عبر الشبكة.</p>
-<p>وكما أن المعادن موزعة مكامنها في طيات أطراف الأرض؛ فإن البيانات (المواد الخام) والمعلومات (المعالجة) وآليات المعالجة (الأجهزة والخوارزميات) كذلك؛ يتفاضل الناس فيما بينهم فيها. فيكون بينهم تبادل المنافع.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../../assets/WAN Network.png" class="img-fluid figure-img"></p>
-<figcaption>شبكة محليَّة مرتبطة بموجِّه يربطها بشبكة أكبر (الشبكة العالمية) - الصورة من <a href="https://www.cloudflare.com/learning/network-layer/what-is-a-wan/">CloudFlare</a></figcaption>
-</figure>
+<section id="الأجزاء-المنتمية-إلى-الكل" class="level2">
+<h2 class="anchored" data-anchor-id="الأجزاء-المنتمية-إلى-الكل">الأجزاء المنتمية إلى الكل</h2>
+<p>أو الاختصارات إلى الكلمة التامة:</p>
+<div id="48e2eda9" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>animal_class <span class="op">=</span> {</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="st">"Dog"</span>: <span class="st">"Mammalia"</span>,</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="st">"Cat"</span>: <span class="st">"Mammalia"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="st">"Elephant"</span>: <span class="st">"Mammalia"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="st">"Snake"</span>: <span class="st">"Reptilia"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="st">"Lizard"</span>: <span class="st">"Reptilia"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    <span class="st">"Frog"</span>: <span class="st">"Amphibia"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>فالصورة هذه توضِّح أن <strong>الشبكة المحليَّة</strong> (<a href="https://en.wikipedia.org/wiki/Local_area_network">Local Area Network - LAN</a>) -الذي يكون جهاز أحدنا فردًا من أفرادها- مرتبطةٌ بموجِّه (Router) يكون بمثابة البوابة إلى الشبكات الأخرى. فأي اتصال يكون بيننا وبين العالم يمرُّ عبره.</p>
-<p>وأما <strong>شبكة الشبكات</strong> فتسمى (<a href="https://en.wikipedia.org/wiki/Wide_area_network">Wide Area Network - WAN</a>)؛ وهكذا ببساطة نتصوَّر الشبكة العالمية؛ الإنترنت.</p>
-<section id="الخادم-والعميل" class="level2">
-<h2 class="anchored" data-anchor-id="الخادم-والعميل">الخادم والعميل</h2>
-<p>وعندما ننظر إلى أفراد التبادلات المعلوماتية بين الحواسيب، فإن أحد الطرفين يكون له دوْر العميل والآخر يكون له دوْر الخادم؛ ثم قد ينعكس الدوْر:</p>
-<ul>
-<li>فأما <strong>الخادم</strong> (Server) فيسمى كذلك المزوِّد (Provider) باعتبار المنتَج أو الخدمة البرمجية.</li>
-<li>وأما <strong>العميل</strong> (Client) فيسمى كذلك المستخدم (User) أو المستهلك (Consumer).</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Client-server-model.svg/1200px-Client-server-model.svg.png" class="img-fluid figure-img"></p>
-<figcaption>خادم لعدة عملاء</figcaption>
-</figure>
+<p>نريد عكس هذه القائمة أيضًا بحيث نستطيع أن نعرف من الصنف كل الحيوانات المتنمية إليه.</p>
+<p>نأتي على جميع المفاتيح في القاموس الأول ونضيفها بحسب القيمة التي تقابلها:</p>
+<div id="89148323" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>class_animal <span class="op">=</span> {}</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="cf">for</span> animal, clazz <span class="kw">in</span> animal_class.items():</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="cf">if</span> clazz <span class="kw">not</span> <span class="kw">in</span> class_animal:</span>
+<span id="cb2-4"><a href="#cb2-4"></a>        class_animal[clazz] <span class="op">=</span> []</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    class_animal[clazz].append(animal)</span>
+<span id="cb2-6"><a href="#cb2-6"></a>class_animal</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>{'Mammalia': ['Dog', 'Cat', 'Elephant'],
+ 'Reptilia': ['Snake', 'Lizard'],
+ 'Amphibia': ['Frog']}</code></pre>
+</div>
+</div>
+<p>لاحظ استعمال اسم <code>clazz</code> بدل <code>class</code> لأن كلمة <code>class</code> أصلية في لغة بايثون فلا يجوز استعمالها كمتغير.</p>
+</section>
+<section id="سلة-المشتريات" class="level2">
+<h2 class="anchored" data-anchor-id="سلة-المشتريات">سلة المشتريات</h2>
+<p>نفترض أن لدينا سلة تحتوي على مشتريات العميل (<code>basket</code>)، ونريد حساب القيمة الإجمالية لها، ولدينا قائمة بأسعار الفواكه. فنعرف الأسعار على أنها قاموس <code>prices</code> بحيث يشير اسم الفاكهة إلى سعرها (قيمتها المالية).</p>
+<div id="97dd8ee2" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>prices <span class="op">=</span> {</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="st">'apple'</span>: <span class="fl">15.25</span>,</span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="st">'banana'</span>: <span class="fl">10.50</span>,</span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="st">'orange'</span>: <span class="fl">5.75</span>,</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="st">'cantaloupe'</span>: <span class="fl">40.00</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>يجوز تحديث الأسعار هكذا:</p>
+<div id="dd4bac79" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>prices[<span class="st">'banana'</span>] <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>prices[<span class="st">'orange'</span>] <span class="op">=</span> <span class="dv">15</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>أو تحديثها بالإجراء <code>update()</code>:</p>
+<div id="75f7d643" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>prices.update({<span class="st">'banana'</span>: <span class="dv">12</span>, <span class="st">'orange'</span>: <span class="dv">15</span>})</span>
+<span id="cb6-2"><a href="#cb6-2"></a>prices</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>{'apple': 15.25, 'banana': 12, 'orange': 15, 'cantaloupe': 40.0}</code></pre>
+</div>
+</div>
+<p>والآن نفترض أن لدينا قائمة بالفواكه التي يريدها العميل:</p>
+<div id="afe09e40" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>basket <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>, <span class="st">'banana'</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>نحسب سعر كل فاكهة في السلة بناءً على الأسعار الموجودة في القاموس:</p>
+<div id="86c90513" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="cf">for</span> fruit <span class="kw">in</span> basket:</span>
+<span id="cb9-4"><a href="#cb9-4"></a>    total <span class="op">+=</span> prices[fruit]</span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="bu">print</span>(total)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>69.5</code></pre>
+</div>
+</div>
+<p>أو تستطيع أن تعدها أولاً ثم تضربها بالسعر:</p>
+<div id="f156973c" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>counts <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="cf">for</span> fruit <span class="kw">in</span> <span class="bu">set</span>(basket):</span>
+<span id="cb11-3"><a href="#cb11-3"></a>    counts[fruit] <span class="op">=</span> basket.count(fruit)</span>
+<span id="cb11-4"><a href="#cb11-4"></a>counts</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>{'banana': 2, 'apple': 2, 'orange': 1}</code></pre>
+</div>
+</div>
+<p>ثم تضربها بالسعر:</p>
+<div id="c8f786df" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>total <span class="op">=</span> <span class="bu">sum</span>(counts[fruit] <span class="op">*</span> prices[fruit] <span class="cf">for</span> fruit <span class="kw">in</span> counts)</span>
+<span id="cb13-2"><a href="#cb13-2"></a>total</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>69.5</code></pre>
+</div>
 </div>
 </section>
-<section id="مكتبة-العميل" class="level2">
-<h2 class="anchored" data-anchor-id="مكتبة-العميل">مكتبة العميل</h2>
-<p>تسهل بعض المكتبات الوصول إلى خوادم مخصوصة؛ وتسمى المكتبة حينئذٍ <strong>عدة تطوير البرمجية</strong> (SDK - Software Development Kit)، أو: <strong>مكتبة العميل</strong> (<a href="https://cloud.google.com/apis/docs/client-libraries-explained">Client Library</a>).</p>
-<p>فأحد طرق التعامل مع الخدمات البرمجية، أن توفِّر هذه الخدمة مكتبةً للاتصال بها، تبدوا كأنها إجراءات مُعرَّفة عاديَّة، لكنَّ تفاصيلها تتضمَّن إرسال طلب للخادم المزوِّد ثم الرجوع بجوابه كقيمة لموضع الاستدعاء.</p>
-</section>
-<section id="مكتبة-جيوباي-مثالا" class="level2">
-<h2 class="anchored" data-anchor-id="مكتبة-جيوباي-مثالا">مكتبة جيوباي مثالاً</h2>
-<p>ونمثل على ذلك بمكتبة <a href="https://geopy.readthedocs.io/en/stable/"><code>GeoPy</code></a> حيث كُتِب في الوصف:</p>
-<blockquote class="blockquote">
-<p>جيوباي هو عميل بايثوني لمجموعة من خدمات شائعة على الشبكة للترميز الجغرافي. فهو يسهل تحديد إحداثيات العناوين والمدن والبلدان والمعالم في جميع أنحاء العالم باستخدام برامج ترميز جغرافي خارجية ومصادر بيانات أخرى.</p>
-</blockquote>
-<p>أولاً <a href="https://geopy.readthedocs.io/en/stable/#installation">تثبيت المكتبة</a> باستعمال <code>uv</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">uv</span> add geopy</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>وهذا العميل يمكن ضبطه للاختيار من مجموعة خوادم. وسنختار العميل <code>Nominatim</code> الذي يتصل بمزوِّد خدمة خارجية، وهو مزوِّد خدمة جغرافية عالمية تسمى <code>OpenStreetMap</code>.</p>
-<div id="5342e7a0" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> Nominatim</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>يطلب منَّا الإجراء المنشئ التصريح بهويَّة للتطبيق؛ وذلك بتعيين <code>user_agent</code>، وهذا بحسب ما ورد في توثيق المكتبة. فنكتب أي اسم يدلُّ على التطبيق الذي نعمل عليه الآن، وسنختار الاسم <code>pythonia</code> .. ولك أن تختار أي اسم آخر.</p>
-<div id="a20e9103" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>geolocator <span class="op">=</span> Nominatim(user_agent<span class="op">=</span><span class="st">"pythonia"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>نفترض أننا نريد معرفة إحداثيات مدينة الدمام، وهذا هو عمل الإجراء <code>geocode</code>:</p>
-<div id="9ca1ae42" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>dammam_location <span class="op">=</span> geolocator.geocode(<span class="st">"Dammam, Saudi Arabia"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>قد يبدوا الإجراء عاديًّا، لكنه في الواقع يتصل بالخادم المزوِّد ويسأله عن إحداثيات المدينة.</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">sequenceDiagram
-    UserCode --&gt;&gt; GeoPy: .geocode("...")
-    GeoPy --&gt;&gt; OpenStreetMap: Request
-    OpenStreetMap --&gt;&gt; GeoPy: Response
-    GeoPy --&gt;&gt; UserCode: Return
-</pre>
-</div>
-<p></p></figure><p></p>
+<section id="استعمال-الإنشاء-المختصر" class="level2">
+<h2 class="anchored" data-anchor-id="استعمال-الإنشاء-المختصر">استعمال الإنشاء المختصر</h2>
+<p>تقدم معنا الكلام عن <a href="../../chapters/05_sequences/a_sequences.html#الإنشاء-المختصر-الجملة-الثلاثية">الإنشاء المختصر</a>. وسنستعرضه الآن مع القاموس.</p>
+<p>هنا مثال لقاموس من الفواكه، نريد ترشيح ما قيمته أقل من 20:</p>
+<div id="f81c9cf6" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>menu <span class="op">=</span> {</span>
+<span id="cb15-2"><a href="#cb15-2"></a>    <span class="st">'apple'</span>: <span class="dv">15</span>,</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    <span class="st">'banana'</span>: <span class="dv">10</span>,</span>
+<span id="cb15-4"><a href="#cb15-4"></a>    <span class="st">'orange'</span>: <span class="dv">5</span>,</span>
+<span id="cb15-5"><a href="#cb15-5"></a>    <span class="st">'cantaloupe'</span>: <span class="dv">40</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>}</span>
+<span id="cb15-7"><a href="#cb15-7"></a></span>
+<span id="cb15-8"><a href="#cb15-8"></a>filtered_menu <span class="op">=</span> {k: v <span class="cf">for</span> k, v <span class="kw">in</span> menu.items() <span class="cf">if</span> v <span class="op">&lt;</span> <span class="dv">20</span>}</span>
+<span id="cb15-9"><a href="#cb15-9"></a>filtered_menu</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>{'apple': 15, 'banana': 10, 'orange': 5}</code></pre>
 </div>
 </div>
-</div>
-<p>جرب اطبع النتيجة لتعرف ما هو هذا الشيء الذي تتعامل معه. وكذلك اطبع نوعه:</p>
-<div id="568029e8" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="bu">print</span>(dammam_location)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(<span class="bu">type</span>(dammam_location))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>الدمام, محافظة الدمام, المنطقة الشرقية, 32242, السعودية
-&lt;class 'geopy.location.Location'&gt;</code></pre>
-</div>
-</div>
-<p>تبيَّن لنا أن النوع هو: <code>geopy.location.Location</code> وبالبحث في توثيق المكتبة، وجدنا تفاصيلها هنا: <a href="https://geopy.readthedocs.io/en/stable/index.html#geopy.location.Location">geopy.location.Location</a>. حيث كُتب:</p>
-<div class="ltr">
-<blockquote class="blockquote">
-<p>Contains a parsed geocoder response. Can be iterated over as (<code>location&lt;String&gt;</code>, (<code>latitude&lt;float&gt;</code>, <code>longitude&lt;float&gt;</code>)). Or one can access the properties address, latitude, longitude, or raw. The last is a dictionary of the geocoder’s response for this item.</p>
-</blockquote>
-</div>
-<p>وبهذا نعرف أنها تتكون من ثلاثة معلومات، ويمكن الوصول لها بطرق مختلفة.</p>
-<p>الطريقة الأولى معقدة ولذلك سنتركها.</p>
-<p>الطريقة الثانية (عن طريق الصفات):</p>
-<div id="68b24b51" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">print</span>(dammam_location.address)</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="bu">print</span>(dammam_location.latitude)</span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="bu">print</span>(dammam_location.longitude)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>الدمام, محافظة الدمام, المنطقة الشرقية, 32242, السعودية
-26.4367824
-50.1039991</code></pre>
+<p>وهذا مثال أكثر تعقيدًا. نطبق خصم 20% فقط على العناصر التي يكون سعرها أعلى من المتوسط، مع الحفاظ على بقية الأسعار كما هي. لاحظ أن التعبير هنا هو تعيين شرطي: <code>value * (1 - discount) if value &gt; avg_price else value</code> وليس هو قطعة الترشيح (<code>if</code>)؛ إذ تلك تأتي في نهاية الجملة، بعد قطعة التكرار (<code>for</code>).</p>
+<div id="9372dde9" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>menu <span class="op">=</span> {</span>
+<span id="cb17-2"><a href="#cb17-2"></a>    <span class="st">'apple'</span>: <span class="dv">15</span>,</span>
+<span id="cb17-3"><a href="#cb17-3"></a>    <span class="st">'banana'</span>: <span class="dv">10</span>,</span>
+<span id="cb17-4"><a href="#cb17-4"></a>    <span class="st">'orange'</span>: <span class="dv">5</span>,</span>
+<span id="cb17-5"><a href="#cb17-5"></a>    <span class="st">'cantaloupe'</span>: <span class="dv">40</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a>}</span>
+<span id="cb17-7"><a href="#cb17-7"></a></span>
+<span id="cb17-8"><a href="#cb17-8"></a>avg_price <span class="op">=</span> <span class="bu">sum</span>(menu.values()) <span class="op">/</span> <span class="bu">len</span>(menu)</span>
+<span id="cb17-9"><a href="#cb17-9"></a>discount <span class="op">=</span> <span class="fl">0.20</span></span>
+<span id="cb17-10"><a href="#cb17-10"></a></span>
+<span id="cb17-11"><a href="#cb17-11"></a>discounted_menu <span class="op">=</span> {</span>
+<span id="cb17-12"><a href="#cb17-12"></a>    k: v <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> discount) <span class="cf">if</span> v <span class="op">&gt;</span> avg_price <span class="cf">else</span> v</span>
+<span id="cb17-13"><a href="#cb17-13"></a>    <span class="cf">for</span> k, v <span class="kw">in</span> menu.items()</span>
+<span id="cb17-14"><a href="#cb17-14"></a>}</span>
+<span id="cb17-15"><a href="#cb17-15"></a>discounted_menu</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>{'apple': 15, 'banana': 10, 'orange': 5, 'cantaloupe': 32.0}</code></pre>
 </div>
 </div>
-<p>الطريقة الثالثة (عن طريق القاموس):</p>
-<div id="1bc21263" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="bu">print</span>(dammam_location.raw)</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="bu">print</span>(<span class="bu">type</span>(dammam_location.raw)) <span class="co"># قاموس</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>{'place_id': 40859854, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'node', 'osm_id': 287865393, 'lat': '26.4367824', 'lon': '50.1039991', 'class': 'place', 'type': 'city', 'place_rank': 16, 'importance': 0.5524619823312412, 'addresstype': 'city', 'name': 'الدمام', 'display_name': 'الدمام, محافظة الدمام, المنطقة الشرقية, 32242, السعودية', 'boundingbox': ['26.2767824', '26.5967824', '49.9439991', '50.2639991']}
-&lt;class 'dict'&gt;</code></pre>
-</div>
-</div>
-<p>وكذلك لمدينة أخرى مثل البحرين:</p>
-<div id="a1b5bbdd" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>bahrain_location <span class="op">=</span> geolocator.geocode(<span class="st">"Bahrain"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>ثم بعد أن حصلنا على المعلومات، نستخرج الإحداثيات من المتغيرات التي حصلنا عليها:</p>
-<div id="2cf6f6ef" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>dammam_coords <span class="op">=</span> (dammam_location.latitude, dammam_location.longitude)</span>
-<span id="cb12-2"><a href="#cb12-2"></a>bahrain_coords <span class="op">=</span> (bahrain_location.latitude, bahrain_location.longitude)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>ثم نحسب المسافة بين المدينتين، باستعمال فعل موجود في وحدة <a href="https://geopy.readthedocs.io/en/stable/#module-geopy.distance"><code>geopy.distance</code></a>، وهو <code>geodesic</code>. وأنبه مرة أخرى أن معرفة مثل ذلك يكون بتصفح فهرس المكتبة.</p>
-<div id="c411dbb6" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">from</span> geopy.distance <span class="im">import</span> geodesic</span>
-<span id="cb13-2"><a href="#cb13-2"></a></span>
-<span id="cb13-3"><a href="#cb13-3"></a>distance <span class="op">=</span> geodesic(dammam_coords, bahrain_coords)</span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="bu">print</span>(<span class="ss">f"Between Dammam and Bahrain is </span><span class="sc">{</span>distance<span class="sc">.</span>kilometers<span class="sc">:.2f}</span><span class="ss"> km"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Between Dammam and Bahrain is 63.61 km</code></pre>
-</div>
-</div>
-<p>وهكذا نكون قد حسبنا المسافة بين المدينتين بالكيلومترات، باستعمال مكتبة أعطتنا الإحداثيات للمدينتين، وكذلك أعطتنا معالجة المسافة بينهما.</p>
-</section>
-<section id="مفتاح-الواجهة-البرمجية-api_key" class="level2">
-<h2 class="anchored" data-anchor-id="مفتاح-الواجهة-البرمجية-api_key">مفتاح الواجهة البرمجية (<code>API_KEY</code>)</h2>
-<p>قلنا أن مكتبة العميل هذه تمكِّنك من الوصول إلى عدة خدمات جيومكانية. ويجدر بالذكر أننها تتفاضل في دقة الحساب، وسرعة الجواب، وكمية الطلبات المسموحة إليها.</p>
-<p>لذلك قد تضطر لتسجيل حساب وتشحنه بالمال برصيد، ثم تستعمل الخدمة عن طريق هذا الحساب. والطريقة التي يعرف بها الخادم أن البرنامج مخوَّل باستعمال رصيد هذا الحساب هي عبر <strong>مفتاح الواجهة البرمجية</strong> (<a href="https://en.wikipedia.org/wiki/API_key">API Key</a>).</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://geopy.readthedocs.io/en/stable/_images/geopy_and_geocoding_services.svg" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>مكتبة جيوباي وخدمات الترميز الجغرافي</figcaption>
-</figure>
-</div>
-<p>فإن أردت تغيير مزوِّد الخدمة (إما لعدم دقتها أو عدم توفر المعلومات أو أي سبب آخر)، فما عليك إلا استعمال استيراد <code>Geocoder</code> آخر. ونمثل لذلك بعميل يتصل بخدمة <code>TomTom</code>:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> TomTom</span>
-<span id="cb15-2"><a href="#cb15-2"></a></span>
-<span id="cb15-3"><a href="#cb15-3"></a>geolocator <span class="op">=</span> TomTom(user_agent<span class="op">=</span><span class="st">"pythonia"</span>, api_key<span class="op">=</span><span class="st">"..."</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>لكن هذا يتطلَّب شيئًا إضافيًّا وهو الحصول على مفتاح متعلِّق بحساب مسجَّل على موقع <a href="https://developer.tomtom.com/">TomTom</a> نفسه. ثم وضع هذا الفتاح هنا. وبهذا المفتاح المرتبط بهذا الحِساب يتمُّ تعبئة الاشتراك والصرف من رصيده.</p>
-<p>وهذه أحد مصادر دخل شركات المعلومات.</p>
 
 
 </section>
@@ -1189,13 +1169,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../chapters/15_using/a1_use_library.html" class="pagination-link" aria-label="مكتبة البرمجيات">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">مكتبة البرمجيات</span></span>
+      <a href="../../chapters/06_mapping/a2_dict.html" class="pagination-link" aria-label="القاموس">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">القاموس</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../chapters/15_using/a3_use_http.html" class="pagination-link" aria-label="التخاطب عبر الشبكة">
-        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">التخاطب عبر الشبكة</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../chapters/06_mapping/c_problems.html" class="pagination-link" aria-label="مسائل">
+        <span class="nav-page-text">مسائل</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
