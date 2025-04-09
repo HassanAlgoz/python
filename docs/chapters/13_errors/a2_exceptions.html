@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-18c600aae80d5bc93e3bd4e059157cd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-24ab65d2991612aadaf847f30cb0b188.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -594,12 +594,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#تغير-سير-الأوامر-عند-الخطأ" id="toc-تغير-سير-الأوامر-عند-الخطأ" class="nav-link active" data-scroll-target="#تغير-سير-الأوامر-عند-الخطأ">تغير سير الأوامر عند الخطأ</a></li>
   <li><a href="#أنواع-الاستثناء" id="toc-أنواع-الاستثناء" class="nav-link" data-scroll-target="#أنواع-الاستثناء">أنواع الاستثناء</a>
   <ul class="collapse">
-  <li><a href="#syntaxerror" id="toc-syntaxerror" class="nav-link" data-scroll-target="#syntaxerror"><code>SyntaxError</code></a></li>
-  <li><a href="#typeerror" id="toc-typeerror" class="nav-link" data-scroll-target="#typeerror"><code>TypeError</code></a></li>
-  <li><a href="#valueerror" id="toc-valueerror" class="nav-link" data-scroll-target="#valueerror"><code>ValueError</code></a></li>
-  <li><a href="#indexerror-keyerror" id="toc-indexerror-keyerror" class="nav-link" data-scroll-target="#indexerror-keyerror"><code>IndexError</code> &amp; <code>KeyError</code></a></li>
-  <li><a href="#attributeerror-nameerror" id="toc-attributeerror-nameerror" class="nav-link" data-scroll-target="#attributeerror-nameerror"><code>AttributeError</code> &amp; <code>NameError</code></a></li>
-  <li><a href="#modulenotfounderror" id="toc-modulenotfounderror" class="nav-link" data-scroll-target="#modulenotfounderror"><code>ModuleNotFoundError</code></a></li>
+  <li><a href="#syntaxerror" id="toc-syntaxerror" class="nav-link" data-scroll-target="#syntaxerror"><code dir="ltr">SyntaxError</code></a></li>
+  <li><a href="#typeerror" id="toc-typeerror" class="nav-link" data-scroll-target="#typeerror"><code dir="ltr">TypeError</code></a></li>
+  <li><a href="#valueerror" id="toc-valueerror" class="nav-link" data-scroll-target="#valueerror"><code dir="ltr">ValueError</code></a></li>
+  <li><a href="#indexerror-keyerror" id="toc-indexerror-keyerror" class="nav-link" data-scroll-target="#indexerror-keyerror"><code dir="ltr">IndexError</code> &amp; <code dir="ltr">KeyError</code></a></li>
+  <li><a href="#attributeerror-nameerror" id="toc-attributeerror-nameerror" class="nav-link" data-scroll-target="#attributeerror-nameerror"><code dir="ltr">AttributeError</code> &amp; <code dir="ltr">NameError</code></a></li>
+  <li><a href="#modulenotfounderror" id="toc-modulenotfounderror" class="nav-link" data-scroll-target="#modulenotfounderror"><code dir="ltr">ModuleNotFoundError</code></a></li>
   </ul></li>
   <li><a href="#تعريف-أخطاء-جديدة" id="toc-تعريف-أخطاء-جديدة" class="nav-link" data-scroll-target="#تعريف-أخطاء-جديدة">تعريف أخطاء جديدة</a></li>
   <li><a href="#المصطلحات" id="toc-المصطلحات" class="nav-link" data-scroll-target="#المصطلحات">المصطلحات</a></li>
@@ -637,14 +637,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>فكل هذه تعتبر مسارات غير مثالية لكنها تحصل في ظروف واقعيَّة. فيجب كتابة قطع في البرنامج تتعامل معها. ولذا فإن بعض الممارسين لا يفضلون استعمال كلمة استثناء لأنَّ مثل ذلك يحصل كثيرًا فهو ليس خارجًا عن العادة؛ بل من الطبيعي أن يحصل ذلك في الواقع!</p>
 <section id="تغير-سير-الأوامر-عند-الخطأ" class="level2">
 <h2 class="anchored" data-anchor-id="تغير-سير-الأوامر-عند-الخطأ">تغير سير الأوامر عند الخطأ</h2>
-<p>تنفذ التعليمات في لغة البرمجة الأمرية (Imperative) كبايثون بحسب ترتيبها (من الأعلى إلى الأسفل). لكن عند حدوث خطأ، يتغيَّر سيْر الأوامر باستعمال جملة <code>try-except</code>. وشكل جملة التعامل مع الخطأ على هذا النحو:</p>
+<p>تنفذ التعليمات في لغة البرمجة الأمرية (Imperative) كبايثون بحسب ترتيبها (من الأعلى إلى الأسفل). لكن عند حدوث خطأ، يتغيَّر سيْر الأوامر باستعمال جملة <code dir="ltr">try-except</code>. وشكل جملة التعامل مع الخطأ على هذا النحو:</p>
 <ul>
-<li><strong>المحاولة</strong>: <code>try</code> تتضمن الجملة التي نتوقع حدوث خطأٍ فيها</li>
-<li><strong>المطابقة</strong>: <code>except Exception</code> هي مثل <code>if</code> تنفذ ما تتضمنه إن كان الخطأ من نوع <code>Excpetion</code></li>
-<li><strong>عدم المطابقة</strong>: <code>else</code> تعمل عند عدم الخطأ</li>
-<li><strong>المتابعة</strong>: <code>finally</code> وهي جُملة تعمل سواء وقع الخطأ أم لم يقع؛ لكنَّ بايثون تضمن عملها إن حصل خطأ أثناء التعامل مع الخطأ</li>
+<li><strong>المحاولة</strong>: <code dir="ltr">try</code> تتضمن الجملة التي نتوقع حدوث خطأٍ فيها</li>
+<li><strong>المطابقة</strong>: <code dir="ltr">except Exception</code> هي مثل <code dir="ltr">if</code> تنفذ ما تتضمنه إن كان الخطأ من نوع <code dir="ltr">Excpetion</code></li>
+<li><strong>عدم المطابقة</strong>: <code dir="ltr">else</code> تعمل عند عدم الخطأ</li>
+<li><strong>المتابعة</strong>: <code dir="ltr">finally</code> وهي جُملة تعمل سواء وقع الخطأ أم لم يقع؛ لكنَّ بايثون تضمن عملها إن حصل خطأ أثناء التعامل مع الخطأ</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">print</span>(<span class="st">'enter'</span>)</span>
+<div class="sourceCode" id="cb1" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">print</span>(<span class="st">'enter'</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="cf">try</span>:</span>
 <span id="cb1-3"><a href="#cb1-3"></a>    <span class="co"># حاول تشغيل هذه القطعة</span></span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
@@ -658,43 +658,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="أنواع-الاستثناء" class="level2">
 <h2 class="anchored" data-anchor-id="أنواع-الاستثناء">أنواع الاستثناء</h2>
-<p>تم تعريف أنواع من الخطأ في بايثون متبوعة بكلمة <code>Error</code>، وذلك باعتبار حالات خطأ نمطية ومتكررة:</p>
+<p>تم تعريف أنواع من الخطأ في بايثون متبوعة بكلمة <code dir="ltr">Error</code>، وذلك باعتبار حالات خطأ نمطية ومتكررة:</p>
 <section id="syntaxerror" class="level3">
-<h3 class="anchored" data-anchor-id="syntaxerror"><code>SyntaxError</code></h3>
+<h3 class="anchored" data-anchor-id="syntaxerror"><code dir="ltr">SyntaxError</code></h3>
 <p><strong>السبب</strong>: خطأ نحوي في صياغة اللغة:</p>
 <ul>
 <li>كلمة غير صحيحة: خطأ في الإملاء</li>
 <li>في وضع كلمة صحيحة في غير سياقها</li>
-<li>محاذاة غير متسقة (<code>IndentationError</code>)</li>
+<li>محاذاة غير متسقة (<code dir="ltr">IndentationError</code>)</li>
 </ul>
 <p><strong>الحل</strong>: اقرأ رسالة الخطأ وستدلُّك على السبب والموضع الذي حصل فيه الخطأ.</p>
 </section>
 <section id="typeerror" class="level3">
-<h3 class="anchored" data-anchor-id="typeerror"><code>TypeError</code></h3>
+<h3 class="anchored" data-anchor-id="typeerror"><code dir="ltr">TypeError</code></h3>
 <p><strong>السبب</strong>:</p>
 <ol type="1">
-<li>طلب فعل بعدد أكثر أو أقل من العوامل الواجبة (مثل: <code>len(1, 2)</code>)</li>
-<li>طلب فعل بعوامل لا تطابق النوع المحدد في تعريفه (مثل: <code>math.sqrt('nine')</code> أو <code>5 + '5'</code>)</li>
+<li>طلب فعل بعدد أكثر أو أقل من العوامل الواجبة (مثل: <code dir="ltr">len(1, 2)</code>)</li>
+<li>طلب فعل بعوامل لا تطابق النوع المحدد في تعريفه (مثل: <code dir="ltr">math.sqrt('nine')</code> أو <code dir="ltr">5 + '5'</code>)</li>
 </ol>
-<p><strong>الحل</strong>: الوقاية بـ <code>type()</code> أو <code>isinstance()</code> أو بالتأكد من تحويل النوع مسبقًا.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
+<p><strong>الحل</strong>: الوقاية بـ <code dir="ltr">type()</code> أو <code dir="ltr">isinstance()</code> أو بالتأكد من تحويل النوع مسبقًا.</p>
+<div class="sourceCode" id="cb2" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>b <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Enter a number: '</span>)</span>
 <span id="cb2-3"><a href="#cb2-3"></a>result <span class="op">=</span> a <span class="op">+</span> <span class="bu">int</span>(b)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="valueerror" class="level3">
-<h3 class="anchored" data-anchor-id="valueerror"><code>ValueError</code></h3>
-<p><strong>السبب</strong>: أن يكون النوع صحيحًا (فلا يحصُل <code>TypeError</code>) لكن القيمة غير مقبولة.</p>
+<h3 class="anchored" data-anchor-id="valueerror"><code dir="ltr">ValueError</code></h3>
+<p><strong>السبب</strong>: أن يكون النوع صحيحًا (فلا يحصُل <code dir="ltr">TypeError</code>) لكن القيمة غير مقبولة.</p>
 <ul>
-<li>مثلاً: طلب فعل بقيمة نوعها عددي لكنَّها سالبة وهو لا يقبل إلا الموجبة. نحو: <code>math.sqrt(-16)</code> فالجذر التربيعي لا يقبل السالب.</li>
+<li>مثلاً: طلب فعل بقيمة نوعها عددي لكنَّها سالبة وهو لا يقبل إلا الموجبة. نحو: <code dir="ltr">math.sqrt(-16)</code> فالجذر التربيعي لا يقبل السالب.</li>
 </ul>
-<p><strong>الحل</strong>: الوقاية بفحص مدى القيمة ، نحو: <code>if x &gt;=0: math.sqrt(x)</code></p>
+<p><strong>الحل</strong>: الوقاية بفحص مدى القيمة ، نحو: <code dir="ltr">if x &gt;=0: math.sqrt(x)</code></p>
 </section>
 <section id="indexerror-keyerror" class="level3">
-<h3 class="anchored" data-anchor-id="indexerror-keyerror"><code>IndexError</code> &amp; <code>KeyError</code></h3>
-<p><strong>السبب</strong>: الرقم الذي استعمل في عملية الإشارة <code>[index]list</code> (قائمة) أو <code>dict[key]</code> (قاموس) يشير لما هو خارج المجموعة.</p>
+<h3 class="anchored" data-anchor-id="indexerror-keyerror"><code dir="ltr">IndexError</code> &amp; <code dir="ltr">KeyError</code></h3>
+<p><strong>السبب</strong>: الرقم الذي استعمل في عملية الإشارة <code dir="ltr">[index]list</code> (قائمة) أو <code dir="ltr">dict[key]</code> (قاموس) يشير لما هو خارج المجموعة.</p>
 <p>نحو:</p>
 <div id="5b820a9b" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>my_list <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>]</span>
+<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>my_list <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>]</span>
 <span id="cb3-2"><a href="#cb3-2"></a>idx <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>value <span class="op">=</span> my_list[idx]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -711,18 +711,18 @@ Cell <span class="ansi-green-fg">In[1], line 3</span>
 </div>
 </div>
 <p>الحل بالوقاية:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">if</span> idx <span class="op">&lt;</span> <span class="bu">len</span>(my_list):</span>
+<div class="sourceCode" id="cb4" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">if</span> idx <span class="op">&lt;</span> <span class="bu">len</span>(my_list):</span>
 <span id="cb4-2"><a href="#cb4-2"></a>    value <span class="op">=</span> my_list[idx]</span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="cf">else</span>:</span>
 <span id="cb4-4"><a href="#cb4-4"></a>    <span class="co"># do something else</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>أو بالعلاج:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">try</span>:</span>
+<div class="sourceCode" id="cb5" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">try</span>:</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    value <span class="op">=</span> my_list[idx]</span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="cf">except</span> <span class="pp">IndexError</span>:</span>
 <span id="cb5-4"><a href="#cb5-4"></a>    <span class="co"># do something else</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>وكذلك في القاموس، نحو:</p>
 <div id="6f1434fc" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>my_dict <span class="op">=</span> {<span class="st">'A'</span>: <span class="dv">10</span>, <span class="st">'B'</span>: <span class="dv">20</span>, <span class="st">'C'</span>: <span class="dv">30</span>}</span>
+<div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>my_dict <span class="op">=</span> {<span class="st">'A'</span>: <span class="dv">10</span>, <span class="st">'B'</span>: <span class="dv">20</span>, <span class="st">'C'</span>: <span class="dv">30</span>}</span>
 <span id="cb6-2"><a href="#cb6-2"></a>key <span class="op">=</span> <span class="st">'Z'</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a>value <span class="op">=</span> my_dict[key]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -739,27 +739,27 @@ Cell <span class="ansi-green-fg">In[2], line 3</span>
 </div>
 </div>
 <p>الحل بالوقاية</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="cf">if</span> key <span class="kw">in</span> my_dict:</span>
+<div class="sourceCode" id="cb7" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="cf">if</span> key <span class="kw">in</span> my_dict:</span>
 <span id="cb7-2"><a href="#cb7-2"></a>    value <span class="op">=</span> my_dict[key]</span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="cf">else</span>:</span>
 <span id="cb7-4"><a href="#cb7-4"></a>    <span class="co"># do something else</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>أو هكذا (تعيين قيمة ابتدائية):</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>value <span class="op">=</span> my_dict.get(key, <span class="dv">0</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>value <span class="op">=</span> my_dict.get(key, <span class="dv">0</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>أو بالعلاج:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="cf">try</span>:</span>
+<div class="sourceCode" id="cb9" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="cf">try</span>:</span>
 <span id="cb9-2"><a href="#cb9-2"></a>    value <span class="op">=</span> my_dict[key]</span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="cf">except</span> <span class="pp">KeyError</span>:</span>
 <span id="cb9-4"><a href="#cb9-4"></a>    <span class="co"># do something else</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="attributeerror-nameerror" class="level3">
-<h3 class="anchored" data-anchor-id="attributeerror-nameerror"><code>AttributeError</code> &amp; <code>NameError</code></h3>
+<h3 class="anchored" data-anchor-id="attributeerror-nameerror"><code dir="ltr">AttributeError</code> &amp; <code dir="ltr">NameError</code></h3>
 <p><strong>السبب</strong>: استعمال متغير أو فعل قبل تعريفه.</p>
 <ul>
-<li>فإن أسنِد إلى كائن؛ وقع <code>AttributeError</code></li>
-<li>وإلا وقع <code>NameError</code></li>
+<li>فإن أسنِد إلى كائن؛ وقع <code dir="ltr">AttributeError</code></li>
+<li>وإلا وقع <code dir="ltr">NameError</code></li>
 </ul>
 <div id="0ba06586" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>a <span class="op">=</span> <span class="dv">10</span></span>
+<div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>a <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>a <span class="op">+</span> X</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -774,7 +774,7 @@ Cell <span class="ansi-green-fg">In[3], line 2</span>
 </div>
 </div>
 <div id="a4e1ed80" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>some_function(<span class="dv">55</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>some_function(<span class="dv">55</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
@@ -787,7 +787,7 @@ Cell <span class="ansi-green-fg">In[4], line 1</span>
 </div>
 </div>
 <div id="01565389" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">class</span> A:</span>
+<div class="sourceCode cell-code" id="cb12" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">class</span> A:</span>
 <span id="cb12-2"><a href="#cb12-2"></a>    <span class="cf">pass</span></span>
 <span id="cb12-3"><a href="#cb12-3"></a></span>
 <span id="cb12-4"><a href="#cb12-4"></a>a <span class="op">=</span> A()</span>
@@ -806,7 +806,7 @@ Cell <span class="ansi-green-fg">In[5], line 5</span>
 </div>
 </div>
 <div id="8f2940f5" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>a.do_something()</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>a.do_something()</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
@@ -820,20 +820,20 @@ Cell <span class="ansi-green-fg">In[6], line 1</span>
 </div>
 </section>
 <section id="modulenotfounderror" class="level3">
-<h3 class="anchored" data-anchor-id="modulenotfounderror"><code>ModuleNotFoundError</code></h3>
-<p><strong>السبب</strong>: فشل جُملة الاستيراد <code>import numpy</code></p>
+<h3 class="anchored" data-anchor-id="modulenotfounderror"><code dir="ltr">ModuleNotFoundError</code></h3>
+<p><strong>السبب</strong>: فشل جُملة الاستيراد <code dir="ltr">import numpy</code></p>
 <p><strong>الحل</strong>:</p>
 <ul>
 <li>تأكد من صحة الإملاء</li>
-<li>تأكد من تثبيت الوحدة في البيئة التي يعمل فيها البرنامج: <code>pip install numpy</code></li>
+<li>تأكد من تثبيت الوحدة في البيئة التي يعمل فيها البرنامج: <code dir="ltr">pip install numpy</code></li>
 </ul>
 </section>
 </section>
 <section id="تعريف-أخطاء-جديدة" class="level2">
 <h2 class="anchored" data-anchor-id="تعريف-أخطاء-جديدة">تعريف أخطاء جديدة</h2>
-<p>تعريف الخطأ يكون بتعريف نوع جديد يرث من النوع <code>Exception</code>، وهذا ما يحققه السطر الأول بين القوسين. وتستطيع أن ترث ممن يرث، فتتكون لديك فروع من هذا الخطأ:</p>
+<p>تعريف الخطأ يكون بتعريف نوع جديد يرث من النوع <code dir="ltr">Exception</code>، وهذا ما يحققه السطر الأول بين القوسين. وتستطيع أن ترث ممن يرث، فتتكون لديك فروع من هذا الخطأ:</p>
 <div id="e72e94a0" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">class</span> ParentError(<span class="pp">Exception</span>):</span>
+<div class="sourceCode cell-code" id="cb14" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">class</span> ParentError(<span class="pp">Exception</span>):</span>
 <span id="cb14-2"><a href="#cb14-2"></a>    <span class="cf">pass</span></span>
 <span id="cb14-3"><a href="#cb14-3"></a></span>
 <span id="cb14-4"><a href="#cb14-4"></a><span class="kw">class</span> XError(ParentError):</span>
@@ -856,19 +856,19 @@ Cell <span class="ansi-green-fg">In[6], line 1</span>
 </div>
 </div>
 </div>
-<p>وهذا الإجراء يحصل فيه الخطأ بطريقة مصطنعة لكنها توضح ما نريد، وهو الخطأ الفرعي <code>XError</code> الذي يرث من الخطأ الأصلي <code>ParentError</code>:</p>
+<p>وهذا الإجراء يحصل فيه الخطأ بطريقة مصطنعة لكنها توضح ما نريد، وهو الخطأ الفرعي <code dir="ltr">XError</code> الذي يرث من الخطأ الأصلي <code dir="ltr">ParentError</code>:</p>
 <div id="956f732a" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">def</span> do_something():</span>
+<div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">def</span> do_something():</span>
 <span id="cb15-2"><a href="#cb15-2"></a>    <span class="cf">raise</span> XError(<span class="st">'Something went wrong'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ثم حين نفحص، تسطيع أن نطابق بالأصل أو الفرع:</p>
 <div id="c71a36ae" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="cf">try</span>:</span>
+<div class="sourceCode cell-code" id="cb16" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="cf">try</span>:</span>
 <span id="cb16-2"><a href="#cb16-2"></a>    do_something()</span>
 <span id="cb16-3"><a href="#cb16-3"></a><span class="cf">except</span> ParentError <span class="im">as</span> e:</span>
 <span id="cb16-4"><a href="#cb16-4"></a>    <span class="bu">print</span>(<span class="st">"caught you:"</span>, e)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>caught you: Something went wrong</code></pre>
+<pre dir="ltr"><code>caught you: Something went wrong</code></pre>
 </div>
 </div>
 </section>

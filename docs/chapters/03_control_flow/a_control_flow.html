@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-18c600aae80d5bc93e3bd4e059157cd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-24ab65d2991612aadaf847f30cb0b188.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -653,16 +653,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div><div class="column" style="width:65%;">
 <div id="c69297cc" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>x <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="bu">print</span>(x)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>2</code></pre>
+<pre dir="ltr"><code>2</code></pre>
 </div>
 </div>
 </div>
 </div>
-<p>فإن جملة التعيين التالية تكتُب قيمة <code>2</code> في نفس المحلّ الذي كتبت عليه جملة التعيين الأولى <code>1</code>. لذا ظهرت النتيجة: <code>2</code>.</p>
+<p>فإن جملة التعيين التالية تكتُب قيمة <code dir="ltr">2</code> في نفس المحلّ الذي كتبت عليه جملة التعيين الأولى <code dir="ltr">1</code>. لذا ظهرت النتيجة: <code dir="ltr">2</code>.</p>
 <p>كثيرًا ما نحتاج للتحكم فيما يُنفَّذ وما يُهمل أو ما يتكرر من الجمل البرمجية. فمن الحالات التي يتغير فيها الترتيب:</p>
 <ol type="1">
 <li><strong>التنفيذ المشروط</strong> (Conditional Execution): تعليق تنفيذ قطعة برمجية على حصول حالة (أو أحوال) معيَّنة</li>
@@ -670,7 +670,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <section id="الجملة-الشرطية" class="level2">
 <h2 class="anchored" data-anchor-id="الجملة-الشرطية">الجملة الشرطية</h2>
-<p>الجملة الشرطية هي جملة مركَّبة من كلمة <code>if</code> وتعبير منطقي ثم الجمل التي يتعلق تنفيذها بناءً على هذا الشرط. ويجب أن تكون حذوها:</p>
+<p>الجملة الشرطية هي جملة مركَّبة من كلمة <code dir="ltr">if</code> وتعبير منطقي ثم الجمل التي يتعلق تنفيذها بناءً على هذا الشرط. ويجب أن تكون حذوها:</p>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell" data-layout-align="default">
@@ -692,12 +692,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div><div class="column" style="width:65%;">
 <div id="a18ce4be" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>cond <span class="op">=</span> <span class="va">True</span></span>
+<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>cond <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="cf">if</span> cond:</span>
 <span id="cb3-3"><a href="#cb3-3"></a>    <span class="bu">print</span>(<span class="st">'Inside'</span>)</span>
 <span id="cb3-4"><a href="#cb3-4"></a><span class="bu">print</span>(<span class="st">'Outside'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Inside
+<pre dir="ltr"><code>Inside
 Outside</code></pre>
 </div>
 </div>
@@ -705,7 +705,7 @@ Outside</code></pre>
 </div>
 <section id="تنبيه-المحاذاة-العمودية" class="level3">
 <h3 class="anchored" data-anchor-id="تنبيه-المحاذاة-العمودية">تنبيه: المحاذاة العمودية</h3>
-<p>لاحظ أن <strong>المحاذاة العمودية</strong> (Indentation) (المسافات البيضاء أسفل كلمة <code>if</code>) في القطعة البرمجية أعلاه ليست لمجرد تسهيل القراءة، بل هي التي تحدد التعليمات المشروطة. عادةً ما تكون المحاذاة عبارة عن 4 مسافات أو 2 أو أكثر، لكن لابد أن تكون موحَّدة طوال النص البرمجي.</p>
+<p>لاحظ أن <strong>المحاذاة العمودية</strong> (Indentation) (المسافات البيضاء أسفل كلمة <code dir="ltr">if</code>) في القطعة البرمجية أعلاه ليست لمجرد تسهيل القراءة، بل هي التي تحدد التعليمات المشروطة. عادةً ما تكون المحاذاة عبارة عن 4 مسافات أو 2 أو أكثر، لكن لابد أن تكون موحَّدة طوال النص البرمجي.</p>
 <p>لاحظ: بدون المحاذاة الصحيحة، سيظهر خطأ في النص البرمجي:</p>
 <div class="columns">
 <div class="column" style="width:35%;">
@@ -726,7 +726,7 @@ Outside</code></pre>
 </div>
 </div><div class="column" style="width:65%;">
 <div id="90c2a780" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
+<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(<span class="st">'Inside'</span>)</span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="bu">print</span>(<span class="st">'Outside'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -741,7 +741,7 @@ Outside</code></pre>
 </div>
 </div>
 </div>
-<p>إذا قمت بزيادة المحاذاة لكل من جملتي <code>print()</code>، فسوف يعمل النص البرمجي بتدفِّقٍ غيرِ الذي قصدناه ابتداءً. أي أنه سيطبع <code>Outside</code> عندما يكون في الواقع داخل اللَّبِنَة الشرطية.</p>
+<p>إذا قمت بزيادة المحاذاة لكل من جملتي <code dir="ltr">print()</code>، فسوف يعمل النص البرمجي بتدفِّقٍ غيرِ الذي قصدناه ابتداءً. أي أنه سيطبع <code dir="ltr">Outside</code> عندما يكون في الواقع داخل اللَّبِنَة الشرطية.</p>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell" data-layout-align="default">
@@ -762,11 +762,11 @@ Outside</code></pre>
 </div>
 </div><div class="column" style="width:65%;">
 <div id="6b8cfdd3" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
+<div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
 <span id="cb6-2"><a href="#cb6-2"></a>    <span class="bu">print</span>(<span class="st">'Inside'</span>)</span>
 <span id="cb6-3"><a href="#cb6-3"></a>    <span class="bu">print</span>(<span class="st">'Outside'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Inside
+<pre dir="ltr"><code>Inside
 Outside</code></pre>
 </div>
 </div>
@@ -779,10 +779,10 @@ Outside</code></pre>
 <h2 class="anchored" data-anchor-id="التعبير-المنطقي">التعبير المنطقي</h2>
 <p>أما الشروط فتستند إلى <strong>الجبر الثنائي</strong> (Boolean Logic) الذي نجد له في بايثون كلمتين من أصل اللغة هما:</p>
 <ol type="1">
-<li>كلمة <code>True</code> ويعبَّر عنها بالرقم: <code>1</code></li>
-<li>كلمة <code>False</code> ويعبَّر عنها بالرقم: <code>0</code></li>
+<li>كلمة <code dir="ltr">True</code> ويعبَّر عنها بالرقم: <code dir="ltr">1</code></li>
+<li>كلمة <code dir="ltr">False</code> ويعبَّر عنها بالرقم: <code dir="ltr">0</code></li>
 </ol>
-<p>وكلاهُما يندرج تحت نوع خاصّ من نوع الأرقام وهو النوع <strong>البولي</strong> (<code>bool</code>) نسبةً لعالم الرياضيات <a href="https://ar.wikipedia.org/wiki/%D8%AC%D9%88%D8%B1%D8%AC_%D8%A8%D9%88%D9%84">جورج بول</a> الذي وضع أسسه.</p>
+<p>وكلاهُما يندرج تحت نوع خاصّ من نوع الأرقام وهو النوع <strong>البولي</strong> (<code dir="ltr">bool</code>) نسبةً لعالم الرياضيات <a href="https://ar.wikipedia.org/wiki/%D8%AC%D9%88%D8%B1%D8%AC_%D8%A8%D9%88%D9%84">جورج بول</a> الذي وضع أسسه.</p>
 <p>أما الجملة الشرطية أو التعيين الشرطي ونحوه، فيتعلَّق بتحقق <strong>عبارة منطقية</strong>. فمن العبارات المنطقية: عبارة المقارنة:</p>
 <table class="caption-top table">
 <thead>
@@ -793,47 +793,47 @@ Outside</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>a == b</code></td>
+<td><code dir="ltr">a == b</code></td>
 <td>يساوي</td>
 </tr>
 <tr class="even">
-<td><code>a != b</code></td>
+<td><code dir="ltr">a != b</code></td>
 <td>لا يساوي</td>
 </tr>
 <tr class="odd">
-<td><code>a &gt; b</code></td>
+<td><code dir="ltr">a &gt; b</code></td>
 <td>أكبر من</td>
 </tr>
 <tr class="even">
-<td><code>a &lt; b</code></td>
+<td><code dir="ltr">a &lt; b</code></td>
 <td>أصغر من</td>
 </tr>
 <tr class="odd">
-<td><code>a &gt;= b</code></td>
+<td><code dir="ltr">a &gt;= b</code></td>
 <td>أكبر من أو يساوي</td>
 </tr>
 <tr class="even">
-<td><code>a &lt;= b</code></td>
+<td><code dir="ltr">a &lt;= b</code></td>
 <td>أصغر من أو يساوي</td>
 </tr>
 </tbody>
 </table>
 <p>هنا نستكشف عبارات تؤول إلى قيَم منطقية. العبارة الأولى: خمسة أكبر من تسعة؟</p>
 <div id="47fe3ed8" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>b1 <span class="op">=</span> <span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">9</span></span>
+<div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>b1 <span class="op">=</span> <span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">9</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="bu">print</span>(<span class="bu">type</span>(b1))</span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="bu">print</span>(b1)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'bool'&gt;
+<pre dir="ltr"><code>&lt;class 'bool'&gt;
 False</code></pre>
 </div>
 </div>
 <p>العبارة الثانية: هل طول كذا أكبر من طول كذا؟</p>
 <div id="41e1a71b" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>b2 <span class="op">=</span> <span class="bu">len</span>(<span class="st">'12345'</span>) <span class="op">&gt;</span> <span class="bu">len</span>(<span class="st">'123456789'</span>)</span>
+<div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>b2 <span class="op">=</span> <span class="bu">len</span>(<span class="st">'12345'</span>) <span class="op">&gt;</span> <span class="bu">len</span>(<span class="st">'123456789'</span>)</span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="bu">print</span>(b2)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>False</code></pre>
+<pre dir="ltr"><code>False</code></pre>
 </div>
 </div>
 <section id="تركيب-الشروط" class="level3">
@@ -888,20 +888,20 @@ False</code></pre>
 </ul>
 <p>على سبيل المثال:</p>
 <div id="be4a2829" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>age <span class="op">=</span> <span class="dv">20</span></span>
+<div class="sourceCode cell-code" id="cb12" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>age <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>weight <span class="op">=</span> <span class="dv">50</span></span>
 <span id="cb12-3"><a href="#cb12-3"></a></span>
 <span id="cb12-4"><a href="#cb12-4"></a><span class="cf">if</span> age <span class="op">&gt;</span> <span class="dv">18</span> <span class="kw">and</span> weight <span class="op">&gt;</span> <span class="dv">45</span>:</span>
 <span id="cb12-5"><a href="#cb12-5"></a>  <span class="bu">print</span>(<span class="st">"You are eligible to donate blood"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>You are eligible to donate blood</code></pre>
+<pre dir="ltr"><code>You are eligible to donate blood</code></pre>
 </div>
 </div>
-<p>يؤول طرفي المعامل <code>and</code> لقيمة منطقية هكذا:</p>
+<p>يؤول طرفي المعامل <code dir="ltr">and</code> لقيمة منطقية هكذا:</p>
 <ul>
-<li><code>age &gt; 18</code> تؤول إلى <code>True</code> لأن <code>age=20</code> وهو أكبر من <code>18</code></li>
-<li><code>weight &gt; 45</code> تؤول إلى <code>True</code> لأن <code>weight=50</code> وهو أكبر من <code>45</code></li>
-<li>فتكون الجملة إذًا: <code>True and True</code> وهي تؤول إلى <code>True</code></li>
+<li><code dir="ltr">age &gt; 18</code> تؤول إلى <code dir="ltr">True</code> لأن <code dir="ltr">age=20</code> وهو أكبر من <code dir="ltr">18</code></li>
+<li><code dir="ltr">weight &gt; 45</code> تؤول إلى <code dir="ltr">True</code> لأن <code dir="ltr">weight=50</code> وهو أكبر من <code dir="ltr">45</code></li>
+<li>فتكون الجملة إذًا: <code dir="ltr">True and True</code> وهي تؤول إلى <code dir="ltr">True</code></li>
 </ul>
 <p>وهذا تمثيل الشجرة الثنائية للعبارة الشرطية:</p>
 <div class="ltr">
@@ -929,7 +929,7 @@ False</code></pre>
 </div>
 <p>تستعمل الأقواس لتجميع الشروط لإيقاع الترتيب المنطقي المراد:</p>
 <div id="1595fdbd" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>age <span class="op">=</span> <span class="dv">16</span></span>
+<div class="sourceCode cell-code" id="cb14" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>age <span class="op">=</span> <span class="dv">16</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>temperature <span class="op">=</span> <span class="dv">15</span></span>
 <span id="cb14-3"><a href="#cb14-3"></a>is_wearing_coat <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb14-4"><a href="#cb14-4"></a></span>
@@ -937,11 +937,11 @@ False</code></pre>
 <span id="cb14-6"><a href="#cb14-6"></a>  <span class="bu">print</span>(<span class="st">"I suggest you don't go outside"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li><code>age &lt; 16</code> تؤول إلى <code>False</code> لأن <code>age=16</code> ليست أصغر من <code>16</code></li>
-<li><code>temperature &lt; 20</code> تؤول إلى <code>True</code> لأن <code>temperature=15</code> أصغر من <code>20</code> فعلاً</li>
-<li><code>not is_wearing_coat</code> تؤول إلى <code>False</code> لأن <code>is_wearing_coat=True</code> وهي عكسها</li>
-<li>إذًا الجملة بين القوسين <code>(temperature &lt; 20 and not is_wearing_coat)</code> تؤول إلى <code>True and False</code> وهي تؤول إلى <code>False</code></li>
-<li>إذًا الجملة <code>age &lt; 16 or (False)</code> تؤول إلى <code>False or False</code> وهي تؤول إلى <code>False</code></li>
+<li><code dir="ltr">age &lt; 16</code> تؤول إلى <code dir="ltr">False</code> لأن <code dir="ltr">age=16</code> ليست أصغر من <code dir="ltr">16</code></li>
+<li><code dir="ltr">temperature &lt; 20</code> تؤول إلى <code dir="ltr">True</code> لأن <code dir="ltr">temperature=15</code> أصغر من <code dir="ltr">20</code> فعلاً</li>
+<li><code dir="ltr">not is_wearing_coat</code> تؤول إلى <code dir="ltr">False</code> لأن <code dir="ltr">is_wearing_coat=True</code> وهي عكسها</li>
+<li>إذًا الجملة بين القوسين <code dir="ltr">(temperature &lt; 20 and not is_wearing_coat)</code> تؤول إلى <code dir="ltr">True and False</code> وهي تؤول إلى <code dir="ltr">False</code></li>
+<li>إذًا الجملة <code dir="ltr">age &lt; 16 or (False)</code> تؤول إلى <code dir="ltr">False or False</code> وهي تؤول إلى <code dir="ltr">False</code></li>
 </ul>
 <p>وهذا تمثيل الشجرة الثنائية للعبارة الشرطية:</p>
 <div class="ltr">
@@ -969,9 +969,9 @@ False</code></pre>
 </div>
 </div>
 </div>
-<p>يُنظَر للشرط بأكمله كقيمة منطقية واحدة تكون <code>True</code> أو <code>False</code> ولا بأس بتجزئته حينما يسهل بذلك الفهم:</p>
+<p>يُنظَر للشرط بأكمله كقيمة منطقية واحدة تكون <code dir="ltr">True</code> أو <code dir="ltr">False</code> ولا بأس بتجزئته حينما يسهل بذلك الفهم:</p>
 <div id="1119b3af" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>is_minor <span class="op">=</span> age <span class="op">&lt;</span> <span class="dv">16</span></span>
+<div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>is_minor <span class="op">=</span> age <span class="op">&lt;</span> <span class="dv">16</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>is_cold <span class="op">=</span> temperature <span class="op">&lt;</span> <span class="dv">20</span></span>
 <span id="cb15-3"><a href="#cb15-3"></a></span>
 <span id="cb15-4"><a href="#cb15-4"></a><span class="cf">if</span> is_minor <span class="kw">or</span> (is_cold <span class="kw">and</span> <span class="kw">not</span> is_wearing_coat):</span>
@@ -980,9 +980,9 @@ False</code></pre>
 </section>
 <section id="تسلسل-المقارنات" class="level3">
 <h3 class="anchored" data-anchor-id="تسلسل-المقارنات">تسلسل المقارنات</h3>
-<p>تفهم بايثون المقارنات المتسلسلة. فعبارة <code>x &lt; y &lt;= z</code> تكافئ <code>x &lt; y and y &lt;= z</code>:</p>
+<p>تفهم بايثون المقارنات المتسلسلة. فعبارة <code dir="ltr">x &lt; y &lt;= z</code> تكافئ <code dir="ltr">x &lt; y and y &lt;= z</code>:</p>
 <div id="a15a5676" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>low <span class="op">=</span> <span class="dv">10</span></span>
+<div class="sourceCode cell-code" id="cb16" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>low <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>high <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb16-3"><a href="#cb16-3"></a>x <span class="op">=</span> <span class="dv">15</span></span>
 <span id="cb16-4"><a href="#cb16-4"></a></span>
@@ -990,7 +990,7 @@ False</code></pre>
 </div>
 <p>كذلك تراها تستعمل في المساواة:</p>
 <div id="82e85039" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="cf">assert</span> <span class="dv">3</span> <span class="op">==</span> <span class="bu">len</span>(<span class="st">'123'</span>) <span class="op">==</span> <span class="bu">len</span>([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>]) <span class="op">==</span> <span class="bu">len</span>(<span class="st">'abc'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="cf">assert</span> <span class="dv">3</span> <span class="op">==</span> <span class="bu">len</span>(<span class="st">'123'</span>) <span class="op">==</span> <span class="bu">len</span>([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>]) <span class="op">==</span> <span class="bu">len</span>(<span class="st">'abc'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -1023,7 +1023,7 @@ False</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:65%;">
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="cf">if</span> <span class="op">&lt;</span>boolean expression<span class="op">&gt;</span>:</span>
+<div class="sourceCode" id="cb18" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="cf">if</span> <span class="op">&lt;</span>boolean expression<span class="op">&gt;</span>:</span>
 <span id="cb18-2"><a href="#cb18-2"></a>    <span class="op">&lt;</span>code<span class="op">&gt;</span></span>
 <span id="cb18-3"><a href="#cb18-3"></a><span class="cf">elif</span> <span class="op">&lt;</span>boolean expression<span class="op">&gt;</span>:</span>
 <span id="cb18-4"><a href="#cb18-4"></a>    <span class="op">&lt;</span>code<span class="op">&gt;</span></span>
@@ -1032,21 +1032,21 @@ False</code></pre>
 </div>
 </div>
 <ul>
-<li>كلمة <code>if</code> (<strong>إذا</strong>) تبدأ الجملة المركبة الشرطية</li>
-<li>قد توجد <a href="https://docs.python.org/3/reference/compound_stmts.html#else"><code>else</code></a> (<strong>وإلا</strong>) مرة. وهي تعمل عند تخلُّف العبارة المنطقية السابقة لها سواءً كانت السابقة لها <code>if</code> أو <code>elif</code>.</li>
-<li>وقد توجد <a href="https://docs.python.org/3/reference/compound_stmts.html#elif"><code>elif</code></a> بينهما مرة أو أكثر (وهي اختصار لكلمة <code>else if</code> وتعني: <strong>وإلا فإن</strong>)، فتعمل مثل <code>else</code> معلَّقة بعبارة منطقية مثل <code>if</code>.</li>
+<li>كلمة <code dir="ltr">if</code> (<strong>إذا</strong>) تبدأ الجملة المركبة الشرطية</li>
+<li>قد توجد <a href="https://docs.python.org/3/reference/compound_stmts.html#else"><code dir="ltr">else</code></a> (<strong>وإلا</strong>) مرة. وهي تعمل عند تخلُّف العبارة المنطقية السابقة لها سواءً كانت السابقة لها <code dir="ltr">if</code> أو <code dir="ltr">elif</code>.</li>
+<li>وقد توجد <a href="https://docs.python.org/3/reference/compound_stmts.html#elif"><code dir="ltr">elif</code></a> بينهما مرة أو أكثر (وهي اختصار لكلمة <code dir="ltr">else if</code> وتعني: <strong>وإلا فإن</strong>)، فتعمل مثل <code dir="ltr">else</code> معلَّقة بعبارة منطقية مثل <code dir="ltr">if</code>.</li>
 </ul>
 <section id="جرب" class="level4">
 <h4 class="anchored" data-anchor-id="جرب">جرب</h4>
-<p>استكشف المنطق التالي بتغيير قيمة <code>x</code> كل مرة للتبع ما يحصل في كل مرة:</p>
+<p>استكشف المنطق التالي بتغيير قيمة <code dir="ltr">x</code> كل مرة للتبع ما يحصل في كل مرة:</p>
 <ul>
-<li><code>x = -5</code></li>
-<li><code>x = 0</code></li>
-<li><code>x = 1</code></li>
-<li><code>x = 5</code></li>
+<li><code dir="ltr">x = -5</code></li>
+<li><code dir="ltr">x = 0</code></li>
+<li><code dir="ltr">x = 1</code></li>
+<li><code dir="ltr">x = 5</code></li>
 </ul>
 <div id="74dfb5f6" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>x <span class="op">=</span> <span class="op">-</span><span class="dv">5</span></span>
+<div class="sourceCode cell-code" id="cb19" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>x <span class="op">=</span> <span class="op">-</span><span class="dv">5</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a></span>
 <span id="cb19-3"><a href="#cb19-3"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">0</span>:</span>
 <span id="cb19-4"><a href="#cb19-4"></a>    x <span class="op">=</span> <span class="dv">0</span></span>
@@ -1060,7 +1060,7 @@ False</code></pre>
 <span id="cb19-12"><a href="#cb19-12"></a></span>
 <span id="cb19-13"><a href="#cb19-13"></a><span class="bu">print</span>(<span class="st">"Always:"</span>, x)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Set to zero
+<pre dir="ltr"><code>Set to zero
 Always: 0</code></pre>
 </div>
 </div>
@@ -1092,7 +1092,7 @@ Always: 0</code></pre>
 </div>
 </div>
 </div>
-<p>وهذا تصوير لسير الإجراءات لنفس النص البرمجي. ملاحظة: اضغط على الزر <code>Prev</code> أو <code>Next</code> للتنقل بين خطوات التنفيذ الإجراءية:</p>
+<p>وهذا تصوير لسير الإجراءات لنفس النص البرمجي. ملاحظة: اضغط على الزر <code dir="ltr">Prev</code> أو <code dir="ltr">Next</code> للتنقل بين خطوات التنفيذ الإجراءية:</p>
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=x%20%3D%20-5%0A%0Aif%20x%20%3C%200%3A%0A%20%20%20%20x%20%3D%200%0A%20%20%20%20print%28'Negative%20changed%20to%20zero'%29%0Aelif%20x%20%3D%3D%200%3A%0A%20%20%20%20print%28'Zero'%29%0Aelif%20x%20%3D%3D%201%3A%0A%20%20%20%20print%28'Single'%29%0Aelse%3A%0A%20%20%20%20print%28'More'%29%0A%0Aprint%28%22Always%3A%22,%20x%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
 </iframe>
 <p>لاحظ أن العبارة الأخيرة خارج كل اللَّبِنات الشرطية لذا يتم تنفيذها دائمًا.</p>
@@ -1123,19 +1123,19 @@ Always: 0</code></pre>
 </div>
 </div><div class="column" style="width:60%;">
 <div id="22e83898" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>age <span class="op">=</span> <span class="dv">18</span></span>
+<div class="sourceCode cell-code" id="cb21" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>age <span class="op">=</span> <span class="dv">18</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a>status <span class="op">=</span> <span class="st">'adult'</span> <span class="cf">if</span> age <span class="op">&gt;</span> <span class="dv">14</span> <span class="cf">else</span> <span class="st">'child'</span></span>
 <span id="cb21-3"><a href="#cb21-3"></a></span>
 <span id="cb21-4"><a href="#cb21-4"></a><span class="bu">print</span>(status)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>adult</code></pre>
+<pre dir="ltr"><code>adult</code></pre>
 </div>
 </div>
 </div>
 </div>
 <p>وهي مكافئة للنص البرمجي التالي:</p>
 <div id="b127d76a" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>age <span class="op">=</span> <span class="dv">18</span></span>
+<div class="sourceCode cell-code" id="cb23" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>age <span class="op">=</span> <span class="dv">18</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a></span>
 <span id="cb23-3"><a href="#cb23-3"></a><span class="cf">if</span> age <span class="op">&gt;</span> <span class="dv">14</span>:</span>
 <span id="cb23-4"><a href="#cb23-4"></a>  status <span class="op">=</span> <span class="st">'adult'</span></span>
@@ -1144,16 +1144,16 @@ Always: 0</code></pre>
 <span id="cb23-7"><a href="#cb23-7"></a></span>
 <span id="cb23-8"><a href="#cb23-8"></a><span class="bu">print</span>(status)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>adult</code></pre>
+<pre dir="ltr"><code>adult</code></pre>
 </div>
 </div>
 <p>ويحصل <strong>تسلسل التعيين المشروط</strong> بالصيغة التالية:</p>
 <div id="d84ff09d" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>score <span class="op">=</span> <span class="dv">75</span></span>
+<div class="sourceCode cell-code" id="cb25" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>score <span class="op">=</span> <span class="dv">75</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a>grade <span class="op">=</span> <span class="st">"A"</span> <span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">90</span> <span class="cf">else</span> <span class="st">"B"</span> <span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">80</span> <span class="cf">else</span> <span class="st">"C"</span></span>
 <span id="cb25-3"><a href="#cb25-3"></a><span class="bu">print</span>(grade)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>C</code></pre>
+<pre dir="ltr"><code>C</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="default">
@@ -1179,7 +1179,7 @@ Always: 0</code></pre>
 </section>
 <section id="تضمين-الجمل-الشرطية" class="level2">
 <h2 class="anchored" data-anchor-id="تضمين-الجمل-الشرطية">تضمين الجمل الشرطية</h2>
-<p>جمل الشرط المضمنة هي جمل <code>if</code> داخل جمل <code>if</code> أخرى. على سبيل المثال:</p>
+<p>جمل الشرط المضمنة هي جمل <code dir="ltr">if</code> داخل جمل <code dir="ltr">if</code> أخرى. على سبيل المثال:</p>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell" data-layout-align="default">
@@ -1205,7 +1205,7 @@ Always: 0</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:65%;">
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="cf">if</span> <span class="op">&lt;</span>boolean expression<span class="op">&gt;</span>:</span>
+<div class="sourceCode" id="cb27" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="cf">if</span> <span class="op">&lt;</span>boolean expression<span class="op">&gt;</span>:</span>
 <span id="cb27-2"><a href="#cb27-2"></a>    <span class="cf">if</span> <span class="op">&lt;</span>boolean expression<span class="op">&gt;</span>:</span>
 <span id="cb27-3"><a href="#cb27-3"></a>        <span class="op">&lt;</span>code<span class="op">&gt;</span></span>
 <span id="cb27-4"><a href="#cb27-4"></a>    <span class="cf">else</span>:</span>
@@ -1214,7 +1214,7 @@ Always: 0</code></pre>
 <span id="cb27-7"><a href="#cb27-7"></a>    <span class="op">&lt;</span>code<span class="op">&gt;</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>ننبه مرة أخرى أن <strong>المحاذاة مهمة</strong>. يجب أن تكون جملة <code>if</code> الداخلية ذات محاذاة أكثر من جملة <code>if</code> الخارجية.</p>
+<p>ننبه مرة أخرى أن <strong>المحاذاة مهمة</strong>. يجب أن تكون جملة <code dir="ltr">if</code> الداخلية ذات محاذاة أكثر من جملة <code dir="ltr">if</code> الخارجية.</p>
 <section id="مثال" class="level4">
 <h4 class="anchored" data-anchor-id="مثال">مثال</h4>
 <p>افترض أننا نريد تعيين درجة لطالب بناءً على نتيجته، وفقًا للجدول التالي:</p>
@@ -1257,7 +1257,7 @@ Always: 0</code></pre>
 </tbody>
 </table>
 <div id="141e6f60" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>score <span class="op">=</span> <span class="dv">95</span></span>
+<div class="sourceCode cell-code" id="cb28" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>score <span class="op">=</span> <span class="dv">95</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a></span>
 <span id="cb28-3"><a href="#cb28-3"></a><span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">90</span>:</span>
 <span id="cb28-4"><a href="#cb28-4"></a>  <span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">95</span>:</span>
@@ -1280,7 +1280,7 @@ Always: 0</code></pre>
 <span id="cb28-21"><a href="#cb28-21"></a><span class="cf">else</span>:</span>
 <span id="cb28-22"><a href="#cb28-22"></a>  <span class="bu">print</span>(<span class="st">"Failed: F"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Outstanding: A+</code></pre>
+<pre dir="ltr"><code>Outstanding: A+</code></pre>
 </div>
 </div>
 <p>وهذا تصوير له:</p>
@@ -1293,12 +1293,12 @@ Always: 0</code></pre>
 <p><strong>حلقة التكرار</strong>: هي الرجوع بالتنفيذ لجملة سابقة (غالبًا تكون سطرًا سابقًا) وذلك يحصل عددًا من المرات أو معلَّقًا بشرط.</p>
 <p>فللتكرار طريقتان:</p>
 <ul>
-<li><strong>سرد مكرر</strong> (<code>for</code>): حيث يعيَّن متغير التكرار لكل عنصر في المكرر، واحدًا تلوَ الآخر. (وسيأتي ذكره في <a href="../../chapters/05_sequences/a_sequences.html">باب الجمع المرتب</a>)</li>
-<li><strong>التكرار بشرط</strong> (<code>while</code>): حيث يستمر التكرار مادام الشرط متحققًا. (وهو موضوع هذا القسم)</li>
+<li><strong>سرد مكرر</strong> (<code dir="ltr">for</code>): حيث يعيَّن متغير التكرار لكل عنصر في المكرر، واحدًا تلوَ الآخر. (وسيأتي ذكره في <a href="../../chapters/05_sequences/a_sequences.html">باب الجمع المرتب</a>)</li>
+<li><strong>التكرار بشرط</strong> (<code dir="ltr">while</code>): حيث يستمر التكرار مادام الشرط متحققًا. (وهو موضوع هذا القسم)</li>
 </ul>
 <section id="التكرار-بشرط" class="level3">
 <h3 class="anchored" data-anchor-id="التكرار-بشرط">التكرار بشرط</h3>
-<p>نبدأ بالتكرار بالطريقة غير المحددة، وهي جُملة تبدأ بالكلمة <code>while</code> على النحو التالي. كأنها <code>if</code> متكررة إلى حين تخلُّف الشرط (أن يصبح <code>False</code>). وإن لم يتحقق الشرط أصلاً فلا ينفذ القطعة المضمَّنة أصلا:</p>
+<p>نبدأ بالتكرار بالطريقة غير المحددة، وهي جُملة تبدأ بالكلمة <code dir="ltr">while</code> على النحو التالي. كأنها <code dir="ltr">if</code> متكررة إلى حين تخلُّف الشرط (أن يصبح <code dir="ltr">False</code>). وإن لم يتحقق الشرط أصلاً فلا ينفذ القطعة المضمَّنة أصلا:</p>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell" data-layout-align="default">
@@ -1320,7 +1320,7 @@ Always: 0</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:65%;">
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="cf">while</span> <span class="op">&lt;</span>boolean expression<span class="op">&gt;</span>:</span>
+<div class="sourceCode" id="cb30" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="cf">while</span> <span class="op">&lt;</span>boolean expression<span class="op">&gt;</span>:</span>
 <span id="cb30-2"><a href="#cb30-2"></a>    <span class="op">&lt;</span>code<span class="op">&gt;</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -1347,13 +1347,13 @@ Always: 0</code></pre>
 </div>
 </div><div class="column" style="width:65%;">
 <div id="da9d73ee" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<div class="sourceCode cell-code" id="cb31" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
 <span id="cb31-3"><a href="#cb31-3"></a>    <span class="bu">print</span>(i)</span>
 <span id="cb31-4"><a href="#cb31-4"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
 <span id="cb31-5"><a href="#cb31-5"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0
+<pre dir="ltr"><code>0
 1
 2
 3
@@ -1363,28 +1363,28 @@ Done</code></pre>
 </div>
 </div>
 </div>
-<p>لنقم بتتبع الخطوات عندما تكون <code>i = 0</code>:</p>
+<p>لنقم بتتبع الخطوات عندما تكون <code dir="ltr">i = 0</code>:</p>
 <ol type="1">
-<li><code>0 &lt; 5</code> تؤول <code>True</code>، فنطبع <code>0</code> ونزيد <code>i</code> لتصبح 1</li>
-<li><code>1 &lt; 5</code> تؤول <code>True</code>، فنطبع <code>1</code> ونزيد <code>i</code> لتصبح 2</li>
-<li><code>2 &lt; 5</code> تؤول <code>True</code>، فنطبع <code>2</code> ونزيد <code>i</code> لتصبح 3</li>
-<li><code>3 &lt; 5</code> تؤول <code>True</code>، فنطبع <code>3</code> ونزيد <code>i</code> لتصبح 4</li>
-<li><code>4 &lt; 5</code> تؤول <code>True</code>، فنطبع <code>4</code> ونزيد <code>i</code> لتصبح 5</li>
-<li><code>5 &lt; 5</code> تؤول <code>False</code>،فنخرج من الحلقة</li>
-<li>نطبع <code>Done</code></li>
+<li><code dir="ltr">0 &lt; 5</code> تؤول <code dir="ltr">True</code>، فنطبع <code dir="ltr">0</code> ونزيد <code dir="ltr">i</code> لتصبح 1</li>
+<li><code dir="ltr">1 &lt; 5</code> تؤول <code dir="ltr">True</code>، فنطبع <code dir="ltr">1</code> ونزيد <code dir="ltr">i</code> لتصبح 2</li>
+<li><code dir="ltr">2 &lt; 5</code> تؤول <code dir="ltr">True</code>، فنطبع <code dir="ltr">2</code> ونزيد <code dir="ltr">i</code> لتصبح 3</li>
+<li><code dir="ltr">3 &lt; 5</code> تؤول <code dir="ltr">True</code>، فنطبع <code dir="ltr">3</code> ونزيد <code dir="ltr">i</code> لتصبح 4</li>
+<li><code dir="ltr">4 &lt; 5</code> تؤول <code dir="ltr">True</code>، فنطبع <code dir="ltr">4</code> ونزيد <code dir="ltr">i</code> لتصبح 5</li>
+<li><code dir="ltr">5 &lt; 5</code> تؤول <code dir="ltr">False</code>،فنخرج من الحلقة</li>
+<li>نطبع <code dir="ltr">Done</code></li>
 </ol>
-<p>وهذا تصوير لسير الإجراءات لنفس النص البرمجي. ملاحظة: اضغط على الزر <code>Prev</code> أو <code>Next</code> للتنقل بين خطوات التنفيذ الإجراءية:</p>
+<p>وهذا تصوير لسير الإجراءات لنفس النص البرمجي. ملاحظة: اضغط على الزر <code dir="ltr">Prev</code> أو <code dir="ltr">Next</code> للتنقل بين خطوات التنفيذ الإجراءية:</p>
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
 </iframe>
-<p>لاحظ أن نسيان جملة الزيادة (<code>i += 1</code>) يجعل الشرط دائمًا صحيحًا، فيدور البرنامج في <strong>حلقة لا نهيائة</strong> ولا يخرج أبدًا. ويعتبر هذا خطأ برمجيًّا يتعذر على البرنامج التعامل معه بنفسه؛ بل يجب على المبرمج أن يكتشفه. وسيأتي الكلام عن أنواع الأخطاء في البرمجة في <a href="../../chapters/13_errors/a1_errors.html">باب الأخطاء</a>.</p>
+<p>لاحظ أن نسيان جملة الزيادة (<code dir="ltr">i += 1</code>) يجعل الشرط دائمًا صحيحًا، فيدور البرنامج في <strong>حلقة لا نهيائة</strong> ولا يخرج أبدًا. ويعتبر هذا خطأ برمجيًّا يتعذر على البرنامج التعامل معه بنفسه؛ بل يجب على المبرمج أن يكتشفه. وسيأتي الكلام عن أنواع الأخطاء في البرمجة في <a href="../../chapters/13_errors/a1_errors.html">باب الأخطاء</a>.</p>
 </section>
 <section id="الخروج-من-الحلقة" class="level3">
 <h3 class="anchored" data-anchor-id="الخروج-من-الحلقة">الخروج من الحلقة</h3>
 <ul>
-<li>تستخدم كلمة <a href="https://docs.python.org/3/reference/simple_stmts.html#break"><code>break</code></a> لإيقاف عملية التكرار كلها.</li>
-<li>تستخدم كلمة <a href="https://docs.python.org/3/reference/simple_stmts.html#continue"><code>continue</code></a> للانتقال إلى الكرة التالية متخطيةً بقية الخطوات في الكرة الحالية.</li>
+<li>تستخدم كلمة <a href="https://docs.python.org/3/reference/simple_stmts.html#break"><code dir="ltr">break</code></a> لإيقاف عملية التكرار كلها.</li>
+<li>تستخدم كلمة <a href="https://docs.python.org/3/reference/simple_stmts.html#continue"><code dir="ltr">continue</code></a> للانتقال إلى الكرة التالية متخطيةً بقية الخطوات في الكرة الحالية.</li>
 </ul>
-<p>أولاً نمثل لاستعمال جملة <code>break</code> على النحو التالي:</p>
+<p>أولاً نمثل لاستعمال جملة <code dir="ltr">break</code> على النحو التالي:</p>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell" data-layout-align="default">
@@ -1409,7 +1409,7 @@ Done</code></pre>
 </div>
 </div><div class="column" style="width:65%;">
 <div id="c6b1a004" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<div class="sourceCode cell-code" id="cb33" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
 <span id="cb33-3"><a href="#cb33-3"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
 <span id="cb33-4"><a href="#cb33-4"></a>        <span class="cf">break</span></span>
@@ -1417,7 +1417,7 @@ Done</code></pre>
 <span id="cb33-6"><a href="#cb33-6"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
 <span id="cb33-7"><a href="#cb33-7"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0
+<pre dir="ltr"><code>0
 1
 2
 Done</code></pre>
@@ -1427,7 +1427,7 @@ Done</code></pre>
 </div>
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20if%20i%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20break%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
 </iframe>
-<p>وهذا مثال لاستخدام عبارة <code>continue</code> للتخطي:</p>
+<p>وهذا مثال لاستخدام عبارة <code dir="ltr">continue</code> للتخطي:</p>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell" data-layout-align="default">
@@ -1454,7 +1454,7 @@ Done</code></pre>
 </div>
 </div><div class="column" style="width:65%;">
 <div id="4f905001" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<div class="sourceCode cell-code" id="cb35" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
 <span id="cb35-3"><a href="#cb35-3"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
 <span id="cb35-4"><a href="#cb35-4"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
@@ -1463,7 +1463,7 @@ Done</code></pre>
 <span id="cb35-7"><a href="#cb35-7"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
 <span id="cb35-8"><a href="#cb35-8"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0
+<pre dir="ltr"><code>0
 1
 2
 4
@@ -1474,7 +1474,7 @@ Done</code></pre>
 </div>
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20if%20i%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20continue%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
 </iframe>
-<p>أما جملة <code>break</code> المضمنة تحت طبقتين من التكرار فإن الذي يتوقف هو التكرار الداخلي فقط، ولا يتوقف الخارجي. وهذا مثال:</p>
+<p>أما جملة <code dir="ltr">break</code> المضمنة تحت طبقتين من التكرار فإن الذي يتوقف هو التكرار الداخلي فقط، ولا يتوقف الخارجي. وهذا مثال:</p>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell" data-layout-align="default">
@@ -1503,7 +1503,7 @@ Done</code></pre>
 </div>
 </div><div class="column" style="width:65%;">
 <div id="59e8f815" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<div class="sourceCode cell-code" id="cb37" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">3</span>:</span>
 <span id="cb37-3"><a href="#cb37-3"></a>    j <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb37-4"><a href="#cb37-4"></a>    <span class="cf">while</span> j <span class="op">&lt;</span> <span class="dv">3</span>:</span>
@@ -1514,7 +1514,7 @@ Done</code></pre>
 <span id="cb37-9"><a href="#cb37-9"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
 <span id="cb37-10"><a href="#cb37-10"></a><span class="bu">print</span>(<span class="st">'Done'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0 0
+<pre dir="ltr"><code>0 0
 0 1
 0 2
 2 0
@@ -1530,26 +1530,26 @@ Done</code></pre>
 </section>
 <section id="الملحق-بعدم-الوقوع" class="level3">
 <h3 class="anchored" data-anchor-id="الملحق-بعدم-الوقوع">الملحق بعدم الوقوع</h3>
-<p>إذا قلنا أن الوقوع (<code>True</code>) عدمه (<code>False</code>) ؛فإن بايثون تلحق بعض القيم بعدم الوقوع:</p>
+<p>إذا قلنا أن الوقوع (<code dir="ltr">True</code>) عدمه (<code dir="ltr">False</code>) ؛فإن بايثون تلحق بعض القيم بعدم الوقوع:</p>
 <ul>
-<li><code>False</code></li>
-<li><code>None</code></li>
-<li><code>0</code></li>
-<li><code>0.0</code></li>
-<li><code>''</code></li>
-<li><code>[]</code></li>
-<li><code>()</code></li>
-<li><code>{}</code></li>
-<li><code>set()</code></li>
+<li><code dir="ltr">False</code></li>
+<li><code dir="ltr">None</code></li>
+<li><code dir="ltr">0</code></li>
+<li><code dir="ltr">0.0</code></li>
+<li><code dir="ltr">''</code></li>
+<li><code dir="ltr">[]</code></li>
+<li><code dir="ltr">()</code></li>
+<li><code dir="ltr">{}</code></li>
+<li><code dir="ltr">set()</code></li>
 </ul>
-<p>وما عدا ذلك فملحق بالوقوع (<code>True</code>).</p>
+<p>وما عدا ذلك فملحق بالوقوع (<code dir="ltr">True</code>).</p>
 <div id="896435a6" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="cf">if</span> <span class="va">False</span> <span class="kw">or</span> <span class="va">None</span> <span class="kw">or</span> <span class="dv">0</span> <span class="kw">or</span> <span class="fl">0.0</span> <span class="kw">or</span> <span class="st">''</span> <span class="kw">or</span> [] <span class="kw">or</span> () <span class="kw">or</span> {} <span class="kw">or</span> <span class="bu">set</span>():</span>
+<div class="sourceCode cell-code" id="cb39" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="cf">if</span> <span class="va">False</span> <span class="kw">or</span> <span class="va">None</span> <span class="kw">or</span> <span class="dv">0</span> <span class="kw">or</span> <span class="fl">0.0</span> <span class="kw">or</span> <span class="st">''</span> <span class="kw">or</span> [] <span class="kw">or</span> () <span class="kw">or</span> {} <span class="kw">or</span> <span class="bu">set</span>():</span>
 <span id="cb39-2"><a href="#cb39-2"></a>    <span class="bu">print</span>(<span class="st">'True'</span>)</span>
 <span id="cb39-3"><a href="#cb39-3"></a><span class="cf">else</span>:</span>
 <span id="cb39-4"><a href="#cb39-4"></a>    <span class="bu">print</span>(<span class="st">'False'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>False</code></pre>
+<pre dir="ltr"><code>False</code></pre>
 </div>
 </div>
 </section>

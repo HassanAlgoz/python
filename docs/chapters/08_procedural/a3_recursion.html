@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-18c600aae80d5bc93e3bd4e059157cd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-24ab65d2991612aadaf847f30cb0b188.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -684,7 +684,7 @@ window.Quarto = {
 \]</span></p>
 <p>إذاً نعرِّف المعادلة في بايثون هكذا:</p>
 <div id="96374f0f" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> factorial(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> factorial(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    <span class="co"># Recursive case (تسلسل)</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>    <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
 <span id="cb1-4"><a href="#cb1-4"></a>        recursive_result <span class="op">=</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span>
@@ -694,19 +694,19 @@ window.Quarto = {
 <span id="cb1-8"><a href="#cb1-8"></a></span>
 <span id="cb1-9"><a href="#cb1-9"></a>factorial(<span class="dv">5</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>120</code></pre>
+<pre dir="ltr"><code>120</code></pre>
 </div>
 </div>
 <p>حيث لدينا حالتان:</p>
 <ul>
-<li>عندما تكون <code>n &gt; 0</code> يتم الطلب الذاتي : <code>recursive_result = factorial(n - 1)</code> إذْ هي جملة متسلسلة تكدِّس طلبات فوق طلبات؛ لكنها تؤول في النهاية إلى الجملة التي تُنهي التسلسل</li>
-<li><code>return 1</code> هي الجملة التي تنهي التسلسل</li>
+<li>عندما تكون <code dir="ltr">n &gt; 0</code> يتم الطلب الذاتي : <code dir="ltr">recursive_result = factorial(n - 1)</code> إذْ هي جملة متسلسلة تكدِّس طلبات فوق طلبات؛ لكنها تؤول في النهاية إلى الجملة التي تُنهي التسلسل</li>
+<li><code dir="ltr">return 1</code> هي الجملة التي تنهي التسلسل</li>
 </ul>
 <p>وهنا قطعة نص برمجي نستعملها لتصور تسلسل الطلبات:</p>
 <div id="3e350680" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>الكود</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> factorial(n: <span class="bu">int</span>, depth: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> factorial(n: <span class="bu">int</span>, depth: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a>    <span class="co"># Recursive case (تسلسل)</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'  '</span> <span class="op">*</span> depth<span class="sc">}</span><span class="ss">Call factorial(</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">)"</span>)</span>
@@ -722,7 +722,7 @@ window.Quarto = {
 <span id="cb3-14"><a href="#cb3-14"></a>factorial(<span class="dv">5</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Call factorial(5)
+<pre dir="ltr"><code>Call factorial(5)
   Call factorial(4)
     Call factorial(3)
       Call factorial(2)
@@ -736,14 +736,14 @@ window.Quarto = {
 Return 120 from factorial(5)</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>120</code></pre>
+<pre dir="ltr"><code>120</code></pre>
 </div>
 </div>
 <ul>
-<li>فكل طلب يُنشأ له ظرف تنفيذ جديد تكون بالنسبة له قيمة <code>n</code> هي المعيَّنة له وقت النداء.</li>
-<li>وهكذا يتم تكديس الطلبات حتى ينتهي التسلسل عند الطلب <code>factorial(0)</code> الذي يؤول لنتيجة مباشرة: <code>return 1</code> فيخلَّى هذا الظرف من الذاكرة وتعود نتيجته إلى الظرف المباشر الذي استدعاه وهو ظرف <code>factorial(1)</code>.</li>
-<li>فتتعين القيمة <code>recursive_result = 1</code> وينتقل إلى الجملة التي بعدها وهي جملة الرجوع بنتيجة <code>return n * recursive_result</code> وهُما معيَّنان، أي تكون الجملة في واقع الظرف: <code>return 1 * 1</code>.</li>
-<li>وهذه النتيجة تعود للظرف الذي استدعاه وهو <code>factorial(2)</code> … إلخ.</li>
+<li>فكل طلب يُنشأ له ظرف تنفيذ جديد تكون بالنسبة له قيمة <code dir="ltr">n</code> هي المعيَّنة له وقت النداء.</li>
+<li>وهكذا يتم تكديس الطلبات حتى ينتهي التسلسل عند الطلب <code dir="ltr">factorial(0)</code> الذي يؤول لنتيجة مباشرة: <code dir="ltr">return 1</code> فيخلَّى هذا الظرف من الذاكرة وتعود نتيجته إلى الظرف المباشر الذي استدعاه وهو ظرف <code dir="ltr">factorial(1)</code>.</li>
+<li>فتتعين القيمة <code dir="ltr">recursive_result = 1</code> وينتقل إلى الجملة التي بعدها وهي جملة الرجوع بنتيجة <code dir="ltr">return n * recursive_result</code> وهُما معيَّنان، أي تكون الجملة في واقع الظرف: <code dir="ltr">return 1 * 1</code>.</li>
+<li>وهذه النتيجة تعود للظرف الذي استدعاه وهو <code dir="ltr">factorial(2)</code> … إلخ.</li>
 </ul>
 <p>طلب الإجراء المتسلسل يؤدي إلى ظروف متداخلة تؤول إلى ظرف واحد في النهاية.</p>
 <p>يستعمل الإجراء المتسلسل وكذلك هياكل البيانات المتسلسلة بشكل كبير في الخوارزميات الفعالة.</p>

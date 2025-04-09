@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-18c600aae80d5bc93e3bd4e059157cd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-24ab65d2991612aadaf847f30cb0b188.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -622,7 +622,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="حساب-العمر">حساب العمر</h2>
 <p>اكتب إجراء يحسب عمرك في أي سنة معينة.</p>
 <div id="2a69d54e" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> age_at(age_now: <span class="bu">int</span>, current_year: <span class="bu">int</span>, at_year: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> age_at(age_now: <span class="bu">int</span>, current_year: <span class="bu">int</span>, at_year: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">return</span> age_now <span class="op">+</span> (at_year <span class="op">-</span> current_year)</span>
 <span id="cb1-3"><a href="#cb1-3"></a>    </span>
 <span id="cb1-4"><a href="#cb1-4"></a></span>
@@ -630,7 +630,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6"></a><span class="bu">print</span>(age_at(<span class="dv">20</span>, <span class="dv">2000</span>, <span class="dv">2010</span>)) <span class="co"># في المستقبل</span></span>
 <span id="cb1-7"><a href="#cb1-7"></a><span class="bu">print</span>(age_at(<span class="dv">20</span>, <span class="dv">2000</span>, <span class="dv">1995</span>)) <span class="co"># في الماضي</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>10
+<pre dir="ltr"><code>10
 30
 15</code></pre>
 </div>
@@ -640,17 +640,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="حساب-الأجر">حساب الأجر</h2>
 <p>عرِّف الإجراء الذي يحسب الأجر بعاملين:</p>
 <ul>
-<li><code>hours: float</code>: عدد الساعات التي يعملها الموظف</li>
-<li><code>per_hour_rate: float</code>: سعر الساعة الواحدة</li>
+<li><code dir="ltr">hours: float</code>: عدد الساعات التي يعملها الموظف</li>
+<li><code dir="ltr">per_hour_rate: float</code>: سعر الساعة الواحدة</li>
 </ul>
-<p>واجعل نوع العائد <code>float</code> كذلك باستعمال <code>-&gt; float</code>.</p>
+<p>واجعل نوع العائد <code dir="ltr">float</code> كذلك باستعمال <code dir="ltr">-&gt; float</code>.</p>
 <div id="5e7aa4ff" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> salary(hours: <span class="bu">float</span>, per_hour_rate: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> salary(hours: <span class="bu">float</span>, per_hour_rate: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    <span class="cf">return</span> hours <span class="op">*</span> per_hour_rate</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>ثم اختبر الإجراء باستعمال جمل توكيدية: <code>assert</code>.</p>
+<p>ثم اختبر الإجراء باستعمال جمل توكيدية: <code dir="ltr">assert</code>.</p>
 <div id="ecacd94a" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">assert</span> salary(<span class="dv">6</span>, <span class="dv">30</span>) <span class="op">==</span> <span class="dv">180</span></span>
+<div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">assert</span> salary(<span class="dv">6</span>, <span class="dv">30</span>) <span class="op">==</span> <span class="dv">180</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="cf">assert</span> salary(per_hour_rate<span class="op">=</span><span class="dv">50</span>, hours<span class="op">=</span><span class="dv">10</span>) <span class="op">==</span> <span class="dv">500</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -664,7 +664,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>المطلوب إنشاء قاموس بحيث لو أعطيته أحد هذه الكلمات كمفتاح، فإنها جميعًا تؤول إلى صيغة موحدة:</p>
 <p>أولاً نعرّف قاموسًا يحول جميع التصريفات إلى نفس الصيغة:</p>
 <div id="4061d2c6" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>city_map <span class="op">=</span> {</span>
+<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>city_map <span class="op">=</span> {</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    <span class="st">'medina'</span>: <span class="st">'madinah'</span>,</span>
 <span id="cb5-3"><a href="#cb5-3"></a>    <span class="st">'madinah'</span>: <span class="st">'madinah'</span>,</span>
 <span id="cb5-4"><a href="#cb5-4"></a>    <span class="st">'madina'</span>: <span class="st">'madinah'</span>,</span>
@@ -681,18 +681,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-15"><a href="#cb5-15"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>نعرف الإجراء بأنه يأخذ نصًّا <code>str</code> ويُنتج نصًّا <code>str</code> آخر.</li>
-<li>ولأن الحروف الإنجليزية قد تحوي أحرفًا كبيرة، فإننا نحولها جميعًا إلى صيغة صغيرة: <code>.lower()</code></li>
+<li>نعرف الإجراء بأنه يأخذ نصًّا <code dir="ltr">str</code> ويُنتج نصًّا <code dir="ltr">str</code> آخر.</li>
+<li>ولأن الحروف الإنجليزية قد تحوي أحرفًا كبيرة، فإننا نحولها جميعًا إلى صيغة صغيرة: <code dir="ltr">.lower()</code></li>
 <li>وأخيرًا نستعمل هذا النص كمفتاح لنسحب القيمة؛ الصيغة الموحَّدة</li>
 </ul>
 <div id="5d7cfa0d" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> normalize_city_name(city_name: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> normalize_city_name(city_name: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
 <span id="cb6-2"><a href="#cb6-2"></a>    text <span class="op">=</span> city_name.lower()</span>
 <span id="cb6-3"><a href="#cb6-3"></a>    <span class="cf">return</span> city_map[text]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>نختبر الإجراء باستعمال جمل توكيدية: <code>assert</code>.</p>
+<p>نختبر الإجراء باستعمال جمل توكيدية: <code dir="ltr">assert</code>.</p>
 <div id="6d5ab0e3" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="cf">assert</span> (</span>
+<div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="cf">assert</span> (</span>
 <span id="cb7-2"><a href="#cb7-2"></a>    <span class="st">'madinah'</span> <span class="op">==</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a>    normalize_city_name(<span class="st">'المدينة'</span>) <span class="op">==</span></span>
 <span id="cb7-4"><a href="#cb7-4"></a>    normalize_city_name(<span class="st">'al madinah'</span>) <span class="op">==</span></span>
@@ -822,7 +822,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>اكتب تفاصيل الإجراء الذي يحسب الجمَّل لكلمة معينة.</p>
 <p>أولاً نعرّف قاموسًا يحول الحروف إلى أرقام:</p>
 <div id="cee41682" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>gematria_map <span class="op">=</span> {</span>
+<div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>gematria_map <span class="op">=</span> {</span>
 <span id="cb8-2"><a href="#cb8-2"></a>    <span class="st">'ا'</span>: <span class="dv">1</span>, <span class="st">'ي'</span>: <span class="dv">10</span>, <span class="st">'ق'</span>: <span class="dv">100</span>, <span class="st">'غ'</span>: <span class="dv">1000</span>,</span>
 <span id="cb8-3"><a href="#cb8-3"></a>    <span class="st">'ب'</span>: <span class="dv">2</span>, <span class="st">'ك'</span>: <span class="dv">20</span>, <span class="st">'ر'</span>: <span class="dv">200</span>, <span class="st">'بغ'</span>: <span class="dv">2000</span>,</span>
 <span id="cb8-4"><a href="#cb8-4"></a>    <span class="st">'ج'</span>: <span class="dv">3</span>, <span class="st">'ل'</span>: <span class="dv">30</span>, <span class="st">'ش'</span>: <span class="dv">300</span>, <span class="st">'جغ'</span>: <span class="dv">3000</span>,</span>
@@ -834,9 +834,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-10"><a href="#cb8-10"></a>    <span class="st">'ط'</span>: <span class="dv">9</span>, <span class="st">'ص'</span>: <span class="dv">90</span>, <span class="st">'ظ'</span>: <span class="dv">900</span>, <span class="st">'طغ'</span>: <span class="dv">9000</span>,</span>
 <span id="cb8-11"><a href="#cb8-11"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>ثم نعرّف الإجراء بأنه يأخذ نصًّا <code>str</code> ويُنتج رقمًا <code>int</code>:</p>
+<p>ثم نعرّف الإجراء بأنه يأخذ نصًّا <code dir="ltr">str</code> ويُنتج رقمًا <code dir="ltr">int</code>:</p>
 <div id="0bec221b" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> gematria(word: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> gematria(word: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb9-2"><a href="#cb9-2"></a>    total <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb9-3"><a href="#cb9-3"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(word), <span class="dv">2</span>):</span>
 <span id="cb9-4"><a href="#cb9-4"></a>        pair <span class="op">=</span> word[i:i<span class="op">+</span><span class="dv">2</span>]</span>
@@ -851,18 +851,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-13"><a href="#cb9-13"></a>    <span class="cf">return</span> total</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>يبدأ الحساب بمتغير <code>total</code> يساوي 0</li>
-<li>نأتي على الكلمة حرفين ثم ننتقل منهما إلى الحرفين التاليين (وذلك بتحديد حجم الخطوة: 2) <code>for i in range(0, len(word), 2)</code></li>
-<li>نقرأ الحرفين معًا: <code>pair = word[i:i+2]</code> من الموضع <code>i</code> إلى الموضع <code>i+2</code>؛ فهذه شريحة مكوَّنة من نص فيه حرفان</li>
-<li>إذا كان هذ الزوج موجودًا في القاموس <code>gematria_map</code>، فإننا نضيف قيمته إلى المتغير <code>total</code></li>
-<li>فإن لم يكن موجودًا فإننا نعتبر كل حرفٍ على حدة: <code>a, b = pair</code></li>
-<li>فإن كان الأول موجودًا في القاموس فإننا نضيف قيمته إلى المتغير <code>total</code></li>
-<li>وإن كان الثاني موجودًا في القاموس فإننا نضيف قيمته إلى المتغير <code>total</code></li>
-<li>وأخيرًا نعيد المتغير <code>return total</code></li>
+<li>يبدأ الحساب بمتغير <code dir="ltr">total</code> يساوي 0</li>
+<li>نأتي على الكلمة حرفين ثم ننتقل منهما إلى الحرفين التاليين (وذلك بتحديد حجم الخطوة: 2) <code dir="ltr">for i in range(0, len(word), 2)</code></li>
+<li>نقرأ الحرفين معًا: <code dir="ltr">pair = word[i:i+2]</code> من الموضع <code dir="ltr">i</code> إلى الموضع <code dir="ltr">i+2</code>؛ فهذه شريحة مكوَّنة من نص فيه حرفان</li>
+<li>إذا كان هذ الزوج موجودًا في القاموس <code dir="ltr">gematria_map</code>، فإننا نضيف قيمته إلى المتغير <code dir="ltr">total</code></li>
+<li>فإن لم يكن موجودًا فإننا نعتبر كل حرفٍ على حدة: <code dir="ltr">a, b = pair</code></li>
+<li>فإن كان الأول موجودًا في القاموس فإننا نضيف قيمته إلى المتغير <code dir="ltr">total</code></li>
+<li>وإن كان الثاني موجودًا في القاموس فإننا نضيف قيمته إلى المتغير <code dir="ltr">total</code></li>
+<li>وأخيرًا نعيد المتغير <code dir="ltr">return total</code></li>
 </ul>
 <p>فإذا أرادوا كتابة الرقم (1240) كتبوا «غرم»، لأن الغين 1,000، والراء 200، والميم 40، فكانوا يراعون عند تركيب الجُمّل أن يكون الحرف المعبر عن العدد الأكبر في المقدمة، ثم يليه الأصغر منه وهكذا دواليك فنجد من الأمثلة على ذلك:</p>
 <div id="f94ad60d" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="cf">assert</span> gematria(<span class="st">'غرم'</span>) <span class="op">==</span> <span class="dv">1240</span></span>
+<div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="cf">assert</span> gematria(<span class="st">'غرم'</span>) <span class="op">==</span> <span class="dv">1240</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="cf">assert</span> gematria(<span class="st">'رب'</span>) <span class="op">==</span> <span class="dv">202</span></span>
 <span id="cb10-3"><a href="#cb10-3"></a><span class="cf">assert</span> gematria(<span class="st">'ريح'</span>) <span class="op">==</span> <span class="dv">218</span></span>
 <span id="cb10-4"><a href="#cb10-4"></a><span class="cf">assert</span> gematria(<span class="st">'شعب'</span>) <span class="op">==</span> <span class="dv">372</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -870,7 +870,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>يقال أنه عندما توفي السلطان الظاهر برقوق أول سلاطين المماليك البرجية، قام بعض الظرفاء بصياغة عبارة تحدد تاريخ وفاته فقال: «وفاة برقوق في المشمش»، وعندما نحسب تاريخ وفاة برقوق وهي «في المشمش» يكون الناتج:</p>
 <p>(80+10+1+30+40+300+40+300) = 801، وبالتالي فتكون العبارة: «وفاة برقوق 801» هجرية وذلك صحيح.</p>
 <div id="16f795be" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="cf">assert</span> gematria(<span class="st">'في المشمش'</span>) <span class="op">==</span> <span class="dv">801</span> <span class="op">==</span> <span class="dv">80</span><span class="op">+</span><span class="dv">10</span><span class="op">+</span><span class="dv">1</span><span class="op">+</span><span class="dv">30</span><span class="op">+</span><span class="dv">40</span><span class="op">+</span><span class="dv">300</span><span class="op">+</span><span class="dv">40</span><span class="op">+</span><span class="dv">300</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="cf">assert</span> gematria(<span class="st">'في المشمش'</span>) <span class="op">==</span> <span class="dv">801</span> <span class="op">==</span> <span class="dv">80</span><span class="op">+</span><span class="dv">10</span><span class="op">+</span><span class="dv">1</span><span class="op">+</span><span class="dv">30</span><span class="op">+</span><span class="dv">40</span><span class="op">+</span><span class="dv">300</span><span class="op">+</span><span class="dv">40</span><span class="op">+</span><span class="dv">300</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>يقال أيضاً أن شاعراً يسمى الدّلنجاوي مات فرثاه صديق له فقال:</p>
 <table class="caption-top table">
@@ -892,13 +892,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>ويتضح لنا أن تاريخ الوفاة يكون في معرفة حساب العبارة «مات الشعرُ بعدَهُ»، فيكون الحساب:</p>
 <p>(40+1+400+1+30+300+70+200+2+70+4+5) = (1123)، وذلك يعني أن الشاعر الدلنجاوي توفي في عام 1123 للهجرة.</p>
 <div id="8c4b18db" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="cf">assert</span> gematria(<span class="st">'مات الشعر بعده'</span>) <span class="op">==</span> <span class="dv">1123</span> <span class="op">==</span> <span class="dv">40</span><span class="op">+</span><span class="dv">1</span><span class="op">+</span><span class="dv">400</span><span class="op">+</span><span class="dv">1</span><span class="op">+</span><span class="dv">30</span><span class="op">+</span><span class="dv">300</span><span class="op">+</span><span class="dv">70</span><span class="op">+</span><span class="dv">200</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">70</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="cf">assert</span> gematria(<span class="st">'مات الشعر بعده'</span>) <span class="op">==</span> <span class="dv">1123</span> <span class="op">==</span> <span class="dv">40</span><span class="op">+</span><span class="dv">1</span><span class="op">+</span><span class="dv">400</span><span class="op">+</span><span class="dv">1</span><span class="op">+</span><span class="dv">30</span><span class="op">+</span><span class="dv">300</span><span class="op">+</span><span class="dv">70</span><span class="op">+</span><span class="dv">200</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">70</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="ضم-الأقران" class="level2">
 <h2 class="anchored" data-anchor-id="ضم-الأقران">ضم الأقران</h2>
 <p>ماذا لو أردت أن تضم قائمة من الأشخاص بحيث يكون فارق العمر بينهم أقل ما يمكن؟</p>
-<pre><code>Ahmad: 24
+<pre dir="ltr"><code>Ahmad: 24
 Mohannad: 17
 Mohammed: 16
 Salem: 32
@@ -906,7 +906,7 @@ Ali: 26
 Samir: 31</code></pre>
 <p>أولاً سنرتب القائمة بناءً على العمر، ثم نأخذ العناصر اثنين اثنين، وبذلك نكون حققنا الهدف.</p>
 <div id="db74eb14" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">def</span> make_pairs_by_age_diff(items: <span class="bu">list</span>[<span class="bu">tuple</span>[<span class="bu">str</span>, <span class="bu">int</span>]]) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">tuple</span>[<span class="bu">str</span>, <span class="bu">str</span>]]:</span>
+<div class="sourceCode cell-code" id="cb14" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">def</span> make_pairs_by_age_diff(items: <span class="bu">list</span>[<span class="bu">tuple</span>[<span class="bu">str</span>, <span class="bu">int</span>]]) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">tuple</span>[<span class="bu">str</span>, <span class="bu">str</span>]]:</span>
 <span id="cb14-2"><a href="#cb14-2"></a>    <span class="co">"""Make pairs of people by their age difference minimum."""</span></span>
 <span id="cb14-3"><a href="#cb14-3"></a>    ages <span class="op">=</span> [age <span class="cf">for</span> name, age <span class="kw">in</span> items]</span>
 <span id="cb14-4"><a href="#cb14-4"></a>    ages.sort()</span>
@@ -921,7 +921,7 @@ Samir: 31</code></pre>
 <span id="cb14-13"><a href="#cb14-13"></a>    <span class="cf">return</span> pairs</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="b5f191bd" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>peers <span class="op">=</span> [</span>
+<div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>peers <span class="op">=</span> [</span>
 <span id="cb15-2"><a href="#cb15-2"></a>    (<span class="st">"Ahmad"</span>, <span class="dv">24</span>),</span>
 <span id="cb15-3"><a href="#cb15-3"></a>    (<span class="st">"Mohannad"</span>, <span class="dv">17</span>),</span>
 <span id="cb15-4"><a href="#cb15-4"></a>    (<span class="st">"Mohammed"</span>, <span class="dv">16</span>),</span>
@@ -932,7 +932,7 @@ Samir: 31</code></pre>
 </div>
 <p>الاختبارات</p>
 <div id="4e49dbcb" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>pairs <span class="op">=</span> make_pairs_by_age_diff(peers)</span>
+<div class="sourceCode cell-code" id="cb16" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>pairs <span class="op">=</span> make_pairs_by_age_diff(peers)</span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="cf">for</span> p <span class="kw">in</span> pairs:</span>
 <span id="cb16-3"><a href="#cb16-3"></a>    <span class="cf">if</span> <span class="st">"Ahmad"</span> <span class="kw">in</span> p:</span>
 <span id="cb16-4"><a href="#cb16-4"></a>        <span class="cf">assert</span> <span class="st">"Ali"</span> <span class="kw">in</span> p</span>
@@ -948,16 +948,16 @@ Samir: 31</code></pre>
 <p>نريد في هذا التمرين التوفيق بين أشخاص وما لديهم من مهارات وبين شركات وما تطلبها من هذه المهارات.</p>
 <p>يمكن أن تبدأ بهذا الشكل لإيجاد كمية التوافق:</p>
 <div id="ed1a815d" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>have <span class="op">=</span> {<span class="st">"A"</span>, <span class="st">"X"</span>, <span class="st">"Y"</span>}</span>
+<div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>have <span class="op">=</span> {<span class="st">"A"</span>, <span class="st">"X"</span>, <span class="st">"Y"</span>}</span>
 <span id="cb17-2"><a href="#cb17-2"></a>want <span class="op">=</span> {<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>}</span>
 <span id="cb17-3"><a href="#cb17-3"></a><span class="bu">print</span>(<span class="st">"نسبة الإعجاب:"</span>, <span class="bu">len</span>(<span class="bu">set</span>.intersection(have, want)) <span class="op">/</span> <span class="bu">len</span>(want))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>نسبة الإعجاب: 0.25</code></pre>
+<pre dir="ltr"><code>نسبة الإعجاب: 0.25</code></pre>
 </div>
 </div>
 <p>وفي العادة تكون البيانات مضمنة في قائمة على النحو التالي:</p>
 <div id="09d3aea0" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>haves <span class="op">=</span> [</span>
+<div class="sourceCode cell-code" id="cb19" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>haves <span class="op">=</span> [</span>
 <span id="cb19-2"><a href="#cb19-2"></a>    {</span>
 <span id="cb19-3"><a href="#cb19-3"></a>        <span class="st">"name"</span>: <span class="st">"Ahmad"</span>,</span>
 <span id="cb19-4"><a href="#cb19-4"></a>        <span class="st">"skills"</span>: [</span>
@@ -995,9 +995,9 @@ Samir: 31</code></pre>
 <span id="cb19-36"><a href="#cb19-36"></a>    },</span>
 <span id="cb19-37"><a href="#cb19-37"></a>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>نعالجها لكل عنصر في قائمة <code>wants</code>:</p>
+<p>نعالجها لكل عنصر في قائمة <code dir="ltr">wants</code>:</p>
 <div id="90a7178e" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>ratios <span class="op">=</span> {}</span>
+<div class="sourceCode cell-code" id="cb20" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>ratios <span class="op">=</span> {}</span>
 <span id="cb20-2"><a href="#cb20-2"></a><span class="cf">for</span> want <span class="kw">in</span> wants:</span>
 <span id="cb20-3"><a href="#cb20-3"></a>    <span class="cf">for</span> have <span class="kw">in</span> haves:</span>
 <span id="cb20-4"><a href="#cb20-4"></a>        ratio <span class="op">=</span> <span class="bu">len</span>(<span class="bu">set</span>.intersection(<span class="bu">set</span>(want[<span class="st">"requirements"</span>]), <span class="bu">set</span>(have[<span class="st">"skills"</span>]))) <span class="op">/</span> <span class="bu">len</span>(want[<span class="st">"requirements"</span>])</span>
@@ -1006,14 +1006,14 @@ Samir: 31</code></pre>
 <span id="cb20-7"><a href="#cb20-7"></a>        ratios[want[<span class="st">'job'</span>]][have[<span class="st">'name'</span>]] <span class="op">=</span> ratio</span>
 <span id="cb20-8"><a href="#cb20-8"></a>ratios</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="116">
-<pre><code>{'Data Scientist': {'Ahmad': 0.3333333333333333, 'Jawad': 0.0},
+<pre dir="ltr"><code>{'Data Scientist': {'Ahmad': 0.3333333333333333, 'Jawad': 0.0},
  'Sales Manager': {'Ahmad': 0.0, 'Jawad': 1.0}}</code></pre>
 </div>
 </div>
 <p>الآن نرتب كل وظيفة بحسب الأعلى توافقًا.</p>
 <p>أولاً نكتب دالة ترتِّب قاموسًا، ثم سنستعملها:</p>
 <div id="33ff068e" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">def</span> sort_nested_dict(d: <span class="bu">dict</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<div class="sourceCode cell-code" id="cb22" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">def</span> sort_nested_dict(d: <span class="bu">dict</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
 <span id="cb22-2"><a href="#cb22-2"></a>    <span class="co">"""Sorts a dictionary by values"""</span></span>
 <span id="cb22-3"><a href="#cb22-3"></a>    result <span class="op">=</span> {}</span>
 <span id="cb22-4"><a href="#cb22-4"></a>    <span class="cf">for</span> key <span class="kw">in</span> d.keys():</span>
@@ -1027,35 +1027,35 @@ Samir: 31</code></pre>
 <span id="cb22-12"><a href="#cb22-12"></a>    <span class="cf">return</span> result</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="5687ee51" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>sorted_ratios <span class="op">=</span> sort_nested_dict(ratios)</span>
+<div class="sourceCode cell-code" id="cb23" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>sorted_ratios <span class="op">=</span> sort_nested_dict(ratios)</span>
 <span id="cb23-2"><a href="#cb23-2"></a>sorted_ratios</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="118">
-<pre><code>{'Data Scientist': {'Ahmad': 0.3333333333333333, 'Jawad': 0.0},
+<pre dir="ltr"><code>{'Data Scientist': {'Ahmad': 0.3333333333333333, 'Jawad': 0.0},
  'Sales Manager': {'Jawad': 1.0, 'Ahmad': 0.0}}</code></pre>
 </div>
 </div>
-<p>ولكثرة الحاجة لترتيب البيانات، فإن إجراء <code>sorted</code> متعدد الاستعمالات في بايثون. انظر <a href="https://docs.python.org/3/howto/sorting.html">Sorting Basics و Key Functions</a> من توثيق بايثون تحت عنوان: “HOW TO”.</p>
+<p>ولكثرة الحاجة لترتيب البيانات، فإن إجراء <code dir="ltr">sorted</code> متعدد الاستعمالات في بايثون. انظر <a href="https://docs.python.org/3/howto/sorting.html">Sorting Basics و Key Functions</a> من توثيق بايثون تحت عنوان: “HOW TO”.</p>
 <div id="d845f09c" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="cf">for</span> k, v <span class="kw">in</span> ratios.items():</span>
+<div class="sourceCode cell-code" id="cb25" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="cf">for</span> k, v <span class="kw">in</span> ratios.items():</span>
 <span id="cb25-2"><a href="#cb25-2"></a>    sorted_ratios[k] <span class="op">=</span> <span class="bu">sorted</span>(v.items(), key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>], reverse<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb25-3"><a href="#cb25-3"></a>sorted_ratios</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="119">
-<pre><code>{'Data Scientist': [('Ahmad', 0.3333333333333333), ('Jawad', 0.0)],
+<pre dir="ltr"><code>{'Data Scientist': [('Ahmad', 0.3333333333333333), ('Jawad', 0.0)],
  'Sales Manager': [('Jawad', 1.0), ('Ahmad', 0.0)]}</code></pre>
 </div>
 </div>
 <p>فأول المرشحين في علوم البيانات هو:</p>
 <div id="379cce15" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>sorted_ratios[<span class="st">"Data Scientist"</span>][<span class="dv">0</span>][<span class="dv">0</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>sorted_ratios[<span class="st">"Data Scientist"</span>][<span class="dv">0</span>][<span class="dv">0</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="120">
-<pre><code>'Ahmad'</code></pre>
+<pre dir="ltr"><code>'Ahmad'</code></pre>
 </div>
 </div>
 <p>وأول المرشحين في المبيعات هو:</p>
 <div id="8274dc12" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>sorted_ratios[<span class="st">"Sales Manager"</span>][<span class="dv">0</span>][<span class="dv">0</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>sorted_ratios[<span class="st">"Sales Manager"</span>][<span class="dv">0</span>][<span class="dv">0</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="121">
-<pre><code>'Jawad'</code></pre>
+<pre dir="ltr"><code>'Jawad'</code></pre>
 </div>
 </div>
 

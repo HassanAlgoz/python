@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-18c600aae80d5bc93e3bd4e059157cd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-24ab65d2991612aadaf847f30cb0b188.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -614,40 +614,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>سَلْسَلة البيانات</strong> (Data Serialization) تشير لعملية تحويل البيانات في ذاكرة بايثون (مثل القائمة <code>[]</code> والقاموس <code>{}</code>) من صيغتها الثنائية الخاص باللغة إلى تمثيلٍ ليس خاصًّا بلغةٍ معيَّنة؛ بل يتبع صيغةً متفقًا عليها؛ فإما أن يكون:</p>
+<p><strong>سَلْسَلة البيانات</strong> (Data Serialization) تشير لعملية تحويل البيانات في ذاكرة بايثون (مثل القائمة <code dir="ltr">[]</code> والقاموس <code dir="ltr">{}</code>) من صيغتها الثنائية الخاص باللغة إلى تمثيلٍ ليس خاصًّا بلغةٍ معيَّنة؛ بل يتبع صيغةً متفقًا عليها؛ فإما أن يكون:</p>
 <ol type="1">
-<li><strong>تمثيلاً نصيًّا</strong> (Plain Text Serialization) متفقًا عليه مثل: <code>xml</code> أو <code>json</code> أو <code>csv</code> ونحوها (وقد تقدَّم عرضُها في <a href="">باب النص</a>).</li>
-<li>أو <strong>تمثيلاً ثنائيًّا</strong> (Binary Serialization) متفقًا عليه كذلك مثل: <code>pickle</code> أو <code>protobuf</code> أو <code>parquet</code>.</li>
+<li><strong>تمثيلاً نصيًّا</strong> (Plain Text Serialization) متفقًا عليه مثل: <code dir="ltr">xml</code> أو <code dir="ltr">json</code> أو <code dir="ltr">csv</code> ونحوها (وقد تقدَّم عرضُها في <a href="">باب النص</a>).</li>
+<li>أو <strong>تمثيلاً ثنائيًّا</strong> (Binary Serialization) متفقًا عليه كذلك مثل: <code dir="ltr">pickle</code> أو <code dir="ltr">protobuf</code> أو <code dir="ltr">parquet</code>.</li>
 </ol>
 <p>فالتمثيل النصي يتميز بأنه مباشر وواضح بالنسبة للبشر. لكنه أبطأ في المعالجة (سواءً في الكتابة أو في القراءة) وأكبرُ حجمًا في التخزين غالبًا. أما التمثيل الثانئي فهو بعكسه: أقرب للآلة وأصعب في التدقيق عند حدوث الخطأ إلا مع وجود أدوات تساعد في ذلك. لكنه أسرع في المعالجة وأقل حجمًا للتخزين.</p>
 <p>وعملية تحويل البيانات المُسَلسَلة (أي المكتوبة بإحدى هذه الصيغ) وقراءَتها في برنامجٍ ما تسمى فك التسلسل (Deserialization). فالتحويل يكون مثلاً من النصي إلى الثنائي في الذاكرة. أو من الثنائي المسلسل إلى الثنائي في الذاكرة.</p>
 <p>فالسلسلة وفكها <strong>ما هي إلا صياغة</strong> لا تغير المكنون بل شكله.</p>
 <p>ويختلف شكل البيانات من ثلاثة أوجه:</p>
 <ol type="1">
-<li><strong>الصف</strong>: <code>[v1, v2, ...]</code></li>
-<li><strong>الربط</strong>: <code>{k1: v1, k2: v2, ...}</code></li>
+<li><strong>الصف</strong>: <code dir="ltr">[v1, v2, ...]</code></li>
+<li><strong>الربط</strong>: <code dir="ltr">{k1: v1, k2: v2, ...}</code></li>
 <li><strong>التضمين</strong>: وهو جعل العنصر نفسه صفًّا أو ارتباطًا
 <ul>
-<li>تضمين الصف لصفوف: <code>[[v1, v2, ...], [v1, v2, ...], ...]</code></li>
-<li>تضمين الصف لروابط: <code>[{k1: v1, k2: v2, ...}, {k1: v1, k2: v2, ...}, ...]</code></li>
-<li>تضمين الروابط لصفوف: <code>{k1: [v1, v2, ...], k2: [v1, v2, ...], ...}</code></li>
-<li>تضمين الروابط لروابط: <code>{k1: {k2: v2, k3: v3, ...}, k2: {k4: v4, k5: v5, ...}, ...}</code></li>
+<li>تضمين الصف لصفوف: <code dir="ltr">[[v1, v2, ...], [v1, v2, ...], ...]</code></li>
+<li>تضمين الصف لروابط: <code dir="ltr">[{k1: v1, k2: v2, ...}, {k1: v1, k2: v2, ...}, ...]</code></li>
+<li>تضمين الروابط لصفوف: <code dir="ltr">{k1: [v1, v2, ...], k2: [v1, v2, ...], ...}</code></li>
+<li>تضمين الروابط لروابط: <code dir="ltr">{k1: {k2: v2, k3: v3, ...}, k2: {k4: v4, k5: v5, ...}, ...}</code></li>
 </ul></li>
 </ol>
 <p>فالصفوف تتميز بكون كل صفٍّ فيها تدوينًا لمجموعة خصائص تشترك في العمود كله. أما الارتباط ففيه مرونة؛ فمجموعة الارتباطات لا تُلزِم كل ارتباط أن يكون له ذات خصائص الارتباط الذي قبله.</p>
 <section id="الارتباط-والتضمين" class="level2">
 <h2 class="anchored" data-anchor-id="الارتباط-والتضمين">الارتباط والتضمين</h2>
-<p>سنمثل باستعمال <a href="https://docs.python.org/3/library/json.html">الوحدة المدمجة <code>json</code></a> ذات وظائف القراءة والكتابة لملفات مصاغة على شكل json. فإن كنت تتعامل مع صيغ أخرى انظر في الوثائق:</p>
+<p>سنمثل باستعمال <a href="https://docs.python.org/3/library/json.html">الوحدة المدمجة <code dir="ltr">json</code></a> ذات وظائف القراءة والكتابة لملفات مصاغة على شكل json. فإن كنت تتعامل مع صيغ أخرى انظر في الوثائق:</p>
 <ul>
-<li><a href="https://docs.python.org/3/library/xml.html">الوحدة المدمجة <code>xml</code></a> لصيغة <code>xml</code>.</li>
-<li>أو <a href="https://pyyaml.org/wiki/PyYAMLDocumentation">مكتبة <code>pyyaml</code></a> لصيغة <code>yaml</code>.</li>
+<li><a href="https://docs.python.org/3/library/xml.html">الوحدة المدمجة <code dir="ltr">xml</code></a> لصيغة <code dir="ltr">xml</code>.</li>
+<li>أو <a href="https://pyyaml.org/wiki/PyYAMLDocumentation">مكتبة <code dir="ltr">pyyaml</code></a> لصيغة <code dir="ltr">yaml</code>.</li>
 </ul>
 <div id="952aa3ad" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> json</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> json</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>لنفترض أن لدينا <code>user_preferences</code> محفوظًا في القاموس التالي، ونريد حفظه في ملف json:</p>
+<p>لنفترض أن لدينا <code dir="ltr">user_preferences</code> محفوظًا في القاموس التالي، ونريد حفظه في ملف json:</p>
 <div id="d6665bc2" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>user_preferences <span class="op">=</span> {</span>
+<div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>user_preferences <span class="op">=</span> {</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    <span class="st">'theme'</span>: <span class="st">'dark'</span>,</span>
 <span id="cb2-3"><a href="#cb2-3"></a>    <span class="st">'language'</span>: <span class="st">'Arabic'</span>,</span>
 <span id="cb2-4"><a href="#cb2-4"></a>    <span class="st">'notifications'</span>: {</span>
@@ -659,18 +659,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-10"><a href="#cb2-10"></a>    <span class="st">'emails'</span>: [<span class="st">'example1@domain.com'</span>, <span class="st">'example2@domain.com'</span>]</span>
 <span id="cb2-11"><a href="#cb2-11"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>لنكتبها في الملف نستعمال <code>json.dump</code> على النحو التالي:</p>
+<p>لنكتبها في الملف نستعمال <code dir="ltr">json.dump</code> على النحو التالي:</p>
 <div id="10172540" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/user_preferences.json'</span>, mode<span class="op">=</span><span class="st">'w'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/user_preferences.json'</span>, mode<span class="op">=</span><span class="st">'w'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    json.dump(user_preferences, <span class="bu">file</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>فإذا أردنا قراءتها نستعمل <code>json.load</code> على النحو التالي:</p>
+<p>فإذا أردنا قراءتها نستعمل <code dir="ltr">json.load</code> على النحو التالي:</p>
 <div id="f6a25e87" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/user_preferences.json'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/user_preferences.json'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb4-2"><a href="#cb4-2"></a>    data <span class="op">=</span> json.load(<span class="bu">file</span>)</span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="bu">print</span>(data)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'theme': 'dark', 'language': 'Arabic', 'notifications': {'email': True, 'sms': False, 'push': True}, 'last_updated': '2021-09-01', 'emails': ['example1@domain.com', 'example2@domain.com']}</code></pre>
+<pre dir="ltr"><code>{'theme': 'dark', 'language': 'Arabic', 'notifications': {'email': True, 'sms': False, 'push': True}, 'last_updated': '2021-09-01', 'emails': ['example1@domain.com', 'example2@domain.com']}</code></pre>
 </div>
 </div>
 </section>
@@ -678,22 +678,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="الصف">الصف</h2>
 <p>تأتي البيانات الجدولية في صيغ متعددة، مثل:</p>
 <ul>
-<li>CSV وهي صيغة يكون فيها الصف في سطر، وتكون عناصره مفصولة بعلامة الفاصلة <code>","</code></li>
-<li>TSV وهي مثل CSV إلا أن الفاصلة علامة <code>"\t"</code></li>
+<li>CSV وهي صيغة يكون فيها الصف في سطر، وتكون عناصره مفصولة بعلامة الفاصلة <code dir="ltr">","</code></li>
+<li>TSV وهي مثل CSV إلا أن الفاصلة علامة <code dir="ltr">"\t"</code></li>
 </ul>
 <p>وغيرها كثير.</p>
 <p>في هذا القسم، سنركز على ملفات (Comma Separated Values) CSV؛ وتعني حرفيًّا: القيَم المفصولة بالفاصلة.</p>
-<p>توجد في بايثون وحدة <a href="https://docs.python.org/3/library/csv.html"><code>csv</code></a> فيها إجراءات للقراءة والكتابة على طريقة csv. فلدينا:</p>
+<p>توجد في بايثون وحدة <a href="https://docs.python.org/3/library/csv.html"><code dir="ltr">csv</code></a> فيها إجراءات للقراءة والكتابة على طريقة csv. فلدينا:</p>
 <ul>
-<li>كائن <a href="https://docs.python.org/3/library/csv.html#csv.reader"><code>reader</code></a> لعمليات القراءة</li>
-<li>وكائن آخر منفصل اسمه <a href="https://docs.python.org/3/library/csv.html#csv.writer"><code>writer</code></a> يحوي عمليات الكتابة</li>
+<li>كائن <a href="https://docs.python.org/3/library/csv.html#csv.reader"><code dir="ltr">reader</code></a> لعمليات القراءة</li>
+<li>وكائن آخر منفصل اسمه <a href="https://docs.python.org/3/library/csv.html#csv.writer"><code dir="ltr">writer</code></a> يحوي عمليات الكتابة</li>
 </ul>
 <div id="198a11b3" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> csv</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> csv</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>لنكتب قائمة من الطلاب إلى ملف CSV. لاحظ، لدينا قائمة من قوائم، حيث تمثل كل قائمة داخلية صفًا لوحدها:</p>
 <div id="8858b3e2" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>header <span class="op">=</span> [<span class="st">'Name'</span>, <span class="st">'Age'</span>, <span class="st">'Grade'</span>, <span class="st">'Done'</span>]</span>
+<div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>header <span class="op">=</span> [<span class="st">'Name'</span>, <span class="st">'Age'</span>, <span class="st">'Grade'</span>, <span class="st">'Done'</span>]</span>
 <span id="cb7-2"><a href="#cb7-2"></a>rows <span class="op">=</span> [</span>
 <span id="cb7-3"><a href="#cb7-3"></a>    [<span class="st">'Adam'</span>, <span class="dv">22</span>, <span class="dv">90</span>, <span class="st">'F'</span>],</span>
 <span id="cb7-4"><a href="#cb7-4"></a>    [<span class="st">'Belal'</span>, <span class="dv">23</span>, <span class="dv">92</span>, <span class="st">'F'</span>],</span>
@@ -704,7 +704,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>نكتبها على النحو التالي:</p>
 <div id="02528f4e" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/students.csv'</span>, mode<span class="op">=</span><span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/students.csv'</span>, mode<span class="op">=</span><span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb8-2"><a href="#cb8-2"></a>    writer <span class="op">=</span> csv.writer(<span class="bu">file</span>)</span>
 <span id="cb8-3"><a href="#cb8-3"></a>    writer.writerow(header)</span>
 <span id="cb8-4"><a href="#cb8-4"></a>    writer.writerows(rows)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -712,12 +712,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>ملاحظة، يمكنك محاولة فتح الملف مباشرة من مستكشف الملفات. حاول فتحه باستخدام Excel أو Google Sheet أو أي برنامج جداول بيانات آخر. إذا فتحته باستخدام محرر نصوص، سترى البيانات كملف CSV؛ حرفيًا قيم مفصولة بفواصل.</p>
 <p>الآن، دعنا نقرأه كهيكل بيانات في بايثون: كقائمة من القوائم.</p>
 <div id="15e16a2c" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/students.csv'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/students.csv'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb9-2"><a href="#cb9-2"></a>    reader <span class="op">=</span> csv.reader(<span class="bu">file</span>)</span>
 <span id="cb9-3"><a href="#cb9-3"></a>    <span class="cf">for</span> row <span class="kw">in</span> reader:</span>
 <span id="cb9-4"><a href="#cb9-4"></a>        <span class="bu">print</span>(row)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>['Name', 'Age', 'Grade', 'Done']
+<pre dir="ltr"><code>['Name', 'Age', 'Grade', 'Done']
 ['Adam', '22', '90', 'F']
 ['Belal', '23', '92', 'F']
 ['Camal', '24', '91', 'T']
@@ -727,16 +727,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>لنحاول حساب متوسط درجات الطلاب.</p>
 <div id="82d8f1e4" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>students <span class="op">=</span> []</span>
+<div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>students <span class="op">=</span> []</span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/students.csv'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb11-3"><a href="#cb11-3"></a>    reader <span class="op">=</span> csv.reader(<span class="bu">file</span>)</span>
 <span id="cb11-4"><a href="#cb11-4"></a>    <span class="bu">next</span>(reader) <span class="co"># skip the header</span></span>
 <span id="cb11-5"><a href="#cb11-5"></a>    <span class="cf">for</span> row <span class="kw">in</span> reader:</span>
 <span id="cb11-6"><a href="#cb11-6"></a>        students.append(row)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>الآن بعد أن حفظناها في القائمة <code>students</code>، دعونا نقوم ببعض العمليات الحسابية.</p>
+<p>الآن بعد أن حفظناها في القائمة <code dir="ltr">students</code>، دعونا نقوم ببعض العمليات الحسابية.</p>
 <div id="05081bea" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>grades <span class="op">=</span> [s[<span class="dv">2</span>] <span class="cf">for</span> s <span class="kw">in</span> students]</span>
+<div class="sourceCode cell-code" id="cb12" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>grades <span class="op">=</span> [s[<span class="dv">2</span>] <span class="cf">for</span> s <span class="kw">in</span> students]</span>
 <span id="cb12-2"><a href="#cb12-2"></a>avg <span class="op">=</span> <span class="bu">sum</span>(grades) <span class="op">/</span> <span class="bu">len</span>(grades)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -750,23 +750,23 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 </div>
 </div>
 </div>
-<p>هذا الخطأ متوقع عند قراءة الملفات لأنها دائمًا تعتبر من نوع <code>str</code>، ولذلك نضطر لتحويل القيَم العددية إلى <code>int</code> لفعل عمليات رياضية:</p>
+<p>هذا الخطأ متوقع عند قراءة الملفات لأنها دائمًا تعتبر من نوع <code dir="ltr">str</code>، ولذلك نضطر لتحويل القيَم العددية إلى <code dir="ltr">int</code> لفعل عمليات رياضية:</p>
 <div id="867dfa7e" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>grades <span class="op">=</span> [<span class="bu">int</span>(s[<span class="dv">2</span>]) <span class="cf">for</span> s <span class="kw">in</span> students]</span>
+<div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>grades <span class="op">=</span> [<span class="bu">int</span>(s[<span class="dv">2</span>]) <span class="cf">for</span> s <span class="kw">in</span> students]</span>
 <span id="cb13-2"><a href="#cb13-2"></a>avg <span class="op">=</span> <span class="bu">sum</span>(grades) <span class="op">/</span> <span class="bu">len</span>(grades)</span>
 <span id="cb13-3"><a href="#cb13-3"></a>avg</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>94.0</code></pre>
+<pre dir="ltr"><code>94.0</code></pre>
 </div>
 </div>
-<p>يمكنك أيضًا قراءة وكتابة البيانات في شكل قاموس باستخدام الكائنات <a href="https://docs.python.org/3/library/csv.html#csv.DictReader"><code>DictReader</code></a> و<a href="https://docs.python.org/3/library/csv.html#csv.DictWriter"><code>DictWriter</code></a>.</p>
+<p>يمكنك أيضًا قراءة وكتابة البيانات في شكل قاموس باستخدام الكائنات <a href="https://docs.python.org/3/library/csv.html#csv.DictReader"><code dir="ltr">DictReader</code></a> و<a href="https://docs.python.org/3/library/csv.html#csv.DictWriter"><code dir="ltr">DictWriter</code></a>.</p>
 <div id="03f0c492" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/students.csv'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../../datasets/students.csv'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb15-2"><a href="#cb15-2"></a>    reader <span class="op">=</span> csv.DictReader(<span class="bu">file</span>)</span>
 <span id="cb15-3"><a href="#cb15-3"></a>    <span class="cf">for</span> row <span class="kw">in</span> reader:</span>
 <span id="cb15-4"><a href="#cb15-4"></a>        <span class="bu">print</span>(row)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'Name': 'Adam', 'Age': '22', 'Grade': '90', 'Done': 'F'}
+<pre dir="ltr"><code>{'Name': 'Adam', 'Age': '22', 'Grade': '90', 'Done': 'F'}
 {'Name': 'Belal', 'Age': '23', 'Grade': '92', 'Done': 'F'}
 {'Name': 'Camal', 'Age': '24', 'Grade': '91', 'Done': 'T'}
 {'Name': 'Dawod', 'Age': '8', 'Grade': '99', 'Done': 'F'}
@@ -775,9 +775,9 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 </div>
 <p>والطريقة الموصى بها للتعامل مع البيانات الجدولية (مثل ملفات CSV) هي استخدام مكتبة مثل pandas. توفر هذه المكتبة هيكل بيانات سريع ومرن لمعالجة البيانات وتحليلها. <strong>ولا بأس أن تطلع على <a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">دليل البداية في مكتبة pandas</a></strong>.</p>
 <ul>
-<li>إذا كنت تريد قراءة الملفات وكتابتها بشكل بسيط انظر: <a href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a>.</li>
-<li>وإذا كنت تريد التعامل مع الملفات المؤقتة فانظر: <a href="https://docs.python.org/3/library/tempfile.html#module-tempfile"><code>tempfile</code></a>.</li>
-<li>وكثير من عمليات التعامل مع الملفات والأدلة تجدها في: <a href="https://docs.python.org/3/library/shutil.html#module-shutil"><code>shutil</code></a>.</li>
+<li>إذا كنت تريد قراءة الملفات وكتابتها بشكل بسيط انظر: <a href="https://docs.python.org/3/library/functions.html#open"><code dir="ltr">open()</code></a>.</li>
+<li>وإذا كنت تريد التعامل مع الملفات المؤقتة فانظر: <a href="https://docs.python.org/3/library/tempfile.html#module-tempfile"><code dir="ltr">tempfile</code></a>.</li>
+<li>وكثير من عمليات التعامل مع الملفات والأدلة تجدها في: <a href="https://docs.python.org/3/library/shutil.html#module-shutil"><code dir="ltr">shutil</code></a>.</li>
 </ul>
 
 

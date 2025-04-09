@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-18c600aae80d5bc93e3bd4e059157cd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-24ab65d2991612aadaf847f30cb0b188.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -665,7 +665,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="القطعة-البرمجية">القطعة البرمجية</h2>
 <p>تُنَفَّذُ القطعة (Code Snippet) بحسب ترتيب جُمَلِها نزولاً من الأعلى.</p>
 <div id="d2cab55d" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>pages <span class="op">=</span> <span class="dv">900</span></span>
+<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>pages <span class="op">=</span> <span class="dv">900</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>speed <span class="op">=</span>  <span class="dv">50</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>finish_time <span class="op">=</span> pages <span class="op">/</span> speed</span>
 <span id="cb1-4"><a href="#cb1-4"></a></span>
@@ -674,18 +674,18 @@ window.Quarto = {
 <span id="cb1-7"><a href="#cb1-7"></a><span class="cf">else</span>:</span>
 <span id="cb1-8"><a href="#cb1-8"></a>    <span class="bu">print</span>(<span class="st">'داهمنا الوقت'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>داهمنا الوقت</code></pre>
+<pre dir="ltr"><code>داهمنا الوقت</code></pre>
 </div>
 </div>
 <p>في هذه القطعة مجموعة جُمل، نشرحها سطرًا سطرًا:</p>
 <ul>
-<li>السطرين الأولين: جملة تعيين حرفّيْ (<code>900</code> و <code>50</code>) لمتغير (<code>pages</code> و <code>speed</code>).</li>
-<li>السطر الثالث: جملة تعيين ناتج عبارة القسمة. ولاحظ أن اسم المتغير <code>finish_time</code> يستعمل الشرطة السفلية بدلاً من المسافة (وهذا ضروري)</li>
-<li>جملة شرطية: <code>if</code> (بمعنى إن كان)
+<li>السطرين الأولين: جملة تعيين حرفّيْ (<code dir="ltr">900</code> و <code dir="ltr">50</code>) لمتغير (<code dir="ltr">pages</code> و <code dir="ltr">speed</code>).</li>
+<li>السطر الثالث: جملة تعيين ناتج عبارة القسمة. ولاحظ أن اسم المتغير <code dir="ltr">finish_time</code> يستعمل الشرطة السفلية بدلاً من المسافة (وهذا ضروري)</li>
+<li>جملة شرطية: <code dir="ltr">if</code> (بمعنى إن كان)
 <ul>
-<li>الجزء الأول (الشرط): <code>finish_time &lt; 14</code></li>
+<li>الجزء الأول (الشرط): <code dir="ltr">finish_time &lt; 14</code></li>
 <li>ثم ما بعده مباشرة: جملة معلَّقة بالشرط</li>
-<li>الجزء الثاني <code>else</code> (بمعنى فإن لم يكن) جملة معلَّقة بانتفاء الشرط</li>
+<li>الجزء الثاني <code dir="ltr">else</code> (بمعنى فإن لم يكن) جملة معلَّقة بانتفاء الشرط</li>
 </ul></li>
 </ul>
 <p>فهذه أربعة أنواع من الجُمل في قطعة واحدة. والجملة في بايثون لها أنواعُ كثيرة، وتنقسم إلى قسمين: بسيطة ومركبة:</p>
@@ -693,34 +693,34 @@ window.Quarto = {
 <div class="column" style="width:50%;">
 <p><a href="https://docs.python.org/3/reference/simple_stmts.html"><strong>جملة بسيطة</strong></a> وهي 14 جملة:</p>
 <ul>
-<li>التعبير: <code>x + y</code></li>
-<li>التعيين: <code>x = y</code></li>
-<li>التأكيد: <code>assert condition</code></li>
-<li>المرور: <code>pass</code></li>
-<li>الحذف: <code>del x</code></li>
-<li>الإرجاع: <code>return y</code></li>
-<li>الإنتاج: <code>yield y</code></li>
-<li>رفع الاستثناء: <code>raise Exception</code></li>
-<li>الكسر: <code>break</code></li>
-<li>الاستمرار: <code>continue</code></li>
-<li>الاستيراد: <code>import module</code></li>
-<li>العالمية: <code>global x</code></li>
-<li>غير المحلية: <code>nonlocal x</code></li>
-<li>النوع: <code>type(x)</code></li>
+<li>التعبير: <code dir="ltr">x + y</code></li>
+<li>التعيين: <code dir="ltr">x = y</code></li>
+<li>التأكيد: <code dir="ltr">assert condition</code></li>
+<li>المرور: <code dir="ltr">pass</code></li>
+<li>الحذف: <code dir="ltr">del x</code></li>
+<li>الإرجاع: <code dir="ltr">return y</code></li>
+<li>الإنتاج: <code dir="ltr">yield y</code></li>
+<li>رفع الاستثناء: <code dir="ltr">raise Exception</code></li>
+<li>الكسر: <code dir="ltr">break</code></li>
+<li>الاستمرار: <code dir="ltr">continue</code></li>
+<li>الاستيراد: <code dir="ltr">import module</code></li>
+<li>العالمية: <code dir="ltr">global x</code></li>
+<li>غير المحلية: <code dir="ltr">nonlocal x</code></li>
+<li>النوع: <code dir="ltr">type(x)</code></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <p><a href="https://docs.python.org/3/reference/compound_stmts.html"><strong>جملة مركبة</strong></a> وهي 10 جمل:</p>
 <ul>
-<li>الشرط: <code>if ...</code></li>
-<li>التكرار: <code>while ...</code></li>
-<li>الحلقة: <code>for ...</code></li>
-<li>المحاولة: <code>try ...</code></li>
-<li>السياق: <code>with ...</code></li>
-<li>المطابقة: <code>match ...</code></li>
-<li>تعريف الإجراء: <code>def ...</code></li>
-<li>تعريف النوع: <code>class ...</code></li>
-<li>تعريف الإجراء غير المتزامن: <code>async def ...</code></li>
-<li>قائمة الأنواع المتغيرة: <code>[T1[, T2, ...]]</code></li>
+<li>الشرط: <code dir="ltr">if ...</code></li>
+<li>التكرار: <code dir="ltr">while ...</code></li>
+<li>الحلقة: <code dir="ltr">for ...</code></li>
+<li>المحاولة: <code dir="ltr">try ...</code></li>
+<li>السياق: <code dir="ltr">with ...</code></li>
+<li>المطابقة: <code dir="ltr">match ...</code></li>
+<li>تعريف الإجراء: <code dir="ltr">def ...</code></li>
+<li>تعريف النوع: <code dir="ltr">class ...</code></li>
+<li>تعريف الإجراء غير المتزامن: <code dir="ltr">async def ...</code></li>
+<li>قائمة الأنواع المتغيرة: <code dir="ltr">[T1[, T2, ...]]</code></li>
 </ul>
 </div>
 </div>
@@ -728,29 +728,29 @@ window.Quarto = {
 <section id="الكلمات" class="level2">
 <h2 class="anchored" data-anchor-id="الكلمات">الكلمات</h2>
 <p>أول أنواع الكلمة هو <a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords"><strong>المفردات الأصلية</strong></a> (Keywords) التي لها معنىً خاصّ مفهوم لدى بايثون وتستعمل في جُمَل محددة. وهي 35 كلمة:</p>
-<pre><code>False      await      else       import     pass
+<pre dir="ltr"><code>False      await      else       import     pass
 None       break      except     in         raise
 True       class      finally    is         return
 and        continue   for        lambda     try
 as         def        from       nonlocal   while
 assert     del        global     not        with
 async      elif       if         or         yield</code></pre>
-<p>ومنها كذلك 4 كلمات: <code>match</code>, <code>case</code>, <code>type</code> و <code>_</code> (الشرطة السفلية).</p>
+<p>ومنها كذلك 4 كلمات: <code dir="ltr">match</code>, <code dir="ltr">case</code>, <code dir="ltr">type</code> و <code dir="ltr">_</code> (الشرطة السفلية).</p>
 <p>وما عدا ذلك</p>
-<p>فقد تبني الحروف كلمةً تكونُ <strong>متغيِّرًا</strong> (<em>Variable</em>)، نحو: <code>x</code> أو <code>price</code> أو <code>body_weight</code> فكلها أسماء مقبولة للمتغيرات؛ لا كما في الرياضيات التي عادةً ما تستعمل الحرف الواحد.</p>
-<p>وقت تبني الحروف كلمة تكون <strong>حرفيٍّا</strong> (<em>Literal</em>)، نحو: <code>44</code> أو <code>3.14</code> أو <code>"كيف حالك؟"</code> ويُسمَّى <strong>قيمة</strong> (<em>Value</em>).</p>
-<p>ومن الحروف <strong>علامات الابتداء والوَقف</strong>، نحو: <code>( )</code> و <code>[ ]</code> و <code>{ }</code> <strong>والفصل</strong>، نحو: <code>,</code> (الفاصلة اللاتينية) و <code>:</code> (النقطتان الرأسِيَّتان) و <code>=</code> (علامة التعيين) ، وتُسمى جميعًا <a href="https://docs.python.org/3/reference/lexical_analysis.html#delimiters"><strong>المحددات</strong> (<em>Delimiters</em>)</a>.</p>
+<p>فقد تبني الحروف كلمةً تكونُ <strong>متغيِّرًا</strong> (<em>Variable</em>)، نحو: <code dir="ltr">x</code> أو <code dir="ltr">price</code> أو <code dir="ltr">body_weight</code> فكلها أسماء مقبولة للمتغيرات؛ لا كما في الرياضيات التي عادةً ما تستعمل الحرف الواحد.</p>
+<p>وقت تبني الحروف كلمة تكون <strong>حرفيٍّا</strong> (<em>Literal</em>)، نحو: <code dir="ltr">44</code> أو <code dir="ltr">3.14</code> أو <code dir="ltr">"كيف حالك؟"</code> ويُسمَّى <strong>قيمة</strong> (<em>Value</em>).</p>
+<p>ومن الحروف <strong>علامات الابتداء والوَقف</strong>، نحو: <code dir="ltr">( )</code> و <code dir="ltr">[ ]</code> و <code dir="ltr">{ }</code> <strong>والفصل</strong>، نحو: <code dir="ltr">,</code> (الفاصلة اللاتينية) و <code dir="ltr">:</code> (النقطتان الرأسِيَّتان) و <code dir="ltr">=</code> (علامة التعيين) ، وتُسمى جميعًا <a href="https://docs.python.org/3/reference/lexical_analysis.html#delimiters"><strong>المحددات</strong> (<em>Delimiters</em>)</a>.</p>
 <ul>
-<li>فالأقواس <code>()</code> في العبارة: <code>(y + z) * (a + b)</code> لتحديد ترتيب العمليات</li>
-<li>والأقواس <code>()</code> في العبارة: <code>print(x, y, z)</code> لتحديد عوامل الإجراء: أي: المتغيرات التي نمررها له</li>
-<li>والأقواس <code>()</code> في العبارة: <code>(10, 20, 30)</code> لتحديد صف من الأرقام</li>
+<li>فالأقواس <code dir="ltr">()</code> في العبارة: <code dir="ltr">(y + z) * (a + b)</code> لتحديد ترتيب العمليات</li>
+<li>والأقواس <code dir="ltr">()</code> في العبارة: <code dir="ltr">print(x, y, z)</code> لتحديد عوامل الإجراء: أي: المتغيرات التي نمررها له</li>
+<li>والأقواس <code dir="ltr">()</code> في العبارة: <code dir="ltr">(10, 20, 30)</code> لتحديد صف من الأرقام</li>
 </ul>
-<p>ومن الحروف <a href="https://docs.python.org/3/reference/lexical_analysis.html#operators"><strong>المعاملات</strong> (<em>Operators</em>)</a>، نحو: <code>+</code> و <code>*</code> و <code>/</code> و <code>**</code> و <code>==</code></p>
-<p>فمثلاً: معامل الجمع <code>+</code> يفسَّر بحسب السياق: <code>x + y</code></p>
+<p>ومن الحروف <a href="https://docs.python.org/3/reference/lexical_analysis.html#operators"><strong>المعاملات</strong> (<em>Operators</em>)</a>، نحو: <code dir="ltr">+</code> و <code dir="ltr">*</code> و <code dir="ltr">/</code> و <code dir="ltr">**</code> و <code dir="ltr">==</code></p>
+<p>فمثلاً: معامل الجمع <code dir="ltr">+</code> يفسَّر بحسب السياق: <code dir="ltr">x + y</code></p>
 <ul>
-<li>فإن كان <code>x = 5</code> و <code>y = 10</code> فهما من نوع <strong>الرقم</strong> (<em>Number</em>) فهي للجمع</li>
-<li>فإن كان <code>x = "Ahmad"</code> و <code>y = "Belal"</code> فهما من نوع <strong>النص</strong> (<em>String</em>) فهي للدمج بينهما</li>
-<li>فإن كان <code>x = 5</code> و <code>y = "Belal"</code> فهما من نوع <strong>الرقم</strong> و <strong>النص</strong> فليسَ بمعرَّف</li>
+<li>فإن كان <code dir="ltr">x = 5</code> و <code dir="ltr">y = 10</code> فهما من نوع <strong>الرقم</strong> (<em>Number</em>) فهي للجمع</li>
+<li>فإن كان <code dir="ltr">x = "Ahmad"</code> و <code dir="ltr">y = "Belal"</code> فهما من نوع <strong>النص</strong> (<em>String</em>) فهي للدمج بينهما</li>
+<li>فإن كان <code dir="ltr">x = 5</code> و <code dir="ltr">y = "Belal"</code> فهما من نوع <strong>الرقم</strong> و <strong>النص</strong> فليسَ بمعرَّف</li>
 </ul>
 </section>
 <section id="الأنواع-والإجراءات-المبنية" class="level2">
@@ -758,9 +758,9 @@ async      elif       if         or         yield</code></pre>
 <p>ومن الأنواع والإجراءات ما هو <strong>مبنيُّ</strong> (<em>Built-in</em>) في لغة بايثون:</p>
 <p><a href="https://docs.python.org/3/library/stdtypes.html"><strong>الأنواع المبنية</strong></a> مثل:</p>
 <ul>
-<li>الرقم: <code>int</code>, <code>float</code>, <code>complex</code> للحساب</li>
-<li>النص: <code>str</code> للتعامل مع الكلام المكتوب</li>
-<li>الجمع: <code>list</code>, <code>tuple</code>, <code>range</code>, <code>set</code>, <code>dict</code> لغير المفرد</li>
+<li>الرقم: <code dir="ltr">int</code>, <code dir="ltr">float</code>, <code dir="ltr">complex</code> للحساب</li>
+<li>النص: <code dir="ltr">str</code> للتعامل مع الكلام المكتوب</li>
+<li>الجمع: <code dir="ltr">list</code>, <code dir="ltr">tuple</code>, <code dir="ltr">range</code>, <code dir="ltr">set</code>, <code dir="ltr">dict</code> لغير المفرد</li>
 </ul>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -787,7 +787,7 @@ async      elif       if         or         yield</code></pre>
 </div>
 </div>
 <p>وسيأتي تفصيلها في أبوابها إن شاء الله.</p>
-<p><a href="https://docs.python.org/3/library/functions.html"><strong>الإجراءات المبنية</strong></a> مثل: <code>print</code>, <code>sum</code>, <code>max</code>, <code>min</code>, <code>len</code></p>
+<p><a href="https://docs.python.org/3/library/functions.html"><strong>الإجراءات المبنية</strong></a> مثل: <code dir="ltr">print</code>, <code dir="ltr">sum</code>, <code dir="ltr">max</code>, <code dir="ltr">min</code>, <code dir="ltr">len</code></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -798,55 +798,55 @@ async      elif       if         or         yield</code></pre>
 <tbody>
 <tr class="odd">
 <td>الطباعة</td>
-<td><code>print</code></td>
+<td><code dir="ltr">print</code></td>
 </tr>
 <tr class="even">
 <td>الجمع</td>
-<td><code>sum</code></td>
+<td><code dir="ltr">sum</code></td>
 </tr>
 <tr class="odd">
 <td>الأكبر</td>
-<td><code>max</code></td>
+<td><code dir="ltr">max</code></td>
 </tr>
 <tr class="even">
 <td>الأصغر</td>
-<td><code>min</code></td>
+<td><code dir="ltr">min</code></td>
 </tr>
 <tr class="odd">
 <td>الطول</td>
-<td><code>len</code></td>
+<td><code dir="ltr">len</code></td>
 </tr>
 <tr class="even">
 <td>إدخال</td>
-<td><code>input</code></td>
+<td><code dir="ltr">input</code></td>
 </tr>
 <tr class="odd">
 <td>نوع</td>
-<td><code>type</code></td>
+<td><code dir="ltr">type</code></td>
 </tr>
 <tr class="even">
 <td>أي</td>
-<td><code>any</code></td>
+<td><code dir="ltr">any</code></td>
 </tr>
 <tr class="odd">
 <td>كل</td>
-<td><code>all</code></td>
+<td><code dir="ltr">all</code></td>
 </tr>
 <tr class="even">
 <td>التالي</td>
-<td><code>next</code></td>
+<td><code dir="ltr">next</code></td>
 </tr>
 <tr class="odd">
 <td>تطبيق</td>
-<td><code>map</code></td>
+<td><code dir="ltr">map</code></td>
 </tr>
 <tr class="even">
 <td>تجميع</td>
-<td><code>zip</code></td>
+<td><code dir="ltr">zip</code></td>
 </tr>
 <tr class="odd">
 <td>تقريب</td>
-<td><code>round</code></td>
+<td><code dir="ltr">round</code></td>
 </tr>
 </tbody>
 </table>
@@ -856,14 +856,14 @@ async      elif       if         or         yield</code></pre>
 <h2 class="anchored" data-anchor-id="نمو-اللغة">نمو اللغة</h2>
 <p>ومن خواص لغة البرمجة: إنشاء مركبات لغوية جديدة، وذلك بشيئين:</p>
 <ol type="1">
-<li><strong>تعريف أنواع</strong> جديدة؛ بجملة <code>class</code></li>
-<li><strong>تعريف إجراءات</strong> جديدة؛ بجملة <code>def</code></li>
+<li><strong>تعريف أنواع</strong> جديدة؛ بجملة <code dir="ltr">class</code></li>
+<li><strong>تعريف إجراءات</strong> جديدة؛ بجملة <code dir="ltr">def</code></li>
 </ol>
 <p>فأضاف مطوروا بايثون أنفسهم إلى اللغة ما يسمى <strong>بالمكتبة الأساسية</strong> (<em>Standard Library</em>)، ومن أقسامها:</p>
 <ul>
-<li>وحدة <a href="https://docs.python.org/3/library/math.html"><code>math</code></a> التي تضم مجموعة إجراءات تعنى بالعمليات الرياضية على الأعداد</li>
-<li>وحدة <a href="https://docs.python.org/3/library/statistics.html"><code>statistics</code></a> التي تضم مجموعة إجراءات تعنى بالإحصاء</li>
-<li>وحدة <a href="https://docs.python.org/3/library/datetime.html"><code>datetime</code></a> التي تضم مجموعة أنواع وإجراءات تعنى بالوقت والتاريخ</li>
+<li>وحدة <a href="https://docs.python.org/3/library/math.html"><code dir="ltr">math</code></a> التي تضم مجموعة إجراءات تعنى بالعمليات الرياضية على الأعداد</li>
+<li>وحدة <a href="https://docs.python.org/3/library/statistics.html"><code dir="ltr">statistics</code></a> التي تضم مجموعة إجراءات تعنى بالإحصاء</li>
+<li>وحدة <a href="https://docs.python.org/3/library/datetime.html"><code dir="ltr">datetime</code></a> التي تضم مجموعة أنواع وإجراءات تعنى بالوقت والتاريخ</li>
 </ul>
 <section id="المكتبة-الأساسية" class="level3">
 <h3 class="anchored" data-anchor-id="المكتبة-الأساسية">المكتبة الأساسية</h3>
@@ -873,40 +873,40 @@ async      elif       if         or         yield</code></pre>
 \]</span></p>
 <p>القطعة:</p>
 <div id="5da93e66" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> math</span>
+<div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> math</span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
 <span id="cb4-3"><a href="#cb4-3"></a>x1, y1 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a>x2, y2 <span class="op">=</span> <span class="dv">3</span>, <span class="dv">4</span></span>
 <span id="cb4-5"><a href="#cb4-5"></a>distance <span class="op">=</span> math.sqrt((x2 <span class="op">-</span> x1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1)<span class="op">**</span><span class="dv">2</span>)</span>
 <span id="cb4-6"><a href="#cb4-6"></a><span class="bu">print</span>(distance)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>5.0</code></pre>
+<pre dir="ltr"><code>5.0</code></pre>
 </div>
 </div>
 <p>تفصيل هذه القطعة كالتالي:</p>
 <ul>
-<li>جملة استيراد المكتبة الرياضية: <code>import math</code></li>
-<li>تعيين النقطتين: <code>x1, y1 = 0, 0</code> و <code>x2, y2 = 3, 4</code></li>
-<li>حساب المسافة: <code>distance = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)</code> وفيه:
+<li>جملة استيراد المكتبة الرياضية: <code dir="ltr">import math</code></li>
+<li>تعيين النقطتين: <code dir="ltr">x1, y1 = 0, 0</code> و <code dir="ltr">x2, y2 = 3, 4</code></li>
+<li>حساب المسافة: <code dir="ltr">distance = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)</code> وفيه:
 <ul>
-<li><code>x2 - x1</code> هو الفرق بين الإحداثيات السينية</li>
-<li><code>y2 - y1</code> هو الفرق بين الإحداثيات الصادية</li>
-<li><code>**</code> هي عملية تربيع العدد</li>
-<li><code>math.sqrt</code> هي فعل حساب الجذر التربيعي</li>
+<li><code dir="ltr">x2 - x1</code> هو الفرق بين الإحداثيات السينية</li>
+<li><code dir="ltr">y2 - y1</code> هو الفرق بين الإحداثيات الصادية</li>
+<li><code dir="ltr">**</code> هي عملية تربيع العدد</li>
+<li><code dir="ltr">math.sqrt</code> هي فعل حساب الجذر التربيعي</li>
 </ul></li>
-<li>طباعة النتيجة: <code>print(distance)</code></li>
+<li>طباعة النتيجة: <code dir="ltr">print(distance)</code></li>
 </ul>
 </section>
 <section id="المكتبات-المساهمة" class="level3">
 <h3 class="anchored" data-anchor-id="المكتبات-المساهمة">المكتبات المساهمة</h3>
 <p>وتسمى <strong>المكتبات الخارجية</strong> (<em>External Libraries</em>) وهي مكتبات يساهم بها الناس، ويضيفونها إلى اللغة، نجدها في موقع قاعدة بيانات <a href="https://pypi.org/">PyPI</a> الذي يضم أكثر من 580 ألف مشروع، أو غيرها من المواقع. وهذه يتم تنزيلها وتثبيتها للاستفادة من لغتها المزيدة.</p>
-<p>على سبيل المثال، تختص <strong>حزمة</strong> <a href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_spreadsheets.html"><code>pandas</code></a> المتخصصة في تفكيك وتركيب الجداول والتحليلات الإحصائية عليها؛ فهي أقوى من أي نسخة من إكسل (Excel) أو غيره.</p>
-<p>لتثبيتها نستعمل <code>uv</code> هكذا في سطر الأوامر (النافذة السوداء):</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">uv</span> add pandas</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>على سبيل المثال، تختص <strong>حزمة</strong> <a href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_spreadsheets.html"><code dir="ltr">pandas</code></a> المتخصصة في تفكيك وتركيب الجداول والتحليلات الإحصائية عليها؛ فهي أقوى من أي نسخة من إكسل (Excel) أو غيره.</p>
+<p>لتثبيتها نستعمل <code dir="ltr">uv</code> هكذا في سطر الأوامر (النافذة السوداء):</p>
+<div class="sourceCode" id="cb6" dir="ltr"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">uv</span> add pandas</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>ثم نستطيع استعمال المكتبة لقراءة بيانات الطلاب -مثلاً- من ملف CSV:</p>
 <div class="ltr">
 <div id="01ba3e25" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
 <span id="cb7-3"><a href="#cb7-3"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../datasets/students.csv'</span>)</span>
 <span id="cb7-4"><a href="#cb7-4"></a>df</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -970,7 +970,7 @@ async      elif       if         or         yield</code></pre>
 <p>ثم لعرض ملخصات إحصائية:</p>
 <div class="ltr">
 <div id="4c09ef4f" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df.describe(include<span class="op">=</span>[<span class="st">'number'</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df.describe(include<span class="op">=</span>[<span class="st">'number'</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <div>
 
@@ -1034,7 +1034,7 @@ async      elif       if         or         yield</code></pre>
 <p>أو تصوير البيانات:</p>
 <div class="ltr">
 <div id="3f158532" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>df[<span class="st">'Done'</span>].value_counts().plot(kind<span class="op">=</span><span class="st">'bar'</span>, color<span class="op">=</span><span class="st">'skyblue'</span>, figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>), rot<span class="op">=</span><span class="dv">0</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>df[<span class="st">'Done'</span>].value_counts().plot(kind<span class="op">=</span><span class="st">'bar'</span>, color<span class="op">=</span><span class="st">'skyblue'</span>, figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>), rot<span class="op">=</span><span class="dv">0</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-18c600aae80d5bc93e3bd4e059157cd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-24ab65d2991612aadaf847f30cb0b188.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -597,7 +597,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#الخادم-والعميل" id="toc-الخادم-والعميل" class="nav-link active" data-scroll-target="#الخادم-والعميل">الخادم والعميل</a></li>
   <li><a href="#مكتبة-العميل" id="toc-مكتبة-العميل" class="nav-link" data-scroll-target="#مكتبة-العميل">مكتبة العميل</a></li>
   <li><a href="#مكتبة-جيوباي-مثالا" id="toc-مكتبة-جيوباي-مثالا" class="nav-link" data-scroll-target="#مكتبة-جيوباي-مثالا">مكتبة جيوباي مثالاً</a></li>
-  <li><a href="#مفتاح-الواجهة-البرمجية-api_key" id="toc-مفتاح-الواجهة-البرمجية-api_key" class="nav-link" data-scroll-target="#مفتاح-الواجهة-البرمجية-api_key">مفتاح الواجهة البرمجية (<code>API_KEY</code>)</a></li>
+  <li><a href="#مفتاح-الواجهة-البرمجية-api_key" id="toc-مفتاح-الواجهة-البرمجية-api_key" class="nav-link" data-scroll-target="#مفتاح-الواجهة-البرمجية-api_key">مفتاح الواجهة البرمجية (<code dir="ltr">API_KEY</code>)</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
@@ -654,23 +654,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="مكتبة-جيوباي-مثالا" class="level2">
 <h2 class="anchored" data-anchor-id="مكتبة-جيوباي-مثالا">مكتبة جيوباي مثالاً</h2>
-<p>ونمثل على ذلك بمكتبة <a href="https://geopy.readthedocs.io/en/stable/"><code>GeoPy</code></a> حيث كُتِب في الوصف:</p>
+<p>ونمثل على ذلك بمكتبة <a href="https://geopy.readthedocs.io/en/stable/"><code dir="ltr">GeoPy</code></a> حيث كُتِب في الوصف:</p>
 <blockquote class="blockquote">
 <p>جيوباي هو عميل بايثوني لمجموعة من خدمات شائعة على الشبكة للترميز الجغرافي. فهو يسهل تحديد إحداثيات العناوين والمدن والبلدان والمعالم في جميع أنحاء العالم باستخدام برامج ترميز جغرافي خارجية ومصادر بيانات أخرى.</p>
 </blockquote>
-<p>أولاً <a href="https://geopy.readthedocs.io/en/stable/#installation">تثبيت المكتبة</a> باستعمال <code>uv</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">uv</span> add geopy</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>وهذا العميل يمكن ضبطه للاختيار من مجموعة خوادم. وسنختار العميل <code>Nominatim</code> الذي يتصل بمزوِّد خدمة خارجية، وهو مزوِّد خدمة جغرافية عالمية تسمى <code>OpenStreetMap</code>.</p>
+<p>أولاً <a href="https://geopy.readthedocs.io/en/stable/#installation">تثبيت المكتبة</a> باستعمال <code dir="ltr">uv</code>:</p>
+<div class="sourceCode" id="cb1" dir="ltr"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">uv</span> add geopy</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>وهذا العميل يمكن ضبطه للاختيار من مجموعة خوادم. وسنختار العميل <code dir="ltr">Nominatim</code> الذي يتصل بمزوِّد خدمة خارجية، وهو مزوِّد خدمة جغرافية عالمية تسمى <code dir="ltr">OpenStreetMap</code>.</p>
 <div id="5342e7a0" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> Nominatim</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> Nominatim</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>يطلب منَّا الإجراء المنشئ التصريح بهويَّة للتطبيق؛ وذلك بتعيين <code>user_agent</code>، وهذا بحسب ما ورد في توثيق المكتبة. فنكتب أي اسم يدلُّ على التطبيق الذي نعمل عليه الآن، وسنختار الاسم <code>pythonia</code> .. ولك أن تختار أي اسم آخر.</p>
+<p>يطلب منَّا الإجراء المنشئ التصريح بهويَّة للتطبيق؛ وذلك بتعيين <code dir="ltr">user_agent</code>، وهذا بحسب ما ورد في توثيق المكتبة. فنكتب أي اسم يدلُّ على التطبيق الذي نعمل عليه الآن، وسنختار الاسم <code dir="ltr">pythonia</code> .. ولك أن تختار أي اسم آخر.</p>
 <div id="a20e9103" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>geolocator <span class="op">=</span> Nominatim(user_agent<span class="op">=</span><span class="st">"pythonia"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>geolocator <span class="op">=</span> Nominatim(user_agent<span class="op">=</span><span class="st">"pythonia"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>نفترض أننا نريد معرفة إحداثيات مدينة الدمام، وهذا هو عمل الإجراء <code>geocode</code>:</p>
+<p>نفترض أننا نريد معرفة إحداثيات مدينة الدمام، وهذا هو عمل الإجراء <code dir="ltr">geocode</code>:</p>
 <div id="9ca1ae42" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>dammam_location <span class="op">=</span> geolocator.geocode(<span class="st">"Dammam, Saudi Arabia"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>dammam_location <span class="op">=</span> geolocator.geocode(<span class="st">"Dammam, Saudi Arabia"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>قد يبدوا الإجراء عاديًّا، لكنه في الواقع يتصل بالخادم المزوِّد ويسأله عن إحداثيات المدينة.</p>
 <div class="cell" data-layout-align="default">
@@ -691,64 +691,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>جرب اطبع النتيجة لتعرف ما هو هذا الشيء الذي تتعامل معه. وكذلك اطبع نوعه:</p>
 <div id="568029e8" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="bu">print</span>(dammam_location)</span>
+<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="bu">print</span>(dammam_location)</span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(<span class="bu">type</span>(dammam_location))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>الدمام, محافظة الدمام, المنطقة الشرقية, 32242, السعودية
+<pre dir="ltr"><code>الدمام, محافظة الدمام, المنطقة الشرقية, 32242, السعودية
 &lt;class 'geopy.location.Location'&gt;</code></pre>
 </div>
 </div>
-<p>تبيَّن لنا أن النوع هو: <code>geopy.location.Location</code> وبالبحث في توثيق المكتبة، وجدنا تفاصيلها هنا: <a href="https://geopy.readthedocs.io/en/stable/index.html#geopy.location.Location">geopy.location.Location</a>. حيث كُتب:</p>
+<p>تبيَّن لنا أن النوع هو: <code dir="ltr">geopy.location.Location</code> وبالبحث في توثيق المكتبة، وجدنا تفاصيلها هنا: <a href="https://geopy.readthedocs.io/en/stable/index.html#geopy.location.Location">geopy.location.Location</a>. حيث كُتب:</p>
 <div class="ltr">
 <blockquote class="blockquote">
-<p>Contains a parsed geocoder response. Can be iterated over as (<code>location&lt;String&gt;</code>, (<code>latitude&lt;float&gt;</code>, <code>longitude&lt;float&gt;</code>)). Or one can access the properties address, latitude, longitude, or raw. The last is a dictionary of the geocoder’s response for this item.</p>
+<p>Contains a parsed geocoder response. Can be iterated over as (<code dir="ltr">location&lt;String&gt;</code>, (<code dir="ltr">latitude&lt;float&gt;</code>, <code dir="ltr">longitude&lt;float&gt;</code>)). Or one can access the properties address, latitude, longitude, or raw. The last is a dictionary of the geocoder’s response for this item.</p>
 </blockquote>
 </div>
 <p>وبهذا نعرف أنها تتكون من ثلاثة معلومات، ويمكن الوصول لها بطرق مختلفة.</p>
 <p>الطريقة الأولى معقدة ولذلك سنتركها.</p>
 <p>الطريقة الثانية (عن طريق الصفات):</p>
 <div id="68b24b51" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">print</span>(dammam_location.address)</span>
+<div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">print</span>(dammam_location.address)</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="bu">print</span>(dammam_location.latitude)</span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="bu">print</span>(dammam_location.longitude)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>الدمام, محافظة الدمام, المنطقة الشرقية, 32242, السعودية
+<pre dir="ltr"><code>الدمام, محافظة الدمام, المنطقة الشرقية, 32242, السعودية
 26.4367824
 50.1039991</code></pre>
 </div>
 </div>
 <p>الطريقة الثالثة (عن طريق القاموس):</p>
 <div id="1bc21263" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="bu">print</span>(dammam_location.raw)</span>
+<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="bu">print</span>(dammam_location.raw)</span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="bu">print</span>(<span class="bu">type</span>(dammam_location.raw)) <span class="co"># قاموس</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'place_id': 40859854, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'node', 'osm_id': 287865393, 'lat': '26.4367824', 'lon': '50.1039991', 'class': 'place', 'type': 'city', 'place_rank': 16, 'importance': 0.5524619823312412, 'addresstype': 'city', 'name': 'الدمام', 'display_name': 'الدمام, محافظة الدمام, المنطقة الشرقية, 32242, السعودية', 'boundingbox': ['26.2767824', '26.5967824', '49.9439991', '50.2639991']}
+<pre dir="ltr"><code>{'place_id': 40859854, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'node', 'osm_id': 287865393, 'lat': '26.4367824', 'lon': '50.1039991', 'class': 'place', 'type': 'city', 'place_rank': 16, 'importance': 0.5524619823312412, 'addresstype': 'city', 'name': 'الدمام', 'display_name': 'الدمام, محافظة الدمام, المنطقة الشرقية, 32242, السعودية', 'boundingbox': ['26.2767824', '26.5967824', '49.9439991', '50.2639991']}
 &lt;class 'dict'&gt;</code></pre>
 </div>
 </div>
 <p>وكذلك لمدينة أخرى مثل البحرين:</p>
 <div id="a1b5bbdd" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>bahrain_location <span class="op">=</span> geolocator.geocode(<span class="st">"Bahrain"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>bahrain_location <span class="op">=</span> geolocator.geocode(<span class="st">"Bahrain"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ثم بعد أن حصلنا على المعلومات، نستخرج الإحداثيات من المتغيرات التي حصلنا عليها:</p>
 <div id="2cf6f6ef" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>dammam_coords <span class="op">=</span> (dammam_location.latitude, dammam_location.longitude)</span>
+<div class="sourceCode cell-code" id="cb12" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>dammam_coords <span class="op">=</span> (dammam_location.latitude, dammam_location.longitude)</span>
 <span id="cb12-2"><a href="#cb12-2"></a>bahrain_coords <span class="op">=</span> (bahrain_location.latitude, bahrain_location.longitude)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>ثم نحسب المسافة بين المدينتين، باستعمال فعل موجود في وحدة <a href="https://geopy.readthedocs.io/en/stable/#module-geopy.distance"><code>geopy.distance</code></a>، وهو <code>geodesic</code>. وأنبه مرة أخرى أن معرفة مثل ذلك يكون بتصفح فهرس المكتبة.</p>
+<p>ثم نحسب المسافة بين المدينتين، باستعمال فعل موجود في وحدة <a href="https://geopy.readthedocs.io/en/stable/#module-geopy.distance"><code dir="ltr">geopy.distance</code></a>، وهو <code dir="ltr">geodesic</code>. وأنبه مرة أخرى أن معرفة مثل ذلك يكون بتصفح فهرس المكتبة.</p>
 <div id="c411dbb6" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">from</span> geopy.distance <span class="im">import</span> geodesic</span>
+<div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">from</span> geopy.distance <span class="im">import</span> geodesic</span>
 <span id="cb13-2"><a href="#cb13-2"></a></span>
 <span id="cb13-3"><a href="#cb13-3"></a>distance <span class="op">=</span> geodesic(dammam_coords, bahrain_coords)</span>
 <span id="cb13-4"><a href="#cb13-4"></a><span class="bu">print</span>(<span class="ss">f"Between Dammam and Bahrain is </span><span class="sc">{</span>distance<span class="sc">.</span>kilometers<span class="sc">:.2f}</span><span class="ss"> km"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Between Dammam and Bahrain is 63.61 km</code></pre>
+<pre dir="ltr"><code>Between Dammam and Bahrain is 63.61 km</code></pre>
 </div>
 </div>
 <p>وهكذا نكون قد حسبنا المسافة بين المدينتين بالكيلومترات، باستعمال مكتبة أعطتنا الإحداثيات للمدينتين، وكذلك أعطتنا معالجة المسافة بينهما.</p>
 </section>
 <section id="مفتاح-الواجهة-البرمجية-api_key" class="level2">
-<h2 class="anchored" data-anchor-id="مفتاح-الواجهة-البرمجية-api_key">مفتاح الواجهة البرمجية (<code>API_KEY</code>)</h2>
+<h2 class="anchored" data-anchor-id="مفتاح-الواجهة-البرمجية-api_key">مفتاح الواجهة البرمجية (<code dir="ltr">API_KEY</code>)</h2>
 <p>قلنا أن مكتبة العميل هذه تمكِّنك من الوصول إلى عدة خدمات جيومكانية. ويجدر بالذكر أننها تتفاضل في دقة الحساب، وسرعة الجواب، وكمية الطلبات المسموحة إليها.</p>
 <p>لذلك قد تضطر لتسجيل حساب وتشحنه بالمال برصيد، ثم تستعمل الخدمة عن طريق هذا الحساب. والطريقة التي يعرف بها الخادم أن البرنامج مخوَّل باستعمال رصيد هذا الحساب هي عبر <strong>مفتاح الواجهة البرمجية</strong> (<a href="https://en.wikipedia.org/wiki/API_key">API Key</a>).</p>
 <div class="quarto-figure quarto-figure-center">
@@ -757,8 +757,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>مكتبة جيوباي وخدمات الترميز الجغرافي</figcaption>
 </figure>
 </div>
-<p>فإن أردت تغيير مزوِّد الخدمة (إما لعدم دقتها أو عدم توفر المعلومات أو أي سبب آخر)، فما عليك إلا استعمال استيراد <code>Geocoder</code> آخر. ونمثل لذلك بعميل يتصل بخدمة <code>TomTom</code>:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> TomTom</span>
+<p>فإن أردت تغيير مزوِّد الخدمة (إما لعدم دقتها أو عدم توفر المعلومات أو أي سبب آخر)، فما عليك إلا استعمال استيراد <code dir="ltr">Geocoder</code> آخر. ونمثل لذلك بعميل يتصل بخدمة <code dir="ltr">TomTom</code>:</p>
+<div class="sourceCode" id="cb15" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> TomTom</span>
 <span id="cb15-2"><a href="#cb15-2"></a></span>
 <span id="cb15-3"><a href="#cb15-3"></a>geolocator <span class="op">=</span> TomTom(user_agent<span class="op">=</span><span class="st">"pythonia"</span>, api_key<span class="op">=</span><span class="st">"..."</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>لكن هذا يتطلَّب شيئًا إضافيًّا وهو الحصول على مفتاح متعلِّق بحساب مسجَّل على موقع <a href="https://developer.tomtom.com/">TomTom</a> نفسه. ثم وضع هذا الفتاح هنا. وبهذا المفتاح المرتبط بهذا الحِساب يتمُّ تعبئة الاشتراك والصرف من رصيده.</p>

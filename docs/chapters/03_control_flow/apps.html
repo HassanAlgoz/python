@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-18c600aae80d5bc93e3bd4e059157cd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-24ab65d2991612aadaf847f30cb0b188.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -649,12 +649,12 @@ window.Quarto = {
 <section id="تسجيل-الدخول" class="level2">
 <h2 class="anchored" data-anchor-id="تسجيل-الدخول">تسجيل الدخول</h2>
 <ul>
-<li>استخدم الإجراء <code>input()</code> لطلب <code>اسم المستخدم (username)</code> و <code>كلمة المرور (password)</code> من المستخدم وخزن كل منهما في متغير مناسب</li>
-<li>إذا كان اسم المستخدم هو <code>"admin"</code> وكلمة المرور هي <code>"abc123"</code>، اطبع: <code>"Welcome admin"</code></li>
-<li>أو إذا كان اسم المستخدم هو <code>"backdoor"</code> وكلمة المرور هي <code>"let me in"</code>، اطبع: <code>"Nobody knows!"</code></li>
-<li>خلاف ذلك، اطبع: <code>"Access denied!"</code></li>
+<li>استخدم الإجراء <code dir="ltr">input()</code> لطلب <code dir="ltr">اسم المستخدم (username)</code> و <code dir="ltr">كلمة المرور (password)</code> من المستخدم وخزن كل منهما في متغير مناسب</li>
+<li>إذا كان اسم المستخدم هو <code dir="ltr">"admin"</code> وكلمة المرور هي <code dir="ltr">"abc123"</code>، اطبع: <code dir="ltr">"Welcome admin"</code></li>
+<li>أو إذا كان اسم المستخدم هو <code dir="ltr">"backdoor"</code> وكلمة المرور هي <code dir="ltr">"let me in"</code>، اطبع: <code dir="ltr">"Nobody knows!"</code></li>
+<li>خلاف ذلك، اطبع: <code dir="ltr">"Access denied!"</code></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> getpass</span>
+<div class="sourceCode" id="cb1" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> getpass</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a>username <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter your username: "</span>)</span>
 <span id="cb1-4"><a href="#cb1-4"></a>password <span class="op">=</span> getpass.getpass(<span class="st">"Enter your password: "</span>)</span>
@@ -674,17 +674,17 @@ window.Quarto = {
 <span id="cb1-18"><a href="#cb1-18"></a>    tries <span class="op">+=</span> <span class="dv">1</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>لاحظ:</p>
 <ul>
-<li>وجود حلقة <code>while</code> لإعادة المحاولة ثلاث مرات فقط</li>
-<li>وجود جملة <code>break</code> لإنهاء الحلقة إذا تم التسجيل بنجاح
+<li>وجود حلقة <code dir="ltr">while</code> لإعادة المحاولة ثلاث مرات فقط</li>
+<li>وجود جملة <code dir="ltr">break</code> لإنهاء الحلقة إذا تم التسجيل بنجاح
 <ul>
-<li>لا توجد <code>break</code> في جزئية <code>else</code> الأخيرة وذلك لأن عدد المحاولات يزيد في كل مرة ليؤول الإجراء إلى انتفاء شرط الدوران</li>
+<li>لا توجد <code dir="ltr">break</code> في جزئية <code dir="ltr">else</code> الأخيرة وذلك لأن عدد المحاولات يزيد في كل مرة ليؤول الإجراء إلى انتفاء شرط الدوران</li>
 </ul></li>
 </ul>
 </section>
 <section id="حساب-مجموع-الأعداد-المدخلة" class="level2">
 <h2 class="anchored" data-anchor-id="حساب-مجموع-الأعداد-المدخلة">حساب مجموع الأعداد المدخلة</h2>
 <p>هذا البرنامج الصغير يأخذ مجموعة أعداد، واحدًا تلوَ الآخر، ويجمعها جميعًا.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
+<div class="sourceCode" id="cb2" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="cf">while</span> <span class="va">True</span>:</span>
 <span id="cb2-4"><a href="#cb2-4"></a>  user_input <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a number: "</span>)</span>
@@ -696,16 +696,16 @@ window.Quarto = {
 <p>إليك شرحه بالتفصيل:</p>
 <p><strong>تذكر</strong>: أن لكل متغير قيمة. وأن لكل قيمة نوعًا. وأن النوع يحدد ما يقبله المتغير من عمليات.</p>
 <ul>
-<li>نعين المتغير <code>total = 0</code> لتجميع النتائج</li>
-<li>نستعمل حلقة لا نهائية: <code>while True</code> لأننا نريد أن يستمر البرنامج إلى أن يكتب المستخدم <code>quit</code></li>
-<li>نطلب من المستخدم أن يدخل عددًا، ونضع ما أدخَل في متغير: <code>user_input</code></li>
-<li>هذا المتغير نوعه: <code>str</code> (نصي) لأن الإجراء <code>input()</code> يعطينا قيمة نصية</li>
-<li>إن كان المدخل كلمة <code>quit</code>، نكسر الحلقة بـ: <code>break</code></li>
+<li>نعين المتغير <code dir="ltr">total = 0</code> لتجميع النتائج</li>
+<li>نستعمل حلقة لا نهائية: <code dir="ltr">while True</code> لأننا نريد أن يستمر البرنامج إلى أن يكتب المستخدم <code dir="ltr">quit</code></li>
+<li>نطلب من المستخدم أن يدخل عددًا، ونضع ما أدخَل في متغير: <code dir="ltr">user_input</code></li>
+<li>هذا المتغير نوعه: <code dir="ltr">str</code> (نصي) لأن الإجراء <code dir="ltr">input()</code> يعطينا قيمة نصية</li>
+<li>إن كان المدخل كلمة <code dir="ltr">quit</code>، نكسر الحلقة بـ: <code dir="ltr">break</code></li>
 <li>وإلا:
 <ul>
-<li>ننشئ قيمة عددية من المتغير <code>user_input</code> باستخدام <code>int(user_input)</code> أو <code>float(user_input)</code> ونعيِّنُ النتيجة في متغير جديد: <code>x</code></li>
-<li>نجمع العدد إلى الحاصل: <code>total</code></li>
-<li>عندها نكسر الحلقة بكلمة: <code>break</code></li>
+<li>ننشئ قيمة عددية من المتغير <code dir="ltr">user_input</code> باستخدام <code dir="ltr">int(user_input)</code> أو <code dir="ltr">float(user_input)</code> ونعيِّنُ النتيجة في متغير جديد: <code dir="ltr">x</code></li>
+<li>نجمع العدد إلى الحاصل: <code dir="ltr">total</code></li>
+<li>عندها نكسر الحلقة بكلمة: <code dir="ltr">break</code></li>
 </ul></li>
 </ul>
 </section>
@@ -713,7 +713,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="المكيف">المكيف</h2>
 <p>تشغييل المكيف إن كانت درجة الحرارة أعلى من المرغوب، بشرط أن يكون المكيف يعمل:</p>
 <div id="023b18d8" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>room_temp <span class="op">=</span> <span class="dv">30</span></span>
+<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>room_temp <span class="op">=</span> <span class="dv">30</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>desired_temp <span class="op">=</span> <span class="dv">24</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>ac_functional <span class="op">=</span> <span class="va">False</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a></span>
@@ -723,14 +723,14 @@ window.Quarto = {
 <span id="cb3-8"><a href="#cb3-8"></a>    <span class="cf">else</span>:</span>
 <span id="cb3-9"><a href="#cb3-9"></a>        <span class="bu">print</span>(<span class="st">"AC malfunction! Please repair."</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>AC malfunction! Please repair.</code></pre>
+<pre dir="ltr"><code>AC malfunction! Please repair.</code></pre>
 </div>
 </div>
 </section>
 <section id="برنامج-تفاعلي" class="level2">
 <h2 class="anchored" data-anchor-id="برنامج-تفاعلي">برنامج تفاعلي</h2>
 <p>جرب انسخ هذا البرنامج واختبره بنفسك حتى تفهمه.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>inventory <span class="op">=</span> <span class="dv">100</span></span>
+<div class="sourceCode" id="cb5" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>inventory <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a></span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="cf">while</span> <span class="va">True</span>:</span>
 <span id="cb5-4"><a href="#cb5-4"></a>    <span class="bu">print</span>(<span class="st">"Store Menu:"</span>)</span>
@@ -767,26 +767,26 @@ window.Quarto = {
 !n = n(n-1)(n-2)\cdots 1
 \]</span></p>
 <div id="5c4679d2" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>i <span class="op">=</span> <span class="dv">5</span></span>
+<div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>i <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>j <span class="op">=</span> i</span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="cf">while</span> j <span class="op">&gt;</span> <span class="dv">1</span>:</span>
 <span id="cb6-4"><a href="#cb6-4"></a>  j <span class="op">-=</span> <span class="dv">1</span></span>
 <span id="cb6-5"><a href="#cb6-5"></a>  i <span class="op">*=</span> j</span>
 <span id="cb6-6"><a href="#cb6-6"></a><span class="bu">print</span>(i)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>120</code></pre>
+<pre dir="ltr"><code>120</code></pre>
 </div>
 </div>
 <p>شرح للخطوات التنفيذية التفصيلية:</p>
 <ul>
-<li>أولاً، قم بتعيين المتغير <code>i</code> إلى العدد <code>5</code></li>
-<li>ثانياً، قم بتعيين المتغير <code>j</code> إلى العدد <code>5</code></li>
-<li>ثالثاً، استمر في الدوران إلى أن يصل <code>j</code> إلى القيمة <code>1</code>
+<li>أولاً، قم بتعيين المتغير <code dir="ltr">i</code> إلى العدد <code dir="ltr">5</code></li>
+<li>ثانياً، قم بتعيين المتغير <code dir="ltr">j</code> إلى العدد <code dir="ltr">5</code></li>
+<li>ثالثاً، استمر في الدوران إلى أن يصل <code dir="ltr">j</code> إلى القيمة <code dir="ltr">1</code>
 <ul>
-<li>في كل دوران، قم بطرح <code>1</code> من <code>j</code></li>
-<li>ثم قم بضرب <code>i</code> بالقيمة الجديدة لـ <code>j</code>: المتحصل هو أن `i = i * (i - 1)</li>
+<li>في كل دوران، قم بطرح <code dir="ltr">1</code> من <code dir="ltr">j</code></li>
+<li>ثم قم بضرب <code dir="ltr">i</code> بالقيمة الجديدة لـ <code dir="ltr">j</code>: المتحصل هو أن `i = i * (i - 1)</li>
 </ul></li>
-<li>أخيراً، قم بطباعة القيمة النهائية لـ <code>i</code></li>
+<li>أخيراً، قم بطباعة القيمة النهائية لـ <code dir="ltr">i</code></li>
 </ul>
 
 

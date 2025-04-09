@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-18c600aae80d5bc93e3bd4e059157cd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-24ab65d2991612aadaf847f30cb0b188.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -643,22 +643,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><strong>ترميز الحروف</strong> هي عملية تعيين أرقام للأحرف الرسومية مما يسمح بتخزينها ونقلها وتحويلها باستخدام الحواسيب الرقمية.</p>
-<p><strong>رموز ASCII</strong> تحتوي على <code>128</code> حرف للغة الإنجليزية وبعض علامات الترقيم. منها <code>95</code> فقط هي أحرف قابلة للطباعة أما البقية فتسمى أحرف تحكُّم (مثل حرف السطر الجديد <code>\n</code> ، وحرف الرجوع لبداية السطر <code>\r</code>).</p>
-<p>ثم امتدت عن طريق <strong>رموز ANSII</strong> لتغطي أحرف إضافية (من <code>128</code> إلى <code>255</code>) وهي الأحرف الاتينية للغات الأخرى.</p>
-<p>لنستكشف السلاسل عن طريق حزمة من المكتبة الأساسية <code>string</code>. الآتي الأحرف اللاتينية الكبيرة والصغيرة، وعلامات الترقيم:</p>
+<p><strong>رموز ASCII</strong> تحتوي على <code dir="ltr">128</code> حرف للغة الإنجليزية وبعض علامات الترقيم. منها <code dir="ltr">95</code> فقط هي أحرف قابلة للطباعة أما البقية فتسمى أحرف تحكُّم (مثل حرف السطر الجديد <code dir="ltr">\n</code> ، وحرف الرجوع لبداية السطر <code dir="ltr">\r</code>).</p>
+<p>ثم امتدت عن طريق <strong>رموز ANSII</strong> لتغطي أحرف إضافية (من <code dir="ltr">128</code> إلى <code dir="ltr">255</code>) وهي الأحرف الاتينية للغات الأخرى.</p>
+<p>لنستكشف السلاسل عن طريق حزمة من المكتبة الأساسية <code dir="ltr">string</code>. الآتي الأحرف اللاتينية الكبيرة والصغيرة، وعلامات الترقيم:</p>
 <div id="d9ed8459" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> string</span>
+<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> string</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="bu">print</span>(string.ascii_letters)</span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="bu">print</span>(string.punctuation)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+<pre dir="ltr"><code>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 !"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</code></pre>
 </div>
 </div>
 <section id="ترميز-unicode" class="level2">
 <h2 class="anchored" data-anchor-id="ترميز-unicode">ترميز (Unicode)</h2>
-<p>واليوم <strong>رموز Unicode</strong> تحتوي على أكثر من <strong>مليون حرف</strong> لتغطية لغات العالم كافة: اللاتينية، اليونانية، السيريلية، الأرمنية، العبرية، <strong>العربية</strong>، السريانية، الثانا، الديفاناغارية، البنغالية، الجورموخية، الأورية، التاميلية، التيلوغوية، الكانادية، المالايالامية، السنهالية، التايلاندية، اللاوية، التبتية، الميانمارية، الجورجية، الهانغول، الإثيوبية، الشيروكية، الرموز الكندية الأصلية، الخميرية، المنغولية، الهان (الأيدوغراف الياباني، الصيني، الكوري)، الهيراغانا، الكاتاكانا، واليي. <a href="https://www.unicode.org/faq/basic_q.html#:~:text=The%20simplest%20answer%20is%20that,%2C%20Myanmar%2C%20Georgian%2C%20Hangul%2C">المصدر</a>. وما يزال أول <code>128</code> حرف منها متطابق مع رموز ASCII.</p>
+<p>واليوم <strong>رموز Unicode</strong> تحتوي على أكثر من <strong>مليون حرف</strong> لتغطية لغات العالم كافة: اللاتينية، اليونانية، السيريلية، الأرمنية، العبرية، <strong>العربية</strong>، السريانية، الثانا، الديفاناغارية، البنغالية، الجورموخية، الأورية، التاميلية، التيلوغوية، الكانادية، المالايالامية، السنهالية، التايلاندية، اللاوية، التبتية، الميانمارية، الجورجية، الهانغول، الإثيوبية، الشيروكية، الرموز الكندية الأصلية، الخميرية، المنغولية، الهان (الأيدوغراف الياباني، الصيني، الكوري)، الهيراغانا، الكاتاكانا، واليي. <a href="https://www.unicode.org/faq/basic_q.html#:~:text=The%20simplest%20answer%20is%20that,%2C%20Myanmar%2C%20Georgian%2C%20Hangul%2C">المصدر</a>. وما يزال أول <code dir="ltr">128</code> حرف منها متطابق مع رموز ASCII.</p>
 <section id="مثال" class="level3">
 <h3 class="anchored" data-anchor-id="مثال">مثال</h3>
 <p>ماذا يحصل لو كتبنا حروف عربية ثم حاولنا حفظ الملف بترميز ASCII ولم نحفظه بترميز Unicode؟</p>
@@ -673,16 +673,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="كيف-يتم-تمثيل-النصوص-في-بايثون" class="level2">
 <h2 class="anchored" data-anchor-id="كيف-يتم-تمثيل-النصوص-في-بايثون">كيف يتم تمثيل النصوص في بايثون؟</h2>
-<p>تمثيل النصوص في بايثون يكون عن طريق النوع <code>str</code>؛ يُعرَّف بكتابة سلسلة من الأحرف لكن في الواقع تتحول إلى سلسلة من رموز Unicode (أي: أرقام). هذا يعني أنها قد تكون سلسلة رموز لاتينية أو عربية أو صينية أو غير ذلك مما تحويه رموز Unicode.</p>
+<p>تمثيل النصوص في بايثون يكون عن طريق النوع <code dir="ltr">str</code>؛ يُعرَّف بكتابة سلسلة من الأحرف لكن في الواقع تتحول إلى سلسلة من رموز Unicode (أي: أرقام). هذا يعني أنها قد تكون سلسلة رموز لاتينية أو عربية أو صينية أو غير ذلك مما تحويه رموز Unicode.</p>
 <p>الإجراء المبني <strong>ord()</strong> تقوم بتحويل الحرف إلى رقم الرمز. بينما <strong>chr()</strong> تعكس ذلك (من الرمز إلى الحرف).</p>
-<p>على النقيض من سي وجافا؛ لا يوجد نوع خاص بالحرف الواحد (<code>char</code>) في بايثون.</p>
+<p>على النقيض من سي وجافا؛ لا يوجد نوع خاص بالحرف الواحد (<code dir="ltr">char</code>) في بايثون.</p>
 <div id="b8a3714f" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"A"</span>), <span class="bu">ord</span>(<span class="st">"Z"</span>))</span>
+<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"A"</span>), <span class="bu">ord</span>(<span class="st">"Z"</span>))</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="bu">print</span>(<span class="bu">chr</span>(<span class="dv">65</span>), <span class="bu">chr</span>(<span class="dv">90</span>))</span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"a"</span>), <span class="bu">ord</span>(<span class="st">"z"</span>))</span>
 <span id="cb3-4"><a href="#cb3-4"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"0"</span>), <span class="bu">ord</span>(<span class="st">"9"</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>65 90
+<pre dir="ltr"><code>65 90
 A Z
 97 122
 48 57</code></pre>
@@ -690,14 +690,14 @@ A Z
 </div>
 <p>ماذا عن الحروف العربية؟ أين تقع في أرقام ترميز Unicode؟</p>
 <div id="fb9d045d" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Arabic Unicode points are between 1536 and 1791</span></span>
+<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Arabic Unicode points are between 1536 and 1791</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"أ"</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">"أ"</span>)))</span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"ب"</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">"ب"</span>)))</span>
 <span id="cb5-4"><a href="#cb5-4"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"ي"</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">"ي"</span>)))</span>
 <span id="cb5-5"><a href="#cb5-5"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">'َ'</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">'َ'</span>)))</span>
 <span id="cb5-6"><a href="#cb5-6"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">'ُ'</span>), <span class="bu">hex</span>(<span class="bu">ord</span>(<span class="st">'ُ'</span>)))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1571 0x623
+<pre dir="ltr"><code>1571 0x623
 1576 0x628
 1610 0x64a
 1614 0x64e
@@ -706,26 +706,26 @@ A Z
 </div>
 <p>لمعرفة أرقام الحروف في نصٍّ ما؛ نستعمل التكرار هكذا:</p>
 <div id="1101b218" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>s <span class="op">=</span> <span class="st">"'Arabian'"</span></span>
+<div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>s <span class="op">=</span> <span class="st">"'Arabian'"</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>codes <span class="op">=</span> []</span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="cf">for</span> c <span class="kw">in</span> s:</span>
 <span id="cb7-4"><a href="#cb7-4"></a>    codes.append(<span class="bu">ord</span>(c))</span>
 <span id="cb7-5"><a href="#cb7-5"></a><span class="bu">print</span>(codes)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[39, 65, 114, 97, 98, 105, 97, 110, 39]</code></pre>
+<pre dir="ltr"><code>[39, 65, 114, 97, 98, 105, 97, 110, 39]</code></pre>
 </div>
 </div>
 <div id="1683f478" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>s <span class="op">=</span> <span class="st">'السَّلَامُ عَلَيْكُمْ'</span></span>
+<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>s <span class="op">=</span> <span class="st">'السَّلَامُ عَلَيْكُمْ'</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>codes <span class="op">=</span> []</span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="cf">for</span> c <span class="kw">in</span> s:</span>
 <span id="cb9-4"><a href="#cb9-4"></a>    codes.append(<span class="bu">ord</span>(c))</span>
 <span id="cb9-5"><a href="#cb9-5"></a><span class="bu">print</span>(codes)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1575, 1604, 1587, 1614, 1617, 1604, 1614, 1575, 1605, 1615, 32, 1593, 1614, 1604, 1614, 1610, 1618, 1603, 1615, 1605, 1618]</code></pre>
+<pre dir="ltr"><code>[1575, 1604, 1587, 1614, 1617, 1604, 1614, 1575, 1605, 1615, 32, 1593, 1614, 1604, 1614, 1610, 1618, 1603, 1615, 1605, 1618]</code></pre>
 </div>
 </div>
-<p>فهذه هي الحروف في الواقع، إلا أننا نتعامل مع شيء مجرَّد في لغات البرمجة العالية غالبًا ما يسمى <code>str</code>.</p>
+<p>فهذه هي الحروف في الواقع، إلا أننا نتعامل مع شيء مجرَّد في لغات البرمجة العالية غالبًا ما يسمى <code dir="ltr">str</code>.</p>
 <p>راجع <a href="https://en.wikipedia.org/wiki/Arabic_script_in_Unicode">ويكيبيديا: النص العربي في Unicode</a> لمزيد من التفاصيل.</p>
 <section id="الأحرف-البيضاء" class="level3">
 <h3 class="anchored" data-anchor-id="الأحرف-البيضاء">الأحرف البيضاء</h3>
@@ -734,59 +734,59 @@ A Z
 <li><strong>أحرف طباعة</strong>: مثلاً: الأحرف اللاتينية والأرقام وعلامات الترقيم</li>
 <li><strong>أحرف تحكم</strong>: مخفيَّة؛ والغرض منها التحكم بمعالج هذا النص</li>
 </ol>
-<p>لعرض الأحرف القابلة للطباعة في محارف آسكي (ASCII)، لدينا المتغير <code>printable</code> من مكتبة <code>string</code>:</p>
+<p>لعرض الأحرف القابلة للطباعة في محارف آسكي (ASCII)، لدينا المتغير <code dir="ltr">printable</code> من مكتبة <code dir="ltr">string</code>:</p>
 <div id="509136b3" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="im">import</span> string</span>
+<div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="im">import</span> string</span>
 <span id="cb11-2"><a href="#cb11-2"></a>string.printable</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&amp;\'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~ \t\n\r\x0b\x0c'</code></pre>
+<pre dir="ltr"><code>'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&amp;\'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~ \t\n\r\x0b\x0c'</code></pre>
 </div>
 </div>
 <p>كانت أحرف التحكُّم تستخدم لرن جرس الآلة الطابعة ، والتحكم بها ، لكن اليوم الذي يُستخدم منها غالبًا هو <a href="https://docs.python.org/3/library/string.html#string.whitespace"><strong>الأحرف البيضاء</strong></a> (Whitespace Characters) ويشمل ذلك الأحرف التالية:</p>
 <ol type="1">
-<li>space: <code>\s</code> ويمثل المسافة التي بين الكلمات</li>
-<li>tab: <code>\t</code> ويمثل المسافة التي بين أعمدة الجداول</li>
-<li>linefeed: <code>\n</code> تعليمة سطر جديد</li>
-<li>return: <code>\r</code> تعليمة العودة لبداية السطر الجديد</li>
-<li>formfeed: <code>\f</code> تعليمة الصفحة الجديدة</li>
-<li>vertical tab: <code>\v</code> تعليمة العمود الجديد</li>
-<li>backspace: <code>\b</code> تعليمة عودة المؤشر بمقدار حرف واحد للكتابة فوق الحرف السابق</li>
+<li>space: <code dir="ltr">\s</code> ويمثل المسافة التي بين الكلمات</li>
+<li>tab: <code dir="ltr">\t</code> ويمثل المسافة التي بين أعمدة الجداول</li>
+<li>linefeed: <code dir="ltr">\n</code> تعليمة سطر جديد</li>
+<li>return: <code dir="ltr">\r</code> تعليمة العودة لبداية السطر الجديد</li>
+<li>formfeed: <code dir="ltr">\f</code> تعليمة الصفحة الجديدة</li>
+<li>vertical tab: <code dir="ltr">\v</code> تعليمة العمود الجديد</li>
+<li>backspace: <code dir="ltr">\b</code> تعليمة عودة المؤشر بمقدار حرف واحد للكتابة فوق الحرف السابق</li>
 </ol>
-<p>أما الثلاثة الأخيرة فقد كانت تستخدم فيما مضى، لكن اليوم المستخدم هو الأربعة الأولى فقط. ويجدر بالذكر أن ملفات نصوص نظام ويندوز تستعمل <code>\r\n</code> للانتقال لسطر جديد بينما تستعمل الأنظمة الأخرى <code>\n</code> فقط.</p>
-<p>تذكر أن بايثون تعتمد على <code>space</code> و <code>tab</code> للمسافة البادئة للسطر (indentation)، لتحديد نطاقات القطع البرمجية بحسب المحاذاة العمودية.</p>
+<p>أما الثلاثة الأخيرة فقد كانت تستخدم فيما مضى، لكن اليوم المستخدم هو الأربعة الأولى فقط. ويجدر بالذكر أن ملفات نصوص نظام ويندوز تستعمل <code dir="ltr">\r\n</code> للانتقال لسطر جديد بينما تستعمل الأنظمة الأخرى <code dir="ltr">\n</code> فقط.</p>
+<p>تذكر أن بايثون تعتمد على <code dir="ltr">space</code> و <code dir="ltr">tab</code> للمسافة البادئة للسطر (indentation)، لتحديد نطاقات القطع البرمجية بحسب المحاذاة العمودية.</p>
 <div id="e5ab831d" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">import</span> string</span>
+<div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">import</span> string</span>
 <span id="cb13-2"><a href="#cb13-2"></a>string.whitespace</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>' \t\n\r\x0b\x0c'</code></pre>
+<pre dir="ltr"><code>' \t\n\r\x0b\x0c'</code></pre>
 </div>
 </div>
 <p>يهمنا هنا الأحرف البيضاء لأنها تظهر في النصوص وقد تكون مزعجة عند معالجتها. لنلقي نظرة على ثلاثة من الأحرف البيضاء: المسافة (space)، التبويب (tab)، وتعليمة السطر الجديد (linefeed).</p>
 <div id="af80e905" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Tab character: "\t"</span></span>
+<div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Tab character: "\t"</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="bu">print</span>(<span class="st">'A</span><span class="ch">\t</span><span class="st">B'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>A   B</code></pre>
+<pre dir="ltr"><code>A   B</code></pre>
 </div>
 </div>
 <div id="7bf786a1" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Space character: " "</span></span>
+<div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Space character: " "</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a><span class="bu">print</span>(<span class="st">'   A            B   '</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   A            B   </code></pre>
+<pre dir="ltr"><code>   A            B   </code></pre>
 </div>
 </div>
 <div id="decc04c1" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Newline character: '\n'</span></span>
+<div class="sourceCode cell-code" id="cb19" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Newline character: '\n'</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="bu">print</span>(<span class="st">'A</span><span class="ch">\n</span><span class="st">B'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>A
+<pre dir="ltr"><code>A
 B</code></pre>
 </div>
 </div>
 <p>لاحظ أن طول السلسلة النصية هو عدد الأحرف في السلسلة، سواء كانت <strong>قابلة للطباعة</strong> (printable) أو <strong>أحرف بيضاء</strong> (whitespace).</p>
 <div id="fa69829e" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="cf">assert</span> <span class="bu">len</span>(<span class="st">'A B'</span>) <span class="op">==</span> <span class="dv">3</span></span>
+<div class="sourceCode cell-code" id="cb21" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="cf">assert</span> <span class="bu">len</span>(<span class="st">'A B'</span>) <span class="op">==</span> <span class="dv">3</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="cf">assert</span> <span class="bu">len</span>(<span class="st">'A</span><span class="ch">\t</span><span class="st">B'</span>) <span class="op">==</span> <span class="dv">3</span></span>
 <span id="cb21-3"><a href="#cb21-3"></a><span class="cf">assert</span> <span class="bu">len</span>(<span class="st">'A</span><span class="ch">\n</span><span class="st">B'</span>) <span class="op">==</span> <span class="dv">3</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -796,10 +796,10 @@ B</code></pre>
 <p>لاحظ أن هذا الإجراء سيزيل الأحرف البيضاء من بداية ونهاية السلسلة النصية، ولكن ليس الأحرف البيضاء في منتصف السلسلة</p>
 <p>قبل:</p>
 <div id="8013b3ac" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>text <span class="op">=</span> <span class="st">'</span><span class="ch">\t</span><span class="st"> hello    world </span><span class="ch">\n\n\n</span><span class="st">'</span></span>
+<div class="sourceCode cell-code" id="cb22" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>text <span class="op">=</span> <span class="st">'</span><span class="ch">\t</span><span class="st"> hello    world </span><span class="ch">\n\n\n</span><span class="st">'</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a><span class="bu">print</span>(text)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     hello    world 
+<pre dir="ltr"><code>     hello    world 
 
 
 </code></pre>
@@ -807,9 +807,9 @@ B</code></pre>
 </div>
 <p>بعد:</p>
 <div id="b6ff16c6" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="bu">print</span>(text.strip())</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="bu">print</span>(text.strip())</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>hello    world</code></pre>
+<pre dir="ltr"><code>hello    world</code></pre>
 </div>
 </div>
 </section>
@@ -817,25 +817,25 @@ B</code></pre>
 <h3 class="anchored" data-anchor-id="تجزئة-النص">تجزئة النص</h3>
 <p>انظر: <a href="https://docs.python.org/3/library/stdtypes.html#str.splitlines">Splitlines</a></p>
 <div id="db65c421" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>text <span class="op">=</span> <span class="st">'''</span></span>
+<div class="sourceCode cell-code" id="cb26" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>text <span class="op">=</span> <span class="st">'''</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="st">Hello</span></span>
 <span id="cb26-3"><a href="#cb26-3"></a><span class="st">World</span></span>
 <span id="cb26-4"><a href="#cb26-4"></a></span>
 <span id="cb26-5"><a href="#cb26-5"></a><span class="st">How are you?</span></span>
 <span id="cb26-6"><a href="#cb26-6"></a><span class="st">'''</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>إذا تركنا القطعة البرمجية كما هي في السطر من غير <code>print</code> فإن ذلك يعرض السلسلة النصية كما هي (بما في ذلك أحرف المسافات البيضاء)</p>
+<p>إذا تركنا القطعة البرمجية كما هي في السطر من غير <code dir="ltr">print</code> فإن ذلك يعرض السلسلة النصية كما هي (بما في ذلك أحرف المسافات البيضاء)</p>
 <div id="f446e8b2" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>text</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>text</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>'\nHello\nWorld\n\nHow are you?\n'</code></pre>
+<pre dir="ltr"><code>'\nHello\nWorld\n\nHow are you?\n'</code></pre>
 </div>
 </div>
-<p>أما إذا وضعنا <code>print</code> فإنه يطبع الأحرف المرئية ، وينسِّقُ المظهر بناءً على أحرف التحكُّم المخفية:</p>
+<p>أما إذا وضعنا <code dir="ltr">print</code> فإنه يطبع الأحرف المرئية ، وينسِّقُ المظهر بناءً على أحرف التحكُّم المخفية:</p>
 <div id="00d82036" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="bu">print</span>(text)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="bu">print</span>(text)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
+<pre dir="ltr"><code>
 Hello
 World
 
@@ -844,34 +844,34 @@ How are you?
 </div>
 </div>
 <div id="0240f890" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>text.splitlines()</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>text.splitlines()</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>['', 'Hello', 'World', '', 'How are you?']</code></pre>
+<pre dir="ltr"><code>['', 'Hello', 'World', '', 'How are you?']</code></pre>
 </div>
 </div>
 <p>إذا لم نحدد محدد الفاصل فإن الفاصل الافتراضي هو المسافة.</p>
 <div id="73748052" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="bu">print</span>(<span class="st">"Hello, world"</span>.split())</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="bu">print</span>(<span class="st">"Hello, world"</span>.split())</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>['Hello,', 'world']</code></pre>
+<pre dir="ltr"><code>['Hello,', 'world']</code></pre>
 </div>
 </div>
-<p>هنا نحدد الفاصل أنه الحرف <code>"l"</code>:</p>
+<p>هنا نحدد الفاصل أنه الحرف <code dir="ltr">"l"</code>:</p>
 <div id="03cc2f28" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="bu">print</span>(<span class="st">"Hello, world"</span>.split(<span class="st">"l"</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="bu">print</span>(<span class="st">"Hello, world"</span>.split(<span class="st">"l"</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>['He', '', 'o, wor', 'd']</code></pre>
+<pre dir="ltr"><code>['He', '', 'o, wor', 'd']</code></pre>
 </div>
 </div>
 <p>لإزالة الأحرف البيضاء جميعها؛ نستعمل التكرار هكذا:</p>
 <div id="fcd5e424" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>text <span class="op">=</span> <span class="st">'</span><span class="ch">\t</span><span class="st"> hello    world </span><span class="ch">\n\n\n</span><span class="st">'</span></span>
+<div class="sourceCode cell-code" id="cb37" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>text <span class="op">=</span> <span class="st">'</span><span class="ch">\t</span><span class="st"> hello    world </span><span class="ch">\n\n\n</span><span class="st">'</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a>sp <span class="op">=</span> text.split()</span>
 <span id="cb37-3"><a href="#cb37-3"></a><span class="bu">print</span>(<span class="st">'split:'</span>, sp)</span>
 <span id="cb37-4"><a href="#cb37-4"></a>clean <span class="op">=</span> <span class="st">' '</span>.join(sp)</span>
 <span id="cb37-5"><a href="#cb37-5"></a><span class="bu">print</span>(<span class="st">'clean:'</span>, clean)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>split: ['hello', 'world']
+<pre dir="ltr"><code>split: ['hello', 'world']
 clean: hello world</code></pre>
 </div>
 </div>
@@ -882,33 +882,33 @@ clean: hello world</code></pre>
 <h2 class="anchored" data-anchor-id="الطباعة">الطباعة</h2>
 <section id="حروف-التحكم-بآلة-الطباعة" class="level3">
 <h3 class="anchored" data-anchor-id="حروف-التحكم-بآلة-الطباعة">حروف التحكم بآلة الطباعة</h3>
-<p>يسمّى الحرف <code>\r</code> بالعودة للبداية لأنه يعني فعل يقوم بإرجاع المؤشر إلى بداية السطر.</p>
+<p>يسمّى الحرف <code dir="ltr">\r</code> بالعودة للبداية لأنه يعني فعل يقوم بإرجاع المؤشر إلى بداية السطر.</p>
 <p>كانت آلة الطباعة قديمًا يتحرك رأس الطباعة فيها بعد طباعة كل حرف. ثم عندما ينتهي السطر، يجب على الشخص أن يقوم بعمليتين:</p>
 <ol type="1">
-<li>الضغط على المفتاح الذي يرفع الورقة بمقدار سطر (ويرمز له بالحرف <code>\r</code>)</li>
-<li>الضغط على المفتاح الذي يرجع رأس الطباعة لبداية السطر (ويرمز له بالحرف <code>\n</code>)</li>
+<li>الضغط على المفتاح الذي يرفع الورقة بمقدار سطر (ويرمز له بالحرف <code dir="ltr">\r</code>)</li>
+<li>الضغط على المفتاح الذي يرجع رأس الطباعة لبداية السطر (ويرمز له بالحرف <code dir="ltr">\n</code>)</li>
 </ol>
 <p>وهما مستخدمان اليوم فيما يُعرض على الشاشة.</p>
-<p>ففعل <code>print</code> في الحقيقة يضع سطرًا جديدًا (حرف <code>\n</code>) في الوضع الافتراضي. فإن أردنا ألا يضعه، فنحدد العامل <code>end</code> الذي فيه على النحو التالي:</p>
+<p>ففعل <code dir="ltr">print</code> في الحقيقة يضع سطرًا جديدًا (حرف <code dir="ltr">\n</code>) في الوضع الافتراضي. فإن أردنا ألا يضعه، فنحدد العامل <code dir="ltr">end</code> الذي فيه على النحو التالي:</p>
 <div id="54fe74ae" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="bu">print</span>(<span class="st">'Hello'</span>, end<span class="op">=</span><span class="st">''</span>)</span>
+<div class="sourceCode cell-code" id="cb39" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="bu">print</span>(<span class="st">'Hello'</span>, end<span class="op">=</span><span class="st">''</span>)</span>
 <span id="cb39-2"><a href="#cb39-2"></a><span class="bu">print</span>(<span class="st">'World'</span>, end<span class="op">=</span><span class="st">''</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>HelloWorld</code></pre>
+<pre dir="ltr"><code>HelloWorld</code></pre>
 </div>
 </div>
-<p>لاحظ أننا جعلنا (<code>end=''</code>) أي: لا نريده أن يضع حرفًا بعد طباعة النص. ولذلك ظهرت الكلمتان في نفس السطر.</p>
-<p>ولو أردت أن تعيد الكتابة على نفس السطر، يمكنك أن تضع الحرف (<code>\r</code>) الذي يفعل رأس الطباعة بالرجوع لبداية السطر:</p>
+<p>لاحظ أننا جعلنا (<code dir="ltr">end=''</code>) أي: لا نريده أن يضع حرفًا بعد طباعة النص. ولذلك ظهرت الكلمتان في نفس السطر.</p>
+<p>ولو أردت أن تعيد الكتابة على نفس السطر، يمكنك أن تضع الحرف (<code dir="ltr">\r</code>) الذي يفعل رأس الطباعة بالرجوع لبداية السطر:</p>
 <div id="2d08af78" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="bu">print</span>(<span class="st">'123'</span>, end<span class="op">=</span><span class="st">'</span><span class="ch">\r</span><span class="st">'</span>)</span>
+<div class="sourceCode cell-code" id="cb41" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="bu">print</span>(<span class="st">'123'</span>, end<span class="op">=</span><span class="st">'</span><span class="ch">\r</span><span class="st">'</span>)</span>
 <span id="cb41-2"><a href="#cb41-2"></a><span class="bu">print</span>(<span class="st">'45'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>12345</code></pre>
+<pre dir="ltr"><code>12345</code></pre>
 </div>
 </div>
-<p>لاحظ أن النتيجة هي طباعة الحرفين <code>45</code> فوق الحرفين <code>12</code> مع بقاء الحرف الأخير <code>3</code> في الأخير. وذلك لرجوع رأس الطباعة.</p>
-<p>تستعمل هذه اللطيفة في تحديث العداد حتى يظهر على الشاشة وكأنه يزيد شيئًا فشيئًا. وذلك على النحو التالي (لاحظ أننا نستعمل <code>time.sleep(t)</code> حتى نمثِّل وجود عمليَّة تأخذ وقتًا طويلاً فحسب):</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="im">import</span> time</span>
+<p>لاحظ أن النتيجة هي طباعة الحرفين <code dir="ltr">45</code> فوق الحرفين <code dir="ltr">12</code> مع بقاء الحرف الأخير <code dir="ltr">3</code> في الأخير. وذلك لرجوع رأس الطباعة.</p>
+<p>تستعمل هذه اللطيفة في تحديث العداد حتى يظهر على الشاشة وكأنه يزيد شيئًا فشيئًا. وذلك على النحو التالي (لاحظ أننا نستعمل <code dir="ltr">time.sleep(t)</code> حتى نمثِّل وجود عمليَّة تأخذ وقتًا طويلاً فحسب):</p>
+<div class="sourceCode" id="cb43" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="im">import</span> time</span>
 <span id="cb43-2"><a href="#cb43-2"></a></span>
 <span id="cb43-3"><a href="#cb43-3"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span> <span class="op">+</span> <span class="dv">1</span>):</span>
 <span id="cb43-4"><a href="#cb43-4"></a>    time.sleep(<span class="fl">0.20</span>)</span>

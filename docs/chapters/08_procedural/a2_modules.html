@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-18c600aae80d5bc93e3bd4e059157cd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-24ab65d2991612aadaf847f30cb0b188.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -616,10 +616,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>عندما يكبر النص البرمجي ويتعقد، نلجأ لتقسيمه في ملفات منفصلة تؤدي كل منها وظيفة محددة. وذلك حتى يسهل فهم البرنامج، ويسهل التعديل عليه والإضافة.</p>
 <p>أو قد نرى أن جزءًا من النص البرمجي يستحق الاستعمال في مشروع آخر، فنريد أن نلفَّه في حزمة، ونصدِّره ليكون قابلاً للتثبيت في مشاريع أخرى.</p>
 <p>هاتان الحالتان تستوجبان أن نتعرف على مصطلحين في بايثون: الوحدة والحزمة.</p>
-<p><strong>الوِحدة</strong> (Module) هي النص البرمجي في الملف الواحد (مثل: <code>script.py</code>)</p>
-<p><strong>الحزمة</strong> (Package) هي مجموعة مكوَّنة من وِحدة أو أكثر؛ وتُعرَّف: بمجلَّد يكون فيه ملف خاص باسم <code>__init.py__</code> ويوضع فيه النص البرمجي المنشئ الذي يعمل عند فعل استيراد الحزمة بالكلمة <code>import</code> (في المرة الأولى فقط).</p>
-<p>فيما يلي مثال يوضِّح ترتيب حزمة ما (<code>my_package</code>) مكوَّنة من حزم مضمَّنة، وفي المستوى الأخير نرى الوحدات، على النحو التالي:</p>
-<pre><code>│───main.py
+<p><strong>الوِحدة</strong> (Module) هي النص البرمجي في الملف الواحد (مثل: <code dir="ltr">script.py</code>)</p>
+<p><strong>الحزمة</strong> (Package) هي مجموعة مكوَّنة من وِحدة أو أكثر؛ وتُعرَّف: بمجلَّد يكون فيه ملف خاص باسم <code dir="ltr">__init.py__</code> ويوضع فيه النص البرمجي المنشئ الذي يعمل عند فعل استيراد الحزمة بالكلمة <code dir="ltr">import</code> (في المرة الأولى فقط).</p>
+<p>فيما يلي مثال يوضِّح ترتيب حزمة ما (<code dir="ltr">my_package</code>) مكوَّنة من حزم مضمَّنة، وفي المستوى الأخير نرى الوحدات، على النحو التالي:</p>
+<pre dir="ltr"><code>│───main.py
 │
 └───my_package
     │   __init__.py
@@ -635,36 +635,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     │   │   module_b.py
     │   │   module_c.py</code></pre>
 <ul>
-<li>الملف <code>main.py</code> فيه الإجراء الأوَّل الذي يمثِّل مدخل البرنامج. ومنه سنستعمل عبارات الاستيراد (<code>import</code>).</li>
-<li>نقول إن المجلدين <code>pkg1</code> و<code>pkg2</code> هما: حزم فرعية من حزمة <code>my_package</code>، ويمكن استيرادهما بشكل مستقل.</li>
-<li>الملفات <code>module_a.py</code> و<code>module_b.py</code> و<code>module_c.py</code> هي وحدات داخل الحزم الفرعية.</li>
-<li>يستخدم الملف <code>__init__.py</code> على أنه علامةً للمجلَّد الذي هو فيه أنه حزمة؛ ولا يلزم أن يتضمن أي أوامر برمجية، ولكنه غالبًا ما يحتوي على تعليمات تهيئة للحزمة. ولذلك سميت <code>init</code> من الإنجليزية Initialization بمعنى <strong>التهيئة</strong>.</li>
+<li>الملف <code dir="ltr">main.py</code> فيه الإجراء الأوَّل الذي يمثِّل مدخل البرنامج. ومنه سنستعمل عبارات الاستيراد (<code dir="ltr">import</code>).</li>
+<li>نقول إن المجلدين <code dir="ltr">pkg1</code> و<code dir="ltr">pkg2</code> هما: حزم فرعية من حزمة <code dir="ltr">my_package</code>، ويمكن استيرادهما بشكل مستقل.</li>
+<li>الملفات <code dir="ltr">module_a.py</code> و<code dir="ltr">module_b.py</code> و<code dir="ltr">module_c.py</code> هي وحدات داخل الحزم الفرعية.</li>
+<li>يستخدم الملف <code dir="ltr">__init__.py</code> على أنه علامةً للمجلَّد الذي هو فيه أنه حزمة؛ ولا يلزم أن يتضمن أي أوامر برمجية، ولكنه غالبًا ما يحتوي على تعليمات تهيئة للحزمة. ولذلك سميت <code dir="ltr">init</code> من الإنجليزية Initialization بمعنى <strong>التهيئة</strong>.</li>
 </ul>
-<p>دعنا نلقي نظرة على عمليات الاستيراد واحدة تلو الأخرى، انظر (<a href="modules_example/main.py"><code>main.py</code></a>):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> my_package</span>
+<p>دعنا نلقي نظرة على عمليات الاستيراد واحدة تلو الأخرى، انظر (<a href="modules_example/main.py"><code dir="ltr">main.py</code></a>):</p>
+<div class="sourceCode" id="cb2" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> my_package</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="im">from</span> my_package.pkg1 <span class="im">import</span> module_a</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="im">from</span> my_package.pkg2.module_a <span class="im">import</span> func_a</span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="im">from</span> my_package.pkg2.module_b <span class="im">import</span> <span class="op">*</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>أولاً، لاحظ أن فعل الاستيراد <code>import my_package</code> يحدد حزمة لا وِحدة. وبالتالي، سينفذ الملف <code>__init__.py</code>، الذي يحتوي على عبارات تعيين (مثل <code>__version__</code>، و<code>DEFAULT_TIMEOUT</code>، وما إلى ذلك) سترتبط بمعرف <code>my_package</code>، ويمكن الوصول إليها باستخدام النقطة (<code>.</code>).</p>
-<p>ثانيًا لاحظ العبارة: <code>from my_package.pkg1 import module_a</code> فهي تحدد وحدة (<code>module_a</code>)، وبالتالي، يتم تنفيذ جميع التعليمات البرمجية في <a href="modules_example/my_package/pkg1/module_a.py"><code>module_a.py</code></a> والتعيينات تُسنَد للمعرف <code>module_a</code> ويمكن الوصول إليها باستخدام النقطة (<code>.</code>).</p>
-<p>ثالثًا استيراد مباشر للإجراء <code>func_a</code> من وحدة <code>module_a</code> في الحزمة الفرعية <code>pkg2</code>.</p>
-<p>أخيرًا الصيغة <code>from ... import *</code> تستورد جميع (<code>*</code>) الأسماء من الوحدة النمطية (باستثناء تلك التي تبدأ بـ <code>__</code>) إلى نطاق التسمية الحالي (في الوحدة التي نحن فيها). بشكل عام، لا ننصح باستعمال هذه الطريقة، حيث قد تؤدي إلى إلغاء أسماء سبق تعريفها لتحل مكانها هذه الأسماء الجديدة، ولكن لا بأس بها لتقليل جهد الكتابةخصوصًا في الجلسات التفاعلية.</p>
+<p>أولاً، لاحظ أن فعل الاستيراد <code dir="ltr">import my_package</code> يحدد حزمة لا وِحدة. وبالتالي، سينفذ الملف <code dir="ltr">__init__.py</code>، الذي يحتوي على عبارات تعيين (مثل <code dir="ltr">__version__</code>، و<code dir="ltr">DEFAULT_TIMEOUT</code>، وما إلى ذلك) سترتبط بمعرف <code dir="ltr">my_package</code>، ويمكن الوصول إليها باستخدام النقطة (<code dir="ltr">.</code>).</p>
+<p>ثانيًا لاحظ العبارة: <code dir="ltr">from my_package.pkg1 import module_a</code> فهي تحدد وحدة (<code dir="ltr">module_a</code>)، وبالتالي، يتم تنفيذ جميع التعليمات البرمجية في <a href="modules_example/my_package/pkg1/module_a.py"><code dir="ltr">module_a.py</code></a> والتعيينات تُسنَد للمعرف <code dir="ltr">module_a</code> ويمكن الوصول إليها باستخدام النقطة (<code dir="ltr">.</code>).</p>
+<p>ثالثًا استيراد مباشر للإجراء <code dir="ltr">func_a</code> من وحدة <code dir="ltr">module_a</code> في الحزمة الفرعية <code dir="ltr">pkg2</code>.</p>
+<p>أخيرًا الصيغة <code dir="ltr">from ... import *</code> تستورد جميع (<code dir="ltr">*</code>) الأسماء من الوحدة النمطية (باستثناء تلك التي تبدأ بـ <code dir="ltr">__</code>) إلى نطاق التسمية الحالي (في الوحدة التي نحن فيها). بشكل عام، لا ننصح باستعمال هذه الطريقة، حيث قد تؤدي إلى إلغاء أسماء سبق تعريفها لتحل مكانها هذه الأسماء الجديدة، ولكن لا بأس بها لتقليل جهد الكتابةخصوصًا في الجلسات التفاعلية.</p>
 <section id="تثبيت-حزم" class="level2">
 <h2 class="anchored" data-anchor-id="تثبيت-حزم">تثبيت حزم</h2>
-<p>لتثبيت حزمة من قاعدة بيانات الحزم <a href="https://pypi.org/">PyPI</a> نستعمل أداة <code>uv</code> أو <code>pip</code> على النحو التالي:</p>
-<p>أولاً باستعمال أداة <code>uv</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">uv</span> add numpy</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>أو باستعمال أداة <code>pip</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">pip</span> install numpy</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>لتثبيت حزمة من قاعدة بيانات الحزم <a href="https://pypi.org/">PyPI</a> نستعمل أداة <code dir="ltr">uv</code> أو <code dir="ltr">pip</code> على النحو التالي:</p>
+<p>أولاً باستعمال أداة <code dir="ltr">uv</code>:</p>
+<div class="sourceCode" id="cb3" dir="ltr"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">uv</span> add numpy</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>أو باستعمال أداة <code dir="ltr">pip</code>:</p>
+<div class="sourceCode" id="cb4" dir="ltr"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">pip</span> install numpy</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>وبعد تثبيت الحزمة ، نستوردها هكذا ونستعملها:</p>
 <div id="fa9c2808" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2"></a></span>
 <span id="cb5-3"><a href="#cb5-3"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
 <span id="cb5-4"><a href="#cb5-4"></a>b <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>])</span>
 <span id="cb5-5"><a href="#cb5-5"></a><span class="bu">print</span>(np.dot(a, b))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>32</code></pre>
+<pre dir="ltr"><code>32</code></pre>
 </div>
 </div>
 

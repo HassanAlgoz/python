@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-18c600aae80d5bc93e3bd4e059157cd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-24ab65d2991612aadaf847f30cb0b188.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -657,13 +657,13 @@ window.Quarto = {
 \sqrt{x} = x^{1/2}
 \]</span></p>
 <div id="c9f4f609" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> euclidean_distance(x1: <span class="bu">float</span>, y1: <span class="bu">float</span>, x2: <span class="bu">float</span>, y2: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> euclidean_distance(x1: <span class="bu">float</span>, y1: <span class="bu">float</span>, x2: <span class="bu">float</span>, y2: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">return</span> ((x2 <span class="op">-</span> x1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1)<span class="op">**</span><span class="dv">2</span>) <span class="op">**</span> <span class="fl">0.5</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="bu">print</span>(euclidean_distance(x1<span class="op">=</span><span class="dv">0</span>, y1<span class="op">=</span><span class="dv">0</span>, x2<span class="op">=</span><span class="dv">3</span>, y2<span class="op">=</span><span class="dv">4</span>))</span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="bu">print</span>(euclidean_distance(<span class="dv">1</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">2</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>5.0
+<pre dir="ltr"><code>5.0
 4.242640687119285</code></pre>
 </div>
 </div>
@@ -672,13 +672,13 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="تجزئة-البيانات">تجزئة البيانات</h2>
 <p>هذا الإجراء يقسم قائمة إلى جزئين بنسبة محددة:</p>
 <div id="09e89c01" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> split(data: <span class="bu">list</span>, ratio: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">list</span>, <span class="bu">list</span>]:</span>
+<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> split(data: <span class="bu">list</span>, ratio: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">list</span>, <span class="bu">list</span>]:</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    idx <span class="op">=</span> <span class="bu">int</span>(<span class="bu">len</span>(data) <span class="op">*</span> ratio)</span>
 <span id="cb3-3"><a href="#cb3-3"></a>    <span class="cf">return</span> data[:idx], data[idx:]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>نختبر الإجراء ونلاحظ أن الناتج من نوع صف (<code>tuple</code>). فنستعمل التعيين المتعدد لاستخراج القيم من الصف:</p>
+<p>نختبر الإجراء ونلاحظ أن الناتج من نوع صف (<code dir="ltr">tuple</code>). فنستعمل التعيين المتعدد لاستخراج القيم من الصف:</p>
 <div id="6e2f4535" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>xs <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">90</span>, <span class="dv">100</span>]</span>
+<div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>xs <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">90</span>, <span class="dv">100</span>]</span>
 <span id="cb4-2"><a href="#cb4-2"></a>a, b <span class="op">=</span> split(xs, <span class="fl">0.80</span>)</span>
 <span id="cb4-3"><a href="#cb4-3"></a></span>
 <span id="cb4-4"><a href="#cb4-4"></a><span class="cf">assert</span> a <span class="op">==</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>]</span>
@@ -693,7 +693,7 @@ window.Quarto = {
 <li>إذا كان الأمر كذلك، فتأكد من وجود رصيد كافٍ في جهاز الصراف الآلي لصرف المبلغ المطلوب.</li>
 </ol>
 <div id="08d79f6a" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> withdraw_cash(balance, amount, atm_cash):</span>
+<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> withdraw_cash(balance, amount, atm_cash):</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    <span class="cf">if</span> balance <span class="op">&gt;=</span> amount:</span>
 <span id="cb5-3"><a href="#cb5-3"></a>        <span class="cf">if</span> atm_cash <span class="op">&gt;=</span> amount:</span>
 <span id="cb5-4"><a href="#cb5-4"></a>            balance <span class="op">-=</span> amount</span>
@@ -708,7 +708,7 @@ window.Quarto = {
 <span id="cb5-13"><a href="#cb5-13"></a>withdraw_cash(<span class="dv">500</span>, <span class="dv">200</span>, <span class="dv">100</span>)</span>
 <span id="cb5-14"><a href="#cb5-14"></a>withdraw_cash(<span class="dv">500</span>, <span class="dv">600</span>, <span class="dv">1000</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Withdrawal successful!
+<pre dir="ltr"><code>Withdrawal successful!
 ATM does not have enough cash.
 Insufficient balance.</code></pre>
 </div>
@@ -718,11 +718,11 @@ Insufficient balance.</code></pre>
 <h2 class="anchored" data-anchor-id="الكلمة-المتناظرة">الكلمة المتناظرة</h2>
 <p>في هذا المثال نوضح استعمال مؤشرين على نفس النص لمعرفة ما إذا كانت الكلمة متناظرة:</p>
 <ul>
-<li>المؤئر الأول بإصبعك الأيمن: <code>i</code> يبدأ من أول حرف وينتهي عند المنتصف</li>
-<li>المؤئر الثاني بإصبعك الأيسر: <code>j</code> يبدأ من آخر حرف وينتهي عند المنتصف</li>
+<li>المؤئر الأول بإصبعك الأيمن: <code dir="ltr">i</code> يبدأ من أول حرف وينتهي عند المنتصف</li>
+<li>المؤئر الثاني بإصبعك الأيسر: <code dir="ltr">j</code> يبدأ من آخر حرف وينتهي عند المنتصف</li>
 </ul>
 <div id="fe7beaa1" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> is_palindrome(word):</span>
+<div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> is_palindrome(word):</span>
 <span id="cb7-2"><a href="#cb7-2"></a>    <span class="co">"""</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="co">    A palindrome word is one that can be read the same way from both ends.</span></span>
 <span id="cb7-4"><a href="#cb7-4"></a><span class="co">    """</span></span>
@@ -750,9 +750,9 @@ Insufficient balance.</code></pre>
 <span id="cb7-26"><a href="#cb7-26"></a><span class="cf">assert</span> is_palindrome(<span class="st">"حصان ناصح"</span>)</span>
 <span id="cb7-27"><a href="#cb7-27"></a><span class="cf">assert</span> <span class="kw">not</span> is_palindrome(<span class="st">"python"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>بدل الحلقة، وكان لنا أن نكتب باختصار: <code>word == word[::-1]</code> وهي تعني أن النص متناظر إذا كان مساوياً لنفسه بالمقلوب.</p>
+<p>بدل الحلقة، وكان لنا أن نكتب باختصار: <code dir="ltr">word == word[::-1]</code> وهي تعني أن النص متناظر إذا كان مساوياً لنفسه بالمقلوب.</p>
 <div id="f222a454" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> is_palindrome(word):</span>
+<div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> is_palindrome(word):</span>
 <span id="cb8-2"><a href="#cb8-2"></a>    word <span class="op">=</span> word.lower()</span>
 <span id="cb8-3"><a href="#cb8-3"></a>    word <span class="op">=</span> word.replace(<span class="st">" "</span>, <span class="st">""</span>)</span>
 <span id="cb8-4"><a href="#cb8-4"></a>    <span class="cf">return</span> word <span class="op">==</span> word[::<span class="op">-</span><span class="dv">1</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -768,7 +768,7 @@ Insufficient balance.</code></pre>
 </ul>
 <p>والمطلوب فقط تصحيح الأخطاء المذكورة.</p>
 <div id="87a2ef19" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>corrections_map <span class="op">=</span> {</span>
+<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>corrections_map <span class="op">=</span> {</span>
 <span id="cb9-2"><a href="#cb9-2"></a>    <span class="st">'مكتبه'</span>: <span class="st">'مكتبة'</span>,</span>
 <span id="cb9-3"><a href="#cb9-3"></a>    <span class="st">'لعبه'</span>: <span class="st">'لعبة'</span>,</span>
 <span id="cb9-4"><a href="#cb9-4"></a>    <span class="st">'روايه'</span>: <span class="st">'رواية'</span>,</span>
@@ -793,7 +793,7 @@ Insufficient balance.</code></pre>
 <span id="cb9-23"><a href="#cb9-23"></a>    <span class="cf">return</span> <span class="st">' '</span>.join(result)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="62bea4e4" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="cf">assert</span> (</span>
+<div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="cf">assert</span> (</span>
 <span id="cb10-2"><a href="#cb10-2"></a>    correct_spelling(<span class="st">'المكتبه فيها الروايه التي أبحث عنها'</span>) <span class="op">==</span></span>
 <span id="cb10-3"><a href="#cb10-3"></a>    <span class="st">'المكتبة فيها الرواية التي أبحث عنها'</span></span>
 <span id="cb10-4"><a href="#cb10-4"></a>)</span>
