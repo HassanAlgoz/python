@@ -607,7 +607,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#التكرار-بشرط" id="toc-التكرار-بشرط" class="nav-link" data-scroll-target="#التكرار-بشرط">التكرار بشرط</a></li>
   <li><a href="#الخروج-من-الحلقة" id="toc-الخروج-من-الحلقة" class="nav-link" data-scroll-target="#الخروج-من-الحلقة">الخروج من الحلقة</a></li>
-  <li><a href="#الملحق-بعدم-الوقوع" id="toc-الملحق-بعدم-الوقوع" class="nav-link" data-scroll-target="#الملحق-بعدم-الوقوع">الملحق بعدم الوقوع</a></li>
+  <li><a href="#الملحق-بعدم-المطابقة" id="toc-الملحق-بعدم-المطابقة" class="nav-link" data-scroll-target="#الملحق-بعدم-المطابقة">الملحق بعدم المطابقة</a></li>
   </ul></li>
   <li><a href="#المصطلحات" id="toc-المصطلحات" class="nav-link" data-scroll-target="#المصطلحات">المصطلحات</a></li>
   </ul>
@@ -635,7 +635,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>إن بايثون من اللغات <strong>الأمرية</strong> (Imperative). أي أن <strong>الجمل البرمجية خطوات متتالية تنفذ من الأعلى للأسفل</strong>.</p>
+<p>إن بايثون من اللغات <strong>الأمرية</strong> (<a href="https://en.wikipedia.org/wiki/Imperative_programming">Imperative</a>). أي أن <strong>الجمل البرمجية خطوات متتالية تنفذ من الأعلى للأسفل</strong>.</p>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell" data-layout-align="default">
@@ -883,8 +883,11 @@ False</code></pre>
 <ul>
 <li><strong>الجمع</strong>: AND (<strong>و</strong>): تخرج 1 فقط إذا كان كلا المدخلين 1.</li>
 <li><strong>التخيير</strong>: OR (<strong>أو</strong>): تخرج 1 إذا كان أحد المدخلين على الأقل 1.</li>
-<li><strong>الحصر</strong>: XOR (<strong>أو الحصرية</strong>): تخرج 1 إذا كان أحد المدخلين 1 والآخر 0.</li>
 <li><strong>العكس</strong>: NOT (<strong>ليس</strong>): تخرج عكس المدخل (1 يصبح 0، و0 يصبح 1).</li>
+<li><strong>الحصر</strong>: XOR (<strong>أو الحصرية</strong>): تخرج 1 إذا كان أحد المدخلين 1 والآخر 0.
+<ul>
+<li>وهي غير مستعملة في الجمل الشرطية في بايثون</li>
+</ul></li>
 </ul>
 <p>على سبيل المثال:</p>
 <div id="be4a2829" class="cell" data-execution_count="8">
@@ -1528,9 +1531,9 @@ Done</code></pre>
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%203%3A%0A%20%20%20%20j%20%3D%200%0A%20%20%20%20while%20j%20%3C%203%3A%0A%20%20%20%20%20%20%20%20if%20i%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20%20%20print%28i,%20j%29%0A%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
 </iframe>
 </section>
-<section id="الملحق-بعدم-الوقوع" class="level3">
-<h3 class="anchored" data-anchor-id="الملحق-بعدم-الوقوع">الملحق بعدم الوقوع</h3>
-<p>إذا قلنا أن الوقوع (<code dir="ltr">True</code>) عدمه (<code dir="ltr">False</code>) ؛فإن بايثون تلحق بعض القيم بعدم الوقوع:</p>
+<section id="الملحق-بعدم-المطابقة" class="level3">
+<h3 class="anchored" data-anchor-id="الملحق-بعدم-المطابقة">الملحق بعدم المطابقة</h3>
+<p>تعتبر بايثون بعض القيَم تابعة لعدم المطابقة (<code dir="ltr">False</code>) وهي:</p>
 <ul>
 <li><code dir="ltr">False</code></li>
 <li><code dir="ltr">None</code></li>
@@ -1542,7 +1545,7 @@ Done</code></pre>
 <li><code dir="ltr">{}</code></li>
 <li><code dir="ltr">set()</code></li>
 </ul>
-<p>وما عدا ذلك فملحق بالوقوع (<code dir="ltr">True</code>).</p>
+<p>وما عدا ذلك فملحق بالمطابقة (<code dir="ltr">True</code>).</p>
 <div id="896435a6" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb39" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">False</span> <span class="kw">or</span> <span class="va">None</span> <span class="kw">or</span> <span class="dv">0</span> <span class="kw">or</span> <span class="fl">0.0</span> <span class="kw">or</span> <span class="st">''</span> <span class="kw">or</span> [] <span class="kw">or</span> () <span class="kw">or</span> {} <span class="kw">or</span> <span class="bu">set</span>():</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'True'</span>)</span>
