@@ -556,3 +556,163 @@ storage
 ```{python}
 del storage[user_id1]
 ```
+
+## معاملات المقارنة
+
+تترتب الجموع بناءً على أول عنصر مختلف بينها، فالسلسلة `[1,2,x]` مقارنة بالسلسلة `[1,2,y]` ستكون كما لو أنك قارنت: `x` مقارنة مع `y` لأن كل ما قبل ذلك مساوٍ:
+
+```{python}
+a = [1, 2, 3]
+b = [1, 2, 4]
+assert a < b
+```
+
+فإن فُقِد المقابل كانت أصغر:
+
+```{python}
+a = [1, 2]
+b = [1, 2, 3]
+assert a < b
+```
+
+وإن وُجد الأكبر قبل ذلك كانت أكبر:
+
+```{python}
+a = [10, 20]
+b = [10, 5, 60, 70]
+assert a > b
+```
+
+وإذا أردنا محاكاة عمليات المقارنة في الأنواع التي نعرفها نحن، فهذا الجدول يساعدنا:
+وإذا أردنا محاكاة عمليات المقارنة في الأنواع التي نعرفها نحن، فهذا الجدول يساعدنا:
+
+| مثال | الإجراء | الوصف |
+|----------|----------|----------|
+| `self < other` | `__lt__` | أقل من |
+| `self <= other` | `__le__` | أقل من أو يساوي |
+| `self == other` | `__eq__` | يساوي |
+| `self != other` | `__ne__` | لا يساوي |
+| `self > other` | `__gt__` | أكبر من |
+| `self >= other` | `__ge__` | أكبر من أو يساوي |
+
+(وانظر [توثيق بايثون لطرق المقارنة](https://docs.python.org/3/reference/datamodel.html#object.__lt__)).
+
+فإذا كان لدينا نوع يمثل مرشحًا، ونريد أن تكون المقارنة بناءً على خاصية الدرجة (`score`)، فيمكننا تعريف ذلك على النحو التالي:
+
+```{python}
+
+class Candidate:
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def __lt__(self, other):
+        return self.score < other.score
+    
+    def __le__(self, other):
+        return self.score <= other.score
+    
+    def __eq__(self, other):
+        return self.score == other.score
+    
+    def __ne__(self, other):
+        return self.score != other.score
+    
+    def __gt__(self, other):
+        return self.score > other.score
+    
+    def __ge__(self, other):
+        return self.score >= other.score
+```
+
+ثم عندما تكون لدينا قائمة من المرشحين، نستطيع ترتيبها بإجراء الترتيب المبني في لغة بايثون (`sorted`) هكذا:
+
+```{python}
+candidates = [
+    Candidate("Alice", 85),
+    Candidate("Bob", 92),
+    Candidate("Carol", 78),
+]
+
+sorted_candidates = sorted(candidates, reverse=True)
+```
+
+### المساواة: بالهوية وبالقيمة
+
+تحقق المساواة له قسمان:
+
+1. **القيمة** (Value): `x == y`؛ أي مقارنة القيم التي تشير إليها المتغيرات
+2. **الهوية** (Identity): `x is y`؛ وهي عنوانها في الذاكرة
+    - وهي بمعنى: `id(x) == id(y)`
+
+فلا فرق في الأنواع **البسيطة** (Primitive) بين المساواتين. فإاذا استعملتها مع الرقم (`int`) أو النص (`str`) فلن يكون فيها اختلاف:
+
+```{python}
+x = 10
+y = 10
+assert x == y
+assert x is y
+print(id(x))
+print(id(y))
+```
+
+وبين النصوص:
+
+```{python}
+a = 'hello'
+b = 'hello'
+assert a == b
+assert a is b
+print(id(a))
+print(id(b))
+```
+
+إنما الاختلاف في الأنواع **غير البسيطة** (Non-Primitive) مثل القائمة:
+
+```{python}
+x = [1, 2, 3]
+y = [1, 2, 3]
+assert x == y
+assert x is not y
+print(id(x))
+print(id(y))
+```
+
+والقاموس:
+
+```{python}
+a = {'a': 1, 'b': 2}
+b = {'a': 1, 'b': 2}
+assert a == b
+assert a is not b
+print(id(a))
+print(id(b))
+```
+
+والأصل في المعرَّفات الجديدة المقارنة بالهوية لا بالقيمة، إلا إن تم تعريف المساواة `__eq__` في النوع بأحد الخصائص كما فعلنا في نوع `Candidate` السابق ما لم نفعله في النوع `Vector`:
+
+```{python}
+v = Vector((1, 2))
+w = Vector((1, 2))
+assert v != w
+```
+
+لاحظ في المرشحين (`Candidate`) تتم المقارنة بناءً على الدرجة لا على الاسم:
+
+```{python}
+c1 = Candidate("Alice", 85)
+c2 = Candidate("Bob", 85)
+c3 = Candidate("Alice", 78)
+
+assert c1 == c2
+assert c1 != c3
+```
+
+ولكل واحدٍ منها مكانه الخاص في الذاكرة:
+
+```{python}
+print(id(c1))
+print(id(c2))
+print(id(c3))
+```
+
