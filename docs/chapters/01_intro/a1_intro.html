@@ -665,14 +665,14 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="القطعة-البرمجية">القطعة البرمجية</h2>
 <p>تُنَفَّذُ القطعة (Code Snippet) بحسب ترتيب جُمَلِها نزولاً من الأعلى.</p>
 <div id="d2cab55d" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>pages <span class="op">=</span> <span class="dv">900</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>speed <span class="op">=</span>  <span class="dv">50</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>finish_time <span class="op">=</span> pages <span class="op">/</span> speed</span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="cf">if</span> finish_time <span class="op">&lt;</span> <span class="dv">14</span>:</span>
-<span id="cb1-6"><a href="#cb1-6"></a>    <span class="bu">print</span>(<span class="st">'الوقت كافٍ'</span>)</span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="cf">else</span>:</span>
-<span id="cb1-8"><a href="#cb1-8"></a>    <span class="bu">print</span>(<span class="st">'داهمنا الوقت'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pages <span class="op">=</span> <span class="dv">900</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>speed <span class="op">=</span>  <span class="dv">50</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>finish_time <span class="op">=</span> pages <span class="op">/</span> speed</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> finish_time <span class="op">&lt;</span> <span class="dv">14</span>:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'الوقت كافٍ'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'داهمنا الوقت'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>داهمنا الوقت</code></pre>
 </div>
@@ -856,8 +856,8 @@ async      elif       if         or         yield</code></pre>
 <h2 class="anchored" data-anchor-id="نمو-اللغة">نمو اللغة</h2>
 <p>ومن خواص لغة البرمجة: إنشاء مركبات لغوية جديدة، وذلك بشيئين:</p>
 <ol type="1">
-<li><strong>تعريف أنواع</strong> جديدة؛ بجملة <code dir="ltr">class</code></li>
-<li><strong>تعريف إجراءات</strong> جديدة؛ بجملة <code dir="ltr">def</code></li>
+<li><strong>تعريف إجراءات</strong> جديدة؛ بجملة <code dir="ltr">def</code> وسيأتي في <a href="../../chapters/08_procedural/a1_procedural.html">باب البرمجة الإجرائية</a></li>
+<li><strong>تعريف أنواع</strong> جديدة؛ بجملة <code dir="ltr">class</code> وسيأتي في <a href="../../chapters/12_oop/a1_objects.html">باب البرمجة الشيئية</a></li>
 </ol>
 <p>فأضاف مطوروا بايثون أنفسهم إلى اللغة ما يسمى <strong>بالمكتبة الأساسية</strong> (<em>Standard Library</em>)، ومن أقسامها:</p>
 <ul>
@@ -873,12 +873,12 @@ async      elif       if         or         yield</code></pre>
 \]</span></p>
 <p>القطعة:</p>
 <div id="5da93e66" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> math</span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a>x1, y1 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>x2, y2 <span class="op">=</span> <span class="dv">3</span>, <span class="dv">4</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a>distance <span class="op">=</span> math.sqrt((x2 <span class="op">-</span> x1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="bu">print</span>(distance)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>x1, y1 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>x2, y2 <span class="op">=</span> <span class="dv">3</span>, <span class="dv">4</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>distance <span class="op">=</span> math.sqrt((x2 <span class="op">-</span> x1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(distance)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>5.0</code></pre>
 </div>
@@ -902,14 +902,14 @@ async      elif       if         or         yield</code></pre>
 <p>وتسمى <strong>المكتبات الخارجية</strong> (<em>External Libraries</em>) وهي مكتبات يساهم بها الناس، ويضيفونها إلى اللغة، نجدها في موقع قاعدة بيانات <a href="https://pypi.org/">PyPI</a> الذي يضم أكثر من 580 ألف مشروع، أو غيرها من المواقع. وهذه يتم تنزيلها وتثبيتها للاستفادة من لغتها المزيدة.</p>
 <p>على سبيل المثال، تختص <strong>حزمة</strong> <a href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_spreadsheets.html"><code dir="ltr">pandas</code></a> المتخصصة في تفكيك وتركيب الجداول والتحليلات الإحصائية عليها؛ فهي أقوى من أي نسخة من إكسل (Excel) أو غيره.</p>
 <p>لتثبيتها نستعمل <code dir="ltr">uv</code> هكذا في سطر الأوامر (النافذة السوداء):</p>
-<div class="sourceCode" id="cb6" dir="ltr"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">uv</span> add pandas</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6" dir="ltr"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add pandas</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>ثم نستطيع استعمال المكتبة لقراءة بيانات الطلاب -مثلاً- من ملف CSV:</p>
 <div class="ltr">
 <div id="01ba3e25" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../datasets/students.csv'</span>)</span>
-<span id="cb7-4"><a href="#cb7-4"></a>df</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../datasets/students.csv'</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <div>
 
@@ -970,7 +970,7 @@ async      elif       if         or         yield</code></pre>
 <p>ثم لعرض ملخصات إحصائية:</p>
 <div class="ltr">
 <div id="4c09ef4f" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df.describe(include<span class="op">=</span>[<span class="st">'number'</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.describe(include<span class="op">=</span>[<span class="st">'number'</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <div>
 
@@ -1034,7 +1034,7 @@ async      elif       if         or         yield</code></pre>
 <p>أو تصوير البيانات:</p>
 <div class="ltr">
 <div id="3f158532" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>df[<span class="st">'Done'</span>].value_counts().plot(kind<span class="op">=</span><span class="st">'bar'</span>, color<span class="op">=</span><span class="st">'skyblue'</span>, figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>), rot<span class="op">=</span><span class="dv">0</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Done'</span>].value_counts().plot(kind<span class="op">=</span><span class="st">'bar'</span>, color<span class="op">=</span><span class="st">'skyblue'</span>, figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>), rot<span class="op">=</span><span class="dv">0</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

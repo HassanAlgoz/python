@@ -111,7 +111,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <meta name="twitter:title" content="20&nbsp; استمداد الأنواع – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/assets/puzzle_pieces.png">
+<meta name="twitter:image-height" content="231">
+<meta name="twitter:image-width" content="513">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating">
@@ -628,7 +631,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>تستمد الأنواع بأحد طريقتين:</p>
 <p>الأولى: <strong>التخصيص</strong>؛ كأن تقول المبرَّبع نوع خاص من المستطيلات. وكذلك تقول: المستطيل نوع خاص من الأشكال. وبالتالي فإن علاقة المربَّع بالشكل هي علاقة خاص من عام.</p>
 <p>الثاني: <strong>التركيب</strong>؛ كأن تقول: الإنسان حيّ والجمل حيّ فكلاهما حيّ. وتقول: الجمل مركوب والسيارة مركوبة؛ فكلاهما مركوبٌ. فيكون الجملُ مركَّبًا بالاعتبارين معًا: (مركوبًا حيًّا).</p>
-<p>والتصخيص يسمى الوراثة؛ وهو يحتاج لرعاية جميع السلسلة الوراثية ليكون التفريع عنها ذا معنى؛ وذلك صعبٌ ضبطه في الواقع. أما التصنيف الاعتباري فاستعمالها أسهل لكوْن التصنيف المتأخِّر لا يحتاج مراعاة سلسلة معقَّدة أو طويلة من الوراثة.</p>
+<p>الفرق بينهما:</p>
+<p>التخصيص يسمى الوراثة؛ وهو يحتاج لرعاية جميع السلسلة الوراثية ليكون التفريع عنها ذا معنى؛ وذلك صعبٌ ضبطه في الواقع. أما التركيب فنوعُ من التصنيف الاعتباري؛ فاستعمالها أسهل لكوْن التصنيف المتأخِّر لا يحتاج مراعاة سلسلة معقَّدة أو طويلة من الوراثة.</p>
 <section id="الوراثة" class="level2">
 <h2 class="anchored" data-anchor-id="الوراثة">الوراثة</h2>
 <p>التخصيص <strong>بالوراثة</strong> (Inheritence): أن يندرج النوع تحت نوعٍ آخر؛ فهو يستمد منه ويزيد عليه صفةً أو فعلاً (أو أكثر). وهو اسميٌّ لأن المعتبر هو أسماء الأنواع؛ فتقول:</p>
@@ -655,79 +659,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>تذكَّر أن علامة النجمة <code dir="ltr">*</code> في وصف متغيرات الإجراء المُنشئ <code dir="ltr">__init__</code> (<code dir="ltr">*sides</code>) تجعل عدد عناصره لا محدودة؛ وذلك لأننا لا نريد حصر عدد أضلاع الشكل إلا لاحقًا عند تخصيصه؛ ففي المربَّع سيكون أربعة، وفي المثلث يسكون ثلاثة، وهكذا.</p>
+<p>تذكَّر أن علامة النجمة <code dir="ltr">*</code> في وصف متغيرات الإجراء المُنشئ <code dir="ltr">__init__</code> (<code dir="ltr">*sides</code>) تجعل عدد عناصره غير محدود؛ وذلك لأننا لا نريد حصر عدد أضلاع الشكل إلا لاحقًا عند تخصيصه؛ ففي المربَّع سيكون أربعة، وفي المثلث يسكون ثلاثة، وهكذا.</p>
 <div id="9eec2483" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">class</span> Shape:</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="op">*</span>sides):</span>
-<span id="cb1-3"><a href="#cb1-3"></a>        <span class="va">self</span>.sides <span class="op">=</span> sides</span>
-<span id="cb1-4"><a href="#cb1-4"></a>    </span>
-<span id="cb1-5"><a href="#cb1-5"></a>    <span class="at">@property</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>    <span class="kw">def</span> perimeter(<span class="va">self</span>):</span>
-<span id="cb1-7"><a href="#cb1-7"></a>        <span class="cf">return</span> <span class="bu">sum</span>(<span class="va">self</span>.sides)</span>
-<span id="cb1-8"><a href="#cb1-8"></a>    </span>
-<span id="cb1-9"><a href="#cb1-9"></a>    <span class="at">@property</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a>    <span class="kw">def</span> area(<span class="va">self</span>):</span>
-<span id="cb1-11"><a href="#cb1-11"></a>        <span class="cf">pass</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Shape:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="op">*</span>sides):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.sides <span class="op">=</span> sides</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@property</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> perimeter(<span class="va">self</span>):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">sum</span>(<span class="va">self</span>.sides)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">@property</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> area(<span class="va">self</span>):</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وليس ثمة شيء هو شكلٌ فقط، ولذلك نعتبر هذا النوع، نوعًا <strong>مُجرَّدًا</strong> (Abstract)، إذ لن نستعمله مباشرةً أبدًا، بل سنخصصه أولاً. فأول نوع سيرث منه هو المستطيل (Rectangle).</p>
 <p>ولاحظ في <code dir="ltr">Rectangle</code> استعمال الإجراء الخاص <code dir="ltr">super()</code> وهو يشير إلى الموروث <code dir="ltr">Shape</code>؛ فيصير معنى الجملة ( <code dir="ltr">super().__init__()</code>) وكوْنها في أوَّل سطرٍ من جملة إجراء الإنشاء: الإنشاء فوق الإنشاء الموروث.</p>
 <div id="c4ee0979" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">class</span> Rectangle(Shape):</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
-<span id="cb2-3"><a href="#cb2-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(width, height, width, height)</span>
-<span id="cb2-4"><a href="#cb2-4"></a>    </span>
-<span id="cb2-5"><a href="#cb2-5"></a>    <span class="at">@property</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a>    <span class="kw">def</span> width(<span class="va">self</span>):</span>
-<span id="cb2-7"><a href="#cb2-7"></a>        <span class="cf">return</span> <span class="va">self</span>.sides[<span class="dv">0</span>]</span>
-<span id="cb2-8"><a href="#cb2-8"></a>    </span>
-<span id="cb2-9"><a href="#cb2-9"></a>    <span class="at">@property</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a>    <span class="kw">def</span> height(<span class="va">self</span>):</span>
-<span id="cb2-11"><a href="#cb2-11"></a>        <span class="cf">return</span> <span class="va">self</span>.sides[<span class="dv">1</span>]</span>
-<span id="cb2-12"><a href="#cb2-12"></a>    </span>
-<span id="cb2-13"><a href="#cb2-13"></a>    <span class="at">@property</span></span>
-<span id="cb2-14"><a href="#cb2-14"></a>    <span class="kw">def</span> area(<span class="va">self</span>):</span>
-<span id="cb2-15"><a href="#cb2-15"></a>        <span class="cf">return</span> <span class="va">self</span>.width <span class="op">*</span> <span class="va">self</span>.height</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Rectangle(Shape):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(width, height, width, height)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@property</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> width(<span class="va">self</span>):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.sides[<span class="dv">0</span>]</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">@property</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> height(<span class="va">self</span>):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.sides[<span class="dv">1</span>]</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">@property</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> area(<span class="va">self</span>):</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.width <span class="op">*</span> <span class="va">self</span>.height</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>أما المربع، فهو نوعٌ خاص من المستطيل:</p>
 <div id="228176df" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">class</span> Square(Rectangle):</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, side):</span>
-<span id="cb3-3"><a href="#cb3-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(side, side)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Square(Rectangle):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, side):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(side, side)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وأما المثلث، فهو من الشكل:</p>
 <div id="8b90934c" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">class</span> Triangle(Shape):</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, a, b, c):</span>
-<span id="cb4-3"><a href="#cb4-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(a, b, c)</span>
-<span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a>    <span class="at">@property</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a>    <span class="kw">def</span> a(<span class="va">self</span>):</span>
-<span id="cb4-7"><a href="#cb4-7"></a>        <span class="cf">return</span> <span class="va">self</span>.sides[<span class="dv">0</span>]</span>
-<span id="cb4-8"><a href="#cb4-8"></a>    </span>
-<span id="cb4-9"><a href="#cb4-9"></a>    <span class="at">@property</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a>    <span class="kw">def</span> b(<span class="va">self</span>):</span>
-<span id="cb4-11"><a href="#cb4-11"></a>        <span class="cf">return</span> <span class="va">self</span>.sides[<span class="dv">1</span>]</span>
-<span id="cb4-12"><a href="#cb4-12"></a>    </span>
-<span id="cb4-13"><a href="#cb4-13"></a>    <span class="at">@property</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a>    <span class="kw">def</span> c(<span class="va">self</span>):</span>
-<span id="cb4-15"><a href="#cb4-15"></a>        <span class="cf">return</span> <span class="va">self</span>.sides[<span class="dv">2</span>]</span>
-<span id="cb4-16"><a href="#cb4-16"></a>    </span>
-<span id="cb4-17"><a href="#cb4-17"></a>    <span class="at">@property</span></span>
-<span id="cb4-18"><a href="#cb4-18"></a>    <span class="kw">def</span> area(<span class="va">self</span>):</span>
-<span id="cb4-19"><a href="#cb4-19"></a>        s <span class="op">=</span> <span class="va">self</span>.perimeter <span class="op">/</span> <span class="dv">2</span></span>
-<span id="cb4-20"><a href="#cb4-20"></a>        <span class="cf">return</span> (s <span class="op">*</span> (s <span class="op">-</span> <span class="va">self</span>.a) <span class="op">*</span> (s <span class="op">-</span> <span class="va">self</span>.b) <span class="op">*</span> (s <span class="op">-</span> <span class="va">self</span>.c))<span class="op">**</span><span class="fl">0.5</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Triangle(Shape):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, a, b, c):</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(a, b, c)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@property</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> a(<span class="va">self</span>):</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.sides[<span class="dv">0</span>]</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">@property</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> b(<span class="va">self</span>):</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.sides[<span class="dv">1</span>]</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">@property</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> c(<span class="va">self</span>):</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.sides[<span class="dv">2</span>]</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">@property</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> area(<span class="va">self</span>):</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> <span class="va">self</span>.perimeter <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (s <span class="op">*</span> (s <span class="op">-</span> <span class="va">self</span>.a) <span class="op">*</span> (s <span class="op">-</span> <span class="va">self</span>.b) <span class="op">*</span> (s <span class="op">-</span> <span class="va">self</span>.c))<span class="op">**</span><span class="fl">0.5</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>والآن ستلاحظ إمكانية استعمال الشيئين المختلفين (المثلث والمستطيل) باعتبار المشترك بينهما (الشكل). ويتبين ذلك إذا كررنا عليهما في قائمة:</p>
 <div id="e5b40206" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>x <span class="op">=</span> Triangle(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a>y <span class="op">=</span> Rectangle(<span class="dv">10</span>, <span class="dv">20</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a>shapes <span class="op">=</span> [x, y]</span>
-<span id="cb5-4"><a href="#cb5-4"></a></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="cf">for</span> sh <span class="kw">in</span> shapes:</span>
-<span id="cb5-6"><a href="#cb5-6"></a>    <span class="bu">print</span>(sh.__class__.<span class="va">__name__</span>)</span>
-<span id="cb5-7"><a href="#cb5-7"></a>    <span class="bu">print</span>(<span class="st">"Perimeter:"</span>, sh.perimeter)</span>
-<span id="cb5-8"><a href="#cb5-8"></a>    <span class="bu">print</span>(<span class="st">"Area:"</span>, <span class="bu">round</span>(sh.area, <span class="dv">2</span>))</span>
-<span id="cb5-9"><a href="#cb5-9"></a>    <span class="bu">print</span>(<span class="st">'='</span><span class="op">*</span><span class="dv">40</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Triangle(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> Rectangle(<span class="dv">10</span>, <span class="dv">20</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>shapes <span class="op">=</span> [x, y]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sh <span class="kw">in</span> shapes:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(sh.__class__.<span class="va">__name__</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Perimeter:"</span>, sh.perimeter)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Area:"</span>, <span class="bu">round</span>(sh.area, <span class="dv">2</span>))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'='</span><span class="op">*</span><span class="dv">40</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>Triangle
 Perimeter: 30
@@ -747,11 +751,11 @@ Area: 200
 </ul>
 <p>ويمكن فحص النوع باستعمال الإجراء <code dir="ltr">isinstance(instance, class)</code> لمعرفة ما إذا كان الشيء ينتمي إلى ذلك النوع أو لا.</p>
 <div id="9173ca12" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="cf">for</span> sh <span class="kw">in</span> shapes:</span>
-<span id="cb7-2"><a href="#cb7-2"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(sh, Rectangle):</span>
-<span id="cb7-3"><a href="#cb7-3"></a>        <span class="bu">print</span>(<span class="ss">f"Sides: width=</span><span class="sc">{</span>sh<span class="sc">.</span>width<span class="sc">}</span><span class="ss">, height=</span><span class="sc">{</span>sh<span class="sc">.</span>height<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb7-4"><a href="#cb7-4"></a>    <span class="cf">elif</span> <span class="bu">isinstance</span>(sh, Triangle):</span>
-<span id="cb7-5"><a href="#cb7-5"></a>        <span class="bu">print</span>(<span class="ss">f"Sides: a=</span><span class="sc">{</span>sh<span class="sc">.</span>a<span class="sc">}</span><span class="ss">, b=</span><span class="sc">{</span>sh<span class="sc">.</span>b<span class="sc">}</span><span class="ss">, c=</span><span class="sc">{</span>sh<span class="sc">.</span>c<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sh <span class="kw">in</span> shapes:</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(sh, Rectangle):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Sides: width=</span><span class="sc">{</span>sh<span class="sc">.</span>width<span class="sc">}</span><span class="ss">, height=</span><span class="sc">{</span>sh<span class="sc">.</span>height<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="bu">isinstance</span>(sh, Triangle):</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Sides: a=</span><span class="sc">{</span>sh<span class="sc">.</span>a<span class="sc">}</span><span class="ss">, b=</span><span class="sc">{</span>sh<span class="sc">.</span>b<span class="sc">}</span><span class="ss">, c=</span><span class="sc">{</span>sh<span class="sc">.</span>c<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>Sides: a=10, b=10, c=10
 Sides: width=10, height=20</code></pre>
@@ -760,18 +764,18 @@ Sides: width=10, height=20</code></pre>
 <p>وذلك ينطبق في تعريف الإجراءات. فإنك تستطيع تحديد النوع الأعم وتمرير النوع الأخص.</p>
 <p>فهو في التعريف عام:</p>
 <div id="cd6e8e9c" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> show(sh: Shape):</span>
-<span id="cb9-2"><a href="#cb9-2"></a>    <span class="bu">print</span>(sh.__class__.<span class="va">__name__</span>)</span>
-<span id="cb9-3"><a href="#cb9-3"></a>    <span class="bu">print</span>(<span class="st">"Perimeter:"</span>, sh.perimeter)</span>
-<span id="cb9-4"><a href="#cb9-4"></a>    <span class="bu">print</span>(<span class="st">"Area:"</span>, <span class="bu">round</span>(sh.area, <span class="dv">2</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show(sh: Shape):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(sh.__class__.<span class="va">__name__</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Perimeter:"</span>, sh.perimeter)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Area:"</span>, <span class="bu">round</span>(sh.area, <span class="dv">2</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وفي التمرير خاص:</p>
 <div id="471d09c5" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>x <span class="op">=</span> Triangle(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>)</span>
-<span id="cb10-2"><a href="#cb10-2"></a>show(x)</span>
-<span id="cb10-3"><a href="#cb10-3"></a></span>
-<span id="cb10-4"><a href="#cb10-4"></a>y <span class="op">=</span> Rectangle(<span class="dv">10</span>, <span class="dv">20</span>)</span>
-<span id="cb10-5"><a href="#cb10-5"></a>show(y)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Triangle(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>show(x)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> Rectangle(<span class="dv">10</span>, <span class="dv">20</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>show(y)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>Triangle
 Perimeter: 30
@@ -793,6 +797,12 @@ Area: 200</code></pre>
 </section>
 <section id="التركيب" class="level2">
 <h2 class="anchored" data-anchor-id="التركيب">التركيب</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../assets/puzzle_pieces.png" class="img-fluid figure-img"></p>
+<figcaption>التركيب</figcaption>
+</figure>
+</div>
 <p><strong>التركيب</strong> (Composition) ويسمى بالإنجليزية أحيانًا (Duck Typing) إشارة إلى العبارة: “إذا كان الشيء يمشي مثل البطة، ويبطبط مثلها؛ فإنه يعامَل كالبطة!”.</p>
 <p>ومثال التركيب في نفس شجرة المجموعات في بايثون <a href="../../appendix_collections.html#fig-collections-tree" class="quarto-xref">شكل&nbsp;<span>1</span></a> هو نوع <strong>الجمع</strong> (<code dir="ltr">Collection</code>)، حيث له ثلاثة اعتبارات:</p>
 <ol type="1">
@@ -806,16 +816,16 @@ Area: 200</code></pre>
 <h2 class="anchored" data-anchor-id="النوع-المجرد">النوع المجرَّد</h2>
 <p>تعرَّف عناصر المركبات على أنها <strong>أنواع مجرَّدة</strong> (Abstract Base Classes) ليس لها وجود في ذاتها، لكن ينتمي إليها النوع الذي يحتوي على إجراءاتها.</p>
 <p>تأمل المثال المأخوذ من تفاصيل المكتبة الأساسية في بايثون نفسها:</p>
-<div class="sourceCode" id="cb12" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="im">from</span> abc <span class="im">import</span> abstractmethod</span>
-<span id="cb12-2"><a href="#cb12-2"></a></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="kw">class</span> Sized:</span>
-<span id="cb12-4"><a href="#cb12-4"></a></span>
-<span id="cb12-5"><a href="#cb12-5"></a>    <span class="at">@abstractmethod</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb12-7"><a href="#cb12-7"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
-<span id="cb12-8"><a href="#cb12-8"></a>    </span>
-<span id="cb12-9"><a href="#cb12-9"></a><span class="kw">def</span> <span class="bu">len</span>(sized: Sized) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb12-10"><a href="#cb12-10"></a>    <span class="cf">return</span> sized.<span class="fu">__len__</span>()</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> abstractmethod</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Sized:</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@abstractmethod</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="bu">len</span>(sized: Sized) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sized.<span class="fu">__len__</span>()</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>عرفنا النوع المجرَّد <code dir="ltr">Sized</code> (<strong>مُحجَّم</strong>) بأن له فعلاً واحدًا مجرَّدًا: <code dir="ltr">__len__</code> وذلك لوجود المعدِّل <code dir="ltr">@abstractmethod</code> حكمنا أنه مجرد.</li>
 <li>عرفنا إجراءً ليس في داخل هذا الصنف، بل هو إجراء عام كأي إجراء، وجعلنا عامله يكون من جنس ذلك المجرَّد: <code dir="ltr">Sized</code>
@@ -829,36 +839,36 @@ Area: 200</code></pre>
 <h3 class="anchored" data-anchor-id="تكوين-نوع-مركب">تكوين نوع مركَّب</h3>
 <p>ونمثل لذلك بصنف المتجَّه على النحو التالي:</p>
 <div id="cd949259" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">class</span> Vector:</span>
-<span id="cb13-2"><a href="#cb13-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
-<span id="cb13-3"><a href="#cb13-3"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
-<span id="cb13-4"><a href="#cb13-4"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
-<span id="cb13-5"><a href="#cb13-5"></a></span>
-<span id="cb13-6"><a href="#cb13-6"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
-<span id="cb13-7"><a href="#cb13-7"></a>        <span class="cf">return</span> <span class="ss">f"Vector(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span></span>
-<span id="cb13-8"><a href="#cb13-8"></a>    </span>
-<span id="cb13-9"><a href="#cb13-9"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</span>
-<span id="cb13-10"><a href="#cb13-10"></a>        <span class="cf">return</span> <span class="dv">2</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Vector:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"Vector(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">2</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>فبتعريفنا لفعل معرفة الطول (<code dir="ltr">__len__</code>)، يُعتبر المتجَّه من جنس المحجَّمات (<code dir="ltr">Sized</code>) ولذلك يقبل تمريره إلى إجراء العد (<code dir="ltr">len(Sized)</code>). وانضم بذلك إلى المجموعات مثل القائمة (<code dir="ltr">list</code>) والمجموعة (<code dir="ltr">set</code>) وغيرهما. ولاحظ عدم وجود ذكر للنوع <code dir="ltr">Sized</code> البتة، بل المُعتَبَرُ وجود الإجراء <code dir="ltr">__len__</code> حتى يُقبل الشيء في <code dir="ltr">len</code>.</p>
-<p>فحين ننشيئ معيَّنًا من هذا الصنف، ثم نمرره للإجراء <code dir="ltr">len</code> فإنه يتصرف كغيره من الجموع:</p>
+<p>فحين ننشئ معيَّنًا من هذا الصنف، ثم نمرره للإجراء <code dir="ltr">len</code> فإنه يتصرف كغيره من الجموع:</p>
 <div id="f8038f72" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb14" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>v <span class="op">=</span> Vector(<span class="dv">10</span>, <span class="dv">20</span>)</span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="bu">print</span>(<span class="bu">len</span>(v))</span>
-<span id="cb14-3"><a href="#cb14-3"></a></span>
-<span id="cb14-4"><a href="#cb14-4"></a>xs <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>]</span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="bu">print</span>(<span class="bu">len</span>(xs))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> Vector(<span class="dv">10</span>, <span class="dv">20</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(v))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>]</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(xs))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>2
 3</code></pre>
 </div>
 </div>
-<p>ولتحقق أكثر، لاحظ أنك تستطيع استعمال الفعل المخصوص نفسه (بالشرطتين):</p>
+<p>بل إنك تستطيع استعمال الفعل المخصوص نفسه (بالشرطتين):</p>
 <div id="deb09231" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb16" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="cf">assert</span> <span class="bu">len</span>(v) <span class="op">==</span> v.<span class="fu">__len__</span>()</span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="cf">assert</span> <span class="bu">len</span>(xs) <span class="op">==</span> xs.<span class="fu">__len__</span>()</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">len</span>(v) <span class="op">==</span> v.<span class="fu">__len__</span>()</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">len</span>(xs) <span class="op">==</span> xs.<span class="fu">__len__</span>()</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>والفعل الذي يكون اسمه محصورًا بشرطتين سفليتين نحو: <code dir="ltr">__add__</code> فإنَّه من الأفعال المخصوصة بشيء من التراكيب اللغوية في بايثون. فهذا الفعل -مثلاً- ينوب عنه في لغة بايثون علامة الجمع: <code dir="ltr">+</code>.</p>
+<p>والفعل الذي يكون اسمه محصورًا بشرطتين سفليتين نحو: <code dir="ltr">__add__</code> فإنَّه من الأفعال المخصوصة بشيء من التراكيب اللغوية في بايثون. فهذا الفعل -مثلاً- ينوب عنه في لغة بايثون علامة الجمع: <code dir="ltr">+</code> وسيأتي بيانه في الفصل التالي: <a href="../../chapters/12_oop/a3_operators.html">المعاملات المخصصة</a>.</p>
 
 
 </section>

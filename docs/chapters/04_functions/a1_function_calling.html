@@ -628,9 +628,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>نحو: <code dir="ltr">print(*values)</code>. فعلامة النجمة (<code dir="ltr">*</code>) تشير لقبول <strong>عدد مطلق من العوامل</strong>. مثل:</li>
 </ul>
 <div id="6fd5c952" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>name <span class="op">=</span> <span class="st">"Adam"</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>age <span class="op">=</span> <span class="dv">25</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">print</span>(<span class="st">"My name is"</span>, name, <span class="st">"and I'm"</span>, age, <span class="st">"years old"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">"Adam"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"My name is"</span>, name, <span class="st">"and I'm"</span>, age, <span class="st">"years old"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>My name is Adam and I'm 25 years old</code></pre>
 </div>
@@ -645,7 +645,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>ولدينا الإجراء <code dir="ltr">help(func)</code> يطلب مساعدة الإجراء المعيَّن، بلا أقواس، هكذا:</p>
 <div id="c2d91100" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">help</span>(<span class="bu">sum</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(<span class="bu">sum</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>Help on built-in function sum in module builtins:
 
@@ -666,23 +666,23 @@ sum(iterable, /, start=0)
 <p>وفي كل ما سبق كانت العوامل من النوع المؤثر؛ لأنها كانت تؤثر في النتيجة ولا تتأثر بها.</p>
 <p>أما المتأثر فنحو فعل الترتيب من مكتبة القائمة: <code dir="ltr">list.sort(xs)</code> فإن المتأثر به القائمة نفسها، مثل:</p>
 <div id="ef3f77b0" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>xs <span class="op">=</span> [<span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>]</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="bu">list</span>.sort(xs)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> [<span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>.sort(xs)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>فأما جملة <code dir="ltr">list.sort</code> فإننا حددنا اسم النوع <code dir="ltr">list</code> وأردنا منه الإجراء <code dir="ltr">sort</code>، وأتينا بالقوسين لطلب تنفيذه، ووضعنا المتأثر <code dir="ltr">xs</code> فيه.</p>
 <p>ومع أننا لم نعيِّن النتيجة (بجملة التعيين <code dir="ltr">=</code>)، فقد تغيَّرت (تأثرت) القائمة بالإجراء:</p>
 <div id="cc0c073c" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="bu">print</span>(xs)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(xs)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>[10, 20, 30, 40]</code></pre>
 </div>
 </div>
 <p>بعكس الترتيب بالإجراء الذي ليس من النطاق العام: <code dir="ltr">sorted(xs)</code> فإنَّ القائمة فيه ليست متأثرًا؛ إذْ يُنتِجُ الإجراءُ قائمةً جديدةً ولا يغير القائمة المُدخلة:</p>
 <div id="4200abe2" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>xs <span class="op">=</span> [<span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>]</span>
-<span id="cb8-2"><a href="#cb8-2"></a>ys <span class="op">=</span> <span class="bu">sorted</span>(xs)</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="bu">print</span>(xs, <span class="st">"لم يعمل الإجراء في القائمة نفسها"</span>)</span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="bu">print</span>(ys, <span class="st">"هي قائمة جديدة"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> [<span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ys <span class="op">=</span> <span class="bu">sorted</span>(xs)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(xs, <span class="st">"لم يعمل الإجراء في القائمة نفسها"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ys, <span class="st">"هي قائمة جديدة"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>[40, 20, 10, 30] لم يعمل الإجراء في القائمة نفسها
 [10, 20, 30, 40] هي قائمة جديدة</code></pre>
@@ -701,11 +701,11 @@ sum(iterable, /, start=0)
 </ol>
 <p>ويجتمع المؤثر والمتأثر في نحو:</p>
 <div id="a3956aca" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">list</span>.append(xs, <span class="dv">50</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>.append(xs, <span class="dv">50</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>فالإجراء <code dir="ltr">list.append</code> يأخذ القائمة، ويضيف إليها القيمة <code dir="ltr">50</code>. ولذلك نقول الأوَّل متأثر والثاني مؤثر.</p>
 <div id="6d03908e" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="bu">print</span>(xs)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(xs)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>[40, 20, 10, 30, 50]</code></pre>
 </div>
@@ -717,16 +717,16 @@ sum(iterable, /, start=0)
 </ul>
 <p>ومثاله أيضًا في الإجراء <code dir="ltr">list.sort</code> للترتيب وكذلك في <code dir="ltr">list.append</code> للإضافة:</p>
 <div id="85db461a" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>xs <span class="op">=</span> [<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span>
-<span id="cb13-2"><a href="#cb13-2"></a>ys <span class="op">=</span> [<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span>
-<span id="cb13-3"><a href="#cb13-3"></a></span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="bu">list</span>.sort(xs)</span>
-<span id="cb13-5"><a href="#cb13-5"></a>ys.sort()</span>
-<span id="cb13-6"><a href="#cb13-6"></a><span class="cf">assert</span> xs <span class="op">==</span> ys</span>
-<span id="cb13-7"><a href="#cb13-7"></a></span>
-<span id="cb13-8"><a href="#cb13-8"></a><span class="bu">list</span>.append(xs, <span class="dv">50</span>)</span>
-<span id="cb13-9"><a href="#cb13-9"></a>ys.append(<span class="dv">50</span>)</span>
-<span id="cb13-10"><a href="#cb13-10"></a><span class="cf">assert</span> xs <span class="op">==</span> ys</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> [<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ys <span class="op">=</span> [<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>.sort(xs)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>ys.sort()</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> xs <span class="op">==</span> ys</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>.append(xs, <span class="dv">50</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>ys.append(<span class="dv">50</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> xs <span class="op">==</span> ys</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وسنفرد <a href="../../chapters/12_oop/a1_objects.html">للبرمجة الشيئية باباً</a>.</p>
 <p>وقد تُعَيَّنُ العوامل بأحد طريقتين:</p>

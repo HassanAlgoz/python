@@ -684,15 +684,15 @@ window.Quarto = {
 \]</span></p>
 <p>إذاً نعرِّف المعادلة في بايثون هكذا:</p>
 <div id="96374f0f" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> factorial(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co"># Recursive case (تسلسل)</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>    <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb1-4"><a href="#cb1-4"></a>        recursive_result <span class="op">=</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb1-5"><a href="#cb1-5"></a>        <span class="cf">return</span> n <span class="op">*</span> recursive_result</span>
-<span id="cb1-6"><a href="#cb1-6"></a>    <span class="co"># Terminal case (نهاية)</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>    <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a></span>
-<span id="cb1-9"><a href="#cb1-9"></a>factorial(<span class="dv">5</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> factorial(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Recursive case (تسلسل)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        recursive_result <span class="op">=</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> n <span class="op">*</span> recursive_result</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Terminal case (نهاية)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>factorial(<span class="dv">5</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre dir="ltr"><code>120</code></pre>
 </div>
@@ -706,20 +706,20 @@ window.Quarto = {
 <div id="3e350680" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>الكود</summary>
-<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> factorial(n: <span class="bu">int</span>, depth: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a>    <span class="co"># Recursive case (تسلسل)</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'  '</span> <span class="op">*</span> depth<span class="sc">}</span><span class="ss">Call factorial(</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5"></a>    <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb3-6"><a href="#cb3-6"></a>        result <span class="op">=</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>, depth <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb3-7"><a href="#cb3-7"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'  '</span> <span class="op">*</span> depth<span class="sc">}</span><span class="ss">Return </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss"> from factorial(</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb3-8"><a href="#cb3-8"></a>        <span class="cf">return</span> result</span>
-<span id="cb3-9"><a href="#cb3-9"></a>    </span>
-<span id="cb3-10"><a href="#cb3-10"></a>    <span class="co"># Terminal case (نهاية)</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'  '</span> <span class="op">*</span> depth<span class="sc">}</span><span class="ss">Return 1 from factorial(</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb3-12"><a href="#cb3-12"></a>    <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a></span>
-<span id="cb3-14"><a href="#cb3-14"></a>factorial(<span class="dv">5</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> factorial(n: <span class="bu">int</span>, depth: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Recursive case (تسلسل)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'  '</span> <span class="op">*</span> depth<span class="sc">}</span><span class="ss">Call factorial(</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>, depth <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'  '</span> <span class="op">*</span> depth<span class="sc">}</span><span class="ss">Return </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss"> from factorial(</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> result</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Terminal case (نهاية)</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'  '</span> <span class="op">*</span> depth<span class="sc">}</span><span class="ss">Return 1 from factorial(</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>factorial(<span class="dv">5</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>Call factorial(5)

@@ -619,24 +619,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="الأجزاء-المنتمية-إلى-الكل">الأجزاء المنتمية إلى الكل</h2>
 <p>أو الاختصارات إلى الكلمة التامة:</p>
 <div id="48e2eda9" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>animal_class <span class="op">=</span> {</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="st">"Dog"</span>: <span class="st">"Mammalia"</span>,</span>
-<span id="cb1-3"><a href="#cb1-3"></a>    <span class="st">"Cat"</span>: <span class="st">"Mammalia"</span>,</span>
-<span id="cb1-4"><a href="#cb1-4"></a>    <span class="st">"Elephant"</span>: <span class="st">"Mammalia"</span>,</span>
-<span id="cb1-5"><a href="#cb1-5"></a>    <span class="st">"Snake"</span>: <span class="st">"Reptilia"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6"></a>    <span class="st">"Lizard"</span>: <span class="st">"Reptilia"</span>,</span>
-<span id="cb1-7"><a href="#cb1-7"></a>    <span class="st">"Frog"</span>: <span class="st">"Amphibia"</span>,</span>
-<span id="cb1-8"><a href="#cb1-8"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>animal_class <span class="op">=</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dog"</span>: <span class="st">"Mammalia"</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cat"</span>: <span class="st">"Mammalia"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Elephant"</span>: <span class="st">"Mammalia"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Snake"</span>: <span class="st">"Reptilia"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Lizard"</span>: <span class="st">"Reptilia"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Frog"</span>: <span class="st">"Amphibia"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>نريد عكس هذه القائمة أيضًا بحيث نستطيع أن نعرف من الصنف كل الحيوانات المتنمية إليه.</p>
 <p>نأتي على جميع المفاتيح في القاموس الأول ونضيفها بحسب القيمة التي تقابلها:</p>
 <div id="89148323" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>class_animal <span class="op">=</span> {}</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="cf">for</span> animal, clazz <span class="kw">in</span> animal_class.items():</span>
-<span id="cb2-3"><a href="#cb2-3"></a>    <span class="cf">if</span> clazz <span class="kw">not</span> <span class="kw">in</span> class_animal:</span>
-<span id="cb2-4"><a href="#cb2-4"></a>        class_animal[clazz] <span class="op">=</span> []</span>
-<span id="cb2-5"><a href="#cb2-5"></a>    class_animal[clazz].append(animal)</span>
-<span id="cb2-6"><a href="#cb2-6"></a>class_animal</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>class_animal <span class="op">=</span> {}</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> animal, clazz <span class="kw">in</span> animal_class.items():</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> clazz <span class="kw">not</span> <span class="kw">in</span> class_animal:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        class_animal[clazz] <span class="op">=</span> []</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    class_animal[clazz].append(animal)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>class_animal</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre dir="ltr"><code>{'Mammalia': ['Dog', 'Cat', 'Elephant'],
  'Reptilia': ['Snake', 'Lizard'],
@@ -649,56 +649,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="سلة-المشتريات">سلة المشتريات</h2>
 <p>نفترض أن لدينا سلة تحتوي على مشتريات العميل (<code dir="ltr">basket</code>)، ونريد حساب القيمة الإجمالية لها، ولدينا قائمة بأسعار الفواكه. فنعرف الأسعار على أنها قاموس <code dir="ltr">prices</code> بحيث يشير اسم الفاكهة إلى سعرها (قيمتها المالية).</p>
 <div id="97dd8ee2" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>prices <span class="op">=</span> {</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    <span class="st">'apple'</span>: <span class="fl">15.25</span>,</span>
-<span id="cb4-3"><a href="#cb4-3"></a>    <span class="st">'banana'</span>: <span class="fl">10.50</span>,</span>
-<span id="cb4-4"><a href="#cb4-4"></a>    <span class="st">'orange'</span>: <span class="fl">5.75</span>,</span>
-<span id="cb4-5"><a href="#cb4-5"></a>    <span class="st">'cantaloupe'</span>: <span class="fl">40.00</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>prices <span class="op">=</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'apple'</span>: <span class="fl">15.25</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'banana'</span>: <span class="fl">10.50</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'orange'</span>: <span class="fl">5.75</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'cantaloupe'</span>: <span class="fl">40.00</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>يجوز تحديث الأسعار هكذا:</p>
 <div id="dd4bac79" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>prices[<span class="st">'banana'</span>] <span class="op">=</span> <span class="dv">12</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>prices[<span class="st">'orange'</span>] <span class="op">=</span> <span class="dv">15</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>prices[<span class="st">'banana'</span>] <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>prices[<span class="st">'orange'</span>] <span class="op">=</span> <span class="dv">15</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>أو تحديثها بالإجراء <code dir="ltr">update()</code>:</p>
 <div id="75f7d643" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>prices.update({<span class="st">'banana'</span>: <span class="dv">12</span>, <span class="st">'orange'</span>: <span class="dv">15</span>})</span>
-<span id="cb6-2"><a href="#cb6-2"></a>prices</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>prices.update({<span class="st">'banana'</span>: <span class="dv">12</span>, <span class="st">'orange'</span>: <span class="dv">15</span>})</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>prices</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre dir="ltr"><code>{'apple': 15.25, 'banana': 12, 'orange': 15, 'cantaloupe': 40.0}</code></pre>
 </div>
 </div>
 <p>والآن نفترض أن لدينا قائمة بالفواكه التي يريدها العميل:</p>
 <div id="afe09e40" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>basket <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>, <span class="st">'banana'</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>basket <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>, <span class="st">'banana'</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>نحسب سعر كل فاكهة في السلة بناءً على الأسعار الموجودة في القاموس:</p>
 <div id="86c90513" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="cf">for</span> fruit <span class="kw">in</span> basket:</span>
-<span id="cb9-4"><a href="#cb9-4"></a>    total <span class="op">+=</span> prices[fruit]</span>
-<span id="cb9-5"><a href="#cb9-5"></a></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="bu">print</span>(total)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fruit <span class="kw">in</span> basket:</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    total <span class="op">+=</span> prices[fruit]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>69.5</code></pre>
 </div>
 </div>
 <p>أو تستطيع أن تعدها أولاً ثم تضربها بالسعر:</p>
 <div id="f156973c" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>counts <span class="op">=</span> <span class="bu">dict</span>()</span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="cf">for</span> fruit <span class="kw">in</span> <span class="bu">set</span>(basket):</span>
-<span id="cb11-3"><a href="#cb11-3"></a>    counts[fruit] <span class="op">=</span> basket.count(fruit)</span>
-<span id="cb11-4"><a href="#cb11-4"></a>counts</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fruit <span class="kw">in</span> <span class="bu">set</span>(basket):</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    counts[fruit] <span class="op">=</span> basket.count(fruit)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>counts</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre dir="ltr"><code>{'banana': 2, 'apple': 2, 'orange': 1}</code></pre>
 </div>
 </div>
 <p>ثم تضربها بالسعر:</p>
 <div id="c8f786df" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>total <span class="op">=</span> <span class="bu">sum</span>(counts[fruit] <span class="op">*</span> prices[fruit] <span class="cf">for</span> fruit <span class="kw">in</span> counts)</span>
-<span id="cb13-2"><a href="#cb13-2"></a>total</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="bu">sum</span>(counts[fruit] <span class="op">*</span> prices[fruit] <span class="cf">for</span> fruit <span class="kw">in</span> counts)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>total</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre dir="ltr"><code>69.5</code></pre>
 </div>
@@ -709,36 +709,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>تقدم معنا الكلام عن <a href="../../chapters/05_sequences/a_sequences.html#الإنشاء-المختصر-الجملة-الثلاثية">الإنشاء المختصر</a>. وسنستعرضه الآن مع القاموس.</p>
 <p>هنا مثال لقاموس من الفواكه، نريد ترشيح ما قيمته أقل من 20:</p>
 <div id="f81c9cf6" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>menu <span class="op">=</span> {</span>
-<span id="cb15-2"><a href="#cb15-2"></a>    <span class="st">'apple'</span>: <span class="dv">15</span>,</span>
-<span id="cb15-3"><a href="#cb15-3"></a>    <span class="st">'banana'</span>: <span class="dv">10</span>,</span>
-<span id="cb15-4"><a href="#cb15-4"></a>    <span class="st">'orange'</span>: <span class="dv">5</span>,</span>
-<span id="cb15-5"><a href="#cb15-5"></a>    <span class="st">'cantaloupe'</span>: <span class="dv">40</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a>}</span>
-<span id="cb15-7"><a href="#cb15-7"></a></span>
-<span id="cb15-8"><a href="#cb15-8"></a>filtered_menu <span class="op">=</span> {k: v <span class="cf">for</span> k, v <span class="kw">in</span> menu.items() <span class="cf">if</span> v <span class="op">&lt;</span> <span class="dv">20</span>}</span>
-<span id="cb15-9"><a href="#cb15-9"></a>filtered_menu</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>menu <span class="op">=</span> {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'apple'</span>: <span class="dv">15</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'banana'</span>: <span class="dv">10</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'orange'</span>: <span class="dv">5</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'cantaloupe'</span>: <span class="dv">40</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>filtered_menu <span class="op">=</span> {k: v <span class="cf">for</span> k, v <span class="kw">in</span> menu.items() <span class="cf">if</span> v <span class="op">&lt;</span> <span class="dv">20</span>}</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>filtered_menu</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre dir="ltr"><code>{'apple': 15, 'banana': 10, 'orange': 5}</code></pre>
 </div>
 </div>
 <p>وهذا مثال أكثر تعقيدًا. نطبق خصم 20% فقط على العناصر التي يكون سعرها أعلى من المتوسط، مع الحفاظ على بقية الأسعار كما هي. لاحظ أن التعبير هنا هو تعيين شرطي: <code dir="ltr">value * (1 - discount) if value &gt; avg_price else value</code> وليس هو قطعة الترشيح (<code dir="ltr">if</code>)؛ إذ تلك تأتي في نهاية الجملة، بعد قطعة التكرار (<code dir="ltr">for</code>).</p>
 <div id="9372dde9" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>menu <span class="op">=</span> {</span>
-<span id="cb17-2"><a href="#cb17-2"></a>    <span class="st">'apple'</span>: <span class="dv">15</span>,</span>
-<span id="cb17-3"><a href="#cb17-3"></a>    <span class="st">'banana'</span>: <span class="dv">10</span>,</span>
-<span id="cb17-4"><a href="#cb17-4"></a>    <span class="st">'orange'</span>: <span class="dv">5</span>,</span>
-<span id="cb17-5"><a href="#cb17-5"></a>    <span class="st">'cantaloupe'</span>: <span class="dv">40</span></span>
-<span id="cb17-6"><a href="#cb17-6"></a>}</span>
-<span id="cb17-7"><a href="#cb17-7"></a></span>
-<span id="cb17-8"><a href="#cb17-8"></a>avg_price <span class="op">=</span> <span class="bu">sum</span>(menu.values()) <span class="op">/</span> <span class="bu">len</span>(menu)</span>
-<span id="cb17-9"><a href="#cb17-9"></a>discount <span class="op">=</span> <span class="fl">0.20</span></span>
-<span id="cb17-10"><a href="#cb17-10"></a></span>
-<span id="cb17-11"><a href="#cb17-11"></a>discounted_menu <span class="op">=</span> {</span>
-<span id="cb17-12"><a href="#cb17-12"></a>    k: v <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> discount) <span class="cf">if</span> v <span class="op">&gt;</span> avg_price <span class="cf">else</span> v</span>
-<span id="cb17-13"><a href="#cb17-13"></a>    <span class="cf">for</span> k, v <span class="kw">in</span> menu.items()</span>
-<span id="cb17-14"><a href="#cb17-14"></a>}</span>
-<span id="cb17-15"><a href="#cb17-15"></a>discounted_menu</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>menu <span class="op">=</span> {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'apple'</span>: <span class="dv">15</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'banana'</span>: <span class="dv">10</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'orange'</span>: <span class="dv">5</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'cantaloupe'</span>: <span class="dv">40</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>avg_price <span class="op">=</span> <span class="bu">sum</span>(menu.values()) <span class="op">/</span> <span class="bu">len</span>(menu)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>discount <span class="op">=</span> <span class="fl">0.20</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>discounted_menu <span class="op">=</span> {</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    k: v <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> discount) <span class="cf">if</span> v <span class="op">&gt;</span> avg_price <span class="cf">else</span> v</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k, v <span class="kw">in</span> menu.items()</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>discounted_menu</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre dir="ltr"><code>{'apple': 15, 'banana': 10, 'orange': 5, 'cantaloupe': 32.0}</code></pre>
 </div>

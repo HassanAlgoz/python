@@ -672,28 +672,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>الشيء الأساسي الذي نتعامل معه هو <strong>المسار</strong> (<a href="https://docs.python.org/3/library/pathlib.html#concrete-paths"><code dir="ltr">Path</code></a>):</p>
 <div id="0351d41f" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="im">from</span> pathlib <span class="im">import</span> PureWindowsPath</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> PureWindowsPath</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>يُنشأ المسار من نص أو مجموعة نصوص بينها علامة <code dir="ltr">/</code> (وهي في الأصل علامة قسمة إذا وُضعت بين الأرقام) التي تعني ضم النص إلى المسار.</p>
 <p>لاحظ استعمال <strong>النص الخام</strong> <code dir="ltr">r''</code> لكون الحرف <code dir="ltr">\</code> له معنىً خاص في نصوص بايثون، فهو يستعمل مثلا <code dir="ltr">\n</code> للانتقال لسطر جديد. لكن حين نستعمل <code dir="ltr">r''</code> فإن الحرف <code dir="ltr">\</code> لا يعني شيئًا خاصًا.</p>
 <div id="e445e541" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">assert</span> (</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    Path(<span class="st">'../../datasets/example_root/a/a.txt'</span>).as_posix() <span class="op">==</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a>    PureWindowsPath(<span class="vs">r'..\..\datasets\example_root\a\a.txt'</span>).as_posix() <span class="op">==</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a>    (Path(<span class="st">'../../datasets'</span>) <span class="op">/</span> <span class="st">'example_root'</span> <span class="op">/</span> <span class="st">'a'</span> <span class="op">/</span> <span class="st">'a.txt'</span>).as_posix()</span>
-<span id="cb2-5"><a href="#cb2-5"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    Path(<span class="st">'../../datasets/example_root/a/a.txt'</span>).as_posix() <span class="op">==</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    PureWindowsPath(<span class="vs">r'..\..\datasets\example_root\a\a.txt'</span>).as_posix() <span class="op">==</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    (Path(<span class="st">'../../datasets'</span>) <span class="op">/</span> <span class="st">'example_root'</span> <span class="op">/</span> <span class="st">'a'</span> <span class="op">/</span> <span class="st">'a.txt'</span>).as_posix()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ملاحظة، عند نسخ المسارات في نظام ويندوز (Windows)، يجب عليك إما استبدال الشرطات المائلة العكسية <code dir="ltr">\</code> بالشرطات المائلة الأمامية <code dir="ltr">/</code> أو استخدام السلاسل النصية الخام <code dir="ltr">r''</code> لتجنب المشاكل (كما فعلنا أعلاه).</p>
 <p>وهكذا نستطيع استعمال الكائن <code dir="ltr">Path</code> في فعل <code dir="ltr">open(file=path)</code> للتعامل مع الملفات:</p>
 <div id="e467724f" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>p <span class="op">=</span> Path(<span class="st">'../../datasets/example_root/a/a.txt'</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="bu">file</span><span class="op">=</span>p, mode<span class="op">=</span><span class="st">'r'</span>)</span>
-<span id="cb3-4"><a href="#cb3-4"></a>content <span class="op">=</span> f.read()</span>
-<span id="cb3-5"><a href="#cb3-5"></a>f.close()</span>
-<span id="cb3-6"><a href="#cb3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="bu">print</span>(content)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Path(<span class="st">'../../datasets/example_root/a/a.txt'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="bu">file</span><span class="op">=</span>p, mode<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>content <span class="op">=</span> f.read()</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>f.close()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(content)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>lorem ipsum dolfet
 weilfur badem zelfur</code></pre>
@@ -701,12 +701,12 @@ weilfur badem zelfur</code></pre>
 </div>
 <p>ولأن الملف يعتبر <a href="https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers"><strong>مدير سياق</strong> (Context Manager)</a> فيستحسن الإتيان بجملة السياق <code dir="ltr">with</code> إذ تتكفل بإغلاق الملف تلقائيّا عند نهايتها. وذلك على النحو التالي:</p>
 <div id="f7818e4e" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>p <span class="op">=</span> Path(<span class="st">'../../datasets/example_root/a/a.txt'</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a>contents <span class="op">=</span> <span class="st">''</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="bu">file</span><span class="op">=</span>p, mode<span class="op">=</span><span class="st">'r'</span>) <span class="im">as</span> f:</span>
-<span id="cb5-5"><a href="#cb5-5"></a>    contents <span class="op">=</span> f.read()</span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="bu">print</span>(contents)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Path(<span class="st">'../../datasets/example_root/a/a.txt'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>contents <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="bu">file</span><span class="op">=</span>p, mode<span class="op">=</span><span class="st">'r'</span>) <span class="im">as</span> f:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    contents <span class="op">=</span> f.read()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(contents)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>lorem ipsum dolfet
 weilfur badem zelfur</code></pre>
@@ -714,12 +714,12 @@ weilfur badem zelfur</code></pre>
 </div>
 <p>بدلاً من قراءة الملف جملة واحدة <code dir="ltr">.read()</code> نستطيع القراءة سطرًا بسطر عن طريق الإجراء <code dir="ltr">.readline()</code> على النحو التالي:</p>
 <div id="261a1203" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>p <span class="op">=</span> Path(<span class="st">'../../datasets/example_root/a/a.txt'</span>)</span>
-<span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="bu">file</span><span class="op">=</span>p, mode<span class="op">=</span><span class="st">'r'</span>) <span class="im">as</span> f:</span>
-<span id="cb7-4"><a href="#cb7-4"></a>    <span class="cf">for</span> i, line <span class="kw">in</span> <span class="bu">enumerate</span>(f, start<span class="op">=</span><span class="dv">1</span>):</span>
-<span id="cb7-5"><a href="#cb7-5"></a>        line <span class="op">=</span> line.rstrip()</span>
-<span id="cb7-6"><a href="#cb7-6"></a>        <span class="bu">print</span>(<span class="ss">f'Line </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>line<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Path(<span class="st">'../../datasets/example_root/a/a.txt'</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="bu">file</span><span class="op">=</span>p, mode<span class="op">=</span><span class="st">'r'</span>) <span class="im">as</span> f:</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, line <span class="kw">in</span> <span class="bu">enumerate</span>(f, start<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        line <span class="op">=</span> line.rstrip()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Line </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>line<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>Line 1: lorem ipsum dolfet
 Line 2: weilfur badem zelfur</code></pre>
@@ -731,9 +731,9 @@ Line 2: weilfur badem zelfur</code></pre>
 <p>انظر <a href="https://docs.python.org/3/library/pathlib.html#reading-directories">قراءة الأدلة</a>.</p>
 <p>لعرض قائمة الدليل، نستعمل المكرر الناتج من فعل <code dir="ltr">.iterdir()</code> ونكرر عليه، وهو بدورِه يُنتج في كل كرةٍ <strong>مساراً</strong> (<code dir="ltr">x</code>). وهذا المسار يُمكن التحقق من أنه يشير إلى دليل أو لا (<code dir="ltr">x.is_dir()</code>) على النحو التالي:</p>
 <div id="67bc454c" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>p <span class="op">=</span> Path(<span class="st">'../../datasets/example_root/'</span>)</span>
-<span id="cb9-2"><a href="#cb9-2"></a>dirs <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> p.iterdir() <span class="cf">if</span> x.is_dir()]</span>
-<span id="cb9-3"><a href="#cb9-3"></a>dirs</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Path(<span class="st">'../../datasets/example_root/'</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>dirs <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> p.iterdir() <span class="cf">if</span> x.is_dir()]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>dirs</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre dir="ltr"><code>[PosixPath('../../datasets/example_root/a'),
  PosixPath('../../datasets/example_root/b'),
@@ -744,26 +744,26 @@ Line 2: weilfur badem zelfur</code></pre>
 <h4 class="anchored" data-anchor-id="جرب">جرب</h4>
 <p>هل تريد أن تعرف حجم دليل التنزيلات (Downloads) في جهازك؟. لديك الإجراء <code dir="ltr">stat()</code> للحصول على بيانات عن الدليل، والتي من ضمنها الحجم (<code dir="ltr">st_size</code>) هكذا:</p>
 <div id="85be854c" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>p <span class="op">=</span> Path.home() <span class="op">/</span> <span class="st">'Downloads'</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>size <span class="op">=</span> p.stat().st_size</span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="bu">print</span>(size, <span class="st">'bytes'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Path.home() <span class="op">/</span> <span class="st">'Downloads'</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>size <span class="op">=</span> p.stat().st_size</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(size, <span class="st">'bytes'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>12288 bytes</code></pre>
 </div>
 </div>
 <p>ثم هذا الإجراء لتحويل الوِحدة من البايت إلى الكيلو والميجا والقيقا:</p>
 <div id="2e8ca07d" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">def</span> format_size(size):</span>
-<span id="cb13-2"><a href="#cb13-2"></a>    size_kb <span class="op">=</span> size <span class="op">/</span> <span class="dv">1024</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a>    size_mb <span class="op">=</span> size_kb <span class="op">/</span> <span class="dv">1024</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a>    size_gb <span class="op">=</span> size_mb <span class="op">/</span> <span class="dv">1024</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a>    <span class="cf">if</span> size_gb <span class="op">&gt;</span> <span class="fl">0.1</span>:</span>
-<span id="cb13-6"><a href="#cb13-6"></a>        <span class="cf">return</span> <span class="ss">f'</span><span class="sc">{</span>size_gb<span class="sc">:.2f}</span><span class="ss"> GB'</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a>    <span class="cf">elif</span> size_mb <span class="op">&gt;</span> <span class="fl">0.1</span>:</span>
-<span id="cb13-8"><a href="#cb13-8"></a>        <span class="cf">return</span> <span class="ss">f'</span><span class="sc">{</span>size_mb<span class="sc">:.2f}</span><span class="ss"> MB'</span></span>
-<span id="cb13-9"><a href="#cb13-9"></a>    <span class="cf">return</span> <span class="ss">f'</span><span class="sc">{</span>size_kb<span class="sc">:.2f}</span><span class="ss"> KB'</span></span>
-<span id="cb13-10"><a href="#cb13-10"></a></span>
-<span id="cb13-11"><a href="#cb13-11"></a><span class="bu">print</span>(format_size(size))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> format_size(size):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    size_kb <span class="op">=</span> size <span class="op">/</span> <span class="dv">1024</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    size_mb <span class="op">=</span> size_kb <span class="op">/</span> <span class="dv">1024</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    size_gb <span class="op">=</span> size_mb <span class="op">/</span> <span class="dv">1024</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> size_gb <span class="op">&gt;</span> <span class="fl">0.1</span>:</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f'</span><span class="sc">{</span>size_gb<span class="sc">:.2f}</span><span class="ss"> GB'</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> size_mb <span class="op">&gt;</span> <span class="fl">0.1</span>:</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f'</span><span class="sc">{</span>size_mb<span class="sc">:.2f}</span><span class="ss"> MB'</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f'</span><span class="sc">{</span>size_kb<span class="sc">:.2f}</span><span class="ss"> KB'</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(format_size(size))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>12.00 KB</code></pre>
 </div>
@@ -776,12 +776,12 @@ Line 2: weilfur badem zelfur</code></pre>
 <p>انظر <a href="https://docs.python.org/3/library/pathlib.html#pathlib-pattern-language">لغة الأنماط</a> لتتعلم هذه اللغة الصغيرة.</p>
 <p>في هذا المثال نبحث عن ملفات الصُّوَر التي بصيغة <code dir="ltr">.jpg</code> لنحسب حجم مجموع ملفات الصور لدينا داخل المسار <code dir="ltr">datasets/pathlib</code> وما يتفرع عن هذه الشجرة نزولاً إلى الأبد (وذلك بنمط: <code dir="ltr">**/*.jpg</code>):</p>
 <div id="aaf5cedd" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>total_size <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="cf">for</span> p <span class="kw">in</span> Path(<span class="st">'../../datasets/example_root/'</span>).glob(<span class="st">'**/*.jpg'</span>):</span>
-<span id="cb15-3"><a href="#cb15-3"></a>    total_size <span class="op">+=</span> p.stat().st_size</span>
-<span id="cb15-4"><a href="#cb15-4"></a></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="bu">print</span>(<span class="st">'Total size:'</span>, total_size, <span class="st">'bytes'</span>)</span>
-<span id="cb15-6"><a href="#cb15-6"></a><span class="bu">print</span>(<span class="st">'Total size:'</span>, format_size(total_size))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>total_size <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> Path(<span class="st">'../../datasets/example_root/'</span>).glob(<span class="st">'**/*.jpg'</span>):</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    total_size <span class="op">+=</span> p.stat().st_size</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Total size:'</span>, total_size, <span class="st">'bytes'</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Total size:'</span>, format_size(total_size))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>Total size: 999702 bytes
 Total size: 0.95 MB</code></pre>
@@ -792,12 +792,12 @@ Total size: 0.95 MB</code></pre>
 <h3 class="anchored" data-anchor-id="المشي-على-جميع-ملفات-الشجرة">المشي على جميع ملفات الشجرة</h3>
 <p>نستعمل الإجراء <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk"><code dir="ltr">walk</code></a> للسير على جميع ملفات الشجرة نزولاً أو صعودًا؛ على هذا النحو:</p>
 <div id="daecdf7c" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>p <span class="op">=</span> Path(<span class="st">'../../datasets/example_root/'</span>)</span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="cf">for</span> dirpath, dirnames, filenames <span class="kw">in</span> p.walk(top_down<span class="op">=</span><span class="va">True</span>):</span>
-<span id="cb17-3"><a href="#cb17-3"></a>    <span class="bu">print</span>(dirpath)</span>
-<span id="cb17-4"><a href="#cb17-4"></a>    <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> filenames:</span>
-<span id="cb17-5"><a href="#cb17-5"></a>        <span class="bu">print</span>(<span class="ss">f'</span><span class="ch">\t</span><span class="sc">{</span><span class="bu">file</span><span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb17-6"><a href="#cb17-6"></a>        <span class="co"># print('\tFULL PATH:', Path(dirpath) / file)</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Path(<span class="st">'../../datasets/example_root/'</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> dirpath, dirnames, filenames <span class="kw">in</span> p.walk(top_down<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(dirpath)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> filenames:</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'</span><span class="ch">\t</span><span class="sc">{</span><span class="bu">file</span><span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># print('\tFULL PATH:', Path(dirpath) / file)</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>../../datasets/example_root
     something.txt

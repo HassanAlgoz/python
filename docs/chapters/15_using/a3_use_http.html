@@ -680,7 +680,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p><strong>المحتوى</strong> (Body) هي البيانات المُرْسَلة أو المُسْتَلَمة؛ سواءٌ في الطلب أو جوابه.</p>
 <p>مثلا بيانات عبارة عن قاموس بصيغة JSON:</p>
-<div class="sourceCode" id="cb2" dir="ltr"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">{</span><span class="dt">"name"</span><span class="fu">:</span> <span class="st">"John"</span><span class="fu">,</span> <span class="dt">"age"</span><span class="fu">:</span> <span class="dv">30</span><span class="fu">}</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2" dir="ltr"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">"name"</span><span class="fu">:</span> <span class="st">"John"</span><span class="fu">,</span> <span class="dt">"age"</span><span class="fu">:</span> <span class="dv">30</span><span class="fu">}</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="جواب-الطلب" class="level3">
 <h3 class="anchored" data-anchor-id="جواب-الطلب">جواب الطلب</h3>
@@ -706,7 +706,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="مثال-خدمة-صور-القطط">مثال: خدمة صور القطط</h2>
 <p>ماذا لو لم تتوفَّر مكتبة خاصَّة بمزوِّد الخدمة؟ في هذه الحالة سنكتب نحن تفاصيل الاتصال بالخادم المزوِّد. وذلك يتطلب معرفة لغة التخاطب بين الخادم والعميل (HTTP).</p>
 <p>يجب علينا أولاً تثبيت مكتبة <a href="https://www.python-httpx.org/"><code dir="ltr">httpx</code></a> باستعمال <code dir="ltr">uv</code>:</p>
-<div class="sourceCode" id="cb3" dir="ltr"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">uv</span> add httpx</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3" dir="ltr"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add httpx</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>ونمثل لمزود خدمة معلومات عن القطط (<a href="https://thecatapi.com/">The Cat API</a>)، وقد حصلنا على مفتاح التطبيق (API KEY) من خلال التسجيل في الموقع.</p>
 <p>ولمعرفة الاستفادة من أي مزود خدمة، فإننا ندخل إلى صفحة المطورين، وتسمى (<a href="https://developers.thecatapi.com/">API Documentation</a>). ومنها نعرف أن المسار الذي يجب أن نطلبه هو <code dir="ltr">https://api.thecatapi.com/v1/images/search</code>، وهو يعطينا صورة قط عشوائية.</p>
 <p>باستعمال مكتبة عامة لعميل HTTP يمكننا الوصول لأي خدمة مقدَّمة من جهة خادم يتخاطب بلغة HTTP. وهو ما يُعرف أيضًا بخادم ويب (Web Server). فها نحن هنا نحدد جميع ما نريد:</p>
@@ -736,25 +736,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div id="b5c29828" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> httpx</span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a>client <span class="op">=</span> httpx.Client()</span>
-<span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a>request <span class="op">=</span> client.build_request(</span>
-<span id="cb4-6"><a href="#cb4-6"></a>    method<span class="op">=</span><span class="st">"GET"</span>,</span>
-<span id="cb4-7"><a href="#cb4-7"></a>    url<span class="op">=</span><span class="st">"https://api.thecatapi.com/v1/images/search"</span>,</span>
-<span id="cb4-8"><a href="#cb4-8"></a>    headers<span class="op">=</span>{</span>
-<span id="cb4-9"><a href="#cb4-9"></a>        <span class="st">"x-api-key"</span>: <span class="st">"live_9Cj8P0h75D5h2D7Y2H8MYEuuTmTXjT412xNlbVBouHxn2sEnAjr1dr4JMfIn4Mr4"</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a>    }</span>
-<span id="cb4-11"><a href="#cb4-11"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> httpx.Client()</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>request <span class="op">=</span> client.build_request(</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    method<span class="op">=</span><span class="st">"GET"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    url<span class="op">=</span><span class="st">"https://api.thecatapi.com/v1/images/search"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    headers<span class="op">=</span>{</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"x-api-key"</span>: <span class="st">"live_9Cj8P0h75D5h2D7Y2H8MYEuuTmTXjT412xNlbVBouHxn2sEnAjr1dr4JMfIn4Mr4"</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وفي الواقع يتم تكوين الطلب كنص (string) بهذا الشكل (ونحن هنا نطبعه بصيغته النصية لغرضٍ تعليمي):</p>
 <div id="8a1ad378" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="bu">print</span>(<span class="ss">f"""</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="sc">{</span>request<span class="sc">.</span>method<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>request<span class="sc">.</span>url<span class="sc">.</span>path<span class="sc">}</span><span class="ss"> HTTP/1.1</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="sc">{</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="sc">.</span>join([<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> k, v <span class="kw">in</span> request.headers.items()])<span class="sc">}</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="ss">"""</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"""</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="sc">{</span>request<span class="sc">.</span>method<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>request<span class="sc">.</span>url<span class="sc">.</span>path<span class="sc">}</span><span class="ss"> HTTP/1.1</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="sc">{</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="sc">.</span>join([<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> k, v <span class="kw">in</span> request.headers.items()])<span class="sc">}</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>
 GET /v1/images/search HTTP/1.1
@@ -789,16 +789,16 @@ x-api-key: live_9Cj8P0h75D5h2D7Y2H8MYEuuTmTXjT412xNlbVBouHxn2sEnAjr1dr4JMfIn4Mr4
 </ul>
 <p>وبعد ذلك نرسل الطلب بالإجراء <code dir="ltr">send</code> ونحصل على جواب <code dir="ltr">response</code>:</p>
 <div id="1d86a2f9" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>response <span class="op">=</span> client.send(request)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> client.send(request)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>والجواب نفسه له الصيغة النصية التالية:</p>
 <div id="fd6969f8" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="bu">print</span>(<span class="ss">f"""</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="sc">{</span>response<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>response<span class="sc">.</span>reason_phrase<span class="sc">}</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="sc">{</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="sc">.</span>join([<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> k, v <span class="kw">in</span> response.headers.items()])<span class="sc">}</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a></span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="sc">{</span>response<span class="sc">.</span>text<span class="sc">}</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="ss">"""</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"""</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="sc">{</span>response<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>response<span class="sc">.</span>reason_phrase<span class="sc">}</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="sc">{</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="sc">.</span>join([<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> k, v <span class="kw">in</span> response.headers.items()])<span class="sc">}</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="sc">{</span>response<span class="sc">.</span>text<span class="sc">}</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>
 200 OK
@@ -829,8 +829,8 @@ content-length: 89
 <pre dir="ltr"><code>[{"id": ... ,"url": ... , ... }]</code></pre>
 <p>وإذا نظرت إلى النصّ الموجود في محتوى الرد (<code dir="ltr">response.text</code>) فإنك ستلاحظ أنه نصُّ مقوْلَب بصيغة JSON التي سبق الحديث عنها:</p>
 <div id="8bfde690" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb14" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="bu">print</span>(<span class="bu">type</span>(response.text))</span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="bu">print</span>(response.text)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(response.text))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.text)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>&lt;class 'str'&gt;
 [{"id":"2ml","url":"https://cdn2.thecatapi.com/images/2ml.jpg","width":500,"height":340}]</code></pre>
@@ -838,9 +838,9 @@ content-length: 89
 </div>
 <p>ولكن هذا النص لا يمكن التعامل معه كما هو، لذلك نستخدم الإجراء <code dir="ltr">json()</code> لتفسيره إلى شيء في بايثون (قائمة):</p>
 <div id="7f1bf09e" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb16" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>data <span class="op">=</span> response.json()</span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="bu">print</span>(<span class="bu">type</span>(data))</span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="bu">print</span>(data)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> response.json()</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(data))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>&lt;class 'list'&gt;
 [{'id': '2ml', 'url': 'https://cdn2.thecatapi.com/images/2ml.jpg', 'width': 500, 'height': 340}]</code></pre>
@@ -848,8 +848,8 @@ content-length: 89
 </div>
 <p>الآن أصبح في هيكل بيانات يمكن التعامل معه. فنريد استخراج رابط الصورة منه:</p>
 <div id="3ee77844" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb18" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>image_url <span class="op">=</span> data[<span class="dv">0</span>][<span class="st">"url"</span>]</span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="bu">print</span>(image_url)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>image_url <span class="op">=</span> data[<span class="dv">0</span>][<span class="st">"url"</span>]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(image_url)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>https://cdn2.thecatapi.com/images/2ml.jpg</code></pre>
 </div>
@@ -858,9 +858,9 @@ content-length: 89
 <div id="b0f6b375" class="cell" data-code-caption="نستعمل هذا الكود لعرض الصورة في صفحة الكتاب" data-execution_count="9">
 <details class="code-fold">
 <summary>الكود</summary>
-<div class="sourceCode cell-code" id="cb20" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Image, display</span>
-<span id="cb20-2"><a href="#cb20-2"></a></span>
-<span id="cb20-3"><a href="#cb20-3"></a>display(Image(url<span class="op">=</span>image_url))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Image, display</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>display(Image(url<span class="op">=</span>image_url))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <img src="https://cdn2.thecatapi.com/images/2ml.jpg">
@@ -871,9 +871,9 @@ content-length: 89
 <h2 class="anchored" data-anchor-id="مثال-خدمة-الطقس">مثال: خدمة الطقس</h2>
 <p>والرابط يشبه استدعاء الإجراء. لاحظ أننا في بايثون نستدعي الإجراء <code dir="ltr">pow</code> من الوحدة <code dir="ltr">math</code> ونمرر العوامل <code dir="ltr">2, 3</code> إليه على هذا النحو:</p>
 <div id="b65eaa7d" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb21" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="im">import</span> math</span>
-<span id="cb21-2"><a href="#cb21-2"></a></span>
-<span id="cb21-3"><a href="#cb21-3"></a>math.<span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>math.<span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre dir="ltr"><code>8.0</code></pre>
 </div>
@@ -926,45 +926,45 @@ content-length: 89
 </ul>
 <p>ونحن نكتبها في بايثون مع مكتبة <code dir="ltr">httpx</code> على النحو التالي:</p>
 <div id="961762c3" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb23" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="im">import</span> httpx</span>
-<span id="cb23-2"><a href="#cb23-2"></a></span>
-<span id="cb23-3"><a href="#cb23-3"></a>latitude <span class="op">=</span> <span class="fl">24.7136</span></span>
-<span id="cb23-4"><a href="#cb23-4"></a>longitude <span class="op">=</span> <span class="fl">46.6753</span></span>
-<span id="cb23-5"><a href="#cb23-5"></a></span>
-<span id="cb23-6"><a href="#cb23-6"></a>client <span class="op">=</span> httpx.Client()</span>
-<span id="cb23-7"><a href="#cb23-7"></a></span>
-<span id="cb23-8"><a href="#cb23-8"></a>request <span class="op">=</span> client.build_request(</span>
-<span id="cb23-9"><a href="#cb23-9"></a>    method<span class="op">=</span><span class="st">"GET"</span>,</span>
-<span id="cb23-10"><a href="#cb23-10"></a>    url<span class="op">=</span><span class="st">"https://api.openweathermap.org/data/3.0/onecall"</span>,</span>
-<span id="cb23-11"><a href="#cb23-11"></a>    params<span class="op">=</span>{</span>
-<span id="cb23-12"><a href="#cb23-12"></a>        <span class="st">"lat"</span>: <span class="bu">round</span>(latitude, <span class="dv">4</span>),</span>
-<span id="cb23-13"><a href="#cb23-13"></a>        <span class="st">"lon"</span>: <span class="bu">round</span>(longitude, <span class="dv">4</span>),</span>
-<span id="cb23-14"><a href="#cb23-14"></a>        <span class="st">"appid"</span>: <span class="st">"4a5417dd3a781b7f64f05178ed423a23"</span></span>
-<span id="cb23-15"><a href="#cb23-15"></a>    }</span>
-<span id="cb23-16"><a href="#cb23-16"></a>)</span>
-<span id="cb23-17"><a href="#cb23-17"></a></span>
-<span id="cb23-18"><a href="#cb23-18"></a>response <span class="op">=</span> client.send(request)</span>
-<span id="cb23-19"><a href="#cb23-19"></a><span class="bu">print</span>(response.text)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>latitude <span class="op">=</span> <span class="fl">24.7136</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>longitude <span class="op">=</span> <span class="fl">46.6753</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> httpx.Client()</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>request <span class="op">=</span> client.build_request(</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    method<span class="op">=</span><span class="st">"GET"</span>,</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    url<span class="op">=</span><span class="st">"https://api.openweathermap.org/data/3.0/onecall"</span>,</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    params<span class="op">=</span>{</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"lat"</span>: <span class="bu">round</span>(latitude, <span class="dv">4</span>),</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"lon"</span>: <span class="bu">round</span>(longitude, <span class="dv">4</span>),</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"appid"</span>: <span class="st">"4a5417dd3a781b7f64f05178ed423a23"</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> client.send(request)</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.text)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>{"cod":401, "message": "Please note that using One Call 3.0 requires a separate subscription to the One Call by Call plan. Learn more here https://openweathermap.org/price. If you have a valid subscription to the One Call by Call plan, but still receive this error, then please see https://openweathermap.org/faq#error401 for more info."}</code></pre>
 </div>
 </div>
 <p>أو اختصارًا باستعمال <code dir="ltr">httpx.get</code> مباشرةً هكذا:</p>
 <div id="fd95dec2" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb25" dir="ltr"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="im">import</span> httpx</span>
-<span id="cb25-2"><a href="#cb25-2"></a></span>
-<span id="cb25-3"><a href="#cb25-3"></a>latitude <span class="op">=</span> <span class="fl">24.7136</span></span>
-<span id="cb25-4"><a href="#cb25-4"></a>longitude <span class="op">=</span> <span class="fl">46.6753</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a></span>
-<span id="cb25-6"><a href="#cb25-6"></a>response <span class="op">=</span> httpx.get(</span>
-<span id="cb25-7"><a href="#cb25-7"></a>    url<span class="op">=</span><span class="st">"https://api.openweathermap.org/data/3.0/onecall"</span>,</span>
-<span id="cb25-8"><a href="#cb25-8"></a>    params<span class="op">=</span>{</span>
-<span id="cb25-9"><a href="#cb25-9"></a>        <span class="st">"lat"</span>: <span class="bu">round</span>(latitude, <span class="dv">4</span>),</span>
-<span id="cb25-10"><a href="#cb25-10"></a>        <span class="st">"lon"</span>: <span class="bu">round</span>(longitude, <span class="dv">4</span>),</span>
-<span id="cb25-11"><a href="#cb25-11"></a>        <span class="st">"appid"</span>: <span class="st">"4a5417dd3a781b7f64f05178ed423a23"</span></span>
-<span id="cb25-12"><a href="#cb25-12"></a>    }</span>
-<span id="cb25-13"><a href="#cb25-13"></a>)</span>
-<span id="cb25-14"><a href="#cb25-14"></a><span class="bu">print</span>(response.text)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>latitude <span class="op">=</span> <span class="fl">24.7136</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>longitude <span class="op">=</span> <span class="fl">46.6753</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> httpx.get(</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    url<span class="op">=</span><span class="st">"https://api.openweathermap.org/data/3.0/onecall"</span>,</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    params<span class="op">=</span>{</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"lat"</span>: <span class="bu">round</span>(latitude, <span class="dv">4</span>),</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"lon"</span>: <span class="bu">round</span>(longitude, <span class="dv">4</span>),</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"appid"</span>: <span class="st">"4a5417dd3a781b7f64f05178ed423a23"</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.text)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>{"cod":401, "message": "Please note that using One Call 3.0 requires a separate subscription to the One Call by Call plan. Learn more here https://openweathermap.org/price. If you have a valid subscription to the One Call by Call plan, but still receive this error, then please see https://openweathermap.org/faq#error401 for more info."}</code></pre>
 </div>
