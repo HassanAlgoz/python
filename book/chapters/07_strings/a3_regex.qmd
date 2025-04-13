@@ -1,53 +1,21 @@
-# تطبيقات معالجة النص الطبيعي
-
-اصطلاحات: تسمى معالجة النص الحر الذي يكتبه البشر عادةً للتواصل بينهم: **معالجة اللغة الطبيعية**  (Natural Language Processing - NLP) وذلك للتفريق بينها وبين لغة البرمجة؛ إذْ هي لغة قصد بها التواصل مع الآلة لا مع البشر.
-
-ومما يتعلق به من الموضوعات: **تحليل النصوص** (Text Analytics) وأحيانًا يسمى **التنقيب في النص** (Text Mining). ويتعلق به أيضًا مجال عُرف باسم **استرجاع المعلومات** (Information Retrieval) والذي تقوم عليه محركات البحث.
-
-## التصنيف
-
-- مثل: تصنيف الشكاوى حسب نوع المشكلة لتحسين سرعة الاستجابة.
-- مثل: تصنيف البريد إلى عادي أو بريد غير مرغوب
-- مثل: تحديد النغمة العاطفية (إيجابية، سلبية، محايدة) في التغريدات أو التعليقات؛ وذلك لتحليل تقييمات العملاء لفهم رضاهم عن منتج أو خدمة .. بشكل آلي.
-
-
-## استخراج المعلومات
-
-الهدف: استخراج معلومات محددة من النص. مثل: تحديد الأسماء والعلامات المهمة مثل الأشخاص، الأماكن، التواريخ، أو أسماء الشركات.
-
-الكيفية: مطابقة أجزاء النص بأنماط لغوية ، أو باستعمال الإحصاء ، أو باستعمال الشبكات العصبية الاصطناعية العميقة ، أو جميع ما سبق.
-
-- مثل: استخراج أسماء المدن وأرقام الهواتف من نصوص رسائل العملاء.
-- مثل: استخراج أسماء المنتجات وأسعارها من الإعلانات وتحويلها إلى جداول
-
-## البحث واسترجاع المعلومات
-
-الهدف: البحث عن معلومات محددة من بين مجموعة كبيرة من النصوص.
-
-- مثل: العثور على نصوص تتعلق بموضوع معين أو كلمات مفتاحية معيَّنة.
-
-## تطبيقات أخرى
-
-- **تصحيح الأخطاء اللغوية**: الإملاء والنحو والتصريف ومناسبة اللفظ للمعنى والخطأ الشائع.
-- **التلخيص التلقائي**: إنتاج ملخص مختصر للمقالات الطويلة أو تقارير الأخبار.
-- **إسناد القول إلى قائله**: مقارنة النصوص والتأكد من أصالتها ومعرفة مواضع الاقتباس وتخريج أقوالها.
-- **إكمال النص**: المساعدة في كتابة الكود والرسائل والإعلانات التي تتسم بالنمطية. 
-
-
 # Regular Expressions in Python
 
 (التعبيرات العادية)
 
 - matching patterns (find)
 - manipulation (replace)
+
 ### Introduction
 
 > Regular expressions (called REs, or regexes, or regex patterns) are essentially a tiny, highly specialized programming language embedded inside Python and made available through the `re` module.
 
 > You can then ask questions such as “Does this string match the pattern?”, or “Is there a **match for the pattern anywhere in this string**?”. You can also use REs to **modify** a string or to **split** it apart in various ways.
+
 See:
+
 - [library/`re`](https://docs.python.org/3/library/re.html) for reference docs
 - [Regular Expression HOWTO](https://docs.python.org/3/howto/regex.html#regex-howto) for introductory tutorial
+
 **Objectives**:
 
 - Understand the concept and purpose of regex.
@@ -55,46 +23,75 @@ See:
 - Use Python's `re` for regex matching and substitution
 
 A concise explanation of regex and their use cases (text searching, data validation, text manipulation).
+
+```{python}
 import re
+```
+
 ### Raw String Literals
 
 Raw string and bytes literals (prefixed with `'r'` or `'R'`) treat backslashes literally.
+
+```{python}
 print('I don\'t know') # escape single quote
 print(r'I don\'t know') # raw string
 print('ab\nc')
 print(r'ab\nc') # raw string
 len('ab\nc') + 1 == len(r'ab\nc')
+```
+
 Read more on [escape sequences](https://docs.python.org/3/reference/lexical_analysis.html#escape-sequences).
+
 ### Character and Meta-characters
 
 See: [Matching Characters](https://docs.python.org/3/howto/regex.html#matching-characters)
+
+```{python}
 text = "Adam Abrar! an5 Ibrahim"
 pattern = 'a..'
 re.findall(pattern, text)
+```
+
+```{python}
 text = "Adam Abrar! an5 Ibrahim"
 print(re.findall(r"a", text))
 print(re.findall(r"A", text)) # case sensitive
 print(re.findall(r"a\w\w", text)) # \w is Any Alphanumeric character
 print(re.findall(r"a..", text))   # . is Any character except newline
+```
+
+```{python}
 text = "caaat"
 print(re.findall(r"ca+t", text)) # \w+ is one or more Alphanumeric character
 print(re.findall(r"ca*t", text)) # * is zero or more
 print(re.findall(r"ca?t", text)) # ? is zero or once
+```
+
+```{python}
 text = "Adam Abrar and Ibrahim"
 print(re.findall(r"\ba\w\w\b", text)) # \b is Word Boundary
 print(re.findall(r"^A\w+", text)) # ^ is Start of the string
 print(re.findall(r"\w+m$", text)) # $ is End of the string
-#### The `\w` metacharacter
+```
+
+
+```{python}
 text = "betty bought a bit of bitter butter"
 print(re.findall(r"\w", text))
 print(re.findall(r"\W", text))
 print(re.findall(r".", text))
-#### The `\d` metacharacter
+```
+
+```{python}
 text = "this tree is 300 years old"
 print(re.findall(r"\d+", text))
 print(re.findall(r"\D+", text))
 print(re.findall(r".+", text))
+```
+
 #### Character sets using `[]`
+
+```{python}
 text = """
 1. Pick it up
 2. Put it down
@@ -106,10 +103,17 @@ print(re.findall(r"[a-z]+", text)) # quantifiers
 print(re.findall(r"[A-Z]", text))
 print(re.findall(r"[a-zA-Z0-9]", text)) # multiple ranges
 print(re.findall(r"[^a-zA-Z]", text)) # ^ in the set notation is negation
+```
+
 ### Finding Digits
+
+```{python}
 text = "The product is $20.15 which is equivalent to 94.3125 SAR"
 
 print(re.findall(r"[0-9]+\.[0-9]+", text))  # \d is Any Digit
+```
+
+```{python}
 text = "The product is $20.15 which is equivalent to 94.3125 SAR"
 
 print(re.findall(r"\d", text))  # \d is Any Digit
@@ -120,20 +124,31 @@ print(re.findall(r"\d+", text)) # + is One or more
 print(re.findall(r"\d+\.\d+", text))   # \. is the "." Character since the "." is a meta-character matching: Any Character
 print(re.findall(r"\$\d+\.\d+", text)) # \$ is the "$" Character since the "$" is a meta-character matching: End of Line
 print(re.findall(r"\d+\.\d+\sSAR", text)) # \s is Any Whitespace Character
+```
+
 ### Grouping matches `()`
 
 [See docs](https://docs.python.org/3/howto/regex.html#grouping).
+
+```{python}
 text = r"""{key1:value1, key2: value2, key3:   value3, key4:
 value4}"""
 
 re.findall(r"(\w+):\s*(\w+)", text)
+```
+
+```{python}
 # key value matching
 text = r"""{key1:value1, key2: value2, key3:   value3, key4:
 value4}"""
 
 print(re.findall(r"(\w+):\s(\w+)", text)) # grouping the key and value
 print(re.findall(r"(\w+):\s*(\w+)", text)) # \s* is zero or more whitespace characters (including tabs and newlines)
+```
+
 #### Using `|` (OR) Operator
+
+```{python}
 text = """
 I like cats
 I like horses
@@ -141,30 +156,47 @@ I like trees
 """
 
 print(re.findall(r"I like (cats|horses)", text)) # | is OR
+```
+
+```{python}
 text = "55 thousands, 77 hundereds"
 
 print(re.findall(r"(\d+)\s+(thousands|hundereds)", text))
+```
+
 ### String literal concatenation
+
+```{python}
 # Note: adjacent string literals are concatenated
 assert ("spam " 'eggs') == "spam eggs"
 assert ("spam " "eggs") == "spam eggs"
+```
 
 
 This feature can be used to reduce the number of backslashes needed, to split long strings conveniently across long lines, or even **to add comments to parts of strings**, for example:
+
+```{python}
 import re
 re.compile("[A-Za-z_]"       # letter or underscore
            "[A-Za-z0-9_]*"   # letter, digit or underscore
           )
+```
+
 See: https://docs.python.org/3/reference/lexical_analysis.html#string-literal-concatenation
+
 ### Naming patterns
 
 We use `?P<pattern-name>` to name patterns.
 text = "my email is adam@example.com and yours is belal@example.com"
 
+```{python}
 matches_iterator = re.finditer(r"(?P<name>\w+)@(?P<domain>\w+)\.(?P<tld>\w+)", text)
 for m in matches_iterator:
     print(m.group("name"))
+```
+
 ### Resources to Learn Regex
+
 **Tutorials with interactive exercises**
 
 - [RegexLearn](https://regexlearn.com/) - Interactive tutorial and practice problems.
