@@ -1,0 +1,171 @@
+---
+og:title: regex_apps
+---
+
+# تطبيقات {.unnumbered}
+
+مثال لترتيب سجل التمارين الملخبط:
+
+```{python}
+text = """
+Pushups 30 reps 3 sets
+5 reps 2 sets Pullups
+2 Sets 15 Reps One-leg Squats
+"""
+```
+
+نفصل النص نفسه إلى قائمة، كل عنصر فيها سطر:
+
+```{python}
+lines = text.strip().split("\n")
+
+for l in lines:
+    print(l)
+```
+
+نحاول أن نفكك الأنماط لاستخراج كل معلومة على حدة:
+
+```{python}
+pattern_reps = r"(\d+) reps"
+pattern_sets = r"(\d+) sets"
+
+# Exercise names
+names = [
+    "Pushups",
+    "Pullups",
+    "One-leg Squats", # specific term first
+    "Squats", # generic term later
+    "Deadlifts",
+    "Dumbbell Rows",
+
+]
+```
+
+نحاول الآن مطابقة الأنماط:
+
+```{python}
+data = []
+for l in lines:
+    row = []
+    
+    m_reps = re.search(pattern_reps, l, re.IGNORECASE)
+    if m_reps:
+        row.append(m_reps.group(1))
+
+    m_sets = re.search(pattern_sets, l, re.IGNORECASE)
+    if m_sets:
+        row.append(m_sets.group(1))
+
+    for ex in names:
+        if ex in l:
+            row.insert(0, ex)
+            break # to avoid adding "Squat" twice
+
+    data.append(row)
+
+for row in data:
+    print(row)
+```
+
+- لاحظ أننا نستعمال `re.IGNORECASE` لتجاهل اختلاف حالة الأحرف (كبيرة أو صغيرة).
+
+ماذا لو كان لدينا أيضًا الوزن؟
+
+```{python}
+text = """
+4 sets 8 reps 22.5 lbs Dumbbell Rows
+4 sets 8 reps 15.25kg Dumbbell Rows
+"""
+```
+
+فهذا النمط يحدد الرقم مع الفاصلة وبعده إما `lbs` أو `kg`؛ وذلك لأن علامة `|` للتخيير:
+
+```{python}
+pattern_weight = r"(\d+(\.\d+)?)\s*(lbs|kg)"
+```
+
+ثم نطابق النص لنستخرج الأوزان:
+
+```{python}
+data = []
+
+for l in text.strip().split('\n'):
+    row = []
+    matches = re.findall(pattern_weight, l)
+    if matches:
+        weight = float(matches[0][0])
+        unit = matches[0][-1]
+        if unit == 'lbs':
+            weight = round(weight / 2.20462, 2)
+        row.append(weight)
+        row.append('kg')
+        data.append(row)
+
+for row in data:
+    print(row)
+```
+
+والآن ننظر للنص كاملاً، ونستخرج منه جميع المعلومات ونضعها في قائمة قواميس:
+
+```{python}
+text = """
+Pushups 30 reps 3 sets
+5 reps 2 sets Pullups
+2 Sets 15 Reps One-leg Squats
+4 sets 8 reps 22.5 lbs Dumbbell Rows
+4 sets 8 reps 15.25kg Dumbbell Rows
+"""
+
+patterns = {
+    'reps': r"(\d+) reps",
+    'sets': r"(\d+) sets",
+    'weight': r"(\d+(\.\d+)?)\s*(lbs|kg)",
+}
+
+# Exercise names
+names = [
+    "Pushups",
+    "Pullups",
+    "One-leg Squats", # specific term first
+    "Squats", # generic term later
+    "Deadlifts",
+    "Dumbbell Rows",
+
+]
+
+text = text.strip()
+
+data = []
+for line in text.split("\n"):
+    row = {}
+
+    # Reps
+    match = re.search(patterns['reps'], line, re.IGNORECASE)
+    if match:
+        row['reps'] = match.group(1)
+    
+    # Sets
+    match = re.search(patterns['sets'], line, re.IGNORECASE)
+    if match:
+        row['sets'] = match.group(1)
+
+    # Weight
+    match = re.search(patterns['weight'], line, re.IGNORECASE)
+    if match:
+        weight = float(match.group(1))
+        unit = match.group(3)
+        if unit == 'lbs':
+            weight = round(weight / 2.20462, 2)
+        row['weight'] = weight
+
+    # Exercise name
+    for ex in names:
+        if ex in line:
+            row['name'] = ex
+            break
+
+    data.append(row)
+
+for row in data:
+    print(row)
+```

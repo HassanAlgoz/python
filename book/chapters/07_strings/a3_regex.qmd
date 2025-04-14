@@ -1,213 +1,189 @@
-# Regular Expressions in Python
+# التعبير النمطي
 
-(التعبيرات العادية)
+تستعمل التعبيرات النمطية لاستخراج البيانات من النصوص.
+على سبيل المثال، هذا سجل تمارين فيه في كل سطر نوع من أنواع التمارين وعدد الجلسات ومرات التكرار، لكنها غير مرتبة.
+فأحيانًا يكون الاسم في البداية، وأحيانا في الأخير ... وهكذا.
 
-- matching patterns (find)
-- manipulation (replace)
+```python
+text = """
+Pushups 30 reps 3 sets
+5 reps 2 sets Pullups
+2 Sets 15 Reps One-leg Squats
+4 sets 8 reps 22.5 lbs Dumbbell Rows
+4 sets 8 reps 15.25kg Dumbbell Rows
+"""
+```
 
-### Introduction
+**التعبير النمطي** (Regular Expression): طريقة لتحديد نمط متسلسل من الأحرف. والغرض منه: البحث عن هذا النمط في نص ما.
+وله في بايثون مكتبتان:
 
-> Regular expressions (called REs, or regexes, or regex patterns) are essentially a tiny, highly specialized programming language embedded inside Python and made available through the `re` module.
-
-> You can then ask questions such as “Does this string match the pattern?”, or “Is there a **match for the pattern anywhere in this string**?”. You can also use REs to **modify** a string or to **split** it apart in various ways.
-
-See:
-
-- [library/`re`](https://docs.python.org/3/library/re.html) for reference docs
-- [Regular Expression HOWTO](https://docs.python.org/3/howto/regex.html#regex-howto) for introductory tutorial
-
-**Objectives**:
-
-- Understand the concept and purpose of regex.
-- Learn common characters and metacharacters used in regex patterns
-- Use Python's `re` for regex matching and substitution
-
-A concise explanation of regex and their use cases (text searching, data validation, text manipulation).
+- مكتبة [`re`](https://docs.python.org/3/library/re.html) المبنية
+- مكتبة [`regex`](https://pypi.org/project/regex/) الخارجية والتي تدعم الترميز العالمي (Unicode) المهم للغة العربية.
 
 ```{python}
 import re
 ```
 
-### Raw String Literals
+**الأحرف الخاصة** (meta-characters): هي أحرف ذات دلالة معيَّنة غير ما تبدو؛ وهي:
 
-Raw string and bytes literals (prefixed with `'r'` or `'R'`) treat backslashes literally.
-
-```{python}
-print('I don\'t know') # escape single quote
-print(r'I don\'t know') # raw string
-print('ab\nc')
-print(r'ab\nc') # raw string
-len('ab\nc') + 1 == len(r'ab\nc')
+```
+. ^ $ * + ? { } [ ] \ | ( )
 ```
 
-Read more on [escape sequences](https://docs.python.org/3/reference/lexical_analysis.html#escape-sequences).
+## فئة الأحرف
 
-### Character and Meta-characters
+سنبدأ أولاً بشرح محدد **فئة الأحرف** `[ ]` (Character Class) ويعمل كالآتي:
 
-See: [Matching Characters](https://docs.python.org/3/howto/regex.html#matching-characters)
+- `[abc]` يطابق a أو b أو c
+- `[^abc]` يطابق أي حرف غير a أو b أو c
+- `[a-c]` يطابق أي حرف من a إلى c: `a` أو `b` أو `c`
+- `[3-7]` يطابق أي رقم من 3 إلى 7: `3` أو `4` أو `5` أو `6` أو `7`
+- `[a-zA-Z]` يطابق أي حرف صغير أو كبير من a إلى z أو A إلى Z
+- `[a-zA-Z0-9_]` يطابق أي حرف صغير أو كبير أو رقم من a إلى z أو A إلى Z أو 0 إلى 9 أو `_` (الشرطة السفلية)
 
-```{python}
-text = "Adam Abrar! an5 Ibrahim"
-pattern = 'a..'
-re.findall(pattern, text)
-```
+وبهذا تعرف دلالة:
 
-```{python}
-text = "Adam Abrar! an5 Ibrahim"
-print(re.findall(r"a", text))
-print(re.findall(r"A", text)) # case sensitive
-print(re.findall(r"a\w\w", text)) # \w is Any Alphanumeric character
-print(re.findall(r"a..", text))   # . is Any character except newline
-```
+- علامة `^` في نحو: `[^` تدل على عكس الفئة
+- علامة `-` في نحو: `[a-b]` تدل على الأحرف بين الحرفين (شاملة لهما)
+
+تأمل المثال التالي:
 
 ```{python}
-text = "caaat"
-print(re.findall(r"ca+t", text)) # \w+ is one or more Alphanumeric character
-print(re.findall(r"ca*t", text)) # * is zero or more
-print(re.findall(r"ca?t", text)) # ? is zero or once
+text = "I am 21 years old"
+pattern = "[0-9][0-9]"
+match = re.search(pattern, text)
+print(match)
 ```
+
+- لاحظ أن النمط: `[0-9][0-9]` يطابق أي رقمين متتاليين من 0 إلى 9.
+- ويأتي الإجراء [`re.search`](https://docs.python.org/3/library/re.html#search-vs-match) للبحث داخل النص `text` عن النمط `pattern`؛ ونوع العائد هو [`Match`](https://docs.python.org/3/library/re.html#match-objects) إذا وُجد وإلا يكون `None`.
+
+ولاستخراج النص المطابق نستعمل الفعل `match.group()` هكذا:
 
 ```{python}
-text = "Adam Abrar and Ibrahim"
-print(re.findall(r"\ba\w\w\b", text)) # \b is Word Boundary
-print(re.findall(r"^A\w+", text)) # ^ is Start of the string
-print(re.findall(r"\w+m$", text)) # $ is End of the string
+if match:
+    print(match.group())
 ```
 
+## فئات لها رمز
+
+ينضم إلى الأحرف الآنف ذكرها:
+
+<dl>
+<dt>`\d` وعكسها `\D`</dt>
+<dd>يطابق أي رقم عشري؛ وهو مكافئ: `[0-9]`.</dd>
+
+<dt>`\w` وعكسها `\W`</dt>
+<dd>يطابق الأحرف الأبجدية والأرقام والشرطة السفلية `[a-zA-Z0-9_]`.</dd>
+
+<dt>`\s` وعكسها `\S`</dt>
+<dd>يطابق المسافات البيضاء؛ وهو مكافئ: `[ \t\n\r\f\v]` (لاحظ وجود المسافة).</dd>
+</dl>
+
+ولأن بايثون تعتبر علامة `\` في النصوص علامةً على أحرف خاصة ([Escape Character](http://docs.python.org/3/reference/lexical_analysis.html#escape-sequences)) مثل:
+
+- `\n` للسطر الجديد
+- `\t` للمسافة البيضاء
+- `\r` للرجوع إلى البداية
+- `\f` للصفحة
+- `\v` للمسافة العمودية 
+
+ولتجنب التعارض بين حرف `\` المقصود في النص البايثوني المعروف، والاختصارات التي نريدها؛ فقد وضعت بايثون حرف `r` لتعطيل خصوصية الحرف `\` حتى تُكتَب الأنماط النصية بمى يسمى النص الخام (raw string) على النحو التالي:
 
 ```{python}
-text = "betty bought a bit of bitter butter"
-print(re.findall(r"\w", text))
-print(re.findall(r"\W", text))
-print(re.findall(r".", text))
+text = "I am 21 years old"
+pattern = r"\d\d"
+match = re.search(pattern, text)
+if match:
+    print(match.group())
 ```
+
+**نصيحة**: استعمل `r` دائمًا عند كتابة الأنماط النصية.
+
+وأما لمطابقة الحروف فإننا قد نستعمل الاختصار `\w` على النحو التالي:
 
 ```{python}
-text = "this tree is 300 years old"
-print(re.findall(r"\d+", text))
-print(re.findall(r"\D+", text))
-print(re.findall(r".+", text))
+animals = [
+    "cat",
+    "bat",
+    "dog",
+    "rat",
+]
+
+pattern = r"\wa\w"
+
+for animal in animals:
+    match = re.search(pattern, animal)
+    if match:
+        print(match.group())
 ```
 
-#### Character sets using `[]`
+- لاحظ أن النمط `\wa\w` يتكون من ثلاثة أجزاء:
+    - `\w` تطابق الأحرف الأبجدية والأرقام والشرطة السفلية
+    - `a` تطابق الحرف `a` كما هو
+    - `\w` تطابق الأحرف الأبجدية والأرقام والشرطة السفلية
+- وبذلك يصير النمط مطابقًا لأي حرفين يتوسطهما حرف `a` مثل: `cat` أو `bat` أو `rat`. والخارج من هذا النمط هو كلمة: `dog`
+
+## التكرار والتحديد
+
+تستعمل علامات التكرار / **المحددات الكمية** (Quantifiers) لتعيين مرات التكرار من النمط السابق. وهي على النحو التالي:
+
+- `{3}` ثلاث مرات بالضبط
+- `{2,4}` من 2 إلى 4 مرات
+- `{3,}` ثلاث مرات أو أكثر
+- `+` مرة أو أكثر
+- `*` صفر أو أكثر
+- `?` صفر أو مرة واحدة فقط
+
+ولتحديد مجموعة من الأحرف ضمن النمط نستعمل القوسين الدائريين: `( )` حول النمط ليكون **مجموعة مطابقة** ([Match Group](https://docs.python.org/3/howto/regex.html#grouping)).
+
+مثلاً، تريد مطابقة السعر في النصوص التالية:
 
 ```{python}
-text = """
-1. Pick it up
-2. Put it down
-"""
-
-print(re.findall(r"[ptui]", text)) # character set
-print(re.findall(r"[a-z]", text))  # character range
-print(re.findall(r"[a-z]+", text)) # quantifiers
-print(re.findall(r"[A-Z]", text))
-print(re.findall(r"[a-zA-Z0-9]", text)) # multiple ranges
-print(re.findall(r"[^a-zA-Z]", text)) # ^ in the set notation is negation
+prices = [
+    "it costs 123",
+    "I bought it for 12.3 last time",
+    "I paid 12.34 SAR for it"
+]
 ```
 
-### Finding Digits
+فتستعمل المنط التالي:
 
 ```{python}
-text = "The product is $20.15 which is equivalent to 94.3125 SAR"
-
-print(re.findall(r"[0-9]+\.[0-9]+", text))  # \d is Any Digit
+pattern = r"\d+(\.\d+)?"
 ```
+
+ويتكون من ثلاثة أجزاء:
+
+- `\d+` ويتكون من جزئين:
+    - `\d` رقم
+    - `+` مرة أو أكثر
+- `(...)?` ما بين القوسين: صفر أو مرة واحدة فقط
+    - `\.` نحتاج علامة `\` لتعطيل خصوصية حرف النقطة لأنها تدل على مطابقة أي حرف
+    - `\d+` رقم، مرة أو أكثر
 
 ```{python}
-text = "The product is $20.15 which is equivalent to 94.3125 SAR"
-
-print(re.findall(r"\d", text))  # \d is Any Digit
-print(re.findall(r"[0-9]", text))  # \d is equivalent to [0-9]
-print(re.findall(r"\d\d", text))
-print(re.findall(r"\d{4}", text))
-print(re.findall(r"\d+", text)) # + is One or more
-print(re.findall(r"\d+\.\d+", text))   # \. is the "." Character since the "." is a meta-character matching: Any Character
-print(re.findall(r"\$\d+\.\d+", text)) # \$ is the "$" Character since the "$" is a meta-character matching: End of Line
-print(re.findall(r"\d+\.\d+\sSAR", text)) # \s is Any Whitespace Character
+for p in prices:
+    match = re.search(pattern, p)
+    if match:
+        print('price:', match.group())
 ```
 
-### Grouping matches `()`
+## تحرير التعبيرات النمطية
 
-[See docs](https://docs.python.org/3/howto/regex.html#grouping).
+ننصح باستعمال أدوات **تحرير التعبير النمطي** مثل: [regex101](https://regex101.com/) فهي أفضل بكثير من كتابته دون أداة.
 
-```{python}
-text = r"""{key1:value1, key2: value2, key3:   value3, key4:
-value4}"""
+- في القائمة الجانبية اختر نكهة (Flavour) **Python**
+- في الحقل الأول تكتب التعبير النمطي
+- في الصندوق الكبير تضع النص الذي تريد مطابقته
 
-re.findall(r"(\w+):\s*(\w+)", text)
-```
+وكذلك يوجد محرر آخر مثل [regexr](https://regexr.com/) وفي القائمة الجانبية تجد **Community Patterns** حيث تجد فهرس لأنماط نصية شاركها المبرمجون الآخرون.
 
-```{python}
-# key value matching
-text = r"""{key1:value1, key2: value2, key3:   value3, key4:
-value4}"""
+وهكذا فإنك تعدل على النمط وتزيد في النصوص، حتى تصل إلى أفضل نمط لتنسخه وتضع في برنامجك.
 
-print(re.findall(r"(\w+):\s(\w+)", text)) # grouping the key and value
-print(re.findall(r"(\w+):\s*(\w+)", text)) # \s* is zero or more whitespace characters (including tabs and newlines)
-```
+## مصادر أخرى للتعلم
 
-#### Using `|` (OR) Operator
+دروس تفاعلية لتعلم التعبيرات النمطية:
 
-```{python}
-text = """
-I like cats
-I like horses
-I like trees
-"""
-
-print(re.findall(r"I like (cats|horses)", text)) # | is OR
-```
-
-```{python}
-text = "55 thousands, 77 hundereds"
-
-print(re.findall(r"(\d+)\s+(thousands|hundereds)", text))
-```
-
-### String literal concatenation
-
-```{python}
-# Note: adjacent string literals are concatenated
-assert ("spam " 'eggs') == "spam eggs"
-assert ("spam " "eggs") == "spam eggs"
-```
-
-
-This feature can be used to reduce the number of backslashes needed, to split long strings conveniently across long lines, or even **to add comments to parts of strings**, for example:
-
-```{python}
-import re
-re.compile("[A-Za-z_]"       # letter or underscore
-           "[A-Za-z0-9_]*"   # letter, digit or underscore
-          )
-```
-
-See: https://docs.python.org/3/reference/lexical_analysis.html#string-literal-concatenation
-
-### Naming patterns
-
-We use `?P<pattern-name>` to name patterns.
-text = "my email is adam@example.com and yours is belal@example.com"
-
-```{python}
-matches_iterator = re.finditer(r"(?P<name>\w+)@(?P<domain>\w+)\.(?P<tld>\w+)", text)
-for m in matches_iterator:
-    print(m.group("name"))
-```
-
-### Resources to Learn Regex
-
-**Tutorials with interactive exercises**
-
-- [RegexLearn](https://regexlearn.com/) - Interactive tutorial and practice problems.
-    - Languages: 🇺🇸, 🇹🇷, 🇷🇺, 🇪🇸, 🇨🇳, 🇩🇪, 🇺🇦, 🇫🇷, 🇵🇱, 🇰🇷, 🇧🇷, 🇨🇿, 🇬🇪.
-- [RegexOne](https://regexone.com/) - Interactive tutorial and practice problems.
-
-**Videos**
-
-- [*Demystifying Regular Expressions*](https://www.youtube.com/watch?v=M7vDtxaD7ZU) - Great presentation for beginners, by Lea Verou at HolyJS 2017 (1hr 12m).
-- [*Learn Regular Expressions In 20 Minutes*](https://www.youtube.com/watch?v=rhzKDrUiJVk) - Live syntax walkthrough in a regex tester, by Kyle Cook.
-
-**Other Resources**:
-- [**rexegg** Cheat Sheet](https://www.rexegg.com/regex-quickstart.php)
-- [Python Docs (Regex How to)](https://docs.python.org/3/howto/regex.html#regex-howto) is an introductory tutorial to using regular expressions in Python with the `re` module. It provides a gentler introduction than the corresponding section in the Library Reference.
+- [RegexLearn](https://regexlearn.com/)
+- [RegexOne](https://regexone.com/)
