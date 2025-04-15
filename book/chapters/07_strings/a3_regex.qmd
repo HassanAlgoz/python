@@ -74,10 +74,13 @@ if match:
 <dd>يطابق أي رقم عشري؛ وهو مكافئ: `[0-9]`.</dd>
 
 <dt>`\w` وعكسها `\W`</dt>
-<dd>يطابق الأحرف الأبجدية والأرقام والشرطة السفلية `[a-zA-Z0-9_]`.</dd>
+<dd>يطابق الأحرف الأبجدية والأرقام والشرطة السفلية `[a-zA-Z0-9_]`. وبالنسبة لأنماط Unicode (str)، فإنه يطابق الأحرف الأبجدية الرقمية في Unicode (كما هو معرّف بواسطة [`str.isalnum()`](https://docs.python.org/3/library/stdtypes.html#str.isalnum))، بالإضافة إلى الشرطة السفلية `_`.</dd>
 
 <dt>`\s` وعكسها `\S`</dt>
 <dd>يطابق المسافات البيضاء؛ وهو مكافئ: `[ \t\n\r\f\v]` (لاحظ وجود المسافة).</dd>
+
+<dt>`\b` وعكسها `\B`</dt>
+<dd>يطابق طرف كلمة</dd>
 </dl>
 
 ولأن بايثون تعتبر علامة `\` في النصوص علامةً على أحرف خاصة ([Escape Character](http://docs.python.org/3/reference/lexical_analysis.html#escape-sequences)) مثل:
@@ -90,6 +93,8 @@ if match:
 
 ولتجنب التعارض بين حرف `\` المقصود في النص البايثوني المعروف، والاختصارات التي نريدها؛ فقد وضعت بايثون حرف `r` لتعطيل خصوصية الحرف `\` حتى تُكتَب الأنماط النصية بمى يسمى النص الخام (raw string) على النحو التالي:
 
+### الأرقام
+
 ```{python}
 text = "I am 21 years old"
 pattern = r"\d\d"
@@ -99,6 +104,8 @@ if match:
 ```
 
 **نصيحة**: استعمل `r` دائمًا عند كتابة الأنماط النصية.
+
+### الحروف
 
 وأما لمطابقة الحروف فإننا قد نستعمل الاختصار `\w` على النحو التالي:
 
@@ -123,6 +130,38 @@ for animal in animals:
     - `a` تطابق الحرف `a` كما هو
     - `\w` تطابق الأحرف الأبجدية والأرقام والشرطة السفلية
 - وبذلك يصير النمط مطابقًا لأي حرفين يتوسطهما حرف `a` مثل: `cat` أو `bat` أو `rat`. والخارج من هذا النمط هو كلمة: `dog`
+
+### طرف الكلمة `\b`
+
+يطابق الرمز `\b`، وتستعمل للسياقات التي نريد فيها المطابقة الكليَّة للكلمة، لا أن تكون جُزءًا من كلمة أخرى. وذلك لى النحو التالي:
+
+```{python}
+text1 = "My ear"
+text2 = "I arrived early"
+text3 = "This is the end of the year"
+```
+
+```{python}
+entire = r"\b" + "ear" + r"\b"
+print(re.search(entire, text1))
+print(re.search(entire, text2))
+print(re.search(entire, text3))
+```
+
+```{python}
+starts = r"\b" + "ear"
+print(re.search(starts, text1))
+print(re.search(starts, text2))
+print(re.search(starts, text3))
+```
+
+```{python}
+ends   = "ear" + r"\b"
+print(re.search(ends, text1))
+print(re.search(ends, text2))
+print(re.search(ends, text3))
+```
+
 
 ## التكرار والتحديد
 
@@ -168,6 +207,211 @@ for p in prices:
     if match:
         print('price:', match.group())
 ```
+
+## المطابقة
+
+توجد في بايثون أربعة أفعال أساسية للمطابقة:
+
+- `re.match(pattern, string, flags=0) -> Match | None`
+    - مطابقة النمط في بداية السلسلة النصية.
+- `re.search(pattern, string, flags=0) -> Match | None`
+    - البحث عن أول تطابق للنمط في السلسلة النصية.
+- `re.findall(pattern, string, flags=0) -> list`
+    - إنشاء قائمة من جميع التطابقات للنمط في السلسلة النصية.
+- `re.finditer(pattern, string, flags=0) -> Iterator[Match[str]]`
+    - إنشاء مكرر لجميع التطابقات للنمط في السلسلة النصية.
+
+فأما الشيء الناتج عن هذه **المطابقة**، وهو [`Match`](https://docs.python.org/3/library/re.html#match-objects)؛ فيتضمن أربعة صفات:
+
+- [`group()`](https://docs.python.org/3/library/re.html#re.Match.group)
+- `start()`
+- `end()`
+- `span()`
+
+وبالمثال يتضح المقال:
+
+الأمر الأول: المطابقة بالفعل `.match()` تكون من بداية النص. وبالتالي فإنك لو طابقت على هذا النص كاملاً فلن تطابقها، مع أن المطابقة تنفع مع الرقم وحده:
+
+```{python}
+text = "Pushups 30 reps 3 sets"
+
+pattern = r"\d+"
+
+# مطابقة على النص كاملاً
+print(re.match(pattern, text))
+
+# مطابقة على الرقم وحده
+print(re.match(pattern, "30"))
+```
+
+لذلك نستعمل المطابقة بالفعل `.search()` للبحث عن النمط في أي موضع في النص:
+
+```{python}
+text = "Pushups 30 reps 3 sets"
+
+pattern = r"\d+"
+
+print(re.search(pattern, text))
+```
+
+ويمكننا الوصول لصفات المطابقة:
+
+```{python}
+m = re.search(pattern, text)
+print(m.group())
+print(m.start(), m.end())
+print(m.span())
+```
+
+لكن المطابقة أتت بعدد واحد، وقصدنا أن نطابقهما كليهما: `30` و `3` في المثال. ولذلك نستعمل الإجراء `.findall()` على النحو التالي:
+
+```{python}
+text = "Pushups 30 reps 3 sets"
+
+pattern = r"\d+"
+
+ol = re.findall(pattern, text)
+print(ol)
+```
+
+فإن أردت المطابقة (وليس النص المطابَق)، فاستعمال الإجراء `.finditer()` على النحو التالي:
+
+```{python}
+text = "Pushups 30 reps 3 sets"
+
+pattern = r"\d+"
+
+it = re.finditer(pattern, text)
+for m in it:
+    print(m)
+```
+
+
+## ضبط عملية المطابقة
+
+تستعمل [الأعلام](https://docs.python.org/3/howto/regex.html#compilation-flags) لضبط التطابق من عدة وجوه:
+
+| العلم | المعنى |
+| --- | --- |
+| [`ASCII`](https://docs.python.org/3/library/re.html#re.ASCII), [`A`](https://docs.python.org/3/library/re.html#re.A) | يجعل بعض الاختصارات مثل `\w`, `\b`, `\s` و `\d` تطابق فقط الأحرف ASCII. |
+| [`DOTALL`](https://docs.python.org/3/library/re.html#re.DOTALL), [`S`](https://docs.python.org/3/library/re.html#re.S) | يجعل `.` يطابق أي حرف، بما في ذلك الأسطر الجديدة. |
+| [`IGNORECASE`](https://docs.python.org/3/library/re.html#re.IGNORECASE), [`I`](https://docs.python.org/3/library/re.html#re.I) | يجعل المطابقة غير حساسة لحالة الأحرف. |
+| [`LOCALE`](https://docs.python.org/3/library/re.html#re.LOCALE), [`L`](https://docs.python.org/3/library/re.html#re.L) | يجعل المطابقة تأخذ في الاعتبار الإعدادات المحلية. |
+| [`MULTILINE`](https://docs.python.org/3/library/re.html#re.MULTILINE), [`M`](https://docs.python.org/3/library/re.html#re.M) | يتيح المطابقة متعددة الأسطر، مما يؤثر على `^` و `$`. |
+| [`VERBOSE`](https://docs.python.org/3/library/re.html#re.VERBOSE), [`X`](https://docs.python.org/3/library/re.html#re.X) (لـ "الموسعة") | يتيح كتابة تعبيرات نمطية منظمة بشكل أوضح وأسهل للفهم. |
+
+ونمثل باستعمال العلم `re.IGNORECASE` إذْ نحتاج إليه في مطابقة الكلمات اللاتينية، لاحظ الفرق في المطابقتين:
+
+```{python}
+text = "She is she."
+
+for m in re.finditer(r"[a-z]+", text):
+    print(m)
+
+print()
+
+for m in re.finditer(r"[a-z]+", text, re.IGNORECASE):
+    print(m)
+```
+
+ولاستعمال مجموعة أعلام فإننا ندمجه بعلامة `|` على النحو التالي:
+
+```python
+re.search(pattern, text, re.IGNORECASES | re.LOCALE)
+```
+
+## استخراج المجموعات من النص
+
+سبق أن رأينا تحديد المطابقة لوضع المحددات الكمية لغرض التكرار.
+لكن الآن ننظر إلي كيفية استخراج المجموعات من النص.
+
+```{python}
+text = "Muhammad AlKhwarizmi, Polymath"
+
+m = re.search(r"(\w+) (\w+), \w+", text)
+if m:
+    print(m.group(0)) # المجموعة الصفرية هي كامل المطابقة
+    print('first_name:', m.group(1)) # القوسين الأوليين
+    print('last_name:', m.group(2)) # القوسين الثانيين
+```
+
+وهذا مثال آخر فيه **تضمين قوسين داخل قوسين**، وبه تتضح دلالة الرقم الممررة للفعل `.group(n)`:
+
+```{python}
+text = "30 Reps 3 Sets"
+
+m = re.search(r"((\d+) Reps) ((\d+) Sets)", text)
+if m:
+    print(m.group(1))
+    print(m.group(2))
+    print(m.group(3))
+    print(m.group(4))
+```
+
+## تسمية المجموعات
+
+من خصائص محرك مطابقة الأنماط في لغة بايثون خصوصًا؛ إمكانية تسمية المجموعات في النمط، ليتم استخراجها بالاسم.
+وتكون التسمية بعد القوس الأول هكذا: `(?P<name>...)` حيث تمثل الـ `...` النمط النصي.
+وذلك على النحو التالي:
+
+```{python}
+text = "Muhammad AlKhwarizmi, Polymath"
+
+m = re.search(r"(?P<first_name>\w+) (?P<last_name>\w+), \w+", text)
+if m:
+    print(m.groupdict())
+    print(m.group('first_name'))
+    print(m.group('last_name'))
+```
+
+وكذلك يكون في المجموعات المضمنة:
+
+```{python}
+text = "30 Reps 3 Sets"
+
+m = re.search(r"((?P<reps>\d+) Reps) ((?P<sets>\d+) Sets)", text)
+if m:
+    print(m.groupdict())
+    print(m.group('reps'))
+    print(m.group('sets'))
+```
+
+## تفسير التعبير النمطي مرة واحدة
+
+قد استعملنا إجراءات المكتبة مباشرة في نحو: `re.match()` و `re.search()` وغيرها. فهي تأخذ النمط وتفسره ثم تنفذه بحزمة مكتوبة بلغة سي (C).
+فإذا كان النمط يستعمل كثيرًا فإن عملية التفسير تتم عدة مرات، وذلك هدر.
+ولتفسير النمط مرة واحدة ثم تطبيقه عدة مرات (من غير تكرار التفسير) نستعمل إجراء **التفسير** `re.compile()` على النحو التالي:
+
+```{python}
+text1 = "She is she."
+text2 = "They are they."
+
+patternc = re.compile(r"[a-z]+", re.IGNORECASE)
+
+for m in patternc.finditer(text1):
+    print(m)
+
+print()
+
+for m in patternc.finditer(text2):
+    print(m)
+```
+
+وحتى يتبين الفرق، قارنها مع القطعة التي **لم نستعمل فيها التفسير المسبق**؛ فهو يتكررفي كل مرة:
+
+```{python}
+text1 = "She is she."
+text2 = "They are they."
+
+for m in re.finditer(r"[a-z]+", text1, re.IGNORECASE):
+    print(m)
+
+print()
+
+for m in re.finditer(r"[a-z]+", text2, re.IGNORECASE):
+    print(m)
+```
+
 
 ## تحرير التعبيرات النمطية
 
