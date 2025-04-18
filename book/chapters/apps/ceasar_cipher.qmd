@@ -1,0 +1,156 @@
+---
+og:title: ceasar_cipher
+---
+
+# التشفير {.unnumbered}
+
+من أقدم أنواع **تعمية النص** (Text Encryption) شيفرة سيزر ([Ceasar Cipher](https://cryptii.com/pipes/caesar-cipher)) وتقوم على إزاحة الترتيب الأبجدي بمقدار ثابت.
+فإذا كان مقدار الإزاحة 3 مثلاً يصير:
+
+- حرف `a` يصير `d`
+- حرف `b` يصير `e`
+- حرف `c` يصير `f`
+
+وأما الحروف الأخيرة فتدور، فيكون:
+
+- حرف `x` يصير `a`
+- حرف `y` يصير `b`
+- حرف `z` يصير `c`
+
+ومهمتنا تطبيقها بخوارزمية تأخذ نصًّا وتعميه.
+
+أولاً نعرف الحروف الكبيرة والصغيرة:
+
+```{python}
+alphabet_lower = "abcdefghijklmnopqrstuvwxyz"
+alphabet_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+```
+
+تذكر أن لدينا في بايثون الفعل: `str.index(sub: str) -> int` حيث يأخذ هذا الفعل جُزءًا نصيًّا ويأتي على النص من أوله إلى آخر باحثًا عن موضعه.
+ونحن سنستعمل ذلك في البحث عن موضع الحرف فسيكون على النحو التالي:
+
+```{python}
+print(alphabet_lower.index('a'))
+print(alphabet_lower.index('z'))
+```
+
+والأمر الآخر الذي سيفيدنا في تدوير الأرقام هو:
+
+[**الحسابيات المقاسية**](https://ar.wikipedia.org/wiki/%D8%AD%D8%B3%D8%A7%D8%A8_%D9%85%D9%82%D8%A7%D8%B3%D9%8A) (Modular Arithmetic) تتحرك فيه الأرقام بالجمع والضرب ونحوه بحيث تلتف الأرقام حول بعضها البعض عند الوصول إلى قيمة معينة، تسمى **القياس** (Modulus).
+
+![نستعمل في ساعة الحائط القياس 12 في حساب الوقت](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Clock_group.svg/500px-Clock_group.svg.png)
+
+وهذه العملية في بايثون هي `%` وتعبر عن باقي القسمة:
+
+```{python}
+(9 + 4) % 12
+```
+
+
+والآن نعرف الدالة التي ستأخذ حرفًا (`char`) ومقدار الإزاحة (`shift`) لتعيد الحرف البديل عنه بعد الإزاحة.
+
+```{python}
+def encode(char: str, shift: int) -> str:
+    if char in alphabet_lower:
+        alphabet = alphabet_lower
+    elif char in alphabet_upper:
+        alphabet = alphabet_upper
+    else:
+        return char
+    
+    code = alphabet.index(char)
+    new_code = (code + shift) % len(alphabet)
+    new_char = alphabet[new_code]
+    return new_char
+```
+
+- أولاً نبحث عن الحرف في سلسلة الأحرف الصغيرة، ثم الكبيرة، ثم إن لم يوجد في أي منها فإننا نعيد الحرف كما هو، ولا نزيحه
+- فإن وجدنا الحرف في إحدى السلسلتين (الكبيرة أو الصغيرة) فإننا نعين المتغير `alphabet` لهذه السلسلة التي سيتم البحث فيها بعد ذلك
+- نبحث في هذه السلسلة بالفعل `.index()` لنعرف موضِع الحرف، حيث سيكون هذا هو رمزه الرقمي (`code`).
+- نزيح الرقم بالمقدار المعطى (`shift`) ونُدير الناتج بعملية **باقي القسمة** وهي التعبير: (`% len(alphabet)`)
+- نعين المتغير `new_char` للحرف الذي في موضع الرقم بعد الإزاحة
+- نعيد الحرف البديل
+
+نختبر الدالة ببعض التوكيادت:
+
+```{python}
+assert encode('a', 3) == 'd'
+assert encode('b', 3) == 'e'
+
+assert encode('x', 3) == 'a'
+assert encode('y', 3) == 'b'
+```
+
+أما دالة عكس التعمية، فهي ببساطة تعكس الإزاحة بطرح الرقم بعد جمعه.
+
+```{python}
+def decode(char: str, shift: int) -> str:
+    if char in alphabet_lower:
+        alphabet = alphabet_lower
+    elif char in alphabet_upper:
+        alphabet = alphabet_upper
+    else:
+        return char
+    
+    code = alphabet.index(char)
+    new_code = (code - shift) % len(alphabet)
+    new_char = alphabet[new_code]
+    return new_char
+```
+
+فأما دالة استخراج المعمى، فنريدها أن تكون فعلاً تعكِس، ولذلك سنستعمل التوكيد بتمرير المعمة لعكسه مباشرة بهذه الطريقة:
+
+```{python}
+assert decode(encode('a', 3), 3) == 'a'
+assert decode(encode('z', 3), 3) == 'z'
+```
+
+والآن بعد أن تأكدنا من عمل ذلك على مستوى الحرف الواحد، نريد أن نأخذ النص كاملاً فنعميه:
+
+```{python}
+def encode_text(text: str, shift: int) -> str:
+    result = ""
+    for char in text:
+        result += encode(char, shift)
+    return result
+```
+
+- نبدأ بنص فارغ: `result = ""`
+- نأتي على الحروف حرفًا حرفًا كما في النص `text` ونستعمل فعل التعمية `encode` لذلك النص، ونضيف الحرف العائد إلى النص الناتج `result`
+
+أما عكس التعمية فباستعمال `decode` بدلاً من `encode` بمثل ما تقدَّم:
+
+```{python}
+def decode_text(text: str, shift: int) -> str:
+    result = ""
+    for char in text:
+        result += decode(char, shift)
+    return result
+```
+
+والآن نريد أن نختبر، ولذلك سنستعين بموقع تفاعلي قد تم فيه عمل ذلك قبلنا، وهو موقع: [cryptii.com](https://cryptii.com/pipes/caesar-cipher) فنأخذ النص ونستعمله ونتأكد أن ما نخرج به نفس ما خرجوا به:
+
+```{python}
+assert (
+    encode_text("If he had anything confidential to say, he wrote it in cipher, that is, by so changing the order of the letters of the alphabet, that not a word could be made out", 3) ==
+    "Li kh kdg dqbwklqj frqilghqwldo wr vdb, kh zurwh lw lq flskhu, wkdw lv, eb vr fkdqjlqj wkh rughu ri wkh ohwwhuv ri wkh doskdehw, wkdw qrw d zrug frxog eh pdgh rxw"
+)
+```
+
+أخيرًا نستعمل ذلك بعد أن تأكدنا من صحته كاملاً:
+
+```{python}
+text = "If he had anything confidential to say, he wrote it in cipher, that is, by so changing the order of the letters of the alphabet, that not a word could be made out."
+
+print("## Text")
+print(text)
+
+text_encoded = encode_text(text, 3)
+text_decoded = decode_text(text_encoded, 3)
+
+print("## Encoded")
+print(text_encoded)
+
+print("## Decoded")
+print(text_decoded)
+```
