@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>استخراج المعمى – البايثونية</title>
+<title>التشفير – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -71,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta name="twitter:title" content="استخراج المعمى – البايثونية">
+<meta name="twitter:title" content="التشفير – البايثونية">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -85,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/apps/sentiment_analysis.html">تطبيقات ومسائل</a></li><li class="breadcrumb-item"><a href="../../chapters/apps/cryptanalysis.html">استخراج المعمى</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/apps/sentiment_analysis.html">تطبيقات ومسائل</a></li><li class="breadcrumb-item"><a href="../../chapters/apps/cryptanalysis.html">التشفير</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -363,20 +397,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/08_procedural/a4_recursion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">الإجراء المتسلسل</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../chapters/08_procedural/a2_procedural.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">البرمجة الإجرائية</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">البرمجة الإجرائية</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/08_procedural/a3_modules.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">الاستيراد والتصدير</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">الاستيراد والتصدير</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/08_procedural/a4_recursion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">الإجراء المتسلسل</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -417,7 +451,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/apps/cryptanalysis.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">استخراج المعمى</span></a>
+ <span class="menu-text">التشفير</span></a>
   </div>
 </li>
       </ul>
@@ -503,9 +537,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/apps/sentiment_analysis.html">تطبيقات ومسائل</a></li><li class="breadcrumb-item"><a href="../../chapters/apps/cryptanalysis.html">استخراج المعمى</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/apps/sentiment_analysis.html">تطبيقات ومسائل</a></li><li class="breadcrumb-item"><a href="../../chapters/apps/cryptanalysis.html">التشفير</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">استخراج المعمى</h1>
+<h1 class="title">التشفير</h1>
 </div>
 
 
@@ -522,10 +556,150 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>https://www.alukah.net/culture/0/141595/%D8%B9%D8%B1%D8%B6-%D9%83%D8%AA%D8%A7%D8%A8-%D9%85%D8%B9%D8%AC%D9%85-%D8%A3%D8%B9%D9%84%D8%A7%D9%85-%D8%A7%D9%84%D8%AA%D8%B9%D9%85%D9%8A%D8%A9-%D9%88%D8%A7%D8%B3%D8%AA%D8%AE%D8%B1%D8%A7%D8%AC-%D8%A7%D9%84%D9%85%D8%B9%D9%85%D9%89-%D9%81%D9%8A-%D8%A7%D9%84%D8%AA%D8%B1%D8%A7%D8%AB-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A-%D9%88%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%8A-%D9%85%D8%B9%D8%AC%D9%85-%D8%A3%D8%B9%D9%84%D8%A7%D9%85-%D8%A7%D9%84%D8%B4%D9%81%D8%B1%D8%A9-%D9%88%D9%83%D8%B3%D8%B1%D9%87%D8%A7/</p>
-<blockquote class="blockquote">
-<p>رسالة في استخراج المعمى هي رسالة بحثية ألفها يعقوب بن إسحاق الكندي، والمعروفة بأنها الأولى التي تذكر استخراج المعمى التكراري. حتى منتصف القرن التاسع، كانت الطريقة الأكثر شيوعًا لتعمية الرسائل في العالم هي التعمية وحيدة (حيث يُعَيَّن حرف معمى وحيد لكل حرف من النص المعمى).</p>
-</blockquote>
+<p>من أقدم أنواع <strong>تعمية النص</strong> (Text Encryption) شيفرة سيزر (<a href="https://cryptii.com/pipes/caesar-cipher">Ceasar Cipher</a>) وتقوم على إزاحة الترتيب الأبجدي بمقدار ثابت. فإذا كان مقدار الإزاحة 3 مثلاً يصير:</p>
+<ul>
+<li>حرف <code dir="ltr">a</code> يصير <code dir="ltr">d</code></li>
+<li>حرف <code dir="ltr">b</code> يصير <code dir="ltr">e</code></li>
+<li>حرف <code dir="ltr">c</code> يصير <code dir="ltr">f</code></li>
+</ul>
+<p>وأما الحروف الأخيرة فتدور، فيكون:</p>
+<ul>
+<li>حرف <code dir="ltr">x</code> يصير <code dir="ltr">a</code></li>
+<li>حرف <code dir="ltr">y</code> يصير <code dir="ltr">b</code></li>
+<li>حرف <code dir="ltr">z</code> يصير <code dir="ltr">c</code></li>
+</ul>
+<p>ومهمتنا تطبيقها بخوارزمية تأخذ نصًّا وتعميه.</p>
+<p>أولاً نعرف الحروف الكبيرة والصغيرة:</p>
+<div id="86a3f47b" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>alphabet_lower <span class="op">=</span> <span class="st">"abcdefghijklmnopqrstuvwxyz"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>alphabet_upper <span class="op">=</span> <span class="st">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>تذكر أن لدينا في بايثون الفعل: <code dir="ltr">str.index(sub: str) -&gt; int</code> حيث يأخذ هذا الفعل جُزءًا نصيًّا ويأتي على النص من أوله إلى آخر باحثًا عن موضعه. ونحن سنستعمل ذلك في البحث عن موضع الحرف فسيكون على النحو التالي:</p>
+<div id="def30660" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(alphabet_lower.index(<span class="st">'a'</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(alphabet_lower.index(<span class="st">'z'</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>0
+25</code></pre>
+</div>
+</div>
+<p>والأمر الآخر الذي سيفيدنا في تدوير الأرقام هو:</p>
+<p><a href="https://ar.wikipedia.org/wiki/%D8%AD%D8%B3%D8%A7%D8%A8_%D9%85%D9%82%D8%A7%D8%B3%D9%8A"><strong>الحسابيات المقاسية</strong></a> (Modular Arithmetic) تتحرك فيه الأرقام بالجمع والضرب ونحوه بحيث تلتف الأرقام حول بعضها البعض عند الوصول إلى قيمة معينة، تسمى <strong>القياس</strong> (Modulus).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Clock_group.svg/500px-Clock_group.svg.png" class="img-fluid figure-img"></p>
+<figcaption>نستعمل في ساعة الحائط القياس 12 في حساب الوقت</figcaption>
+</figure>
+</div>
+<p>وهذه العملية في بايثون هي <code dir="ltr">%</code> وتعبر عن باقي القسمة:</p>
+<div id="17954db2" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">9</span> <span class="op">+</span> <span class="dv">4</span>) <span class="op">%</span> <span class="dv">12</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre dir="ltr"><code>1</code></pre>
+</div>
+</div>
+<p>والآن نعرف الدالة التي ستأخذ حرفًا (<code dir="ltr">char</code>) ومقدار الإزاحة (<code dir="ltr">shift</code>) لتعيد الحرف البديل عنه بعد الإزاحة.</p>
+<div id="947f2595" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> encode(char: <span class="bu">str</span>, shift: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> char <span class="kw">in</span> alphabet_lower:</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        alphabet <span class="op">=</span> alphabet_lower</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> char <span class="kw">in</span> alphabet_upper:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        alphabet <span class="op">=</span> alphabet_upper</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> char</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    code <span class="op">=</span> alphabet.index(char)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    new_code <span class="op">=</span> (code <span class="op">+</span> shift) <span class="op">%</span> <span class="bu">len</span>(alphabet)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    new_char <span class="op">=</span> alphabet[new_code]</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> new_char</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>أولاً نبحث عن الحرف في سلسلة الأحرف الصغيرة، ثم الكبيرة، ثم إن لم يوجد في أي منها فإننا نعيد الحرف كما هو، ولا نزيحه</li>
+<li>فإن وجدنا الحرف في إحدى السلسلتين (الكبيرة أو الصغيرة) فإننا نعين المتغير <code dir="ltr">alphabet</code> لهذه السلسلة التي سيتم البحث فيها بعد ذلك</li>
+<li>نبحث في هذه السلسلة بالفعل <code dir="ltr">.index()</code> لنعرف موضِع الحرف، حيث سيكون هذا هو رمزه الرقمي (<code dir="ltr">code</code>).</li>
+<li>نزيح الرقم بالمقدار المعطى (<code dir="ltr">shift</code>) ونُدير الناتج بعملية <strong>باقي القسمة</strong> وهي التعبير: (<code dir="ltr">% len(alphabet)</code>)</li>
+<li>نعين المتغير <code dir="ltr">new_char</code> للحرف الذي في موضع الرقم بعد الإزاحة</li>
+<li>نعيد الحرف البديل</li>
+</ul>
+<p>نختبر الدالة ببعض التوكيادت:</p>
+<div id="be222630" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> encode(<span class="st">'a'</span>, <span class="dv">3</span>) <span class="op">==</span> <span class="st">'d'</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> encode(<span class="st">'b'</span>, <span class="dv">3</span>) <span class="op">==</span> <span class="st">'e'</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> encode(<span class="st">'x'</span>, <span class="dv">3</span>) <span class="op">==</span> <span class="st">'a'</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> encode(<span class="st">'y'</span>, <span class="dv">3</span>) <span class="op">==</span> <span class="st">'b'</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>أما دالة عكس التعمية، فهي ببساطة تعكس الإزاحة بطرح الرقم بعد جمعه.</p>
+<div id="f8458ac9" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> decode(char: <span class="bu">str</span>, shift: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> char <span class="kw">in</span> alphabet_lower:</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        alphabet <span class="op">=</span> alphabet_lower</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> char <span class="kw">in</span> alphabet_upper:</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        alphabet <span class="op">=</span> alphabet_upper</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> char</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    code <span class="op">=</span> alphabet.index(char)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    new_code <span class="op">=</span> (code <span class="op">-</span> shift) <span class="op">%</span> <span class="bu">len</span>(alphabet)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    new_char <span class="op">=</span> alphabet[new_code]</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> new_char</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>فأما دالة استخراج المعمى، فنريدها أن تكون فعلاً تعكِس، ولذلك سنستعمل التوكيد بتمرير المعمة لعكسه مباشرة بهذه الطريقة:</p>
+<div id="1b109c7b" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> decode(encode(<span class="st">'a'</span>, <span class="dv">3</span>), <span class="dv">3</span>) <span class="op">==</span> <span class="st">'a'</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> decode(encode(<span class="st">'z'</span>, <span class="dv">3</span>), <span class="dv">3</span>) <span class="op">==</span> <span class="st">'z'</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>والآن بعد أن تأكدنا من عمل ذلك على مستوى الحرف الواحد، نريد أن نأخذ النص كاملاً فنعميه:</p>
+<div id="c536485b" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> encode_text(text: <span class="bu">str</span>, shift: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> char <span class="kw">in</span> text:</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        result <span class="op">+=</span> encode(char, shift)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>نبدأ بنص فارغ: <code dir="ltr">result = ""</code></li>
+<li>نأتي على الحروف حرفًا حرفًا كما في النص <code dir="ltr">text</code> ونستعمل فعل التعمية <code dir="ltr">encode</code> لذلك النص، ونضيف الحرف العائد إلى النص الناتج <code dir="ltr">result</code></li>
+</ul>
+<p>أما عكس التعمية فباستعمال <code dir="ltr">decode</code> بدلاً من <code dir="ltr">encode</code> بمثل ما تقدَّم:</p>
+<div id="f478cdcc" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> decode_text(text: <span class="bu">str</span>, shift: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> char <span class="kw">in</span> text:</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        result <span class="op">+=</span> decode(char, shift)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>والآن نريد أن نختبر، ولذلك سنستعين بموقع تفاعلي قد تم فيه عمل ذلك قبلنا، وهو موقع: <a href="https://cryptii.com/pipes/caesar-cipher">cryptii.com</a> فنأخذ النص ونستعمله ونتأكد أن ما نخرج به نفس ما خرجوا به:</p>
+<div id="f717fe3a" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb12" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    encode_text(<span class="st">"If he had anything confidential to say, he wrote it in cipher, that is, by so changing the order of the letters of the alphabet, that not a word could be made out"</span>, <span class="dv">3</span>) <span class="op">==</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Li kh kdg dqbwklqj frqilghqwldo wr vdb, kh zurwh lw lq flskhu, wkdw lv, eb vr fkdqjlqj wkh rughu ri wkh ohwwhuv ri wkh doskdehw, wkdw qrw d zrug frxog eh pdgh rxw"</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>أخيرًا نستعمل ذلك بعد أن تأكدنا من صحته كاملاً:</p>
+<div id="1a73c44a" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"If he had anything confidential to say, he wrote it in cipher, that is, by so changing the order of the letters of the alphabet, that not a word could be made out."</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"## Text"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(text)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>text_encoded <span class="op">=</span> encode_text(text, <span class="dv">3</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>text_decoded <span class="op">=</span> decode_text(text_encoded, <span class="dv">3</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"## Encoded"</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(text_encoded)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"## Decoded"</span>)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(text_decoded)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>## Text
+If he had anything confidential to say, he wrote it in cipher, that is, by so changing the order of the letters of the alphabet, that not a word could be made out.
+## Encoded
+Li kh kdg dqbwklqj frqilghqwldo wr vdb, kh zurwh lw lq flskhu, wkdw lv, eb vr fkdqjlqj wkh rughu ri wkh ohwwhuv ri wkh doskdehw, wkdw qrw d zrug frxog eh pdgh rxw.
+## Decoded
+If he had anything confidential to say, he wrote it in cipher, that is, by so changing the order of the letters of the alphabet, that not a word could be made out.</code></pre>
+</div>
+</div>
 
 
 
