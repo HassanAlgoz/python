@@ -11,49 +11,46 @@ og:title: procedural
 فأما **الإجراء** (Procedure) فهو: **قطعة نص برمجي مخزَّنة تُستدعى باسمها بعوامل متغيرة**.
 ويسمى الدالة (Function) أو الروتين (Routine) أو البرنامج الفرعي (Sub-Program). ونقول استدعي الإجراء (Call) أو نفذه (Execute). ويسمى مكان القطعة التي قامت بالاستدعاء: **موقع الاستدعاء** (Call-site).
 
+أما القطعة الأخيرة: `if __name__ == "__main__"` فإن المتغير `__name__` هو متغير مخصوص في لغة بايثون تعطيه القيمة `__main__` إذا تم تشغيل البرنامج عن طريق هذا الملف، بخلاف ما لو تم استيراد هذا الملف. وسيأتي بيان ذلك في الفصل التالي، عندما نشرح الحزم والوحدات.
+
 ```{python}
 def main():
-    procedure1()
-    procedure2()
+    p1()
+    print("middle")
+    p2()
+    print("finish")
 
-def procedure1():
-    procedure1_1()
-    procedure1_2()
+def p1():
+    p1_1()
+    p1_2()
 
-def procedure2():
-    procedure2_1()
-
-
-def procedure1_1():
-    print("Doing something 1")
-
-def procedure1_2():
-    print("Doing something 2")
+def p2():
+    p2_1()
 
 
-def procedure2_1():
-    print("Doing something 3")
+def p1_1():
+    print("one-one")
+
+def p1_2():
+    print("one-two")
+
+
+def p2_1():
+    print("two-one")
 
 if __name__ == "__main__":
     main()
 ```
 
-أما القطعة الأخيرة: `if __name__ == "__main__"` فإن المتغير `__name__` هو متغير مخصوص في لغة بايثون تعطيه القيمة `__main__` إذا تم تشغيل البرنامج عن طريق هذا الملف، بخلاف ما لو تم استيراد هذا الملف. وسيأتي بيان ذلك في الفصل التالي، عندما نشرح الحزم والوحدات.
+نصور **كومة الاستدعاءات** (Call Stack) بمرور الوقت من اليسار إلى اليمين على النحو التالي:
 
-```{mermaid}
-flowchart LR
-    main --> procedure1
-    main --> procedure2
-    procedure1 --> procedure1_1
-    procedure1 --> procedure1_2
-    procedure2 --> procedure2_1
-    procedure1_1 --> print1[<code>Doing something 1</code>]
-    procedure1_2 --> print2[<code>Doing something 2</code>]
-    procedure2_1 --> print3[<code>Doing something 3</code>]
- 
-```
+![كومة استدعاءات البرنامج السابق](../../assets/callstack.png)
 
-فأي إجراء يتم تعريفه؛ كالمتغير الذي يتم تعريفه: هو نص برمجي محفوظ ينتظر الاستدعاء حتى يحضر في ذاكرة البرنامج في ظرف تنفيذي ويتم تشغيله بعوامل معيَّنة.
+:::{.callout-note}
+توجد مكتبة خارجية لعرض كومة الاستدعاءات حقيقة وهي: [SnakeViz](https://jiffyclub.github.io/snakeviz/) وهي تتطلب معرفة بـ [cprofile](https://docs.python.org/3/library/profile.html). ويُعرف ذلك **بالرسم اللهبي** (Flamegraph).
+:::
+
+فأي إجراء يتم تعريفه؛ كالمتغير الذي يتم تعريفه: هو نص برمجي محفوظ ينتظر الاستدعاء حتى يحضر في ذاكرة البرنامج في ظرف تنفيذي ويتم تشغيله بعوامل معيَّنة. ثم يعود إلى الإجراء الذي استدعاه، وهكذا دواليك.
 لذا فإننا إن لم نشتغل الإجراء الأوَّل `main` فإن البرنامج وإن كان يحفظ هذه الإجراءات إلا أنها تحتاج إلى الاستدعاء لتعمل.
 
 ## تعريف الإجراء
