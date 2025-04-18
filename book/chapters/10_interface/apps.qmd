@@ -1,0 +1,27 @@
+# تطبيقات {.unnumbered}
+
+نكتب برنامجًا يقرأ ملفًّا ويعالجه ويكتب النسخة المعالجة في ملف آخر.
+
+```python
+from pathlib import Path
+
+import typer
+
+app = typer.Typer()
+
+
+@app.command()
+def uppercase(file_path: str):
+    p = Path(file_path)
+    with open(file=p) as file:
+        content = file.read()
+    
+    content = content.upper()
+
+    p = p.with_stem(f'{p.stem}_processed')
+    with open(file=p) as file:
+        file.write(content)
+
+if __name__ == "__main__":
+    app()
+```
