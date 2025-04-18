@@ -1,10 +1,10 @@
 # كتاب البايثونية
 
-اضغط على رابط [كتاب البايثونية](https://hassanalgoz.github.io/python/) للتصفح.
+**⚠️: لا يزال الكتاب في طوْر المسودة**
 
-**⚠️: لا تزال النسخة تحت الإنشاء.**
+[اضغط هنا لتصفح الكتاب](https://hassanalgoz.github.io/python/)
 
-## Development (التطوير)
+## Development
 
 ### Install dependencies
 
@@ -12,7 +12,7 @@ Do your self a favor and [install `uv`](https://docs.astral.sh/uv/) which is ⚡
 
 Then run:
 
-```
+```bash
 uv sync
 ```
 
