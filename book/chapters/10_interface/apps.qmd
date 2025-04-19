@@ -1,6 +1,8 @@
 # تطبيقات {.unnumbered}
 
-نكتب برنامجًا يقرأ ملفًّا ويعالجه ويكتب النسخة المعالجة في ملف آخر.
+## تطبيق معمارية الطبقات الثلاث
+
+وهذا مثال لبرنامج يقرأ الملف المعطى فيعالجه ثم نتيجة المعالجة بنفس اسم الملف متبوعًا بكلمة `_processed`:
 
 ```python
 from pathlib import Path
@@ -9,19 +11,40 @@ import typer
 
 app = typer.Typer()
 
+@app.command()
+def hello(name: str):
+    print('Hello', name)
 
 @app.command()
 def uppercase(file_path: str):
-    p = Path(file_path)
-    with open(file=p) as file:
+    # قراءة الملف
+    p = Path(file_path).resolve()
+    with open(file=p, mode='r') as file:
         content = file.read()
     
+    # معالجة النص
     content = content.upper()
 
+    # كتابة النتيجة
     p = p.with_stem(f'{p.stem}_processed')
-    with open(file=p) as file:
+    with open(file=p, mode='w') as file:
         file.write(content)
 
 if __name__ == "__main__":
     app()
 ```
+
+مثال لتشغيل البرنامج:
+
+```bash
+python main.py uppercase ./relative/path/to/file.txt
+```
+
+فإن كان الملف موجودًا فستلاحظ وجود ملف جديد باسم: `file_processed.txt`.
+
+
+وفي هذا المثال رأينا الطبقات الثلاث جميعًا:
+
+1. طبقة العرض: يتكفل `typer` بطبقة العرض؛ وهي الكيفية التي يستخدم بها المستفيد البرنامج (وهي سطر الأوامر)
+2. طبقة المنطق: وتتمثل في السطر `content = content.upper()`
+3. طبقة البيانات: وهي في الأول والأخير: قراءة الملف المحدد في المدخلات ثم كتابة النتيجة في ملف

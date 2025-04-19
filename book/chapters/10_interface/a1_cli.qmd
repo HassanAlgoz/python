@@ -14,7 +14,7 @@ og:title: cli
 
 وفيها مسلكان:
 
-الأول: **واجهة نصية**؛ ولها مكتبة أساسية في بايثون هي [argparse](https://docs.python.org/3/library/argparse.html) ومكتبات خارجية أسهل منها وأسهل في التعبير مثل: [typer](https://typer.tiangolo.com/) أو [click](https://click.palletsprojects.com/en/stable/quickstart/).
+الأول: **واجهة نصية**؛ ولها مكتبة أساسية في بايثون هي [argparse](https://docs.python.org/3/library/argparse.html) ومكتبات خارجية أسهل في التعبير منها مثل: [typer](https://typer.tiangolo.com/) المبنية على [click](https://click.palletsprojects.com/en/stable/quickstart/).
 
 ![صورة توضح الواجهة النصية باستعمال المكتبة الخارجية Typer](../../assets/typer-cli.png)
 
@@ -182,51 +182,17 @@ python main.py goodbye --formal Hani
 Goodbye Mr. Hani. Have a good day.
 ```
 
-## تطبيق معمارية الطبقات الثلاث
+## مزايا أخرى لطبقة العرض عن طريق (`typer`)
 
-وهذا مثال لبرنامج يقرأ الملف المعطى فيعالجه ثم نتيجة المعالجة بنفس اسم الملف متبوعًا بكلمة `_processed`:
+للمزيد انظر في صفحات المكتبة:
 
-```python
-from pathlib import Path
+- [الطباعة والألوان](https://typer.tiangolo.com/tutorial/printing/)
+- [طلب إدخال القيم المفقودة بدل الفشل بخطأ](https://typer.tiangolo.com/tutorial/options/prompt/)
+- [طلب الإدخال](https://typer.tiangolo.com/tutorial/prompt/)
+- [شريط التقدم](https://typer.tiangolo.com/tutorial/progressbar/)
 
-import typer
+...إلخ.
 
-app = typer.Typer()
+## بناء الحزمة
 
-@app.command()
-def hello(name: str):
-    print('Hello', name)
-
-@app.command()
-def uppercase(file_path: str):
-    # قراءة الملف
-    p = Path(file_path).resolve()
-    with open(file=p, mode='r') as file:
-        content = file.read()
-    
-    # معالجة النص
-    content = content.upper()
-
-    # كتابة النتيجة
-    p = p.with_stem(f'{p.stem}_processed')
-    with open(file=p, mode='w') as file:
-        file.write(content)
-
-if __name__ == "__main__":
-    app()
-```
-
-مثال لتشغيل البرنامج:
-
-```bash
-python main.py uppercase ./relative/path/to/file.txt
-```
-
-فإن كان الملف موجودًا فستلاحظ وجود ملف جديد باسم: `file_processed.txt`.
-
-
-وفي هذا المثال رأينا الطبقات الثلاث جميعًا:
-
-1. طبقة العرض: يتكفل `typer` بطبقة العرض؛ وهي الكيفية التي يستخدم بها المستفيد البرنامج (وهي سطر الأوامر)
-2. طبقة المنطق: وتتمثل في السطر `content = content.upper()`
-3. طبقة البيانات: وهي في الأول والأخير: قراءة الملف المحدد في المدخلات ثم كتابة النتيجة في ملف
+وأما لتغليف البرنامج حتى يكون صالحًا للتثبيت، فراجع: [بناء الحزمة](https://typer.tiangolo.com/tutorial/package/)
