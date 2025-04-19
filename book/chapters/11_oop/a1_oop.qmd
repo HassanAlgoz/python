@@ -311,6 +311,9 @@ class Stack:
     
     def peek(self):
         return self.items[-1]
+    
+    def __len__(self):
+        return len(self.items)
 
     def __repr__(self):
         return f"|{'|'.join(str(item) for item in self.items)}>"
@@ -319,6 +322,7 @@ class Stack:
 - فعل الإنشاء يُسنِد قائمة فارغة إلى الشيء (`self`)
 - فعل `push` يضيف إلى آخر هذه القائمة بالفعل `append`
 - فعل `pop` يأخذ آخر عنصر من القائمة بالفعل `pop` (وهو إزالة مع أخذ)
+- فعل `__len__` لمعرفة عدد العنصار في هذا الهيكل
 - فعل `__repr__` يعطينا تمثيلاً للكومة بالاعتماد على تمثيل القائمة
 
 نجرب الآن أن ننشئها ثم نضع أربعة عناصر فيها ونظهرها:
@@ -345,25 +349,31 @@ print(s)
 print(s.peek())
 ```
 
+ونستطيع أن نعدها:
+
+```{python}
+len(s)
+```
+
 #### استعمال الكومة
 
-TODO
-
-إذا كان لديك نص تريد التحقق من توازن الأقواس فيه، بحيث يكون لكل قوسٍ مفتوح قوسٌ يغلقه، فالكومة تساعدك في حل مثل هذه المسألة.
+إذا كان لديك نص تريد التحقق من توازن الأقواس فيه، بحيث يكون لكل قوسٍ مفتوح قوسٌ يغلقه، فالكومة تساعدك في حل مثل هذه المسألة (انظر التوكيدات في الأسفل):
 
 ```{python}
 def is_balanced(text: str) -> bool:
     """Check if the text has balanced parentheses."""
-    stack = []
+    stack = Stack()
     for character in text:
         if character == '(':
-            stack.append(character)
+            stack.push(character)
         elif character == ')':
             if len(stack) == 0:
                 return False
             stack.pop()    
     return len(stack) == 0
+```
 
+```{python}
 assert is_balanced('()')
 assert is_balanced('(())')
 assert not is_balanced('(()')
