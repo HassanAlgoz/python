@@ -158,8 +158,8 @@ graph TD
 
 ومن خواص لغة البرمجة: إنشاء مركبات لغوية جديدة، وذلك بشيئين:
 
-1.  **تعريف إجراءات** جديدة؛ بجملة `def` وسيأتي في [باب البرمجة الإجرائية](../08_procedural/a1_procedural.qmd)
-2.  **تعريف أنواع** جديدة؛ بجملة `class` وسيأتي في [باب البرمجة الشيئية](../12_oop/a1_objects.qmd)
+1.  **تعريف إجراءات** جديدة؛ بجملة `def` وسيأتي في [باب البرمجة الإجرائية](../08_procedural/a0_function_calling.qmd)
+2.  **تعريف أنواع** جديدة؛ بجملة `class` وسيأتي في [باب البرمجة الشيئية](../11_oop/a1_oop.qmd)
 
 فأضاف مطوروا بايثون أنفسهم إلى اللغة ما يسمى **بالمكتبة الأساسية** (*Standard Library*)، ومن أقسامها:
 
@@ -197,7 +197,7 @@ print(distance)
     -   `math.sqrt` هي فعل حساب الجذر التربيعي
 -   طباعة النتيجة: `print(distance)`
 
-### المكتبات المساهمة 📦️
+### المكتبات المساهمة 📦️ {#libraries}
 
 وتسمى **المكتبات الخارجية** (*External Libraries*) وهي مكتبات يساهم بها الناس، ويضيفونها إلى اللغة، نجدها في موقع قاعدة بيانات [PyPI](https://pypi.org/) الذي يضم أكثر من 580 ألف مشروع، أو غيرها من المواقع. وهذه يتم تنزيلها وتثبيتها للاستفادة من لغتها المزيدة.
 
@@ -250,18 +250,81 @@ df['Done'].value_counts().plot(kind='bar', color='skyblue', figsize=(4, 3), rot=
 
 فالمجتمعات البرمجية في بايثون كثيرة ومتعددة في اهتماماتها. منها على سبيل المثال:
 
--   **تطوير مواقع الشبكة**: 🌐
-    - [Django](https://www.djangoproject.com/) - لبناء مواقع متصلة بقواعد بيانات
-    - [FastAPI](https://fastapi.tiangolo.com/) - حديث وسريع لبناء واجهات برمجية على الشبكة
--   **تحليل البيانات وتصويرها**: 📊
-    - [pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html) - لتحليل البيانات المرصوصة
-    - [seaborn](https://seaborn.pydata.org/) - لتصوير البيانات الإحصائية على أساس Matplotlib.
-    - [matplotlib](https://matplotlib.org/) - مكتبة شاملة لإنشاء تصورات ثابتة ومتحركة وتفاعلية.
--   **الذكاء الاصطناعي وتعلم الآلة**: 🤖
-    - [statsmodels](https://www.statsmodels.org/) - للنماذج الإحصائية
-    - [scikit-learn](https://scikit-learn.org/) - لاكتشاف الأنماط والتنبؤ (تعلم الآلة)
-    - [PyTorch](https://pytorch.org/) - لبناء نماذج التعلم العميق
--   **التحليل الرياضي والهندسة**: 📐
-    - [sympy](https://www.sympy.org/) - للرياضيات الرمزية.
-    - [PySR](https://astroautomata.com/PySR/) - الانحدار الرمزي.
-    - [SciPy](https://scipy.org/) - للرياضيات والعلوم والهندسة.
+### 🌐 **تطوير مواقع الشبكة**
+
+- [Django](https://www.djangoproject.com/) - لبناء مواقع متصلة بقواعد بيانات
+- [FastAPI](https://fastapi.tiangolo.com/) - حديث وسريع لبناء واجهات برمجية على الشبكة
+
+### 📊 **تحليل البيانات وتصويرها**
+
+- [Pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html) - لتحليل البيانات المرصوصة
+- [statsmodels](https://www.statsmodels.org/) - للنماذج الإحصائية
+- [Seaborn](https://seaborn.pydata.org/) - لتصوير البيانات الإحصائية على أساس Matplotlib.
+- [matplotlib](https://matplotlib.org/) - مكتبة شاملة لإنشاء تصورات ثابتة ومتحركة وتفاعلية.
+- [Selenium](https://pypi.org/project/selenium/){target="_blank"} لتصفح المواقع بشكل آلي وسحب البيانات منها
+
+### 📊📊📊 **البيانات الضخمة**
+
+- معالجة البيانات المتدفقة بسرعة وكفاءة عالية: [Dask](https://dask.org/){target="_blank"} و [Ray](https://ray.io/){target="_blank"}.
+- أتمتة عمليات البيانات: [Airflow](https://airflow.apache.org/){target="_blank"}, [Dagster](https://dagster.io/){target="_blank"} و [Prefect](https://www.prefect.io/){target="_blank"}
+
+### 🤖 **الذكاء الاصطناعي وتعلم الآلة**
+
+- [scikit-learn](https://scikit-learn.org/) - لاكتشاف الأنماط والتنبؤ (تعلم الآلة)
+- [PyTorch](https://pytorch.org/) - بناء وتدريب نماذج التعلم العميق
+- [Keras](https://keras.io/) - بناء وتدريب نماذج التعلم العميق
+- [Hugging Face](https://huggingface.co/) - اختيار وتدريب نماذج التعلم العميق
+
+
+### 🖼️ **معالجة الصور**
+
+- [Pillow](https://pillow.readthedocs.io/en/stable/handbook/overview.html)
+- [Scikit-image](https://scikit-image.org/)
+- [OpenCV](https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html)
+- [Manim](https://www.manim.community/) - تصوير الرياضيات: أسسها [3Brown1Blue](https://www.3blue1brown.com/) ليستعملها في مقاطعه التعليمية على اليوتيوب.
+
+### 📐 **التحليل الرياضي**
+
+- [SciPy](https://scipy.org/) - خوارزميات أساسية في الحوسبة العلمية
+- [sympy](https://www.sympy.org/) - للرياضيات الرمزية.
+- [PySR](https://astroautomata.com/PySR/) - الانحدار الرمزي.
+- [cvxPy](https://www.cvxpy.org/index.html) - التحسين (Convex Optimization)
+- [FEniCS](https://fenicsproject.org/) - حل المعادلات التفاضلية الجزئية (PDEs) باستخدام طريقة العناصر المحدودة (FEM)
+- [igraph](https://python.igraph.org/en/stable/tutorials/quickstart.html) - الترابطات والشبكات
+- [python-control](https://python-control.readthedocs.io/) - أنظمة التحكم
+
+### 🧪 **الكيمياء**
+
+- [Cantera](https://cantera.org/)
+- [MDAnalysis](https://www.mdanalysis.org/)
+- [RDKit](https://github.com/rdkit/rdkit)
+- [PyBaMM](https://www.pybamm.org/)
+
+### ⚛️ **الحوسبة الكمومية**
+
+- [PennyLane](https://pennylane.ai/)
+- [Qiskit](https://qiskit.org/)
+
+### 🧠 **علم النفس**
+
+- [PsychoPy](https://www.psychopy.org/)
+
+### 🧬 **المعلوماتية الحيوية**
+
+- [BioPython](https://biopython.org/)
+- [Scikit-Bio](http://scikit-bio.org/)
+- [PyEnsembl](https://github.com/openvax/pyensembl)
+- [ETE](http://etetoolkit.org/)
+
+### 🗻 **علوم الأرض**
+
+- [Pangeo](https://pangeo.io/)
+- [Simpeg](https://simpeg.xyz/)
+- [ObsPy](https://github.com/obspy/obspy/wiki)
+- [Fatiando a Terra](https://www.fatiando.org/)
+
+### 🔭 **علم الفلك**
+
+- [AstroPy](https://www.astropy.org/)
+- [SunPy](https://sunpy.org/)
+- [SpacePy](https://spacepy.github.io/)
