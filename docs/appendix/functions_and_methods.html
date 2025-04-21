@@ -673,14 +673,6 @@ ul.task-list li input[type="checkbox"] {
 <td>تحول <code dir="ltr">x</code> إلى عدد صحيح.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">max(iterable, *args)</code></td>
-<td>ترجع أكبر عنصر في الكائن القابل للتكرار أو أكبر بين وسيطين أو أكثر.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr">min(iterable, *args)</code></td>
-<td>ترجع أصغر عنصر في الكائن القابل للتكرار أو أصغر بين وسيطين أو أكثر.</td>
-</tr>
-<tr class="odd">
 <td><code dir="ltr">pow(base, exp[, mod])</code></td>
 <td>ترجع <code dir="ltr">base</code> مرفوعة للأس <code dir="ltr">exp</code>. إذا تم توفير <code dir="ltr">mod</code>، ترجع <code dir="ltr">(base ** exp) % mod</code>.</td>
 </tr>
@@ -691,10 +683,6 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td><code dir="ltr">int.bit_length()</code></td>
 <td>ترجع عدد البتات اللازمة لتمثيل عدد صحيح في النظام الثنائي، باستثناء علامة الصفر والبادئات.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr">float.is_integer()</code></td>
-<td>ترجع <code dir="ltr">True</code> إذا كانت قيمة العدد العشري عددًا صحيحًا، و <code dir="ltr">False</code> خلاف ذلك.</td>
 </tr>
 </tbody>
 </table>
@@ -742,54 +730,54 @@ ul.task-list li input[type="checkbox"] {
 </colgroup>
 <thead>
 <tr class="header">
-<th>الفعل</th>
+<th>الإجراء</th>
 <th>الوصف</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code dir="ltr">list.append(x)</code></td>
-<td>تضيف العنصر <code dir="ltr">x</code> إلى نهاية القائمة.</td>
+<td>إضافة عنصر إلى نهاية القائمة.<br>• <code dir="ltr">x</code>: العنصر المراد إضافته.</td>
 </tr>
 <tr class="even">
 <td><code dir="ltr">list.extend(iterable)</code></td>
-<td>تضيف جميع العناصر من الكائن القابل للتكرار إلى نهاية القائمة.</td>
+<td>توسيع القائمة بإضافة كافة العناصر من iterable.<br>• <code dir="ltr">iterable</code>: المجموعة المراد إضافة عناصرها.</td>
 </tr>
 <tr class="odd">
 <td><code dir="ltr">list.insert(i, x)</code></td>
-<td>تُدخل العنصر <code dir="ltr">x</code> في الموضع المحدد <code dir="ltr">i</code>.</td>
+<td>إدراج عنصر في موضع محدد.<br>• <code dir="ltr">i</code>: موضع الإدراج.<br>• <code dir="ltr">x</code>: العنصر المراد إدراجه.</td>
 </tr>
 <tr class="even">
 <td><code dir="ltr">list.remove(x)</code></td>
-<td>تزيل أول عنصر في القائمة تكون قيمته مساوية لـ <code dir="ltr">x</code>.</td>
+<td>إزالة أول تكرار لعنصر من القائمة.<br>• <code dir="ltr">x</code>: العنصر المراد إزالته.</td>
 </tr>
 <tr class="odd">
 <td><code dir="ltr">list.pop([i])</code></td>
-<td>تزيل العنصر الموجود في الموضع المحدد <code dir="ltr">i</code> وتعيده. إذا لم يتم تحديد <code dir="ltr">i</code>، فإنها تزيل وتعيد آخر عنصر في القائمة.</td>
+<td>إزالة وإرجاع عنصر من موضع محدد.<br>• <code dir="ltr">i</code>: موضع العنصر (اختياري، افتراضيًا آخر عنصر).</td>
 </tr>
 <tr class="even">
 <td><code dir="ltr">list.clear()</code></td>
-<td>تزيل جميع العناصر من القائمة.</td>
+<td>إزالة كافة العناصر من القائمة.</td>
 </tr>
 <tr class="odd">
 <td><code dir="ltr">list.index(x[, start[, end]])</code></td>
-<td>ترجع فهرس أول عنصر تكون قيمته مساوية لـ <code dir="ltr">x</code>.</td>
+<td>إرجاع موضع أول تكرار لعنصر.<br>• <code dir="ltr">x</code>: العنصر المراد البحث عنه.<br>• <code dir="ltr">start</code>: موضع بداية البحث (اختياري).<br>• <code dir="ltr">end</code>: موضع نهاية البحث (اختياري).</td>
 </tr>
 <tr class="even">
 <td><code dir="ltr">list.count(x)</code></td>
-<td>ترجع عدد مرات ظهور <code dir="ltr">x</code> في القائمة.</td>
+<td>عد عدد تكرارات عنصر في القائمة.<br>• <code dir="ltr">x</code>: العنصر المراد عده.</td>
 </tr>
 <tr class="odd">
 <td><code dir="ltr">list.sort(*, key=None, reverse=False)</code></td>
-<td>ترتب القائمة في مكانها (تعدل القائمة الأصلية).</td>
+<td>ترتيب عناصر القائمة في مكانها.<br>• <code dir="ltr">key</code>: دالة لتحديد معيار الترتيب (اختياري).<br>• <code dir="ltr">reverse</code>: ترتيب تنازلي إذا كانت True.</td>
 </tr>
 <tr class="even">
 <td><code dir="ltr">list.reverse()</code></td>
-<td>تعكس ترتيب عناصر القائمة في مكانها.</td>
+<td>عكس ترتيب عناصر القائمة في مكانها.</td>
 </tr>
 <tr class="odd">
 <td><code dir="ltr">list.copy()</code></td>
-<td>ترجع نسخة سطحية من القائمة.</td>
+<td>إنشاء نسخة سطحية من القائمة.</td>
 </tr>
 </tbody>
 </table>
@@ -935,7 +923,6 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>Export to Sheets</p>
 </section>
 <section id="النص-str" class="level2">
 <h2 class="anchored" data-anchor-id="النص-str">النص (<code dir="ltr">str</code>)</h2>
