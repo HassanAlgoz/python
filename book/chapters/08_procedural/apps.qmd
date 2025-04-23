@@ -169,3 +169,172 @@ assert (
 assert (
     correct_spelling('رأيتكي أحسنتي') == 'رأيتك أحسنت')
 ```
+
+
+## ضم الأقران
+
+ماذا لو أردت أن تضم قائمة من الأشخاص بحيث يكون فارق العمر بينهم أقل ما يمكن؟
+
+```
+Ahmad: 24
+Mohannad: 17
+Mohammed: 16
+Salem: 32
+Ali: 26
+Samir: 31
+```
+
+أولاً سنرتب القائمة بناءً على العمر، ثم نأخذ العناصر اثنين اثنين، وبذلك نكون حققنا الهدف.
+
+```{python}
+def make_pairs_by_age_diff(items: list[tuple[str, int]]) -> list[tuple[str, str]]:
+    """Make pairs of people by their age difference minimum."""
+    ages = [age for name, age in items]
+    ages.sort()
+    items_sorted = []
+    for age in ages:
+        for i in items:
+            if i[1] == age:
+                items_sorted.append(i)
+    pairs = []
+    for i in range(len(items_sorted) - 1):
+        pairs.append((items_sorted[i], items_sorted[i+1]))
+    return pairs
+```
+
+```{python}
+peers = [
+    ("Ahmad", 24),
+    ("Mohannad", 17),
+    ("Mohammed", 16),
+    ("Salem", 32),
+    ("Ali", 26),
+    ("Samir", 31),
+]
+```
+
+الاختبارات
+
+```{python}
+pairs = make_pairs_by_age_diff(peers)
+for p in pairs:
+    if "Ahmad" in p:
+        assert "Ali" in p
+    if "Mohannad" in p:
+        assert "Mohammed" in p
+    if "Salem" in p:
+        assert "Samir" in p
+```
+
+## التوفيق بين مجموعتين
+
+مسألة التوفيق بين مجموعتين تجدها في سياقات كثيرة.
+
+نريد في هذا التمرين التوفيق بين أشخاص وما لديهم من مهارات وبين شركات وما تطلبها من هذه المهارات.
+
+يمكن أن تبدأ بهذا الشكل لإيجاد كمية التوافق:
+
+```{python}
+have = {"A", "X", "Y"}
+want = {"A", "B", "C", "D"}
+print("نسبة الإعجاب:", len(set.intersection(have, want)) / len(want))
+```
+
+وفي العادة تكون البيانات مضمنة في قائمة على النحو التالي:
+
+```{python}
+haves = [
+	{
+		"name": "Ahmad",
+		"skills": [
+			"Python",
+			"Go",
+			"JavaScript",
+		],
+	},
+	{
+		"name": "Jawad",
+		"skills": [
+			"Negotiation",
+			"Communication",
+			"Business",
+			"Marketing",
+		],
+	},
+]
+
+wants = [
+	{
+		"job": "Data Scientist",
+		"requirements": [
+			"Python",
+			"Machine Learning",
+			"Statistics",
+		],
+	},
+	{
+		"job": "Sales Manager",
+		"requirements": [
+			"Negotiation",
+			"Communication",
+		],
+	},
+]
+```
+
+نعالجها لكل عنصر في قائمة `wants`:
+
+```{python}
+ratios = {}
+for want in wants:
+    for have in haves:
+        ratio = len(set.intersection(set(want["requirements"]), set(have["skills"]))) / len(want["requirements"])
+        if want['job'] not in ratios:
+            ratios[want['job']] = {}
+        ratios[want['job']][have['name']] = ratio
+ratios
+```
+
+الآن نرتب كل وظيفة بحسب الأعلى توافقًا.
+
+أولاً نكتب دالة ترتِّب قاموسًا، ثم سنستعملها:
+
+```{python}
+def sort_nested_dict(d: dict) -> dict:
+    """Sorts a dictionary by values"""
+    result = {}
+    for key in d.keys():
+        result[key] = {}
+        values = [v for v in d[key].values()]
+        values.sort(reverse=True)
+        for v1 in values:
+            for k, v2 in d[key].items():
+                if v2 == v1:
+                    result[key][k] = v2
+    return result
+```
+
+```{python}
+sorted_ratios = sort_nested_dict(ratios)
+sorted_ratios
+```
+
+ولكثرة الحاجة لترتيب البيانات، فإن إجراء `sorted` متعدد الاستعمالات في بايثون. انظر [Sorting Basics و Key Functions](https://docs.python.org/3/howto/sorting.html) من مرجع بايثون تحت عنوان: "HOW TO".
+
+```{python}
+for k, v in ratios.items():
+    sorted_ratios[k] = sorted(v.items(), key=lambda x: x[1], reverse=True)
+sorted_ratios
+```
+
+فأول المرشحين في علوم البيانات هو:
+
+```{python}
+sorted_ratios["Data Scientist"][0][0]
+```
+
+وأول المرشحين في المبيعات هو:
+
+```{python}
+sorted_ratios["Sales Manager"][0][0]
+```
