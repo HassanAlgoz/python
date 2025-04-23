@@ -519,6 +519,24 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../chapters/apps/random.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">شبه العشوائية</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/apps/gematria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">حساب الجُمَّل</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/apps/dates_in_arabic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">التاريخ بالعربية</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../chapters/apps/sentiment_analysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">تحليل المشاعر</span></a>
   </div>
@@ -527,12 +545,6 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../chapters/apps/ceasar_cipher.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">التشفير</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/apps/dates_in_arabic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">التاريخ بالعربية</span></a>
   </div>
 </li>
       </ul>
@@ -662,6 +674,8 @@ window.Quarto = {
   <li><a href="#سحب-الرصيد" id="toc-سحب-الرصيد" class="nav-link" data-scroll-target="#سحب-الرصيد">سحب الرصيد</a></li>
   <li><a href="#الكلمة-المتناظرة" id="toc-الكلمة-المتناظرة" class="nav-link" data-scroll-target="#الكلمة-المتناظرة">الكلمة المتناظرة</a></li>
   <li><a href="#تصحيح-الإملاء" id="toc-تصحيح-الإملاء" class="nav-link" data-scroll-target="#تصحيح-الإملاء">تصحيح الإملاء</a></li>
+  <li><a href="#ضم-الأقران" id="toc-ضم-الأقران" class="nav-link" data-scroll-target="#ضم-الأقران">ضم الأقران</a></li>
+  <li><a href="#التوفيق-بين-مجموعتين" id="toc-التوفيق-بين-مجموعتين" class="nav-link" data-scroll-target="#التوفيق-بين-مجموعتين">التوفيق بين مجموعتين</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
@@ -697,7 +711,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \sqrt{x} = x^{1/2}
 \]</span></p>
-<div id="c9f4f609" class="cell" data-execution_count="2">
+<div id="b322b4b1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> euclidean_distance(x1: <span class="bu">float</span>, y1: <span class="bu">float</span>, x2: <span class="bu">float</span>, y2: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ((x2 <span class="op">-</span> x1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1)<span class="op">**</span><span class="dv">2</span>) <span class="op">**</span> <span class="fl">0.5</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -712,13 +726,13 @@ window.Quarto = {
 <section id="تجزئة-البيانات" class="level2">
 <h2 class="anchored" data-anchor-id="تجزئة-البيانات">تجزئة البيانات</h2>
 <p>هذا الإجراء يقسم قائمة إلى جزئين بنسبة محددة:</p>
-<div id="09e89c01" class="cell" data-execution_count="3">
+<div id="1678b047" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> split(data: <span class="bu">list</span>, ratio: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">list</span>, <span class="bu">list</span>]:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    idx <span class="op">=</span> <span class="bu">int</span>(<span class="bu">len</span>(data) <span class="op">*</span> ratio)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data[:idx], data[idx:]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>نختبر الإجراء ونلاحظ أن الناتج من نوع صف (<code dir="ltr">tuple</code>). فنستعمل التعيين المتعدد لاستخراج القيم من الصف:</p>
-<div id="6e2f4535" class="cell" data-execution_count="4">
+<div id="923af57f" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">90</span>, <span class="dv">100</span>]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>a, b <span class="op">=</span> split(xs, <span class="fl">0.80</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -733,7 +747,7 @@ window.Quarto = {
 <li>أولاً، تأكد من وجود رصيد كافٍ لدى المستخدم.</li>
 <li>إذا كان الأمر كذلك، فتأكد من وجود رصيد كافٍ في جهاز الصراف الآلي لصرف المبلغ المطلوب.</li>
 </ol>
-<div id="08d79f6a" class="cell" data-execution_count="5">
+<div id="ebe27b05" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> withdraw_cash(balance, amount, atm_cash):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> balance <span class="op">&gt;=</span> amount:</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> atm_cash <span class="op">&gt;=</span> amount:</span>
@@ -762,7 +776,7 @@ Insufficient balance.</code></pre>
 <li>المؤئر الأول بإصبعك الأيمن: <code dir="ltr">i</code> يبدأ من أول حرف وينتهي عند المنتصف</li>
 <li>المؤئر الثاني بإصبعك الأيسر: <code dir="ltr">j</code> يبدأ من آخر حرف وينتهي عند المنتصف</li>
 </ul>
-<div id="fe7beaa1" class="cell" data-execution_count="6">
+<div id="ade47e63" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_palindrome(word):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">    A palindrome word is one that can be read the same way from both ends.</span></span>
@@ -792,7 +806,7 @@ Insufficient balance.</code></pre>
 <span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="kw">not</span> is_palindrome(<span class="st">"python"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>بدل الحلقة، وكان لنا أن نكتب باختصار: <code dir="ltr">word == word[::-1]</code> وهي تعني أن النص متناظر إذا كان مساوياً لنفسه بالمقلوب.</p>
-<div id="f222a454" class="cell" data-execution_count="7">
+<div id="72f61a6b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_palindrome(word):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    word <span class="op">=</span> word.lower()</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    word <span class="op">=</span> word.replace(<span class="st">" "</span>, <span class="st">""</span>)</span>
@@ -808,7 +822,7 @@ Insufficient balance.</code></pre>
 <li>زيادة الياء: أحسنتي، رأيتكي</li>
 </ul>
 <p>والمطلوب فقط تصحيح الأخطاء المذكورة.</p>
-<div id="87a2ef19" class="cell" data-execution_count="8">
+<div id="8755f8aa" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>corrections_map <span class="op">=</span> {</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'مكتبه'</span>: <span class="st">'مكتبة'</span>,</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'لعبه'</span>: <span class="st">'لعبة'</span>,</span>
@@ -833,7 +847,7 @@ Insufficient balance.</code></pre>
 <span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        result.append(correction)</span>
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">' '</span>.join(result)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="62bea4e4" class="cell" data-execution_count="9">
+<div id="003d6c21" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    correct_spelling(<span class="st">'المكتبه فيها الروايه التي أبحث عنها'</span>) <span class="op">==</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'المكتبة فيها الرواية التي أبحث عنها'</span></span>
@@ -846,6 +860,170 @@ Insufficient balance.</code></pre>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    correct_spelling(<span class="st">'رأيتكي أحسنتي'</span>) <span class="op">==</span> <span class="st">'رأيتك أحسنت'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ضم-الأقران" class="level2">
+<h2 class="anchored" data-anchor-id="ضم-الأقران">ضم الأقران</h2>
+<p>ماذا لو أردت أن تضم قائمة من الأشخاص بحيث يكون فارق العمر بينهم أقل ما يمكن؟</p>
+<pre dir="ltr"><code>Ahmad: 24
+Mohannad: 17
+Mohammed: 16
+Salem: 32
+Ali: 26
+Samir: 31</code></pre>
+<p>أولاً سنرتب القائمة بناءً على العمر، ثم نأخذ العناصر اثنين اثنين، وبذلك نكون حققنا الهدف.</p>
+<div id="171f7745" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_pairs_by_age_diff(items: <span class="bu">list</span>[<span class="bu">tuple</span>[<span class="bu">str</span>, <span class="bu">int</span>]]) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">tuple</span>[<span class="bu">str</span>, <span class="bu">str</span>]]:</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Make pairs of people by their age difference minimum."""</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    ages <span class="op">=</span> [age <span class="cf">for</span> name, age <span class="kw">in</span> items]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    ages.sort()</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    items_sorted <span class="op">=</span> []</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> age <span class="kw">in</span> ages:</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> items:</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> i[<span class="dv">1</span>] <span class="op">==</span> age:</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>                items_sorted.append(i)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    pairs <span class="op">=</span> []</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(items_sorted) <span class="op">-</span> <span class="dv">1</span>):</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>        pairs.append((items_sorted[i], items_sorted[i<span class="op">+</span><span class="dv">1</span>]))</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pairs</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="ab456f5a" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>peers <span class="op">=</span> [</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Ahmad"</span>, <span class="dv">24</span>),</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Mohannad"</span>, <span class="dv">17</span>),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Mohammed"</span>, <span class="dv">16</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Salem"</span>, <span class="dv">32</span>),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Ali"</span>, <span class="dv">26</span>),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Samir"</span>, <span class="dv">31</span>),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>الاختبارات</p>
+<div id="5bffc241" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pairs <span class="op">=</span> make_pairs_by_age_diff(peers)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> pairs:</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">"Ahmad"</span> <span class="kw">in</span> p:</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"Ali"</span> <span class="kw">in</span> p</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">"Mohannad"</span> <span class="kw">in</span> p:</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"Mohammed"</span> <span class="kw">in</span> p</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">"Salem"</span> <span class="kw">in</span> p:</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"Samir"</span> <span class="kw">in</span> p</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="التوفيق-بين-مجموعتين" class="level2">
+<h2 class="anchored" data-anchor-id="التوفيق-بين-مجموعتين">التوفيق بين مجموعتين</h2>
+<p>مسألة التوفيق بين مجموعتين تجدها في سياقات كثيرة.</p>
+<p>نريد في هذا التمرين التوفيق بين أشخاص وما لديهم من مهارات وبين شركات وما تطلبها من هذه المهارات.</p>
+<p>يمكن أن تبدأ بهذا الشكل لإيجاد كمية التوافق:</p>
+<div id="414785d5" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>have <span class="op">=</span> {<span class="st">"A"</span>, <span class="st">"X"</span>, <span class="st">"Y"</span>}</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>want <span class="op">=</span> {<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>}</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"نسبة الإعجاب:"</span>, <span class="bu">len</span>(<span class="bu">set</span>.intersection(have, want)) <span class="op">/</span> <span class="bu">len</span>(want))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>نسبة الإعجاب: 0.25</code></pre>
+</div>
+</div>
+<p>وفي العادة تكون البيانات مضمنة في قائمة على النحو التالي:</p>
+<div id="f3c56a11" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>haves <span class="op">=</span> [</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"name"</span>: <span class="st">"Ahmad"</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"skills"</span>: [</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Python"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Go"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">"JavaScript"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"name"</span>: <span class="st">"Jawad"</span>,</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"skills"</span>: [</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Negotiation"</span>,</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Communication"</span>,</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Business"</span>,</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Marketing"</span>,</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>wants <span class="op">=</span> [</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">"job"</span>: <span class="st">"Data Scientist"</span>,</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">"requirements"</span>: [</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Python"</span>,</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Machine Learning"</span>,</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Statistics"</span>,</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>        <span class="st">"job"</span>: <span class="st">"Sales Manager"</span>,</span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>        <span class="st">"requirements"</span>: [</span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Negotiation"</span>,</span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Communication"</span>,</span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>نعالجها لكل عنصر في قائمة <code dir="ltr">wants</code>:</p>
+<div id="4a5b0de7" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ratios <span class="op">=</span> {}</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> want <span class="kw">in</span> wants:</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> have <span class="kw">in</span> haves:</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        ratio <span class="op">=</span> <span class="bu">len</span>(<span class="bu">set</span>.intersection(<span class="bu">set</span>(want[<span class="st">"requirements"</span>]), <span class="bu">set</span>(have[<span class="st">"skills"</span>]))) <span class="op">/</span> <span class="bu">len</span>(want[<span class="st">"requirements"</span>])</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> want[<span class="st">'job'</span>] <span class="kw">not</span> <span class="kw">in</span> ratios:</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>            ratios[want[<span class="st">'job'</span>]] <span class="op">=</span> {}</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        ratios[want[<span class="st">'job'</span>]][have[<span class="st">'name'</span>]] <span class="op">=</span> ratio</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>ratios</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre dir="ltr"><code>{'Data Scientist': {'Ahmad': 0.3333333333333333, 'Jawad': 0.0},
+ 'Sales Manager': {'Ahmad': 0.0, 'Jawad': 1.0}}</code></pre>
+</div>
+</div>
+<p>الآن نرتب كل وظيفة بحسب الأعلى توافقًا.</p>
+<p>أولاً نكتب دالة ترتِّب قاموسًا، ثم سنستعملها:</p>
+<div id="8e00cedc" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb20" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sort_nested_dict(d: <span class="bu">dict</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Sorts a dictionary by values"""</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> {}</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> key <span class="kw">in</span> d.keys():</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        result[key] <span class="op">=</span> {}</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        values <span class="op">=</span> [v <span class="cf">for</span> v <span class="kw">in</span> d[key].values()]</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        values.sort(reverse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> v1 <span class="kw">in</span> values:</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> k, v2 <span class="kw">in</span> d[key].items():</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> v2 <span class="op">==</span> v1:</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>                    result[key][k] <span class="op">=</span> v2</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fb708a38" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb21" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sorted_ratios <span class="op">=</span> sort_nested_dict(ratios)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>sorted_ratios</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre dir="ltr"><code>{'Data Scientist': {'Ahmad': 0.3333333333333333, 'Jawad': 0.0},
+ 'Sales Manager': {'Jawad': 1.0, 'Ahmad': 0.0}}</code></pre>
+</div>
+</div>
+<p>ولكثرة الحاجة لترتيب البيانات، فإن إجراء <code dir="ltr">sorted</code> متعدد الاستعمالات في بايثون. انظر <a href="https://docs.python.org/3/howto/sorting.html">Sorting Basics و Key Functions</a> من مرجع بايثون تحت عنوان: “HOW TO”.</p>
+<div id="b6970621" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb23" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, v <span class="kw">in</span> ratios.items():</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    sorted_ratios[k] <span class="op">=</span> <span class="bu">sorted</span>(v.items(), key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>], reverse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>sorted_ratios</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre dir="ltr"><code>{'Data Scientist': [('Ahmad', 0.3333333333333333), ('Jawad', 0.0)],
+ 'Sales Manager': [('Jawad', 1.0), ('Ahmad', 0.0)]}</code></pre>
+</div>
+</div>
+<p>فأول المرشحين في علوم البيانات هو:</p>
+<div id="29735d44" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb25" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sorted_ratios[<span class="st">"Data Scientist"</span>][<span class="dv">0</span>][<span class="dv">0</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre dir="ltr"><code>'Ahmad'</code></pre>
+</div>
+</div>
+<p>وأول المرشحين في المبيعات هو:</p>
+<div id="eb78c392" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb27" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sorted_ratios[<span class="st">"Sales Manager"</span>][<span class="dv">0</span>][<span class="dv">0</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre dir="ltr"><code>'Jawad'</code></pre>
+</div>
 </div>
 
 
