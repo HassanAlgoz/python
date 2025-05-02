@@ -64,8 +64,8 @@ dammam_location = geolocator.geocode("Dammam, Saudi Arabia")
 ```{mermaid}
 sequenceDiagram
     UserCode -->> GeoPy: .geocode("...")
-    GeoPy -->> OpenStreetMap: Request
-    OpenStreetMap -->> GeoPy: Response
+    GeoPy -->> OpenStreetMap: HTTP Request
+    OpenStreetMap -->> GeoPy: HTTP Response
     GeoPy -->> UserCode: Return
 ```
 
