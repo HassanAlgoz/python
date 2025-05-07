@@ -1,0 +1,36 @@
+---
+og:title: apps_time
+---
+
+# تطبيقات {.unnumbered}
+
+## أجزاء الليل
+
+الليل يبدأ من غروب الشمس وينتهي بطلوع الفجر، ونصفه معناه شطره. فإذا كانت الشمس تغرب مثلاً الساعة الثامنة مساءاً والفجر يطلع الساعة الخامسة صباحاً، فإن منتصف الليل يكون عند الساعة الثانية عشر والنصف.
+
+وطريقة معرفة الثلث الأخير من الليل سهلة، وهي أن تقسم ساعات الليل من غروب الشمس إلى طلوع الفجر على ثلاثة، فآخر قسم هو ثلث الليل الأخير.
+
+```{python}
+from datetime import datetime
+
+def get_night_times(sunset: datetime, sunrise: datetime):
+    """Calculate midnight and start of last third of night."""
+    night_duration = sunrise - sunset
+    midnight = sunset + (night_duration / 2)
+    first_third_end = sunset + (night_duration / 3)
+    last_third_start = sunrise - (night_duration / 3)
+    
+    print(night_duration.total_seconds() / 3600, "طول الليل")
+    print((86400 - night_duration.total_seconds()) / 3600, "طول النهار")
+
+    print(sunset.strftime('%I:%M %p'), "غروب الشمس")
+    print(first_third_end.strftime('%I:%M %p'), "نهاية ثلث الليل الأول")
+    print(midnight.strftime('%I:%M %p'), "منتصف الليل")
+    print(last_third_start.strftime('%I:%M %p'), "بداية ثلث الليل الأخير")
+    print(sunrise.strftime('%I:%M %p'), "طلوع الفجر")
+
+get_night_times(
+    sunset=datetime(2024, 1, 1, 20, 0),  # 8:00 PM
+    sunrise=datetime(2024, 1, 2, 5, 0)   # 5:00 AM
+)
+```
