@@ -4,7 +4,34 @@ og:title: regex_apps
 
 # تطبيقات {.unnumbered}
 
-مثال لترتيب سجل التمارين الملخبط:
+## استبدال الكلام بالرمز المقابل
+
+```{python}
+emoji_map = {
+    ":smile:": "😄",
+    ":smiley:": "😃",
+    ":laughing:": "😆",
+    ":heart:": "❤️",
+    ":thumbsup:": "👍",
+    ":thinking_face:": "🤔",
+    ":rocket:": "🚀",
+    ":sparkles:": "✨",
+    # Add more emoji mappings here...
+}
+
+def interpret_emojis(text: str) -> str:
+    result = text
+    for code, emoji in emoji_map.items():
+        result = result.replace(code, emoji)
+    return result
+
+text1 = "I'm feeling :smile: today! Let's code :rocket: and make something :sparkles: happen! :thinking_face: what should we build?"
+
+print(interpret_emojis(text1))
+```
+
+
+## ترتيب سجل تمارين ملخبط
 
 ```{python}
 text = """
