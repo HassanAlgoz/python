@@ -356,8 +356,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/15_community/a1_time.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/13_time/a1_time.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13_time/apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
       </ul>
@@ -593,13 +599,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#الأعداد-الأعداد-الصحيحة-int-والأعداد-العشرية-float" id="toc-الأعداد-الأعداد-الصحيحة-int-والأعداد-العشرية-float" class="nav-link active" data-scroll-target="#الأعداد-الأعداد-الصحيحة-int-والأعداد-العشرية-float">الأعداد (الأعداد الصحيحة <code dir="ltr">int</code> والأعداد العشرية <code dir="ltr">float</code>)</a></li>
-  <li><a href="#القائمة-القوائم-list" id="toc-القائمة-القوائم-list" class="nav-link" data-scroll-target="#القائمة-القوائم-list">القائمة (القوائم <code dir="ltr">list</code>)</a></li>
-  <li><a href="#القاموس-القواميس-dict" id="toc-القاموس-القواميس-dict" class="nav-link" data-scroll-target="#القاموس-القواميس-dict">القاموس (القواميس <code dir="ltr">dict</code>)</a></li>
-  <li><a href="#المجموعة-المجموعات-set" id="toc-المجموعة-المجموعات-set" class="nav-link" data-scroll-target="#المجموعة-المجموعات-set">المجموعة (المجموعات <code dir="ltr">set</code>)</a></li>
+  <li><a href="#الأعداد-number" id="toc-الأعداد-number" class="nav-link active" data-scroll-target="#الأعداد-number">الأعداد (<code dir="ltr">Number</code>)</a></li>
+  <li><a href="#القائمة-list" id="toc-القائمة-list" class="nav-link" data-scroll-target="#القائمة-list">القائمة (<code dir="ltr">list</code>)</a>
+  <ul class="collapse">
+  <li><a href="#إجراءات-مبنية" id="toc-إجراءات-مبنية" class="nav-link" data-scroll-target="#إجراءات-مبنية">إجراءات مبنية</a></li>
+  <li><a href="#أفعال-للقائمة" id="toc-أفعال-للقائمة" class="nav-link" data-scroll-target="#أفعال-للقائمة">أفعال للقائمة</a></li>
+  </ul></li>
+  <li><a href="#القاموس-dict" id="toc-القاموس-dict" class="nav-link" data-scroll-target="#القاموس-dict">القاموس (<code dir="ltr">dict</code>)</a></li>
+  <li><a href="#المجموعة-set" id="toc-المجموعة-set" class="nav-link" data-scroll-target="#المجموعة-set">المجموعة (<code dir="ltr">set</code>)</a></li>
   <li><a href="#النص-str" id="toc-النص-str" class="nav-link" data-scroll-target="#النص-str">النص (<code dir="ltr">str</code>)</a>
   <ul class="collapse">
-  <li><a href="#إجراءات-مبنية" id="toc-إجراءات-مبنية" class="nav-link" data-scroll-target="#إجراءات-مبنية">إجراءات مبنيَّة</a></li>
+  <li><a href="#إجراءات-مبنية-1" id="toc-إجراءات-مبنية-1" class="nav-link" data-scroll-target="#إجراءات-مبنية-1">إجراءات مبنيَّة</a></li>
   <li><a href="#أفعال-شائعة" id="toc-أفعال-شائعة" class="nav-link" data-scroll-target="#أفعال-شائعة">أفعال شائعة</a></li>
   <li><a href="#أفعال-معروفة" id="toc-أفعال-معروفة" class="nav-link" data-scroll-target="#أفعال-معروفة">أفعال معروفة</a></li>
   <li><a href="#أفعال-نادرة-الاستعمال" id="toc-أفعال-نادرة-الاستعمال" class="nav-link" data-scroll-target="#أفعال-نادرة-الاستعمال">أفعال نادرة الاستعمال</a></li>
@@ -641,148 +651,81 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="الأعداد-الأعداد-الصحيحة-int-والأعداد-العشرية-float" class="level2">
-<h2 class="anchored" data-anchor-id="الأعداد-الأعداد-الصحيحة-int-والأعداد-العشرية-float">الأعداد (الأعداد الصحيحة <code dir="ltr">int</code> والأعداد العشرية <code dir="ltr">float</code>)</h2>
+<section id="الأعداد-number" class="level2">
+<h2 class="anchored" data-anchor-id="الأعداد-number">الأعداد (<code dir="ltr">Number</code>)</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 39%">
+<col style="width: 60%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>الإجراء</th>
-<th>الوصف</th>
+<th style="text-align: left;">الإجراء</th>
+<th style="text-align: right;">عمله</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr">abs(x)</code></td>
-<td>ترجع القيمة المطلقة للعدد <code dir="ltr">x</code>.</td>
+<td style="text-align: left;"><code dir="ltr">abs(x)</code></td>
+<td style="text-align: right;">القيمة المطلقة</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">divmod(a, b)</code></td>
-<td>ترجع زوجًا يحتوي على حاصل القسمة والباقي عند قسمة <code dir="ltr">a</code> على <code dir="ltr">b</code>.</td>
+<td style="text-align: left;"><code dir="ltr">float(x)</code></td>
+<td style="text-align: right;">تحويل إلى عدد عشري (فاصلة عائمة)</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">float(x)</code></td>
-<td>تحول <code dir="ltr">x</code> إلى عدد عشري.</td>
+<td style="text-align: left;"><code dir="ltr">int(x)</code></td>
+<td style="text-align: right;">تحويل إلى عدد صحيح</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">int(x)</code></td>
-<td>تحول <code dir="ltr">x</code> إلى عدد صحيح.</td>
+<td style="text-align: left;"><code dir="ltr">pow(base, exp)</code></td>
+<td style="text-align: right;">القوة: رفع الأساس للأس</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">pow(base, exp[, mod])</code></td>
-<td>ترجع <code dir="ltr">base</code> مرفوعة للأس <code dir="ltr">exp</code>. إذا تم توفير <code dir="ltr">mod</code>، ترجع <code dir="ltr">(base ** exp) % mod</code>.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr">round(number[, ndigits])</code></td>
-<td>ترجع العدد <code dir="ltr">number</code> مقربًا إلى <code dir="ltr">ndigits</code> من المنازل العشرية.</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr">int.bit_length()</code></td>
-<td>ترجع عدد البتات اللازمة لتمثيل عدد صحيح في النظام الثنائي، باستثناء علامة الصفر والبادئات.</td>
+<td style="text-align: left;"><code dir="ltr">round(number[, ndigits])</code></td>
+<td style="text-align: right;">تقريب العدد باعتبار تحديد المنازل العشرية</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="القائمة-القوائم-list" class="level2">
-<h2 class="anchored" data-anchor-id="القائمة-القوائم-list">القائمة (القوائم <code dir="ltr">list</code>)</h2>
+<section id="القائمة-list" class="level2">
+<h2 class="anchored" data-anchor-id="القائمة-list">القائمة (<code dir="ltr">list</code>)</h2>
+<section id="إجراءات-مبنية" class="level3">
+<h3 class="anchored" data-anchor-id="إجراءات-مبنية">إجراءات مبنية</h3>
+<p>إجراءات مبنيَّة تعمل على المكرَّرَات عمومًا؛ ومنها القائمة:</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>الإجراء</th>
-<th>الوصف</th>
+<th style="text-align: left;">الإجراء</th>
+<th style="text-align: right;">عمله</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr">len(s)</code></td>
-<td>ترجع عدد العناصر في القائمة <code dir="ltr">s</code>.</td>
+<td style="text-align: left;"><code dir="ltr">len(s)</code></td>
+<td style="text-align: right;">عدد العناصر في التسلسل</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">max(iterable, *args)</code></td>
-<td>ترجع أكبر عنصر في القائمة.</td>
+<td style="text-align: left;"><code dir="ltr">max(iterable)</code></td>
+<td style="text-align: right;">أكبر عنصر في المكرر</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">min(iterable, *args)</code></td>
-<td>ترجع أصغر عنصر في القائمة.</td>
+<td style="text-align: left;"><code dir="ltr">min(iterable)</code></td>
+<td style="text-align: right;">أصغر عنصر في المكرر</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">sorted(iterable, *, key=None, reverse=False)</code></td>
-<td>ترجع قائمة جديدة تحتوي على جميع العناصر من الكائن القابل للتكرار بترتيب تصاعدي (افتراضيًا).</td>
+<td style="text-align: left;"><code dir="ltr">sorted(iterable)</code></td>
+<td style="text-align: right;">نسخة مرتبة من المكرر</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">sum(iterable, /, start=0)</code></td>
-<td>تجمع عناصر القائمة وتبدأ القيمة بـ <code dir="ltr">start</code>.</td>
-</tr>
-</tbody>
-</table>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>الفعل</th>
-<th>الوصف</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code dir="ltr">list.append(x)</code></td>
-<td>إضافة عنصر إلى نهاية القائمة.<br>• <code dir="ltr">x</code>: العنصر المراد إضافته.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr">list.extend(iterable)</code></td>
-<td>توسيع القائمة بإضافة كافة العناصر من iterable.<br>• <code dir="ltr">iterable</code>: المجموعة المراد إضافة عناصرها.</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr">list.insert(i, x)</code></td>
-<td>إدراج عنصر في موضع محدد.<br>• <code dir="ltr">i</code>: موضع الإدراج.<br>• <code dir="ltr">x</code>: العنصر المراد إدراجه.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr">list.remove(x)</code></td>
-<td>إزالة أول تكرار لعنصر من القائمة.<br>• <code dir="ltr">x</code>: العنصر المراد إزالته.</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr">list.pop([i])</code></td>
-<td>إزالة وإرجاع عنصر من موضع محدد.<br>• <code dir="ltr">i</code>: موضع العنصر (اختياري، افتراضيًا آخر عنصر).</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr">list.clear()</code></td>
-<td>إزالة كافة العناصر من القائمة.</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr">list.index(x[, start[, end]])</code></td>
-<td>إرجاع موضع أول تكرار لعنصر.<br>• <code dir="ltr">x</code>: العنصر المراد البحث عنه.<br>• <code dir="ltr">start</code>: موضع بداية البحث (اختياري).<br>• <code dir="ltr">end</code>: موضع نهاية البحث (اختياري).</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr">list.count(x)</code></td>
-<td>عد عدد تكرارات عنصر في القائمة.<br>• <code dir="ltr">x</code>: العنصر المراد عده.</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr">list.sort(*, key=None, reverse=False)</code></td>
-<td>ترتيب عناصر القائمة في مكانها.<br>• <code dir="ltr">key</code>: دالة لتحديد معيار الترتيب (اختياري).<br>• <code dir="ltr">reverse</code>: ترتيب تنازلي إذا كانت True.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr">list.reverse()</code></td>
-<td>عكس ترتيب عناصر القائمة في مكانها.</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr">list.copy()</code></td>
-<td>إنشاء نسخة سطحية من القائمة.</td>
+<td style="text-align: left;"><code dir="ltr">sum(iterable)</code></td>
+<td style="text-align: right;">جمع عناصر المكرر</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="القاموس-القواميس-dict" class="level2">
-<h2 class="anchored" data-anchor-id="القاموس-القواميس-dict">القاموس (القواميس <code dir="ltr">dict</code>)</h2>
+<section id="أفعال-للقائمة" class="level3">
+<h3 class="anchored" data-anchor-id="أفعال-للقائمة">أفعال للقائمة</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -790,60 +733,122 @@ ul.task-list li input[type="checkbox"] {
 </colgroup>
 <thead>
 <tr class="header">
-<th>الفعل</th>
-<th>الوصف</th>
+<th style="text-align: left;">الفعل</th>
+<th style="text-align: right;">عمله</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr">dict.clear()</code></td>
+<td style="text-align: left;"><code dir="ltr">list.append(x)</code></td>
+<td style="text-align: right;">إضافة عنصر إلى نهاية القائمة.<br>• <code dir="ltr">x</code>: العنصر المراد إضافته.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">list.extend(iterable)</code></td>
+<td style="text-align: right;">توسيع القائمة بإضافة كافة العناصر من iterable.<br>• <code dir="ltr">iterable</code>: المجموعة المراد إضافة عناصرها.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">list.insert(i, x)</code></td>
+<td style="text-align: right;">إدراج عنصر في موضع محدد.<br>• <code dir="ltr">i</code>: موضع الإدراج.<br>• <code dir="ltr">x</code>: العنصر المراد إدراجه.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">list.remove(x)</code></td>
+<td style="text-align: right;">إزالة أول تكرار لعنصر من القائمة.<br>• <code dir="ltr">x</code>: العنصر المراد إزالته.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">list.pop([i])</code></td>
+<td style="text-align: right;">إزالة وإرجاع عنصر من موضع محدد.<br>• <code dir="ltr">i</code>: موضع العنصر (اختياري، افتراضيًا آخر عنصر).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">list.clear()</code></td>
+<td style="text-align: right;">إزالة كافة العناصر من القائمة.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">list.index(x[, start[, end]])</code></td>
+<td style="text-align: right;">إرجاع موضع أول تكرار لعنصر.<br>• <code dir="ltr">x</code>: العنصر المراد البحث عنه.<br>• <code dir="ltr">start</code>: موضع بداية البحث (اختياري).<br>• <code dir="ltr">end</code>: موضع نهاية البحث (اختياري).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">list.count(x)</code></td>
+<td style="text-align: right;">عد عدد تكرارات عنصر في القائمة.<br>• <code dir="ltr">x</code>: العنصر المراد عده.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">list.sort(*, key=None, reverse=False)</code></td>
+<td style="text-align: right;">ترتيب عناصر القائمة في مكانها.<br>• <code dir="ltr">key</code>: دالة لتحديد معيار الترتيب (اختياري).<br>• <code dir="ltr">reverse</code>: ترتيب تنازلي إذا كانت True.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">list.reverse()</code></td>
+<td style="text-align: right;">عكس ترتيب عناصر القائمة في مكانها.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">list.copy()</code></td>
+<td style="text-align: right;">إنشاء نسخة سطحية من القائمة.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="القاموس-dict" class="level2">
+<h2 class="anchored" data-anchor-id="القاموس-dict">القاموس (<code dir="ltr">dict</code>)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">الفعل</th>
+<th>عمله</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">dict.clear()</code></td>
 <td>تزيل جميع العناصر من القاموس.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">dict.get(key[, default])</code></td>
-<td>ترجع قيمة المفتاح <code dir="ltr">key</code>. إذا لم يكن المفتاح موجودًا، فإنها ترجع <code dir="ltr">default</code> (أو <code dir="ltr">None</code> إذا لم يتم توفير <code dir="ltr">default</code>).</td>
+<td style="text-align: left;"><code dir="ltr">dict.get(key[, default])</code></td>
+<td>ترجع قيمة المفتاح <code dir="ltr">key</code>. إذا لم يكن المفتاح موجودًا، فإنها ترجع <code dir="ltr">default</code> (أو القيمة العدمية <code dir="ltr">None</code> إذا لم يتم توفير قيمة افتراضية <code dir="ltr">default</code>).</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">dict.items()</code></td>
+<td style="text-align: left;"><code dir="ltr">dict.items()</code></td>
 <td>ترجع عرضًا لعناصر القاموس (أزواج المفتاح والقيمة).</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">dict.keys()</code></td>
+<td style="text-align: left;"><code dir="ltr">dict.keys()</code></td>
 <td>ترجع عرضًا لمفاتيح القاموس.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">dict.values()</code></td>
+<td style="text-align: left;"><code dir="ltr">dict.values()</code></td>
 <td>ترجع عرضًا لقيم القاموس.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">dict.pop(key[, default])</code></td>
+<td style="text-align: left;"><code dir="ltr">dict.pop(key[, default])</code></td>
 <td>تزيل المفتاح <code dir="ltr">key</code> وتعيد قيمته. إذا لم يكن المفتاح موجودًا، يتم إرجاع <code dir="ltr">default</code> إذا تم توفيره، وإلا يتم رفع خطأ <code dir="ltr">KeyError</code>.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">dict.popitem()</code></td>
+<td style="text-align: left;"><code dir="ltr">dict.popitem()</code></td>
 <td>تزيل وتعيد زوجًا عشوائيًا (مفتاح، قيمة) من القاموس. يتم ترتيب الأزواج بترتيب LIFO (الأخير يدخل أولاً) في الإصدارات قبل Python 3.7.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">dict.setdefault(key[, default])</code></td>
+<td style="text-align: left;"><code dir="ltr">dict.setdefault(key[, default])</code></td>
 <td>إذا كان المفتاح <code dir="ltr">key</code> موجودًا في القاموس، فإنه يعيد قيمته. إذا لم يكن كذلك، فإنه يُدخل المفتاح مع القيمة <code dir="ltr">default</code> ويعيد <code dir="ltr">default</code>.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">dict.update([other])</code></td>
+<td style="text-align: left;"><code dir="ltr">dict.update([other])</code></td>
 <td>تقوم بتحديث القاموس بالمفاتيح/القيم من <code dir="ltr">other</code>، مع الكتابة فوق المفاتيح الموجودة.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">dict.fromkeys(iterable[, value])</code></td>
+<td style="text-align: left;"><code dir="ltr">dict.fromkeys(iterable[, value])</code></td>
 <td>ينشئ قاموسًا جديدًا بمفاتيح من <code dir="ltr">iterable</code> وقيم تم تعيينها على <code dir="ltr">value</code> (افتراضيًا <code dir="ltr">None</code>).</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">dict.copy()</code></td>
+<td style="text-align: left;"><code dir="ltr">dict.copy()</code></td>
 <td>ترجع نسخة سطحية من القاموس.</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="المجموعة-المجموعات-set" class="level2">
-<h2 class="anchored" data-anchor-id="المجموعة-المجموعات-set">المجموعة (المجموعات <code dir="ltr">set</code>)</h2>
+<section id="المجموعة-set" class="level2">
+<h2 class="anchored" data-anchor-id="المجموعة-set">المجموعة (<code dir="ltr">set</code>)</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -851,73 +856,73 @@ ul.task-list li input[type="checkbox"] {
 </colgroup>
 <thead>
 <tr class="header">
-<th>الفعل</th>
-<th>الوصف</th>
+<th style="text-align: left;">الفعل</th>
+<th>عمله</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr">set.add(elem)</code></td>
+<td style="text-align: left;"><code dir="ltr">set.add(elem)</code></td>
 <td>يضيف العنصر <code dir="ltr">elem</code> إلى المجموعة.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">set.remove(elem)</code></td>
+<td style="text-align: left;"><code dir="ltr">set.remove(elem)</code></td>
 <td>يزيل العنصر <code dir="ltr">elem</code> من المجموعة. يرفع خطأ <code dir="ltr">KeyError</code> إذا لم يكن <code dir="ltr">elem</code> موجودًا.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">set.discard(elem)</code></td>
+<td style="text-align: left;"><code dir="ltr">set.discard(elem)</code></td>
 <td>يزيل العنصر <code dir="ltr">elem</code> من المجموعة إذا كان موجودًا.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">set.pop()</code></td>
+<td style="text-align: left;"><code dir="ltr">set.pop()</code></td>
 <td>يزيل ويعيد عنصرًا عشوائيًا من المجموعة.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">set.clear()</code></td>
+<td style="text-align: left;"><code dir="ltr">set.clear()</code></td>
 <td>يزيل جميع العناصر من المجموعة.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">set.update(*others)</code></td>
+<td style="text-align: left;"><code dir="ltr">set.update(*others)</code></td>
 <td>يقوم بتحديث المجموعة بإضافة جميع العناصر من المجموعات الأخرى.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">set.intersection(*others)</code></td>
+<td style="text-align: left;"><code dir="ltr">set.intersection(*others)</code></td>
 <td>ترجع مجموعة جديدة تحتوي على العناصر المشتركة بين المجموعة والمجموعات الأخرى.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">set.intersection_update(*others)</code></td>
+<td style="text-align: left;"><code dir="ltr">set.intersection_update(*others)</code></td>
 <td>تقوم بتحديث المجموعة بإبقاء العناصر الموجودة في المجموعة والمجموعات الأخرى فقط.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">set.difference(*others)</code></td>
+<td style="text-align: left;"><code dir="ltr">set.difference(*others)</code></td>
 <td>ترجع مجموعة جديدة تحتوي على العناصر الموجودة في المجموعة ولكنها غير موجودة في المجموعات الأخرى.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">set.difference_update(*others)</code></td>
+<td style="text-align: left;"><code dir="ltr">set.difference_update(*others)</code></td>
 <td>تقوم بتحديث المجموعة بإزالة العناصر الموجودة في المجموعات الأخرى.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">set.symmetric_difference(other)</code></td>
+<td style="text-align: left;"><code dir="ltr">set.symmetric_difference(other)</code></td>
 <td>ترجع مجموعة جديدة تحتوي على العناصر الموجودة في المجموعة أو المجموعة الأخرى ولكن ليس في كليهما.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">set.symmetric_difference_update(other)</code></td>
+<td style="text-align: left;"><code dir="ltr">set.symmetric_difference_update(other)</code></td>
 <td>تقوم بتحديث المجموعة بإبقاء العناصر الموجودة في المجموعة أو المجموعة الأخرى ولكن ليس في كليهما.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">set.isdisjoint(other)</code></td>
+<td style="text-align: left;"><code dir="ltr">set.isdisjoint(other)</code></td>
 <td>ترجع <code dir="ltr">True</code> إذا لم يكن للمجموعة أي عناصر مشتركة مع المجموعة الأخرى، و <code dir="ltr">False</code> خلاف ذلك.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">set.issubset(other)</code></td>
+<td style="text-align: left;"><code dir="ltr">set.issubset(other)</code></td>
 <td>ترجع <code dir="ltr">True</code> إذا كانت المجموعة مجموعة فرعية من المجموعة الأخرى، و <code dir="ltr">False</code> خلاف ذلك.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">set.issuperset(other)</code></td>
+<td style="text-align: left;"><code dir="ltr">set.issuperset(other)</code></td>
 <td>ترجع <code dir="ltr">True</code> إذا كانت المجموعة مجموعة شاملة للمجموعة الأخرى، و <code dir="ltr">False</code> خلاف ذلك.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">set.copy()</code></td>
+<td style="text-align: left;"><code dir="ltr">set.copy()</code></td>
 <td>ترجع نسخة سطحية من المجموعة.</td>
 </tr>
 </tbody>
@@ -925,8 +930,8 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="النص-str" class="level2">
 <h2 class="anchored" data-anchor-id="النص-str">النص (<code dir="ltr">str</code>)</h2>
-<section id="إجراءات-مبنية" class="level3">
-<h3 class="anchored" data-anchor-id="إجراءات-مبنية">إجراءات مبنيَّة</h3>
+<section id="إجراءات-مبنية-1" class="level3">
+<h3 class="anchored" data-anchor-id="إجراءات-مبنية-1">إجراءات مبنيَّة</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -934,29 +939,29 @@ ul.task-list li input[type="checkbox"] {
 </colgroup>
 <thead>
 <tr class="header">
-<th>الإجراء</th>
-<th>الوصف</th>
+<th style="text-align: left;">الإجراء</th>
+<th>عمله</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr">len(obj) -&gt; int</code></td>
+<td style="text-align: left;"><code dir="ltr">len(obj) -&gt; int</code></td>
 <td>لمعرفة عدد العناصر.<br>• <code dir="ltr">obj</code>: كائن قابل للعد مثل السلسلة النصية أو القائمة.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></td>
+<td style="text-align: left;"><code dir="ltr">print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></td>
 <td>طباعة.<br>• <code dir="ltr">objects</code>: الكائنات المراد طباعتها.<br>• <code dir="ltr">sep</code>: الفاصل بين الكائنات (افتراضيًا مسافة).<br>• <code dir="ltr">end</code>: النهاية (افتراضيًا سطر جديد).<br>• <code dir="ltr">file</code>: وجهة الطباعة (افتراضيًا الشاشة).<br>• <code dir="ltr">flush</code>: تنظيف المخزن المؤقت فورًا.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">ord(c) -&gt; int</code></td>
+<td style="text-align: left;"><code dir="ltr">ord(c) -&gt; int</code></td>
 <td>لمعرفة رمز Unicode لحرف.<br>• <code dir="ltr">c</code>: حرف واحد كسلسلة نصية.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">int(x=0, base=10) -&gt; int</code></td>
+<td style="text-align: left;"><code dir="ltr">int(x=0, base=10) -&gt; int</code></td>
 <td>تحويل سلسلة نصية إلى عدد صحيح.<br>• <code dir="ltr">x</code>: القيمة المراد تحويلها.<br>• <code dir="ltr">base</code>: النظام العددي (افتراضيًا عشري).</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">float(x) -&gt; float</code></td>
+<td style="text-align: left;"><code dir="ltr">float(x) -&gt; float</code></td>
 <td>تحويل سلسلة نصية إلى عدد عشري.<br>• <code dir="ltr">x</code>: القيمة المراد تحويلها.</td>
 </tr>
 </tbody>
@@ -971,53 +976,53 @@ ul.task-list li input[type="checkbox"] {
 </colgroup>
 <thead>
 <tr class="header">
-<th>الفعل</th>
-<th>الوصف</th>
+<th style="text-align: left;">الفعل</th>
+<th>عمله</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr">str.upper() -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">str.upper() -&gt; str</code></td>
 <td>تحويل السلسلة النصية إلى أحرف كبيرة.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.lower() -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">str.lower() -&gt; str</code></td>
 <td>تحويل السلسلة النصية إلى أحرف صغيرة.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">str.find(sub[, start[, end]]) -&gt; int</code></td>
+<td style="text-align: left;"><code dir="ltr">str.find(sub[, start[, end]]) -&gt; int</code></td>
 <td>البحث عن موضع سلسلة نصية فرعية داخل سلسلة نصية.<br>• <code dir="ltr">sub</code>: السلسلة النصية المراد البحث عنها.<br>• <code dir="ltr">start</code>: موضع بداية البحث (اختياري).<br>• <code dir="ltr">end</code>: موضع نهاية البحث (اختياري).</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.replace(old, new[, count]) -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">str.replace(old, new[, count]) -&gt; str</code></td>
 <td>استبدال تكرارات سلسلة نصية فرعية داخل سلسلة نصية.<br>• <code dir="ltr">old</code>: السلسلة النصية المراد استبدالها.<br>• <code dir="ltr">new</code>: السلسلة النصية البديلة.<br>• <code dir="ltr">count</code>: عدد مرات الاستبدال (اختياري).</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">str.split(sep=None, maxsplit=-1) -&gt; list</code></td>
+<td style="text-align: left;"><code dir="ltr">str.split(sep=None, maxsplit=-1) -&gt; list</code></td>
 <td>تقسيم السلسلة النصية إلى قائمة من السلاسل النصية الفرعية.<br>• <code dir="ltr">sep</code>: المحدد (افتراضيًا المسافات البيضاء).<br>• <code dir="ltr">maxsplit</code>: أقصى عدد للتقسيمات.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.join(iterable) -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">str.join(iterable) -&gt; str</code></td>
 <td>دمج عناصر من iterable إلى سلسلة نصية باستخدام فاصل.<br>• <code dir="ltr">iterable</code>: مجموعة من السلاسل النصية.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">str.strip([chars]) -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">str.strip([chars]) -&gt; str</code></td>
 <td>إزالة المسافات البيضاء من بداية ونهاية السلسلة النصية.<br>• <code dir="ltr">chars</code>: الأحرف المراد إزالتها (اختياري).</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.startswith(prefix[, start[, end]]) -&gt; bool</code></td>
+<td style="text-align: left;"><code dir="ltr">str.startswith(prefix[, start[, end]]) -&gt; bool</code></td>
 <td>التحقق مما إذا كانت السلسلة النصية تبدأ بمقدمة محددة.<br>• <code dir="ltr">prefix</code>: المقدمة المراد التحقق منها.<br>• <code dir="ltr">start</code>: موضع بداية البحث (اختياري).<br>• <code dir="ltr">end</code>: موضع نهاية البحث (اختياري).</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">str.endswith(suffix[, start[, end]]) -&gt; bool</code></td>
+<td style="text-align: left;"><code dir="ltr">str.endswith(suffix[, start[, end]]) -&gt; bool</code></td>
 <td>التحقق مما إذا كانت السلسلة النصية تنتهي بنهاية محددة.<br>• <code dir="ltr">suffix</code>: النهاية المراد التحقق منها.<br>• <code dir="ltr">start</code>: موضع بداية البحث (اختياري).<br>• <code dir="ltr">end</code>: موضع نهاية البحث (اختياري).</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.count(sub[, start[, end]]) -&gt; int</code></td>
+<td style="text-align: left;"><code dir="ltr">str.count(sub[, start[, end]]) -&gt; int</code></td>
 <td>عد عدد تكرارات سلسلة نصية فرعية داخل سلسلة نصية.<br>• <code dir="ltr">sub</code>: السلسلة النصية المراد عدها.<br>• <code dir="ltr">start</code>: موضع بداية البحث (اختياري).<br>• <code dir="ltr">end</code>: موضع نهاية البحث (اختياري).</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">str.format(*args, **kwargs) -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">str.format(*args, **kwargs) -&gt; str</code></td>
 <td>إنشاء سلسلة نصية منسقة باستخدام عناصر نائبة.<br>• <code dir="ltr">args</code>: المتغيرات المراد تنسيقها بالترتيب.<br>• <code dir="ltr">kwargs</code>: المتغيرات المراد تنسيقها بالاسم.</td>
 </tr>
 </tbody>
@@ -1032,65 +1037,65 @@ ul.task-list li input[type="checkbox"] {
 </colgroup>
 <thead>
 <tr class="header">
-<th>الفعل</th>
-<th>الوصف</th>
+<th style="text-align: left;">الفعل</th>
+<th>عمله</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr">str.encode(encoding='utf-8', errors='strict') -&gt; bytes</code></td>
+<td style="text-align: left;"><code dir="ltr">str.encode(encoding='utf-8', errors='strict') -&gt; bytes</code></td>
 <td>ترميز السلسلة النصية باستخدام ترميز محدد.<br>• <code dir="ltr">encoding</code>: نوع الترميز.<br>• <code dir="ltr">errors</code>: كيفية معالجة الأخطاء.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.casefold() -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">str.casefold() -&gt; str</code></td>
 <td>تحويل السلسلة النصية إلى نسخة casefold للمقارنات غير الحساسة لحالة الأحرف.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">str.capitalize() -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">str.capitalize() -&gt; str</code></td>
 <td>تحويل الحرف الأول من السلسلة النصية إلى حرف كبير.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.center(width[, fillchar]) -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">str.center(width[, fillchar]) -&gt; str</code></td>
 <td>توسيط السلسلة النصية داخل عرض حقل محدد.<br>• <code dir="ltr">width</code>: العرض المطلوب.<br>• <code dir="ltr">fillchar</code>: حرف التعبئة (اختياري).</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">str.translate(table) -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">str.translate(table) -&gt; str</code></td>
 <td>استبدال الأحرف في السلسلة النصية باستخدام جدول ترجمة.<br>• <code dir="ltr">table</code>: جدول الترجمة.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.expandtabs(tabsize=8) -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">str.expandtabs(tabsize=8) -&gt; str</code></td>
 <td>توسيع أحرف الجدولة في السلسلة النصية.<br>• <code dir="ltr">tabsize</code>: حجم التبويب (افتراضيًا 8).</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">str.index(sub[, start[, end]]) -&gt; int</code></td>
+<td style="text-align: left;"><code dir="ltr">str.index(sub[, start[, end]]) -&gt; int</code></td>
 <td>البحث عن موضع سلسلة نصية فرعية، وإثارة استثناء إذا لم يتم العثور عليها.<br>• <code dir="ltr">sub</code>: السلسلة النصية المراد البحث عنها.<br>• <code dir="ltr">start</code>: موضع بداية البحث (اختياري).<br>• <code dir="ltr">end</code>: موضع نهاية البحث (اختياري).</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.rjust(width[, fillchar]) -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">str.rjust(width[, fillchar]) -&gt; str</code></td>
 <td>محاذاة السلسلة النصية إلى اليمين.<br>• <code dir="ltr">width</code>: العرض المطلوب.<br>• <code dir="ltr">fillchar</code>: حرف التعبئة (اختياري).</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">str.ljust(width[, fillchar]) -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">str.ljust(width[, fillchar]) -&gt; str</code></td>
 <td>محاذاة السلسلة النصية إلى اليسار.<br>• <code dir="ltr">width</code>: العرض المطلوب.<br>• <code dir="ltr">fillchar</code>: حرف التعبئة (اختياري).</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.swapcase() -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">str.swapcase() -&gt; str</code></td>
 <td>تبديل حالة الأحرف في السلسلة النصية.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">str.title() -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">str.title() -&gt; str</code></td>
 <td>تحويل السلسلة النصية إلى حالة عنوان.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.zfill(width) -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">str.zfill(width) -&gt; str</code></td>
 <td>ملء السلسلة النصية بالأصفار على اليسار.<br>• <code dir="ltr">width</code>: العرض المطلوب.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">str.splitlines([keepends]) -&gt; list</code></td>
+<td style="text-align: left;"><code dir="ltr">str.splitlines([keepends]) -&gt; list</code></td>
 <td>تقسيم السلسلة النصية إلى قائمة من الأسطر.<br>• <code dir="ltr">keepends</code>: الاحتفاظ بنهايات الأسطر (اختياري).</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.partition(sep) -&gt; tuple</code></td>
+<td style="text-align: left;"><code dir="ltr">str.partition(sep) -&gt; tuple</code></td>
 <td>تقسيم السلسلة النصية إلى ثلاثة أجزاء.<br>• <code dir="ltr">sep</code>: الفاصل.</td>
 </tr>
 </tbody>
@@ -1105,53 +1110,53 @@ ul.task-list li input[type="checkbox"] {
 </colgroup>
 <thead>
 <tr class="header">
-<th>الفعل</th>
-<th>الوصف</th>
+<th style="text-align: left;">الفعل</th>
+<th>عمله</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr">str.isalnum() -&gt; bool</code></td>
+<td style="text-align: left;"><code dir="ltr">str.isalnum() -&gt; bool</code></td>
 <td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف أبجدية رقمية.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.isalpha() -&gt; bool</code></td>
+<td style="text-align: left;"><code dir="ltr">str.isalpha() -&gt; bool</code></td>
 <td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف أبجدية.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">str.isdecimal() -&gt; bool</code></td>
+<td style="text-align: left;"><code dir="ltr">str.isdecimal() -&gt; bool</code></td>
 <td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف عشرية.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.isdigit() -&gt; bool</code></td>
+<td style="text-align: left;"><code dir="ltr">str.isdigit() -&gt; bool</code></td>
 <td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أرقام.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">str.isidentifier() -&gt; bool</code></td>
+<td style="text-align: left;"><code dir="ltr">str.isidentifier() -&gt; bool</code></td>
 <td>التحقق مما إذا كانت السلسلة النصية معرف بايثون صالح.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.islower() -&gt; bool</code></td>
+<td style="text-align: left;"><code dir="ltr">str.islower() -&gt; bool</code></td>
 <td>التحقق مما إذا كانت جميع الأحرف المكونة في السلسلة النصية صغيرة.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">str.isnumeric() -&gt; bool</code></td>
+<td style="text-align: left;"><code dir="ltr">str.isnumeric() -&gt; bool</code></td>
 <td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف رقمية.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.isprintable() -&gt; bool</code></td>
+<td style="text-align: left;"><code dir="ltr">str.isprintable() -&gt; bool</code></td>
 <td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف قابلة للطباعة.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">str.isspace() -&gt; bool</code></td>
+<td style="text-align: left;"><code dir="ltr">str.isspace() -&gt; bool</code></td>
 <td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من مسافات بيضاء.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">str.istitle() -&gt; bool</code></td>
+<td style="text-align: left;"><code dir="ltr">str.istitle() -&gt; bool</code></td>
 <td>التحقق مما إذا كانت السلسلة النصية في حالة عنوان.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">str.isupper() -&gt; bool</code></td>
+<td style="text-align: left;"><code dir="ltr">str.isupper() -&gt; bool</code></td>
 <td>التحقق مما إذا كانت جميع الأحرف المكونة في السلسلة النصية كبيرة.</td>
 </tr>
 </tbody>
@@ -1167,25 +1172,25 @@ ul.task-list li input[type="checkbox"] {
 </colgroup>
 <thead>
 <tr class="header">
-<th>الإجراء</th>
-<th>الوصف</th>
+<th style="text-align: left;">الإجراء</th>
+<th>عمله</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr">re.match(pattern, string, flags=0) -&gt; Match or None</code></td>
+<td style="text-align: left;"><code dir="ltr">re.match(pattern, string, flags=0) -&gt; Match or None</code></td>
 <td>مطابقة النمط في بداية السلسلة النصية.<br>• <code dir="ltr">pattern</code>: النمط المراد مطابقته.<br>• <code dir="ltr">string</code>: السلسلة النصية المراد البحث فيها.<br>• <code dir="ltr">flags</code>: أعلام اختيارية لتعديل السلوك.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">re.search(pattern, string, flags=0) -&gt; Match or None</code></td>
+<td style="text-align: left;"><code dir="ltr">re.search(pattern, string, flags=0) -&gt; Match or None</code></td>
 <td>البحث عن أول تطابق للنمط في السلسلة النصية.<br>• <code dir="ltr">pattern</code>: النمط المراد مطابقته.<br>• <code dir="ltr">string</code>: السلسلة النصية المراد البحث فيها.<br>• <code dir="ltr">flags</code>: أعلام اختيارية لتعديل السلوك.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">re.findall(pattern, string, flags=0) -&gt; list</code></td>
+<td style="text-align: left;"><code dir="ltr">re.findall(pattern, string, flags=0) -&gt; list</code></td>
 <td>إنشاء قائمة من جميع التطابقات للنمط في السلسلة النصية.<br>• <code dir="ltr">pattern</code>: النمط المراد مطابقته.<br>• <code dir="ltr">string</code>: السلسلة النصية المراد البحث فيها.<br>• <code dir="ltr">flags</code>: أعلام اختيارية لتعديل السلوك.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">re.finditer(pattern, string, flags=0) -&gt; Iterator[Match[str]]</code></td>
+<td style="text-align: left;"><code dir="ltr">re.finditer(pattern, string, flags=0) -&gt; Iterator[Match[str]]</code></td>
 <td>إنشاء مكرر لجميع التطابقات للنمط في السلسلة النصية.<br>• <code dir="ltr">pattern</code>: النمط المراد مطابقته.<br>• <code dir="ltr">string</code>: السلسلة النصية المراد البحث فيها.<br>• <code dir="ltr">flags</code>: أعلام اختيارية لتعديل السلوك.</td>
 </tr>
 </tbody>
@@ -1199,57 +1204,57 @@ ul.task-list li input[type="checkbox"] {
 </colgroup>
 <thead>
 <tr class="header">
-<th>الفعل</th>
-<th>الوصف</th>
+<th style="text-align: left;">الفعل</th>
+<th>عمله</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr">match.group([group]) -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">match.group([group]) -&gt; str</code></td>
 <td>إرجاع النص المطابق أو مجموعة فرعية منه.<br>• <code dir="ltr">group</code>: رقم المجموعة المراد إرجاعها (افتراضيًا المجموعة الكاملة).</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">match.groups(default=None) -&gt; tuple</code></td>
+<td style="text-align: left;"><code dir="ltr">match.groups(default=None) -&gt; tuple</code></td>
 <td>إرجاع جميع المجموعات الفرعية كنصوص.<br>• <code dir="ltr">default</code>: القيمة الافتراضية للمجموعات غير المطابقة.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">match.groupdict(default=None) -&gt; dict</code></td>
+<td style="text-align: left;"><code dir="ltr">match.groupdict(default=None) -&gt; dict</code></td>
 <td>إرجاع القاموس الذي يحتوي على المجموعات المسماة.<br>• <code dir="ltr">default</code>: القيمة الافتراضية للمجموعات غير المطابقة.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">match.start([group]) -&gt; int</code></td>
+<td style="text-align: left;"><code dir="ltr">match.start([group]) -&gt; int</code></td>
 <td>إرجاع موضع بداية النص المطابق أو مجموعة فرعية منه.<br>• <code dir="ltr">group</code>: رقم المجموعة المراد إرجاع موضع بدايتها (اختياري).</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">match.end([group]) -&gt; int</code></td>
+<td style="text-align: left;"><code dir="ltr">match.end([group]) -&gt; int</code></td>
 <td>إرجاع موضع نهاية النص المطابق أو مجموعة فرعية منه.<br>• <code dir="ltr">group</code>: رقم المجموعة المراد إرجاع موضع نهايتها (اختياري).</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">match.span([group]) -&gt; tuple</code></td>
+<td style="text-align: left;"><code dir="ltr">match.span([group]) -&gt; tuple</code></td>
 <td>إرجاع موضع البداية والنهاية للنص المطابق أو مجموعة فرعية منه.<br>• <code dir="ltr">group</code>: رقم المجموعة المراد إرجاع مواضعها (اختياري).</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">match.pos -&gt; int</code></td>
+<td style="text-align: left;"><code dir="ltr">match.pos -&gt; int</code></td>
 <td>موضع بداية البحث في السلسلة النصية.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">match.endpos -&gt; int</code></td>
+<td style="text-align: left;"><code dir="ltr">match.endpos -&gt; int</code></td>
 <td>موضع نهاية البحث في السلسلة النصية.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">match.lastindex -&gt; int or None</code></td>
+<td style="text-align: left;"><code dir="ltr">match.lastindex -&gt; int or None</code></td>
 <td>رقم آخر مجموعة فرعية مطابقة أو <code dir="ltr">None</code> إذا لم توجد.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">match.lastgroup -&gt; str or None</code></td>
+<td style="text-align: left;"><code dir="ltr">match.lastgroup -&gt; str or None</code></td>
 <td>اسم آخر مجموعة فرعية مطابقة أو <code dir="ltr">None</code> إذا لم توجد.</td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr">match.re -&gt; Pattern</code></td>
+<td style="text-align: left;"><code dir="ltr">match.re -&gt; Pattern</code></td>
 <td>كائن النمط المستخدم في المطابقة.</td>
 </tr>
 <tr class="even">
-<td><code dir="ltr">match.string -&gt; str</code></td>
+<td style="text-align: left;"><code dir="ltr">match.string -&gt; str</code></td>
 <td>السلسلة النصية التي تم مطابقتها.</td>
 </tr>
 </tbody>

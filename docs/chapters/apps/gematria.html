@@ -391,8 +391,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/15_community/a1_time.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/13_time/a1_time.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/13_time/apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تطبيقات</span></a>
   </div>
 </li>
       </ul>
@@ -923,7 +929,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p>اكتب تفاصيل الإجراء الذي يحسب الجمَّل لكلمة معينة.</p>
 <p>أولاً نعرّف قاموسًا يحول الحروف إلى أرقام:</p>
-<div id="d466971d" class="cell" data-execution_count="1">
+<div id="d466971d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gematria_map <span class="op">=</span> {</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ا'</span>: <span class="dv">1</span>, <span class="st">'ي'</span>: <span class="dv">10</span>, <span class="st">'ق'</span>: <span class="dv">100</span>, <span class="st">'غ'</span>: <span class="dv">1000</span>,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ب'</span>: <span class="dv">2</span>, <span class="st">'ك'</span>: <span class="dv">20</span>, <span class="st">'ر'</span>: <span class="dv">200</span>, <span class="st">'بغ'</span>: <span class="dv">2000</span>,</span>
@@ -937,7 +943,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ثم نعرّف الإجراء بأنه يأخذ نصًّا <code dir="ltr">str</code> ويُنتج رقمًا <code dir="ltr">int</code>:</p>
-<div id="4c54919e" class="cell" data-execution_count="2">
+<div id="4c54919e" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gematria(word: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(word), <span class="dv">2</span>):</span>
@@ -963,7 +969,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>وأخيرًا نعيد المتغير <code dir="ltr">return total</code></li>
 </ul>
 <p>فإذا أرادوا كتابة الرقم (1240) كتبوا «غرم»، لأن الغين 1,000، والراء 200، والميم 40، فكانوا يراعون عند تركيب الجُمّل أن يكون الحرف المعبر عن العدد الأكبر في المقدمة، ثم يليه الأصغر منه وهكذا دواليك فنجد من الأمثلة على ذلك:</p>
-<div id="327f0763" class="cell" data-execution_count="3">
+<div id="327f0763" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> gematria(<span class="st">'غرم'</span>) <span class="op">==</span> <span class="dv">1240</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> gematria(<span class="st">'رب'</span>) <span class="op">==</span> <span class="dv">202</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> gematria(<span class="st">'ريح'</span>) <span class="op">==</span> <span class="dv">218</span></span>
@@ -971,7 +977,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>يقال أنه عندما توفي السلطان الظاهر برقوق أول سلاطين المماليك البرجية، قام بعض الظرفاء بصياغة عبارة تحدد تاريخ وفاته فقال: «وفاة برقوق في المشمش»، وعندما نحسب تاريخ وفاة برقوق وهي «في المشمش» يكون الناتج:</p>
 <p>(80+10+1+30+40+300+40+300) = 801، وبالتالي فتكون العبارة: «وفاة برقوق 801» هجرية وذلك صحيح.</p>
-<div id="09accc9b" class="cell" data-execution_count="4">
+<div id="09accc9b" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> gematria(<span class="st">'في المشمش'</span>) <span class="op">==</span> <span class="dv">801</span> <span class="op">==</span> <span class="dv">80</span><span class="op">+</span><span class="dv">10</span><span class="op">+</span><span class="dv">1</span><span class="op">+</span><span class="dv">30</span><span class="op">+</span><span class="dv">40</span><span class="op">+</span><span class="dv">300</span><span class="op">+</span><span class="dv">40</span><span class="op">+</span><span class="dv">300</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>يقال أيضاً أن شاعراً يسمى الدّلنجاوي مات فرثاه صديق له فقال:</p>
@@ -993,7 +999,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p>ويتضح لنا أن تاريخ الوفاة يكون في معرفة حساب العبارة «مات الشعرُ بعدَهُ»، فيكون الحساب:</p>
 <p>(40+1+400+1+30+300+70+200+2+70+4+5) = (1123)، وذلك يعني أن الشاعر الدلنجاوي توفي في عام 1123 للهجرة.</p>
-<div id="6d3225a7" class="cell" data-execution_count="5">
+<div id="6d3225a7" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> gematria(<span class="st">'مات الشعر بعده'</span>) <span class="op">==</span> <span class="dv">1123</span> <span class="op">==</span> <span class="dv">40</span><span class="op">+</span><span class="dv">1</span><span class="op">+</span><span class="dv">400</span><span class="op">+</span><span class="dv">1</span><span class="op">+</span><span class="dv">30</span><span class="op">+</span><span class="dv">300</span><span class="op">+</span><span class="dv">70</span><span class="op">+</span><span class="dv">200</span><span class="op">+</span><span class="dv">2</span><span class="op">+</span><span class="dv">70</span><span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">5</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
