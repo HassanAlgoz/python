@@ -1,30 +1,33 @@
 # مرجع الإجراءات والأفعال
 
-## الأعداد (الأعداد الصحيحة `int` والأعداد العشرية `float`)
+## الأعداد (`Number`)
 
-| الإجراء | الوصف |
-| --- | --- |
-| `abs(x)` | ترجع القيمة المطلقة للعدد `x`. |
-| `divmod(a, b)` | ترجع زوجًا يحتوي على حاصل القسمة والباقي عند قسمة `a` على `b`. |
-| `float(x)` | تحول `x` إلى عدد عشري. |
-| `int(x)` | تحول `x` إلى عدد صحيح. |
-| `pow(base, exp[, mod])` | ترجع `base` مرفوعة للأس `exp`. إذا تم توفير `mod`، ترجع `(base ** exp) % mod`. |
-| `round(number[, ndigits])` | ترجع العدد `number` مقربًا إلى `ndigits` من المنازل العشرية. |
-| `int.bit_length()` | ترجع عدد البتات اللازمة لتمثيل عدد صحيح في النظام الثنائي، باستثناء علامة الصفر والبادئات. |
+| الإجراء                    |                                      عمله |
+|:---------------------------|------------------------------------------:|
+| `abs(x)`                   |                            القيمة المطلقة |
+| `float(x)`                 |          تحويل إلى عدد عشري (فاصلة عائمة) |
+| `int(x)`                   |                        تحويل إلى عدد صحيح |
+| `pow(base, exp)`           |                    القوة: رفع الأساس للأس |
+| `round(number[, ndigits])` | تقريب العدد باعتبار تحديد المنازل العشرية |
 
-## القائمة (القوائم `list`)
+## القائمة (`list`)
 
-| الإجراء | الوصف |
-| --- | --- |
-| `len(s)` | ترجع عدد العناصر في القائمة `s`. |
-| `max(iterable, *args)` | ترجع أكبر عنصر في القائمة. |
-| `min(iterable, *args)` | ترجع أصغر عنصر في القائمة. |
-| `sorted(iterable, *, key=None, reverse=False)` | ترجع قائمة جديدة تحتوي على جميع العناصر من الكائن القابل للتكرار بترتيب تصاعدي (افتراضيًا). |
-| `sum(iterable, /, start=0)` | تجمع عناصر القائمة وتبدأ القيمة بـ `start`. |
+### إجراءات مبنية
 
+إجراءات مبنيَّة تعمل على المكرَّرَات عمومًا؛ ومنها القائمة:
 
-| الفعل | الوصف |
-|---|---|
+| الإجراء            |                    عمله |
+|:-------------------|------------------------:|
+| `len(s)`           |  عدد العناصر في التسلسل |
+| `max(iterable)`    |     أكبر عنصر في المكرر |
+| `min(iterable)`    |     أصغر عنصر في المكرر |
+| `sorted(iterable)` |    نسخة مرتبة من المكرر |
+| `sum(iterable)`    |        جمع عناصر المكرر |
+
+### أفعال للقائمة
+
+| الفعل | عمله |
+|:-----------------------------------|-----------------------------------:|
 | `list.append(x)` | إضافة عنصر إلى نهاية القائمة.<br>• `x`: العنصر المراد إضافته. |
 | `list.extend(iterable)` | توسيع القائمة بإضافة كافة العناصر من iterable.<br>• `iterable`: المجموعة المراد إضافة عناصرها. |
 | `list.insert(i, x)` | إدراج عنصر في موضع محدد.<br>• `i`: موضع الإدراج.<br>• `x`: العنصر المراد إدراجه. |
@@ -37,12 +40,12 @@
 | `list.reverse()` | عكس ترتيب عناصر القائمة في مكانها. |
 | `list.copy()` | إنشاء نسخة سطحية من القائمة. |
 
-## القاموس (القواميس `dict`)
+## القاموس (`dict`)
 
-| الفعل | الوصف |
-| --- | --- |
+| الفعل | عمله |
+|:-----------------------------------|------------------------------------|
 | `dict.clear()` | تزيل جميع العناصر من القاموس. |
-| `dict.get(key[, default])` | ترجع قيمة المفتاح `key`. إذا لم يكن المفتاح موجودًا، فإنها ترجع `default` (أو `None` إذا لم يتم توفير `default`). |
+| `dict.get(key[, default])` | ترجع قيمة المفتاح `key`. إذا لم يكن المفتاح موجودًا، فإنها ترجع `default` (أو القيمة العدمية `None` إذا لم يتم توفير قيمة افتراضية `default`). |
 | `dict.items()` | ترجع عرضًا لعناصر القاموس (أزواج المفتاح والقيمة). |
 | `dict.keys()` | ترجع عرضًا لمفاتيح القاموس. |
 | `dict.values()` | ترجع عرضًا لقيم القاموس. |
@@ -53,10 +56,10 @@
 | `dict.fromkeys(iterable[, value])` | ينشئ قاموسًا جديدًا بمفاتيح من `iterable` وقيم تم تعيينها على `value` (افتراضيًا `None`). |
 | `dict.copy()` | ترجع نسخة سطحية من القاموس. |
 
-## المجموعة (المجموعات `set`)
+## المجموعة (`set`)
 
-| الفعل | الوصف |
-| --- | --- |
+| الفعل | عمله |
+|:-----------------------------------|------------------------------------|
 | `set.add(elem)` | يضيف العنصر `elem` إلى المجموعة. |
 | `set.remove(elem)` | يزيل العنصر `elem` من المجموعة. يرفع خطأ `KeyError` إذا لم يكن `elem` موجودًا. |
 | `set.discard(elem)` | يزيل العنصر `elem` من المجموعة إذا كان موجودًا. |
@@ -78,8 +81,8 @@
 
 ### إجراءات مبنيَّة
 
-| الإجراء | الوصف |
-|---|---|
+| الإجراء | عمله |
+|:-----------------------------------|------------------------------------|
 | `len(obj) -> int` | لمعرفة عدد العناصر.<br>• `obj`: كائن قابل للعد مثل السلسلة النصية أو القائمة. |
 | `print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)` | طباعة.<br>• `objects`: الكائنات المراد طباعتها.<br>• `sep`: الفاصل بين الكائنات (افتراضيًا مسافة).<br>• `end`: النهاية (افتراضيًا سطر جديد).<br>• `file`: وجهة الطباعة (افتراضيًا الشاشة).<br>• `flush`: تنظيف المخزن المؤقت فورًا. |
 | `ord(c) -> int` | لمعرفة رمز Unicode لحرف.<br>• `c`: حرف واحد كسلسلة نصية. |
@@ -88,8 +91,8 @@
 
 ### أفعال شائعة
 
-| الفعل | الوصف |
-|---|---|
+| الفعل | عمله |
+|:-----------------------------------|------------------------------------|
 | `str.upper() -> str` | تحويل السلسلة النصية إلى أحرف كبيرة. |
 | `str.lower() -> str` | تحويل السلسلة النصية إلى أحرف صغيرة. |
 | `str.find(sub[, start[, end]]) -> int` | البحث عن موضع سلسلة نصية فرعية داخل سلسلة نصية.<br>• `sub`: السلسلة النصية المراد البحث عنها.<br>• `start`: موضع بداية البحث (اختياري).<br>• `end`: موضع نهاية البحث (اختياري). |
@@ -104,8 +107,8 @@
 
 ### أفعال معروفة
 
-| الفعل | الوصف |
-|---|---|
+| الفعل | عمله |
+|:-----------------------------------|------------------------------------|
 | `str.encode(encoding='utf-8', errors='strict') -> bytes` | ترميز السلسلة النصية باستخدام ترميز محدد.<br>• `encoding`: نوع الترميز.<br>• `errors`: كيفية معالجة الأخطاء. |
 | `str.casefold() -> str` | تحويل السلسلة النصية إلى نسخة casefold للمقارنات غير الحساسة لحالة الأحرف. |
 | `str.capitalize() -> str` | تحويل الحرف الأول من السلسلة النصية إلى حرف كبير. |
@@ -123,8 +126,8 @@
 
 ### أفعال نادرة الاستعمال
 
-| الفعل | الوصف |
-|---|---|
+| الفعل | عمله |
+|:-----------------------------------|------------------------------------|
 | `str.isalnum() -> bool` | التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف أبجدية رقمية. |
 | `str.isalpha() -> bool` | التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف أبجدية. |
 | `str.isdecimal() -> bool` | التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف عشرية. |
@@ -139,8 +142,8 @@
 
 ## التعبير النمطي (`re`)
 
-| الإجراء | الوصف |
-|---|---|
+| الإجراء | عمله |
+|:-----------------------------------|------------------------------------|
 | `re.match(pattern, string, flags=0) -> Match or None` | مطابقة النمط في بداية السلسلة النصية.<br>• `pattern`: النمط المراد مطابقته.<br>• `string`: السلسلة النصية المراد البحث فيها.<br>• `flags`: أعلام اختيارية لتعديل السلوك. |
 | `re.search(pattern, string, flags=0) -> Match or None` | البحث عن أول تطابق للنمط في السلسلة النصية.<br>• `pattern`: النمط المراد مطابقته.<br>• `string`: السلسلة النصية المراد البحث فيها.<br>• `flags`: أعلام اختيارية لتعديل السلوك. |
 | `re.findall(pattern, string, flags=0) -> list` | إنشاء قائمة من جميع التطابقات للنمط في السلسلة النصية.<br>• `pattern`: النمط المراد مطابقته.<br>• `string`: السلسلة النصية المراد البحث فيها.<br>• `flags`: أعلام اختيارية لتعديل السلوك. |
@@ -148,8 +151,8 @@
 
 ### المطابق (`Match`)
 
-| الفعل | الوصف |
-|---|---|
+| الفعل | عمله |
+|:-----------------------------------|------------------------------------|
 | `match.group([group]) -> str` | إرجاع النص المطابق أو مجموعة فرعية منه.<br>• `group`: رقم المجموعة المراد إرجاعها (افتراضيًا المجموعة الكاملة). |
 | `match.groups(default=None) -> tuple` | إرجاع جميع المجموعات الفرعية كنصوص.<br>• `default`: القيمة الافتراضية للمجموعات غير المطابقة. |
 | `match.groupdict(default=None) -> dict` | إرجاع القاموس الذي يحتوي على المجموعات المسماة.<br>• `default`: القيمة الافتراضية للمجموعات غير المطابقة. |
@@ -169,54 +172,54 @@
 
 ### عمليات المسار
 
-- **إنشاء وتعديل المسارات:**
-    - [`.joinpath`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.joinpath): دمج مكونات مسار.
-    - [`.parent`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.parent): استخراج الدليل الأب.
-    - [`.name`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.name): استخراج الاسم الأساسي للملف.
-    - [`.stem`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.stem): استخراج اسم الملف بدون الامتداد.
-    - [`.suffix`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.suffix): استخراج امتداد الملف.
-    - [`.with_name`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.with_name): إنشاء مسار جديد باسم مختلف.
-    - [`.with_suffix`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.with_suffix): إنشاء مسار جديد بامتداد مختلف.
-    - [`relative_to`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.relative_to): إنشاء مسار نسبي.
+-   **إنشاء وتعديل المسارات:**
+    -   [`.joinpath`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.joinpath): دمج مكونات مسار.
+    -   [`.parent`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.parent): استخراج الدليل الأب.
+    -   [`.name`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.name): استخراج الاسم الأساسي للملف.
+    -   [`.stem`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.stem): استخراج اسم الملف بدون الامتداد.
+    -   [`.suffix`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.suffix): استخراج امتداد الملف.
+    -   [`.with_name`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.with_name): إنشاء مسار جديد باسم مختلف.
+    -   [`.with_suffix`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.with_suffix): إنشاء مسار جديد بامتداد مختلف.
+    -   [`relative_to`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.relative_to): إنشاء مسار نسبي.
 
 ### عمليات على نظام الملفات
 
-- **استعلام:**
-    - [`is_absolute`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.is_absolute): هل هو مطلق؟.
-    - [`samefile`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.samefile): هل مساران يشيران إلى نفس الملف؟.
-    - [`exists`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.exists): هل هو مسار موجود؟.
-    - [`is_file`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_file): هل هو مسار ملف؟.
-    - [`is_dir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_dir): هل هو مسار دليل؟.
-    - [`is_symlink`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_symlink): هل هو ارتباط رمزي؟.
-    - [`stat`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.stat): سرد إحصائيات نظام الملفات.
-    - [`lstat`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.lstat): سرد إحصائيات نظام الملفات دون متابعة الارتباطات الرمزية.
-- **عمليات تغيير:**
-    - [`open`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.open): فتح ملف للقراءة أو الكتابة أو الإضافة.
-    - [`mkdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.mkdir): إنشاء دليل.
-    - [`rmdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rmdir): حذف دليل فارغ.
-    - [`unlink`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.unlink): حذف ملف.
-    - [`rename`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rename): تعديل اسم ملف.
-    - [`replace`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.replace): تعديل اسم ملف مع الكتابة فوقه إذا لزم الإجراء.
-    - [`chmod`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.chmod): تغيير أذونات الملف.
-    - [`lchmod`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.lchmod): تغيير أذونات الملف دون متابعة الارتباطات الرمزية.
-    - [`touch`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.touch): تحديث الطابع الزمني للملف.
+-   **استعلام:**
+    -   [`is_absolute`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.is_absolute): هل هو مطلق؟.
+    -   [`samefile`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.samefile): هل مساران يشيران إلى نفس الملف؟.
+    -   [`exists`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.exists): هل هو مسار موجود؟.
+    -   [`is_file`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_file): هل هو مسار ملف؟.
+    -   [`is_dir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_dir): هل هو مسار دليل؟.
+    -   [`is_symlink`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_symlink): هل هو ارتباط رمزي؟.
+    -   [`stat`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.stat): سرد إحصائيات نظام الملفات.
+    -   [`lstat`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.lstat): سرد إحصائيات نظام الملفات دون متابعة الارتباطات الرمزية.
+-   **عمليات تغيير:**
+    -   [`open`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.open): فتح ملف للقراءة أو الكتابة أو الإضافة.
+    -   [`mkdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.mkdir): إنشاء دليل.
+    -   [`rmdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rmdir): حذف دليل فارغ.
+    -   [`unlink`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.unlink): حذف ملف.
+    -   [`rename`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rename): تعديل اسم ملف.
+    -   [`replace`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.replace): تعديل اسم ملف مع الكتابة فوقه إذا لزم الإجراء.
+    -   [`chmod`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.chmod): تغيير أذونات الملف.
+    -   [`lchmod`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.lchmod): تغيير أذونات الملف دون متابعة الارتباطات الرمزية.
+    -   [`touch`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.touch): تحديث الطابع الزمني للملف.
 
 ### الارتباطات الرمزية والصلبة
 
-- [`symlink_to`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.symlink_to): إنشاء ارتباط رمزي.
-- [`hardlink_to`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.hardlink_to): إنشاء ارتباط صلب.
-- [`readlink`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.readlink): قراءة الهدف من ارتباط رمزي.
+-   [`symlink_to`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.symlink_to): إنشاء ارتباط رمزي.
+-   [`hardlink_to`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.hardlink_to): إنشاء ارتباط صلب.
+-   [`readlink`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.readlink): قراءة الهدف من ارتباط رمزي.
 
 ### التكرار والبحث
 
-- [`iterdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.iterdir): تكرار على قائمة الدليل.
-- [`glob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob): البحث عن الملفات المطابقة لنمط.
-- [`rglob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob): البحث بشكل متكرر عن الملفات المطابقة لنمط.
-- [`walk`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk): التنقل بشكل متكرر في شجرة الأدلة.
+-   [`iterdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.iterdir): تكرار على قائمة الدليل.
+-   [`glob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob): البحث عن الملفات المطابقة لنمط.
+-   [`rglob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob): البحث بشكل متكرر عن الملفات المطابقة لنمط.
+-   [`walk`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk): التنقل بشكل متكرر في شجرة الأدلة.
 
 ## النسخ والحذف والنقل (`shutil`)
 
-- [`shutil.copy2`](https://docs.python.org/3/library/shutil.html#shutil.copy2): نسخ ملف.
-- [`shutil.copytree`](https://docs.python.org/3/library/shutil.html#shutil.copytree): نسخ شجرة أدلة.
-- [`shutil.rmtree`](https://docs.python.org/3/library/shutil.html#shutil.rmtree): حذف شجرة أدلة.
-- [`shutil.move`](https://docs.python.org/3/library/shutil.html#shutil.move): نقل ملف أو دليل.
+-   [`shutil.copy2`](https://docs.python.org/3/library/shutil.html#shutil.copy2): نسخ ملف.
+-   [`shutil.copytree`](https://docs.python.org/3/library/shutil.html#shutil.copytree): نسخ شجرة أدلة.
+-   [`shutil.rmtree`](https://docs.python.org/3/library/shutil.html#shutil.rmtree): حذف شجرة أدلة.
+-   [`shutil.move`](https://docs.python.org/3/library/shutil.html#shutil.move): نقل ملف أو دليل.
