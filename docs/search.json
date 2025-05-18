@@ -1446,7 +1446,7 @@
     "href": "chapters/06_mapping/a2_dict.html#التضمين",
     "title": "5  القاموس",
     "section": "التضمين",
-    "text": "التضمين\nيجوز جعل القيمة نفسها قاموسًا. ومثال ذلك حفظ اختيارات المستخدم هكذا:\n\nuser = {\n    'name': 'Adam',\n    'language': 'Arabic',\n    'phone': '966xxxxxxxxx',\n    'last_updated': '2021-09-01',\n    'age': 25,\n    'notifications': {\n        'email': True,\n        'sms': False,\n        'push': True\n    },\n    'emails': ['example1@domain.com', 'example2@domain.com']\n}\n\nوللوصول إلى قيمة مضمَّنة، نستعمل الإشارة بالمفتاح مرتين، هكذا:\n\nuser['notifications']['push']\n\nTrue",
+    "text": "التضمين\nيجوز جعل القيمة نفسها قاموسًا. ومثال ذلك قيمة (notifications) المضمنة في قاموس اختيارات المستخدم هكذا:\n\nuser = {\n    'name': 'Adam',\n    'language': 'Arabic',\n    'phone': '966xxxxxxxxx',\n    'last_updated': '2021-09-01',\n    'age': 25,\n    'notifications': {\n        'email': 'monthly',\n        'sms': 'weekly',\n        'push': 'daily'\n    },\n    'emails': ['example1@domain.com', 'example2@domain.com']\n}\n\nوللوصول إلى قيمة مضمَّنة، قد تكتب:\n\na = user['notifications']\nprint(a)\n\n{'email': 'monthly', 'sms': 'weekly', 'push': 'daily'}\n\n\n\nb = a['sms']\nprint(b)\n\nweekly\n\n\nوذلك أن نوع قيمة المتغير a هو قاموس:\n\ntype(a)\n\ndict\n\n\nأو تأتي بها مرة واحدة:\n\na = user['notifications']['sms']\nprint(a)\n\nweekly\n\n\nوكذا الأمر في الوصول للقائمة المضمَّنة (emails) كما يلي:\n\nc = user['emails']\nprint(c)\n\n['example1@domain.com', 'example2@domain.com']\n\n\nثم الوصول إلى عنصرٍ من هذه القائمة:\n\nprint(c[0])\n\nexample1@domain.com\n\n\nوذلك أن نوع قيمة المتغير c هو قائمة:\n\ntype(c)\n\nlist\n\n\nأو الوصول إليها مرة واحدة:\n\nd = user['emails'][0]\nprint(d)\n\nexample1@domain.com\n\n\nويكثُر استعمال القواميس المضمنة كعناصر للتسلسل، ولذلك وجب علينا التدرب على قراءتها.\nفمثلاً هذه قائمة يحتوي كل عنصرٍ منها على قاموس لبيانات مُرَشَّح، ونريد أن نستخلص خبراتهم منها:\n\ndata = [\n    {\n        'name': 'Ahmad Hamada',\n        'experiences': [\n            {\n                'company': 'Geo Space',\n                'start': '2038-01-01',\n                'end': '2039-01-01',\n                'role': 'Junior Software Engineer',\n            },\n            {\n                'company': 'Space Roots',\n                'start': '2039-01-01',\n                'end': '2041-01-01',\n                'role': 'Senior Software Engineer',\n            },\n        ],\n    },\n    {\n        'name': 'Belal Banana',\n        'experiences': [\n            {\n                'company': 'Banana Tech',\n                'start': '2041-01-01',\n                'end': '2042-01-01',\n                'role': 'Smoothie Operator',\n            },\n            {\n                'company': 'BugSquash Labs',\n                'start': '2042-02-01',\n                'end': '2043-08-01',\n                'role': 'Code Pest Control Specialist',\n            },\n            {\n                'company': 'Caffeinated Circuits Inc.',\n                'start': '2043-09-01',\n                'end': '2045-05-01',\n                'role': 'Espresso-Driven Engineer',\n            }\n        ]\n    },\n]\n\nولنفترض أننا نريد آخر وظيفة شغلها المرشح الثاني، فإننا نكتبها في بايثون بهذا الشكل:\n\ndata[1]['experiences'][-1]['role']\n\n'Espresso-Driven Engineer'\n\n\nوبايثون تقيمها من اليسار إلى اليمين، على النحو التالي:\n\nالوصول إلى data (هو قائمة)\nالعنصر الثاني (1) من ذلك (هو قاموس)\nمقابل المفتاح experiences من ذلك (هو قائمة)\nالعنصر الأخير من ذلك (هو قاموس)\nمقابل المفتاح role من ذلك (هو نص)\n\nوتقول: من المرشحين الثاني، خبراتهُ الأخيرُ منها، وظيفتُه أريدُ.\nفإذا أردت أن تقرأها بالعكس من اليمين إلى اليسار، فتقول:\n\nمقابل المفتاح role\nفي العنصر الأخير من\nمقابل المفتاح experiences\nفي العنصر الثاني (1) من\nالمتغير data\n\nوتقول أيضًا: أريد الوظيفة لآخر الخبرات للثاني من المرشحين.",
     "crumbs": [
       "باب الجمع المرقَّم",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>القاموس</span>"
@@ -1457,7 +1457,7 @@
     "href": "chapters/06_mapping/a2_dict.html#التكرار",
     "title": "5  القاموس",
     "section": "التكرار",
-    "text": "التكرار\nويجوز التكرار بثلاثة طرق:\n\nكر المفاتيح: for key in d.keys()\nكر القيم: for value in d.values()\nكر العناصر: for key, value in d.items() (ينتج عنها أزواج (2-tuple) من الفاتيح والقيم)\n\nمثال:\n\nd = {\n    'A': 'Salam',\n    'B': 'Hello',\n    'C': 'Hi',\n}\nfor value in d.values():\n    print(value)\n\nSalam\nHello\nHi",
+    "text": "التكرار\nويحصل التكرار بثلاثة طرق:\n\nكر المفاتيح: for key in d.keys()\nكر القيم: for value in d.values()\nكر العناصر: for key, value in d.items() (ينتج عنها أزواج (2-tuple) من الفاتيح والقيم)\n\nمثال:\n\nd = {\n    'A': 'Salam',\n    'B': 'Hello',\n    'C': 'Hi',\n}\nfor value in d.values():\n    print(value)\n\nSalam\nHello\nHi",
     "crumbs": [
       "باب الجمع المرقَّم",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>القاموس</span>"
@@ -1535,6 +1535,17 @@
     "title": "مسائل",
     "section": "",
     "text": "theme\nsms\nآخر عنصر في: emails",
+    "crumbs": [
+      "باب الجمع المرقَّم",
+      "مسائل"
+    ]
+  },
+  {
+    "objectID": "chapters/06_mapping/c_problems.html#قائمة-قواميس",
+    "href": "chapters/06_mapping/c_problems.html#قائمة-قواميس",
+    "title": "مسائل",
+    "section": "قائمة قواميس",
+    "text": "قائمة قواميس\nإليك هذه القائمة من القواميس:\n\ndata = [\n    {\n        'name': 'Ahmad Hamada',\n        'experiences': [\n            {\n                'company': 'Geo Space',\n                'start': '2038-01-01',\n                'end': '2039-01-01',\n                'role': 'Junior Software Engineer',\n            },\n            {\n                'company': 'Space Roots',\n                'start': '2039-01-01',\n                'end': '2041-01-01',\n                'role': 'Senior Software Engineer',\n            },\n        ],\n    },\n    {\n        'name': 'Belal Banana',\n        'experiences': [\n            {\n                'company': 'Banana Tech',\n                'start': '2041-01-01',\n                'end': '2042-01-01',\n                'role': 'Smoothie Operator',\n            },\n            {\n                'company': 'BugSquash Labs',\n                'start': '2042-02-01',\n                'end': '2043-08-01',\n                'role': 'Code Pest Control Specialist',\n            },\n            {\n                'company': 'Caffeinated Circuits Inc.',\n                'start': '2043-09-01',\n                'end': '2045-05-01',\n                'role': 'Espresso-Driven Engineer',\n            }\n        ]\n    },\n]\n\nوالمطلوب هو التالي:\n\nاستخرج اسم المرشح الثاني\nاستخرج اسم الشركة الثانية التي عمل فيها المشرح الأول\nللمرشح الأول، استخرج وقت البداية لأول شركة، ووقت النهاية لآخر شركة\nاستخرج قاموس الخبرة التي فيها القيمة: role: \"Espresso-Driven Engineer\"",
     "crumbs": [
       "باب الجمع المرقَّم",
       "مسائل"
@@ -2544,122 +2555,122 @@
   {
     "objectID": "chapters/15_community/a2_use_sdk.html",
     "href": "chapters/15_community/a2_use_sdk.html",
-    "title": "17  البرمجية كخدمة (SaaS)",
+    "title": "17  خدمات برمجية",
     "section": "",
     "text": "الخادم والعميل\nنتصوَّر الشبكة العالميَّة (الإنْتَرنِت) بأنها مجموعة أجهزة مترابطة بأشكال ارتباطات مختلفة. وكما هي السنة بين الأفراد والمؤسسات أن يخدم بعضهم بعضًا، ويتبادلون المنافع؛ فكذلك صار في العصر الرقمي تخادم عن طريق الحواسيب عبر الشبكة.\nوكما أن المعادن موزعة مكامنها في طيات أطراف الأرض؛ فإن البيانات (المواد الخام) والمعلومات (المعالجة) وآليات المعالجة (الأجهزة والخوارزميات) كذلك؛ يتفاضل الناس فيما بينهم فيها. فيكون بينهم تبادل المنافع.\nفالصورة هذه توضِّح أن الشبكة المحليَّة (Local Area Network - LAN) -الذي يكون جهاز أحدنا فردًا من أفرادها- مرتبطةٌ بموجِّه (Router) يكون بمثابة البوابة إلى الشبكات الأخرى. فأي اتصال يكون بيننا وبين العالم يمرُّ عبره.\nوأما شبكة الشبكات فتسمى (Wide Area Network - WAN)؛ وهكذا ببساطة نتصوَّر الشبكة العالمية؛ الإنترنت.\nوعندما ننظر إلى أفراد التبادلات المعلوماتية بين الحواسيب، فإن أحد الطرفين يكون له دوْر العميل والآخر يكون له دوْر الخادم؛ ثم قد ينعكس الدوْر:",
     "crumbs": [
       "باب الاتصال بالشبكة",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>البرمجية كخدمة (SaaS)</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>خدمات برمجية</span>"
     ]
   },
   {
     "objectID": "chapters/15_community/a2_use_sdk.html#الخادم-والعميل",
     "href": "chapters/15_community/a2_use_sdk.html#الخادم-والعميل",
-    "title": "17  البرمجية كخدمة (SaaS)",
+    "title": "17  خدمات برمجية",
     "section": "",
     "text": "فأما الخادم (Server) فيسمى كذلك المزوِّد (Provider) باعتبار المنتَج أو الخدمة البرمجية.\nوأما العميل (Client) فيسمى كذلك المستخدم (User) أو المستهلك (Consumer).\n\n\n\n\nخادم لعدة عملاء",
     "crumbs": [
       "باب الاتصال بالشبكة",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>البرمجية كخدمة (SaaS)</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>خدمات برمجية</span>"
     ]
   },
   {
     "objectID": "chapters/15_community/a2_use_sdk.html#مكتبة-العميل",
     "href": "chapters/15_community/a2_use_sdk.html#مكتبة-العميل",
-    "title": "17  البرمجية كخدمة (SaaS)",
+    "title": "17  خدمات برمجية",
     "section": "مكتبة العميل",
     "text": "مكتبة العميل\nتسهل بعض المكتبات الوصول إلى خوادم مخصوصة؛ وتسمى المكتبة حينئذٍ عدة تطوير البرمجيات (SDK - Software Development Kit)، أو: مكتبة العميل (Client Library).\nفأحد طرق التعامل مع الخدمات البرمجية، أن توفِّر هذه الخدمة مكتبةً للاتصال بها، تبدوا كأنها إجراءات مُعرَّفة عاديَّة، لكنَّ تفاصيلها تتضمَّن إرسال طلب للخادم المزوِّد ثم الرجوع بجوابه كقيمة لموضع الاستدعاء.",
     "crumbs": [
       "باب الاتصال بالشبكة",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>البرمجية كخدمة (SaaS)</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>خدمات برمجية</span>"
     ]
   },
   {
     "objectID": "chapters/15_community/a2_use_sdk.html#مكتبة-جيوباي-مثالا",
     "href": "chapters/15_community/a2_use_sdk.html#مكتبة-جيوباي-مثالا",
-    "title": "17  البرمجية كخدمة (SaaS)",
+    "title": "17  خدمات برمجية",
     "section": "مكتبة جيوباي مثالاً",
     "text": "مكتبة جيوباي مثالاً\nونمثل على ذلك بمكتبة GeoPy حيث كُتِب في الوصف:\n\nجيوباي هو عميل بايثوني لمجموعة من خدمات شائعة على الشبكة للترميز الجغرافي. فهو يسهل تحديد إحداثيات العناوين والمدن والبلدان والمعالم في جميع أنحاء العالم باستخدام برامج ترميز جغرافي خارجية ومصادر بيانات أخرى.\n\nأولاً تثبيت المكتبة باستعمال uv:\nuv add geopy\nوهذا العميل يمكن ضبطه للاختيار من مجموعة خوادم. وسنختار العميل Nominatim الذي يتصل بمزوِّد خدمة خارجية، وهو مزوِّد خدمة جغرافية عالمية تسمى OpenStreetMap.\n\nfrom geopy.geocoders import Nominatim\n\nيطلب منَّا الإجراء المنشئ التصريح بهويَّة للتطبيق؛ وذلك بتعيين user_agent، وهذا بحسب ما ورد في مرجع المكتبة. فنكتب أي اسم يدلُّ على التطبيق الذي نعمل عليه الآن، وسنختار الاسم pythonia .. ولك أن تختار أي اسم آخر.\n\ngeolocator = Nominatim(user_agent=\"pythonia\")\n\nنفترض أننا نريد معرفة إحداثيات مدينة الدمام، وهذا هو عمل الإجراء geocode:\n\ndammam_location = geolocator.geocode(\"Dammam, Saudi Arabia\")\n\nقد يبدوا الإجراء عاديًّا، لكنه في الواقع يتصل بالخادم المزوِّد ويسأله عن إحداثيات المدينة.\n\n\n\n\n\nsequenceDiagram\n    UserCode --&gt;&gt; GeoPy: .geocode(\"...\")\n    GeoPy --&gt;&gt; OpenStreetMap: HTTP Request\n    OpenStreetMap --&gt;&gt; GeoPy: HTTP Response\n    GeoPy --&gt;&gt; UserCode: Return\n\n\n\n\n\n\nجرب اطبع النتيجة لتعرف ما هو هذا الشيء الذي تتعامل معه. وكذلك اطبع نوعه:\n\nprint(dammam_location)\nprint(type(dammam_location))\n\nالدمام, محافظة الدمام, المنطقة الشرقية, 32242, السعودية\n&lt;class 'geopy.location.Location'&gt;\n\n\nتبيَّن لنا أن النوع هو: geopy.location.Location وبالبحث في مرجع المكتبة، وجدنا تفاصيلها هنا: geopy.location.Location. حيث كُتب:\n\n\nContains a parsed geocoder response. Can be iterated over as (location&lt;String&gt;, (latitude&lt;float&gt;, longitude&lt;float&gt;)). Or one can access the properties address, latitude, longitude, or raw. The last is a dictionary of the geocoder’s response for this item.\n\n\nوبهذا نعرف أنها تتكون من ثلاثة معلومات، ويمكن الوصول لها بطرق مختلفة.\nالطريقة الأولى معقدة ولذلك سنتركها.\nالطريقة الثانية (عن طريق الصفات):\n\nprint(dammam_location.address)\nprint(dammam_location.latitude)\nprint(dammam_location.longitude)\n\nالدمام, محافظة الدمام, المنطقة الشرقية, 32242, السعودية\n26.4367824\n50.1039991\n\n\nالطريقة الثالثة (عن طريق القاموس):\n\nprint(dammam_location.raw)\nprint(type(dammam_location.raw)) # قاموس\n\n{'place_id': 39502325, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'node', 'osm_id': 287865393, 'lat': '26.4367824', 'lon': '50.1039991', 'class': 'place', 'type': 'city', 'place_rank': 16, 'importance': 0.5524619823312412, 'addresstype': 'city', 'name': 'الدمام', 'display_name': 'الدمام, محافظة الدمام, المنطقة الشرقية, 32242, السعودية', 'boundingbox': ['26.2767824', '26.5967824', '49.9439991', '50.2639991']}\n&lt;class 'dict'&gt;\n\n\nوكذلك لمدينة أخرى مثل البحرين:\n\nbahrain_location = geolocator.geocode(\"Bahrain\")\n\nثم بعد أن حصلنا على المعلومات، نستخرج الإحداثيات من المتغيرات التي حصلنا عليها:\n\ndammam_coords = (dammam_location.latitude, dammam_location.longitude)\nbahrain_coords = (bahrain_location.latitude, bahrain_location.longitude)\n\nثم نحسب المسافة بين المدينتين، باستعمال فعل موجود في وحدة geopy.distance، وهو geodesic. وأنبه مرة أخرى أن معرفة مثل ذلك يكون بتصفح فهرس المكتبة.\n\nfrom geopy.distance import geodesic\n\ndistance = geodesic(dammam_coords, bahrain_coords)\nprint(f\"Between Dammam and Bahrain is {distance.kilometers:.2f} km\")\n\nBetween Dammam and Bahrain is 63.61 km\n\n\nوهكذا نكون قد حسبنا المسافة بين المدينتين بالكيلومترات، باستعمال مكتبة أعطتنا الإحداثيات للمدينتين، وكذلك أعطتنا معالجة المسافة بينهما.",
     "crumbs": [
       "باب الاتصال بالشبكة",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>البرمجية كخدمة (SaaS)</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>خدمات برمجية</span>"
     ]
   },
   {
     "objectID": "chapters/15_community/a2_use_sdk.html#مفتاح-الواجهة-البرمجية-api_key",
     "href": "chapters/15_community/a2_use_sdk.html#مفتاح-الواجهة-البرمجية-api_key",
-    "title": "17  البرمجية كخدمة (SaaS)",
+    "title": "17  خدمات برمجية",
     "section": "مفتاح الواجهة البرمجية (API_KEY)",
     "text": "مفتاح الواجهة البرمجية (API_KEY)\nقلنا أن مكتبة العميل هذه تمكِّنك من الوصول إلى عدة خدمات جيومكانية. ويجدر بالذكر أننها تتفاضل في دقة الحساب، وسرعة الجواب، وكمية الطلبات المسموحة إليها.\nلذلك قد تضطر لتسجيل حساب وتشحنه بالمال برصيد، ثم تستعمل الخدمة عن طريق هذا الحساب. والطريقة التي يعرف بها الخادم أن البرنامج مخوَّل باستعمال رصيد هذا الحساب هي عبر مفتاح الواجهة البرمجية (API Key).\n\n\n\nمكتبة جيوباي وخدمات الترميز الجغرافي\n\n\nفإن أردت تغيير مزوِّد الخدمة (إما لعدم دقتها أو عدم توفر المعلومات أو أي سبب آخر)، فما عليك إلا استعمال استيراد Geocoder آخر. ونمثل لذلك بعميل يتصل بخدمة TomTom:\nfrom geopy.geocoders import TomTom\n\ngeolocator = TomTom(user_agent=\"pythonia\", api_key=\"...\")\nلكن هذا يتطلَّب شيئًا إضافيًّا وهو الحصول على مفتاح متعلِّق بحساب مسجَّل على موقع TomTom نفسه. ثم وضع هذا الفتاح هنا. وبهذا المفتاح المرتبط بهذا الحِساب يتمُّ تعبئة الاشتراك والصرف من رصيده.\nوهذه أحد مصادر دخل شركات المعلومات.",
     "crumbs": [
       "باب الاتصال بالشبكة",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>البرمجية كخدمة (SaaS)</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>خدمات برمجية</span>"
     ]
   },
   {
     "objectID": "chapters/15_community/a3_use_http.html",
     "href": "chapters/15_community/a3_use_http.html",
-    "title": "18  التخاطب عبر الشبكة (HTTP)",
+    "title": "18  تواصل البرمجيات عبر الشبكة",
     "section": "",
-    "text": "عنوان المورِد الموحَّد\nرأينا في الدرس السابق كيفية التواصل مع خادم عن طريق مكتبة العميل التابعة للخدمة (GeoPy). لكن ما الآلية التي جرَّدتها عنا هذه المكتبة وأخفتها؟\nتخضع المراسلات بين البرمجيات التطبيقية لقواعد تواصل تسمى HTTP (Hyper-Text Transfer Protocol)؛ وهي حرفيًّا بمعنى قواعد تناقل النص الفائق. وسيأتي بيان معنى الفائقية عند شرح HTML (Hyper-text Markup Language) لأن هذين المفهومين مرتبطان. لكن الذي يهمنا الآن أنها أحد أكثر لغات التواصل استخدامًا على الشبكة. فالاتصال بين الخادم والمخدوم يكون بها وإن كان البرنامج نفسه مكتوبًا بلغة أخرى مثل بايثون. ومن نظائرها:\nوغيرها كثير جدًّا.\nفحتى نصل إلى خدمات كثيرة على الشبكة ونستفيد منها؛ لابد أن نفهم هذه الآلية. وهي مبنيَّة على أمور، منها: العنوان، والطلب، والجواب.\nإن اصطلاح عنوان المورِد الموحَّد URL (Uniform Resource Locator) هو الذي نقصده عندما نقول رابط (Link أو Hyper-link reference وتختصر href) لأن صياغة الروابط عادةً ما تتبع هذه الصيغة الموحَّدة. وهي التي تتضمَّنُ عادةً جزئيَّة com. أو net. ونحوهما؛ وتتضمن بعدها مسارًا فرعيًّا. ونمثل على ذلك بمثال بسيط:\nففيه:\nأما مصطلح المورِد (Resource) فعامٌّ يشمل شيئًا مُجرَّدًا يتم الوصول إليه بعنوان مُصاغٍ بصيغة متفقٍ عليها. سواءٌ كان موجودًا قبل الوصول إليه، أو يتمُّ إنتاجه متى طُلِب. فقد يكون ملفَّ بيانات أو صفحةً تُعرَض أو معالجةً قيِّمة.\nفلو جربت نسخ الرابط السابق ووضعته في الشريط الأعلى للمتصفح وكبست زر Enter فسيأخذك المتصفح إلى تلك الصفحة. وسيأتي الكلام عن بناء الصفحات في حينه إن شاء الله.",
+    "text": "أولاً: عنوان المورِد الموحَّد\nرأينا في الدرس السابق كيفية التواصل مع خادم عن طريق مكتبة العميل التابعة للخدمة (GeoPy). لكن ما الآلية التي جرَّدتها هذه المكتبة وأخفتها؟\nتخضع المراسلات بين البرمجيات التطبيقية لقواعد محددة للتواصل (بروتوكول). ويتم نقل المعلومات بينها عبر\nتخضع المراسلات بين البرمجيات التطبيقية لقواعد معينة للتواصل (بروتوكول) تسمى HTTP (Hyper-Text Transfer Protocol)؛ وهي حرفيًّا بمعنى قواعد تناقل النص الفائق. وسيأتي بيان معنى الفائقية عند شرح النص الفائق HTML (Hyper-text Markup Language) لأن هذين المفهومين مرتبطان. لكن الذي يهمنا الآن أنها أحد أكثر لغات التواصل استخدامًا على الشبكة. فالاتصال بين الخادم والمخدوم يكون بها وإن كان البرنامج نفسه مكتوبًا بلغة أخرى مثل بايثون. ومن نظائرها:\nوغيرها كثير جدًّا.\nفحتى نصل إلى خدمات كثيرة على الشبكة ونستفيد منها؛ لابد أن نفهم هذه الآلية. وفيها ثلاثة محاور:\nإن اصطلاح عنوان المورِد الموحَّد URL (Uniform Resource Locator) هو الذي نقصده بكلمة رابط (Link أو Hyper-link reference وتختصر href) لأن صياغتها عادةً ما تتبع هذه الصيغة الموحَّدة. وهي التي تتضمَّنُ عادةً جزئيَّة com. أو net. ونحوهما؛ وتتضمن بعدها مسارًا فرعيًّا. ونمثل على ذلك بمثال بسيط:\nوفيه:\nأما مصطلح المورِد (Resource) فعامٌّ يشمل شيئًا مُجرَّدًا يتم الوصول إليه بعنوان مُصاغٍ بصيغة متفقٍ عليها. سواءٌ كان موجودًا قبل الوصول إليه، أو يتمُّ إنتاجه متى طُلِب. فقد يكون ملفَّ بيانات أو صفحةً تُعرَض أو معالجةً.\nفلو جربت نسخ الرابط السابق ووضعته في الشريط الأعلى للمتصفح وكبست زر Enter فسيأخذك المتصفح إلى تلك الصفحة.",
     "crumbs": [
       "باب الاتصال بالشبكة",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>التخاطب عبر الشبكة (HTTP)</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>تواصل البرمجيات عبر الشبكة</span>"
     ]
   },
   {
-    "objectID": "chapters/15_community/a3_use_http.html#عنوان-المورد-الموحد",
-    "href": "chapters/15_community/a3_use_http.html#عنوان-المورد-الموحد",
-    "title": "18  التخاطب عبر الشبكة (HTTP)",
+    "objectID": "chapters/15_community/a3_use_http.html#أولا-عنوان-المورد-الموحد",
+    "href": "chapters/15_community/a3_use_http.html#أولا-عنوان-المورد-الموحد",
+    "title": "18  تواصل البرمجيات عبر الشبكة",
     "section": "",
     "text": "https://github.com/HassanAlgoz/python\n\n\nالصياغة: https\nالعنوان الأساسي: github.com\nالمسار الفرعي: HassanAlgoz/python/\nالمورِد: python",
     "crumbs": [
       "باب الاتصال بالشبكة",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>التخاطب عبر الشبكة (HTTP)</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>تواصل البرمجيات عبر الشبكة</span>"
     ]
   },
   {
-    "objectID": "chapters/15_community/a3_use_http.html#الطلب-والجواب",
-    "href": "chapters/15_community/a3_use_http.html#الطلب-والجواب",
-    "title": "18  التخاطب عبر الشبكة (HTTP)",
-    "section": "الطلب والجواب",
-    "text": "الطلب والجواب\nومن مفاهيم لغة التخاطب عبر تطبيقات الشبكة أيضًا:\n\nالطلب\nالطلب (Request) وهو الرسالة التي تشمل:\n\nالمحتوى: body / content\nالعميل الذي يمثِّل المستخدم (المُرسِل): user-agent\nالمستضيف الذي عليه الخادم (المُرسَل إليه): Host\n\nنوع الطلب (Method) وأهمها:\n\nGET لطلب الحصول على مورِد معيَّن\nDELETE لطلب حذف مورِد معيَّن\n\nففيهما يتمُّ تحديد عنوان المورِد.\nثم لدينا:\n\nPOST لطلب إنشاء مورِد؛ يتمُّ تحديد تفاصيل الإنشاء في محتوى الرسالة\nPUT لطلب تعديل مورِد؛ يتمُّ تحديد تفاصيل التعديل في محتوى الرسالة\n\nالرؤوس (Headers) هي معلومات عن المعلومات التي في الطلب نفسه أو محتواه؛ بعضها أصلي وبعضها إضافي.\n\nمثلاً: Content-Type: text/csv تعني أن البيانات المرسلة عبارة عن ملف بصيغة CSV. وهو أصلي.\nأما الإضافي فيبدأ بحرف X على هذا النحو: x-api-key: 1234567890 هو مفتاح التطبيق الذي يسمح للطلب بالتعريف بصاحب الحساب لإتاحة الخدمة له.\n\nالمحتوى (Body) هي البيانات المُرْسَلة أو المُسْتَلَمة؛ سواءٌ في الطلب أو جوابه.\nمثلا بيانات عبارة عن قاموس بصيغة JSON:\n{\"name\": \"John\", \"age\": 30}\n\n\nجواب الطلب\nجواب الطلب (Response) وهو مثل الطلب في خصائصه؛ إلا أنَّه بعكس الاتجاه: من الخادم إلى العميل.\nرمز حالة الطلب (Status Code) وتنقسم إلى نطاقات، وكثيرٌ منها مُهمَل غير مُستعمل:\n\nنطاق 100-199 (فقط للعلم - ولا تهمنا)\nنطاق 200-299 تعني أن الطلب تمُّ إنجازه بنجاح.\nنطاق 300-399 إعادة توجيه\nنطاق 400-499 إشكال من جهة العميل\n\n400 -&gt; Bad Request البيانات المُرسلة ليست صالحة\n401 -&gt; Unauthorized المفتاح مفقود أو غير صالح\n403 -&gt; Forbidden المفتاح صالح لكن ليس كافيًا للوصول\n404 -&gt; Not Found ما طلبته غير موجود\n\nنطاق 500-599 إشكال من جهة الخادم\n\nولمزيد من التفاصيل راجع: HTTP overview.",
+    "objectID": "chapters/15_community/a3_use_http.html#ثانيا-وثالثا-الطلب-والجواب",
+    "href": "chapters/15_community/a3_use_http.html#ثانيا-وثالثا-الطلب-والجواب",
+    "title": "18  تواصل البرمجيات عبر الشبكة",
+    "section": "ثانيًا وثالثًا: الطلب والجواب",
+    "text": "ثانيًا وثالثًا: الطلب والجواب\nومن مفاهيم لغة التخاطب عبر تطبيقات الشبكة أيضًا:\n\nالطلب\nالطلب (Request) وهو الرسالة التي تشمل:\n\nالمحتوى: body / content\nوكيل المستخدم الذي يمثِّله .. وهو المُرسِل: user-agent\nالمستضيف الذي عليه الخادم .. وهو المُرسَل إليه: Host\n\nنوع الطلب (Method) وأهمها:\n\nGET لطلب الحصول على مورِد معيَّن\nDELETE لطلب حذف مورِد معيَّن\nPOST لطلب إنشاء مورِد (يتمُّ تحديد تفاصيل الإنشاء في محتوى الرسالة)\nPUT لطلب تعديل مورِد (يتمُّ تحديد تفاصيل التعديل في محتوى الرسالة)\n\nالرؤوس (Headers) هي معلومات عن المعلومات التي في الطلب نفسه أو محتواه؛ بعضها أساسي وبعضها إضافي.\n\nمثلاً: Content-Type: text/csv هي ترويسة أصلية تحدد نوع المحتوى، أي طريقة صياغته؛ فقد جعلناه ملف نصي بصيغة csv.\nأما الإضافية فتبدأ عادة بحرف X على هذا النحو: x-api-key: 1234567890 إذْ يعبر هذا عن مفتاح التطبيق الذي يسمح للطلب بالتعريف بصاحب الحساب لإتاحة الخدمة له.\n\nالمحتوى (Body) هي البيانات المُرْسَلة أو المُسْتَلَمة؛ سواءٌ في الطلب أو جوابه.\nمثال لمحتوى نصي بصيغة json هو التالي:\n{\"name\": \"John\", \"age\": 30}\n\n\nجواب الطلب\nجواب الطلب (Response) وهو مثل الطلب في خصائصه؛ إلا أنَّه بعكس الاتجاه: عائدًا من الخادم إلى العميل.\nرمز حالة الطلب (Status Code) وتنقسم إلى نطاقات، وكثيرٌ منها مُهمَل غير مُستعمل:\n\nنطاق 100-199 (فقط للعلم - ولا تهمنا)\nنطاق 200-299 تعني أن الطلب تمُّ إنجازه بنجاح.\nنطاق 300-399 إعادة توجيه\nنطاق 400-499 إشكال من جهة العميل\n\n400 -&gt; Bad Request البيانات المُرسلة ليست صالحة\n401 -&gt; Unauthorized المفتاح مفقود أو غير صالح\n403 -&gt; Forbidden المفتاح صالح لكن ليس كافيًا للوصول\n404 -&gt; Not Found ما طلبته غير موجود\n\nنطاق 500-599 إشكال من جهة الخادم\n\nولمزيد من التفاصيل راجع: HTTP overview.",
     "crumbs": [
       "باب الاتصال بالشبكة",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>التخاطب عبر الشبكة (HTTP)</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>تواصل البرمجيات عبر الشبكة</span>"
     ]
   },
   {
     "objectID": "chapters/15_community/a3_use_http.html#مثال-خدمة-صور-القطط",
     "href": "chapters/15_community/a3_use_http.html#مثال-خدمة-صور-القطط",
-    "title": "18  التخاطب عبر الشبكة (HTTP)",
+    "title": "18  تواصل البرمجيات عبر الشبكة",
     "section": "مثال: خدمة صور القطط",
     "text": "مثال: خدمة صور القطط\nماذا لو لم تتوفَّر مكتبة خاصَّة بمزوِّد الخدمة؟ في هذه الحالة سنكتب نحن تفاصيل الاتصال بالخادم المزوِّد. وذلك يتطلب معرفة لغة التخاطب بين الخادم والعميل (HTTP).\nيجب علينا أولاً تثبيت مكتبة httpx باستعمال uv:\nuv add httpx\nونمثل لمزود خدمة معلومات عن القطط (The Cat API)، وقد حصلنا على مفتاح التطبيق (API KEY) من خلال التسجيل في الموقع.\nولمعرفة الاستفادة من أي مزود خدمة، فإننا ندخل إلى صفحة المطورين، وتسمى (API Documentation). ومنها نعرف أن المسار الذي يجب أن نطلبه هو https://api.thecatapi.com/v1/images/search، وهو يعطينا صورة قط عشوائية.\nباستعمال مكتبة عامة لعميل HTTP يمكننا الوصول لأي خدمة مقدَّمة من جهة خادم يتخاطب بلغة HTTP. وهو ما يُعرف أيضًا بخادم ويب (Web Server). فها نحن هنا نحدد جميع ما نريد:\n\nنوع الطلب: GET\nالمسار: /v1/images/search\nالعنوان الرئيسي: api.thecatapi.com (وهو الموقع الذي يوجد عليه الملف)\nالرؤوس: x-api-key: 1234567890 (وهو مفتاح التطبيق الذي يسمح للطلب بالوصول إلى الخدمة)\n\n\n\n\n\n\nsequenceDiagram\n    participant Client\n    participant Server\n\n    Client-&gt;&gt;Server: GET /v1/images/search HTTP/1.1\n    activate Server\n    Server-&gt;&gt;+Client: HTTP/1.1 200 OK\n    deactivate Server\n\n\n\n\n\n\n\nimport httpx\n\nclient = httpx.Client()\n\nrequest = client.build_request(\n    method=\"GET\",\n    url=\"https://api.thecatapi.com/v1/images/search\",\n    headers={\n        \"x-api-key\": \"live_9Cj8P0h75D5h2D7Y2H8MYEuuTmTXjT412xNlbVBouHxn2sEnAjr1dr4JMfIn4Mr4\"\n    }\n)\n\nوفي الواقع يتم تكوين الطلب كنص (string) بهذا الشكل (ونحن هنا نطبعه بصيغته النصية لغرضٍ تعليمي):\n\nprint(f\"\"\"\n{request.method} {request.url.path} HTTP/1.1\n{\"\\n\".join([f\"{k}: {v}\" for k, v in request.headers.items()])}\n\n\"\"\")\n\n\nGET /v1/images/search HTTP/1.1\nhost: api.thecatapi.com\naccept: */*\naccept-encoding: gzip, deflate\nconnection: keep-alive\nuser-agent: python-httpx/0.28.1\nx-api-key: live_9Cj8P0h75D5h2D7Y2H8MYEuuTmTXjT412xNlbVBouHxn2sEnAjr1dr4JMfIn4Mr4\n\n\n\n\nفأما السطر الأول:\nGET /v1/images/search HTTP/1.1\nفمكون من ثلاثة أجزاء:\n\nنوع الطلب: GET ذلك أننا نريد حصول على معلومات (لا إنشاءها ولا تغييرها)\nالمسار: /v1/images/search هو المسار الفرعي الذي يحدد الخدمة المطلوبة\nنسخة قوانين التواصل: HTTP/1.1 فشكل الطلب والجواب يعتمد على هذه النسخة\n\nوأما الوُجهة فمحددة بالرأس Host على هذا النحو:\nhost: api.thecatapi.com\nوالترويسة الأخيرة x-api-key هي ليست من الترويسات المعرَّفة في HTTP، ولكنه اتفاق بين العميل والخادم:\nx-api-key: ...\nوقد أضاف العميل رؤسًا لم نعيِّنها وهي: accept, accept-encoding, connection, user-agent، وإليك معناها:\n\naccept: */* وتعني أننا نقبل الجواب بأي صيغة؛ سواء كانت بصيغة JSON أو HTML أو أي صيغة أخرى\naccept-encoding: gzip, deflate تعني أن العميل يتوقع المحتوى مضغوطًا بصيغة ضغط معينة\nconnection: keep-alive تعني أن العميل يريد الحفاظ على الاتصال بالخادم\nuser-agent: python-httpx/0.28.1 هي ترويسة إجبارية ولا يهم ما تكون قيمتها. لكنها تعرِّف بهوية العميل\n\nوبعد ذلك نرسل الطلب بالإجراء send ونحصل على جواب response:\n\nresponse = client.send(request)\n\nوالجواب نفسه له الصيغة النصية التالية:\n\nprint(f\"\"\"\n{response.status_code} {response.reason_phrase}\n{\"\\n\".join([f\"{k}: {v}\" for k, v in response.headers.items()])}\n\n{response.text}\n\"\"\")\n\n\n200 OK\nx-dns-prefetch-control: off\nx-frame-options: SAMEORIGIN\nstrict-transport-security: max-age=15552000; includeSubDomains\nx-download-options: noopen\nx-content-type-options: nosniff\nx-xss-protection: 1; mode=block\nvary: Origin\nexpires: Tue, 03 Jul 2001 06:00:00 GMT\nlast-modified: Sun Apr 13 2025 05:14:53 GMT+0000 (Coordinated Universal Time)\ncache-control: post-check=0, pre-check=0\nauthenticated: false\ncontent-type: application/json; charset=utf-8\nx-response-time: 208ms\nx-cloud-trace-context: c0bc923974f33dc6844b382a6623e9ba\ndate: Sun, 13 Apr 2025 05:14:53 GMT\nserver: Google Frontend\ncontent-length: 89\n\n[{\"id\":\"3l2\",\"url\":\"https://cdn2.thecatapi.com/images/3l2.jpg\",\"width\":500,\"height\":332}]\n\n\n\nولاحظ أول سطر في نص الجواب: 200 OK تعني أن الطلب تمُّ إنجازه بنجاح. وراجع الرؤس (Headers) إن أردت معرفة معنى كل ترويسة هنا (وليست تهمنا الآن). لكن ما يبدأ بحرف x- هو إضافي وليس من أساس لغة HTTP المتفق عليها، ولذلك قد لا تجده في المرجع العام، وإنما تجده في مرجع مزوِّد للخدمة.\nولاحظ أن آخر سطرٍ هو المحتوى:\n[{\"id\": ... ,\"url\": ... , ... }]\nوإذا نظرت إلى النصّ الموجود في محتوى الرد (response.text) فإنك ستلاحظ أنه نصُّ مقوْلَب بصيغة JSON التي سبق الحديث عنها:\n\nprint(type(response.text))\nprint(response.text)\n\n&lt;class 'str'&gt;\n[{\"id\":\"3l2\",\"url\":\"https://cdn2.thecatapi.com/images/3l2.jpg\",\"width\":500,\"height\":332}]\n\n\nولكن هذا النص لا يمكن التعامل معه كما هو، لذلك نستخدم الإجراء json() لتفسيره إلى شيء في بايثون (قائمة):\n\ndata = response.json()\nprint(type(data))\nprint(data)\n\n&lt;class 'list'&gt;\n[{'id': '3l2', 'url': 'https://cdn2.thecatapi.com/images/3l2.jpg', 'width': 500, 'height': 332}]\n\n\nالآن أصبح في هيكل بيانات يمكن التعامل معه. فنريد استخراج رابط الصورة منه:\n\nimage_url = data[0][\"url\"]\nprint(image_url)\n\nhttps://cdn2.thecatapi.com/images/3l2.jpg\n\n\nفهذا الرابط، لو نسخته وأدخلته في المتصفح فستظهر لك صورة القط.\n\n\nالكود\nfrom IPython.display import Image, display\n\ndisplay(Image(url=image_url))",
     "crumbs": [
       "باب الاتصال بالشبكة",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>التخاطب عبر الشبكة (HTTP)</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>تواصل البرمجيات عبر الشبكة</span>"
     ]
   },
   {
     "objectID": "chapters/15_community/a3_use_http.html#مثال-خدمة-الطقس",
     "href": "chapters/15_community/a3_use_http.html#مثال-خدمة-الطقس",
-    "title": "18  التخاطب عبر الشبكة (HTTP)",
+    "title": "18  تواصل البرمجيات عبر الشبكة",
     "section": "مثال: خدمة الطقس",
     "text": "مثال: خدمة الطقس\nوالرابط يشبه استدعاء الإجراء. لاحظ أننا في بايثون نستدعي الإجراء pow من الوحدة math ونمرر العوامل 2, 3 إليه على هذا النحو:\n\nimport math\n\nmath.pow(2, 3)\n\n8.0\n\n\nوهكذا نشبِّه ذلك بطريقة العنوان الموحَّد باعتبار أن المورِد هو معالجة؛ وهي سؤالٌ عن الطقس في مدينة لندن:\n\n\n\n\nOrigin (الأصل)\nPath (المسار)\nQuery (المعمولات)\n\n\n\n\nhttps://api.openweathermap.org\n/weather\n?city=London\n\n\nmath\npow\n2, 3\n\n\n\n\n\nفكما أننا نطلب الإجراء pow من الوحدة math ونمرر العوامل 2, 3 إليه\nفكذلك نطلب المورِد /weather من الموقع https://api.openweathermap.org ونمرر العوامل ?city=London إليه\n\nالعامل يبتدأ بعلامة الاستفهام ? ثم اسم العامل city وقيمته London وهو اسم المدينة\n\n\nلنأخذ مثالاً آخر على استخدام خدمة برمجية، وهي خدمة الطقس من OpenWeatherMap. هذه الخدمة تتيح لنا معرفة حالة الطقس في أي مدينة في العالم.\nأولاً، نحتاج إلى مفتاح API من الموقع (يمكنك الحصول عليه مجاناً بعد التسجيل). ثم نستخدم مكتبة httpx للاتصال بالخدمة.\nففي صفحة المرجع قالوا إن طريقة الطلب هي على النحو التالي:\nنشرح الرابط حتى تتبين أجزاؤه ليسهل عليك بعد ذلك قراءة أية رابط:\nhttps://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}:\n\nhttps://api.openweathermap.org هو الأصل (Origin)\n/data/3.0/onecall هو المسار الفرعي (Path)\n? العلامة الفاصلة بين المسار والعوامل\n& علامة فاصلة بين العوامل نفسها\nlat={latitude} هو تعيين للعامل الأوَّل بقيمة latitude أي: خط العرض\nlon={longitude} هو تعيين للعامل الثاني بقيمة longitude أي: خط الطول\nexclude={part} اختيار البيانات التي تريد استبعادها في جواب الطلب\nappid={API key} هو مفتاح التطبيق الذي يسمح للطلب بالوصول إلى الخدمة\n\nونحن نكتبها في بايثون مع مكتبة httpx على النحو التالي:\n\nimport httpx\n\nlatitude = 24.7136\nlongitude = 46.6753\n\nclient = httpx.Client()\n\nrequest = client.build_request(\n    method=\"GET\",\n    url=\"https://api.openweathermap.org/data/3.0/onecall\",\n    params={\n        \"lat\": round(latitude, 4),\n        \"lon\": round(longitude, 4),\n        \"appid\": \"4a5417dd3a781b7f64f05178ed423a23\"\n    }\n)\n\nresponse = client.send(request)\nprint(response.text)\n\n{\"cod\":401, \"message\": \"Please note that using One Call 3.0 requires a separate subscription to the One Call by Call plan. Learn more here https://openweathermap.org/price. If you have a valid subscription to the One Call by Call plan, but still receive this error, then please see https://openweathermap.org/faq#error401 for more info.\"}\n\n\nأو اختصارًا باستعمال httpx.get مباشرةً هكذا:\n\nimport httpx\n\nlatitude = 24.7136\nlongitude = 46.6753\n\nresponse = httpx.get(\n    url=\"https://api.openweathermap.org/data/3.0/onecall\",\n    params={\n        \"lat\": round(latitude, 4),\n        \"lon\": round(longitude, 4),\n        \"appid\": \"4a5417dd3a781b7f64f05178ed423a23\"\n    }\n)\nprint(response.text)\n\n{\"cod\":401, \"message\": \"Please note that using One Call 3.0 requires a separate subscription to the One Call by Call plan. Learn more here https://openweathermap.org/price. If you have a valid subscription to the One Call by Call plan, but still receive this error, then please see https://openweathermap.org/faq#error401 for more info.\"}",
     "crumbs": [
       "باب الاتصال بالشبكة",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>التخاطب عبر الشبكة (HTTP)</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>تواصل البرمجيات عبر الشبكة</span>"
     ]
   },
   {
     "objectID": "chapters/15_community/a3_use_http.html#انطلق-بالتطبيق",
     "href": "chapters/15_community/a3_use_http.html#انطلق-بالتطبيق",
-    "title": "18  التخاطب عبر الشبكة (HTTP)",
+    "title": "18  تواصل البرمجيات عبر الشبكة",
     "section": "انطلق بالتطبيق",
     "text": "انطلق بالتطبيق\nوبهذا تكون قادرًا على التعامل مع أي برمجيَّة توفِّر خدماتها عبر الشبكة. تحتاج فقط أن تُقدِم وتجرِّب حتى تأخذ يدك على الأمر!\nانتقل إلى المسائل.فإن أردت البحث عن واجهة برمجية لعمل شيء ما، فاكتب الكلمات المفتاحية + “API” في محرك البحث؛ مثلاً: Google Maps API.\nملاحظة: بعض الواجهات تتطلب التسجيل للحصول على مفتاح API. وبعضها يحتاج إضافة إلى ذلك شحن الحساب برصيد مثل 5 دولارات. وكل ذلك مبين في المرجع نفسه.",
     "crumbs": [
       "باب الاتصال بالشبكة",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>التخاطب عبر الشبكة (HTTP)</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>تواصل البرمجيات عبر الشبكة</span>"
     ]
   },
   {
