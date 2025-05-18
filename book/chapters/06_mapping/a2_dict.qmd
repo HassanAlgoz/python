@@ -170,7 +170,7 @@ print(data[('a', 'b', 'c')])
 
 ## التضمين
 
-يجوز جعل القيمة نفسها قاموسًا. ومثال ذلك حفظ اختيارات المستخدم هكذا:
+يجوز جعل القيمة نفسها قاموسًا. ومثال ذلك قيمة (`notifications`) المضمنة في قاموس اختيارات المستخدم هكذا:
 
 ```{python}
 user = {
@@ -180,28 +180,147 @@ user = {
     'last_updated': '2021-09-01',
     'age': 25,
     'notifications': {
-        'email': True,
-        'sms': False,
-        'push': True
+        'email': 'monthly',
+        'sms': 'weekly',
+        'push': 'daily'
     },
     'emails': ['example1@domain.com', 'example2@domain.com']
 }
 ```
 
-وللوصول إلى قيمة مضمَّنة، نستعمل الإشارة بالمفتاح مرتين، هكذا:
+وللوصول إلى قيمة مضمَّنة، قد تكتب:
 
 ```{python}
-user['notifications']['push']
+a = user['notifications']
+print(a)
 ```
 
+```{python}
+b = a['sms']
+print(b)
+```
+
+وذلك أن نوع قيمة المتغير `a` هو قاموس:
+
+```{python}
+type(a)
+```
+
+أو تأتي بها مرة واحدة:
+
+```{python}
+a = user['notifications']['sms']
+print(a)
+```
+
+وكذا الأمر في الوصول للقائمة المضمَّنة (`emails`) كما يلي:
+
+```{python}
+c = user['emails']
+print(c)
+```
+
+ثم الوصول إلى عنصرٍ من هذه القائمة:
+
+```{python}
+print(c[0])
+```
+
+وذلك أن نوع قيمة المتغير `c` هو قائمة:
+
+```{python}
+type(c)
+```
+
+أو الوصول إليها مرة واحدة:
+
+```{python}
+d = user['emails'][0]
+print(d)
+```
+
+ويكثُر استعمال القواميس المضمنة كعناصر للتسلسل، ولذلك وجب علينا التدرب على قراءتها.
+
+فمثلاً هذه قائمة يحتوي كل عنصرٍ منها على قاموس لبيانات مُرَشَّح، ونريد أن نستخلص خبراتهم منها:
+```{python}
+data = [
+    {
+        'name': 'Ahmad Hamada',
+        'experiences': [
+            {
+                'company': 'Geo Space',
+                'start': '2038-01-01',
+                'end': '2039-01-01',
+                'role': 'Junior Software Engineer',
+            },
+            {
+                'company': 'Space Roots',
+                'start': '2039-01-01',
+                'end': '2041-01-01',
+                'role': 'Senior Software Engineer',
+            },
+        ],
+    },
+    {
+        'name': 'Belal Banana',
+        'experiences': [
+            {
+                'company': 'Banana Tech',
+                'start': '2041-01-01',
+                'end': '2042-01-01',
+                'role': 'Smoothie Operator',
+            },
+            {
+                'company': 'BugSquash Labs',
+                'start': '2042-02-01',
+                'end': '2043-08-01',
+                'role': 'Code Pest Control Specialist',
+            },
+            {
+                'company': 'Caffeinated Circuits Inc.',
+                'start': '2043-09-01',
+                'end': '2045-05-01',
+                'role': 'Espresso-Driven Engineer',
+            }
+        ]
+    },
+]
+
+```
+
+ولنفترض أننا نريد آخر وظيفة شغلها المرشح الثاني، فإننا نكتبها في بايثون بهذا الشكل:
+
+```{python}
+data[1]['experiences'][-1]['role']
+```
+
+وبايثون تقيمها من اليسار إلى اليمين، على النحو التالي:
+
+- الوصول إلى `data` (هو قائمة)
+- العنصر الثاني (`1`) من ذلك (هو قاموس)
+- مقابل المفتاح `experiences` من ذلك (هو قائمة)
+- العنصر الأخير من ذلك (هو قاموس)
+- مقابل المفتاح `role` من ذلك (هو نص)
+
+وتقول: من المرشحين الثاني، خبراتهُ الأخيرُ منها، وظيفتُه أريدُ.
+
+فإذا أردت أن تقرأها بالعكس من اليمين إلى اليسار، فتقول:
+
+- مقابل المفتاح `role`
+- في العنصر الأخير من
+- مقابل المفتاح `experiences`
+- في العنصر الثاني (`1`) من
+- المتغير `data`
+
+وتقول أيضًا: أريد الوظيفة لآخر الخبرات للثاني من المرشحين.
 
 ## التكرار
 
-ويجوز التكرار بثلاثة طرق:
+ويحصل التكرار بثلاثة طرق:
 
-- كر المفاتيح: `for key in d.keys()`
-- كر القيم: `for value in d.values()`
-- كر العناصر: `for key, value in d.items()` (ينتج عنها أزواج (`2-tuple`) من الفاتيح والقيم)
+- **كر المفاتيح**: `for key in d.keys()`
+- **كر القيم**: `for value in d.values()`
+- **كر العناصر**: `for key, value in d.items()` (ينتج عنها أزواج (`2-tuple`) من الفاتيح والقيم)
 
 مثال:
 
