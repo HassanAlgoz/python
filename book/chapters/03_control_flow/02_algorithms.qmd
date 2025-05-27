@@ -1,0 +1,480 @@
+---
+og:title: algorithm
+---
+
+# الخوارزمية
+
+إذا كانت البرمجيات إنما تنحصر في الجمع والطرح ونحو ذلك فإنها لا تعدوا أن تكون آلة حاسبة.
+لكن ليس الحال كذلك. بل لا يكاد يخلو برنامج مفيد من اتخاذ قرارات مغايرة بناءً على اختلاف المعطيات.
+ومن هنا وجبت معرفة كيفية **التحكم في سير الأوامر** (Control-flow) بما يكون في المتغيرات التي تمثل المعطيات.
+
+فمثلاً؛ تريد أن تجعل السيارة الآلية تتقيَّد بالسرعة القانونية للشارع بحسبه.
+أو تريد أن تؤقِّتَ لإيقاف المكيِّف حتى تستيقظ في الصباح الباكر.
+أو تريد أن يضيء المصباح عند استشعار حساس الحركة بدخول شخصٍ إلى الغرفة.
+
+فهذه خوارزميات تحتاج إلى اتخاذ قرارات بناء على **حال مكانية أو زمانية أو واقعية**.
+
+و**الخوارزمية** (Algorithm) هي تسيير معالجات على معطيات لغرض الوصول لنتيجة محددة.
+ولك أن تقول: هي الانتقال من حال إلى حال.
+
+وتكتب بالنص البرمجي حيث تنتظم أوامر النص البرمجي في ثلاثة أنماط:
+
+1. **تتابع** (Sequence): وهو الأصل؛ حيث يكون الانتقال من الأمر إلى الأمر الذي يليه مباشرة
+2. **اختيار** (Selection): حيث يكون الانتقال مشروطًا (لاحظ في الصورة أن تنفيذ `A` مشروط، أما الأمر `B` فيأتي وقته سواءً بنفوذ الشرط أو عدمه)
+3. **تكرار** (Iteration): وهو نوعٌ من الاختيار يكون فيه الانتقال إلى الوراء؛ ويتم لنا بذلك الإعادة
+
+![أنماط توالي الأوامر](../../assets/control-flow.png){width="100%"}
+
+فإن جملة التعيين التالية تكتُب قيمة `20` في نفس المحلّ الذي كتبت عليه جملة التعيين الأولى `10`. لذا ظهرت النتيجة: `20`.
+
+:::: {.columns}
+::: {.column width="35%"}
+
+```{mermaid}
+flowchart TD
+    A[x = 10] --> B[x = 20] --> C["print(x)"]
+```
+:::
+::: {.column width="65%"}
+```{python}
+x = 10
+x = 20
+print(x)
+```
+:::
+::::
+
+## القيمة المنطقية
+
+ويتم اختيار أحد طريقين في سيْر الأوامِر بحسب ناتج تعبير منطقي (`bool`)؛ وهي أحد اثنين:
+
+1. **نعم**: `True`؛ ويقال أيضًا: صحيح أو مطابق أو ثابت
+2. **لا**: `False`؛ ويقال أيضًا خاطئ أو مخالف أو منتفي
+
+ومن العبارات المنطقية في بايثون، حاصل عوامل المقارنة كما في المثال:
+
+```{python}
+a = 10
+b = 5
+
+print(a == b)   # يساوي
+print(a != b)   # لا يساوي
+print(a > b)    # أكبر من
+print(a < b)    # أصغر من 
+print(a >= b)   # أكبر من أو يساوي
+print(a <= b)   # أصغر من أو يساوي
+```
+
+تذكر: لكل قيمة نوع.
+فإذا وضعت المتغير في دالة `type(x)` لمعرفة النوع، فإنك ستعرف أن مثل هذه التعبيرات نوعها منطقي (`bool`).
+مثال:
+
+```{python}
+print(type(8 == 5))
+```
+
+ويمكن المقارنة بين النصوص كذلك، ونتيجة ذلك قيمة من النوع المنطقي أيضًا؛ لأن المقارنة تعبير منطقي:
+
+```{python}
+print("Hello" == "Hello") # يجب أن تتطابق جميع الحروف
+print("a" == "A")         # حالة الحرف مهمة
+```
+
+ولاحظ أن النص والعدد لاختلاف نوعيهما يكون حاصل المساواة بينهما لا:
+
+```{python}
+print(10 == "10")
+```
+
+لكن بايثون تتجوَّز في المساواة بين الأنواع المختلفة التي من صنف العدد،
+فالمطابقة بين العدد الصحيح (`int`) وذي الفاصلة العائمة (`float`) جائزة في بايثون:
+
+```{python}
+print(10 == 10.0)
+```
+
+## التخيير
+
+يتم التخيير المذكور آنفًا بالجملة الشرطية:
+
+```python
+if <boolean expression>:
+    <code>
+```
+
+- فتبدأ الجملة الشرطية بكلمة `if` (**إذا**) ويليها التعبير المنطقي (كما سبق بيانه)
+	- فيكون ما يندرج تحتها ويحاذيها (ولا بد من المحاذاة) أي أوامر تنفذ بنفاذ الشرط (`True`).
+  فإن انتفى الشرط (`False`) فإن بايثون تتخطى هذه الأوامر وتقفز لما بعدها.
+
+:::: {.columns}
+::: {.column width="35%"}
+```{mermaid}
+flowchart TD
+    IF{{if cond}} -- False --> X["Outside"]
+    IF -- True --> Y["Inside"] --> X["Outside"]
+
+  style IF fill:#82aeff, stroke:#333, stroke-width:2px;
+  linkStyle 0 color:red;
+```
+
+:::
+::: {.column width="65%"}
+```{python}
+cond = False
+if cond:
+    print('Inside')
+print('Outside')
+```
+
+:::
+::::
+
+لاحظ أن الشرط منتفٍ، لذلك كان حاصل النص السابق تخطي ما بداخل الجملة الشرطية، وطباعة `Outside` فقط.
+
+### تنبيه: المحاذاة العمودية
+
+لاحظ أن **المحاذاة العمودية** (Indentation) (المسافات البيضاء أسفل كلمة `if`) في القطعة البرمجية أعلاه ليست لمجرد تسهيل القراءة، بل هي التي تحدد التعليمات المشروطة. عادةً ما تكون المحاذاة عبارة عن 4 مسافات أو 2 أو أكثر، لكن لابد أن تكون موحَّدة طوال النص البرمجي.
+
+لاحظ: بدون المحاذاة الصحيحة، سيظهر خطأ في النص البرمجي:
+
+:::: {.columns}
+::: {.column width="35%"}
+
+```{mermaid}
+flowchart TD
+    IF{{if True}}
+    Y["Inside"] --> X["Outside"]
+    style IF fill:#fc0000, stroke:#333, stroke-width:2px;
+```
+
+:::
+::: {.column width="65%"}
+
+```{python}
+#| error: true
+#| 
+if True:
+print('Inside')
+print('Outside')
+```
+
+:::
+::::
+
+
+إذا قمت بزيادة المحاذاة لكل من جملتي `print()`، فسوف يعمل النص البرمجي بتدفِّقٍ غيرِ الذي قصدناه ابتداءً. أي أنه سيطبع `Outside` عندما يكون في الواقع داخل اللَّبِنَة الشرطية.
+
+:::: {.columns}
+::: {.column width="35%"}
+
+```{mermaid}
+flowchart TD
+    IF{{if True}}
+    IF -- True --> Y["Inside"] --> X["Outside"]
+    
+    style IF fill:#82aeff, stroke:#333, stroke-width:2px;
+```
+
+:::
+::: {.column width="65%"}
+```{python}
+if True:
+    print('Inside')
+    print('Outside')
+```
+
+:::
+::::
+
+يؤدي النص البرمجي السابق إلى خطأ منطقي لن يظهر أبدًا كخطأ ولن يوقف البرنامج. لذا كن حذرًا مع المحاذاة في بايثون!
+
+### التخيير الحصري
+
+لجعل التخيير بين أمرين بحيث لو حصل أحدهما لا يحصل الآخر، فإننا نتبع الشرط الأوَّل بكلمة **وإلا** (`else`)،
+على النحو التالي:
+
+```python
+if <boolean expression>:
+    <code_1>
+else:
+    <code_2>
+```
+
+مثلاً، تريد أن تظهر رسالة خطأ لو لم تطابق كلمة المرور:
+
+```{python}
+input_password = hash("abc123")
+stored_password = hash("fuda$(#*(lm")
+
+is_match = input_password == stored_password
+
+if is_match:
+    print("Welcome")
+else:
+    print("Try Again")
+
+print("Done")
+```
+
+وهذه الشجرة توضح تسلسل التنفيذ الإجرائي لها:
+
+```{mermaid}
+flowchart TD
+    IF{{if is_match}}
+    IF -- False --> D[Try Again]
+    IF -- True --> C[Welcome]
+    D --> E[Done]
+    C --> E[Done]
+
+    style IF fill:#82aeff, stroke:#333;
+    linkStyle 0 color:red;
+```
+
+
+ولاحظ أن `print("Done")` غير مشروطة، لذلك فإنها مع نفوذ الشرط أو عدمه يتم تنفيذها.
+
+## الجبر المنطقي
+
+والنوع الثنائي (`bool`) الذي ينحصر في قيمتين فقط هو أصل المنطق الرقمي المعروف بالأصفار والآحاد.
+حيث نشأ علم **الجبر المنطقي** (Algebraic Logic) من قبل عالم الرياضيات [جورج بول](https://ar.wikipedia.org/wiki/%D8%AC%D9%88%D8%B1%D8%AC_%D8%A8%D9%88%D9%84) الذي وضع أسسه في كتابه: "قوانين الفكر" ([The Laws of Thought](https://en.wikipedia.org/wiki/The_Laws_of_Thought)) في عام 1854.
+
+ومن بديع صنع الله سبحانه؛ أن هذه العمليات الثلاثة بها تتكون جميع المعالجات التي تصير في كل جهاز حاسب بلا استثناء.
+
+وإذا كان جبر الأعداد يكون بالمعادلات التي هي مقابلات تمثل قيَم عددية،
+وبينها عوامل الجمع والضرب والقسمة والطرح والأس ونحو ذلك؛
+فإن الجبر المنطقي يكون بمعادلات تمثل مقابلات لقيم منطقية (صفر أو واحد)،
+بينها العوامل الأساسية الثلاثة التالية (ويمثل الصفر المنطقي بكلمة `False` والواحد المنطقي بكلمة `True`):
+
+الأول: **العكس** (`not`). مثاله:
+
+```{python}
+a = 10 > 5  # تعيين لحاصل تعبير منطقي للمتغير
+b = not a   # عكس القيمة المنطقية التي في المتغير الأول
+print(b)    # طباعة
+```
+
+الثاني: **الجمع** (`and`). مثاله:
+
+```{python}
+a = True
+b = False
+print(a and b)
+```
+
+الثالث: **الخيار** (`or`). مثاله:
+
+```{python}
+a = True
+b = False
+print(a or b)
+```
+
+وقد وضعت الجمع والخيار في جدولٍ واحد فيه جميع الاحتمالات بينهما ليسهل استيعابه:
+
+
+<div class="ltr">
+
+
+| `a` | `b` | `a and b` | `a or b` |
+|----------|----------|----------|----------|
+|     0    |     0    |    0     |    0     |
+|     0    |     1    |    0     |    1     |
+|     1    |     0    |    0     |    1     |
+|     1    |     1    |    1     |    1    |
+
+</div>
+
+### تفسير البعارات المنطقية في الجملة الشرطية
+
+على سبيل المثال:
+
+```{python}
+age = 20
+weight = 50
+
+if age > 18 and weight > 45:
+  print("You are eligible to donate blood")
+```
+
+يؤول طرفا العامل `and` لقيمة منطقية هكذا:
+
+- `age > 18` تؤول إلى `True` لأن `age=20` وهو أكبر من `18`
+- `weight > 45` تؤول إلى `True` لأن `weight=50` وهو أكبر من `45`
+- فتكون الجملة إذًا: `True and True` وهي تؤول إلى `True`
+
+وهذه الشجرة تمثل تسلسل تفسير العبارات المنطقية في الجملة الشرطية:
+
+<div class="ltr">
+
+```{mermaid}
+graph BT
+  RESULT((if))
+  ROOT{and} -- True --> RESULT
+  middle_left{"&gt;"} -- True --> ROOT
+  middle_right{"&gt;"} -- True --> ROOT
+  left_left[age] -- "20" --> middle_left
+  left_right[18] -- "18" --> middle_left
+  right_left[weight] -- "50" --> middle_right
+  right_right[45] -- "45" --> middle_right
+
+```
+
+</div>
+
+تستعمل الأقواس لتجميع الشروط لإيقاع الترتيب المنطقي المراد:
+
+```{python}
+age = 16
+temperature = 15
+is_wearing_coat = True
+
+if age < 16 or (temperature < 20 and not is_wearing_coat):
+  print("I suggest you don't go outside")
+```
+
+- `age < 16` تؤول إلى `False` لأن `age=16` ليست أصغر من `16`
+- `temperature < 20` تؤول إلى `True` لأن `temperature=15` أصغر من `20` فعلاً
+- `not is_wearing_coat` تؤول إلى `False` لأن `is_wearing_coat=True` وهي عكسها
+- إذًا الجملة بين القوسين `(temperature < 20 and not is_wearing_coat)` تؤول إلى `True and False` وهي تؤول إلى `False`
+- إذًا الجملة `age < 16 or (False)` تؤول إلى `False or False` وهي تؤول إلى `False`
+
+وهذه الشجرة تمثل تسلسل تفسير العبارات المنطقية في الجملة الشرطية:
+
+<div class="ltr">
+
+```{mermaid}
+graph BT
+  RESULT((if))
+  ROOT{or} -- False --> RESULT
+  middle_left{"&lt;"} -- False --> ROOT
+  middle_right{and} -- False --> ROOT
+  left_left[age] -- "16" --> middle_left
+  left_right[16] -- "16" --> middle_left
+  right_middle{"&lt;"} -- True --> middle_right
+  right_not{not} -- False --> middle_right
+  right_temp[temperature] -- "15" --> right_middle
+  right_val[20] -- "20" --> right_middle
+  right_coat[is_wearing_coat] -- True --> right_not
+```
+
+</div>
+
+### تسمية العبارات المنطقية
+
+ويجوز تسمية العباراة المنطقية وتعيين قيمتها لمتغيرات لبيان موقعها في سياق الجملة الشرطية:
+
+```{python}
+is_minor = age < 16
+is_cold = temperature < 20
+
+if is_minor or (is_cold and not is_wearing_coat):
+  print("I suggest you don't go outside")
+```
+
+ومن فوائد تعيين العبارة المنطقية لمتغير: إمكانية استعماله في أكثر من موضع.
+
+### تسلسل المقارنات
+
+وتفهم بايثون المقارنات المتسلسلة. فعبارة `x < y <= z` تكافئ `x < y and y <= z`:
+
+```{python}
+low = 10
+high = 20
+x = 15
+
+(low < x < high) == (low < x and x < high)
+```
+
+## الجملة الشرطية المتكاملة
+
+الصيغة المتكاملة للجملة الشرطية:
+
+```python
+if <boolean expression>:
+    <code_1>
+elif <boolean expression>:
+    <code_2>
+elif <boolean expression>:
+    <code_3>
+else:
+    <code_4>
+```
+
+- أما جملة **إذا** (`if`) فقد سبق بيانها
+- وأما جملة **وإلا فإن** (`elif`) فلا يقرأها مفسر بايثون إلا عند تخلُّف الشرط السابق لها. وقد تتعدد
+- وأما جملة **وإلا** الأخيرة (`else`) فلا يقرأها المفسر إلا عند تخلف جميع الشروط السابقة لها.
+
+ونؤكد أن الجمل الشرطية اللاحقة بعد **إذا** (`if`) الأولى؛ كل واحدة منها مرتبطة بانتفاء ما قبلها.
+وهذا ما يوضحه الرسم الشجري التالي:
+
+```{mermaid}
+flowchart TD
+    IF1{{if}}
+    IF1 -- False --> ELIF1{{elif}}
+    IF1 -- True --> code_1
+    ELIF1 -- False --> ELIF2{{elif}}
+    ELIF1 -- True --> code_2
+    ELIF2 -- False --> ELSE{{else}}
+    ELIF2 -- True --> code_3
+    ELSE --> code_4
+
+    style IF1 fill:#82aeff, stroke:#333, stroke-width:2px;
+    style ELIF1 fill:#82aeff, stroke:#333, stroke-width:2px;
+    style ELIF2 fill:#82aeff, stroke:#333, stroke-width:2px;
+    style ELSE fill:#82aeff, stroke:#333, stroke-width:2px;
+    linkStyle 0,2,4 color:red;
+```
+
+#### جرب
+
+استكشف المنطق التالي بتغيير قيمة `x` كل مرة للتبع ما يحصل في كل مرة:
+
+- `x = -5`
+- `x = 0`
+- `x = 1`
+- `x = 5`
+
+```{python}
+x = -5
+
+if x < 0:
+    x = 0
+    print('Set to zero')
+elif x == 0:
+    print('Zero')
+elif x == 1:
+    print('Single')
+else:
+    print('More')
+
+print("Always:", x)
+```
+
+وهذه الشجرة توضح تسلسل التنفيذ الإجرائي لها:
+
+```{mermaid}
+flowchart TD
+    IF{{if x < 0}}
+    IF -- False --> ELIF{{elif x == 0}}
+    IF -- True --> S1[x = 0] --> S2["Set to zero"]
+    ELIF -- False --> ELSE{{else}}
+    ELIF -- True --> S3[x = 1] --> S4["Single"]
+    ELSE --> S5["More"]
+
+    Always[Always: x]
+    S2 --> Always
+    S4 --> Always
+    S5 --> Always
+
+    style IF fill:#82aeff, stroke:#333, stroke-width:2px;
+    style ELIF fill:#82aeff, stroke:#333, stroke-width:2px;
+    style ELSE fill:#82aeff, stroke:#333, stroke-width:2px;
+    linkStyle 0,3 color:red;
+```
+
+
+وهذا تصوير لسير الإجراءات لنفس النص البرمجي. ملاحظة: اضغط على الزر `Prev` أو `Next` للتنقل بين خطوات التنفيذ الإجراءية:
+
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=x%20%3D%20-5%0A%0Aif%20x%20%3C%200%3A%0A%20%20%20%20x%20%3D%200%0A%20%20%20%20print%28'Negative%20changed%20to%20zero'%29%0Aelif%20x%20%3D%3D%200%3A%0A%20%20%20%20print%28'Zero'%29%0Aelif%20x%20%3D%3D%201%3A%0A%20%20%20%20print%28'Single'%29%0Aelse%3A%0A%20%20%20%20print%28'More'%29%0A%0Aprint%28%22Always%3A%22,%20x%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+لاحظ أن العبارة الأخيرة خارج كل اللَّبِنات الشرطية لذا يتم تنفيذها دائمًا.
