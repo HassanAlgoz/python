@@ -211,11 +211,11 @@ stored_password = hash("fuda$(#*(lm")
 is_match = input_password == stored_password
 
 if is_match:
-    print("Welcome")
+    msg = "Welcome"
 else:
-    print("Try Again")
+    msg = "Try Again"
 
-print("Done")
+print(msg)
 ```
 
 وهذه الشجرة توضح تسلسل التنفيذ الإجرائي لها:
@@ -223,17 +223,17 @@ print("Done")
 ```{mermaid}
 flowchart TD
     IF{{if is_match}}
-    IF -- False --> D[Try Again]
-    IF -- True --> C[Welcome]
-    D --> E[Done]
-    C --> E[Done]
+    IF -- False --> D["msg = 'Try Again'"]
+    IF -- True --> C["msg = 'Welcome'"]
+    D --> E["print(msg)"]
+    C --> E["print(msg)"]
 
     style IF fill:#82aeff, stroke:#333;
     linkStyle 0 color:red;
 ```
 
 
-ولاحظ أن `print("Done")` غير مشروطة، لذلك فإنها مع نفوذ الشرط أو عدمه يتم تنفيذها.
+ولاحظ أن `print(msg)` غير مشروطة، لذلك فإنها مع نفوذ الشرط أو عدمه يتم تنفيذها.
 
 ## الجبر المنطقي
 
