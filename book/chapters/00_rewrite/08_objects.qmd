@@ -488,3 +488,159 @@ v1 = Vector2D(1, 2)
 ```{python}
 v1 + 3
 ```
+
+## الاستمداد
+
+تستمدُّ الأنواع **بالوراثة** (Inheritence) ويسمى أيضًا **التخصيص** (Sub-classing):  ؛ كأن تقول المربع نوع خاص من المستطيلات. وكذلك تقول: المستطيل نوع خاص من الأشكال. وبالتالي فإن علاقة المربَّع بالشكل هي علاقة خاص من عام.
+
+مثال:
+
+- **الشكل**: ما كان له محيط
+- و**المستطيل** شكلٌ (إذًا له محيط) و فوق ذلك فإنه له: طولًا وعرضًا ومساحة
+- و**والمثلث** شكلٌ (إذًا له محيط) و فوق ذلك فإنه له: ثلاثةَ أضلاعٍ ومساحة
+- أما **المربع** فهو مستطيل (إذًا له محيط لأن المستطيل شكل، وله طول وعرض ومساحة): لكن عرضه وطوله متساويان
+
+وهذه شجرة التوارث للأنواع المذكورة:
+
+```{mermaid}
+flowchart BT
+  Shape
+  Rectangle -- "is a" --> Shape
+  Square -- "is a" --> Rectangle
+  Triangle -- "is a" --> Shape
+```
+
+وهذا تعريف صنف الشكل:
+```{python}
+class Shape:
+    def __init__(self, sides):
+        self.sides = sides
+    
+    @property
+    def perimeter(self):
+        return sum(self.sides)
+    
+    @property
+    def area(self):
+        pass
+```
+
+لاحظ استعمال **المعدِّل** (Decorator) `@property` (يعني: **خاصيَّة**) وهي تجعل طريقة الوصول لا تحتاج إلى قوسي استدعاء (`()`) كما هو الأصل.
+فبمجرد كتابة `.perimeter` فإن الطريقة تعمل لتأتيك بالنتيجة، وكأنها متغير.
+وهذا يستعمل في طرائق القراءة عادة، لا في طرائق الكتابة.
+
+والأمر الثاني هو استعمالنا كلمة `pass` وهي مثل الفراغ؛ ليس لها عمل إلا إقناع مفسر بايثون أننا لم نترك هذا المكان بالخطأ.
+والسبب في ترك هذه الطريقة فارغة هو أن الأنواع المستمدة ستجريها وإن كانت هنا مهملة.
+إذ ليس ثمة شيء هو شكلٌ فقط، ولذلك نعتبر هذا النوع، نوعًا **مُجرَّدًا** (Abstract)، إذ لن نستعمله مباشرةً أبدًا، بل سنخصصه أولاً.
+فأول نوع سيرث منه هو **المستطيل** (Rectangle).
+
+ولاحظ في `Rectangle`  استعمال الإجراء الخاص `super()` وهو يشير إلى الموروث `Shape`؛ فيصير معنى الجملة ( `super().__init__()`) وكوْنها في أوَّل سطرٍ من جملة إجراء الإنشاء: الإنشاء فوق الإنشاء الموروث. 
+
+```{python}
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        super().__init__((width, height, width, height))
+    
+    @property
+    def width(self):
+        return self.sides[0]
+    
+    @property
+    def height(self):
+        return self.sides[1]
+    
+    @property
+    def area(self):
+        return self.width * self.height
+```
+
+لاحظ القوسين الإضافيين حول المتغيرات المرسلة إلى الأب (`super().__init__()`)، وهذا يعني أنها كلها ستعيَّن للمعطى الأوَّل كصفّ (`tuple`)، وهو نوع تسلسل مثل القائمة لكنه جامد لا يقبل التغيير.
+
+أما **المربع**، فهو نوعٌ خاص من المستطيل:
+
+```{python}
+class Square(Rectangle):
+    def __init__(self, side):
+        super().__init__((side, side))
+```
+
+وأما **المثلث**، فهو من الشكل:
+
+```{python}
+
+class Triangle(Shape):
+    def __init__(self, a, b, c):
+        super().__init__((a, b, c))
+
+    @property
+    def a(self):
+        return self.sides[0]
+    
+    @property
+    def b(self):
+        return self.sides[1]
+    
+    @property
+    def c(self):
+        return self.sides[2]
+    
+    @property
+    def area(self):
+        s = self.perimeter / 2
+        return (s * (s - self.a) * (s - self.b) * (s - self.c))**0.5
+```
+
+والآن ستلاحظ إمكانية استعمال الشيئين المختلفين (المثلث والمستطيل) باعتبار المشترك بينهما (الشكل). ويتبين ذلك إذا كررنا عليهما في قائمة:
+
+```{python}
+t = Triangle(10, 10, 10)
+r = Rectangle(10, 20)
+shapes = [t, r]
+
+for sh in shapes:
+    print(sh.__class__.__name__)
+    print("Perimeter:", sh.perimeter)
+    print("Area:", round(sh.area, 2))
+    print('='*40)
+```
+
+واستعمال `instance.__class__.__name__` يعطي اسم النوع الذي ينتمي إليه الشيء.
+
+لكنهما يفترقان في بعض الصفات إذ:
+
+- المستطيل له طول وعرض
+- المثلث له ثلاثة أضلاع
+
+ويمكن فحص النوع باستعمال الإجراء `isinstance(instance, class)` لمعرفة ما إذا كان الشيء ينتمي إلى ذلك النوع أو لا.
+
+```{python}
+for sh in shapes:
+    if isinstance(sh, Rectangle):
+        print(f"Sides: width={sh.width}, height={sh.height}")
+    elif isinstance(sh, Triangle):
+        print(f"Sides: a={sh.a}, b={sh.b}, c={sh.c}")
+```
+
+وذلك ينطبق في تعريف الإجراءات. فإنك تستطيع تحديد النوع الأعم وتمرير النوع الأخص.
+
+فهو في التعريف عام:
+
+```{python}
+def show(shape):
+    print(shape.__class__.__name__)
+    print("Perimeter:", shape.perimeter)
+    print("Area:", round(shape.area, 2))
+```
+
+وفي التمرير خاص:
+
+```{python}
+x = Triangle(10, 10, 10)
+show(x)
+```
+
+```{python}
+y = Rectangle(10, 20)
+show(y)
+```
