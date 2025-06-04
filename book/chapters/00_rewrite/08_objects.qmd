@@ -102,179 +102,9 @@ print(c1.count)
 print(c2.count)
 ```
 
-## تحديد عمل العوامل
-
-تأمل التالي وتوقَّع النتيجة وعلل إجابتك. ما هي نتيجة:
-
-القطعة الأولى:
-
-```python
-[1, 2, 3] + [4, 5, 6]
-```
-
-القطعة الثانية:
-
-```python
-[1, 2, 3] * [4, 5, 6]
-```
-
-القطعة الثالثة:
-
-```python
-[1, 2, 3] * 5
-```
-
-القطعة الرابعة:
-
-```python
-[1, 2, 3] - 3
-```
-
-
-## عوامل الأرقام
-
-كل الذي سبق، قد تم تعريفه في بايثون لهذه الأنواع التي تراها بالتحديد عن طريق إجراءات مخصصة. وإليك هذا الجدول للعوامل المخصصة:
-
-| مثال | الإجراء |
-|----------|----------|
-| `self + other` | `__add__` |
-| `self - other` | `__sub__` |
-| `self * other` | `__mul__` |
-| `self / other` | `__truediv__` |
-| `self // other` | `__floordiv__` |
-| `self % other` | `__mod__` |
-| `self ** other` | `__pow__` |
-
-(وانظر [مرجع بايثون لمحاكاة العمليات الرقمية](https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types)).
-
-فنستطيع تعريف نوع المتجَّه (Vector2D) على النحو التالي.
-
-```{python}
-class Vector2D:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-    
-    def __repr__(self):
-        return f"<{self.x}, {self.y}>"
-    
-    def __add__(self, other):
-        return Vector2D(self.x + other.x, self.y + other.y)
-    
-    def __sub__(self, other):
-        return Vector2D(self.x - other.x, self.y - other.y)
-    
-    def __mul__(self, other):
-        return Vector2D(self.x * other.x, self.y * other.y)
-```
-
-لاحظ أن طريقة (`__repr__`) تعني **التمثيل** (Representation)، وهي تظهر حين نعرض الكائن مثلاً بأمر الطباعة `print()`.
-
-وفي الجمع والطرح والضرب، يكون العائد متجهًا جديدًا هو حاصل العملية على أفراد العناصر المتقابلة بين المتجهين `self` و `other`. حيث يمثل الأوَّل (`self`) المتجَّه في الطرف الأيسر من العامل، والثاني (`other`) في الطرف الأيمن.
-
-والآن يمكننا إنشاء متجهين ووضع العوامل بينهما:
-
-```{python}
-v1 = Vector2D(1, 2)
-v2 = Vector2D(3, 4)
-
-v1 + v2
-```
-
-```{python}
-v1 - v2
-```
-
-```{python}
-v1 * v2
-```
-
-ماذا لو أردنا إضافة عمليات بين المتجه والعدد، نحو: `v1 + 3`? يتطلب ذلك إضافة شرط لفحص النوع، وهو `isinstance` كالتالي:
-
-```{python}
-class Vector2D:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-    
-    def __repr__(self):
-        return f"Vector({self.x}, {self.y})"
-    
-    def __add__(self, other):
-        if isinstance(other, Vector2D):
-            return Vector2D(self.x + other.x, self.y + other.y)
-        else:
-            return Vector2D(self.x + other, self.y + other)
-    
-    def __sub__(self, other):
-        if isinstance(other, Vector2D):
-            return Vector2D(self.x - other.x, self.y - other.y)
-        else:
-            return Vector2D(self.x - other, self.y - other)
-    
-    def __mul__(self, other):
-        if isinstance(other, Vector2D):
-            return Vector2D(self.x * other.x, self.y * other.y)
-        else:
-            return Vector2D(self.x * other, self.y * other)
-```
-
-وهكذا يصبح التفاعل بين المتجَّه والعدد، وهما نوعان مختلفان (`int` و `Vector`):
-
-```{python}
-v1 = Vector2D(1, 2)
-v1 + 3
-```
-
-لكن لاحظ أنك لو وضعت العدد أولاً فسيظهر خطأ:
-
-```{python}
-#|error: true
-3 + v1
-```
-
-هذا لأن عملية الجمع الآن لا تنظر في نوع العدد (`int`) ولا تجد فيه قبولاً للمتجه (فقد عرفناه للتو). ولحل هذه المشكلة توفر بايثون لكل فعل مخصص مقابل يبدأ بحرف `r` على النحو التالي:
-
-| العامل | الإجراء |
-|----------|----------|
-| `other + self` | `__radd__` |
-| `other - self` | `__rsub__` |
-| `other * self` | `__rmul__` |
-
-نعدل الإجراء بحيث نضيف إليه المقابل:
-
-```{python}
-class Vector2D:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-    
-    def __repr__(self):
-        return f"Vector({self.x}, {self.y})"
-    
-    def __add__(self, other):
-        if isinstance(other, Vector2D):
-            return Vector2D(self.x + other.x, self.y + other.y)
-        else:
-            return Vector2D(self.x + other, self.y + other)
-
-    def __radd__(self, other):
-        return self + other
-```
-
-والآن كلاهما يعمل بشكل صحيح:
-
-```{python}
-v1 = Vector2D(1, 2)
-3 + v1
-```
-
-```{python}
-v1 + 3
-```
-
-
 ## عوامل الحاويات
+
+وكي يتضح مفهوم الأصناف، فإننا سنمثل **المجموعة الرياضية** (`Set`) بأنفسنا، وإن كانت جودودة في بايثون أصلاً.
 
 تسمي بايثون الحروف والعلامات المستعملة مع أنواع الجموع: [**عوامل الحاوية**](https://docs.python.org/3/reference/datamodel.html#emulating-container-types) (Container Operators).
 
@@ -287,21 +117,23 @@ v1 + 3
 
 ومن سماتها أن العنصر فيها لا يتكرر.
 
-ومن طرائقها: **منطق المجموعة الرياضية**.
+ومن طرائقها: منطق المجموعة الرياضية.
 
 ## منطق المجموعة الرياضية
 
-مما تتميز به المجموعة عن بقية أنواع الجمع: قبولها المنطق الرياضي على النحو التالي:
+المجموعة في الرياضيات لها بعض المفاهيم المتعلقة بها وهي:
 
 - **التقاطع والاتحاد والفرق، والفرق التماثلي**
 - وكذلك **تحقق**: (**الجزئية والشمول والانفاصل**).
 
-وهذه القطعة مثال لجميع هذه العمليات الرياضية:
+وتمثلها بايثون باستعمال القوسين المعقوفين (`{}`) على هذا النحو:
 
 ```{python}
 set1 = {1, 2, 3, 4, 5}
 set2 =          {4, 5, 6, 7, 8}
 ```
+
+وفيما يلي نشرح هذه العمليات، ثم ننتقل إلى كيفية تمثيل ذلك في بايثون.
 
 ## العمليات على المجموعات
 
@@ -340,7 +172,6 @@ set2.difference(set1)
 ```{python}
 set1.symmetric_difference(set2)
 ```
-
 
 
 ## العلاقات بين المجموعات
@@ -457,6 +288,9 @@ class Set:
 
 ولاحظ في المثال السابق عدة أمور:
 
+
+الطريقة (`__repr__`) تعني **التمثيل** (Representation)، وهي تظهر حين نعرض الكائن مثلاً بأمر الطباعة `print()`.
+
 أن بعض الطرائق تغير التمثيل الداخلي (`elements`) مباشرةً، مثل: `add` و `remove`.
 
 وبعض الطرائق يُنشئ نُسخة جديدة منه، ويجري العمليَّة عليه، ثم يُنشئ كائن مجموعة (`Set`) ويمرر إليه هذا التمثيل ويرجع به: `return Set(result)`.
@@ -483,4 +317,174 @@ print(s1.symmetric_difference(s2))
 print(Set([1, 2]).isdisjoint(Set([3, 4])))
 print(Set([1, 2]).issubset(Set([1, 2, 3])))
 print(Set([1, 2, 3]).issuperset(Set([1, 2])))
+```
+
+
+## تحديد عمل العوامل
+
+تأمل التالي وتوقَّع النتيجة وعلل إجابتك. ما هي نتيجة:
+
+القطعة الأولى:
+
+```python
+[1, 2, 3] + [4, 5, 6]
+```
+
+القطعة الثانية:
+
+```python
+[1, 2, 3] * [4, 5, 6]
+```
+
+القطعة الثالثة:
+
+```python
+[1, 2, 3] * 5
+```
+
+القطعة الرابعة:
+
+```python
+[1, 2, 3] - 3
+```
+
+
+## عوامل الأرقام
+
+كل الذي سبق، قد تم تعريفه في بايثون لهذه الأنواع التي تراها بالتحديد عن طريق إجراءات مخصصة. وإليك هذا الجدول للعوامل المخصصة:
+
+| مثال | الإجراء |
+|----------|----------|
+| `self + other` | `__add__` |
+| `self - other` | `__sub__` |
+| `self * other` | `__mul__` |
+| `self / other` | `__truediv__` |
+| `self // other` | `__floordiv__` |
+| `self % other` | `__mod__` |
+| `self ** other` | `__pow__` |
+
+(وانظر [مرجع بايثون لمحاكاة العمليات الرقمية](https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types)).
+
+فنستطيع تعريف نوع المتجَّه (Vector2D) على النحو التالي.
+
+```{python}
+class Vector2D:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def __repr__(self):
+        return f"<{self.x}, {self.y}>"
+    
+    def __add__(self, other):
+        return Vector2D(self.x + other.x, self.y + other.y)
+    
+    def __sub__(self, other):
+        return Vector2D(self.x - other.x, self.y - other.y)
+    
+    def __mul__(self, other):
+        return Vector2D(self.x * other.x, self.y * other.y)
+```
+
+وفي الجمع والطرح والضرب، يكون العائد متجهًا جديدًا هو حاصل العملية على أفراد العناصر المتقابلة بين المتجهين `self` و `other`. حيث يمثل الأوَّل (`self`) المتجَّه في الطرف الأيسر من العامل، والثاني (`other`) في الطرف الأيمن.
+
+والآن يمكننا إنشاء متجهين ووضع العوامل بينهما:
+
+```{python}
+v1 = Vector2D(1, 2)
+v2 = Vector2D(3, 4)
+
+v1 + v2
+```
+
+```{python}
+v1 - v2
+```
+
+```{python}
+v1 * v2
+```
+
+ماذا لو أردنا إضافة عمليات بين المتجه والعدد، نحو: `v1 + 3`? يتطلب ذلك إضافة شرط لفحص النوع، وهو `isinstance` كالتالي:
+
+```{python}
+class Vector2D:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def __repr__(self):
+        return f"Vector({self.x}, {self.y})"
+    
+    def __add__(self, other):
+        if isinstance(other, Vector2D):
+            return Vector2D(self.x + other.x, self.y + other.y)
+        else:
+            return Vector2D(self.x + other, self.y + other)
+    
+    def __sub__(self, other):
+        if isinstance(other, Vector2D):
+            return Vector2D(self.x - other.x, self.y - other.y)
+        else:
+            return Vector2D(self.x - other, self.y - other)
+    
+    def __mul__(self, other):
+        if isinstance(other, Vector2D):
+            return Vector2D(self.x * other.x, self.y * other.y)
+        else:
+            return Vector2D(self.x * other, self.y * other)
+```
+
+وهكذا يصبح التفاعل بين المتجَّه والعدد، وهما نوعان مختلفان (`int` و `Vector`):
+
+```{python}
+v1 = Vector2D(1, 2)
+v1 + 3
+```
+
+لكن لاحظ أنك لو وضعت العدد أولاً فسيظهر خطأ:
+
+```{python}
+#|error: true
+3 + v1
+```
+
+هذا لأن عملية الجمع الآن لا تنظر في نوع العدد (`int`) ولا تجد فيه قبولاً للمتجه (فقد عرفناه للتو). ولحل هذه المشكلة توفر بايثون لكل فعل مخصص مقابل يبدأ بحرف `r` على النحو التالي:
+
+| العامل | الإجراء |
+|----------|----------|
+| `other + self` | `__radd__` |
+| `other - self` | `__rsub__` |
+| `other * self` | `__rmul__` |
+
+نعدل الإجراء بحيث نضيف إليه المقابل:
+
+```{python}
+class Vector2D:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def __repr__(self):
+        return f"Vector({self.x}, {self.y})"
+    
+    def __add__(self, other):
+        if isinstance(other, Vector2D):
+            return Vector2D(self.x + other.x, self.y + other.y)
+        else:
+            return Vector2D(self.x + other, self.y + other)
+
+    def __radd__(self, other):
+        return self + other
+```
+
+والآن كلاهما يعمل بشكل صحيح:
+
+```{python}
+v1 = Vector2D(1, 2)
+3 + v1
+```
+
+```{python}
+v1 + 3
 ```
