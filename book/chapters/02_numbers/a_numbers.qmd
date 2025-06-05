@@ -4,7 +4,32 @@ og:title: numbers
 
 # الأعداد
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Numeral_Systems_of_the_World.svg/330px-Numeral_Systems_of_the_World.svg.png" width="100%" />
+شجرة أنواع [الأرقام](https://docs.python.org/3/reference/datamodel.html#numbers-number) في بايثون:
+
+```{mermaid}
+flowchart BT
+  Number
+  Integral -- "is a" --> Number
+  Real(float) -- "is a" --> Number
+  Complex(complex) -- "is a" --> Number
+  int -- "is a" --> Integral
+  bool -- "is a" --> Integral
+```
+
+الإجراءات العامة المتعلقة بنوع العدد:
+
+
+| الإجراء                    |                                      عمله |
+|:---------------------------|------------------------------------------:|
+| `abs(x)`                   |                            القيمة المطلقة |
+| `float(x)`                 |          تحويل إلى عدد عشري (فاصلة عائمة) |
+| `int(x)`                   |                        تحويل إلى عدد صحيح |
+| `pow(base, exp)`           |                    القوة: رفع الأساس للأس |
+| `round(number[, ndigits])` | تقريب العدد باعتبار تحديد المنازل العشرية |
+
+للمزيد راجع [صفحة المكتبة الأساسية لوحدات الأرقام والرياضيات](https://docs.python.org/3/library/numeric.html).
+
+## الحساب والمقارنة
 
 الأعداد هي الحجر الأساس في أي برنامج. بل يُبنى عليها فهم البرنامج للنصوص المكتوبة والأصوات والصور وجميع أنواع البيانات. ولذلك وجب معرفة أساسياتها.
 
