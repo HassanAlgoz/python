@@ -498,37 +498,20 @@ v1 + 3
 
 ```{mermaid}
 flowchart BT
-  Number
-  Integral -- "is a" --> Number
-  Real(float) -- "is a" --> Number
-  Complex(complex) -- "is a" --> Number
-  int -- "is a" --> Integral
-  bool -- "is a" --> Integral
+  Number[<b>رقم</b><br>Number]
+  Integral[<b>كامل</b><br>Integral]
+  Integral --> Number
+  Real[<b>حقيقي</b><br>Real]
+  Real --> Number
+  float[<b>عشري</b><br>float]
+  float --> Real
+  Complex[<b>مركب</b><br>Complex]
+  Complex --> Number
+  int[<b>صحيح</b><br>int]
+  int --> Integral
+  bool[<b>منطقي</b><br>bool]
+  bool --> Integral
 ```
-
-ومنها أيضً أنواع [التسلسل](https://docs.python.org/3/reference/datamodel.html#sequences):
-
-```{mermaid}
-flowchart BT
-  Sequence
-  MutableSequence -- "is a" --> Sequence
-  list -- "is a" --> MutableSequence
-  tuple -- "is a" --> Sequence
-  str -- "is a" --> Sequence
-  bytes -- "is a" --> Sequence
-  range -- "is a" --> Sequence
-```
-
-ومنها أيضً أنواع [المجموعات](https://docs.python.org/3/reference/datamodel.html#set-types):
-
-```{mermaid}
-flowchart BT
-  Set
-  MutableSet -- "is a" --> Set
-  frozenset -- "is a" --> Set
-  set -- "is a" --> MutableSet
-```
-
 
 ونمثل بمثال فتقول المربع نوع خاص من المستطيلات. وكذلك تقول: المستطيل نوع خاص من الأشكال. وبالتالي فإن علاقة المربَّع بالشكل هي علاقة تخصيص عام.
 على نحو هذا المثال:
