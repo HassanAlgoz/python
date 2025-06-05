@@ -489,11 +489,49 @@ v1 = Vector2D(1, 2)
 v1 + 3
 ```
 
-## الاستمداد
+## التخصيص بالوراثة
 
-تستمدُّ الأنواع **بالوراثة** (Inheritence) ويسمى أيضًا **التخصيص** (Sub-classing):  ؛ كأن تقول المربع نوع خاص من المستطيلات. وكذلك تقول: المستطيل نوع خاص من الأشكال. وبالتالي فإن علاقة المربَّع بالشكل هي علاقة خاص من عام.
+يُمكن جعل علاقة بين نوع ونوع.
+ومن ذلك **الوراثة** (Inheritence) وهي عمليَّة **تخصيص** (Sub-classing) بحيث يكون النوع المخصص مستمدًّا من نوعٍ عام.
 
-مثال:
+ومثاله في بايثون أنواع [الرقم](https://docs.python.org/3/reference/datamodel.html#numbers-number):
+
+```{mermaid}
+flowchart BT
+  Number
+  Integral -- "is a" --> Number
+  Real(float) -- "is a" --> Number
+  Complex(complex) -- "is a" --> Number
+  int -- "is a" --> Integral
+  bool -- "is a" --> Integral
+```
+
+ومنها أيضً أنواع [التسلسل](https://docs.python.org/3/reference/datamodel.html#sequences):
+
+```{mermaid}
+flowchart BT
+  Sequence
+  MutableSequence -- "is a" --> Sequence
+  list -- "is a" --> MutableSequence
+  tuple -- "is a" --> Sequence
+  str -- "is a" --> Sequence
+  bytes -- "is a" --> Sequence
+  range -- "is a" --> Sequence
+```
+
+ومنها أيضً أنواع [المجموعات](https://docs.python.org/3/reference/datamodel.html#set-types):
+
+```{mermaid}
+flowchart BT
+  Set
+  MutableSet -- "is a" --> Set
+  frozenset -- "is a" --> Set
+  set -- "is a" --> MutableSet
+```
+
+
+ونمثل بمثال فتقول المربع نوع خاص من المستطيلات. وكذلك تقول: المستطيل نوع خاص من الأشكال. وبالتالي فإن علاقة المربَّع بالشكل هي علاقة تخصيص عام.
+على نحو هذا المثال:
 
 - **الشكل**: ما كان له محيط
 - و**المستطيل** شكلٌ (إذًا له محيط) و فوق ذلك فإنه له: طولًا وعرضًا ومساحة
@@ -511,6 +549,7 @@ flowchart BT
 ```
 
 وهذا تعريف صنف الشكل:
+
 ```{python}
 class Shape:
     def __init__(self, sides):
