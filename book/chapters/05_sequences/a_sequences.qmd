@@ -3,36 +3,55 @@ title: التسلسل
 og:title: sequences
 ---
 
-## الجمع (`Collection`) {.unnumbered}
+## الجمع (`Collection`)
 
-![الجمع](../../assets/collection.png)
+شجرة أنواع [الجمع](https://docs.python.org/3/reference/datamodel.html#collections-collections) في بايثون بالتركيز على نوع **التسلسل** (بغض النظر عن أشقائه):
+
+```{mermaid}
+flowchart BT
+    Container[<b>الحاوي</b><br>Container]
+    Sized[<b>المحجَّم</b><br>Sized]
+    Iterable[<b>القابل للكر</b><br>Iterable]
+    Sequence[<b>التسلسل</b><br>Sequence]
+    MutableSequence[<b>التسلسل المتغير</b><br>MutableSequence]
+    Collection[<b>الجمع</b><br>Collection]
+    Collection --> Container
+    Collection --> Sized
+    Collection --> Iterable
+    Sequence --> Collection
+    MutableSequence --> Sequence
+    
+    list[<b>القائمة</b><br>list]
+    list --> MutableSequence
+
+    tuple[<b>الصف</b><br>tuple]
+    tuple --> Sequence
+    str[<b>النص</b><br>str]
+    str --> Sequence
+    bytes[<b>البايتات</b><br>bytes]
+    bytes --> Sequence
+    range[<b>المجال</b><br>range]
+    range --> Sequence
+```
+
+لمزيد من التفاصيل راجع [صفحة المكتبة الأساسية للأنواع المجردة للجموع](https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes).
+
+ما يجري على القابل للكر:
+
+إجراءات مبنيَّة تعمل على المكرَّرَات عمومًا؛ ومنها القائمة:
+
+| الإجراء            |                    عمله |
+|:-------------------|------------------------:|
+| [`len(collection)`](https://docs.python.org/3/library/functions.html#len)           |  عدّ العناصر |
+| [`max(iterable)`](https://docs.python.org/3/library/functions.html#max)    |     أكبر عنصر |
+| [`min(iterable)`](https://docs.python.org/3/library/functions.html#min)    |     أصغر عنصر |
+| [`sum(iterable)`](https://docs.python.org/3/library/functions.html#sum)    |        جمع العناصر |
+| [`sorted(iterable)`](https://docs.python.org/3/library/functions.html#sorted) |    نسخة مرتبة |
+| [`reversed(seq)`](https://docs.python.org/3/library/functions.html#reversed)    |    نسخة معكوسة |
+
+راجع [فصل أنواع المكررات (Iterator Types)](https://docs.python.org/3/library/stdtypes.html#iterator-types) في صفحة الأنواع المبنية.
 
 كثيرًا ما نحتاج للتعامل مع الأشياء في مجموعة. وذلك مثلاً لترتيب المجموعة أو عكسها أو ربطها مع مجموعة أخرى، أو البحث فيها، أو تصفيتها، أو تحويلها جميعًا بنفس الطريقة، أو استخلاص قيمة منها، ...إلخ من العمليات التي تعمل على جميع عناصر المجموعة.
-
-تنقسم الأنواع في بايثون إلى صنفين:
-
-الأول: **أنواع بسيطة** (Primitive): غير قابلة للتجزئة. مثل:
-
-- العدد الصحيح (`int`)
-- العدد العشري (`float`)
-- القيمة المنطقية (`bool`)
-
-الثاني: **أنواع مركبة** (Composite): وهي التي تتكون من عدة عناصر بسيطة أو مركبة.
-
-مثال المركب من البسيط:
-
-1. النص ([`str`](../07_strings/a1_strings.qmd)) وهو سلسلة أحرف.
-2. الوقت والتاريخ ([`datetime`](../13_time/a1_time.qmd)) وهو زمن وتاريخ.
-    - والزمن (`time`): مركَّب من الساعة والدقيقة والثانية؛ وكلها أعداد
-    - والتاريخ (`date`): مركب من اليوم والشهر والسنة؛ وكلها أعداد
-
-ومنها ما هو ظرفٌ حاوٍ لغيره، ويسمى **هيكل بيانات** (Data Structure).
-
-- مثال الهيكل المركب من البسيط: [قائمة](#القائمة-list) أعداد (`list[int]` أو `list[float]`)
-- مثال الهيكل المركب من المركب: [صف](#الصف-tuple) من النصوص (`tuple[str, ...]`)
-- ومثال الهيكل المركب من الهياكل: قائمة من الصفوف (`list[tuple[str, ...]]`)
-
-وهي موضوعنا في هذا الباب والذي يليه.
 
 **الجمع** ([`Collection`](https://docs.python.org/3/library/collections.abc.html#collections.abc.Collection)) مجرَّد لشيءٍ حاوٍ ذي حجمٍ يُمكن كرُّه.
 لذا تقبل من العوامل:
@@ -41,27 +60,21 @@ og:title: sequences
 نرمز للمفرد بـ`x` ولما يدل على الجمع بـ`c`.
 :::
 
--   العضوية: `x not in c`
--   العد: `len(c)`
--   التكرار: `for x in c`
+- فكونه يقبل **العضوية** (طريقتها: `__contains__`): وسياقها `x not in c` يجعله من نوع **الحاوي** (`Container`)
+- وكونه يقبل **العد** (طريقتها: `__len__`): وسياقها `len(c)` يجعله من نوع **المحجَّم** (`Sized`)
+- وكونه يقبل **الكر** (طريقتها: `__iter__`): وسياقها `for x in c` يجعله من نوع **القابل للكر** (`Iterable`)
 
-انظر خريطة الجموع @fig-collections-tree حيث يتبين أنه مكون من ثلاثة:
+ويتفرع من الجمع ثلاثة أنواع رئيسية.
+والشكل في الأعلى يُظهر فقط نوع التسلسل، لأنه موضوع هذا الفصل.
+وهي:
 
--   الحاوي: `Container` (لقبوله العضوية)
--   ذو الحجم: `Sized` (لقبوله العد)
--   المكرر: `Iterable` (لقبوله التكرار)
-
-ويتفرع منه ثلاثة:
-
--   التسلسل: `Sequence`
--   المجموعة: `Set`
--   الدالة: `Mapping`
-
-فالأول موضوع هذا الباب، والآخران في الباب التالي إن شاء الله.
+- **التسلسل**: `Sequence`
+- المجموعة: `Set`
+- الدالة: `Mapping`
 
 ## التسلسل (`Sequence`)
 
-![تسلسل أحرف](../../assets/sequence.png)
+![تسلسل أحرف](../../assets/sequence.png){width=50%}
 
 **التسلسل** ([`Sequence`](https://docs.python.org/3/library/stdtypes.html#common-sequence-operations)) جمع مرتب.
 
@@ -86,26 +99,6 @@ og:title: sequences
 3.  **المجال** ([`range`](https://docs.python.org/3/library/stdtypes.html#range)) ويُعبَّرُ عنه بالإجراء المنشئ `range()`.
 4.  **النص** ([`str`](https://docs.python.org/3/library/stdtypes.html#str)) ويُعبَّرُ عنه بالتنصيص المفرد `''` أو المزدوج `""`
 
-<div class="ltr">
-
-```{mermaid}
-%% | label: fig-sequences
-%% | fig-cap: شجرة أنواع التسلسل
-flowchart TD
-    Collection[<b>الجمع</b> <br> <code>Collection</code>]
-    Collection --> Sequence[<b>التسلسل</b> <br> <code>Sequence</code>]
-    Sequence --> MutableSequence[<b>التسلسل المتغير</b> <br> <code>MutableSequence</code>]
-    MutableSequence --> list[<b>القائمة</b> <br> <code>list</code>]
-    Sequence --> tuple[<b>الصف</b> <br> <code>tuple</code>]
-    Sequence --> range[<b>المجال</b> <br> <code>range</code>]
-    Sequence --> str[<b>النص</b> <br> <code>str</code>]
-```
-
-</div>
-
-وراجع خريطة المجموعات: @fig-collections-tree
-
-
 فهذه الأربعة تقبل الإجراءات التالية (المتغير `s` هو التسلسل هنا):
 
 -   الإشارة:
@@ -128,6 +121,8 @@ flowchart TD
 [**الصف**](https://docs.python.org/3/library/stdtypes.html#tuple) تسلسل جامد.
 
 **فالجامد** هو ما لا يقبل التغيير بعد إنشائه.
+
+يراجع في هذا [صفحة هياكل البيانات](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences).
 
 ### الإنشاء
 
@@ -361,7 +356,23 @@ assert s.index(max(s)) == 4
 
 **القائمة** ([`list`](https://docs.python.org/3/library/stdtypes.html#list)) تسلسل متغير.
 
-انظر [MutableSequence](https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableSequence) في خريطة المجموعات: @fig-collections-tree.
+جدول طرائق القائمة:
+
+| الطريقة | عملها |
+|:-----------------------------------|-----------------------------------:|
+| `list.append(x)` | إضافة عنصر إلى نهاية القائمة.<br>• `x`: العنصر المراد إضافته. |
+| `list.extend(iterable)` | توسيع القائمة بإضافة كافة العناصر من iterable.<br>• `iterable`: المجموعة المراد إضافة عناصرها. |
+| `list.insert(i, x)` | إدراج عنصر في موضع محدد.<br>• `i`: موضع الإدراج.<br>• `x`: العنصر المراد إدراجه. |
+| `list.remove(x)` | إزالة أول تكرار لعنصر من القائمة.<br>• `x`: العنصر المراد إزالته. |
+| `list.pop([i])` | إزالة وإرجاع عنصر من موضع محدد.<br>• `i`: موضع العنصر (اختياري، افتراضيًا آخر عنصر). |
+| `list.clear()` | إزالة كافة العناصر من القائمة. |
+| `list.index(x[, start[, end]])` | إرجاع موضع أول تكرار لعنصر.<br>• `x`: العنصر المراد البحث عنه.<br>• `start`: موضع بداية البحث (اختياري).<br>• `end`: موضع نهاية البحث (اختياري). |
+| `list.count(x)` | عد عدد تكرارات عنصر في القائمة.<br>• `x`: العنصر المراد عده. |
+| `list.sort(*, key=None, reverse=False)` | ترتيب عناصر القائمة في مكانها.<br>• `key`: دالة لتحديد معيار الترتيب (اختياري).<br>• `reverse`: ترتيب تنازلي إذا كانت True. |
+| `list.reverse()` | عكس ترتيب عناصر القائمة في مكانها. |
+| `list.copy()` | إنشاء نسخة سطحية من القائمة. |
+
+يراجع في هذا الجدول [صفحة هياكل البيانات](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists).
 
 ### التغير
 
