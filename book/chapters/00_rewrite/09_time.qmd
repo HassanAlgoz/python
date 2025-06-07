@@ -4,15 +4,7 @@ og:title: time
 
 # الوقت
 
-::: {.callout-note}
-
-هذا الباب إثرائي، لا يعتمد عليه ما بعده. فإن شئت الرجوع إليه في وقتٍ لاحق فلا بأس.
-
-:::
-
-## مقدمة
-
-### الساعات والأيام
+## الساعات والأيام
 
 تذكر بعض المصادر أن الأولين كانوا يقسمون الوقت على 12 ساعة ليلية (تبدأ بعد غروب الشمس) تتلوها 12 ساعة نهارية (تبدأ بعد شروق الشمس). وهي **ساعات متغيرة**؛ ففي الصيف تزيد طول ساعة النهار (فوق 60 دقيقة معتدلة) بينما تقصر ساعة الليل (دون 60 دقيقة معتدلة)، ويحصل العكس في الشتاء (فيكون الليل أطول والنهار أقصر). أما عند اعتدال الشمس في أشهر معيَّنة في خط الاستواء فإن ساعات الليل والنهار 60 دقيقة (وهو مقياس الاعتدال). والمرجع في ذلك الساعة الشمسية (المزوَّلة). ولحساب الفترة الزمنية كانوا يستعملون ما يُحرَق كالشمع، أو ثقب في وعاء مدرَّج من ماء أو رمل.
 
@@ -26,7 +18,7 @@ og:title: time
 
 ثم جاءت **الساعات الميكانيكية الثابتة** التي تعمل وكأن جميع الساعات 60 دقيقة؛ ولا تعتبر شتاءً ولا صيْفًا، ولا نهارًا ولا ليلاً .. لكنها أصبحت هي المتداولة. وقد مرَّ ضبط الساعة بأطوار من الدقة، فبدأت من الساعة المتأرجحة (1657) إلى الكرونومتر (1762) إلى مذبذب الكوارتز (1927) إلى الساعة الذرية (1949) إلى ساعة شعاع السيزيوم (1955) إلى ساعة نافورة السيزيوم (1993) إلى الساعة الضوئية (Optical Clock: 2006) والتي تحيد بمقدار ثانية بعد كل 30 مليار سنة.
 
-### التوقيت العالمي والمناطق الزمنية
+## التوقيت العالمي والمناطق الزمنية
 
 ظهر نظام **التوقيت العالمي المنسق** (UTC: Coordinated Universal Time) حوالي سنة 1967، لتسهيل التعامل بين الدول والتواصل عبر القارات. فهو نظام للوقت يعتمد على خطوط الطول الأرضية، تقسَّم فيه الجغرافيا **لمناطق زمنية** بحسب بعدها عن خط طول جرينيتش الذي كان هو نقطة الصفر (UTC+00:00) أي: المرجِع: فما يكون شرقيها يكون الفارق فيه بالموجب، وما يكون غربيَّها يكون الفارق فيه بالسالب. 
 
@@ -85,10 +77,10 @@ og:title: time
 
 ويرشدنا مرجع المكتبة للتوسع في استعمال قاعدة بيانات المناطق الزمنية، والقدرة على تفسير التواريخ والأوقات بمرونة لاستخدام مكتبة [`dateutil`](https://dateutil.readthedocs.io/en/stable/) المتوفرة في PyPI.
 
-لتثبيت المكتبة نستعمل `pip` على النحو التالي:
+لتثبيت المكتبة نستعمل `uv` على النحو التالي:
 
 ```bash
-pip install python-dateutil
+uv add python-dateutil
 ```
 
 الآن نستورد المكتبة الأساسية `datetime` ومكتبة `dateutil`:
@@ -120,7 +112,7 @@ print(datetime.now(tz=tz.gettz('Europe/London')))
 - `HH:MM:SS.ssssss` هو الوقت (بالساعات والدقائق والثواني والميكروثواني)
 - `+HH:MM` هو الفرق بين الوقت المحلي لتلك المنطقة الزمنية والوقت العالمي المنسق (UTC).
 
-### التفسير: تحويل النص إلى تاريخ ووقت
+## التفسير: تحويل النص إلى تاريخ ووقت
 
 و[قراءة التواريخ](https://dateutil.readthedocs.io/en/stable/examples.html#parse-examples) أفضل بكثير في مكتبة  `dateutil` بدلاً من استعمال المكتبة الأساسية `datetime`. وتكثر الحاجة لذلك عند استقبال معلومات من الشبكة أو من ملفات أو من المستخدمين:
 
@@ -149,14 +141,14 @@ print(parse("Thu 10:36", default=DEFAULT))
 print(parse("10:36", default=DEFAULT))
 ```
 
-### الحسابات الزمنية
+## الحسابات الزمنية
 
 ```{python}
 from dateutil.relativedelta import relativedelta
 from dateutil.rrule import MO, TU, WE, TH, FR, SA, SU
 ```
 
-#### حساب الزمن المنقضي
+### حساب الزمن المنقضي
 
 ```{python}
 today = datetime.now(tz=tz.tzlocal())
@@ -165,7 +157,7 @@ age = relativedelta(today, birthday)
 print(f'You are {age.years} years and {age.months} months old')
 ```
 
-#### حساب الزمن لموعد
+### حساب الزمن لموعد
 
 ```{python}
 today = datetime.now(tz=tz.tzlocal())
@@ -174,7 +166,7 @@ diff = relativedelta(exam_date, today)
 print(f'There are {diff.days} days and {diff.hours} hours remaining')
 ```
 
-#### مقارنة الوقت
+### مقارنة الوقت
 
 ```{python}
 now = datetime.now(tz=tz.tzlocal())
@@ -186,7 +178,7 @@ elif now < exam_date:
     print('The exam is coming')
 ```
 
-#### مقارنة الفترة
+### مقارنة الفترة
 
 ```{python}
 now = datetime.now(tz=tz.tzlocal())
@@ -200,7 +192,7 @@ else:
     print(f'You have plenty of time to prepare for the exam')
 ```
 
-#### الجمعة القادمة
+### الجمعة القادمة
 
 ```{python}
 today = datetime.now(tz=tz.tzlocal())
@@ -208,14 +200,14 @@ next_friday = today + relativedelta(days=+1, weekday=FR)
 print(f'The next Friday is {next_friday:%Y-%m-%d}')
 ```
 
-#### الجمعة الفائتة
+### الجمعة الفائتة
 
 ```{python}
 last_friday = today - relativedelta(days=+1, weekday=FR(-1))
 print(f'The last Friday is {last_friday:%Y-%m-%d}')
 ```
 
-#### حساب الوقت باعتبار منطقتين زمنيتين
+### حساب الوقت باعتبار منطقتين زمنيتين
 
 لديك اجتماع في وقت محدد بتوقيت لندن، وتريد معرفة وقت الوصول بالطائرة إن كانت الرحلة تستغرق 4 ساعات والإقلاع من القاهرة في الساعة 01:00:00 صباحًا والوجهة لندن:
 
@@ -232,7 +224,7 @@ print(f'You arrive at {arrival_time.astimezone(arrival_tz)} in London time')
 print(f'which corresponds to {arrival_time.astimezone(departure_tz)} in Cairo time')
 ```
 
-### تنسيق التاريخ والوقت
+## تنسيق التاريخ والوقت
 
 وانظر الجدول [لتنسيق مظهر التاريخ والوقت](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes):
 
@@ -242,7 +234,7 @@ print(f'Arrival time: {arrival_time.astimezone(arrival_tz):%d %b, %X %Z} in Lond
 print(f'which corresponds to {arrival_time.astimezone(departure_tz):%d %b, %X %Z} in Cairo time')
 ```
 
-### التكرار
+## التكرار
 
 تكرار التواريخ يتم في هذه المكتبة باستعمال [`rrule`](https://dateutil.readthedocs.io/en/stable/examples.html#rrule-examples) ويحدد على النحو التالي:
 
@@ -252,7 +244,7 @@ from dateutil.rrule import DAILY, WEEKLY, MONTHLY, YEARLY, HOURLY, MINUTELY, SEC
 from dateutil.rrule import MO, TU, WE, TH, FR, SA, SU
 ```
 
-#### يوم ويوم
+### يوم ويوم
 
 تكرار أوقات بأخذ يوم وترك يوم، ابتداءً من وقت معين في الساعة العاشرة صباحًا:
 
@@ -262,7 +254,7 @@ list(
 )
 ```
 
-#### أسبوعي
+### أسبوعي
 
 ```{python}
 list(
@@ -270,7 +262,7 @@ list(
 )
 ```
 
-#### شهريًّا إلى وقت محدد
+### شهريًّا إلى وقت محدد
 
 ```{python}
 list(
@@ -282,7 +274,7 @@ list(
 ```
 
 
-#### كل 15 دقيقة لمدة 6 مرات
+### كل 15 دقيقة لمدة 6 مرات
 
 ```{python}
 list(
@@ -291,6 +283,38 @@ list(
 ```
 
 وندعوك للاطلاع على [المزيد من الأمثلة](https://dateutil.readthedocs.io/en/stable/examples.html) على مكتبة `dateutil`.
+
+## أجزاء الليل
+
+الليل يبدأ من غروب الشمس وينتهي بطلوع الفجر، ونصفه معناه شطره. فإذا كانت الشمس تغرب مثلاً الساعة الثامنة مساءاً والفجر يطلع الساعة الخامسة صباحاً، فإن منتصف الليل يكون عند الساعة الثانية عشر والنصف.
+
+وطريقة معرفة الثلث الأخير من الليل سهلة، وهي أن تقسم ساعات الليل من غروب الشمس إلى طلوع الفجر على ثلاثة، فآخر قسم هو ثلث الليل الأخير.
+
+```{python}
+from datetime import datetime
+
+def get_night_times(sunset: datetime, sunrise: datetime):
+    """Calculate midnight and start of last third of night."""
+    night_duration = sunrise - sunset
+    midnight = sunset + (night_duration / 2)
+    first_third_end = sunset + (night_duration / 3)
+    last_third_start = sunrise - (night_duration / 3)
+    
+    print(night_duration.total_seconds() / 3600, "طول الليل")
+    print((86400 - night_duration.total_seconds()) / 3600, "طول النهار")
+
+    print(sunset.strftime('%I:%M %p'), "غروب الشمس")
+    print(first_third_end.strftime('%I:%M %p'), "نهاية ثلث الليل الأول")
+    print(midnight.strftime('%I:%M %p'), "منتصف الليل")
+    print(last_third_start.strftime('%I:%M %p'), "بداية ثلث الليل الأخير")
+    print(sunrise.strftime('%I:%M %p'), "طلوع الفجر")
+
+get_night_times(
+    sunset=datetime(2024, 1, 1, 20, 0),  # 8:00 PM
+    sunrise=datetime(2024, 1, 2, 5, 0)   # 5:00 AM
+)
+```
+
 
 ## التاريخ الهجري في بايثون
 

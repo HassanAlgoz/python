@@ -2,7 +2,7 @@
 og:title: regex_apps
 ---
 
-# تطبيقات {.unnumbered}
+# تطبيقات في النص
 
 ## استبدال الكلام بالرمز المقابل
 
@@ -31,11 +31,11 @@ print(interpret_emojis(text1))
 ```
 
 
-## ترتيب سجل تمارين ملخبط
+## مثال: ترتيب سجل تمارين ملخبط
 
 ```{python}
 text = """
-Pushups 30 reps 3 sets
+Pushups 20 reps 4 sets
 5 reps 2 sets Pullups
 2 Sets 15 Reps One-leg Squats
 """
@@ -44,7 +44,7 @@ Pushups 30 reps 3 sets
 نفصل النص نفسه إلى قائمة، كل عنصر فيها سطر:
 
 ```{python}
-lines = text.strip().split("\n")
+lines = text.splitlines()
 
 for l in lines:
     print(l)
@@ -61,7 +61,7 @@ names = [
     "Pushups",
     "Pullups",
     "One-leg Squats", # specific term first
-    "Squats", # generic term later
+    "Squats",         # generic term later
     "Deadlifts",
     "Dumbbell Rows",
 
