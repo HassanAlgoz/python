@@ -4,30 +4,61 @@ og:title: file_io
 
 # الملفات
 
-**لا يكون البرنامج مفيدًا من غير منفذٍ يُخرِج فيه نتائجه.**
+وإليك تصنيف لعمليات مكتبة `pathlib`:
 
-رغم تعقيد الحواسيب اليوم، إلا أنها في الأصل راجعة إلى معمارية فون نويمان (1945م) التي سبق بيانها:
+### عمليات المسار
 
-![نموذج فون نويمان للحاسب](../../assets/vonn-neumann.png)
+-   **إنشاء وتعديل المسارات:**
+    -   [`.joinpath`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.joinpath): دمج مكونات مسار.
+    -   [`.parent`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.parent): استخراج الدليل الأب.
+    -   [`.name`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.name): استخراج الاسم الأساسي للملف.
+    -   [`.stem`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.stem): استخراج اسم الملف بدون الامتداد.
+    -   [`.suffix`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.suffix): استخراج امتداد الملف.
+    -   [`.with_name`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.with_name): إنشاء مسار جديد باسم مختلف.
+    -   [`.with_suffix`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.with_suffix): إنشاء مسار جديد بامتداد مختلف.
+    -   [`relative_to`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.relative_to): إنشاء مسار نسبي.
 
-فتنقسم العمليات الحاسوبية إلى نوعين بحسب المنفذ الحقيقي لها:
+### عمليات على نظام الملفات
 
-الأول **عمليات حساب** (Computation): عمليات تنفذها وحدة المعالجة المركزية (CPU).
-وذلك مثل الجمع والطرح، وفصل النصوص ودمجها، والشرط والتكرار، ونحو ذلك.
+-   **استعلام:**
+    -   [`is_absolute`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.is_absolute): هل هو مطلق؟.
+    -   [`samefile`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.samefile): هل مساران يشيران إلى نفس الملف؟.
+    -   [`exists`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.exists): هل هو مسار موجود؟.
+    -   [`is_file`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_file): هل هو مسار ملف؟.
+    -   [`is_dir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_dir): هل هو مسار دليل؟.
+    -   [`is_symlink`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.is_symlink): هل هو ارتباط رمزي؟.
+    -   [`stat`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.stat): سرد إحصائيات نظام الملفات.
+    -   [`lstat`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.lstat): سرد إحصائيات نظام الملفات دون متابعة الارتباطات الرمزية.
+-   **عمليات تغيير:**
+    -   [`open`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.open): فتح ملف للقراءة أو الكتابة أو الإضافة.
+    -   [`mkdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.mkdir): إنشاء دليل.
+    -   [`rmdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rmdir): حذف دليل فارغ.
+    -   [`unlink`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.unlink): حذف ملف.
+    -   [`rename`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rename): تعديل اسم ملف.
+    -   [`replace`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.replace): تعديل اسم ملف مع الكتابة فوقه إذا لزم الإجراء.
+    -   [`chmod`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.chmod): تغيير أذونات الملف.
+    -   [`lchmod`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.lchmod): تغيير أذونات الملف دون متابعة الارتباطات الرمزية.
+    -   [`touch`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.touch): تحديث الطابع الزمني للملف.
 
-الثاني **عمليات إدخال وإخراج** (I/O): عمليات تنفذها الأجهزة المرتبطة به؛ بناءً على طلبه.
-ومثالها مما رأينا:
+### الارتباطات الرمزية والصلبة
 
-1. الإجراء `input()` فإنها من جنس عمليات إدخال المعطيات؛ ولا بُدَّ لها من منفذ تستقبل منه البيانات؛ فكان هو **لوحة المفاتيح**.
-2. الإجراء `print()` فإنها من جنس عمليات إخراج النتائج؛ ولا بُدَّ لها من مَنفَذ تدفع إليه مخرجاتها؛ فكان هو **نافذة البرنامج** (الشاشة).
+-   [`symlink_to`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.symlink_to): إنشاء ارتباط رمزي.
+-   [`hardlink_to`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.hardlink_to): إنشاء ارتباط صلب.
+-   [`readlink`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.readlink): قراءة الهدف من ارتباط رمزي.
 
-ومن أجهزة الإدخال والإخراج (I/O) أيضًا:
+### التكرار والبحث
 
-- **أجهزة استشعار**: الحرارة والرطوبة والبعد والميل والاهتزاز والحركة ...إلخ.
-- **أجهزة تحريك**: المفتاح والماطور  والصمام والطنان والسماعات ...إلخ.
-- أجهزة غالبًا هي متصلة بالجهاز المكتبي: لوحة المفاتيح والمؤشر والطابعة والكاميرا والمايكروفون والشاشة ...إلخ.
+-   [`iterdir`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.iterdir): تكرار على قائمة الدليل.
+-   [`glob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob): البحث عن الملفات المطابقة لنمط.
+-   [`rglob`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob): البحث بشكل متكرر عن الملفات المطابقة لنمط.
+-   [`walk`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk): التنقل بشكل متكرر في شجرة الأدلة.
 
-وسننظر في كيفية قراءة وكتابة الملفات؛ فهي الشيء البرمجي الذي نتعامل معه لحفظ واسترجاع البيانات من **أجهزة التخزين** (Storage Devices).
+### النسخ والحذف والنقل (`shutil`)
+
+-   [`shutil.copy2`](https://docs.python.org/3/library/shutil.html#shutil.copy2): نسخ ملف.
+-   [`shutil.copytree`](https://docs.python.org/3/library/shutil.html#shutil.copytree): نسخ شجرة أدلة.
+-   [`shutil.rmtree`](https://docs.python.org/3/library/shutil.html#shutil.rmtree): حذف شجرة أدلة.
+-   [`shutil.move`](https://docs.python.org/3/library/shutil.html#shutil.move): نقل ملف أو دليل.
 
 
 ## المسار

@@ -1,21 +1,5 @@
 # خريطة الجُمُوع
 
-
-<div class="ltr">
-
-| Type | Extension Chain |
-|------|------------------|
-| `list` | `MutableSequence -> Sequence -> Collection` |
-| `tuple` | `Sequence -> (Collection + Reversible)` |
-| `range` | `Sequence -> (Collection + Reversible)` |
-| `str` | `Sequence -> (Collection + Reversible)` |
-| `dict` | `MutableMapping -> Mapping -> Collection` |
-| `frozenset` | `Set -> Collection` |
-| `set` | `MutableSet -> Collection` |
-| `Collection` | `(Iterable + Sized + Container)` |
-
-</div>
-
 <div class="ltr">
 
 ```{mermaid}
@@ -35,7 +19,6 @@ classDiagram
     class Iterator {
         <<abstract>>
         +__next__()
-        +__iter__()
     }
 
     class Reversible {
@@ -50,25 +33,17 @@ classDiagram
 
     class Collection {
         <<abstract>>
-        +__contains__()
-        +__iter__()
-        +__len__()
     }
 
     class Sequence {
         <<abstract>>
         +__getitem__()
-        +__len__()
-        +__contains__()
-        +__iter__()
-        +__reversed__()
         +index()
         +count()
     }
 
     class MutableSequence {
         <<abstract>>
-        +__getitem__()
         +__setitem__()
         +__delitem__()
         +__len__()
@@ -84,9 +59,6 @@ classDiagram
 
     class Set {
         <<abstract>>
-        +__contains__()
-        +__iter__()
-        +__len__()
         +__le__()
         +__lt__()
         +__eq__()
@@ -102,9 +74,6 @@ classDiagram
 
     class MutableSet {
         <<abstract>>
-        +__contains__()
-        +__iter__()
-        +__len__()
         +add()
         +discard()
         +clear()
@@ -119,9 +88,6 @@ classDiagram
     class Mapping {
         <<abstract>>
         +__getitem__()
-        +__iter__()
-        +__len__()
-        +__contains__()
         +keys()
         +items()
         +values()
@@ -132,11 +98,8 @@ classDiagram
 
     class MutableMapping {
         <<abstract>>
-        +__getitem__()
         +__setitem__()
         +__delitem__()
-        +__iter__()
-        +__len__()
         +pop()
         +popitem()
         +clear()
@@ -144,16 +107,24 @@ classDiagram
         +setdefault()
     }
 
+    class str {
+        ...
+    }
+
+    class bytes {
+        ...
+    }
+
     Iterable <|-- Iterator
     Iterable <|-- Reversible
+
     Sized <|-- Collection
     Iterable <|-- Collection
     Container <|-- Collection
+
     Reversible <|-- Sequence
     Collection <|-- Sequence
     Sequence <|-- MutableSequence
-    Collection <|-- Set
-    Set <|-- MutableSet
     Collection <|-- Mapping
     Mapping <|-- MutableMapping
 
@@ -161,9 +132,13 @@ classDiagram
     Sequence <-- tuple
     Sequence <-- range
     Sequence <-- str
+    Sequence <-- bytes
     MutableMapping <-- dict
-    Set <-- frozenset
+
+    Collection <|-- Set
+    Set <|-- MutableSet
     MutableSet <-- set
+    Set <-- frozenset
 ```
 
 </div>

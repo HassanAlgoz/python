@@ -4,24 +4,31 @@ og:title: set
 
 # المجموعة
 
-![المجموعة](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Venn_A_intersect_B.svg/1200px-Venn_A_intersect_B.svg.png)
-
-<div class="ltr">
+شجرة أنواع [المجموعة](https://docs.python.org/3/reference/datamodel.html#set-types) في بايثون.
 
 ```{mermaid}
 %% | label: fig-set
 %% | fig-cap: شجرة أنواع المجموعة
-flowchart TD
-    Collection[<b>الجمع</b> <br> <code>Collection</code>]
-    Collection --> Set[المجموعة <br> <code>Set</code>]
-    Set --> MutableSet[المجموعة المتغيرة <br> <code>MutableSet</code>]
-    MutableSet --> set[<b>المجموعة</b> <br> <code>set</code>]
-    Set --> frozenset[المجموعة الجامدة <br> <code>frozenset</code>]
+flowchart BT
+    Container[<b>الحاوي</b><br>Container]
+    Sized[<b>المحجَّم</b><br>Sized]
+    Iterable[<b>القابل للكر</b><br>Iterable]
+    Collection[<b>الجمع</b><br>Collection]
+    Set[<b>المجموعة</b> <br>Set]
+    set[<b>المجموعة</b> <br><code>set</code>]
+    MutableSet[<b>المجموعة المتغيرة</b> <br>MutableSet]
+    frozenset[<b>المجموعة الجامدة</b> <br><code>frozenset</code>]
+    
+    Collection --> Container
+    Collection --> Sized
+    Collection --> Iterable
+    Set --> Collection
+    frozenset --> Set
+    MutableSet --> Set
+    set --> MutableSet
 ```
 
-</div>
-
-وراجع خريطة المجموعات: @fig-collections-tree
+للتفصيل راجع خريطة الجموع: @fig-collections-tree
 
 **المجموعة** ([`set`](https://docs.python.org/3/reference/datamodel.html#set-types)) هي جمع متغير من عناصر مرقَّمة فريدة بلا ترتيب.
 
@@ -52,6 +59,29 @@ assert s == s1 == s2 == s3
 - الحذف: `discard`
 - نزع عنصر عشوائي: `pop`
 - المحو: `clear`
+
+وإليك جدول طرق المجموعة:
+
+
+| الفعل | عمله |
+|:-----------------------------------|------------------------------------|
+| `set.add(elem)` | يضيف العنصر `elem` إلى المجموعة. |
+| `set.remove(elem)` | يزيل العنصر `elem` من المجموعة. يرفع خطأ `KeyError` إذا لم يكن `elem` موجودًا. |
+| `set.discard(elem)` | يزيل العنصر `elem` من المجموعة إذا كان موجودًا. |
+| `set.pop()` | يزيل ويعيد عنصرًا عشوائيًا من المجموعة. |
+| `set.clear()` | يزيل جميع العناصر من المجموعة. |
+| `set.update(*others)` | يقوم بتحديث المجموعة بإضافة جميع العناصر من المجموعات الأخرى. |
+| `set.intersection(*others)` | ترجع مجموعة جديدة تحتوي على العناصر المشتركة بين المجموعة والمجموعات الأخرى. |
+| `set.intersection_update(*others)` | تقوم بتحديث المجموعة بإبقاء العناصر الموجودة في المجموعة والمجموعات الأخرى فقط. |
+| `set.difference(*others)` | ترجع مجموعة جديدة تحتوي على العناصر الموجودة في المجموعة ولكنها غير موجودة في المجموعات الأخرى. |
+| `set.difference_update(*others)` | تقوم بتحديث المجموعة بإزالة العناصر الموجودة في المجموعات الأخرى. |
+| `set.symmetric_difference(other)` | ترجع مجموعة جديدة تحتوي على العناصر الموجودة في المجموعة أو المجموعة الأخرى ولكن ليس في كليهما. |
+| `set.symmetric_difference_update(other)` | تقوم بتحديث المجموعة بإبقاء العناصر الموجودة في المجموعة أو المجموعة الأخرى ولكن ليس في كليهما. |
+| `set.isdisjoint(other)` | ترجع `True` إذا لم يكن للمجموعة أي عناصر مشتركة مع المجموعة الأخرى، و `False` خلاف ذلك. |
+| `set.issubset(other)` | ترجع `True` إذا كانت المجموعة مجموعة فرعية من المجموعة الأخرى، و `False` خلاف ذلك. |
+| `set.issuperset(other)` | ترجع `True` إذا كانت المجموعة مجموعة شاملة للمجموعة الأخرى، و `False` خلاف ذلك. |
+| `set.copy()` | ترجع نسخة سطحية من المجموعة. |
+
 
 ولا يشترط **تجانس العناصر**؛ بل يجوز أن تكون أنواعها مختلفة:
 
