@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ar" xml:lang="ar" dir="rtl"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.7.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,8 +21,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -67,15 +68,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../chapters/01_intro/a2_intro.html" rel="next">
 <link href="../../setup.html" rel="prev">
 <link href="../../favicon.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-24ab65d2991612aadaf847f30cb0b188.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-800706539903139ffa187a61ec5db5e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -144,12 +149,12 @@ window.Quarto = {
 <meta name="twitter:title" content="المقدمة الأولى: لغة البرمجة – البايثونية">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://hassanalgoz.github.io/python/chapters/01_intro/a1_intro_files/figure-html/cell-6-output-1.png">
-<meta name="twitter:image-height" content="563">
-<meta name="twitter:image-width" content="669">
+<meta name="twitter:image-height" content="281">
+<meta name="twitter:image-width" content="334">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -673,25 +678,14 @@ window.Quarto = {
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#القطعة-البرمجية" id="toc-القطعة-البرمجية" class="nav-link active" data-scroll-target="#القطعة-البرمجية">القطعة البرمجية</a></li>
-  <li><a href="#الكلمات" id="toc-الكلمات" class="nav-link" data-scroll-target="#الكلمات">الكلمات</a></li>
+  <li><a href="#القطعة" id="toc-القطعة" class="nav-link active" data-scroll-target="#القطعة">القطعة</a></li>
+  <li><a href="#الجملة" id="toc-الجملة" class="nav-link" data-scroll-target="#الجملة">الجملة</a></li>
+  <li><a href="#الكلمة" id="toc-الكلمة" class="nav-link" data-scroll-target="#الكلمة">الكلمة</a></li>
   <li><a href="#الأنواع-والإجراءات-المبنية" id="toc-الأنواع-والإجراءات-المبنية" class="nav-link" data-scroll-target="#الأنواع-والإجراءات-المبنية">الأنواع والإجراءات المبنية</a></li>
   <li><a href="#نمو-اللغة" id="toc-نمو-اللغة" class="nav-link" data-scroll-target="#نمو-اللغة">نمو اللغة</a>
   <ul class="collapse">
   <li><a href="#المكتبة-الأساسية" id="toc-المكتبة-الأساسية" class="nav-link" data-scroll-target="#المكتبة-الأساسية">المكتبة الأساسية 📚️</a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries">المكتبات المساهمة 📦️</a></li>
-  <li><a href="#تطوير-مواقع-الشبكة" id="toc-تطوير-مواقع-الشبكة" class="nav-link" data-scroll-target="#تطوير-مواقع-الشبكة">🌐 <strong>تطوير مواقع الشبكة</strong></a></li>
-  <li><a href="#تحليل-البيانات-وتصويرها" id="toc-تحليل-البيانات-وتصويرها" class="nav-link" data-scroll-target="#تحليل-البيانات-وتصويرها">📊 <strong>تحليل البيانات وتصويرها</strong></a></li>
-  <li><a href="#البيانات-الضخمة" id="toc-البيانات-الضخمة" class="nav-link" data-scroll-target="#البيانات-الضخمة">📊📊📊 <strong>البيانات الضخمة</strong></a></li>
-  <li><a href="#الذكاء-الاصطناعي-وتعلم-الآلة" id="toc-الذكاء-الاصطناعي-وتعلم-الآلة" class="nav-link" data-scroll-target="#الذكاء-الاصطناعي-وتعلم-الآلة">🤖 <strong>الذكاء الاصطناعي وتعلم الآلة</strong></a></li>
-  <li><a href="#معالجة-الصور" id="toc-معالجة-الصور" class="nav-link" data-scroll-target="#معالجة-الصور">🖼️ <strong>معالجة الصور</strong></a></li>
-  <li><a href="#التحليل-الرياضي" id="toc-التحليل-الرياضي" class="nav-link" data-scroll-target="#التحليل-الرياضي">📐 <strong>التحليل الرياضي</strong></a></li>
-  <li><a href="#الكيمياء" id="toc-الكيمياء" class="nav-link" data-scroll-target="#الكيمياء">🧪 <strong>الكيمياء</strong></a></li>
-  <li><a href="#الحوسبة-الكمومية" id="toc-الحوسبة-الكمومية" class="nav-link" data-scroll-target="#الحوسبة-الكمومية">⚛️ <strong>الحوسبة الكمومية</strong></a></li>
-  <li><a href="#علم-النفس" id="toc-علم-النفس" class="nav-link" data-scroll-target="#علم-النفس">🧠 <strong>علم النفس</strong></a></li>
-  <li><a href="#المعلوماتية-الحيوية" id="toc-المعلوماتية-الحيوية" class="nav-link" data-scroll-target="#المعلوماتية-الحيوية">🧬 <strong>المعلوماتية الحيوية</strong></a></li>
-  <li><a href="#علوم-الأرض" id="toc-علوم-الأرض" class="nav-link" data-scroll-target="#علوم-الأرض">🗻 <strong>علوم الأرض</strong></a></li>
-  <li><a href="#علم-الفلك" id="toc-علم-الفلك" class="nav-link" data-scroll-target="#علم-الفلك">🔭 <strong>علم الفلك</strong></a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
@@ -720,10 +714,10 @@ window.Quarto = {
 
 <p>يتألف البرنامج المكتوب بلغة البرمجة من <strong>قِطَع</strong> 📄📄📄 هي عبارة عن سلسلة من <strong>الجُمَل</strong> البسيطة والمركبة المكونة من <strong>مُفْرَدات</strong> للتعبير عن أوامر يكتبها المبرمج ويقرأها الحاسب 💻️، تَتَّبِعُ <strong>قَواعِدَ نَحْوِيَّة</strong> صارمة حتى لا يشتبه عليه تفسيرها عند تحويلها لتعليمات مفصَّلة على لغة المنطق الرقمي للآلات المكون منها الحاسب لتنفذها.</p>
 <p>وفي هذا المثال عرضٌ لقطع برمجية في بايثون وشرحٌ لعملها، وليس المطلوب أي شيء منها أو تأمُّلَه ومحاولة فهمه بل هذه نظرة عامَّة لتكوين تصوُّر مُجْمَل عمّا سيأتي إن شاء الله.</p>
-<section id="القطعة-البرمجية" class="level2">
-<h2 class="anchored" data-anchor-id="القطعة-البرمجية">القطعة البرمجية</h2>
-<p>تُنَفَّذُ القطعة (Code Snippet) بحسب ترتيب جُمَلِها نزولاً من الأعلى.</p>
-<div id="d2cab55d" class="cell" data-execution_count="2">
+<section id="القطعة" class="level2">
+<h2 class="anchored" data-anchor-id="القطعة">القطعة</h2>
+<p>تُنَفَّذُ القطعة (Snippet) بحسب ترتيب جُمَلِها نزولاً من الأعلى.</p>
+<div id="8910ebd5" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pages <span class="op">=</span> <span class="dv">900</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>speed <span class="op">=</span>  <span class="dv">50</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>finish_time <span class="op">=</span> pages <span class="op">/</span> speed</span>
@@ -747,6 +741,9 @@ window.Quarto = {
 <li>الجزء الثاني <code dir="ltr">else</code> (بمعنى فإن لم يكن) جملة معلَّقة بانتفاء الشرط</li>
 </ul></li>
 </ul>
+</section>
+<section id="الجملة" class="level2">
+<h2 class="anchored" data-anchor-id="الجملة">الجملة</h2>
 <p>فهذه أربعة أنواع من الجُمل في قطعة واحدة. والجملة في بايثون لها أنواعُ كثيرة، وتنقسم إلى قسمين: بسيطة ومركبة:</p>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -784,9 +781,9 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="الكلمات" class="level2">
-<h2 class="anchored" data-anchor-id="الكلمات">الكلمات</h2>
-<p>أول أنواع الكلمة هو <a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords"><strong>المفردات الأصلية</strong></a> (Keywords) التي لها معنىً خاصّ مفهوم لدى بايثون وتستعمل في جُمَل محددة. وهي 35 كلمة:</p>
+<section id="الكلمة" class="level2">
+<h2 class="anchored" data-anchor-id="الكلمة">الكلمة</h2>
+<p>أول أنواع الكلمة هو <a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords"><strong>الكلمات الأصلية</strong></a> (Keywords) التي لها معنىً خاصّ مفهوم لدى بايثون وتستعمل في جُمَل محددة. وهي 35 كلمة:</p>
 <pre dir="ltr"><code>False      await      else       import     pass
 None       break      except     in         raise
 True       class      finally    is         return
@@ -795,14 +792,13 @@ as         def        from       nonlocal   while
 assert     del        global     not        with
 async      elif       if         or         yield</code></pre>
 <p>ومنها كذلك 4 كلمات: <code dir="ltr">match</code>, <code dir="ltr">case</code>, <code dir="ltr">type</code> و <code dir="ltr">_</code> (الشرطة السفلية).</p>
-<p>وما عدا ذلك …</p>
-<p>فقد تشكِّل الحروف كلمةً تكونُ <strong>متغيِّرًا</strong> (<em>Variable</em>)، نحو: <code dir="ltr">x</code> أو <code dir="ltr">price</code> أو <code dir="ltr">body_weight</code> فكلها أسماء مقبولة للمتغيرات؛ لا كما في الرياضيات التي عادةً ما تستعمل الحرف الواحد.</p>
-<p>وقد تشكِّل الحروف كلمة تكون <strong>حرفيٍّا</strong> (<em>Literal</em>)، نحو: <code dir="ltr">44</code> أو <code dir="ltr">3.14</code> أو <code dir="ltr">"كيف حالك؟"</code> ويُسمَّى <strong>قيمة</strong> (<em>Value</em>).</p>
-<p>ومن الحروف <strong>علامات الابتداء والوَقف</strong>، نحو: <code dir="ltr">( )</code> و <code dir="ltr">[ ]</code> و <code dir="ltr">{ }</code> <strong>والفصل</strong>، نحو: <code dir="ltr">,</code> (الفاصلة اللاتينية) و <code dir="ltr">:</code> (النقطتان الرأسِيَّتان) و <code dir="ltr">=</code> (علامة التعيين) ، وتُسمى جميعًا <a href="https://docs.python.org/3/reference/lexical_analysis.html#delimiters"><strong>المحددات</strong> (<em>Delimiters</em>)</a>.</p>
+<p>وما عدا ذلك؛ فإما مُتَغَيِّر أو قيمته.</p>
+<p><strong>فالمُتَغَيِّر</strong> (<strong>Variable</strong>)، فنحو: <code dir="ltr">x</code> أو <code dir="ltr">price</code> أو <code dir="ltr">body_weight</code> فكلها أسماء مقبولة للمتغيرات؛ لا كما في الرياضيات التي عادةً ما تستعمل الحرف الواحد.</p>
+<p><strong>والقِيمَة</strong> (<strong>Value</strong>)، فنحو: <code dir="ltr">44</code> أو <code dir="ltr">3.14</code> أو <code dir="ltr">"كيف حالك؟"</code>، ويسمَّى <strong>حرفيًّا</strong> (<em>Literal</em>).</p>
+<p>ومنها <a href="https://docs.python.org/3/reference/lexical_analysis.html#delimiters"><strong>المحددات</strong> (<em>Delimiters</em>)</a>، نحو: <code dir="ltr">( )</code> و <code dir="ltr">[ ]</code> و <code dir="ltr">{ }</code> <strong>والفواصل</strong>، نحو: <code dir="ltr">,</code> (الفاصلة اللاتينية) و <code dir="ltr">:</code> (النقطتان الرأسِيَّتان) و <code dir="ltr">=</code> (علامة التعيين).</p>
 <ul>
-<li>فالأقواس <code dir="ltr">()</code> في العبارة: <code dir="ltr">(y + z) * (a + b)</code> لتحديد ترتيب العمليات</li>
-<li>والأقواس <code dir="ltr">()</code> في العبارة: <code dir="ltr">print(x, y, z)</code> لتحديد عوامل الإجراء: أي: المتغيرات التي نمررها له</li>
-<li>والأقواس <code dir="ltr">()</code> في العبارة: <code dir="ltr">(10, 20, 30)</code> لتحديد صف من الأرقام</li>
+<li>فالقوسان <code dir="ltr">()</code> في العبارة: <code dir="ltr">(y + z) * (a + b)</code> لتحديد ترتيب العمليات</li>
+<li>والقوسان <code dir="ltr">()</code> في العبارة: <code dir="ltr">(10, 20, 30)</code> لتحديد صف من الأرقام</li>
 </ul>
 <p>ومن الحروف <a href="https://docs.python.org/3/reference/lexical_analysis.html#operators"><strong>العوامل</strong> (<em>Operators</em>)</a>، نحو: <code dir="ltr">+</code> و <code dir="ltr">*</code> و <code dir="ltr">/</code> و <code dir="ltr">**</code> و <code dir="ltr">==</code></p>
 <p>فمثلاً: العامل <code dir="ltr">+</code> يفسَّر بحسب السياق: <code dir="ltr">x + y</code></p>
@@ -931,7 +927,7 @@ async      elif       if         or         yield</code></pre>
 \text{distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
 \]</span></p>
 <p>القطعة:</p>
-<div id="5da93e66" class="cell" data-execution_count="3">
+<div id="d129387e" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>x1, y1 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
@@ -964,12 +960,12 @@ async      elif       if         or         yield</code></pre>
 <div class="sourceCode" id="cb6" dir="ltr"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add pandas</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>ثم نستطيع استعمال المكتبة لقراءة بيانات الطلاب -مثلاً- من ملف CSV:</p>
 <div class="ltr">
-<div id="01ba3e25" class="cell" data-execution_count="4">
+<div id="25aca13f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../datasets/students.csv'</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -987,34 +983,34 @@ async      elif       if         or         yield</code></pre>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
 <td>Adam</td>
-<td>12</td>
+<td>22</td>
 <td>90</td>
 <td>F</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>Belal</td>
-<td>13</td>
+<td>23</td>
 <td>92</td>
 <td>F</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>Camal</td>
-<td>14</td>
+<td>24</td>
 <td>91</td>
 <td>T</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>Dalal</td>
+<td>Dawod</td>
 <td>8</td>
 <td>99</td>
 <td>F</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>Eman</td>
+<td>Emad</td>
 <td>9</td>
 <td>98</td>
 <td>F</td>
@@ -1028,9 +1024,9 @@ async      elif       if         or         yield</code></pre>
 </div>
 <p>ثم لعرض ملخصات إحصائية:</p>
 <div class="ltr">
-<div id="4c09ef4f" class="cell" data-execution_count="5">
+<div id="9df34347" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.describe(include<span class="op">=</span>[<span class="st">'number'</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -1050,12 +1046,12 @@ async      elif       if         or         yield</code></pre>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">mean</td>
-<td>11.200000</td>
+<td>17.200000</td>
 <td>94.0000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">std</td>
-<td>2.588436</td>
+<td>7.981228</td>
 <td>4.1833</td>
 </tr>
 <tr class="even">
@@ -1070,17 +1066,17 @@ async      elif       if         or         yield</code></pre>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">50%</td>
-<td>12.000000</td>
+<td>22.000000</td>
 <td>92.0000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">75%</td>
-<td>13.000000</td>
+<td>23.000000</td>
 <td>98.0000</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">max</td>
-<td>14.000000</td>
+<td>24.000000</td>
 <td>99.0000</td>
 </tr>
 </tbody>
@@ -1092,12 +1088,12 @@ async      elif       if         or         yield</code></pre>
 </div>
 <p>أو تصوير البيانات:</p>
 <div class="ltr">
-<div id="3f158532" class="cell" data-execution_count="6">
+<div id="347b4217" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Done'</span>].value_counts().plot(kind<span class="op">=</span><span class="st">'bar'</span>, color<span class="op">=</span><span class="st">'skyblue'</span>, figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>), rot<span class="op">=</span><span class="dv">0</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="a1_intro_files/figure-html/cell-6-output-1.png" width="335" height="282" class="figure-img"></p>
+<p><a href="a1_intro_files/figure-html/cell-6-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="a1_intro_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1105,110 +1101,6 @@ async      elif       if         or         yield</code></pre>
 </div>
 <p>هكذا بكل بساطة.</p>
 <p>فإذًا .. هنا دور <strong>المجتمع</strong> (<em>Community</em>) ليبني باللغة: بمفرداتها وجملها ومكتبتها الأساسية والخارجية، ليبني فوق ذلك ما يخدم أغراضه. فلكل فئة من الناس تركيب حزمة جديدة مكونة من أنواع وإجراءات مركبة مبنية على غيرها ، ثم يوفرونها لغيرهم. وهكذا تنمو اللغة ، حزمةً تِلو الأخرى بحسب إسهامات كل مجتمع برمجي بما يهتم به.</p>
-<p>ومن مكامن القوة في لغة بايثون: أنها <strong>متوافقة مع لغتي C/C++</strong> إذْ يُمكن كتابة برمجيات عالية الأداء والكفاءة بهما مستفيدين من الحزم الموجودة فيهما، ثم توفيق ذلك ليكون كمكتبة في لغة بايثون.</p>
-<p>فالمجتمعات البرمجية في بايثون كثيرة ومتعددة في اهتماماتها. منها على سبيل المثال:</p>
-</section>
-<section id="تطوير-مواقع-الشبكة" class="level3">
-<h3 class="anchored" data-anchor-id="تطوير-مواقع-الشبكة">🌐 <strong>تطوير مواقع الشبكة</strong></h3>
-<ul>
-<li><a href="https://www.djangoproject.com/">Django</a> - لبناء مواقع متصلة بقواعد بيانات</li>
-<li><a href="https://fastapi.tiangolo.com/">FastAPI</a> - حديث وسريع لبناء واجهات برمجية على الشبكة</li>
-</ul>
-</section>
-<section id="تحليل-البيانات-وتصويرها" class="level3">
-<h3 class="anchored" data-anchor-id="تحليل-البيانات-وتصويرها">📊 <strong>تحليل البيانات وتصويرها</strong></h3>
-<ul>
-<li><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas</a> - لتحليل البيانات المرصوصة</li>
-<li><a href="https://www.statsmodels.org/">statsmodels</a> - للنماذج الإحصائية</li>
-<li><a href="https://seaborn.pydata.org/">Seaborn</a> - لتصوير البيانات الإحصائية على أساس Matplotlib.</li>
-<li><a href="https://matplotlib.org/">matplotlib</a> - مكتبة شاملة لإنشاء تصورات ثابتة ومتحركة وتفاعلية.</li>
-<li><a href="https://pypi.org/project/selenium/" target="_blank">Selenium</a> لتصفح المواقع بشكل آلي وسحب البيانات منها</li>
-</ul>
-</section>
-<section id="البيانات-الضخمة" class="level3">
-<h3 class="anchored" data-anchor-id="البيانات-الضخمة">📊📊📊 <strong>البيانات الضخمة</strong></h3>
-<ul>
-<li>معالجة البيانات المتدفقة بسرعة وكفاءة عالية: <a href="https://dask.org/" target="_blank">Dask</a> و <a href="https://ray.io/" target="_blank">Ray</a>.</li>
-<li>أتمتة عمليات البيانات: <a href="https://airflow.apache.org/" target="_blank">Airflow</a>,&nbsp;<a href="https://dagster.io/" target="_blank">Dagster</a> و <a href="https://www.prefect.io/" target="_blank">Prefect</a></li>
-</ul>
-</section>
-<section id="الذكاء-الاصطناعي-وتعلم-الآلة" class="level3">
-<h3 class="anchored" data-anchor-id="الذكاء-الاصطناعي-وتعلم-الآلة">🤖 <strong>الذكاء الاصطناعي وتعلم الآلة</strong></h3>
-<ul>
-<li><a href="https://scikit-learn.org/">scikit-learn</a> - لاكتشاف الأنماط والتنبؤ (تعلم الآلة)</li>
-<li><a href="https://pytorch.org/">PyTorch</a> - بناء وتدريب نماذج التعلم العميق</li>
-<li><a href="https://keras.io/">Keras</a> - بناء وتدريب نماذج التعلم العميق</li>
-<li><a href="https://huggingface.co/">Hugging Face</a> - اختيار وتدريب نماذج التعلم العميق</li>
-</ul>
-</section>
-<section id="معالجة-الصور" class="level3">
-<h3 class="anchored" data-anchor-id="معالجة-الصور">🖼️ <strong>معالجة الصور</strong></h3>
-<ul>
-<li><a href="https://pillow.readthedocs.io/en/stable/handbook/overview.html">Pillow</a></li>
-<li><a href="https://scikit-image.org/">Scikit-image</a></li>
-<li><a href="https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html">OpenCV</a></li>
-<li><a href="https://www.manim.community/">Manim</a> - تصوير الرياضيات: أسسها <a href="https://www.3blue1brown.com/">3Brown1Blue</a> ليستعملها في مقاطعه التعليمية على اليوتيوب.</li>
-</ul>
-</section>
-<section id="التحليل-الرياضي" class="level3">
-<h3 class="anchored" data-anchor-id="التحليل-الرياضي">📐 <strong>التحليل الرياضي</strong></h3>
-<ul>
-<li><a href="https://scipy.org/">SciPy</a> - خوارزميات أساسية في الحوسبة العلمية</li>
-<li><a href="https://www.sympy.org/">sympy</a> - للرياضيات الرمزية.</li>
-<li><a href="https://astroautomata.com/PySR/">PySR</a> - الانحدار الرمزي.</li>
-<li><a href="https://www.cvxpy.org/index.html">cvxPy</a> - التحسين (Convex Optimization)</li>
-<li><a href="https://fenicsproject.org/">FEniCS</a> - حل المعادلات التفاضلية الجزئية (PDEs) باستخدام طريقة العناصر المحدودة (FEM)</li>
-<li><a href="https://python.igraph.org/en/stable/tutorials/quickstart.html">igraph</a> - الترابطات والشبكات</li>
-<li><a href="https://python-control.readthedocs.io/">python-control</a> - أنظمة التحكم</li>
-</ul>
-</section>
-<section id="الكيمياء" class="level3">
-<h3 class="anchored" data-anchor-id="الكيمياء">🧪 <strong>الكيمياء</strong></h3>
-<ul>
-<li><a href="https://cantera.org/">Cantera</a></li>
-<li><a href="https://www.mdanalysis.org/">MDAnalysis</a></li>
-<li><a href="https://github.com/rdkit/rdkit">RDKit</a></li>
-<li><a href="https://www.pybamm.org/">PyBaMM</a></li>
-</ul>
-</section>
-<section id="الحوسبة-الكمومية" class="level3">
-<h3 class="anchored" data-anchor-id="الحوسبة-الكمومية">⚛️ <strong>الحوسبة الكمومية</strong></h3>
-<ul>
-<li><a href="https://pennylane.ai/">PennyLane</a></li>
-<li><a href="https://qiskit.org/">Qiskit</a></li>
-</ul>
-</section>
-<section id="علم-النفس" class="level3">
-<h3 class="anchored" data-anchor-id="علم-النفس">🧠 <strong>علم النفس</strong></h3>
-<ul>
-<li><a href="https://www.psychopy.org/">PsychoPy</a></li>
-</ul>
-</section>
-<section id="المعلوماتية-الحيوية" class="level3">
-<h3 class="anchored" data-anchor-id="المعلوماتية-الحيوية">🧬 <strong>المعلوماتية الحيوية</strong></h3>
-<ul>
-<li><a href="https://biopython.org/">BioPython</a></li>
-<li><a href="http://scikit-bio.org/">Scikit-Bio</a></li>
-<li><a href="https://github.com/openvax/pyensembl">PyEnsembl</a></li>
-<li><a href="http://etetoolkit.org/">ETE</a></li>
-</ul>
-</section>
-<section id="علوم-الأرض" class="level3">
-<h3 class="anchored" data-anchor-id="علوم-الأرض">🗻 <strong>علوم الأرض</strong></h3>
-<ul>
-<li><a href="https://pangeo.io/">Pangeo</a></li>
-<li><a href="https://simpeg.xyz/">Simpeg</a></li>
-<li><a href="https://github.com/obspy/obspy/wiki">ObsPy</a></li>
-<li><a href="https://www.fatiando.org/">Fatiando a Terra</a></li>
-</ul>
-</section>
-<section id="علم-الفلك" class="level3">
-<h3 class="anchored" data-anchor-id="علم-الفلك">🔭 <strong>علم الفلك</strong></h3>
-<ul>
-<li><a href="https://www.astropy.org/">AstroPy</a></li>
-<li><a href="https://sunpy.org/">SunPy</a></li>
-<li><a href="https://spacepy.github.io/">SpacePy</a></li>
-</ul>
 
 
 </section>
@@ -1216,236 +1108,242 @@ async      elif       if         or         yield</code></pre>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "تم النسخ!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "تم النسخ!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/hassanalgoz\.github\.io\/python\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "تم النسخ!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "تم النسخ!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/hassanalgoz\.github\.io\/python\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
         }
-        return container.innerHTML
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1453,185 +1351,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <script src="https://utteranc.es/client.js" repo="HassanAlgoz/python" issue-term="og:title" theme="github-light" crossorigin="anonymous" async="">
 </script>
 <nav class="page-navigation">
@@ -1647,8 +1521,40 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></div></div></footer></body></html>
+</body></html>
