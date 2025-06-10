@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ملحق B — تطبيقات في الأرقام – البايثونية</title>
+<title>شبه العشوائية – البايثونية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../chapters/03_control_flow/control_flow.html" rel="next">
-<link href="../../chapters/02_numbers/a_numbers.html" rel="prev">
+<link href="../../chapters/apps/sentiment_analysis_problem.html" rel="next">
+<link href="../../chapters/06_mapping/c_problems.html" rel="prev">
 <link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -78,6 +78,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-800706539903139ffa187a61ec5db5e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,39 +109,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta name="twitter:title" content="ملحق B — تطبيقات في الأرقام – البايثونية">
+<meta name="twitter:title" content="شبه العشوائية – البايثونية">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hassanalgoz.github.io/python/assets/python3-docs-random.png">
+<meta name="twitter:image:alt" content="صفحة مكتبة العشوائية">
+<meta name="twitter:image-height" content="775">
+<meta name="twitter:image-width" content="1410">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -150,7 +128,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/02_numbers/a_numbers.html">الملحقات</a></li><li class="breadcrumb-item"><a href="../../chapters/02_numbers/apps.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">تطبيقات في الأرقام</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/apps/random_problem.html">مسائل مفتوحة</a></li><li class="breadcrumb-item"><a href="../../chapters/apps/random_problem.html">شبه العشوائية</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -316,16 +294,16 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">مسائل مفتوحة</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="تبديل القسم">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/apps/random_problem.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/apps/random_problem.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">شبه العشوائية</span></a>
   </div>
 </li>
@@ -351,13 +329,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">الملحقات</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/02_numbers/a_numbers.html" class="sidebar-item-text sidebar-link">
@@ -366,7 +344,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/02_numbers/apps.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/02_numbers/apps.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">تطبيقات في الأرقام</span></span></a>
   </div>
 </li>
@@ -466,23 +444,17 @@ window.Quarto = {
     <h2 id="toc-title">المحاور</h2>
    
   <ul>
-  <li><a href="#احسب-مبلغ-الزكاة" id="toc-احسب-مبلغ-الزكاة" class="nav-link active" data-scroll-target="#احسب-مبلغ-الزكاة">احسب مبلغ الزكاة</a></li>
-  <li><a href="#معادلة-مساحة-المكعب" id="toc-معادلة-مساحة-المكعب" class="nav-link" data-scroll-target="#معادلة-مساحة-المكعب">معادلة مساحة المكعب</a></li>
-  <li><a href="#معادلة-تحويل-وحدة-إلى-وحدة-أخرى" id="toc-معادلة-تحويل-وحدة-إلى-وحدة-أخرى" class="nav-link" data-scroll-target="#معادلة-تحويل-وحدة-إلى-وحدة-أخرى">معادلة تحويل وحدة إلى وحدة أخرى</a></li>
-  <li><a href="#معادلة-مساحة-الدائرة" id="toc-معادلة-مساحة-الدائرة" class="nav-link" data-scroll-target="#معادلة-مساحة-الدائرة">معادلة مساحة الدائرة</a></li>
-  <li><a href="#معادلة-طول-الخط-المستقيم-بين-نقطتين" id="toc-معادلة-طول-الخط-المستقيم-بين-نقطتين" class="nav-link" data-scroll-target="#معادلة-طول-الخط-المستقيم-بين-نقطتين">معادلة طول الخط المستقيم بين نقطتين</a></li>
-  <li><a href="#الزيادة" id="toc-الزيادة" class="nav-link" data-scroll-target="#الزيادة">الزيادة</a></li>
-  <li><a href="#النمو" id="toc-النمو" class="nav-link" data-scroll-target="#النمو">النمو</a></li>
-  <li><a href="#نسبة-التغير" id="toc-نسبة-التغير" class="nav-link" data-scroll-target="#نسبة-التغير">نسبة التغير</a></li>
+  <li><a href="#المسألة-الأولى-توليد-كلمة-مرور" id="toc-المسألة-الأولى-توليد-كلمة-مرور" class="nav-link active" data-scroll-target="#المسألة-الأولى-توليد-كلمة-مرور">المسألة الأولى: توليد كلمة مرور</a></li>
+  <li><a href="#المسألة-الثانية-توليد-عبارة-مرور" id="toc-المسألة-الثانية-توليد-عبارة-مرور" class="nav-link" data-scroll-target="#المسألة-الثانية-توليد-عبارة-مرور">المسألة الثانية: توليد عبارة مرور</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/02_numbers/a_numbers.html">الملحقات</a></li><li class="breadcrumb-item"><a href="../../chapters/02_numbers/apps.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">تطبيقات في الأرقام</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/apps/random_problem.html">مسائل مفتوحة</a></li><li class="breadcrumb-item"><a href="../../chapters/apps/random_problem.html">شبه العشوائية</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">ملحق B — تطبيقات في الأرقام</h1>
+<h1 class="title">شبه العشوائية</h1>
 </div>
 
 
@@ -499,206 +471,59 @@ window.Quarto = {
 </header>
 
 
-<p>لا يلزمنا اشتقاق هذه المعادلات؛ لكن نستعمل النتائج التي خرج بها أهل الرياضيات فنعوض هذه المتغيرات بالقيم التي نريد لنتحصل على الناتج.</p>
-<section id="احسب-مبلغ-الزكاة" class="level2">
-<h2 class="anchored" data-anchor-id="احسب-مبلغ-الزكاة">احسب مبلغ الزكاة</h2>
+<p><strong>أهداف التمرين</strong>:</p>
+<ol type="1">
+<li>التعرف على إمكانات مكتبة العشوائية</li>
+<li>ممارسة قراءة صفحات مراجع المكتبات البرمجية الأصلية</li>
+<li>ممارسة تركيب إجراء من أنواع مختلفة: الرقم والنص والتسلسل ونحو ذلك</li>
+<li>التعرف على حقيقة شبه العشوائية (Pseudo-randomness) في الحواسيب</li>
+</ol>
+<p>مكتبة العشوائية <code dir="ltr">random</code> هي من ضمن المكتبات المبنية في لغة بايثون.</p>
+<div id="5455ffa7" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>بينما تحل المسائل التالية، ستحتاج إلى البحث في صفحة المكتبة. جرب أن تضع في محرك البحث العبارة:</p>
+<p><a href="https://www.google.com/search?q=python+3+docs+random&amp;oq=python+3+docs+random"><code dir="ltr">python 3 docs random</code></a></p>
+<p>وستظهر في النتائج الأولى صفحة المكتبة في مراجع بايثون:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/python3-docs-random.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="صفحة مكتبة العشوائية"><img src="../../assets/python3-docs-random.png" class="img-fluid figure-img" style="width:100.0%" alt="صفحة مكتبة العشوائية"></a></p>
+<figcaption>صفحة مكتبة العشوائية</figcaption>
+</figure>
+</div>
+<p>ولا أريد منك قراءة الصفحة كاملةً، ولذلك سأشير إلى بعض الأجزاء المهمة بالنسبة لنا الآن:</p>
+<ol type="1">
+<li>الإجراء: <code dir="ltr">random.seed</code> الذي تجده تحت قسم: Bookkeeping functions بالنظر في قائمة المحتويات في الجانب الأيسر من الصفحة</li>
+<li>القسم: Functions for integers</li>
+<li>القسم: Functions for sequences</li>
+<li>القسم: Notes on Reproducibility</li>
+<li>الأمثلة: Examples</li>
+</ol>
+<section id="المسألة-الأولى-توليد-كلمة-مرور" class="level2">
+<h2 class="anchored" data-anchor-id="المسألة-الأولى-توليد-كلمة-مرور">المسألة الأولى: توليد كلمة مرور</h2>
+<p>اكتب إجراءً يقبل المعاملات التالية ليُنتِج <strong>كلمة مرور</strong> (Password):</p>
 <ul>
-<li>أن تضرب المبلغ في حاصل ضرب الرُّبْع بالعُشر</li>
-<li>أو أن تقسم المبلغ على أربعين</li>
+<li>الطول</li>
+<li>الأحرف الصغيرة</li>
+<li>الأحرف الكبيرة</li>
+<li>الأرقام</li>
+<li>الحد الأدنى من الأرقام</li>
+<li>الرموز: <code dir="ltr">!@#$%^&amp;*</code></li>
+<li>الحد الأدنى من الرموز</li>
 </ul>
-<div id="f2390d7c" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>money <span class="op">=</span> <span class="dv">100_000</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>zakah1 <span class="op">=</span> money <span class="op">*</span> (<span class="dv">1</span><span class="op">/</span><span class="dv">4</span>) <span class="op">*</span> (<span class="dv">1</span><span class="op">/</span><span class="dv">10</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>zakah2 <span class="op">=</span> money <span class="op">*</span> <span class="fl">0.25</span> <span class="op">*</span> <span class="fl">0.10</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>zakah3 <span class="op">=</span> money <span class="op">*</span> <span class="fl">0.025</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>zakah4 <span class="op">=</span> money <span class="op">/</span> <span class="dv">40</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(zakah1 <span class="op">==</span> zakah2 <span class="op">==</span> zakah3 <span class="op">==</span> zakah4)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(zakah4)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre dir="ltr"><code>True
-2500.0</code></pre>
-</div>
-</div>
-<p>وكم يكون الباقي بعد صرف الزكاة؟</p>
-<div id="4a69ab44" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(money <span class="op">-</span> zakah4)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre dir="ltr"><code>97500.0</code></pre>
-</div>
-</div>
+<div class="sourceCode" id="cb2" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_password(length: <span class="bu">int</span>, ...) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    ...</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="معادلة-مساحة-المكعب" class="level2">
-<h2 class="anchored" data-anchor-id="معادلة-مساحة-المكعب">معادلة مساحة المكعب</h2>
-<p>اكتب برنامجًا يحسب مساحة المكعب وفق المعادلة:</p>
-<p><span class="math display">\[
-\text{area} = \text{width} \times \text{length} \times \text{height}
-\]</span></p>
-<div id="e96192cb" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>length <span class="op">=</span> <span class="dv">4</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>area <span class="op">=</span> width <span class="op">*</span> length <span class="op">*</span> height</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(area)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre dir="ltr"><code>60</code></pre>
-</div>
-</div>
-</section>
-<section id="معادلة-تحويل-وحدة-إلى-وحدة-أخرى" class="level2">
-<h2 class="anchored" data-anchor-id="معادلة-تحويل-وحدة-إلى-وحدة-أخرى">معادلة تحويل وحدة إلى وحدة أخرى</h2>
-<p>اكتب برنامجًا لتحويل درجة الحرارة من السيليلوس إلى الفهرنهايت استخدم معادلة التحويل التالية:</p>
-<p><span class="math display">\[
-F = \frac{9}{5} \times C + 32
-\]</span></p>
-<div id="875af7a8" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">32</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> (<span class="dv">9</span> <span class="op">/</span> <span class="dv">5</span>) <span class="op">*</span> c <span class="op">+</span> <span class="dv">32</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Celsius:'</span>, c)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Fahrenheit:'</span>, f)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre dir="ltr"><code>Celsius: 32
-Fahrenheit: 89.6</code></pre>
-</div>
-</div>
-</section>
-<section id="معادلة-مساحة-الدائرة" class="level2">
-<h2 class="anchored" data-anchor-id="معادلة-مساحة-الدائرة">معادلة مساحة الدائرة</h2>
-<p>اكتب برنامجًا لحساب مساحة الدائرة وفق المعادلة التالية:</p>
-<p><span class="math display">\[
-\text{area} = \pi \times \text{radius}^2
-\]</span></p>
-<div id="e4d7c832" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>area <span class="op">=</span> math.pi <span class="op">*</span> radius<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(area)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre dir="ltr"><code>78.53981633974483</code></pre>
-</div>
-</div>
-<p><strong>ملاحظة</strong>:</p>
+<section id="المسألة-الثانية-توليد-عبارة-مرور" class="level2">
+<h2 class="anchored" data-anchor-id="المسألة-الثانية-توليد-عبارة-مرور">المسألة الثانية: توليد عبارة مرور</h2>
+<p>اكتب إجراءً آخر يقبل المعاملات التالية ليُنتِج <a href="https://proton.me/blog/what-is-passphrase"><strong>عبارة مرور</strong> (Passphrase)</a>، بحيث تكون سهلة الحفظ على البشر:</p>
 <ul>
-<li>تم استعمال <code dir="ltr">radius ** 2</code> بدلاً من الإجراء <code dir="ltr">math.pow(radius, 2)</code> لتربيع العدد.</li>
-<li>كذلك يجوز استعمال <code dir="ltr">x ** 0.5</code> بدلاً من الإجراء <code dir="ltr">math.sqrt(x)</code> لحساب الجذر التربيعي.</li>
+<li>عدد الكلمات</li>
+<li>فاصل الكلمات</li>
+<li>تكبير الحرف الأول من كل كلمة</li>
+<li>تضمين رقم</li>
 </ul>
-</section>
-<section id="معادلة-طول-الخط-المستقيم-بين-نقطتين" class="level2">
-<h2 class="anchored" data-anchor-id="معادلة-طول-الخط-المستقيم-بين-نقطتين">معادلة طول الخط المستقيم بين نقطتين</h2>
-<p>في هذا المثال نعرف نقطتين ثم نحسب المسافة بينهما. والمسافة الإقليدية بين نقطتين <span class="math inline">\((x_1, y_1)\)</span> و <span class="math inline">\((x_2, y_2)\)</span> تتبع معادلة فيثاغورس:</p>
-<p><span class="math display">\[
-\text{distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
-\]</span></p>
-<div id="fd757a9f" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>x1, y1 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>x2, y2 <span class="op">=</span> <span class="dv">3</span>, <span class="dv">4</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>distance <span class="op">=</span> math.sqrt((x2 <span class="op">-</span> x1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(distance)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre dir="ltr"><code>5.0</code></pre>
-</div>
-</div>
-</section>
-<section id="الزيادة" class="level2">
-<h2 class="anchored" data-anchor-id="الزيادة">الزيادة</h2>
-<p>إذا كنت تقضي في القراءة 15 دقيقة في اليوم. ثم أحببت أن تزيد في كل أسبوع 5 دقائق. فكم ستكون الزيادة في 10 أسابيع؟</p>
-<div id="b5eac2c7" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>today <span class="op">=</span> <span class="dv">15</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>increase <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>weeks <span class="op">=</span> <span class="dv">9</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> today <span class="op">+</span> (increase <span class="op">*</span> weeks)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre dir="ltr"><code>60</code></pre>
-</div>
-</div>
-<p>أو لحساب كل أسبوع:</p>
-<div id="13777a56" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>increase <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>w1 <span class="op">=</span> <span class="dv">15</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>w2 <span class="op">=</span> w1 <span class="op">+</span> increase</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>w3 <span class="op">=</span> w2 <span class="op">+</span> increase</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>w4 <span class="op">=</span> w3 <span class="op">+</span> increase</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>w5 <span class="op">=</span> w4 <span class="op">+</span> increase</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>w6 <span class="op">=</span> w5 <span class="op">+</span> increase</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>w7 <span class="op">=</span> w6 <span class="op">+</span> increase</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>w8 <span class="op">=</span> w7 <span class="op">+</span> increase</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>w9 <span class="op">=</span> w8 <span class="op">+</span> increase</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>w10 <span class="op">=</span> w9 <span class="op">+</span> increase</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(w1, w2, w3, w4, w5, w6, w7, w8, w9, w10)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre dir="ltr"><code>15 20 25 30 35 40 45 50 55 60</code></pre>
-</div>
-</div>
-</section>
-<section id="النمو" class="level2">
-<h2 class="anchored" data-anchor-id="النمو">النمو</h2>
-<p>إذا كان عدد الأرانب في السنة الأولى 100. وكان عدد الأرانب يزيد بنسبة 11.7% في اليوم. فكم سيكون عدد الأرانب في اليوم السابع؟</p>
-<div id="8a7e836b" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>rabbits <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>growth_rate <span class="op">=</span> <span class="fl">0.117</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>days <span class="op">=</span> <span class="dv">7</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> rabbits <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate) <span class="op">**</span> days</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre dir="ltr"><code>216.9562730596121</code></pre>
-</div>
-</div>
-<p>أو لحساب كل يوم:</p>
-<div id="15816276" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb19" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>growth_rate <span class="op">=</span> <span class="fl">0.117</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>day1 <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>day2 <span class="op">=</span> day1 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>day3 <span class="op">=</span> day2 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>day4 <span class="op">=</span> day3 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>day5 <span class="op">=</span> day4 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>day6 <span class="op">=</span> day5 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>day7 <span class="op">=</span> day6 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> growth_rate)</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.floor(day1))</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.floor(day2))</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.floor(day3))</span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.floor(day4))</span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.floor(day5))</span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.floor(day6))</span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.floor(day7))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre dir="ltr"><code>100
-111
-124
-139
-155
-173
-194</code></pre>
-</div>
-</div>
-</section>
-<section id="نسبة-التغير" class="level2">
-<h2 class="anchored" data-anchor-id="نسبة-التغير">نسبة التغير</h2>
-<p>إذا كان معدل قراءتك في الأسبوع الثاني 15 دقيقة، وكان معدل قراءتك في الأسبوع الأول 10 دقائق، فكم نسبة الزيادة في معدل قراءتك؟</p>
-<div id="a6818582" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb21" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>week1 <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>week2 <span class="op">=</span> <span class="dv">15</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>increase_ratio <span class="op">=</span> (week2 <span class="op">-</span> week1) <span class="op">/</span> week1</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(increase_ratio <span class="op">*</span> <span class="dv">100</span>, <span class="st">'%'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre dir="ltr"><code>50.0 %</code></pre>
-</div>
-</div>
+<div class="sourceCode" id="cb3" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ...</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
@@ -1107,19 +932,51 @@ Fahrenheit: 89.6</code></pre>
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../chapters/02_numbers/a_numbers.html" class="pagination-link" aria-label="الأرقام">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">الأرقام</span></span>
+      <a href="../../chapters/06_mapping/c_problems.html" class="pagination-link" aria-label="في الجمع المرقَّم">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">في الجمع المرقَّم</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../chapters/03_control_flow/control_flow.html" class="pagination-link" aria-label="توالي الأوامر">
-        <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">توالي الأوامر</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../chapters/apps/sentiment_analysis_problem.html" class="pagination-link" aria-label="تحليل المشاعر">
+        <span class="nav-page-text">تحليل المشاعر</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></div></div></footer></body></html>
+</body></html>
