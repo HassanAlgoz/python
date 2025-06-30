@@ -1,0 +1,160 @@
+# تطبيقات {.unnumbered}
+
+لا يلزمنا اشتقاق هذه المعادلات؛ لكن نستعمل النتائج التي خرج بها أهل الرياضيات فنعوض هذه المتغيرات بالقيم التي نريد لنتحصل على الناتج.
+
+## معادلة مساحة المكعب
+
+اكتب برنامجًا يحسب مساحة المكعب وفق المعادلة:
+
+$$
+\text{area} = \text{width} \times \text{length} \times \text{height}
+$$
+
+```{python}
+width = 3
+length = 4
+height = 5
+
+area = width * length * height
+print(area)
+```
+
+## معادلة تحويل وحدة إلى وحدة أخرى
+
+اكتب برنامجًا لتحويل درجة الحرارة من السيليلوس إلى الفهرنهايت استخدم معادلة التحويل التالية:
+
+$$
+F = \frac{9}{5} \times C + 32
+$$
+
+```{python}
+c = 32
+f = (9 / 5) * c + 32
+
+print('Celsius:', c)
+print('Fahrenheit:', f)
+```
+
+
+## معادلة مساحة الدائرة
+
+اكتب برنامجًا لحساب مساحة الدائرة وفق المعادلة التالية:
+
+$$
+\text{area} = \pi \times \text{radius}^2
+$$
+
+```{python}
+import math
+
+radius = 5
+area = math.pi * radius**2
+print(area)
+```
+
+**ملاحظة**:
+
+- تم استعمال `radius ** 2` بدلاً من الإجراء `math.pow(radius, 2)` لتربيع العدد.
+- كذلك يجوز استعمال `x ** 0.5` بدلاً من الإجراء `math.sqrt(x)` لحساب الجذر التربيعي.
+
+## معادلة طول الخط المستقيم بين نقطتين
+
+في هذا المثال نعرف نقطتين ثم نحسب المسافة بينهما. والمسافة الإقليدية بين نقطتين $(x_1, y_1)$ و $(x_2, y_2)$ تتبع معادلة فيثاغورس:
+
+$$
+\text{distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+$$
+
+```{python}
+import math
+
+x1, y1 = 0, 0
+x2, y2 = 3, 4
+distance = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+print(distance)
+```
+
+## الزيادة
+
+إذا كنت تقضي في القراءة 15 دقيقة في اليوم.
+ثم أحببت أن تزيد في كل أسبوع 5 دقائق.
+فكم ستكون الزيادة في 10 أسابيع؟
+
+```{python}
+today = 15
+increase = 5
+weeks = 9
+
+total = today + (increase * weeks)
+print(total)
+```
+
+أو لحساب كل أسبوع:
+
+```{python}
+increase = 5
+
+w1 = 15
+w2 = w1 + increase
+w3 = w2 + increase
+w4 = w3 + increase
+w5 = w4 + increase
+w6 = w5 + increase
+w7 = w6 + increase
+w8 = w7 + increase
+w9 = w8 + increase
+w10 = w9 + increase
+
+print(w1, w2, w3, w4, w5, w6, w7, w8, w9, w10)
+```
+
+## النمو
+
+إذا كان عدد الأرانب في السنة الأولى 100.
+وكان عدد الأرانب يزيد بنسبة 11.7% في اليوم.
+فكم سيكون عدد الأرانب في اليوم السابع؟
+
+```{python}
+rabbits = 100
+growth_rate = 0.117
+days = 7
+
+total = rabbits * (1 + growth_rate) ** days
+print(total)
+```
+
+أو لحساب كل يوم:
+
+```{python}
+import math
+
+growth_rate = 0.117
+
+day1 = 100
+day2 = day1 * (1 + growth_rate)
+day3 = day2 * (1 + growth_rate)
+day4 = day3 * (1 + growth_rate)
+day5 = day4 * (1 + growth_rate)
+day6 = day5 * (1 + growth_rate)
+day7 = day6 * (1 + growth_rate)
+
+print(math.floor(day1))
+print(math.floor(day2))
+print(math.floor(day3))
+print(math.floor(day4))
+print(math.floor(day5))
+print(math.floor(day6))
+print(math.floor(day7))
+```
+
+## نسبة التغير
+
+إذا كان معدل قراءتك في الأسبوع الثاني 15 دقيقة، وكان معدل قراءتك في الأسبوع الأول 10 دقائق، فكم نسبة الزيادة في معدل قراءتك؟
+
+```{python}
+week1 = 10
+week2 = 15
+
+increase_ratio = (week2 - week1) / week1
+print(increase_ratio * 100, '%')
+```

@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ar" xml:lang="ar" dir="rtl"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="مدخل عملي لتعلم البرمجة بلغة بايثون. كتاب موجه للمبتدئين في البرمجة من خلفيات تقنية أو غير تقنية، يعرض المفاهيم الأساسية بلغة واضحة، بتسلسل منطقي، مع مسائل واقعية وتطبيقات نافعة، بعيدًا عن العشوائية والسطحية. يصلح للتعلم الذاتي، وللتدريس كذلك">
+
+<title>9&nbsp; الوقت – البايثونية</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/02_numbers/problems.html" rel="next">
+<link href="../../chapters/00_rewrite/08_objects.html" rel="prev">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-800706539903139ffa187a61ec5db5e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "لا يوجد نتائج",
+    "search-matching-documents-text": "الصفحات المطابقة",
+    "search-copy-link-title": "نسخ الرابط إلى الحافظة",
+    "search-hide-matches-text": "إخفاء المطابقات الإضافية",
+    "search-more-match-text": "مطابقة واحدة في هذه الصفحة",
+    "search-more-matches-text": "مطابقات إضافية في هذه الصفحة",
+    "search-clear-button-title": "إزالة",
+    "search-text-placeholder": "ابحث عن...",
+    "search-detached-cancel-button-title": "إلغاء",
+    "search-submit-button-title": "إرسال",
+    "search-label": "البحث"
+  }
+}</script>
+
+
+<meta name="twitter:title" content="9&nbsp; الوقت – البايثونية">
+<meta name="twitter:description" content="مدخل عملي لتعلم البرمجة بلغة بايثون. كتاب موجه للمبتدئين في البرمجة من خلفيات تقنية أو غير تقنية، يعرض المفاهيم الأساسية بلغة واضحة، بتسلسل منطقي، مع مسائل واقعية وتطبيقات نافعة، بعيدًا عن العشوائية والسطحية. يصلح للتعلم الذاتي، وللتدريس كذلك">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/00_rewrite/09_time.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الوقت</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">البايثونية</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/hassanalgoz/python/tree/main/book/" title="الكود المصدر" class="quarto-navigation-tool px-1" aria-label="الكود المصدر"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="المشاركة" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="المشاركة"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="البحث"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">مقدمة</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">إعداد بيئة التطوير</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/01_instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">النص البرمجي</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/02_control_flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">توالي الأوامر</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/03_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الدالة</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/04_sequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">التسلسل</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/05_computer_and_world.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الحاسب والعالم</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/06_text_files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الملفات النصية</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/07_regex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">التعبير النمطي</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/08_objects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">الكائنات</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/09_time.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">مسائل موضوعية</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">في الأرقام</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">حل المسائل</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">في الشرط والتكرار</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">حل المسائل</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_sequences/problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">في الجمع المرتب</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_sequences/solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">حل المسائل</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/06_mapping/c_problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">في الجمع المرقَّم</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">مسائل مفتوحة</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/apps/random_problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">شبه العشوائية</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/apps/sentiment_analysis_problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تحليل المشاعر</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/apps/sentiment_analysis_solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">الحل</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/apps/ceasar_cipher_problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">التشفير</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">الملحقات</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/a_numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">الأرقام</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">تطبيقات في الأرقام</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/control_flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">توالي الأوامر</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">تطبيقات في توالي الأوامر</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/08_procedural/a1_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">الدالة</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_sequences/a_sequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">التسلسل</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_sequences/apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">تطبيقات في التسلسل</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/06_mapping/a1_set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">المجموعة</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/06_mapping/a2_dict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">القاموس</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/06_mapping/b_apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">تطبيقات في القاموس</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/07_strings/a1_strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">النص</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/07_strings/a2_unicode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">L</span>&nbsp; <span class="chapter-title">ترميز الحروف</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/07_strings/regex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">M</span>&nbsp; <span class="chapter-title">التعبير النمطي</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/09_files_and_directories/a1_file_io.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">الملفات</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/11_oop/a1_oop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">البرمجة الكائنية</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../appendix/appendix_collections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">P</span>&nbsp; <span class="chapter-title">خريطة الجُمُوع</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">المحاور</h2>
+   
+  <ul>
+  <li><a href="#الوقت-في-الحاسب" id="toc-الوقت-في-الحاسب" class="nav-link active" data-scroll-target="#الوقت-في-الحاسب">الوقت في الحاسب</a></li>
+  <li><a href="#التوقيت-العالمي-والمناطق-الزمنية" id="toc-التوقيت-العالمي-والمناطق-الزمنية" class="nav-link" data-scroll-target="#التوقيت-العالمي-والمناطق-الزمنية">التوقيت العالمي والمناطق الزمنية</a></li>
+  <li><a href="#الوقت-في-بايثون" id="toc-الوقت-في-بايثون" class="nav-link" data-scroll-target="#الوقت-في-بايثون">الوقت في بايثون</a></li>
+  <li><a href="#التفسير-تحويل-النص-إلى-تاريخ-ووقت" id="toc-التفسير-تحويل-النص-إلى-تاريخ-ووقت" class="nav-link" data-scroll-target="#التفسير-تحويل-النص-إلى-تاريخ-ووقت">التفسير: تحويل النص إلى تاريخ ووقت</a></li>
+  <li><a href="#الحسابات-الزمنية" id="toc-الحسابات-الزمنية" class="nav-link" data-scroll-target="#الحسابات-الزمنية">الحسابات الزمنية</a>
+  <ul class="collapse">
+  <li><a href="#حساب-الزمن-المنقضي" id="toc-حساب-الزمن-المنقضي" class="nav-link" data-scroll-target="#حساب-الزمن-المنقضي">حساب الزمن المنقضي</a></li>
+  <li><a href="#حساب-الزمن-لموعد" id="toc-حساب-الزمن-لموعد" class="nav-link" data-scroll-target="#حساب-الزمن-لموعد">حساب الزمن لموعد</a></li>
+  <li><a href="#مقارنة-الوقت" id="toc-مقارنة-الوقت" class="nav-link" data-scroll-target="#مقارنة-الوقت">مقارنة الوقت</a></li>
+  <li><a href="#مقارنة-الفترة" id="toc-مقارنة-الفترة" class="nav-link" data-scroll-target="#مقارنة-الفترة">مقارنة الفترة</a></li>
+  <li><a href="#الجمعة-القادمة" id="toc-الجمعة-القادمة" class="nav-link" data-scroll-target="#الجمعة-القادمة">الجمعة القادمة</a></li>
+  <li><a href="#الجمعة-الفائتة" id="toc-الجمعة-الفائتة" class="nav-link" data-scroll-target="#الجمعة-الفائتة">الجمعة الفائتة</a></li>
+  <li><a href="#حساب-الوقت-باعتبار-منطقتين-زمنيتين" id="toc-حساب-الوقت-باعتبار-منطقتين-زمنيتين" class="nav-link" data-scroll-target="#حساب-الوقت-باعتبار-منطقتين-زمنيتين">حساب الوقت باعتبار منطقتين زمنيتين</a></li>
+  </ul></li>
+  <li><a href="#تنسيق-التاريخ-والوقت" id="toc-تنسيق-التاريخ-والوقت" class="nav-link" data-scroll-target="#تنسيق-التاريخ-والوقت">تنسيق التاريخ والوقت</a></li>
+  <li><a href="#التكرار" id="toc-التكرار" class="nav-link" data-scroll-target="#التكرار">التكرار</a>
+  <ul class="collapse">
+  <li><a href="#يوم-ويوم" id="toc-يوم-ويوم" class="nav-link" data-scroll-target="#يوم-ويوم">يوم ويوم</a></li>
+  <li><a href="#أسبوعي" id="toc-أسبوعي" class="nav-link" data-scroll-target="#أسبوعي">أسبوعي</a></li>
+  <li><a href="#شهريا-إلى-وقت-محدد" id="toc-شهريا-إلى-وقت-محدد" class="nav-link" data-scroll-target="#شهريا-إلى-وقت-محدد">شهريًّا إلى وقت محدد</a></li>
+  <li><a href="#كل-15-دقيقة-لمدة-6-مرات" id="toc-كل-15-دقيقة-لمدة-6-مرات" class="nav-link" data-scroll-target="#كل-15-دقيقة-لمدة-6-مرات">كل 15 دقيقة لمدة 6 مرات</a></li>
+  </ul></li>
+  <li><a href="#معرفة-نصف-الليل-وأثلاثه" id="toc-معرفة-نصف-الليل-وأثلاثه" class="nav-link" data-scroll-target="#معرفة-نصف-الليل-وأثلاثه">معرفة نصف الليل وأثلاثه</a></li>
+  <li><a href="#التاريخ-الهجري-في-بايثون" id="toc-التاريخ-الهجري-في-بايثون" class="nav-link" data-scroll-target="#التاريخ-الهجري-في-بايثون">التاريخ الهجري في بايثون</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الوقت</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>قال الثعالبي (350 هـ - 429 هـ):</p>
+<blockquote class="blockquote">
+<p>الفصل السابع عشر “في تَعْدِيدِ سَاعَاتِ النَّهارِ واللَّيل على أربع وعشرين لفظة”.</p>
+<p>عن حمزة بن الحسن وعليه عهدتها:</p>
+<p><strong>سَاعَاتُ النَّهارِ</strong>: الشُرُوقُ. ثُمَّ البكورُ. ثُمَّ الغُدْوَةُ. ثُمَّ الضُّحَى. ثُمَّ الهاجِرَةُ. ثُمَّ الظَهِيرَةُ. ثُمَّ الرَّوَاحُ. ثُمَّ العَصْرُ. ثُمَّ القَصْرُ. ثُمَّ الأصِيلُ. ثُمَّ العَشِيُّ. ثُمَّ الغُروبُ.</p>
+<p><strong>سَاعَاتُ اللَّيلِ</strong>: الشَّفَقُ. ثُمَّ الغَسَقُ. ثُمَّ العَتَمَةُ. ثُمَّ السُّدْفَة. ثُمَّ الفَحْمَةُ. ثُمَّ الزُّلَّةُ. ثُمَّ الزُّلْفةُ. ثُمَّ البُهْرَةُ. ثُمَّ السَّحَرُ. ثُمَّ الفَجْرُ. ثُمَّ الصُّبْحُ. ثُمَّ الصَّباحُ</p>
+</blockquote>
+<p>فكانوا يقسمون الوقت على ثنتي عشرة ساعة من وقت غروب الشمس تتلوها ثنتا عشرة ساعة من وقت طلوعها. فهي <strong>ساعات متغيرة</strong>؛ حيث تبلغ ساعة النهار في الصيف فوق ستين دقيقة معتدلة، وتقصر ساعة الليل. ويحصل العكس في الشتاء: حيث تبلغ ساعة الليل فوق الستين وتقصر ساعة النهار. أما عند اعتدال الشمس في أشهر معيَّنة في خط الاستواء فإن ساعات الليل والنهار متساوية. وهي ما تُقاسُ عليه الزيادة والنقص؛ فتسمى تلك الساعة ذات الستين دقيقة <strong>الساعة المعتدلة</strong>.</p>
+<p>وكان مما يُعرَف به الوقت: <a href="https://ar.wikipedia.org/wiki/%D9%85%D8%B2%D9%88%D9%84%D8%A9"><strong>المِزْوَلَة</strong></a> (الجمع: مِزْوَلَات، مَزَاوِل) هي ساعة شمسية وأداة توقيت نهاري، تتكون من عدة نقاط وخطوط، رسمت على صفيحة عريضة، وفي وسطها عصا مستقيمة أفقية يتحدد الوقت من طول ظلها الناتج عن وقوع أشعة الشمس عليها، حيث تترك ظلا متحركا على النقاط والخطوط، وهي من أقدم آلات قياس الوقت.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Y0kv6koS8gj0LWAWR5O77niskRwDPvPP5A&amp;s.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="مزولة أفقية"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Y0kv6koS8gj0LWAWR5O77niskRwDPvPP5A&amp;s.png" class="img-fluid figure-img" alt="مزولة أفقية"></a></p>
+<figcaption>مزولة أفقية</figcaption>
+</figure>
+</div>
+<p>ولحساب <strong>فترة زمنية</strong> (مؤقِّت) كانوا يقيسون بمقدار الشموع، فيقاس الوقت بالشمعة والاثنين والثلاثة. وكذلك يُقاس بمدة تسرب الماء أو الرمل من وعاءٍ فيه ثقب صغير أو مجرى ضيِّق.</p>
+<p>ثم جاءت <strong>الساعات الميكانيكية الثابتة</strong> التي تعمل على اعتبار أن جميع الساعات 60 دقيقة. فهذه الساعة تعمل بوتيرة ثابتة لا تتغير شتاءً ولا صيْفًا، ولا نهارًا ولا ليلاً .. وظلت هي المتداولة في عصرنا اليوم.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://upload.wikimedia.org/wikipedia/commons/f/f2/Russian_finished_watch_movement.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="ساعة ميكانيكية"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Russian_finished_watch_movement.jpg" class="img-fluid figure-img" style="width:50.0%" alt="ساعة ميكانيكية"></a></p>
+<figcaption>ساعة ميكانيكية</figcaption>
+</figure>
+</div>
+<p>وقد مرَّ ضبط الساعة بأطوار من الدقة، فبدأت من الساعة المتأرجحة (1657) إلى الكرونومتر (1762) إلى مذبذب الكوارتز (1927) إلى الساعة الذرية (1949) إلى ساعة شعاع السيزيوم (1955) إلى ساعة نافورة السيزيوم (1993) إلى الساعة الضوئية (Optical Clock: 2006).</p>
+<section id="الوقت-في-الحاسب" class="level2">
+<h2 class="anchored" data-anchor-id="الوقت-في-الحاسب">الوقت في الحاسب</h2>
+<p>يظهر <strong>وقت التقويم</strong> (Calendar Time) على هذا النحو:</p>
+<ul>
+<li>التاريخ: <code dir="ltr">2024-11-25</code></li>
+<li>الساعات: <code dir="ltr">08:30:25</code></li>
+<li>المنطقة الزمنية: <code dir="ltr">GMT+3</code> (أي: ثلاث ساعات متقدِّمة عن جرينيتش)</li>
+</ul>
+<p>لكن تمثيل الزمن في الحاسب هو: عدد صحيح (<code dir="ltr">int</code>) ويمثِّل عدد الثواني من بزوغ فجر نظام يونكس (Unix Epoch) وهو تاريخ ووقت اعتباطي تمَّ وضعه على أن يكون:</p>
+<ul>
+<li>تاريخ: <code dir="ltr">1970-01-01</code></li>
+<li>الساعة: <code dir="ltr">00:00:00</code></li>
+<li>المنطقة الزمنية: <code dir="ltr">UTC</code> التي هي <code dir="ltr">GMT+0</code></li>
+</ul>
+<p>مثال: لنشير إلى سنة واحدة تمامًا بعد النقطة الصفرية، أي: الساعة 00:00:00 بتاريخ 1 يناير1971 ، فإن السنة الواحدة فيها <code dir="ltr">31,536,000</code> ثانية ، وبالتالي يكون هذا الرقم هو الذي يمثل ذلك الوقت.</p>
+<p>ولو أردت الترجمة بالعكس، فتقول إن <code dir="ltr">1,000,000,000</code> ثانية منذ النقطة الصفرية يوافق 9 سبتمبر 2001 01:46:40 في وقت التقويم على منطقة <code dir="ltr">UTC</code>.</p>
+<p><strong>مشكلة سنة 2038</strong> تحصل في الأنظمة ذات 32-بت؛ إذْ عدد الثواني يصل إلى أقصى مداه عند نقطتين زمنيتين:</p>
+<ul>
+<li>ففي النزول تستطيع أن تصل إلى: <strong>20:45:52 UTC بتاريخ 1901-12-13</strong> (باختيار عدد سالب)</li>
+<li>وكذلك في الصعود؛ لا يمكن أن تتعدى: <strong>03:14:07 UTC بتاريخ 2038-01-19</strong></li>
+</ul>
+<p>والحل في ذلك بسيط، وهو نقل البرنامج لنظام 64-بت.</p>
+</section>
+<section id="التوقيت-العالمي-والمناطق-الزمنية" class="level2">
+<h2 class="anchored" data-anchor-id="التوقيت-العالمي-والمناطق-الزمنية">التوقيت العالمي والمناطق الزمنية</h2>
+<p>ظهر نظام <strong>التوقيت العالمي المنسق</strong> (UTC: Coordinated Universal Time) في عام 1967، لتسهيل التعامل بين الدول والتواصل عبر القارات. فهو نظام للوقت يعتمد على خطوط الطول الأرضية، تقسَّم فيه الجغرافيا <strong>لمناطق زمنية</strong> بحسب بعدها عن خط طول جرينيتش الذي يعتبر نقطة الصفر (UTC+00:00) أي: المرجِع: فما يكون شرقيَّها يكون الفارق فيه بالموجب، وما يكون غربيَّها يكون الفارق فيه بالسالب.</p>
+<p>والمقصود <strong>بالتنسيق</strong> (في التوقيت العالمي) اعتبار الاختلاف اليسير بسبب الثواني الكبسية، فتعاد ضبط الأوقات لاعتبارها.</p>
+<p>وكل منطقة لها <strong>توقيت محلي</strong> تعتمده في معاملاتها اليومية فيما يتعلق بالوقت من تواصل وتنسيق ومواعيد ونحو ذلك. وفي الخريطة التالية نرى تقسيم <strong>المناطق الزمنية</strong> (Timezones) التي تنتمي إليها المناطق الجغرافية:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://upload.wikimedia.org/wikipedia/commons/8/88/World_Time_Zones_Map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="خريطة تظهر تقسيم المناطق الزمنية على الجغرافيا"><img src="https://upload.wikimedia.org/wikipedia/commons/8/88/World_Time_Zones_Map.png" class="img-fluid figure-img" alt="خريطة تظهر تقسيم المناطق الزمنية على الجغرافيا"></a></p>
+<figcaption>خريطة تظهر تقسيم المناطق الزمنية على الجغرافيا</figcaption>
+</figure>
+</div>
+<p>لاحظ أولاً أن الخطوط ليست طوليَّة كما قد يسبق إلى الظن. فإذا تأملت الألوان رأيتها ليست مستقيمة ومستطيلة بل تتعرَّج بحسب حدود الدُّول في الغالب. ليس الوقت المحلي هو فقط زيادة أو نقص من الوقت العالمي .. بل هناك عدة اعتبارات للتحويل بينها:</p>
+<ul>
+<li><strong>مناطق عريضة جغرافيًّا</strong>: كالصين التي تمتد لتغطي مجموعة خطوط طول إلا أنها تعتمد توقيتًا موحَّدًا.</li>
+<li><strong>التوقيت الصيفي</strong>: بعض المناطق الزمنية تقدِّم الوقت ساعة عند الربيع (أو نهاية الشتاء) ثُم تعيدُه في الخريف، وذلك لتنظيم جدوَل الناس بحيث يتعرضوا للشمس أكثر.</li>
+<li><strong>قرارات سياسية</strong>: قررت بعض الدوَّل أن تغير زمن منطقتها في سنة من السنوات؛ فذلك يجب أن يؤخذ في عين الاعتبار عند حساب الأوقات قبل أو بعد هذه السنة لهذه الدُّوَل.</li>
+</ul>
+<p>نخلص من ذلك أن التعامل مع الوقت له اعتبارات كثيرة بسبب ظروف تاريخية وسياسية وليس خاضعًا لقوانين جغرافية أو فيزيائية علمية بحتة. ولذلك ظهرت <strong>قاعدة بيانات للمناطق الزمنية</strong> (بمجهود جماعي) تتضمن معلومات الدول بشكل يتم تحديثه بشكل مستمر لمتابعة هذه التغيرات، تسمَّى: (<a href="https://en.wikipedia.org/wiki/Tz_database">tz database</a>).</p>
+</section>
+<section id="الوقت-في-بايثون" class="level2">
+<h2 class="anchored" data-anchor-id="الوقت-في-بايثون">الوقت في بايثون</h2>
+<p>تستعمل بايثون مجموعة كائنات للتعامل مع الوقت والتاريخ من حيث إجراء العلاقات والحسابات عليها.</p>
+<p>أولاً: <a href="https://docs.python.org/3/library/datetime.html#datetime.date"><code dir="ltr">datetime.date</code></a> وهو تاريخ مثالي يفترض أن التقويم الغريغوري يمتد إلى ما لا نهاية في المستقبل والماضي (رغم أنه في الحقيقة حل مكان التاريخ الجولياني سنة 1582). <strong>خصائصه: السنة والشهر واليوم</strong>.</p>
+<p>ثانيًا: <a href="https://docs.python.org/3/library/datetime.html#time-objects"><code dir="ltr">datetime.time</code></a> هو وقت مثالي يفترض 86,400 ثانية في اليوم (بدون ثوانٍ كبيسة). <strong>خصائصه: الساعة والدقيقة والثانية والميكروثانية وtzinfo</strong> (معلومات المنطقة الزمنية).</p>
+<p>ثالثًا: <a href="https://docs.python.org/3/library/datetime.html#datetime-objects"><code dir="ltr">datetime.datetime</code></a> وهو التاريخ والوقت معًا؛ فلديه خصائص كلا الكائنين.</p>
+<p>رابعًا: <a href="https://docs.python.org/3/library/datetime.html#timedelta-objects"><code dir="ltr">datetime.timedelta</code></a> وهو فترة زمنية. ولكننا سنستبدله بـ <a href="https://dateutil.readthedocs.io/en/stable/examples.html#relativedelta-examples"><code dir="ltr">dateutil.relativedelta</code></a> إذ هي كذلك فترة زمنية إلا أن نطاقها أوسع (تستوعب السنين والأشهر، وتعتبر السنوات الكبيسة في الحسبان).</p>
+<p>وحتى يكون مطابقًا للواقع؛ <strong>فلا بد من نسبة الوقت إلى منطقة زمنيَّة</strong> (كأن تقول الساعة 04:00:00 صباحًا بتوقيت UTC+03)؛ فهذا تسميه بايثون وقت واع (Aware)، وأما الوقت الذي لم تحدد منطقته الزمنية (كما لو قُلت في الساعة 04:00:00 صباحًا) فهذا غير منسوب لمنطقة زمنية وبالتالي فهو ساذج (Naive) على تعبيرهم.</p>
+<p>ويرشدنا مرجع المكتبة للتوسع في استعمال قاعدة بيانات المناطق الزمنية، والقدرة على تفسير التواريخ والأوقات بمرونة لاستخدام مكتبة <a href="https://dateutil.readthedocs.io/en/stable/"><code dir="ltr">dateutil</code></a> المتوفرة في قاعدة بيانات الحزم البايثونية PyPI.</p>
+<p>لتثبيت المكتبة نستعمل <code dir="ltr">uv</code> على النحو التالي:</p>
+<div class="sourceCode" id="cb1" dir="ltr"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add python-dateutil</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>الآن نستورد المكتبة الأساسية <code dir="ltr">datetime</code> ومكتبة <code dir="ltr">dateutil</code>:</p>
+<div id="96b946cd" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> date, time, datetime, timedelta</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dateutil <span class="im">import</span> tz</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>نريد الآن معرفة الوقت العالمي والمحلي، وكذلك الوقت في القاهرة، وكذلك الوقت في لندن (<a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List">هنا قائمة بالأسماء</a>):</p>
+<div id="12f4605a" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(datetime.now(tz<span class="op">=</span>tz.tzutc()))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(datetime.now(tz<span class="op">=</span>tz.tzlocal()))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(datetime.now(tz<span class="op">=</span>tz.gettz(<span class="st">'Africa/Cairo'</span>)))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(datetime.now(tz<span class="op">=</span>tz.gettz(<span class="st">'Europe/London'</span>)))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>2025-06-08 13:41:40.595569+00:00
+2025-06-08 16:41:40.595682+03:00
+2025-06-08 16:41:40.601795+03:00
+2025-06-08 14:41:40.602445+01:00</code></pre>
+</div>
+</div>
+<p>لاحظ أن شكل الوقت كاملاً على النحو التالي:</p>
+<pre dir="ltr"><code>    2024-11-19 11:32:35.355104+03:00
+    YYYY-MM-DD HH:MM:SS.ssssss+HH:MM</code></pre>
+<p>لاحظ أن الوقت منسَّق على هذا النحو:</p>
+<ul>
+<li><code dir="ltr">YYYY-MM-DD</code> هو التاريخ (يبدأ بالسنة ثم الشهر ثم اليوم)</li>
+<li><code dir="ltr">HH:MM:SS.ssssss</code> هو الوقت (بالساعات والدقائق والثواني والميكروثواني)</li>
+<li><code dir="ltr">+HH:MM</code> هو الفرق (بالموجب <code dir="ltr">+</code> أو السالب <code dir="ltr">-</code>) بين الوقت المحلي لتلك المنطقة الزمنية والوقت العالمي المنسق (UTC) على خط جرينيتش وهي منطقة في لندن.</li>
+</ul>
+</section>
+<section id="التفسير-تحويل-النص-إلى-تاريخ-ووقت" class="level2">
+<h2 class="anchored" data-anchor-id="التفسير-تحويل-النص-إلى-تاريخ-ووقت">التفسير: تحويل النص إلى تاريخ ووقت</h2>
+<p>و<a href="https://dateutil.readthedocs.io/en/stable/examples.html#parse-examples">تفسير الوقت</a> أفضل بكثير في مكتبة <code dir="ltr">dateutil</code> بدلاً من استعمال المكتبة الأساسية <code dir="ltr">datetime</code>. وتكثر الحاجة لذلك عند استقبال معلومات من الشبكة أو من ملفات أو من المستخدمين:</p>
+<div id="12b41fec" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dateutil.parser <span class="im">import</span> parse</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>هنا نحدد وقتًا افتراضيًّا عند القراءة، بحيث لو لم توجد المعلومة عند القراءة فإنها تستعمل القيم الابتدائية:</p>
+<div id="9fffab75" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>DEFAULT <span class="op">=</span> datetime(<span class="dv">2003</span>, <span class="dv">9</span>, <span class="dv">25</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>parse(<span class="st">"Thu Sep 25 10:36:28"</span>, default<span class="op">=</span>DEFAULT)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre dir="ltr"><code>datetime.datetime(2003, 9, 25, 10, 36, 28)</code></pre>
+</div>
+</div>
+<p>ونرى في المثال التالي كيف أن المفسر يحاول معرفة المعلومات ولو كانت ناقصة:</p>
+<ul>
+<li>دون السنة</li>
+<li>دون الشهر</li>
+<li>دون الثواني</li>
+<li>دون اليوم</li>
+</ul>
+<div id="5794b68b" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(parse(<span class="st">"Thu Sep 10:36:28"</span>, default<span class="op">=</span>DEFAULT))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(parse(<span class="st">"Thu 10:36:28"</span>, default<span class="op">=</span>DEFAULT))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(parse(<span class="st">"Thu 10:36"</span>, default<span class="op">=</span>DEFAULT))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(parse(<span class="st">"10:36"</span>, default<span class="op">=</span>DEFAULT))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>2003-09-25 10:36:28
+2003-09-25 10:36:28
+2003-09-25 10:36:00
+2003-09-25 10:36:00</code></pre>
+</div>
+</div>
+</section>
+<section id="الحسابات-الزمنية" class="level2">
+<h2 class="anchored" data-anchor-id="الحسابات-الزمنية">الحسابات الزمنية</h2>
+<div id="16fa5806" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dateutil.relativedelta <span class="im">import</span> relativedelta</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="حساب-الزمن-المنقضي" class="level3">
+<h3 class="anchored" data-anchor-id="حساب-الزمن-المنقضي">حساب الزمن المنقضي</h3>
+<div id="0b332544" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>today <span class="op">=</span> datetime.now(tz<span class="op">=</span>tz.tzlocal())</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>birthday <span class="op">=</span> datetime(<span class="dv">1970</span>, <span class="dv">1</span>, <span class="dv">1</span>, tzinfo<span class="op">=</span>tz.tzlocal())</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> relativedelta(today, birthday)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'You are </span><span class="sc">{</span>age<span class="sc">.</span>years<span class="sc">}</span><span class="ss"> years and </span><span class="sc">{</span>age<span class="sc">.</span>months<span class="sc">}</span><span class="ss"> months old'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>You are 55 years and 5 months old</code></pre>
+</div>
+</div>
+</section>
+<section id="حساب-الزمن-لموعد" class="level3">
+<h3 class="anchored" data-anchor-id="حساب-الزمن-لموعد">حساب الزمن لموعد</h3>
+<div id="44f026d8" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb14" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>today <span class="op">=</span> datetime.now(tz<span class="op">=</span>tz.tzlocal())</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>exam_date <span class="op">=</span> datetime(<span class="dv">2045</span>, <span class="dv">1</span>, <span class="dv">15</span>, tzinfo<span class="op">=</span>tz.tzlocal())</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>diff <span class="op">=</span> relativedelta(exam_date, today)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'There are </span><span class="sc">{</span>diff<span class="sc">.</span>days<span class="sc">}</span><span class="ss"> days and </span><span class="sc">{</span>diff<span class="sc">.</span>hours<span class="sc">}</span><span class="ss"> hours remaining'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>There are 6 days and 7 hours remaining</code></pre>
+</div>
+</div>
+</section>
+<section id="مقارنة-الوقت" class="level3">
+<h3 class="anchored" data-anchor-id="مقارنة-الوقت">مقارنة الوقت</h3>
+<div id="af736ddf" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb16" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>now <span class="op">=</span> datetime.now(tz<span class="op">=</span>tz.tzlocal())</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>exam_date <span class="op">=</span> datetime(<span class="dv">2044</span>, <span class="dv">11</span>, <span class="dv">19</span>, hour<span class="op">=</span><span class="dv">9</span>, minute<span class="op">=</span><span class="dv">30</span>, second<span class="op">=</span><span class="dv">0</span>, tzinfo<span class="op">=</span>tz.tzlocal())</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> now <span class="op">&gt;</span> exam_date:</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'The exam has passed'</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> now <span class="op">&lt;</span> exam_date:</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'The exam is coming'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>The exam is coming</code></pre>
+</div>
+</div>
+</section>
+<section id="مقارنة-الفترة" class="level3">
+<h3 class="anchored" data-anchor-id="مقارنة-الفترة">مقارنة الفترة</h3>
+<div id="2072172d" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb18" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>now <span class="op">=</span> datetime.now(tz<span class="op">=</span>tz.tzlocal())</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>exam_date <span class="op">=</span> datetime(<span class="dv">2044</span>, <span class="dv">11</span>, <span class="dv">19</span>, hour<span class="op">=</span><span class="dv">15</span>, minute<span class="op">=</span><span class="dv">30</span>, second<span class="op">=</span><span class="dv">0</span>, tzinfo<span class="op">=</span>tz.tzlocal())</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> relativedelta(now, exam_date).hours <span class="op">&lt;</span> <span class="dv">1</span>:</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Hurry up!'</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> relativedelta(now, exam_date).hours <span class="op">&lt;</span> <span class="dv">4</span>:</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Remember you have an exam today at </span><span class="sc">{</span>exam_date<span class="sc">:</span><span class="op">%</span>H<span class="sc">:</span><span class="op">%</span>M<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'You have plenty of time to prepare for the exam'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>Hurry up!</code></pre>
+</div>
+</div>
+</section>
+<section id="الجمعة-القادمة" class="level3">
+<h3 class="anchored" data-anchor-id="الجمعة-القادمة">الجمعة القادمة</h3>
+<p>نستطيع استعمال الأسماء الدالة على أيام الأسبوع:</p>
+<ul>
+<li><code dir="ltr">SU</code>: Sunday (الأحد)</li>
+<li><code dir="ltr">MO</code>: Monday (الاثنين)</li>
+<li><code dir="ltr">TU</code>: Tuesday (الثلاثاء)</li>
+<li><code dir="ltr">WE</code>: Wednesday (الأربعاء)</li>
+<li><code dir="ltr">TH</code>: Thursday (الخميس)</li>
+<li><code dir="ltr">FR</code>: Friday (الجمعة)</li>
+<li><code dir="ltr">SA</code>: Saturday (السبت)</li>
+</ul>
+<div id="cb4aae60" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb20" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dateutil.rrule <span class="im">import</span> MO, TU, WE, TH, FR, SA, SU</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>ثم نستعملها في إجراءات المكتبة:</p>
+<div id="43575886" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb21" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>today <span class="op">=</span> datetime.now(tz<span class="op">=</span>tz.tzlocal())</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>next_friday <span class="op">=</span> today <span class="op">+</span> relativedelta(days<span class="op">=+</span><span class="dv">1</span>, weekday<span class="op">=</span>FR)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The next Friday is </span><span class="sc">{</span>next_friday<span class="sc">:</span><span class="op">%</span>Y<span class="op">-%</span>m<span class="op">-%</span>d<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>The next Friday is 2025-06-13</code></pre>
+</div>
+</div>
+</section>
+<section id="الجمعة-الفائتة" class="level3">
+<h3 class="anchored" data-anchor-id="الجمعة-الفائتة">الجمعة الفائتة</h3>
+<div id="d20bed8b" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb23" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>last_friday <span class="op">=</span> today <span class="op">-</span> relativedelta(days<span class="op">=+</span><span class="dv">1</span>, weekday<span class="op">=</span>FR(<span class="op">-</span><span class="dv">1</span>))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The last Friday is </span><span class="sc">{</span>last_friday<span class="sc">:</span><span class="op">%</span>Y<span class="op">-%</span>m<span class="op">-%</span>d<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>The last Friday is 2025-06-06</code></pre>
+</div>
+</div>
+</section>
+<section id="حساب-الوقت-باعتبار-منطقتين-زمنيتين" class="level3">
+<h3 class="anchored" data-anchor-id="حساب-الوقت-باعتبار-منطقتين-زمنيتين">حساب الوقت باعتبار منطقتين زمنيتين</h3>
+<p>لديك اجتماع في وقت محدد بتوقيت لندن، وتريد معرفة وقت الوصول بالطائرة إن كانت الرحلة تستغرق 4 ساعات والإقلاع من القاهرة في الساعة 01:00:00 صباحًا والوجهة لندن:</p>
+<div id="d1ccc80d" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb25" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>departure_tz <span class="op">=</span> tz.gettz(<span class="st">'Africa/Cairo'</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>arrival_tz <span class="op">=</span> tz.gettz(<span class="st">'Europe/London'</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>departure_time <span class="op">=</span> datetime(<span class="dv">2044</span>, <span class="dv">11</span>, <span class="dv">19</span>, hour<span class="op">=</span><span class="dv">1</span>, tzinfo<span class="op">=</span>departure_tz)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>arrival_time <span class="op">=</span> departure_time <span class="op">+</span> relativedelta(hours<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'You leave at </span><span class="sc">{</span>departure_time<span class="sc">.</span>astimezone(departure_tz)<span class="sc">}</span><span class="ss"> in Cairo time'</span>)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'You arrive at </span><span class="sc">{</span>arrival_time<span class="sc">.</span>astimezone(arrival_tz)<span class="sc">}</span><span class="ss"> in London time'</span>)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'which corresponds to </span><span class="sc">{</span>arrival_time<span class="sc">.</span>astimezone(departure_tz)<span class="sc">}</span><span class="ss"> in Cairo time'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>You leave at 2044-11-19 01:00:00+02:00 in Cairo time
+You arrive at 2044-11-19 03:00:00+00:00 in London time
+which corresponds to 2044-11-19 05:00:00+02:00 in Cairo time</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="تنسيق-التاريخ-والوقت" class="level2">
+<h2 class="anchored" data-anchor-id="تنسيق-التاريخ-والوقت">تنسيق التاريخ والوقت</h2>
+<p>وانظر الجدول <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">لتنسيق مظهر التاريخ والوقت</a>:</p>
+<div id="55d93a63" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb27" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Departure time: </span><span class="sc">{</span>departure_time<span class="sc">.</span>astimezone(departure_tz)<span class="sc">:</span><span class="op">%</span>d <span class="op">%</span>b<span class="sc">,</span> <span class="op">%</span>X <span class="op">%</span>Z<span class="sc">}</span><span class="ss"> in Cairo time'</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Arrival time: </span><span class="sc">{</span>arrival_time<span class="sc">.</span>astimezone(arrival_tz)<span class="sc">:</span><span class="op">%</span>d <span class="op">%</span>b<span class="sc">,</span> <span class="op">%</span>X <span class="op">%</span>Z<span class="sc">}</span><span class="ss"> in London time'</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'which corresponds to </span><span class="sc">{</span>arrival_time<span class="sc">.</span>astimezone(departure_tz)<span class="sc">:</span><span class="op">%</span>d <span class="op">%</span>b<span class="sc">,</span> <span class="op">%</span>X <span class="op">%</span>Z<span class="sc">}</span><span class="ss"> in Cairo time'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>Departure time: 19 Nov, 01:00:00 EET in Cairo time
+Arrival time: 19 Nov, 03:00:00 GMT in London time
+which corresponds to 19 Nov, 05:00:00 EET in Cairo time</code></pre>
+</div>
+</div>
+</section>
+<section id="التكرار" class="level2">
+<h2 class="anchored" data-anchor-id="التكرار">التكرار</h2>
+<p>تكرار التواريخ يتم في هذه المكتبة باستعمال <a href="https://dateutil.readthedocs.io/en/stable/examples.html#rrule-examples"><code dir="ltr">rrule</code></a> ويحدد على النحو التالي:</p>
+<div id="f957097d" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb29" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dateutil.rrule <span class="im">import</span> rrule</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dateutil.rrule <span class="im">import</span> DAILY, WEEKLY, MONTHLY, YEARLY, HOURLY, MINUTELY, SECONDLY</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dateutil.rrule <span class="im">import</span> MO, TU, WE, TH, FR, SA, SU</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="يوم-ويوم" class="level3">
+<h3 class="anchored" data-anchor-id="يوم-ويوم">يوم ويوم</h3>
+<p>تكرار أوقات بأخذ يوم وترك يوم، ابتداءً من وقت معين في الساعة العاشرة صباحًا:</p>
+<div id="761c7616" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb30" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    rrule(DAILY, interval<span class="op">=</span><span class="dv">2</span>, count<span class="op">=</span><span class="dv">10</span>, dtstart<span class="op">=</span>datetime(<span class="dv">2044</span>, <span class="dv">11</span>, <span class="dv">19</span>, hour<span class="op">=</span><span class="dv">10</span>))</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre dir="ltr"><code>[datetime.datetime(2044, 11, 19, 10, 0),
+ datetime.datetime(2044, 11, 21, 10, 0),
+ datetime.datetime(2044, 11, 23, 10, 0),
+ datetime.datetime(2044, 11, 25, 10, 0),
+ datetime.datetime(2044, 11, 27, 10, 0),
+ datetime.datetime(2044, 11, 29, 10, 0),
+ datetime.datetime(2044, 12, 1, 10, 0),
+ datetime.datetime(2044, 12, 3, 10, 0),
+ datetime.datetime(2044, 12, 5, 10, 0),
+ datetime.datetime(2044, 12, 7, 10, 0)]</code></pre>
+</div>
+</div>
+</section>
+<section id="أسبوعي" class="level3">
+<h3 class="anchored" data-anchor-id="أسبوعي">أسبوعي</h3>
+<div id="2aa4c843" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb32" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    rrule(WEEKLY, interval<span class="op">=</span><span class="dv">1</span>, count<span class="op">=</span><span class="dv">4</span>, dtstart<span class="op">=</span>datetime(<span class="dv">2044</span>, <span class="dv">11</span>, <span class="dv">19</span>, hour<span class="op">=</span><span class="dv">10</span>))</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre dir="ltr"><code>[datetime.datetime(2044, 11, 19, 10, 0),
+ datetime.datetime(2044, 11, 26, 10, 0),
+ datetime.datetime(2044, 12, 3, 10, 0),
+ datetime.datetime(2044, 12, 10, 10, 0)]</code></pre>
+</div>
+</div>
+</section>
+<section id="شهريا-إلى-وقت-محدد" class="level3">
+<h3 class="anchored" data-anchor-id="شهريا-إلى-وقت-محدد">شهريًّا إلى وقت محدد</h3>
+<div id="c926f3aa" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb34" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    rrule(MONTHLY, interval<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>        dtstart<span class="op">=</span>datetime(<span class="dv">2044</span>, <span class="dv">8</span>, <span class="dv">1</span>),</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>        until<span class="op">=</span>datetime(<span class="dv">2045</span>, <span class="dv">4</span>, <span class="dv">1</span>),</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre dir="ltr"><code>[datetime.datetime(2044, 8, 1, 0, 0),
+ datetime.datetime(2044, 9, 1, 0, 0),
+ datetime.datetime(2044, 10, 1, 0, 0),
+ datetime.datetime(2044, 11, 1, 0, 0),
+ datetime.datetime(2044, 12, 1, 0, 0),
+ datetime.datetime(2045, 1, 1, 0, 0),
+ datetime.datetime(2045, 2, 1, 0, 0),
+ datetime.datetime(2045, 3, 1, 0, 0),
+ datetime.datetime(2045, 4, 1, 0, 0)]</code></pre>
+</div>
+</div>
+</section>
+<section id="كل-15-دقيقة-لمدة-6-مرات" class="level3">
+<h3 class="anchored" data-anchor-id="كل-15-دقيقة-لمدة-6-مرات">كل 15 دقيقة لمدة 6 مرات</h3>
+<div id="675cfd36" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb36" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    rrule(MINUTELY, interval<span class="op">=</span><span class="dv">15</span>, count<span class="op">=</span><span class="dv">6</span>, dtstart<span class="op">=</span>datetime(<span class="dv">2044</span>, <span class="dv">11</span>, <span class="dv">19</span>, hour<span class="op">=</span><span class="dv">10</span>))</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre dir="ltr"><code>[datetime.datetime(2044, 11, 19, 10, 0),
+ datetime.datetime(2044, 11, 19, 10, 15),
+ datetime.datetime(2044, 11, 19, 10, 30),
+ datetime.datetime(2044, 11, 19, 10, 45),
+ datetime.datetime(2044, 11, 19, 11, 0),
+ datetime.datetime(2044, 11, 19, 11, 15)]</code></pre>
+</div>
+</div>
+<p>وندعوك للاطلاع على <a href="https://dateutil.readthedocs.io/en/stable/examples.html">المزيد من الأمثلة</a> على مكتبة <code dir="ltr">dateutil</code>.</p>
+</section>
+</section>
+<section id="معرفة-نصف-الليل-وأثلاثه" class="level2">
+<h2 class="anchored" data-anchor-id="معرفة-نصف-الليل-وأثلاثه">معرفة نصف الليل وأثلاثه</h2>
+<p>الليل يبدأ من غروب الشمس وينتهي بطلوع الفجر.</p>
+<p>فإذا كانت الشمس تغرب -مثلاً- في الثامنة مساءً والفجر يطلع في الخامسة صباحاً، فإن نصف الليل يكون عند الساعة الثانية عشر والنصف.</p>
+<p>وطريقة معرفة الثلث الأخير من الليل سهلة، وهي أن تقسم ساعات الليل من غروب الشمس إلى طلوع الفجر على ثلاثة، فآخر قسم هو ثلث الليل الأخير.</p>
+<div id="5320870a" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb38" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_night_times(sunset: datetime, sunrise: datetime):</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Calculate midnight and start of last third of night."""</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    night_duration <span class="op">=</span> sunrise <span class="op">-</span> sunset</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    midnight <span class="op">=</span> sunset <span class="op">+</span> (night_duration <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    first_third_end <span class="op">=</span> sunset <span class="op">+</span> (night_duration <span class="op">/</span> <span class="dv">3</span>)</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    last_third_start <span class="op">=</span> sunrise <span class="op">-</span> (night_duration <span class="op">/</span> <span class="dv">3</span>)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(night_duration.total_seconds() <span class="op">/</span> <span class="dv">3600</span>, <span class="st">"طول الليل"</span>)</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>((<span class="dv">86400</span> <span class="op">-</span> night_duration.total_seconds()) <span class="op">/</span> <span class="dv">3600</span>, <span class="st">"طول النهار"</span>)</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(sunset.strftime(<span class="st">'%I:%M %p'</span>), <span class="st">"غروب الشمس"</span>)</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(first_third_end.strftime(<span class="st">'%I:%M %p'</span>), <span class="st">"نهاية ثلث الليل الأول"</span>)</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(midnight.strftime(<span class="st">'%I:%M %p'</span>), <span class="st">"منتصف الليل"</span>)</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(last_third_start.strftime(<span class="st">'%I:%M %p'</span>), <span class="st">"بداية ثلث الليل الأخير"</span>)</span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(sunrise.strftime(<span class="st">'%I:%M %p'</span>), <span class="st">"طلوع الفجر"</span>)</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>get_night_times(</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>    sunset<span class="op">=</span>datetime(<span class="dv">2044</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">20</span>, <span class="dv">0</span>),  <span class="co"># 8:00 PM</span></span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>    sunrise<span class="op">=</span>datetime(<span class="dv">2044</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">0</span>)   <span class="co"># 5:00 AM</span></span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>9.0 طول الليل
+15.0 طول النهار
+08:00 PM غروب الشمس
+11:00 PM نهاية ثلث الليل الأول
+12:30 AM منتصف الليل
+02:00 AM بداية ثلث الليل الأخير
+05:00 AM طلوع الفجر</code></pre>
+</div>
+</div>
+</section>
+<section id="التاريخ-الهجري-في-بايثون" class="level2">
+<h2 class="anchored" data-anchor-id="التاريخ-الهجري-في-بايثون">التاريخ الهجري في بايثون</h2>
+<p>وأما التاريخ الهجري، فقد تجد له مكتبات خاصة في <a href="https://pypi.org/search/?q=hijri">قاعدة بيانات الحزم البايثونية PyPI</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "تم النسخ!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "تم النسخ!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/hassanalgoz\.github\.io\/python\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<script src="https://utteranc.es/client.js" repo="HassanAlgoz/python" issue-term="og:title" theme="github-light" crossorigin="anonymous" async="">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/00_rewrite/08_objects.html" class="pagination-link" aria-label="الكائنات">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">الكائنات</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/02_numbers/problems.html" class="pagination-link" aria-label="في الأرقام">
+        <span class="nav-page-text">في الأرقام</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

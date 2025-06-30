@@ -1,0 +1,72 @@
+# حل المسائل {.unnumbered}
+
+## كم سيكون عمرك حين كذا؟
+
+```{python}
+future_date = 2050
+today = 2024
+age = 20
+age_then = age + (future_date - today)
+print('you will be', age_then, 'years old in', future_date)
+```
+
+## حساب الأجر
+
+```{python}
+hours = 40
+per_hour_rate = 10
+gross_pay = hours * per_hour_rate
+print('you deserve:', gross_pay, 'SAR')
+```
+
+## حساب الزمن المستغرق للوصول إلى مكان معيَّن
+
+```{python}
+speed = 100
+distance = 200
+time = distance / speed
+print('it will take you', time, 'hours to reach the destination')
+```
+
+## حساب ارتفاع المثلث عن طريق أطوال أضلاعه
+
+```{python}
+import math
+
+a = 3
+b = 4
+c = 5
+
+s = (a + b + c) / 2
+area = math.sqrt(s * (s - a) * (s - b) * (s - c))
+h = 2 * area / c
+print('the height of the triangle is', h)
+```
+
+## نسبة التغير
+
+إذا كنت تصرف في الشهر 1,000 ريال لقضاء حاجياتك، ثم اتبعت استراتيجية معينة، وأردت أن تحسب نسبة التغير في مصروفك، فكيف تعرف النسبة إذا نزلت إلى 650 ريال؟
+
+```{python}
+old_expense = 1000
+new_expense = 650
+
+percentage = (new_expense - old_expense) / old_expense
+print(percentage * 100, '%')
+```
+
+
+## الزيادة النسبية
+
+إذا كنت تمارس الرياضة وتزيد في وزن الحمل 10% أسبوعيًّا .. فإذا بدأت بوزن 20 كيلو، فإلى كم كيلوا ستصل في الأسبوع الرابع؟
+
+```{python}
+increment = 1.10
+
+w1 = 20
+w2 = w1 * increment
+w3 = w2 * increment
+w4 = w3 * increment
+
+print(round(w4, 1))
+```

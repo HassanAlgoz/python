@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ar" xml:lang="ar" dir="rtl"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="مدخل عملي لتعلم البرمجة بلغة بايثون. كتاب موجه للمبتدئين في البرمجة من خلفيات تقنية أو غير تقنية، يعرض المفاهيم الأساسية بلغة واضحة، بتسلسل منطقي، مع مسائل واقعية وتطبيقات نافعة، بعيدًا عن العشوائية والسطحية. يصلح للتعلم الذاتي، وللتدريس كذلك">
+
+<title>ملحق K — النص – البايثونية</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/07_strings/a2_unicode.html" rel="next">
+<link href="../../chapters/06_mapping/b_apps.html" rel="prev">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-800706539903139ffa187a61ec5db5e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "لا يوجد نتائج",
+    "search-matching-documents-text": "الصفحات المطابقة",
+    "search-copy-link-title": "نسخ الرابط إلى الحافظة",
+    "search-hide-matches-text": "إخفاء المطابقات الإضافية",
+    "search-more-match-text": "مطابقة واحدة في هذه الصفحة",
+    "search-more-matches-text": "مطابقات إضافية في هذه الصفحة",
+    "search-clear-button-title": "إزالة",
+    "search-text-placeholder": "ابحث عن...",
+    "search-detached-cancel-button-title": "إلغاء",
+    "search-submit-button-title": "إرسال",
+    "search-label": "البحث"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta name="twitter:title" content="ملحق K — النص – البايثونية">
+<meta name="twitter:description" content="مدخل عملي لتعلم البرمجة بلغة بايثون. كتاب موجه للمبتدئين في البرمجة من خلفيات تقنية أو غير تقنية، يعرض المفاهيم الأساسية بلغة واضحة، بتسلسل منطقي، مع مسائل واقعية وتطبيقات نافعة، بعيدًا عن العشوائية والسطحية. يصلح للتعلم الذاتي، وللتدريس كذلك">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/02_numbers/a_numbers.html">الملحقات</a></li><li class="breadcrumb-item"><a href="../../chapters/07_strings/a1_strings.html"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">النص</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">البايثونية</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/hassanalgoz/python/tree/main/book/" title="الكود المصدر" class="quarto-navigation-tool px-1" aria-label="الكود المصدر"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="المشاركة" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="المشاركة"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="البحث"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">مقدمة</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">إعداد بيئة التطوير</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/01_instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">النص البرمجي</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/02_control_flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">توالي الأوامر</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/03_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الدالة</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/04_sequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">التسلسل</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/05_computer_and_world.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الحاسب والعالم</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/06_text_files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الملفات النصية</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/07_regex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">التعبير النمطي</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/08_objects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">الكائنات</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/09_time.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">مسائل موضوعية</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">في الأرقام</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">حل المسائل</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">في الشرط والتكرار</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">حل المسائل</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_sequences/problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">في الجمع المرتب</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_sequences/solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">حل المسائل</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/06_mapping/c_problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">في الجمع المرقَّم</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">مسائل مفتوحة</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/apps/random_problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">شبه العشوائية</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/apps/sentiment_analysis_problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">تحليل المشاعر</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/apps/sentiment_analysis_solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">الحل</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/apps/ceasar_cipher_problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">التشفير</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">الملحقات</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/a_numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">الأرقام</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">تطبيقات في الأرقام</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/control_flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">توالي الأوامر</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">تطبيقات في توالي الأوامر</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/08_procedural/a1_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">الدالة</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_sequences/a_sequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">التسلسل</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_sequences/apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">تطبيقات في التسلسل</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/06_mapping/a1_set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">المجموعة</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/06_mapping/a2_dict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">القاموس</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/06_mapping/b_apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">تطبيقات في القاموس</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/07_strings/a1_strings.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">النص</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/07_strings/a2_unicode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">L</span>&nbsp; <span class="chapter-title">ترميز الحروف</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/07_strings/regex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">M</span>&nbsp; <span class="chapter-title">التعبير النمطي</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/09_files_and_directories/a1_file_io.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">الملفات</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/11_oop/a1_oop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">البرمجة الكائنية</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../appendix/appendix_collections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">P</span>&nbsp; <span class="chapter-title">خريطة الجُمُوع</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">المحاور</h2>
+   
+  <ul>
+  <li><a href="#إجراءات-مبنية" id="toc-إجراءات-مبنية" class="nav-link active" data-scroll-target="#إجراءات-مبنية">إجراءات مبنيَّة</a></li>
+  <li><a href="#طرائق-شائعة" id="toc-طرائق-شائعة" class="nav-link" data-scroll-target="#طرائق-شائعة">طرائق شائعة</a></li>
+  <li><a href="#طرائق-معروفة" id="toc-طرائق-معروفة" class="nav-link" data-scroll-target="#طرائق-معروفة">طرائق معروفة</a></li>
+  <li><a href="#طرائق-نادرة-الاستعمال" id="toc-طرائق-نادرة-الاستعمال" class="nav-link" data-scroll-target="#طرائق-نادرة-الاستعمال">طرائق نادرة الاستعمال</a></li>
+  <li><a href="#النص-الطبيعي" id="toc-النص-الطبيعي" class="nav-link" data-scroll-target="#النص-الطبيعي">النص الطبيعي</a></li>
+  <li><a href="#النص-المقولب" id="toc-النص-المقولب" class="nav-link" data-scroll-target="#النص-المقولب">النص المُقَوْلَب</a></li>
+  <li><a href="#إنشاء-النص" id="toc-إنشاء-النص" class="nav-link" data-scroll-target="#إنشاء-النص">إنشاء النص</a>
+  <ul class="collapse">
+  <li><a href="#قراءة-الملفات-النصية" id="toc-قراءة-الملفات-النصية" class="nav-link" data-scroll-target="#قراءة-الملفات-النصية">قراءة الملفات النصية</a></li>
+  </ul></li>
+  <li><a href="#الإشارة-لجزء-من-النص" id="toc-الإشارة-لجزء-من-النص" class="nav-link" data-scroll-target="#الإشارة-لجزء-من-النص">الإشارة لجزء من النص</a></li>
+  <li><a href="#النص-ثابت-لا-يقبل-التغير" id="toc-النص-ثابت-لا-يقبل-التغير" class="nav-link" data-scroll-target="#النص-ثابت-لا-يقبل-التغير">النص ثابت لا يقبل التغير</a></li>
+  <li><a href="#العمليات-الخاصة-بالنصوص" id="toc-العمليات-الخاصة-بالنصوص" class="nav-link" data-scroll-target="#العمليات-الخاصة-بالنصوص">العمليات الخاصة بالنصوص</a>
+  <ul class="collapse">
+  <li><a href="#الاستبدال" id="toc-الاستبدال" class="nav-link" data-scroll-target="#الاستبدال">الاستبدال</a></li>
+  <li><a href="#إزالة-المسافات" id="toc-إزالة-المسافات" class="nav-link" data-scroll-target="#إزالة-المسافات">إزالة المسافات</a></li>
+  <li><a href="#البحث-والمطابقة" id="toc-البحث-والمطابقة" class="nav-link" data-scroll-target="#البحث-والمطابقة">البحث والمطابقة</a></li>
+  <li><a href="#الفصل-والوصل" id="toc-الفصل-والوصل" class="nav-link" data-scroll-target="#الفصل-والوصل">الفصل والوصل</a></li>
+  <li><a href="#عمليات-إنجليزية" id="toc-عمليات-إنجليزية" class="nav-link" data-scroll-target="#عمليات-إنجليزية">عمليات إنجليزية</a></li>
+  <li><a href="#تفسير-الأرقام" id="toc-تفسير-الأرقام" class="nav-link" data-scroll-target="#تفسير-الأرقام">تفسير الأرقام</a></li>
+  </ul></li>
+  <li><a href="#إخراج-النص" id="toc-إخراج-النص" class="nav-link" data-scroll-target="#إخراج-النص">إخراج النص</a></li>
+  <li><a href="#المحاذاة-والحشو" id="toc-المحاذاة-والحشو" class="nav-link" data-scroll-target="#المحاذاة-والحشو">المحاذاة والحشو</a></li>
+  <li><a href="#تنسيق-الأرقام" id="toc-تنسيق-الأرقام" class="nav-link" data-scroll-target="#تنسيق-الأرقام">تنسيق الأرقام</a>
+  <ul class="collapse">
+  <li><a href="#محاذاة-الأرقام" id="toc-محاذاة-الأرقام" class="nav-link" data-scroll-target="#محاذاة-الأرقام">محاذاة الأرقام</a></li>
+  <li><a href="#فاصل-الآلاف" id="toc-فاصل-الآلاف" class="nav-link" data-scroll-target="#فاصل-الآلاف">فاصل الآلاف</a></li>
+  <li><a href="#الترميز-العلمي" id="toc-الترميز-العلمي" class="nav-link" data-scroll-target="#الترميز-العلمي">الترميز العلمي</a></li>
+  <li><a href="#الأعداد-العشرية" id="toc-الأعداد-العشرية" class="nav-link" data-scroll-target="#الأعداد-العشرية">الأعداد العشرية</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/02_numbers/a_numbers.html">الملحقات</a></li><li class="breadcrumb-item"><a href="../../chapters/07_strings/a1_strings.html"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">النص</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">ملحق K — النص</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>النص</strong> (<a href="https://docs.python.org/3/library/stdtypes.html#str"><code dir="ltr">str</code></a>) صف من الأحرف. وهو تسلسل ثابت من أرقام الترميز العالمي (Unicode) التي هي رموز تتبع ترميزًا عالميًا يحوي جميع أحرف اللغات بالإضافة إلى علامات الترقيم والرسوم (مثل: 💡🔍📐) ونحوها.</p>
+<p>إليك شجرة النص:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart BT
+    Container[&lt;b&gt;الحاوي&lt;/b&gt;&lt;br&gt;Container]
+    Sized[&lt;b&gt;المحجَّم&lt;/b&gt;&lt;br&gt;Sized]
+    Iterable[&lt;b&gt;القابل للكر&lt;/b&gt;&lt;br&gt;Iterable]
+    Sequence[&lt;b&gt;التسلسل&lt;/b&gt;&lt;br&gt;Sequence]
+    Collection[&lt;b&gt;الجمع&lt;/b&gt;&lt;br&gt;Collection]
+    Collection --&gt; Container
+    Collection --&gt; Sized
+    Collection --&gt; Iterable
+    Sequence --&gt; Collection
+
+    str[&lt;b&gt;النص&lt;/b&gt;&lt;br&gt;&lt;code&gt;str&lt;/code&gt;]
+    str --&gt; Sequence
+    bytes[&lt;b&gt;البايتات&lt;/b&gt;&lt;br&gt;&lt;code&gt;bytes&lt;/code&gt;]
+    bytes --&gt; Sequence
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>وإليك طرائق وإجراءات النص:</p>
+<section id="إجراءات-مبنية" class="level2">
+<h2 class="anchored" data-anchor-id="إجراءات-مبنية">إجراءات مبنيَّة</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">الإجراء</th>
+<th>عمله</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">len(obj) -&gt; int</code></td>
+<td>لمعرفة عدد العناصر.<br>• <code dir="ltr">obj</code>: كائن قابل للعد مثل السلسلة النصية أو القائمة.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></td>
+<td>طباعة.<br>• <code dir="ltr">objects</code>: الكائنات المراد طباعتها.<br>• <code dir="ltr">sep</code>: الفاصل بين الكائنات (افتراضيًا مسافة).<br>• <code dir="ltr">end</code>: النهاية (افتراضيًا سطر جديد).<br>• <code dir="ltr">file</code>: وجهة الطباعة (افتراضيًا الشاشة).<br>• <code dir="ltr">flush</code>: تنظيف المخزن المؤقت فورًا.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">ord(c) -&gt; int</code></td>
+<td>لمعرفة رمز Unicode لحرف.<br>• <code dir="ltr">c</code>: حرف واحد كسلسلة نصية.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">int(x=0, base=10) -&gt; int</code></td>
+<td>تحويل سلسلة نصية إلى عدد صحيح.<br>• <code dir="ltr">x</code>: القيمة المراد تحويلها.<br>• <code dir="ltr">base</code>: النظام العددي (افتراضيًا عشري).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">float(x) -&gt; float</code></td>
+<td>تحويل سلسلة نصية إلى عدد عشري.<br>• <code dir="ltr">x</code>: القيمة المراد تحويلها.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="طرائق-شائعة" class="level2">
+<h2 class="anchored" data-anchor-id="طرائق-شائعة">طرائق شائعة</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">الطريقة</th>
+<th>عمله</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.upper() -&gt; str</code></td>
+<td>تحويل السلسلة النصية إلى أحرف كبيرة.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.lower() -&gt; str</code></td>
+<td>تحويل السلسلة النصية إلى أحرف صغيرة.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.find(sub[, start[, end]]) -&gt; int</code></td>
+<td>البحث عن موضع سلسلة نصية فرعية داخل سلسلة نصية.<br>• <code dir="ltr">sub</code>: السلسلة النصية المراد البحث عنها.<br>• <code dir="ltr">start</code>: موضع بداية البحث (اختياري).<br>• <code dir="ltr">end</code>: موضع نهاية البحث (اختياري).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.replace(old, new[, count]) -&gt; str</code></td>
+<td>استبدال تكرارات سلسلة نصية فرعية داخل سلسلة نصية.<br>• <code dir="ltr">old</code>: السلسلة النصية المراد استبدالها.<br>• <code dir="ltr">new</code>: السلسلة النصية البديلة.<br>• <code dir="ltr">count</code>: عدد مرات الاستبدال (اختياري).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.split(sep=None, maxsplit=-1) -&gt; list</code></td>
+<td>تقسيم السلسلة النصية إلى قائمة من السلاسل النصية الفرعية.<br>• <code dir="ltr">sep</code>: المحدد (افتراضيًا المسافات البيضاء).<br>• <code dir="ltr">maxsplit</code>: أقصى عدد للتقسيمات.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.join(iterable) -&gt; str</code></td>
+<td>دمج عناصر من iterable إلى سلسلة نصية باستخدام فاصل.<br>• <code dir="ltr">iterable</code>: مجموعة من السلاسل النصية.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.strip([chars]) -&gt; str</code></td>
+<td>إزالة المسافات البيضاء من بداية ونهاية السلسلة النصية.<br>• <code dir="ltr">chars</code>: الأحرف المراد إزالتها (اختياري).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.startswith(prefix[, start[, end]]) -&gt; bool</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تبدأ بمقدمة محددة.<br>• <code dir="ltr">prefix</code>: المقدمة المراد التحقق منها.<br>• <code dir="ltr">start</code>: موضع بداية البحث (اختياري).<br>• <code dir="ltr">end</code>: موضع نهاية البحث (اختياري).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.endswith(suffix[, start[, end]]) -&gt; bool</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تنتهي بنهاية محددة.<br>• <code dir="ltr">suffix</code>: النهاية المراد التحقق منها.<br>• <code dir="ltr">start</code>: موضع بداية البحث (اختياري).<br>• <code dir="ltr">end</code>: موضع نهاية البحث (اختياري).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.count(sub[, start[, end]]) -&gt; int</code></td>
+<td>عد عدد تكرارات سلسلة نصية فرعية داخل سلسلة نصية.<br>• <code dir="ltr">sub</code>: السلسلة النصية المراد عدها.<br>• <code dir="ltr">start</code>: موضع بداية البحث (اختياري).<br>• <code dir="ltr">end</code>: موضع نهاية البحث (اختياري).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.format(*args, **kwargs) -&gt; str</code></td>
+<td>إنشاء سلسلة نصية منسقة باستخدام عناصر نائبة.<br>• <code dir="ltr">args</code>: المتغيرات المراد تنسيقها بالترتيب.<br>• <code dir="ltr">kwargs</code>: المتغيرات المراد تنسيقها بالاسم.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="طرائق-معروفة" class="level2">
+<h2 class="anchored" data-anchor-id="طرائق-معروفة">طرائق معروفة</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">الطريقة</th>
+<th>عمله</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.encode(encoding='utf-8', errors='strict') -&gt; bytes</code></td>
+<td>ترميز السلسلة النصية باستخدام ترميز محدد.<br>• <code dir="ltr">encoding</code>: نوع الترميز.<br>• <code dir="ltr">errors</code>: كيفية معالجة الأخطاء.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.casefold() -&gt; str</code></td>
+<td>تحويل السلسلة النصية إلى نسخة casefold للمقارنات غير الحساسة لحالة الأحرف.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.capitalize() -&gt; str</code></td>
+<td>تحويل الحرف الأول من السلسلة النصية إلى حرف كبير.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.center(width[, fillchar]) -&gt; str</code></td>
+<td>توسيط السلسلة النصية داخل عرض حقل محدد.<br>• <code dir="ltr">width</code>: العرض المطلوب.<br>• <code dir="ltr">fillchar</code>: حرف التعبئة (اختياري).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.translate(table) -&gt; str</code></td>
+<td>استبدال الأحرف في السلسلة النصية باستخدام جدول ترجمة.<br>• <code dir="ltr">table</code>: جدول الترجمة.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.expandtabs(tabsize=8) -&gt; str</code></td>
+<td>توسيع أحرف الجدولة في السلسلة النصية.<br>• <code dir="ltr">tabsize</code>: حجم التبويب (افتراضيًا 8).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.index(sub[, start[, end]]) -&gt; int</code></td>
+<td>البحث عن موضع سلسلة نصية فرعية، وإثارة استثناء إذا لم يتم العثور عليها.<br>• <code dir="ltr">sub</code>: السلسلة النصية المراد البحث عنها.<br>• <code dir="ltr">start</code>: موضع بداية البحث (اختياري).<br>• <code dir="ltr">end</code>: موضع نهاية البحث (اختياري).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.rjust(width[, fillchar]) -&gt; str</code></td>
+<td>محاذاة السلسلة النصية إلى اليمين.<br>• <code dir="ltr">width</code>: العرض المطلوب.<br>• <code dir="ltr">fillchar</code>: حرف التعبئة (اختياري).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.ljust(width[, fillchar]) -&gt; str</code></td>
+<td>محاذاة السلسلة النصية إلى اليسار.<br>• <code dir="ltr">width</code>: العرض المطلوب.<br>• <code dir="ltr">fillchar</code>: حرف التعبئة (اختياري).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.swapcase() -&gt; str</code></td>
+<td>تبديل حالة الأحرف في السلسلة النصية.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.title() -&gt; str</code></td>
+<td>تحويل السلسلة النصية إلى حالة عنوان.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.zfill(width) -&gt; str</code></td>
+<td>ملء السلسلة النصية بالأصفار على اليسار.<br>• <code dir="ltr">width</code>: العرض المطلوب.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.splitlines([keepends]) -&gt; list</code></td>
+<td>تقسيم السلسلة النصية إلى قائمة من الأسطر.<br>• <code dir="ltr">keepends</code>: الاحتفاظ بنهايات الأسطر (اختياري).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.partition(sep) -&gt; tuple</code></td>
+<td>تقسيم السلسلة النصية إلى ثلاثة أجزاء.<br>• <code dir="ltr">sep</code>: الفاصل.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="طرائق-نادرة-الاستعمال" class="level2">
+<h2 class="anchored" data-anchor-id="طرائق-نادرة-الاستعمال">طرائق نادرة الاستعمال</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">الطريقة</th>
+<th>عمله</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.isalnum() -&gt; bool</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف أبجدية رقمية.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.isalpha() -&gt; bool</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف أبجدية.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.isdecimal() -&gt; bool</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف عشرية.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.isdigit() -&gt; bool</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أرقام.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.isidentifier() -&gt; bool</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية معرف بايثون صالح.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.islower() -&gt; bool</code></td>
+<td>التحقق مما إذا كانت جميع الأحرف المكونة في السلسلة النصية صغيرة.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.isnumeric() -&gt; bool</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف رقمية.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.isprintable() -&gt; bool</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من أحرف قابلة للطباعة.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.isspace() -&gt; bool</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية تتكون فقط من مسافات بيضاء.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code dir="ltr">str.istitle() -&gt; bool</code></td>
+<td>التحقق مما إذا كانت السلسلة النصية في حالة عنوان.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code dir="ltr">str.isupper() -&gt; bool</code></td>
+<td>التحقق مما إذا كانت جميع الأحرف المكونة في السلسلة النصية كبيرة.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="النص-الطبيعي" class="level2">
+<h2 class="anchored" data-anchor-id="النص-الطبيعي">النص الطبيعي</h2>
+<p><strong>النص الطبيعي</strong> (الحر أو البشري) هو ما لا يتبع هيكلاً أو قالبًا يحكم طريقة كتابته؛ وهو يطول ويقصر من الحرف الواحد إلى مجموعة الأحرف إلى الكلمة إلى الجملة وإلى أكبر من ذلك نحو:</p>
+<ul>
+<li>محادثات وسائل التواصل الاجتماعي</li>
+<li>رسائل البريد الإلكتروني</li>
+<li>مقالات</li>
+<li>كتب</li>
+<li>موسوعات</li>
+<li>صفحات الشبكة</li>
+<li>مواقع الشبكة</li>
+</ul>
+<p>وأوجه معالجة النصوص الحرة كثيرة منها: الفهرسة والبحث والاستبدال والعد والتصنيف والترتيب والقولبة …إلخ.</p>
+</section>
+<section id="النص-المقولب" class="level2">
+<h2 class="anchored" data-anchor-id="النص-المقولب">النص المُقَوْلَب</h2>
+<p><strong>النص المقولَب</strong> الذي يأخذ شكلاً محددًا؛ وله صيغ متعددة يُنشئ الناس منها قوالب للنص لتمثل مجموعات أو ارتباطات من البيانات، كالجداول ونحوها.</p>
+<p>و<strong>صيغ القولبة</strong> كثيرة من أشهرها: <code dir="ltr">XML</code>, <code dir="ltr">YAML</code>, <code dir="ltr">JSON</code>, <code dir="ltr">CSV</code>.</p>
+<p>مثال لقالب بصيغة <code dir="ltr">YAML</code>:</p>
+<div class="sourceCode" id="cb1" dir="ltr"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Name</span><span class="kw">:</span><span class="at"> Adam</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Age</span><span class="kw">:</span><span class="at"> </span><span class="dv">25</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">City</span><span class="kw">:</span><span class="at"> Riyadh</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>مثال لقالب بصيغة <code dir="ltr">JSON</code>:</p>
+<div class="sourceCode" id="cb2" dir="ltr"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"Adam"</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Age"</span><span class="fu">:</span> <span class="dv">25</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"City"</span><span class="fu">:</span> <span class="st">"Riyadh"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>وهذا مثال لقالب بصيغة <code dir="ltr">XML</code>:</p>
+<div class="sourceCode" id="cb3" dir="ltr"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">person</span>&gt;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">name</span>&gt;Adam&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">age</span>&gt;25&lt;/<span class="kw">age</span>&gt;</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">city</span>&gt;Riyadh&lt;/<span class="kw">city</span>&gt;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">person</span>&gt;</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>والصيغة التي تستعمل كثيرًا لتمثيل الجداول (صفوف) هي صيغة <code dir="ltr">CSV</code>. فكل سطرٍ هو صفٌّ في الجدول، وأوَّلُ سطرٍ هو رأس الجدول عادةً. وذلك على النحو التالي:</p>
+<pre class="csv" dir="ltr"><code>Name,Age,City
+Adam,25,Riyadh
+Belal,30,Jeddah
+Camal,35,Dammam</code></pre>
+<p>جرب أن تُنشئ ملفًّا نصيًّا وتكتب فيه ذلك وتحفظه بصيغة <code dir="ltr">csv</code> ثم سترى أنه يمكنك فتحه بمحرر جداول (:مثل إكسل - Excel).</p>
+<p>وستأتي في فصل <a href="../09_files_and_directories/a2_data.qmd">حفظ البيانات واسترجاعها</a> إن شاء الله.</p>
+</section>
+<section id="إنشاء-النص" class="level2">
+<h2 class="anchored" data-anchor-id="إنشاء-النص">إنشاء النص</h2>
+<p>جملة إنشاء النص في بايثون تكون كالتالي:</p>
+<ul>
+<li>بعلامة اقتباس مفردة: <code dir="ltr">'السلام عليكم!'</code></li>
+<li>أو بعلامة اقتباس مزدوجة: <code dir="ltr">"السلام عليكم!"</code> وليس بينهما فرق.</li>
+<li>أو بعلامة اقتاس مكررة ثلاثة مرات: <code dir="ltr">"""السلام عليكم!"""</code> للنص الجاري على أكثر من سطر.</li>
+</ul>
+<p>على سبيل المثال:</p>
+<div id="26bb043a" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Adam'</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>address <span class="op">=</span> <span class="st">"Makkah, Saudi Arabia"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>تأمل إنشاء هذا النص الذي يبتدئ في السطر الأول ويمتد لأربعة أسطر:</p>
+<div id="9459c3be" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">"""السلام عليكم ورحمة الله وبركاته,</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">أبشركم بأنكم قطعتم نصف المشوار.</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="st">شكرًا لكم.</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="st">أخوكم آدم.</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(message)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>السلام عليكم ورحمة الله وبركاته,
+أبشركم بأنكم قطعتم نصف المشوار.
+
+شكرًا لكم.
+أخوكم آدم.
+</code></pre>
+</div>
+</div>
+<section id="قراءة-الملفات-النصية" class="level3">
+<h3 class="anchored" data-anchor-id="قراءة-الملفات-النصية">قراءة الملفات النصية</h3>
+<p>وكثيرًا ما يكون وجود النص في البرنامج ناتجًا عن قراءة ملف نصي بالإجراء <a href="https://docs.python.org/3/library/functions.html#open"><code dir="ltr">open()</code></a> وذلك بإضافة الحرف <code dir="ltr">r</code> ميشرًا إلى أن غرض الفتح للقراءة (ويجب أن يكون الملف موجودًا إلى جانب البرنامج - أي: في نفس المجلد الذي يوجد فيه البرنامج):</p>
+<div class="sourceCode" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'my_file.txt'</span>, <span class="st">'r'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="bu">file</span>.read()</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.close()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(message)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>وسيأتي مزيد بيان في <a href="../../chapters/09_files_and_directories/a1_file_io.html">باب الملفات</a>.</p>
+</section>
+</section>
+<section id="الإشارة-لجزء-من-النص" class="level2">
+<h2 class="anchored" data-anchor-id="الإشارة-لجزء-من-النص">الإشارة لجزء من النص</h2>
+<p>ولكون النص تسلسلاً ثابتًا فإنه يقبل جميع عمليات التسلسل السابق ذكرها (انظر <a href="../../chapters/05_sequences/a_sequences.html">باب المجموعة المرتبة</a>).</p>
+<div id="52d3d672" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>first <span class="op">=</span> s[<span class="dv">0</span>]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>last <span class="op">=</span> s[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(first <span class="op">+</span> last)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>An</code></pre>
+</div>
+</div>
+<pre dir="ltr"><code> 0   1   2   3   4   5   6   7
+ +---+---+---+---+---+---+---+
+ | A | r | a | b | i | a | n |
+ +---+---+---+---+---+---+---+
+-7  -6  -5  -4  -3  -2  -1</code></pre>
+<section id="جرب" class="level4">
+<h4 class="anchored" data-anchor-id="جرب">جرب</h4>
+<ul>
+<li><code dir="ltr">s[1:5]</code></li>
+<li><code dir="ltr">s[1:5:2]</code></li>
+<li><code dir="ltr">s[::2]</code></li>
+<li><code dir="ltr">s[::-1]</code></li>
+</ul>
+<p>لاحظ أن هذا يتحقق كما لو عرفنا صفًّا بالأحرف هذه نفسها:</p>
+<div id="c2ec272c" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb12" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> (<span class="st">'A'</span>, <span class="st">'r'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'i'</span>, <span class="st">'a'</span>, <span class="st">'n'</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>first <span class="op">=</span> s[<span class="dv">0</span>]</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>last <span class="op">=</span> s[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(first <span class="op">+</span> last)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>An</code></pre>
+</div>
+</div>
+<p>لكن الفرق أن النص نوعٌ له إجراءات / عمليات خاصة تتعلق بالنصوص.</p>
+</section>
+</section>
+<section id="النص-ثابت-لا-يقبل-التغير" class="level2">
+<h2 class="anchored" data-anchor-id="النص-ثابت-لا-يقبل-التغير">النص ثابت لا يقبل التغير</h2>
+<p>فالنص تسلسل يشبه الصف في كوْنه <strong>ثابتًا</strong> (أي لا يقبل تعديل عنصر أو إضافته أو حذفه). فلو حاولت تغيير موضعٍ <code dir="ltr">s[i]</code> في النص أو قطعة <code dir="ltr">s[i:j]</code> فإنك ستواجه خطأ:</p>
+<div id="e8ab4899" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb14" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">0</span>] <span class="op">=</span> <span class="st">'a'</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[5]</span><span class="ansi-green-fg">, line 2</span>
+<span class="ansi-green-fg">      1</span> s = <span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">Arabian</span><span class="ansi-yellow-fg">'</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> <span class="ansi-yellow-bg">s</span><span class="ansi-yellow-bg">[</span><span class="ansi-green-fg ansi-yellow-bg">0</span><span class="ansi-yellow-bg">]</span> = <span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">a</span><span class="ansi-yellow-fg">'</span>
+
+<span class="ansi-red-fg">TypeError</span>: 'str' object does not support item assignment</pre>
+</div>
+</div>
+</div>
+<p>لكننا لتعديل النص في الواقع نعيِّنُ إلى نفس المتغير نصًّا جديدًا منه:</p>
+<div id="2f04d30c" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">'a'</span> <span class="op">+</span> s[<span class="dv">1</span>:]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>arabian</code></pre>
+</div>
+</div>
+<p>لاحظ أننا أسندنا النص الجديد إلى المتغير <code dir="ltr">s</code>، وهذا يعني أننا لم نعدل النص الأصلي بل أنشأنا نصًا جديدًا.</p>
+</section>
+<section id="العمليات-الخاصة-بالنصوص" class="level2">
+<h2 class="anchored" data-anchor-id="العمليات-الخاصة-بالنصوص">العمليات الخاصة بالنصوص</h2>
+<section id="الاستبدال" class="level3">
+<h3 class="anchored" data-anchor-id="الاستبدال">الاستبدال</h3>
+<p>لاستبدال جزء من النص، نستخدم طريقة <code dir="ltr">.replace()</code>:</p>
+<div id="44f7f128" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> s.replace(<span class="st">'ian'</span>, <span class="st">'y'</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>Araby</code></pre>
+</div>
+</div>
+<p>وللإزالة من البداية والنهاية: <code dir="ltr">.removeprefix()</code> و <code dir="ltr">.removesuffx()</code></p>
+<div id="0e5439d7" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb19" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Arabian'</span>.removeprefix(<span class="st">'Arab'</span>))</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Arabian'</span>.removesuffix(<span class="st">'ian'</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>ian
+Arab</code></pre>
+</div>
+</div>
+</section>
+<section id="إزالة-المسافات" class="level3">
+<h3 class="anchored" data-anchor-id="إزالة-المسافات">إزالة المسافات</h3>
+<p>كما لدينا علميات <code dir="ltr">.strip()</code> لإزالة المسافات البيضاء من بداية ونهاية النص.</p>
+<div id="2c809487" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb21" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="st">'  Arabian  '</span>.strip() <span class="op">==</span> <span class="st">'Arabian'</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="البحث-والمطابقة" class="level3">
+<h3 class="anchored" data-anchor-id="البحث-والمطابقة">البحث والمطابقة</h3>
+<p>وكذلك لدينا عمليات <strong>البحث</strong>:</p>
+<ul>
+<li>التحقق من البدء والنهاية وما بينهما: <code dir="ltr">.startswith(prefix)</code> و <code dir="ltr">.endswith(suffix)</code> أو <code dir="ltr">sub in string</code> وهي أعم.</li>
+<li>لمعرفة موضع أول ظهور لسلسلة معيَّنة من الأحرف داخل النص <code dir="ltr">.find()</code></li>
+</ul>
+<div id="afeb7dad" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb22" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">'Arabian'</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> s.startswith(<span class="st">'A'</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="kw">not</span> s.startswith(<span class="st">'a'</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> s.endswith(<span class="st">'n'</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="st">'rabia'</span> <span class="kw">in</span> s</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> s.find(<span class="st">'a'</span>) <span class="op">==</span> <span class="dv">2</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="الفصل-والوصل" class="level3">
+<h3 class="anchored" data-anchor-id="الفصل-والوصل">الفصل والوصل</h3>
+<ul>
+<li>فصل النص لقائمة بناءً على جزء فاصل: <code dir="ltr">list.split(seperator)</code></li>
+<li>وصل عناصر القائمة في نص مفصول بجزء فاصل: <code dir="ltr">seperator.join(list)</code></li>
+</ul>
+<p>أولاً: <strong>الفصل</strong>: مثاله قراءة سطر في ملف <code dir="ltr">csv</code> إذْ القيم مفصولة بعلامة الفاصلة <code dir="ltr">,</code>:</p>
+<div id="e5c3f8b5" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb23" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>csv <span class="op">=</span> <span class="st">"Adam,25,Riyadh"</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> csv.split(<span class="st">','</span>) <span class="op">==</span> [<span class="st">'Adam'</span>, <span class="st">'25'</span>, <span class="st">'Riyadh'</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>ولقراءة الملف كاملاً نكرر:</p>
+<ul>
+<li>القيم في السطر الواحد مفصولة بعلامة الفاصلة <code dir="ltr">,</code></li>
+<li>والصفوف مفصولة بعلامة السطر الجديد <code dir="ltr">\n</code></li>
+</ul>
+<p>لذلك سنستعمل الاثنين هنا:</p>
+<div id="6ba68255" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb24" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>csv <span class="op">=</span> <span class="st">"""name,age,city</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="st">Adam,25,Riyadh</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="st">Belal,30,Jeddah</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="st">Camal,35,Dammam"""</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> []</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> csv.split(sep<span class="op">=</span><span class="st">'</span><span class="ch">\n</span><span class="st">'</span>):</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  row <span class="op">=</span> line.split(sep<span class="op">=</span><span class="st">','</span>)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  data.append(row)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>[['name', 'age', 'city'], ['Adam', '25', 'Riyadh'], ['Belal', '30', 'Jeddah'], ['Camal', '35', 'Dammam']]</code></pre>
+</div>
+</div>
+<p>ثانيًا: <strong>الوَصل</strong>: مثاله أننا نحول القائمة إلى نص مفصول بعلامة الفاصلة <code dir="ltr">,</code> وذلك ليكون سطرًا في ملف <code dir="ltr">csv</code>:</p>
+<div id="3316672c" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb26" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="st">'Adam'</span>, <span class="st">'25'</span>, <span class="st">'Riyadh'</span>]</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>seperator <span class="op">=</span> <span class="st">','</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>csv <span class="op">=</span> seperator.join(data)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> csv <span class="op">==</span> <span class="st">'Adam,25,Riyadh'</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="عمليات-إنجليزية" class="level3">
+<h3 class="anchored" data-anchor-id="عمليات-إنجليزية">عمليات إنجليزية</h3>
+<p>وهنا عمليات خاصة بالنصوص الإنجليزية:</p>
+<ul>
+<li><code dir="ltr">upper()</code> نسخة ذات حروف كبيرة.</li>
+<li><code dir="ltr">lower()</code> نسخة ذات حروف صغيرة.</li>
+<li><code dir="ltr">capitalize()</code> نسخة ذات حرف أول كبير من كل كلمة.</li>
+<li><code dir="ltr">title()</code> نسخة ذات حالة عنوان.</li>
+</ul>
+<div id="b15defc5" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb27" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Adam ibraheeM'</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(name.upper())</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(name.lower())</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(name.capitalize())</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(name.title())</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>ADAM IBRAHEEM
+adam ibraheem
+Adam ibraheem
+Adam Ibraheem</code></pre>
+</div>
+</div>
+<p>وانظر <a href="https://docs.python.org/3/library/stdtypes.html#string-methods">مستندات النصوص</a> لمعرفة كافة الإجراءات الممكنة على النصوص.</p>
+</section>
+<section id="تفسير-الأرقام" class="level3">
+<h3 class="anchored" data-anchor-id="تفسير-الأرقام">تفسير الأرقام</h3>
+<p><strong>تفسير الأرقام</strong> المكتوبة نصًّا تكثر الحاجة إليه خصوصًا عند قراءة ملفات أو التعامل مع بيانات من المستخدم، إذ يكون الإدخال نصيًّا:</p>
+<ul>
+<li><code dir="ltr">int(x)</code> لتحويل نص إلى عدد صحيح.</li>
+<li><code dir="ltr">float(x)</code> لتحويل نص إلى عدد عشري.</li>
+</ul>
+<p>لاحظ ناتج عملية جمع رقمين مكتوبين كنصوص:</p>
+<div id="1acf4633" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb29" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">'20'</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="st">'40'</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">+</span> y)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>2040</code></pre>
+</div>
+</div>
+<p>الواجب تحويلهما إلى أعداد أولاًً:</p>
+<div id="f9d699df" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb31" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> <span class="bu">float</span>(x)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> <span class="bu">float</span>(y)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x2 <span class="op">+</span> y2)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>60.0</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="إخراج-النص" class="level2">
+<h2 class="anchored" data-anchor-id="إخراج-النص">إخراج النص</h2>
+<p>نستعرض ثلاث طرق لدمج النصوص في بايثون:</p>
+<ol type="1">
+<li>الأولى: تحويل الشيء إلى نص قبل دمجه مع النص، باستعمال <code dir="ltr">str(x)</code></li>
+<li>الثانية: استعمال فراغات بالقوسين المعكوفين <code dir="ltr">{}</code> مع الإجراء <code dir="ltr">.format()</code> لاستبدالها.</li>
+<li>الثالثة: استعمال <code dir="ltr">f-string</code> بأن تضع الحرف <code dir="ltr">f</code> قبل علامة التنصيص الأولى، ليقبل النص وضع القيم مباشرة داخل الأقواس المعكوفة <code dir="ltr">{}</code>. وهي الطريقة التي نفضلها.</li>
+</ol>
+<div id="d043e7e3" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb33" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">"John"</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>lvl <span class="op">=</span> <span class="dv">300</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>s1 <span class="op">=</span> <span class="st">"I am "</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">" and I want to reach level "</span> <span class="op">+</span> <span class="bu">str</span>(lvl) <span class="co"># + operator</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>s2 <span class="op">=</span> <span class="st">"I am </span><span class="sc">{}</span><span class="st"> and I want to reach level </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(name, lvl)  <span class="co"># .format() method</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>s3 <span class="op">=</span> <span class="ss">f"I am </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> and I want to reach level </span><span class="sc">{</span>lvl<span class="sc">}</span><span class="ss">"</span>            <span class="co"># f-strings</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> s1 <span class="op">==</span> s2 <span class="op">==</span> s3</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s1)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>I am John and I want to reach level 300</code></pre>
+</div>
+</div>
+<p>يقبل النص التكرار بعلامة <code dir="ltr">*</code>:</p>
+<div id="18ca24b9" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb35" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'-'</span> <span class="op">*</span> <span class="dv">10</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'*'</span> <span class="op">*</span> <span class="dv">10</span>)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'='</span> <span class="op">*</span> <span class="dv">10</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>----------
+**********
+==========</code></pre>
+</div>
+</div>
+</section>
+<section id="المحاذاة-والحشو" class="level2">
+<h2 class="anchored" data-anchor-id="المحاذاة-والحشو">المحاذاة والحشو</h2>
+<div id="b22e1dd7" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb37" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Adam'</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(name.ljust(<span class="dv">15</span>)) </span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(name.center(<span class="dv">15</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>Adam           
+      Adam     </code></pre>
+</div>
+</div>
+<p>طريقة ممتعة لتزيين سلسلة نصية باستخدام الإجراء <code dir="ltr">center</code>:</p>
+<div id="8b21d683" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb39" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'*'</span> <span class="op">*</span> <span class="dv">20</span>)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Adam'</span>.center(<span class="dv">20</span>, <span class="st">"*"</span>))</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'*'</span> <span class="op">*</span> <span class="dv">20</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>********************
+********Adam********
+********************</code></pre>
+</div>
+</div>
+</section>
+<section id="تنسيق-الأرقام" class="level2">
+<h2 class="anchored" data-anchor-id="تنسيق-الأرقام">تنسيق الأرقام</h2>
+<section id="محاذاة-الأرقام" class="level3">
+<h3 class="anchored" data-anchor-id="محاذاة-الأرقام">محاذاة الأرقام</h3>
+<div id="04b09ab2" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb41" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="dv">100</span><span class="sc">:10}</span><span class="ss">'</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="dv">1000</span><span class="sc">:10}</span><span class="ss">'</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="dv">10000</span><span class="sc">:10}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>       100
+      1000
+     10000</code></pre>
+</div>
+</div>
+<p>يمكننا أيضًا جعل كل من العدد <code dir="ltr">n</code> والتعبئة <code dir="ltr">p</code> متغيرات:</p>
+<div id="ce4b54b3" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb43" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>  100</code></pre>
+</div>
+</div>
+<p>بشكل افتراضي، يتم محاذاة الرقم إلى اليمين. يمكننا محاذاته إلى اليسار بإضافة <code dir="ltr">&lt;</code>. لاحظ الفرق بين التعبيرين أدناه:</p>
+<div id="567e10fc" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb45" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span><span class="op">&gt;</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>n<span class="sc">:</span><span class="op">&lt;</span>{p}<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>  100
+100  </code></pre>
+</div>
+</div>
+</section>
+<section id="فاصل-الآلاف" class="level3">
+<h3 class="anchored" data-anchor-id="فاصل-الآلاف">فاصل الآلاف</h3>
+<div id="5d67978d" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb47" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>big_num <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>big_num<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>big_num<span class="sc">:,}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>10000
+10,000</code></pre>
+</div>
+</div>
+</section>
+<section id="الترميز-العلمي" class="level3">
+<h3 class="anchored" data-anchor-id="الترميز-العلمي">الترميز العلمي</h3>
+<div id="76b317e0" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb49" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>small_num <span class="op">=</span> <span class="fl">0.00001</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>small_num<span class="sc">:.2e}</span><span class="ss">"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>1.00e-05</code></pre>
+</div>
+</div>
+</section>
+<section id="الأعداد-العشرية" class="level3">
+<h3 class="anchored" data-anchor-id="الأعداد-العشرية">الأعداد العشرية</h3>
+<div id="1859de78" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb51" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="fl">10.5689</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.0f}</span><span class="ss">'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>10.5689
+10.5689
+10.57
+11</code></pre>
+</div>
+</div>
+<section id="مثال-تنسيق-الكم-المالي" class="level4">
+<h4 class="anchored" data-anchor-id="مثال-تنسيق-الكم-المالي">مثال: تنسيق الكم المالي</h4>
+<div id="187ad9c4" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb53" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>price_dollars <span class="op">=</span> <span class="fl">2978.95</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>price_riyals <span class="op">=</span> price_dollars <span class="op">*</span> <span class="fl">3.75</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"$</span><span class="sc">{</span>price_dollars<span class="sc">:,.2f}</span><span class="ss"> = </span><span class="sc">{</span>price_riyals<span class="sc">:,.2f}</span><span class="ss"> SAR"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>$2,978.95 = 11,171.06 SAR</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "تم النسخ!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "تم النسخ!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/hassanalgoz\.github\.io\/python\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<script src="https://utteranc.es/client.js" repo="HassanAlgoz/python" issue-term="og:title" theme="github-light" crossorigin="anonymous" async="">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/06_mapping/b_apps.html" class="pagination-link" aria-label="تطبيقات في القاموس">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">تطبيقات في القاموس</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/07_strings/a2_unicode.html" class="pagination-link" aria-label="ترميز الحروف">
+        <span class="nav-page-text"><span class="chapter-number">L</span>&nbsp; <span class="chapter-title">ترميز الحروف</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></div></div></footer></body></html>
