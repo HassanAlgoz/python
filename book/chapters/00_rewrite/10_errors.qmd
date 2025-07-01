@@ -213,6 +213,105 @@ def main():
 main()
 ```
 
+## كيف نقرأ رسالة الخطأ؟
+
+وغالبًا تظهر لك رسالة خطأ (كبيرة أحيانًا)
+وذلك يحصل حين يُترَك ولا يلتقط بجملة `try-except`
+إذْ أن بايثون في تلك الحالة تقوم بالآتي:
+
+1. وضع ملاحظات على سلسلة الاستدعاءات التي أدت إلى الخطأ
+   1. اسم الملف
+   2. رقم السطر مع سهم يشير إليه
+2. إيقاف البرنامج
+3. إظهار رسالة الخطأ
+
+فهذا نفس المثال، لكننا سنحذف `try-catch` لنترك الخطأ ليصعد إلى الأعلى:
+
+```{python}
+#|error: true
+
+some_condition = True
+
+def f4():
+    print('f4')
+
+def f3():
+    print('f3:start')
+    if some_condition:
+        raise Exception("something went wrong")
+    f4()            # <-- لن يتم تنفيذ هذا السطر بسبب رفع الاستثناء
+    print('f3:end') # <-- لن يتم تنفيذ هذا السطر بسبب رفع الاستثناء
+
+def f2():
+    print('f2:start')
+    f3()
+    print('f2:end')
+
+def f1():
+    print('f1:start')
+    f2()
+    print('f1:end')
+
+def main():
+    print("main:start")
+    f1()
+    print("main:end")
+
+main()
+```
+
+فيما يلي نتأمل رسالة الخطأ التي ظهرت..
+
+فترى في أول قطعة **الإجراء الذي بدأ ذلك التسلسل كله**
+وهو `main`:
+
+```
+Exception                                 Traceback (most recent call last)
+Cell In[18], line 28
+     25     f1()
+     26     print("main:end")
+---> 28 main()
+```
+
+ثم بعد ذلك ترى **كومة الاستدعاءات** (Stack Trace)
+وفي أسفل ذلك كله، ترى **السبب المباشر** للخطأ:
+
+```
+Cell In[18], line 25, in main()
+     23 def main():
+     24     print("main:start")
+---> 25     f1()
+     26     print("main:end")
+
+Cell In[18], line 20, in f1()
+     18 def f1():
+     19     print('f1:start')
+---> 20     f2()
+     21     print('f1:end')
+
+Cell In[18], line 15, in f2()
+     13 def f2():
+     14     print('f2:start')
+---> 15     f3()
+     16     print('f2:end')
+
+Cell In[18], line 9, in f3()
+      7 print('f3:start')
+      8 if some_condition:
+----> 9     raise Exception("something went wrong")
+     10 f4()
+     11 print('f3:end')
+```
+
+وأما السطر الأخير بعد ذلك كله، فإنه **مخلص للخطأ**، وهو أول ما يجب أن تقرأ:
+
+1. النوع (مثل: `Exception` وهو أب جميع الأخطاء)
+2. التفاصيل بلغة طبيعية (مثل: `something went wrong`)
+
+```
+Exception: something went wrong
+```
+
 ## جملة المحاولة (`try-except`)
 
 تنفذ التعليمات في لغة البرمجة الأمرية (Imperative) كبايثون بحسب ترتيبها (من الأعلى إلى الأسفل). لكن عند حدوث خطأ، يتغيَّر سيْر الأوامر باستعمال جملة `try-except`. وشكل جملة التعامل مع الخطأ على هذا النحو:
@@ -428,6 +527,12 @@ a.do_something()
 - تأكد من تثبيت الوحدة في البيئة التي يعمل فيها البرنامج:
   - إذا كنت تستعمل `pip` فالأمر: `pip install numpy`
   - إذا كنت تستعمل `uv` فالأمر: `uv add numpy` (وهو الذي ننصح به)
+
+## قراءة تسلسل الاستدعاءات إلى الخطأ
+
+
+
+
 
 ## تعريف أخطاء جديدة
 
