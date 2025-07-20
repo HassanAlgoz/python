@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-800706539903139ffa187a61ec5db5e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-81c45c98caf4abd5206f796100e44dec.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -512,7 +512,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>مكتبة <a href="https://pypi.org/project/regex/"><code dir="ltr">regex</code></a> الخارجية والتي تدعم الترميز العالمي (Unicode) المهم للغة العربية.</li>
 </ul>
 <p>وسيكون حديثنا في هذا الباب عن المكتبة <code dir="ltr">re</code>. فنقوم باستيرادها كغيرها:</p>
-<div id="ff27b2fd" class="cell" data-execution_count="2">
+<div id="48c9bc2f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وتستعمل الأحرف لتحديد النمط، ولذلك فإن بعضها له دلالة خاصة دون غيره.</p>
@@ -535,7 +535,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>علامة <code dir="ltr">-</code> في نحو: <code dir="ltr">[a-b]</code> فإنها تدل على <strong>الأحرف بين الحرفين (شاملة لهما)</strong></li>
 </ul>
 <p>تأمل المثال التالي:</p>
-<div id="a7850443" class="cell" data-execution_count="3">
+<div id="ad41fa0d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"I am 21 years old"</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>pattern <span class="op">=</span> <span class="st">"[0-9][0-9]"</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>match <span class="op">=</span> re.search(pattern, text)</span>
@@ -549,7 +549,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>ويأتي الإجراء <a href="https://docs.python.org/3/library/re.html#search-vs-match"><code dir="ltr">re.search</code></a> للبحث داخل النص <code dir="ltr">text</code> عن النمط <code dir="ltr">pattern</code>؛ والنتيجة من النوع <a href="https://docs.python.org/3/library/re.html#match-objects"><code dir="ltr">Match</code></a> إذا وُجد النمط، وإلا فيكون <code dir="ltr">None</code>.</li>
 </ul>
 <p>ولاستخراج النص المطابق نستعمل الفعل <code dir="ltr">match.group()</code> هكذا:</p>
-<div id="2be3beb2" class="cell" data-execution_count="4">
+<div id="06723fdd" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> match:</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(match.group())</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -597,7 +597,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>ولتجنب التعارض بين حرف <code dir="ltr">\</code> المقصود في النص البايثوني المعروف، والاختصارات التي نريدها؛ فقد وضعت بايثون حرف <code dir="ltr">r</code> لتعطيل خصوصية الحرف <code dir="ltr">\</code> حتى تُكتَب الأنماط النصية بمى يسمى <strong>النص الخام</strong> (raw string) كما سيأتي.</p>
 <section id="الأرقام" class="level3">
 <h3 class="anchored" data-anchor-id="الأرقام">الأرقام</h3>
-<div id="2d3be1a9" class="cell" data-execution_count="5">
+<div id="6ad9a7c2" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"I am 21 years old"</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pattern <span class="op">=</span> <span class="vs">r"</span><span class="dv">\d\d</span><span class="vs">"</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>match <span class="op">=</span> re.search(pattern, text)</span>
@@ -624,7 +624,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="الحروف" class="level3">
 <h3 class="anchored" data-anchor-id="الحروف">الحروف</h3>
 <p>وأما لمطابقة الحروف فإننا قد نستعمل الاختصار <code dir="ltr">\w</code>، والنمط التالي يقول: <strong>أي حرفين يتوسطهما حرف <code dir="ltr">a</code></strong> مثل: <code dir="ltr">cat</code> أو <code dir="ltr">bat</code> أو <code dir="ltr">rat</code>. والخارج من هذا النمط هو كلمة: <code dir="ltr">dog</code>.</p>
-<div id="f416aaed" class="cell" data-execution_count="6">
+<div id="bb19672a" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>animals <span class="op">=</span> [</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cat"</span>,</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"bat"</span>,</span>
@@ -654,13 +654,13 @@ rat</code></pre>
 <section id="طرف-الكلمة-b" class="level3">
 <h3 class="anchored" data-anchor-id="طرف-الكلمة-b">طرف الكلمة <code dir="ltr">\b</code></h3>
 <p>يطابق الرمز <code dir="ltr">\b</code>، وتستعمل للسياقات التي نريد فيها المطابقة الكليَّة للكلمة، لا أن تكون جُزءًا من كلمة أخرى.</p>
-<div id="6d8c6fd7" class="cell" data-execution_count="7">
+<div id="e8891453" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb12" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>text1 <span class="op">=</span> <span class="st">"My ear"</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>text2 <span class="op">=</span> <span class="st">"I arrived early"</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>text3 <span class="op">=</span> <span class="st">"This is the end of the year"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>لاحظ في المثال التالي أن النمط لا يطابق إلا النص الأوَّل، وذلك لأنه يشترط أن تكون الكلمة ذات حافة في الأول وفي الأخير:</p>
-<div id="3b223384" class="cell" data-execution_count="8">
+<div id="aed7c02a" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>entire <span class="op">=</span> <span class="vs">r"</span><span class="dv">\b</span><span class="vs">"</span> <span class="op">+</span> <span class="st">"ear"</span> <span class="op">+</span> <span class="vs">r"</span><span class="dv">\b</span><span class="vs">"</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(re.search(entire, text1))</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(re.search(entire, text2))</span>
@@ -672,7 +672,7 @@ None</code></pre>
 </div>
 </div>
 <p>لاحظ في المثال التالي مطابقة الأول والثاني، لكوْن اشتراط الحافة في البداية فقط:</p>
-<div id="e3056f46" class="cell" data-execution_count="9">
+<div id="6152d624" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>starts <span class="op">=</span> <span class="vs">r"</span><span class="dv">\b</span><span class="vs">"</span> <span class="op">+</span> <span class="st">"ear"</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(re.search(starts, text1))</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(re.search(starts, text2))</span>
@@ -684,7 +684,7 @@ None</code></pre>
 </div>
 </div>
 <p>وأما هذا المثال الأخير، فيطابق الأول والأخير، لكوْنهما ذوي حافة في النهاية:</p>
-<div id="bb666bf9" class="cell" data-execution_count="10">
+<div id="0f677870" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ends   <span class="op">=</span> <span class="st">"ear"</span> <span class="op">+</span> <span class="vs">r"</span><span class="dv">\b</span><span class="vs">"</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(re.search(ends, text1))</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(re.search(ends, text2))</span>
@@ -710,7 +710,7 @@ None
 </ul>
 <p>ولتحديد مجموعة من الأحرف ضمن النمط نستعمل القوسين الدائريين: <code dir="ltr">( )</code> حول النمط ليكون <strong>مجموعة مطابقة</strong> (<a href="https://docs.python.org/3/howto/regex.html#grouping">Match Group</a>).</p>
 <p>مثلاً، تريد مطابقة السعر في النصوص التالية:</p>
-<div id="1acb23a1" class="cell" data-execution_count="11">
+<div id="491afdae" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>prices <span class="op">=</span> [</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"it costs 123"</span>,</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"I bought it for 12.3 last time"</span>,</span>
@@ -718,7 +718,7 @@ None
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>فتستعمل المنط التالي:</p>
-<div id="2ffeb395" class="cell" data-execution_count="12">
+<div id="2f27d5fe" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb20" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>pattern <span class="op">=</span> <span class="vs">r"</span><span class="dv">\d</span><span class="op">+</span><span class="kw">(</span><span class="ch">\.</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="op">?</span><span class="vs">"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ويتكون من ثلاثة أجزاء:</p>
@@ -734,7 +734,7 @@ None
 <li><code dir="ltr">\d+</code> رقم، مرة أو أكثر</li>
 </ul></li>
 </ul>
-<div id="1ce0b8e1" class="cell" data-execution_count="13">
+<div id="fe9e79c1" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb21" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> prices:</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    match <span class="op">=</span> re.search(pattern, p)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> match:</span>
@@ -775,34 +775,34 @@ price: 12.34</code></pre>
 <li><code dir="ltr">span()</code></li>
 </ul>
 <p>وبالمثال يتضح المقال:</p>
-<div id="a8d1be4b" class="cell" data-execution_count="14">
+<div id="5974258f" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb23" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"Pushups 20 reps 4 sets"</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>pattern <span class="op">=</span> <span class="vs">r"</span><span class="dv">\d</span><span class="op">+</span><span class="vs">"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>الأمر الأول: المطابقة بالفعل <code dir="ltr">.match()</code> تكون من بداية النص. وبالتالي فإنك لو طابقت على هذا النص كاملاً فلن تطابقها، مع أن المطابقة تنفع مع الرقم وحده. مطابقة على النص كاملاً:</p>
-<div id="1bec8491" class="cell" data-execution_count="15">
+<div id="c74bb140" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb24" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(re.match(pattern, text))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>None</code></pre>
 </div>
 </div>
 <p>مطابقة على الرقم وحده (متحققة):</p>
-<div id="8f1b80ad" class="cell" data-execution_count="16">
+<div id="1d6eae67" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb26" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(re.match(pattern, <span class="st">"20"</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>&lt;re.Match object; span=(0, 2), match='20'&gt;</code></pre>
 </div>
 </div>
 <p>لذلك نستعمل المطابقة بالفعل <code dir="ltr">.search()</code> للبحث عن النمط في أي موضع من النص:</p>
-<div id="e2ab6b6c" class="cell" data-execution_count="17">
+<div id="565c1a1b" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb28" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(re.search(pattern, text))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>&lt;re.Match object; span=(8, 10), match='20'&gt;</code></pre>
 </div>
 </div>
 <p>ويمكننا الوصول لصفات المطابقة:</p>
-<div id="c9a9d463" class="cell" data-execution_count="18">
+<div id="9f78582c" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb30" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> re.search(pattern, text)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(m.group())</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(m.start(), m.end())</span>
@@ -814,7 +814,7 @@ price: 12.34</code></pre>
 </div>
 </div>
 <p>لكن المطابقة أتت بعدد واحد، وقصدنا أن نطابقهما كليهما: <code dir="ltr">20</code> و <code dir="ltr">4</code> في المثال. ولذلك نستعمل الإجراء <code dir="ltr">.findall()</code> على النحو التالي:</p>
-<div id="69e28edf" class="cell" data-execution_count="19">
+<div id="5d55da13" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb32" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>ol <span class="op">=</span> re.findall(pattern, text)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ol)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -822,7 +822,7 @@ price: 12.34</code></pre>
 </div>
 </div>
 <p>فإن أردت المطابقة (<code dir="ltr">Match</code>) (لا النص المطابَق)، فاستعمال الإجراء <code dir="ltr">.finditer()</code> على النحو التالي:</p>
-<div id="15f0468a" class="cell" data-execution_count="20">
+<div id="0ae2e282" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb34" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>it <span class="op">=</span> re.finditer(pattern, text)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> m <span class="kw">in</span> it:</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(m)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -870,7 +870,7 @@ price: 12.34</code></pre>
 </tbody>
 </table>
 <p>ونمثل باستعمال العلم <code dir="ltr">re.IGNORECASE</code> إذْ نحتاج إليه في مطابقة الكلمات اللاتينية، لاحظ الفرق في المطابقتين:</p>
-<div id="d57f2a45" class="cell" data-execution_count="21">
+<div id="4a88fd4b" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb36" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"She is she."</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> m <span class="kw">in</span> re.finditer(<span class="vs">r"</span><span class="pp">[a-z]</span><span class="op">+</span><span class="vs">"</span>, text):</span>
@@ -896,7 +896,7 @@ price: 12.34</code></pre>
 <section id="استخراج-المجموعات-من-النص" class="level2">
 <h2 class="anchored" data-anchor-id="استخراج-المجموعات-من-النص">استخراج المجموعات من النص</h2>
 <p>وتستعمل <strong>المحددات الكمية</strong> (َQuantifiers) لوصف التاريخ بأنه: أربعة أرقام ثم شرطة ثم رقمان ثم شرطة ثم رقمان. وأما الأقواس فلتقسيمها عند القراءة.</p>
-<div id="6ef9c21c" class="cell" data-execution_count="22">
+<div id="06208100" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb39" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"This dates back to 1970-06-29"</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>pattern <span class="op">=</span> <span class="vs">r"</span><span class="kw">(</span><span class="dv">\d</span><span class="op">{4}</span><span class="kw">)</span><span class="vs">-</span><span class="kw">(</span><span class="dv">\d</span><span class="op">{2}</span><span class="kw">)</span><span class="vs">-</span><span class="kw">(</span><span class="dv">\d</span><span class="op">{2}</span><span class="kw">)</span><span class="vs">"</span></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>match <span class="op">=</span> re.search(pattern, text)</span>
@@ -915,7 +915,7 @@ price: 12.34</code></pre>
 </div>
 <p>لاحظ أن المجموعة <code dir="ltr">0</code> تطابق الكُلّ. ولذلك فإننا عندما كنا نستعمل <code dir="ltr">.group()</code> من قبل، كان الأصل استخراج كل النص إذا طابق النمط. لكننا الآن نعلم أن <code dir="ltr">1</code> و <code dir="ltr">2</code> و <code dir="ltr">3</code> الآن تطابق أجزاءً في النمط نفسه بحسب الأقواس الموضوعة فيه.</p>
 <p>وهذا مثال آخر فيه <strong>تضمين قوسين داخل قوسين</strong>، وبه تتضح دلالة الأرقام المعطاة للإجراء <code dir="ltr">.group(n)</code> بوضوح:</p>
-<div id="a7a93b11" class="cell" data-execution_count="23">
+<div id="628171e3" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb41" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"20 Reps 4 Sets"</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> re.search(<span class="vs">r"</span><span class="kw">((</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="vs"> Reps</span><span class="kw">)</span><span class="vs"> </span><span class="kw">((</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="vs"> Sets</span><span class="kw">)</span><span class="vs">"</span>, text)</span>
@@ -936,7 +936,7 @@ price: 12.34</code></pre>
 <section id="تسمية-المجموعات" class="level2">
 <h2 class="anchored" data-anchor-id="تسمية-المجموعات">تسمية المجموعات</h2>
 <p>من خصائص محرك مطابقة الأنماط في لغة بايثون خصوصًا؛ إمكانية تسمية المجموعات في النمط، ليتم استخراجها بالاسم. وتكون التسمية بعد القوس الأول هكذا: <code dir="ltr">(?P&lt;name&gt;...)</code> حيث تمثل الـ <code dir="ltr">...</code> النمط النصي. وذلك على النحو التالي:</p>
-<div id="947d026b" class="cell" data-execution_count="24">
+<div id="d765f5d8" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb43" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"Muhammad AlKhwarizmi, Polymath"</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> re.search(<span class="vs">r"</span><span class="kw">(</span><span class="fu">?P&lt;first_name&gt;</span><span class="dv">\w</span><span class="op">+</span><span class="kw">)</span><span class="vs"> </span><span class="kw">(</span><span class="fu">?P&lt;last_name&gt;</span><span class="dv">\w</span><span class="op">+</span><span class="kw">)</span><span class="vs">, </span><span class="dv">\w</span><span class="op">+</span><span class="vs">"</span>, text)</span>
@@ -951,7 +951,7 @@ AlKhwarizmi</code></pre>
 </div>
 </div>
 <p>وكذلك يكون في المجموعات المضمنة:</p>
-<div id="10370c2d" class="cell" data-execution_count="25">
+<div id="87aa5fb1" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb45" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"20 Reps 4 Sets"</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> re.search(<span class="vs">r"</span><span class="kw">((</span><span class="fu">?P&lt;reps&gt;</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="vs"> Reps</span><span class="kw">)</span><span class="vs"> </span><span class="kw">((</span><span class="fu">?P&lt;sets&gt;</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="vs"> Sets</span><span class="kw">)</span><span class="vs">"</span>, text)</span>
@@ -983,7 +983,7 @@ AlKhwarizmi</code></pre>
 <section id="تفسير-التعبير-النمطي-مرة-واحدة" class="level2">
 <h2 class="anchored" data-anchor-id="تفسير-التعبير-النمطي-مرة-واحدة">تفسير التعبير النمطي مرة واحدة</h2>
 <p>قد استعملنا إجراءات المكتبة مباشرة في نحو: <code dir="ltr">re.match()</code> و <code dir="ltr">re.search()</code> وغيرها. فهي تأخذ النمط وتفسره ثم تنفذه بحزمة مكتوبة بلغة سي (C). فإذا كان النمط يستعمل كثيرًا فإن عملية التفسير تتم عدة مرات، <strong>وذلك هدر!</strong> ولتفسير النمط مرة واحدة ثم تطبيقه عدة مرات (من غير تكرار التفسير) نستعمل إجراء <strong>التفسير</strong> <code dir="ltr">re.compile()</code> على النحو التالي:</p>
-<div id="cb4050e9" class="cell" data-execution_count="26">
+<div id="7aa95416" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb47" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>text1 <span class="op">=</span> <span class="st">"She is she."</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>text2 <span class="op">=</span> <span class="st">"They are they."</span></span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1007,7 +1007,7 @@ AlKhwarizmi</code></pre>
 </div>
 </div>
 <p>وحتى يتبين الفرق، قارنها مع القطعة التي <strong>لم نستعمل فيها التفسير المسبق</strong>؛ فهو يتكررفي كل مرة:</p>
-<div id="d6573e85" class="cell" data-execution_count="27">
+<div id="74068dee" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb49" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>text1 <span class="op">=</span> <span class="st">"She is she."</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>text2 <span class="op">=</span> <span class="st">"They are they."</span></span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1056,7 +1056,7 @@ AlKhwarizmi</code></pre>
 <h2 class="anchored" data-anchor-id="مسألة-ترتيب-سجل-التمارين-الملخبط">مسألة: ترتيب سجل التمارين الملخبط</h2>
 <p><strong>المطلوب</strong>: استخرج من هذا النص التمارين، وعدد الجلسات. فإن كان التمرين فيه وزن فاستخرج الوزن واجعل وحدة القياس واحدة (إما بالكيل أو بالباوند).</p>
 <p><strong>نص السجل</strong>:</p>
-<div id="f22eae58" class="cell" data-execution_count="28">
+<div id="a2800481" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb51" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"""</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="st">Pushups 30 reps 3 sets</span></span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="st">5 reps 2 sets Pullups</span></span>

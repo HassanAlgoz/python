@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-800706539903139ffa187a61ec5db5e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-81c45c98caf4abd5206f796100e44dec.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -696,7 +696,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="مكتبة-المسار-pathlib" class="level2">
 <h2 class="anchored" data-anchor-id="مكتبة-المسار-pathlib">مكتبة المسار (<code dir="ltr">pathlib</code>)</h2>
-<div id="d2ef40ba" class="cell" data-execution_count="2">
+<div id="bf4e5dd6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>تعنى <strong>مكتبة المسار</strong> (<a href="https://docs.python.org/3/library/pathlib.html"><code dir="ltr">pathlib</code></a>) بجميع ما يخص المسار: إنشائه والبحث فيه والاستعلام عن مدلوله والسير فيه.</p>
@@ -764,7 +764,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="المشي-على-جميع-ملفات-الشجرة" class="level2">
 <h2 class="anchored" data-anchor-id="المشي-على-جميع-ملفات-الشجرة">المشي على جميع ملفات الشجرة</h2>
 <p>نستعمل الفعل <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk"><code dir="ltr">.walk()</code></a> لطرق جميع فروع المسار:</p>
-<div id="bfe5b8eb" class="cell" data-execution_count="3">
+<div id="cb761cfc" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb12" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Path(<span class="st">'../../datasets/example_root/'</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> dirpath, dirnames, filenames <span class="kw">in</span> p.walk(top_down<span class="op">=</span><span class="va">True</span>):</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(dirpath)</span>
@@ -775,16 +775,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre dir="ltr"><code>../../datasets/example_root
     something.txt
 ../../datasets/example_root/a
-    A_domestic_cat.jpg
-    zzz.txt
-    A_domestic_cat.jpgZone.Identifier
     a.txt
+    A_domestic_cat.jpgZone.Identifier
+    zzz.txt
+    A_domestic_cat.jpg
 ../../datasets/example_root/b
-    DSC0532_(9120523417).jpg
-    A_yellow_and_white_cat.jpg
-    DSC0532_(9120523417).jpgZone.Identifier
-    b.txt
     A_yellow_and_white_cat.jpgZone.Identifier
+    A_yellow_and_white_cat.jpg
+    b.txt
+    DSC0532_(9120523417).jpg
+    DSC0532_(9120523417).jpgZone.Identifier
 ../../datasets/example_root/c
     c.txt
 ../../datasets/example_root/c/c_inner

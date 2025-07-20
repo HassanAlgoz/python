@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-800706539903139ffa187a61ec5db5e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-81c45c98caf4abd5206f796100e44dec.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -533,7 +533,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>بلا ترتيب</strong>: فليس للعنصر موضِع (0, 1, 2 …) كما هو الحال في الجمع المرتَّب</li>
 </ul>
 <p>أو بالقوسين المتعرجين <code dir="ltr">{}</code> أو بالإجراء المُنشئ <a href="https://docs.python.org/3/library/stdtypes.html#set"><code dir="ltr">set()</code></a> على النحو التالي:</p>
-<div id="30b1ef59" class="cell" data-execution_count="2">
+<div id="ee7ea269" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> {<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>}</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>s1 <span class="op">=</span> <span class="bu">set</span>((<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>))</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>s2 <span class="op">=</span> <span class="bu">set</span>([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>])</span>
@@ -633,11 +633,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p>ولا يشترط <strong>تجانس العناصر</strong>؛ بل يجوز أن تكون أنواعها مختلفة:</p>
-<div id="e4133194" class="cell" data-execution_count="3">
+<div id="162a8fe0" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> {<span class="dv">10</span>, <span class="dv">20</span>, <span class="st">'hello'</span>, <span class="va">True</span>, (<span class="dv">300</span>, <span class="dv">400</span>)}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ونرى عمليات المجموعة عليها: العد، والعضوية والتكرار:</p>
-<div id="48ceb7eb" class="cell" data-execution_count="4">
+<div id="e9a7b305" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">len</span>(s) <span class="op">==</span> <span class="dv">5</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="st">'hello'</span> <span class="kw">in</span> s</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="dv">300</span> <span class="kw">not</span> <span class="kw">in</span> s</span>
@@ -647,14 +647,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(x)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>True
-hello
-20
 (300, 400)
-10</code></pre>
+20
+10
+hello</code></pre>
 </div>
 </div>
 <p>وكون المجموعة غير مرتبة، فإنها لا تسجل موقع العنصر أو ترتيب إدراجه. وبالتالي، فإنها لا تقبل الإشارة (<code dir="ltr">xs[i]</code>) أو التقطيع (<code dir="ltr">xs[i:j]</code>) أو أي سلوك يشبه المتسلسلات. لاحظ الخطأ التالي:</p>
-<div id="eca77475" class="cell" data-execution_count="5">
+<div id="33c3c1e8" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> {<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>}</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>xs[<span class="dv">0</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -673,7 +673,7 @@ hello
 <h2 class="anchored" data-anchor-id="التحقق-السريع">التحقق السريع</h2>
 <p>عرفنا أن المجموعة تقبل إجراء العضوية <code dir="ltr">x in s</code>، ولكن ثمة خصوصية لهذا الإجراء في المجموعة. وهذه الخصوصية تكمن في سرعة هذا الإجراء في المجموعة مقارنة بسرعة عمله في المجموعة المرتبة.</p>
 <p>فهذه المقارنة تكون بالمجموعة <code dir="ltr">{}</code>:</p>
-<div id="aa1232b9" class="cell" data-execution_count="6">
+<div id="aa286130" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>black_set <span class="op">=</span> {<span class="st">"192.168.1.1"</span>, <span class="st">"10.0.0.5"</span>, <span class="st">"172.16.0.2"</span>}</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ip <span class="op">=</span> <span class="st">"10.0.0.5"</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ip <span class="kw">in</span> black_set:</span>
@@ -683,7 +683,7 @@ hello
 </div>
 </div>
 <p>وتكون كذلك في القائمة <code dir="ltr">[]</code>:</p>
-<div id="1fbc14bc" class="cell" data-execution_count="7">
+<div id="efb0aaad" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>black_list <span class="op">=</span> [<span class="st">"192.168.1.1"</span>, <span class="st">"10.0.0.5"</span>, <span class="st">"172.16.0.2"</span>]</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ip <span class="op">=</span> <span class="st">"10.0.0.5"</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ip <span class="kw">in</span> black_list:</span>
@@ -707,7 +707,7 @@ hello
 <li>وكذلك <strong>تحقق</strong>: (<strong>الجزئية والشمول والانفاصل</strong>).</li>
 </ul>
 <p>وهذه القطعة مثال لجميع هذه العمليات الرياضية:</p>
-<div id="72a686c9" class="cell" data-execution_count="8">
+<div id="850f0399" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>set1 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>set2 <span class="op">=</span>          {<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -722,7 +722,7 @@ hello
 <figcaption>اتحاد مجموعتين</figcaption>
 </figure>
 </div>
-<div id="de7dfa72" class="cell" data-execution_count="9">
+<div id="1203d213" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>.union(set1, set2)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre dir="ltr"><code>{1, 2, 3, 4, 5, 6, 7, 8}</code></pre>
@@ -737,7 +737,7 @@ hello
 <figcaption>تقاطع مجموعتين</figcaption>
 </figure>
 </div>
-<div id="3f6f5cd6" class="cell" data-execution_count="10">
+<div id="a048a5b6" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>.intersection(set1, set2)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre dir="ltr"><code>{4, 5}</code></pre>
@@ -752,13 +752,13 @@ hello
 <figcaption>الفرق</figcaption>
 </figure>
 </div>
-<div id="9074c261" class="cell" data-execution_count="11">
+<div id="a70cc0aa" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>.difference(set1, set2)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre dir="ltr"><code>{1, 2, 3}</code></pre>
 </div>
 </div>
-<div id="2d60a436" class="cell" data-execution_count="12">
+<div id="38312654" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>.difference(set2, set1)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre dir="ltr"><code>{6, 7, 8}</code></pre>
@@ -773,7 +773,7 @@ hello
 <figcaption>الفرق التماثلي</figcaption>
 </figure>
 </div>
-<div id="a703d6d2" class="cell" data-execution_count="13">
+<div id="f4163651" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>.symmetric_difference(set1, set2)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre dir="ltr"><code>{1, 2, 3, 6, 7, 8}</code></pre>
@@ -860,12 +860,12 @@ hello
 <figcaption>الجزئية والشمول</figcaption>
 </figure>
 </div>
-<div id="01368ab3" class="cell" data-execution_count="14">
+<div id="a4856c59" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>}</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وهذا مثال لاستعمالها كما في الجدول:</p>
-<div id="45d8a2f4" class="cell" data-execution_count="15">
+<div id="82b0c81b" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb22" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> A.issubset(B)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> B.issuperset(A)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -873,7 +873,7 @@ hello
 <section id="الانفصال" class="level3">
 <h3 class="anchored" data-anchor-id="الانفصال">الانفصال</h3>
 <p>وأما الانفصال، فهو عدم وجود أدنى تقاطع بين المجموعتين:</p>
-<div id="f16f9eb2" class="cell" data-execution_count="16">
+<div id="0f16faf3" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb23" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> {<span class="st">'Apple'</span>, <span class="st">'Banana'</span>}</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> C.isdisjoint(A)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> C.isdisjoint(B)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
