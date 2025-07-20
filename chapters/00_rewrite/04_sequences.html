@@ -516,7 +516,7 @@ window.Quarto = {
 
 
 <p>لنفترض أننا نريد حساب مجموع عدد صفحات القراءة خلال الأسبوع. فنجعل لكل يوم متغيرًا تحفظ فيه عدد الصفحات التي قرأناها في ذلك اليوم.</p>
-<div id="77aafab8" class="cell" data-execution_count="1">
+<div id="fac7ea09" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>day1 <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>day2 <span class="op">=</span> <span class="dv">15</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>day3 <span class="op">=</span> <span class="dv">30</span></span>
@@ -526,7 +526,7 @@ window.Quarto = {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>day7 <span class="op">=</span> <span class="dv">5</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ثم نريد جمع ذلك كله، لمعرفة مجموع الصفحات خلال الأسبوع</p>
-<div id="a1178cb0" class="cell" data-execution_count="2">
+<div id="056c7f79" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> day1 <span class="op">+</span> day2 <span class="op">+</span> day3 <span class="op">+</span> day4 <span class="op">+</span> day5 <span class="op">+</span> day6 <span class="op">+</span> day7</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -534,7 +534,7 @@ window.Quarto = {
 </div>
 </div>
 <p>ونريد أن نعرف المعدَّل اليومي، وذلك بقسمة المجموع على عدد الأيام:</p>
-<div id="7caaa817" class="cell" data-execution_count="3">
+<div id="2838a902" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> total <span class="op">/</span> <span class="dv">7</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mean)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -549,7 +549,7 @@ window.Quarto = {
 </ol>
 <p>حسنًا لو أردنا أن نعرف المعدل اليومي خلال الشهر؟ ماذا لو قلنا خلال السنة؟ الأمر سيطول كثيرًا.</p>
 <p>وهذا النمط في البرمجة هو: <strong>عرض مجموع بيانات على إجراء</strong> واحدة تلو الأخرى من أولها إلى آخرها. وتعبر بايثون عن <strong>القائمة</strong> (<code dir="ltr">list</code>) التي هي سلسلة بيانات، بالقوسين المربعين <code dir="ltr">[]</code> على النحو التالي:</p>
-<div id="1b7c6b32" class="cell" data-execution_count="4">
+<div id="57a9cb00" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>days <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">0</span>, <span class="dv">5</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
@@ -557,7 +557,7 @@ window.Quarto = {
 <li>ولمعرفة عدد العناصر إجراء <code dir="ltr">len(list)</code></li>
 </ul>
 <p>فنوظفهما لمقصدنا كالتالي:</p>
-<div id="9fad727b" class="cell" data-execution_count="5">
+<div id="bdce5508" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="bu">sum</span>(days)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> total <span class="op">/</span> <span class="bu">len</span>(days)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -572,7 +572,7 @@ window.Quarto = {
 <section id="التعيين-النسبي" class="level2">
 <h2 class="anchored" data-anchor-id="التعيين-النسبي">التعيين النسبي</h2>
 <p>وجب علينا أولاً أن نرجع إلى جملة <strong>التعيين</strong> (Assignment) التي عرفناها في الفصل الأوَّل. تذكر أن علامة <code dir="ltr">=</code> هي جملة تعيين وليست مساواةً كما في الرياضيات. فالتعيين اللاحق ناسخٌ لأي تعيين يسبقه.</p>
-<div id="4070ebb6" class="cell" data-execution_count="6">
+<div id="1fa94ea8" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -581,7 +581,7 @@ window.Quarto = {
 </div>
 </div>
 <p>ولك أيضًا أن تستعملها لزيادة المتغير أو إنقاصه، وهو ما يسمى <strong>التعيين النسبي</strong>:</p>
-<div id="94631734" class="cell" data-execution_count="7">
+<div id="a3864a4c" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> x <span class="op">+</span> <span class="dv">100</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> x <span class="op">-</span> <span class="dv">50</span></span>
@@ -596,7 +596,7 @@ window.Quarto = {
 <p>ثم سطر الطرح: ننظر أوَّلاً للطرف الأيمن فنعوِّض المتغير <code dir="ltr">x</code> بقيمتها <code dir="ltr">200</code> ثم نُجري العملية: (<code dir="ltr">200 - 50</code>) ثم يتم تعيين حاصل ذلك بموجب علامة التعيين <code dir="ltr">=</code> للطرف الأيسر: <code dir="ltr">x</code>. فتصبح قيمة <code dir="ltr">x</code> بعد السطر الثالث: <code dir="ltr">150</code>.</p>
 <p>وقل مثل ذلك في الضرب والقسمة.</p>
 <p>وتعبِّر بايثون <strong>للتعين النسبي</strong> (Augmented Assignment) باختصار هكذا:</p>
-<div id="2fc723b6" class="cell" data-execution_count="8">
+<div id="f6a19865" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">+=</span> <span class="dv">100</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">-=</span> <span class="dv">50</span></span>
@@ -611,7 +611,7 @@ window.Quarto = {
 <section id="الكر" class="level2">
 <h2 class="anchored" data-anchor-id="الكر">الكر</h2>
 <p>نعود إلى مسألتنا وهي تعريف إجراء يحسب مجموع الأعداد. لمعرفة كيفية ذلك؛ فإن بايثون تعبِّر عن آليَّة العبور على العناصر بجملة <strong>الكر</strong> (Iteration) وتبدأ بكلمة <code dir="ltr">for</code> وذلك على النحو التالي (وسنجعلها في إجراء):</p>
-<div id="46e03fae" class="cell" data-execution_count="9">
+<div id="659b663e" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sum2(numbers):</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  total <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> x <span class="kw">in</span> numbers:</span>
@@ -620,7 +620,7 @@ window.Quarto = {
 </div>
 <p>لاحظ أننا استعملنا اسمًا لا يتعارض مع الاسم الموجود. والمتغير <code dir="ltr">total</code> في هذا السياق يسمى <strong>المُراكِم</strong> (Accumulator) إذْ يُستعمَل لتحصيل القيمة النهائية خطوة بعد خطوة. وأما جملة الكر (<code dir="ltr">for x in numbers</code>) فإنها تمرُّ على عناصر المجموعة <code dir="ltr">numbers</code>، فتقرأ أول واحدٍ فيها فتسميه <code dir="ltr">x</code> ثم تنفذ ما وضعنا في جسدها. ثم تأخذ الثاني فتفعل مثل ذلك. ثم تأخذ الثالث فتفعل مثل ذلك. وهلم جرا .. حتى تمر على آخر عنصر. وأما جملة الرجوع <code dir="ltr">return total</code> فهي التي ترجع بقيمة المتغير الذي فيه النتيجة.</p>
 <p>ثم نستعمل هذا الإجراء:</p>
-<div id="c3c500ad" class="cell" data-execution_count="10">
+<div id="05323d22" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> sum2(days)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(z)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -628,7 +628,7 @@ window.Quarto = {
 </div>
 </div>
 <p>وأما إجراء العد <code dir="ltr">len()</code> فعلى هذا النحو:</p>
-<div id="ef37b893" class="cell" data-execution_count="11">
+<div id="39a6759d" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb18" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> len2(numbers):</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  count <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> _ <span class="kw">in</span> numbers:</span>
@@ -637,7 +637,7 @@ window.Quarto = {
 </div>
 <p>ولاحظ أننا وضعنا <code dir="ltr">_</code> بدلاً من <code dir="ltr">x</code> لأنه لا تهمنا قيمة أي عنصر في المجموعة. فهدفنا مجرد العد من الأول إلى الأخير.</p>
 <p>ونستعمل هذا الإجراء:</p>
-<div id="ed6e4a0a" class="cell" data-execution_count="12">
+<div id="d15b0335" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> len2(days)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -645,12 +645,12 @@ window.Quarto = {
 </div>
 </div>
 <p>والآن نستطيع أن نركب هذين الإجرائين لمعرفة المعدَّل، وسنعرف إجراءً له:</p>
-<div id="70d762dc" class="cell" data-execution_count="13">
+<div id="b65d6662" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mean(numbers):</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> sum2(numbers) <span class="op">/</span> len2(numbers)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ونستعمل هذا الإجراء:</p>
-<div id="af523c0a" class="cell" data-execution_count="14">
+<div id="64235caf" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb22" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> mean(days)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(m)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -661,7 +661,7 @@ window.Quarto = {
 <section id="الإشارة" class="level2">
 <h2 class="anchored" data-anchor-id="الإشارة">الإشارة</h2>
 <p>إننا بالتعبير بالقوسين المربعين <code dir="ltr">[]</code> اختصرنا كثيرًا من التكرار في الكتابة. لكن لو سئلت كيف تقرأ قيمة اليوم الأخير؟ أو كيف تقرأ قيمة اليوم الأوَّل؟ فقد كان الجواب عن ذلك باستعمال اسم المتغير: <code dir="ltr">day1</code> و <code dir="ltr">day7</code> على النحو التالي:</p>
-<div id="3882468a" class="cell" data-execution_count="15">
+<div id="4dee88c7" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb24" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(day1)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(day7)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -670,7 +670,7 @@ window.Quarto = {
 </div>
 </div>
 <p>وهذا يمكن التعبير عنه بعامل الإشارة <code dir="ltr">[i]</code>، حيث تكون الإشارة نسبةً إلى بداية التسلسل. فالعنصر الأوَّل هو <code dir="ltr">[0]</code> والعنصر الثاني هو <code dir="ltr">[1]</code> وهلمَّ جرا. فتقول:</p>
-<div id="05008e93" class="cell" data-execution_count="16">
+<div id="f7b3657c" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb26" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(days[<span class="dv">0</span>])</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(days[<span class="dv">6</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -679,7 +679,7 @@ window.Quarto = {
 </div>
 </div>
 <p>وتستطيع أن تعرف اليوم الأخير، بعد العناصر بالإجراء <code dir="ltr">len()</code> ثم تطرح منه <code dir="ltr">1</code> وتجعل النتيجة في عامل الإشارة <code dir="ltr">[i]</code> كالتالي:</p>
-<div id="224d2192" class="cell" data-execution_count="17">
+<div id="42f62687" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb28" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="bu">len</span>(days) <span class="op">-</span> <span class="dv">1</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(days[i])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -687,7 +687,7 @@ window.Quarto = {
 </div>
 </div>
 <p>وحتى لا يطول ذلك، فإن بايثون تعبر عنه باختصار بالإشارة بالسالب هكذا <code dir="ltr">[-1]</code> كالتالي:</p>
-<div id="964e9fef" class="cell" data-execution_count="18">
+<div id="4b80c375" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb30" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(days[<span class="op">-</span><span class="dv">1</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>5</code></pre>
@@ -697,7 +697,7 @@ window.Quarto = {
 <section id="قائمة-طويلة" class="level2">
 <h2 class="anchored" data-anchor-id="قائمة-طويلة">قائمة طويلة</h2>
 <p>وتخيل أن هذه البيانات استمرَّت شهرًا فيه أربعة أسابيع، هكذا:</p>
-<div id="d479a528" class="cell" data-execution_count="19">
+<div id="4cc6744c" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb32" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>days <span class="op">=</span> [</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">20</span>,  <span class="dv">8</span>,</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">30</span>, <span class="dv">20</span>, <span class="dv">15</span>, <span class="dv">50</span>, <span class="dv">30</span>,  <span class="dv">5</span>, <span class="dv">10</span>,</span>
@@ -706,14 +706,14 @@ window.Quarto = {
 <span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وأما جعلها في أربعة أسطر، فإنه من قبيل الترتيب، ولا يؤثر في معناها بالنسبة لبايثون. فلو أردت عددها فسترى أنها <span class="math inline">\(7 \times 4 = 28\)</span> عنصرًا:</p>
-<div id="73054e69" class="cell" data-execution_count="20">
+<div id="7746e63d" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb33" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(days))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>28</code></pre>
 </div>
 </div>
 <p>وكذلك الأول والثاني والثالث، والأخير والذي قبله والذي قبله:</p>
-<div id="44c09c49" class="cell" data-execution_count="21">
+<div id="628e9be8" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb35" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(days[<span class="dv">0</span>])</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(days[<span class="dv">1</span>])</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(days[<span class="dv">2</span>])</span>
@@ -730,7 +730,7 @@ window.Quarto = {
 </div>
 </div>
 <p>والأوسَط:</p>
-<div id="2f47ee12" class="cell" data-execution_count="22">
+<div id="bc019854" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb37" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>mid <span class="op">=</span> <span class="bu">len</span>(days) <span class="op">//</span> <span class="dv">2</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(days[mid])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -742,7 +742,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="إجراء-الحساب-على-بعض-القائمة">إجراء الحساب على بعض القائمة</h2>
 <p>هب أننا نريد أن نحسب مجموع ما قرأناه في آخر يومين من كل أسبوع. ونريد أن نعرف في كل كرة موضعنا من التسلسل حتى نعرف هل نحن في وسط الأسبوع أم في آخره.</p>
 <p>تزودنا بايثون بدالة النطاق <code dir="ltr">range(start, stop, step)</code> وبالاستعمال تتضح:</p>
-<div id="0b934e02" class="cell" data-execution_count="23">
+<div id="7e06f62c" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb39" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>):</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -761,7 +761,7 @@ window.Quarto = {
 </ul>
 <p>وهذا يعني أننا نبدأ من <code dir="ltr">0</code> ونصل إلى <code dir="ltr">10</code> بخطوة مقدارها <code dir="ltr">2</code>، فنحصل على الأعداد: <code dir="ltr">0, 2, 4, 6, 8</code>. ولاحظ أن النهاية غير مشمولة.</p>
 <p>وإذا مررنا معطيين، فإنهما يفسرنا على أنهما البداية والنهاية، والقيمة الافتراضية للخطوة هي <code dir="ltr">1</code>:</p>
-<div id="9782d680" class="cell" data-execution_count="24">
+<div id="79c79dd0" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb41" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">10</span>):</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -777,7 +777,7 @@ window.Quarto = {
 </div>
 </div>
 <p>وإذا كان المعطى واحدًا؛ فإنه يفسَّر بأنه النهاية، والقيمة الافتراضية للبداية هي <code dir="ltr">0</code>:</p>
-<div id="9346042f" class="cell" data-execution_count="25">
+<div id="6d4bfbc2" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb43" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -794,7 +794,7 @@ window.Quarto = {
 </div>
 </div>
 <p>والآن نستعمل النطاق لتوليد الأرقام بحيث تكون النهاية هي عدد الأيام، فيحصل لنا هذا الكر:</p>
-<div id="ee681a19" class="cell" data-execution_count="26">
+<div id="47eadde9" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb45" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(days)):</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -835,7 +835,7 @@ window.Quarto = {
 <li>وأما نهاية الأسبوع الرابع فهي <code dir="ltr">26</code> و <code dir="ltr">27</code></li>
 </ul>
 <p>فنستطيع أن نقول:</p>
-<div id="7a8627c6" class="cell" data-execution_count="27">
+<div id="46f89126" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb47" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(days)):</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">==</span> <span class="dv">5</span> <span class="kw">or</span> i <span class="op">==</span> <span class="dv">6</span> <span class="kw">or</span> i <span class="op">==</span> <span class="dv">12</span> <span class="kw">or</span> i <span class="op">==</span> <span class="dv">13</span> <span class="kw">or</span> i <span class="op">==</span> <span class="dv">19</span> <span class="kw">or</span> i <span class="op">==</span> <span class="dv">20</span> <span class="kw">or</span> i <span class="op">==</span> <span class="dv">26</span> <span class="kw">or</span> i <span class="op">==</span> <span class="dv">27</span>:</span>
@@ -854,7 +854,7 @@ window.Quarto = {
 </figure>
 </div>
 <p>وهذه العملية التي تراها في الصورة، نعبر عنها في بايثون بباقي القسمة <code dir="ltr">%</code> من حاصل زيادة المدة إلى الساعة:</p>
-<div id="c3c77e13" class="cell" data-execution_count="28">
+<div id="9584beff" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb49" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">9</span> <span class="op">+</span> <span class="dv">4</span>) <span class="op">%</span> <span class="dv">12</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre dir="ltr"><code>1</code></pre>
@@ -867,7 +867,7 @@ window.Quarto = {
 <figcaption>استعمال القياس 7 لأيام الأسبوع</figcaption>
 </figure>
 </div>
-<div id="a5988d58" class="cell" data-execution_count="29">
+<div id="6088c9b4" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb51" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(days)):</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">%</span> <span class="dv">7</span> <span class="op">&gt;</span> <span class="dv">4</span>:</span>
@@ -881,7 +881,7 @@ window.Quarto = {
 <section id="الشريحة" class="level2">
 <h2 class="anchored" data-anchor-id="الشريحة">الشريحة</h2>
 <p>وإذا أردنا حساب مجموع الأسابيع على حدة، فإننا نحتاج لاستخراج العناصر السبعة الأولى فقط. وهذا يحصل بعامل الإشارة وتمرير قيمة <strong>شريحة</strong> (<code dir="ltr">slice</code> ويعبر عنها بالنطقتين الرأسيتين <code dir="ltr">:</code>)، وذلك على هذا النحو:</p>
-<div id="eccb98ee" class="cell" data-execution_count="30">
+<div id="675bc50c" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb53" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>week1 <span class="op">=</span> days[<span class="dv">0</span>:<span class="dv">7</span>]</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(week1)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -890,7 +890,7 @@ window.Quarto = {
 </div>
 <p>ولاحظ أن النهاية لا تشمل العنصر رقم <code dir="ltr">7</code> وإنما غايتها العنصر رقم <code dir="ltr">6</code>.</p>
 <p>وإذا كانت البداية من <code dir="ltr">0</code> فكتابتها وعدمه واحدة:</p>
-<div id="6b9e7ae7" class="cell" data-execution_count="31">
+<div id="012ac016" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb55" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>week1 <span class="op">=</span> days[:<span class="dv">7</span>]</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(week1)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -898,7 +898,7 @@ window.Quarto = {
 </div>
 </div>
 <p>وكذلك الأسبوع الثاني والثالث والرابع:</p>
-<div id="786c5016" class="cell" data-execution_count="32">
+<div id="2d5a1166" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb57" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>week2 <span class="op">=</span> days[<span class="dv">7</span>:<span class="dv">14</span>]</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>week3 <span class="op">=</span> days[<span class="dv">14</span>:<span class="dv">21</span>]</span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>week4 <span class="op">=</span> days[<span class="dv">21</span>:<span class="dv">28</span>]</span>
@@ -915,7 +915,7 @@ window.Quarto = {
 </div>
 </div>
 <p>فإذا كانت القائمة فيها عدة أشهر، فإن هذا أيضًا سيطول. ويمكننا هنا أن نستعمل النطاق لتوليد الأرقام بسبع خطوات بينها، واستعمال الشريحة من الخطوة التي نكون فيها سبعًا إلى الأمام. وذلك على النحو التالي:</p>
-<div id="ad1b2bdf" class="cell" data-execution_count="33">
+<div id="86bc2015" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb59" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(days), <span class="dv">7</span>):</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="bu">sum</span>(days[i:i<span class="op">+</span><span class="dv">7</span>]))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -926,7 +926,7 @@ window.Quarto = {
 </div>
 </div>
 <p>فإذا أردت لكل أن تحسب مجموع القراءة بين اليومين الأخيرين لكل أسبوع على حدة فهكذا:</p>
-<div id="6df1655b" class="cell" data-execution_count="34">
+<div id="a82423a6" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb61" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(days), <span class="dv">7</span>):</span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="bu">sum</span>(days[i<span class="op">+</span><span class="dv">5</span>:i<span class="op">+</span><span class="dv">7</span>]))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -941,13 +941,13 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="الجدول-السلاسل-المتقابلة">الجدول: السلاسل المتقابلة</h2>
 <p>ومن أنماط المجموعات: القوائم المرتبطة عناصرها ببعض. وهي <strong>الجداول</strong> (Tables).</p>
 <p>افترض أن لديك قائمة بالمصروفات (<code dir="ltr">expenses</code>) والإيرادات (<code dir="ltr">revenues</code>) لكل رُبع من السنة، وتريد حساب صافي الربح (<code dir="ltr">net</code>) لكل ربع على حدة، ثم جمعها لتحصل على الربح الإجمالي للسنة.</p>
-<div id="2f78347f" class="cell" data-execution_count="35">
+<div id="f8c1356f" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb63" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>revenues <span class="op">=</span> [<span class="dv">52000</span>, <span class="dv">51000</span>, <span class="dv">48000</span>, <span class="dv">50000</span>]</span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>expenses <span class="op">=</span> [<span class="dv">46800</span>, <span class="dv">45900</span>, <span class="dv">43200</span>, <span class="dv">47000</span>]</span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>net      <span class="op">=</span> [    <span class="dv">0</span>,     <span class="dv">0</span>,     <span class="dv">0</span>,     <span class="dv">0</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>فإننا نستعمل نفس الرقم (<code dir="ltr">i</code>) للإشارة هنا وهنا أثناء الكر، حتى نجري الحساب على القيَم المتقابلة، ونضع ناتج ذلك في موضعٍ يقابلهما في سلسلة ثالثة (<code dir="ltr">net</code>)، وذلك على النحو التالي:</p>
-<div id="f686a411" class="cell" data-execution_count="36">
+<div id="a7d172a6" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb64" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(revenues)):</span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>    net[i] <span class="op">=</span> revenues[i] <span class="op">-</span> expenses[i]</span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -964,11 +964,11 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="التصفية">التصفية</h2>
 <p>وقد تكون بيانات المصروفات والإيرادات مسجَّلة في سلسلة واحدة بالقيَم الموجبة والسالبة. ونريد فصلها لمجموعتين، لنحسب متوسط هذه ومتوسط هذه على حدة. وهذا النمط يتكرر كثيرًا وهو <strong>التصفية</strong> (Filtering): وهي استخراج العناصر بحسب معيارٍ.</p>
 <p>تصور أن لدينا قائمة من الأرقام الموجبة والسالبة في مجموعة واحدة، ونريد فصلها لمجموعتين:</p>
-<div id="1cba360b" class="cell" data-execution_count="37">
+<div id="943e4ecb" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb66" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>transactions <span class="op">=</span> [<span class="dv">1200</span>, <span class="op">-</span><span class="dv">500</span>, <span class="dv">300</span>, <span class="op">-</span><span class="dv">200</span>, <span class="dv">450</span>, <span class="op">-</span><span class="dv">1000</span>, <span class="dv">800</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>تقبل المجموعة إضافة العنصر إليها بالإجراء <code dir="ltr">.append()</code> المُسنَد إليها:</p>
-<div id="cd764fbe" class="cell" data-execution_count="38">
+<div id="55573490" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb67" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>revenues <span class="op">=</span> []</span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>expenses <span class="op">=</span> []</span>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -989,7 +989,7 @@ average expenses: -566.6666666666666</code></pre>
 <section id="الأكبر-والأصغر" class="level2">
 <h2 class="anchored" data-anchor-id="الأكبر-والأصغر">الأكبر والأصغر</h2>
 <p>فإذا أردت معرفةَ أكبرها وأصغرها، فقد تستعمل الدالتين: <code dir="ltr">max()</code> و <code dir="ltr">min()</code>، على النحو التالي:</p>
-<div id="ef794f68" class="cell" data-execution_count="39">
+<div id="d54dd2b9" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb69" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">min</span>(revenues), <span class="bu">max</span>(revenues))</span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">min</span>(expenses), <span class="bu">max</span>(expenses))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1001,7 +1001,7 @@ average expenses: -566.6666666666666</code></pre>
 <section id="الترتيب" class="level2">
 <h2 class="anchored" data-anchor-id="الترتيب">الترتيب</h2>
 <p>وإذا أردت عرضها مرتبةً من الأصغر إلى الأكبر، فتستعمل دالَّة الترتيب <code dir="ltr">sorted()</code>، على النحو التالي:</p>
-<div id="5047e583" class="cell" data-execution_count="40">
+<div id="70820be3" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb71" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'  sorted:'</span>, <span class="bu">sorted</span>(revenues))</span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'unsorted:'</span>, revenues)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1010,7 +1010,7 @@ unsorted: [1200, 300, 450, 800]</code></pre>
 </div>
 </div>
 <p>وإذا أردتها بالعكس، فتغير المُعطى (<code dir="ltr">reverse</code>) من قيمته الإفتراضيَّة <code dir="ltr">False</code> إلى القيمة <code dir="ltr">True</code>، على النحو التالي:</p>
-<div id="7ff0a061" class="cell" data-execution_count="41">
+<div id="83e7d8ab" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb73" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'  sorted:'</span>, <span class="bu">sorted</span>(revenues, reverse<span class="op">=</span><span class="va">True</span>))</span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'unsorted:'</span>, revenues)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">

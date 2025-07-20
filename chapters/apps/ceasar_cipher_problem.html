@@ -499,12 +499,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>أولاً نعرف الحروف الكبيرة والصغيرة:</p>
-<div id="a6a7073b" class="cell" data-execution_count="1">
+<div id="8111d2ec" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>alphabet_lower <span class="op">=</span> <span class="st">"abcdefghijklmnopqrstuvwxyz"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>alphabet_upper <span class="op">=</span> <span class="st">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>تذكر أن لدينا في بايثون الفعل: <code dir="ltr">str.index(sub: str) -&gt; int</code> حيث يأخذ هذا الفعل جُزءًا نصيًّا ويأتي على النص من أوله إلى آخر باحثًا عن موضعه. ونحن سنستعمل ذلك في البحث عن موضع الحرف فسيكون على النحو التالي:</p>
-<div id="eed3a53c" class="cell" data-execution_count="2">
+<div id="ef4a1b84" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(alphabet_lower.index(<span class="st">'a'</span>))</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(alphabet_lower.index(<span class="st">'z'</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -521,14 +521,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>وهذه العملية في بايثون هي <code dir="ltr">%</code> وتعبر عن باقي القسمة:</p>
-<div id="0528948a" class="cell" data-execution_count="3">
+<div id="7e2f8609" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">9</span> <span class="op">+</span> <span class="dv">4</span>) <span class="op">%</span> <span class="dv">12</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre dir="ltr"><code>1</code></pre>
 </div>
 </div>
 <p>والآن نعرف الدالة التي ستأخذ حرفًا (<code dir="ltr">char</code>) ومقدار الإزاحة (<code dir="ltr">shift</code>) لتعيد الحرف البديل عنه بعد الإزاحة.</p>
-<div id="1420ce35" class="cell" data-execution_count="4">
+<div id="0b46d28d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> encode(char: <span class="bu">str</span>, shift: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> char <span class="kw">in</span> alphabet_lower:</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        alphabet <span class="op">=</span> alphabet_lower</span>
@@ -551,7 +551,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>نعيد الحرف البديل</li>
 </ul>
 <p>نختبر الدالة ببعض التوكيادت:</p>
-<div id="50fc51fe" class="cell" data-execution_count="5">
+<div id="33be3638" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> encode(<span class="st">'a'</span>, <span class="dv">3</span>) <span class="op">==</span> <span class="st">'d'</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> encode(<span class="st">'b'</span>, <span class="dv">3</span>) <span class="op">==</span> <span class="st">'e'</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -559,7 +559,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> encode(<span class="st">'y'</span>, <span class="dv">3</span>) <span class="op">==</span> <span class="st">'b'</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>أما دالة عكس التعمية، فهي ببساطة تعكس الإزاحة بطرح الرقم بعد جمعه.</p>
-<div id="e7a57f1a" class="cell" data-execution_count="6">
+<div id="9cf3644c" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> decode(char: <span class="bu">str</span>, shift: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> char <span class="kw">in</span> alphabet_lower:</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        alphabet <span class="op">=</span> alphabet_lower</span>
@@ -574,12 +574,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> new_char</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>فأما دالة استخراج المعمى، فنريدها أن تكون فعلاً تعكِس، ولذلك سنستعمل التوكيد بتمرير المعمة لعكسه مباشرة بهذه الطريقة:</p>
-<div id="754326b4" class="cell" data-execution_count="7">
+<div id="c25d788e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> decode(encode(<span class="st">'a'</span>, <span class="dv">3</span>), <span class="dv">3</span>) <span class="op">==</span> <span class="st">'a'</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> decode(encode(<span class="st">'z'</span>, <span class="dv">3</span>), <span class="dv">3</span>) <span class="op">==</span> <span class="st">'z'</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>والآن بعد أن تأكدنا من عمل ذلك على مستوى الحرف الواحد، نريد أن نأخذ النص كاملاً فنعميه:</p>
-<div id="67e06334" class="cell" data-execution_count="8">
+<div id="2d36497f" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> encode_text(text: <span class="bu">str</span>, shift: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> <span class="st">""</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> char <span class="kw">in</span> text:</span>
@@ -591,7 +591,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>نأتي على الحروف حرفًا حرفًا كما في النص <code dir="ltr">text</code> ونستعمل فعل التعمية <code dir="ltr">encode</code> لذلك النص، ونضيف الحرف العائد إلى النص الناتج <code dir="ltr">result</code></li>
 </ul>
 <p>أما عكس التعمية فباستعمال <code dir="ltr">decode</code> بدلاً من <code dir="ltr">encode</code> بمثل ما تقدَّم:</p>
-<div id="9cef5dc6" class="cell" data-execution_count="9">
+<div id="328dce29" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> decode_text(text: <span class="bu">str</span>, shift: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> <span class="st">""</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> char <span class="kw">in</span> text:</span>
@@ -599,14 +599,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>والآن نريد أن نختبر، ولذلك سنستعين بموقع تفاعلي قد تم فيه عمل ذلك قبلنا، وهو موقع: <a href="https://cryptii.com/pipes/caesar-cipher">cryptii.com</a> فنأخذ النص ونستعمله ونتأكد أن ما نخرج به نفس ما خرجوا به:</p>
-<div id="0a3970c1" class="cell" data-execution_count="10">
+<div id="ce05e268" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    encode_text(<span class="st">"If he had anything confidential to say, he wrote it in cipher, that is, by so changing the order of the letters of the alphabet, that not a word could be made out"</span>, <span class="dv">3</span>) <span class="op">==</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Li kh kdg dqbwklqj frqilghqwldo wr vdb, kh zurwh lw lq flskhu, wkdw lv, eb vr fkdqjlqj wkh rughu ri wkh ohwwhuv ri wkh doskdehw, wkdw qrw d zrug frxog eh pdgh rxw"</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>أخيرًا نستعمل ذلك بعد أن تأكدنا من صحته كاملاً:</p>
-<div id="b0328dc5" class="cell" data-execution_count="11">
+<div id="25a4496a" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"If he had anything confidential to say, he wrote it in cipher, that is, by so changing the order of the letters of the alphabet, that not a word could be made out."</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"## Text"</span>)</span>

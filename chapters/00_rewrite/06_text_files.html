@@ -486,12 +486,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>أو بعلامة اقتاس مكررة ثلاثة مرات: <code dir="ltr">"""السلام عليكم!"""</code> للنص الجاري على أكثر من سطر.</li>
 </ol>
 <p>على سبيل المثال:</p>
-<div id="cfdb4880" class="cell" data-execution_count="1">
+<div id="bcfd1eb5" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Adam'</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>address <span class="op">=</span> <span class="st">"Makkah, Saudi Arabia"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>تأمل إنشاء هذا النص الذي يبتدئ في السطر الأول ويمتد لأربعة أسطر:</p>
-<div id="930ac91c" class="cell" data-execution_count="2">
+<div id="4220e510" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">"""السلام عليكم ورحمة الله وبركاته,</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="st">أبشرك بأنك قطعت شوطًا كبيرًا.</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -513,7 +513,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>يتم تمثيل النص في بايثون بالنوع <code dir="ltr">str</code> (من String وتعني خيط) وهو <strong>سلسلة رموز</strong> (وهي التي نضعها بين علامتي التنصيص <code dir="ltr">""</code>) لكن الذي يحصل في الواقع أن مفسِّر لغة بايثون يترجمها إلى أرقام تقابلها في جدول <strong>الترميز العالمي</strong> Unicode لتكون قيمة المتغيِّر في الحقيقة.</p>
 <p>يحوي هذا الجدول رموز لجميع اللغات البشرية ابتداءً بالإنجليزية واللاتينية، ثم اللغات الأخرى كالعربية والعبرية والصينية واليابانية والكورية وبقية لغات العالم. بالإضافة إلى علامات الترقيم الخاصة بكل لغة، ورموز الأرقام. وفوق ذلك الرسوم التي تجدها في المحادثات ومواقع التواصل مثل: 🤗💡🔍📐 وما أشبهها.</p>
 <p>لاحظ في النص البرمجي أن الدالة <code dir="ltr">chr(i)</code> تحوِّل الرقم <code dir="ltr">i</code> إلى رمز Unicode المقابل له. ونحن نستعملها في حلقة لكر الأرقام من 32 إلى 127 ونقسمها لمجموعات بحيث يكون كل سطر فيه مجموعة من الحروف:</p>
-<div id="3f5208a6" class="cell" data-execution_count="3">
+<div id="a0951528" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">32</span>, <span class="dv">127</span>):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="kw">in</span> [<span class="dv">48</span>, <span class="dv">58</span>, <span class="dv">65</span>, <span class="dv">91</span>, <span class="dv">97</span>, <span class="dv">123</span>]:</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>()</span>
@@ -529,7 +529,7 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z
 </div>
 </div>
 <p>ولو أردت العكس: أن تعرف ما هو الرقم للرمز، فإنك تستعمل دالة <code dir="ltr">ord(c)</code> على النحو التالي:</p>
-<div id="6bb71e76" class="cell" data-execution_count="4">
+<div id="55011268" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"A"</span>), <span class="bu">ord</span>(<span class="st">"Z"</span>), <span class="bu">ord</span>(<span class="st">"a"</span>), <span class="bu">ord</span>(<span class="st">"z"</span>), <span class="bu">ord</span>(<span class="st">"0"</span>), <span class="bu">ord</span>(<span class="st">"9"</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"!"</span>), <span class="bu">ord</span>(<span class="st">"?"</span>), <span class="bu">ord</span>(<span class="st">"."</span>), <span class="bu">ord</span>(<span class="st">","</span>), <span class="bu">ord</span>(<span class="st">":"</span>), <span class="bu">ord</span>(<span class="st">";"</span>))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"ب"</span>), <span class="bu">ord</span>(<span class="st">"ي"</span>), <span class="bu">ord</span>(<span class="st">"ة"</span>))</span>
@@ -542,14 +542,14 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z
 </div>
 </div>
 <p>لذلك فإن المقارنة بين السلاسل النصيَّة هي في الحقيقة مقارنة بأرقامها. فالحرف الصغير والحرف الكبير رقمان مختلفان:</p>
-<div id="d0185b61" class="cell" data-execution_count="5">
+<div id="be36a90d" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A"</span> <span class="op">==</span> <span class="st">"a"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>False</code></pre>
 </div>
 </div>
 <p>والحاصل في الواقع هو أن بايثون تقارنها بعد التحويل إلى الأرقام:</p>
-<div id="b2b650dd" class="cell" data-execution_count="6">
+<div id="1b09d361" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"A"</span>), <span class="bu">ord</span>(<span class="st">"a"</span>))</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"A"</span>) <span class="op">==</span> <span class="bu">ord</span>(<span class="st">"a"</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -558,14 +558,14 @@ False</code></pre>
 </div>
 </div>
 <p>لذلك لا تعجب من أن الحرف الكبير أصغر من الصغير بهذا الاعتبار؛ وذلك: لأنه يأتي قبله في جدول الترميز العالمي، فرقمه أقل من رقم الصغير:</p>
-<div id="0a521c7d" class="cell" data-execution_count="7">
+<div id="5f63673a" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A"</span> <span class="op">&gt;</span> <span class="st">"a"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>False</code></pre>
 </div>
 </div>
 <p>والسبب في ابتدائنا من <code dir="ltr">32</code> هو أن الأرقام التي قبل ذلك تسىمى <strong>أحرف تحكم</strong> (Control Characters). بل إن رقم <code dir="ltr">32</code> نفسه هو حرف تحكُّم وظيفته تحريك رأس الكتابة بمقدار خطوة واحدة لتكوين مسافة.</p>
-<div id="2f7364a1" class="cell" data-execution_count="8">
+<div id="96fabf2d" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">chr</span>(<span class="dv">32</span>) <span class="op">==</span> <span class="st">" "</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">" "</span>) <span class="op">==</span> <span class="dv">32</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -580,14 +580,14 @@ True</code></pre>
 <li><strong>البادئة</strong> (Tab): <code dir="ltr">"\t"</code> وهي التي تكون في بداية الفقرة، أو التي تكون بين الأعمدة في تنسيق الجداو. وقد نستعملها في كتابة بايثون للمحاذاة</li>
 </ul>
 <p>ولاحظ أن الشرطة مع الحرف، يفسران كرقم واحد، وإنما وُضِعَت لها رموز لكثرة استعمالها، ويمكننا معرفة الأرقام الدالة على كل من هذه الرموز هكذا:</p>
-<div id="ff000279" class="cell" data-execution_count="9">
+<div id="3c8e11e6" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb16" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">" "</span>), <span class="bu">ord</span>(<span class="st">"</span><span class="ch">\t</span><span class="st">"</span>), <span class="bu">ord</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>32 9 10</code></pre>
 </div>
 </div>
 <p>ونحن في كل مرة نستعمل إجراء الطباعة: <code dir="ltr">print()</code> فالقيمة الافتراضيَّة للمعطى <code dir="ltr">end='\n'</code>، وهذا يعني أن الطباعة يتبعها علامة الانتقال لسطر جديد. فإذا أردت أن تكون الطباعة بلا سطرٍ جديد، بل تكون مثلاً، مسافة، فإننا نعيِّن قيمة المعطى عند الاستدعاء:</p>
-<div id="cc8fa506" class="cell" data-execution_count="10">
+<div id="0297ca6a" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb18" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello"</span>, end<span class="op">=</span><span class="st">" "</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"World"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -600,7 +600,7 @@ True</code></pre>
 <h2 class="anchored" data-anchor-id="إخراج-النص">إخراج النص</h2>
 <p>كثيرًا ما نحتاج لصياغة البيانات بقالب معيَّن، حتى يُرسَل ويفسَّر في الجهة المقابلة من برنامج آخر باعتبار نفس القالب، فتسهل قراءته بهذا الوجه.</p>
 <p>ومن ذلك مثلاً رسائل البريد الإلكتروني حيث تكتب:</p>
-<div id="c39a88bb" class="cell" data-execution_count="11">
+<div id="d7e729fa" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb20" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>email_template <span class="op">=</span> <span class="st">"""Assalamu Alaikum </span><span class="sc">{candidate_name}</span><span class="st">,</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="st">We're pleased to invite you for an interview for the </span><span class="sc">{job_title}</span><span class="st"> position.</span></span>
@@ -620,7 +620,7 @@ True</code></pre>
 <span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وعملية الضرب تنتج تكرارًا للنص:</p>
-<div id="e3259453" class="cell" data-execution_count="12">
+<div id="82f3a5ce" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb21" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'-'</span> <span class="op">*</span> <span class="dv">10</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'='</span> <span class="op">*</span> <span class="dv">10</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'*'</span> <span class="op">*</span> <span class="dv">10</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -631,12 +631,12 @@ True</code></pre>
 </div>
 </div>
 <p>فنستطيع أن نطرِّز الرسالة به:</p>
-<div id="977a482c" class="cell" data-execution_count="13">
+<div id="4492c97b" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb23" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>decor <span class="op">=</span> <span class="st">"="</span> <span class="op">*</span> <span class="dv">80</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>email_template <span class="op">=</span> decor <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span> <span class="op">+</span> email_template <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span> <span class="op">+</span> decor</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>فهذا القالب يُمكن ملؤه بحسب المرسل والمرسل إليه، وذلك على النحو التالي:</p>
-<div id="ca64fb37" class="cell" data-execution_count="14">
+<div id="8d29b425" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb24" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>filled_email <span class="op">=</span> email_template.<span class="bu">format</span>(</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    company_name<span class="op">=</span><span class="st">"Tech Solutions Inc."</span>,</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    job_title<span class="op">=</span><span class="st">"Software Engineer"</span>,</span>
@@ -649,7 +649,7 @@ True</code></pre>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>فإذا ما طبعنا هذا النص فسيظهر أن المتغير الآن يحتفظ بنسخة تمَّ تعبئة القالب فيه بالقيَم المعطاة:</p>
-<div id="d69afe14" class="cell" data-execution_count="15">
+<div id="576d5705" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb25" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(filled_email)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>================================================================================
@@ -677,7 +677,7 @@ The Tech Solutions Inc. Hiring Team
 <section id="كتابة-النص" class="level2">
 <h2 class="anchored" data-anchor-id="كتابة-النص">كتابة النص</h2>
 <p>وتتم كتابة النص في الملفات باستعمال الإجراء <a href="https://docs.python.org/3/library/io.html#io.TextIOBase.write"><code dir="ltr">write()</code></a> على النحو التالي:</p>
-<div id="2a8494b3" class="cell" data-execution_count="16">
+<div id="a14ca791" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb27" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'email.txt'</span>, <span class="st">'w'</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.write(filled_email)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.close()</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -686,7 +686,7 @@ The Tech Solutions Inc. Hiring Team
 <section id="إدخال-النص" class="level2">
 <h2 class="anchored" data-anchor-id="إدخال-النص">إدخال النص</h2>
 <p>والغالب أن وجود النص في البرنامج يكون ناتجًا عن قراءة ملف نصي بالإجراء <a href="https://docs.python.org/3/library/functions.html#open"><code dir="ltr">open()</code></a> أي: في نفس المجلد الذي يوجد فيه البرنامج:</p>
-<div id="edfbd71a" class="cell" data-execution_count="17">
+<div id="84920816" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb28" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'email.txt'</span>)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>content <span class="op">=</span> <span class="bu">file</span>.read()</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.close()</span>
@@ -718,7 +718,7 @@ The Tech Solutions Inc. Hiring Team
 <section id="السياق" class="level2">
 <h2 class="anchored" data-anchor-id="السياق">السياق</h2>
 <p>وهنا إشارة إلى أن عملية فتح الملف <code dir="ltr">open()</code> يجب أن تتبع بعملية <code dir="ltr">.close()</code> لإغلاقه. وهذا النمط يتكرر كثيرًا. ولذلك جعلت بايثون لهذا النمط كلمة <code dir="ltr">with</code> بحيث يتم الإغلاق بعند انتهاء جسد السياق:</p>
-<div id="08499fb3" class="cell" data-execution_count="18">
+<div id="a14219a9" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb30" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'email.txt'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    content <span class="op">=</span> <span class="bu">file</span>.read()</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(content)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -758,7 +758,7 @@ The Tech Solutions Inc. Hiring Team
 - Time: {interview_time} {time_zone}
 - Method: {interview_method}</code></pre>
 <p>فلو سردنا سطور النص بحث عن هذه الكلمات، فإننا سنحقق مرادنا في استخراج القيمة، وهي الطرف الأيمن من ذلك النص. ويمكننا استعمال الدالة <code dir="ltr">.splitlines()</code> لتحويل النص إلى قائمة من النصوص، بحيث يكون كل عنصرٍ فيها سطرًا من النص.</p>
-<div id="9d94c94d" class="cell" data-execution_count="19">
+<div id="ab4e9f13" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb33" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>lines <span class="op">=</span> content.splitlines()</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(lines))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -766,7 +766,7 @@ The Tech Solutions Inc. Hiring Team
 </div>
 </div>
 <p>ثم نكرها ونبحث عن الأنماط التي نريد، ولاحظ أننا نستعمل الإجراء <code dir="ltr">.split()</code> لفصل النص إلى قائمة عند الفاصل الذي نريده، وهو النقطات الرأسيتان (<code dir="ltr">:</code>) حتى يكون فيه جزءان، فنأخذ الجزء الثاني <code dir="ltr">[1]</code> منها وهو القيمة. ونستعمل الإجراء <code dir="ltr">.strip()</code> لإزالة الفراغات المتبقية من النص (المسافات الزوائد في البداية والنهاية).</p>
-<div id="d21ae8ae" class="cell" data-execution_count="20">
+<div id="093eaf4a" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb35" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> lines:</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">"Date:"</span> <span class="kw">in</span> line:</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>        date <span class="op">=</span> line.split(<span class="st">":"</span>)[<span class="dv">1</span>].strip()</span>
@@ -790,11 +790,11 @@ method = Online video call</code></pre>
 <h2 class="anchored" data-anchor-id="النص-نوع-ما-لا-نوع-له">النص نوع ما لا نوع له</h2>
 <p><strong>تذكر</strong>: النص نوع ما لا نوع له.</p>
 <p>إذا أردت أن تحفظ نتائج المعالجة في ملف ليستقر في جهازك، فإنه يجب أن تحوِّل النص إلى قيمة عددية، وإلا ستفشل الكتابة كما في هذا المثال</p>
-<div id="e6c12b00" class="cell" data-execution_count="21">
+<div id="1d658263" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb37" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">1000</span>, <span class="dv">500</span>, <span class="dv">250</span>, <span class="dv">750</span>]</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="bu">sum</span>(numbers)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="837cf4fc" class="cell" data-execution_count="22">
+<div id="2890b38a" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb38" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'output.txt'</span>, <span class="st">'w'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span>.write(total)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -810,17 +810,17 @@ method = Online video call</code></pre>
 </div>
 </div>
 <p>ويحصل تحويل العدد إلى نص باستعمال الدالة <code dir="ltr">str(i)</code>:</p>
-<div id="1ee15b5e" class="cell" data-execution_count="23">
+<div id="e76007fb" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb39" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>content <span class="op">=</span> <span class="bu">str</span>(total)</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'output.txt'</span>, <span class="st">'w'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span>.write(content)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>فإن الملف وقت القراءة يُقرأ كنص؛ أي كسلسلة من الأحرف، ولذلك يجب تحويله إلى قيمة عددية، وإلا ستفشل العمليات إن ظننت أنها عددية، مثلما يفشل هذا المثال:</p>
-<div id="1261dc23" class="cell" data-execution_count="24">
+<div id="36ec4982" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb40" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'output.txt'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    content <span class="op">=</span> <span class="bu">file</span>.read()</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a459f883" class="cell" data-execution_count="25">
+<div id="efe14838" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb41" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(content <span class="op">+</span> <span class="dv">2500</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -834,7 +834,7 @@ method = Online video call</code></pre>
 </div>
 </div>
 <p>ويحصل تحويل النص إلى عددية باستعمال الدالة <code dir="ltr">int(s)</code> أو <code dir="ltr">float(s)</code>:</p>
-<div id="f0a2f4b2" class="cell" data-execution_count="26">
+<div id="d4627214" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb42" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="bu">int</span>(content)</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total <span class="op">+</span> <span class="dv">2500</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -846,7 +846,7 @@ method = Online video call</code></pre>
 <h2 class="anchored" data-anchor-id="صياغة-البيانات-في-قوالب-جيسون-json">صياغة البيانات في قوالب جيسون (JSON)</h2>
 <p>وكما أن القالب المستعمل في الرسالة البريدية صالح لقراءة البشر، فكذلك البرمجيات تستعمل قوالب للتواصل فيما بينها، وكذلك تستعمل لتخزين المعلومات وقراءتها لاحقًا. ومن أشهرها قالب <strong>JSON</strong> لأنه بسيط جدًّا؛ فما هو إلا أزواج من المفاتيح والقيَم المقابلة لها (بعد النقطيتن الرأسيتين). وهي تشبه إلى حد كبير ما يسمى القاموس (<code dir="ltr">dict</code>) في بايثون. وسنبيِّنُه إن شاء الله.</p>
 <p>فمن المكتبة الأساسية نستورِد وحدة <code dir="ltr">json</code> لصياغة البيانات من شكلها البايثوني إلى هذه الصيغة ثم كتابتها، أو لتحويلها من صيغتها تلك إلى القيمة البايثونية المقابلة لها.</p>
-<div id="95ab7c79" class="cell" data-execution_count="27">
+<div id="e38368df" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb44" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>transactions <span class="op">=</span> [<span class="dv">1200</span>, <span class="op">-</span><span class="dv">500</span>, <span class="dv">300</span>, <span class="op">-</span><span class="dv">200</span>, <span class="dv">450</span>, <span class="op">-</span><span class="dv">1000</span>, <span class="dv">800</span>]</span>
@@ -855,7 +855,7 @@ method = Online video call</code></pre>
 <span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    json.dump(transactions, <span class="bu">file</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وعند القراءة نستعمل الإجراء <code dir="ltr">json.load()</code> لتحويل تلك الصياغة النصيَّة إلى قائمة بايثونية:</p>
-<div id="6c1e5632" class="cell" data-execution_count="28">
+<div id="3ea71d03" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb45" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'transactions.json'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    transactions <span class="op">=</span> json.load(<span class="bu">file</span>)</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sum</span>(transactions))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -864,7 +864,7 @@ method = Online video call</code></pre>
 </div>
 </div>
 <p>وأما إذا كانت قيَمًا متعددة، فالأفضل وضعها في <strong>قاموس</strong> (<code dir="ltr">dict</code>) بحيث تكون أسماء المتغيرات مفاتيح (Keys)، وتكون قيمها قيَمًا لها (Values). ثم تُصاغ بصيغة <strong>JSON</strong> وتُحفظ في ملف:</p>
-<div id="bd4acfe0" class="cell" data-execution_count="29">
+<div id="41e7029a" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb47" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"expenses"</span>: [<span class="dv">1200</span>, <span class="dv">300</span>, <span class="dv">450</span>, <span class="dv">800</span>],</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"revenues"</span>: [<span class="op">-</span><span class="dv">500</span>, <span class="op">-</span><span class="dv">200</span>, <span class="op">-</span><span class="dv">1000</span>],</span>
@@ -874,7 +874,7 @@ method = Online video call</code></pre>
 <span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>    json.dump(data, <span class="bu">file</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ثم يمكن قراءتُها:</p>
-<div id="e4026f72" class="cell" data-execution_count="30">
+<div id="b71bc084" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb48" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'data.json'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> json.load(<span class="bu">file</span>)</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -883,7 +883,7 @@ method = Online video call</code></pre>
 </div>
 </div>
 <p>وكذلك يمكن استخراج القيمة منها، بالاسم الذي حُفِظَ به أولاً في القاموس:</p>
-<div id="ef6bad69" class="cell" data-execution_count="31">
+<div id="2f2cd90d" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb50" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>revenues <span class="op">=</span> data[<span class="st">"revenues"</span>]</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sum</span>(revenues) <span class="op">/</span> <span class="bu">len</span>(revenues))</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -895,7 +895,7 @@ method = Online video call</code></pre>
 </div>
 </div>
 <p>وقد تكون البيانات متضمنة بعضها في بعض، كتفضيلات المستخدم (<code dir="ltr">user</code>):</p>
-<div id="9b6745b3" class="cell" data-execution_count="32">
+<div id="d2a78672" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb52" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>user <span class="op">=</span> {</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: <span class="st">"Adam"</span>,</span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"language"</span>: <span class="st">"Arabic"</span>,</span>
@@ -912,14 +912,14 @@ method = Online video call</code></pre>
 </div>
 <p><strong>فالمفتاح</strong> (Key) عادةً ما يكون نصًّا كما ترى. وأما <strong>القيمة</strong> (Value) فقد تكون نصًّا أو عددًا أو قائمة أو حتى قاموسًا!</p>
 <p>وللوصول إلى قيمة مضمَّنة، قد تكتب:</p>
-<div id="8274a1db" class="cell" data-execution_count="33">
+<div id="9fe42069" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb53" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> user[<span class="st">'notifications'</span>]</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>{'email': 'monthly', 'sms': 'weekly', 'push': 'daily'}</code></pre>
 </div>
 </div>
-<div id="9071a52c" class="cell" data-execution_count="34">
+<div id="7af4d762" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb55" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> a[<span class="st">'sms'</span>]</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -927,14 +927,14 @@ method = Online video call</code></pre>
 </div>
 </div>
 <p>وذلك أن نوع قيمة المتغير <code dir="ltr">a</code> هو قاموس:</p>
-<div id="c34f946b" class="cell" data-execution_count="35">
+<div id="bfe0fd27" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb57" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="35">
 <pre dir="ltr"><code>dict</code></pre>
 </div>
 </div>
 <p>أو تأتي بها مرة واحدة:</p>
-<div id="f8cf76be" class="cell" data-execution_count="36">
+<div id="1cd7a295" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb59" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> user[<span class="st">'notifications'</span>][<span class="st">'sms'</span>]</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -942,7 +942,7 @@ method = Online video call</code></pre>
 </div>
 </div>
 <p>وكذا الأمر في الوصول للقائمة المضمَّنة (<code dir="ltr">emails</code>) كما يلي:</p>
-<div id="3edaad9d" class="cell" data-execution_count="37">
+<div id="d7b65210" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb61" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> user[<span class="st">'emails'</span>]</span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(e)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -950,21 +950,21 @@ method = Online video call</code></pre>
 </div>
 </div>
 <p>ثم الوصول إلى عنصرٍ من هذه القائمة:</p>
-<div id="b2f09fe3" class="cell" data-execution_count="38">
+<div id="d95d1af8" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb63" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(e[<span class="dv">0</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>example1@domain.com</code></pre>
 </div>
 </div>
 <p>وذلك أن نوع قيمة المتغير <code dir="ltr">c</code> هو قائمة:</p>
-<div id="7bd4253f" class="cell" data-execution_count="39">
+<div id="c590181f" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb65" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(e)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="39">
 <pre dir="ltr"><code>list</code></pre>
 </div>
 </div>
 <p>أو الوصول إليها مرة واحدة:</p>
-<div id="88618314" class="cell" data-execution_count="40">
+<div id="5d120003" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb67" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> user[<span class="st">'emails'</span>][<span class="dv">0</span>]</span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(f)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -973,7 +973,7 @@ method = Online video call</code></pre>
 </div>
 <p>ومن الأنماط المستعملة بكثرة: <strong>استعمال القواميس كعناصر لقائمة</strong>. ولذلك وجب علينا التدرب على قراءتها.</p>
 <p>فمثلاً هذه قائمة يحتوي كل عنصرٍ منها على قاموس لبيانات مُرَشَّح للتوظيف، ونريد أن نستخلص خبراتهم المهنية منها:</p>
-<div id="adbbe25e" class="cell" data-execution_count="41">
+<div id="d8aa3f61" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb69" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [</span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>    {</span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">'name'</span>: <span class="st">'Ahmad Hamada'</span>,</span>
@@ -1018,7 +1018,7 @@ method = Online video call</code></pre>
 <span id="cb69-42"><a href="#cb69-42" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ولنفترض أننا نريد آخر وظيفة شغلها المرشح الثاني، فإننا نكتبها في بايثون بهذا الشكل:</p>
-<div id="d29ecc81" class="cell" data-execution_count="42">
+<div id="bbbebfda" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb70" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">1</span>][<span class="st">'experiences'</span>][<span class="op">-</span><span class="dv">1</span>][<span class="st">'role'</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="42">
 <pre dir="ltr"><code>'Espresso-Driven Engineer'</code></pre>
@@ -1057,12 +1057,12 @@ method = Online video call</code></pre>
 </div>
 </div>
 <p>ويُحفظ هذا النص في ملف <code dir="ltr">data.json</code> بالصيغة التالية:</p>
-<div id="42f0042b" class="cell" data-execution_count="43">
+<div id="e6ab039c" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb72" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'data.json'</span>, <span class="st">'w'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>    json.dump(data, <span class="bu">file</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ثم يقرأ لاحقًا:</p>
-<div id="bbdfd5d9" class="cell" data-execution_count="44">
+<div id="170e8420" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb73" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'data.json'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> json.load(<span class="bu">file</span>)</span>
 <span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="dv">0</span>][<span class="st">'name'</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
