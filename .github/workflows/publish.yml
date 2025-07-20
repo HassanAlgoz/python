@@ -13,16 +13,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4 
 
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'uv'
-
-      - name: Install dependencies with uv
+      - name: Install dependencies
         run: |
-          pip install uv
-          uv sync
+          pip install .
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -33,7 +26,7 @@ jobs:
           path: book
           target: quarto-pub
           QUARTO_PUB_AUTH_TOKEN: ${{ secrets.QUARTO_PUB_AUTH_TOKEN }}
-    
+  
   build-deploy-to-gh:
     runs-on: ubuntu-latest
     permissions:
@@ -42,17 +35,10 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'uv'
-
-      - name: Install dependencies with uv
+      - name: Install dependencies
         run: |
-          pip install uv
-          uv sync
-      
+          pip install .
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
