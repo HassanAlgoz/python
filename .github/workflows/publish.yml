@@ -21,6 +21,9 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Activate virtual environment
+        run: source .venv/bin/activate
+
       - name: Render and Publish 
         uses: quarto-dev/quarto-actions/publish@v2
         with:
@@ -42,6 +45,9 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+      
+      - name: Activate virtual environment
+        run: source .venv/bin/activate
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
