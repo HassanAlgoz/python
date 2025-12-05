@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="مدخل عملي لتعلم البرمجة بلغة بايثون. كتاب موجه للمبتدئين في البرمجة من خلفيات تقنية أو غير تقنية، يعرض المفاهيم الأساسية بلغة واضحة، بتسلسل منطقي، مع مسائل واقعية وتطبيقات نافعة، بعيدًا عن العشوائية والسطحية. يصلح للتعلم الذاتي، وللتدريس كذلك">
+<meta name="description" content="الأهداف: استيعاب ماهية البرمجة، ومعرفة إمكانياتها وحدودها. وإكساب مهارة التعبير الخوارزمي بلغة بايثون. وامتلاك القدرة على فتح مكتبات برمجية في بايثون سواء في الذكاء الاصطناعي أو تعلم الآلة أو بناء المواقع أو التصاميم ثلاثية الأبعاد.">
 
-<title>ملحق E — الدالة – البايثونية</title>
+<title>ملحق E — الدالة – المقدمة البايثونية للبرمجة باللغة العربية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-81c45c98caf4abd5206f796100e44dec.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-a01f51f54d07157d09e563e765f5ca10.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -140,8 +140,15 @@ window.Quarto = {
 };
 </script>
 
-<meta name="twitter:title" content="ملحق E — الدالة – البايثونية">
-<meta name="twitter:description" content="مدخل عملي لتعلم البرمجة بلغة بايثون. كتاب موجه للمبتدئين في البرمجة من خلفيات تقنية أو غير تقنية، يعرض المفاهيم الأساسية بلغة واضحة، بتسلسل منطقي، مع مسائل واقعية وتطبيقات نافعة، بعيدًا عن العشوائية والسطحية. يصلح للتعلم الذاتي، وللتدريس كذلك">
+<meta property="og:title" content="ملحق E — الدالة – المقدمة البايثونية للبرمجة باللغة العربية">
+<meta property="og:description" content="الأهداف: استيعاب ماهية البرمجة، ومعرفة إمكانياتها وحدودها. وإكساب مهارة التعبير الخوارزمي بلغة بايثون. وامتلاك القدرة على فتح مكتبات برمجية في بايثون سواء في الذكاء الاصطناعي أو تعلم الآلة أو بناء المواقع أو التصاميم ثلاثية الأبعاد.">
+<meta property="og:image" content="https://hassanalgoz.github.io/python/assets/function_io.png">
+<meta property="og:site_name" content="المقدمة البايثونية للبرمجة باللغة العربية">
+<meta property="og:image:alt" content="الدالة">
+<meta property="og:image:height" content="604">
+<meta property="og:image:width" content="408">
+<meta name="twitter:title" content="ملحق E — الدالة – المقدمة البايثونية للبرمجة باللغة العربية">
+<meta name="twitter:description" content="الأهداف: استيعاب ماهية البرمجة، ومعرفة إمكانياتها وحدودها. وإكساب مهارة التعبير الخوارزمي بلغة بايثون. وامتلاك القدرة على فتح مكتبات برمجية في بايثون سواء في الذكاء الاصطناعي أو تعلم الآلة أو بناء المواقع أو التصاميم ثلاثية الأبعاد.">
 <meta name="twitter:image" content="https://hassanalgoz.github.io/python/assets/function_io.png">
 <meta name="twitter:image:alt" content="الدالة">
 <meta name="twitter:image-height" content="604">
@@ -173,7 +180,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">البايثونية</a> 
+      <a href="../../">المقدمة البايثونية للبرمجة باللغة العربية</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/hassanalgoz/python/tree/main/book/" title="الكود المصدر" class="quarto-navigation-tool px-1" aria-label="الكود المصدر"><i class="bi bi-github"></i></a>
     <div class="dropdown">
@@ -542,7 +549,7 @@ window.Quarto = {
 <ul>
 <li>نحو: <code dir="ltr">print(*values)</code>. فعلامة النجمة (<code dir="ltr">*</code>) تشير لقبول <strong>عدد مطلق من العوامل</strong>. مثل:</li>
 </ul>
-<div id="4c154e14" class="cell" data-execution_count="1">
+<div id="7cbaac61" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">"Adam"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">25</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"My name is"</span>, name, <span class="st">"and I'm"</span>, age, <span class="st">"years old"</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -562,7 +569,7 @@ window.Quarto = {
 <section id="طلب-المساعدة" class="level2">
 <h2 class="anchored" data-anchor-id="طلب-المساعدة">طلب المساعدة</h2>
 <p>وقد عرفت أن <strong>طلب التنفيذ</strong> يكون بالقوسين بعد اسمه <code dir="ltr">()</code>، وتوضَع المعطيات فيهما. ولدينا الإجراء <code dir="ltr">help(func)</code> يطلب مساعدة الإجراء المعيَّن، بلا أقواس، هكذا:</p>
-<div id="4e37fae8" class="cell" data-execution_count="2">
+<div id="b8243c72" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(<span class="bu">sum</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>Help on built-in function sum in module builtins:
@@ -585,11 +592,11 @@ sum(iterable, /, start=0)
 <li>إسناد الإجراء للكائن: <code dir="ltr">xs.append(25)</code></li>
 </ol>
 <p>ومثاله أيضًا في الإجراء <code dir="ltr">list.sort</code> للترتيب وكذلك في <code dir="ltr">list.append</code> للإضافة:</p>
-<div id="0b5d97c7" class="cell" data-execution_count="3">
+<div id="349dd6a4" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> [<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ys <span class="op">=</span> [<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="12ce0fa8" class="cell" data-execution_count="4">
+<div id="2f809a22" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>.sort(xs)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ys.sort()</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(xs <span class="op">==</span> ys)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -597,7 +604,7 @@ sum(iterable, /, start=0)
 <pre dir="ltr"><code>True</code></pre>
 </div>
 </div>
-<div id="d76b4266" class="cell" data-execution_count="5">
+<div id="b431f76c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>.append(xs, <span class="dv">50</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ys.append(<span class="dv">50</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(xs <span class="op">==</span> ys)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -610,21 +617,21 @@ sum(iterable, /, start=0)
 <h2 class="anchored" data-anchor-id="نتيجة-الإجراء">نتيجة الإجراء</h2>
 <p>لابد للإجراء -حتى يكون نافعًا- أن يكون له أثر. وإنما يحقق الإجراء تأثيرًا بإحدى طريقتين:</p>
 <p>أحدها: <strong>الرجوع</strong> بنتيجة لموضِع الاستدعاء؛ وذلك بجملة الرجوع (<code dir="ltr">return</code>). مثال ذلك:</p>
-<div id="319922dd" class="cell" data-execution_count="6">
+<div id="e2bbdef7" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="bu">pow</span>(x, y):</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">**</span> y</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="86654367" class="cell" data-execution_count="7">
+<div id="f0ea7c00" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>والأخرى: <strong>التغيير</strong> في مُعطىً قابل للتغيير (كالقائمة أو الملف). مثال ذلك:</p>
-<div id="e40cfc79" class="cell" data-execution_count="8">
+<div id="351bd4b1" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_decorated(message: <span class="bu">str</span>, n: <span class="bu">int</span>):</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> n)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(message)</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> n)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="be9318d8" class="cell" data-execution_count="9">
+<div id="a0b0be5a" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>print_decorated(<span class="st">"Salam alykom"</span>, <span class="dv">15</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>===============
@@ -635,7 +642,7 @@ Salam alykom
 <p>والكائنات قد يحصل فيها إحدى الأمرين لغرض ما.</p>
 <p>فالقائمة (<code dir="ltr">list</code>) هي مظنَّة التغيير.</p>
 <p>ففي نحو: <code dir="ltr">sorted(xs)</code> فإن الإجراء يُنتِجُ نُسخةً معدَّلة، ولا يغير القائمة الأصلية؛ وذلك يتطلَّبُ مساحة إضافية في الذاكرة أثناء العمليَّة. وقد يكون هذا مرغوبًا في البرامج التي تحتاج لمتابعة التغييرات الحاصلة، حيث يتم الاحتفاظ بالنُّسَخ البينية.</p>
-<div id="5195477b" class="cell" data-execution_count="10">
+<div id="676630f4" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> [<span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>]</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ys <span class="op">=</span> <span class="bu">sorted</span>(xs)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(xs, <span class="st">"لم يعمل الإجراء في القائمة نفسها"</span>)</span>
@@ -646,7 +653,7 @@ Salam alykom
 </div>
 </div>
 <p>وأما في نحو: <code dir="ltr">xs.sort()</code> فإن الطريقة (<code dir="ltr">.sort()</code>) تغيِّرُ القائمة المُسندَة؛ فلا تحتاجُ لنسخ القائمة في الذاكرة للتعديل عليها.</p>
-<div id="b647daf3" class="cell" data-execution_count="11">
+<div id="8519ea24" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> [<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>xs.sort()</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(xs)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -664,7 +671,7 @@ Salam alykom
 </ol>
 <p>ويجوز استعمال الطريقتين معًا في نحو: <code dir="ltr">list.sort(numbers, reverse=True)</code> ويشترط فيه تقدم التعيين بالموضع ليكون في مكانه، ثم يتبعه التعيين بالاسم حيث لا يشترط الترتيب فيه.</p>
 <p>وفي التعريف تكون المعطيات كثيرة في الإجراء على النحو التالي:</p>
-<div id="f047148e" class="cell" data-execution_count="12">
+<div id="0f57e6db" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> weather_condition(temperature, humidity, wind_speed):</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> temperature <span class="op">&gt;=</span> <span class="dv">30</span> <span class="kw">and</span> humidity <span class="op">&gt;=</span> <span class="dv">60</span> <span class="kw">and</span> wind_speed <span class="op">&gt;=</span> <span class="dv">10</span>:</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Rainy"</span></span>
@@ -675,7 +682,7 @@ Salam alykom
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"Normal"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ويكون طلبها بالطريقتين كما تقدَّم، بالموضع أو بالاسم. ولاحظ أن التمرير بالاسم يجوز فيه تبديل الترتيب، وأما القيمة التي تمرر بالموضع فلا بد أن تكون في الموضع.</p>
-<div id="3b4740c7" class="cell" data-execution_count="13">
+<div id="cbb6ed58" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb20" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>cond <span class="op">=</span> weather_condition(<span class="dv">30</span>, wind_speed<span class="op">=</span><span class="dv">10</span>, humidity<span class="op">=</span><span class="dv">60</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> cond <span class="op">==</span> <span class="st">"Rainy"</span>:</span>
@@ -688,7 +695,7 @@ Salam alykom
 <section id="المعطيات-الجائزة" class="level2">
 <h2 class="anchored" data-anchor-id="المعطيات-الجائزة">المعطيات الجائزة</h2>
 <p>الأصل في المعطيات المعرَّفة الوجوب؛. فلو أهملت أحدها فإنك ستواجه بالخطأ:</p>
-<div id="f260f936" class="cell" data-execution_count="14">
+<div id="4f546f4c" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb22" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> weather_condition(temperature, humidity, wind_speed):</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -717,7 +724,7 @@ Salam alykom
 F = \frac{9}{5} C + 32
 \]</span></p>
 <p>فأي معطى نعرفه بقيمة افتراضية فإن بايثون تعتبره اختياريًّا، ولو بالقيمة العدميَّة <code dir="ltr">None</code>. فنعرِّفُ المعطيات بقيَم عدميَّة، ونفحص وجودها بالشرط <code dir="ltr">is not None</code> لنُعمِلَها أو نهملها:</p>
-<div id="d0dadf2d" class="cell" data-execution_count="15">
+<div id="e04797a9" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb23" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> convert_temperature(celsius <span class="op">=</span> <span class="va">None</span>, fahrenheit <span class="op">=</span> <span class="va">None</span>):</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> celsius <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>        fahrenheit <span class="op">=</span> (<span class="dv">9</span> <span class="op">/</span> <span class="dv">5</span>) <span class="op">*</span> celsius <span class="op">+</span> <span class="dv">32</span></span>
@@ -727,7 +734,7 @@ F = \frac{9}{5} C + 32
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> celsius</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>نتأكد:</p>
-<div id="cf4f4bba" class="cell" data-execution_count="16">
+<div id="4c6270de" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb24" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convert_temperature(celsius<span class="op">=</span><span class="dv">32</span>) <span class="op">==</span> <span class="fl">89.6</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convert_temperature(fahrenheit<span class="op">=</span><span class="fl">89.6</span>) <span class="op">==</span> <span class="dv">32</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -735,13 +742,13 @@ F = \frac{9}{5} C + 32
 <section id="نطاق-التسمية" class="level2">
 <h2 class="anchored" data-anchor-id="نطاق-التسمية">نطاق التسمية</h2>
 <p>ومن خصائصها أن المتغيرات في الداخل لا تظهر للخارج.</p>
-<div id="69cfbbc2" class="cell" data-execution_count="17">
+<div id="e53fa5e6" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb25" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_bmi(weight, height):</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    bmi <span class="op">=</span> weight <span class="op">/</span> (height <span class="op">**</span> <span class="dv">2</span>)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">round</span>(bmi, <span class="dv">2</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>فنتوقع وقوع خطأ هنا لأن <code dir="ltr">bmi</code> غير معرفة إلا في نطاق الإجراء:</p>
-<div id="0fe35399" class="cell" data-execution_count="18">
+<div id="940f1e3c" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb26" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bmi)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -758,7 +765,7 @@ F = \frac{9}{5} C + 32
 <section id="معطيات-غير-مصرح-بها" class="level3">
 <h3 class="anchored" data-anchor-id="معطيات-غير-مصرح-بها">معطيات غير مصرح بها</h3>
 <p>وعلى العكس فإن المعرَّفات الخارجة معروفة في الداخل؛ وذلك يعني أنها يمكن أن تعمل في الإجراء بشكل غير مباشر. أي أنها <strong>معطيات غير مصرَّح بها</strong> (هو: <code dir="ltr">max_length</code> في هذا المثال):</p>
-<div id="91fc41e8" class="cell" data-execution_count="19">
+<div id="a7acea93" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb27" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>max_length <span class="op">=</span> <span class="dv">8</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> check_password_strength(password):</span>
@@ -790,7 +797,7 @@ F = \frac{9}{5} C + 32
 <section id="التصريح-بالأنواع" class="level2">
 <h2 class="anchored" data-anchor-id="التصريح-بالأنواع">التصريح بالأنواع</h2>
 <p>تسمح بايثون بعدم التصريح بأنواع المعاملات إلا أنه يجوز، وذلك على النحو التالي:</p>
-<div id="c940cb1e" class="cell" data-execution_count="20">
+<div id="f6579460" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb28" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(x: <span class="bu">int</span>, y: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> x <span class="op">+</span> y</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -816,7 +823,7 @@ F = \frac{9}{5} C + 32
 <section id="إطلاق-عدد-المعطيات" class="level2">
 <h2 class="anchored" data-anchor-id="إطلاق-عدد-المعطيات">إطلاق عدد المعطيات</h2>
 <p>قد تتساءل كيف تعمل <code dir="ltr">print</code> وهي تأخذ عددًا لا محدودًا من المعطيات؟ حتى نجيب عن ذلك ننظر في <strong>عملية فك الأقواس</strong> وهي علامة النجمة <code dir="ltr">*</code> قبل المتغيِّر المشير لمجموعة، على النحو التالي:</p>
-<div id="51fca5f5" class="cell" data-execution_count="21">
+<div id="9dbd7149" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb29" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>]</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(xs)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="op">*</span>xs)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -831,7 +838,7 @@ F = \frac{9}{5} C + 32
 <li>يُمرر واحدًا تلوَ الآخر للإجراء <code dir="ltr">print</code> بعد فك الأقواس كأنك كتبت: <code dir="ltr">print(10, 20, 30)</code></li>
 </ol>
 <p>وحين تستعمل علامة النجمة في تعريف معاملات الإجراء، فإن أي معطى موضعي زائد عن العدد، يكونُ فيه كصفّ (وسيأتي الكلام عن الصف في <a href="../../chapters/05_sequences/a_sequences.html">باب الجمع المرتبة</a>). وبالمثال يتضح المقال. وقد اصطُلح على تسميته <code dir="ltr">args</code> وهي اختصار كلمة Arguments:</p>
-<div id="e711aec9" class="cell" data-execution_count="22">
+<div id="ee7c71da" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb31" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show(a, <span class="op">*</span>args):</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(a)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">type</span>(args), args)</span>
@@ -845,7 +852,7 @@ print: 2 3 4 5</code></pre>
 </div>
 </div>
 <p>وكذلك العوامل المعيَّنة بالاسم، لكن بالنجمتين <code dir="ltr">**</code> وتكون قاموسًا (وسيأتي الكلام عنه في <a href="../../chapters/06_mapping/a2_dict.html">باب المجموعة المرقمة</a>) ومعنى الكلمة <code dir="ltr">kwargs</code> هو: Keyword Arguments:</p>
-<div id="383b2d28" class="cell" data-execution_count="23">
+<div id="a8bc9ca0" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb33" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show(a, <span class="op">**</span>kwargs):</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(a)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">type</span>(kwargs), kwargs)</span>
@@ -859,7 +866,7 @@ print: b c d e</code></pre>
 </div>
 </div>
 <p>وقد يجتمعان في نفس الإجراء <code dir="ltr">*args</code> و <code dir="ltr">**kwargs</code> نحو:</p>
-<div id="76bedc15" class="cell" data-execution_count="24">
+<div id="4a06ccdb" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb35" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show(x, y, <span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(x, y)</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">type</span>(args), args)</span>

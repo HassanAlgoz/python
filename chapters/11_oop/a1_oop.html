@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="مدخل عملي لتعلم البرمجة بلغة بايثون. كتاب موجه للمبتدئين في البرمجة من خلفيات تقنية أو غير تقنية، يعرض المفاهيم الأساسية بلغة واضحة، بتسلسل منطقي، مع مسائل واقعية وتطبيقات نافعة، بعيدًا عن العشوائية والسطحية. يصلح للتعلم الذاتي، وللتدريس كذلك">
+<meta name="description" content="الأهداف: استيعاب ماهية البرمجة، ومعرفة إمكانياتها وحدودها. وإكساب مهارة التعبير الخوارزمي بلغة بايثون. وامتلاك القدرة على فتح مكتبات برمجية في بايثون سواء في الذكاء الاصطناعي أو تعلم الآلة أو بناء المواقع أو التصاميم ثلاثية الأبعاد.">
 
-<title>ملحق O — البرمجة الكائنية – البايثونية</title>
+<title>ملحق O — البرمجة الكائنية – المقدمة البايثونية للبرمجة باللغة العربية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-81c45c98caf4abd5206f796100e44dec.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-a01f51f54d07157d09e563e765f5ca10.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,8 +108,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<meta name="twitter:title" content="ملحق O — البرمجة الكائنية – البايثونية">
-<meta name="twitter:description" content="مدخل عملي لتعلم البرمجة بلغة بايثون. كتاب موجه للمبتدئين في البرمجة من خلفيات تقنية أو غير تقنية، يعرض المفاهيم الأساسية بلغة واضحة، بتسلسل منطقي، مع مسائل واقعية وتطبيقات نافعة، بعيدًا عن العشوائية والسطحية. يصلح للتعلم الذاتي، وللتدريس كذلك">
+<meta property="og:title" content="ملحق O — البرمجة الكائنية – المقدمة البايثونية للبرمجة باللغة العربية">
+<meta property="og:description" content="الأهداف: استيعاب ماهية البرمجة، ومعرفة إمكانياتها وحدودها. وإكساب مهارة التعبير الخوارزمي بلغة بايثون. وامتلاك القدرة على فتح مكتبات برمجية في بايثون سواء في الذكاء الاصطناعي أو تعلم الآلة أو بناء المواقع أو التصاميم ثلاثية الأبعاد.">
+<meta property="og:site_name" content="المقدمة البايثونية للبرمجة باللغة العربية">
+<meta name="twitter:title" content="ملحق O — البرمجة الكائنية – المقدمة البايثونية للبرمجة باللغة العربية">
+<meta name="twitter:description" content="الأهداف: استيعاب ماهية البرمجة، ومعرفة إمكانياتها وحدودها. وإكساب مهارة التعبير الخوارزمي بلغة بايثون. وامتلاك القدرة على فتح مكتبات برمجية في بايثون سواء في الذكاء الاصطناعي أو تعلم الآلة أو بناء المواقع أو التصاميم ثلاثية الأبعاد.">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -137,7 +140,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">البايثونية</a> 
+      <a href="../../">المقدمة البايثونية للبرمجة باللغة العربية</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/hassanalgoz/python/tree/main/book/" title="الكود المصدر" class="quarto-navigation-tool px-1" aria-label="الكود المصدر"><i class="bi bi-github"></i></a>
     <div class="dropdown">
@@ -487,7 +490,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>بعديات</strong> (post-conditions): ضمان تسجيل تاريخ العملية بعد التمام</li>
 </ul>
 <p>يتم ذلك في بايثون عن طريق جعل الصفة نفسها (<code dir="ltr">balance</code>) <strong>مخفيَّة</strong>، ونبدلها بصفة <strong>محميَّة</strong>: <code dir="ltr">__balance</code> بشرطتين سفليتين متقدِّمة. ثم نُبرِزُ الصفة عن طريق فعل قراءة؛ وذلك باستعمال <strong>المعدِّل</strong> <code dir="ltr">@property</code>، وهو يجعل الفعل <code dir="ltr">balance</code> يبرز كصفة بلا قوسين للاستدعاء <code dir="ltr">balance()</code> وذلك يعني أن مجرَّد عملية الوصول إلى الصفة (بعلامة النقطة: <code dir="ltr">.</code>) هو في الحقيقة استدعاء لفعل يعود بقيمة، لا بالصفة التي يمكن تعديلها.</p>
-<div id="9de7ca75" class="cell" data-execution_count="1">
+<div id="fcc3e098" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Account:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, balance):</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
@@ -511,7 +514,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.__balance</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>نقوم الآن بإنشاء هذا الشيء الذي يمثِّل حساب المستخدم (<code dir="ltr">Account</code>)، ثم نصِل إلى الصفة بعلامة النقطة: <code dir="ltr">a1.balance</code>؛ فيكون ذلك استدعاءً للإجراء الذي تم وضع المعدِّل <code dir="ltr">@property</code> عليه ليكون الوصول إليه كالصفة:</p>
-<div id="1110dc78" class="cell" data-execution_count="2">
+<div id="afbb0bae" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a1 <span class="op">=</span> Account(<span class="st">'Adam'</span>, <span class="dv">100</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>a1.balance</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -519,7 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>ولو حاولت التغيير مباشرة على الصفة فإنك أصلاً لن تجد اسمها مُسندًا إلى الشيء:</p>
-<div id="937261ad" class="cell" data-execution_count="3">
+<div id="02def3df" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a1.balance <span class="op">=</span> <span class="dv">1000</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -533,7 +536,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>لكن يجوز فقط قراءة الصفة (قيمتها) لا التعديل عليها، هكذا (بعد الإيداع مثلاً):</p>
-<div id="352c2dd3" class="cell" data-execution_count="4">
+<div id="f8f057db" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a1.deposit(<span class="dv">100</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>a1.balance</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -544,7 +547,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>وليظهر أثر الحماية، نجرِّب إيداع مبلغ سالب، ولاحظ رسالة الخطأ:</p>
-<div id="9cd4043a" class="cell" data-execution_count="5">
+<div id="f3a79b83" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a1.deposit(<span class="op">-</span><span class="dv">44</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>must be positive</code></pre>
@@ -556,7 +559,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="العرض">العَرض</h2>
 <p>نريد أن نعرِّف نوعًا جديدًا للإحداثيات (Point) ونريد أن نعرضها في جملة <code dir="ltr">print</code> بتمثيل يعبِّر عنها كإحداثيات.</p>
 <p>يستعمل الفعل الخاص <a href="https://docs.python.org/3/reference/datamodel.html#object.__repr__"><code dir="ltr">__repr__</code></a>، ويعني <strong>التمثيل</strong> (Representation) لتخصيص طريقة عرض الشيء؛ سواءٌ إذا تم تمرير في <code dir="ltr">print</code> أو في آخر سطر من الخلية. كل ما عليك هو إعادة قيمة نصيَّة من ذلك الفعل.</p>
-<div id="9ec8c8d9" class="cell" data-execution_count="6">
+<div id="1e8047d7" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
@@ -570,7 +573,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"Point(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>والآن إن عرفنا نقطة جديدة، ووضعناها على السطر لوحدها ، ستظهر لنا الإحداثيات، لا عنوانها في الذاكرة:</p>
-<div id="6a9883f6" class="cell" data-execution_count="7">
+<div id="e03a48d3" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Point(<span class="dv">3</span>, <span class="dv">4</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>p.move(<span class="dv">7</span>, <span class="dv">6</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -583,7 +586,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="الإجراء-المثبت">الإجراء المُثبَت</h2>
 <p><strong>الإجراء المُثبَت</strong> (Static Method): هو الإجراء المسند إلى النوع لا للمعيَّن.</p>
 <p>فيمكن إسناد الإجراء للجنس لا للشيء الواحد، وذلك بإضافة المعدِّل <code dir="ltr">@staticmethod</code> عليه. ونمثل لذلك بإجراء حساب المسافة بين نقطتين: <code dir="ltr">distance</code>. ولاحظ عدم وجود <code dir="ltr">self</code> فيه:</p>
-<div id="b31ad6a2" class="cell" data-execution_count="8">
+<div id="0ee0915a" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
@@ -600,7 +603,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="bu">abs</span>(p1.x <span class="op">-</span> p2.x) <span class="op">+</span> <span class="bu">abs</span>(p1.y <span class="op">-</span> p2.y)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ثم يستعمل كأي إجراء، لكن بإسناده إلى النوع:</p>
-<div id="3f28a38b" class="cell" data-execution_count="9">
+<div id="4787b455" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> Point(<span class="dv">3</span>, <span class="dv">4</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> Point(<span class="dv">7</span>, <span class="dv">6</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> Point.distance(p1, p2, <span class="st">'manhattan'</span>)</span>
@@ -614,7 +617,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="المتغير-المثبت">المتغير المُثبَت</h2>
 <p><strong>المتغير المُثبَت</strong> (Static Variable): هو المتغير المسند إلى النوع لا للمعيَّن.</p>
 <p>يُسنَد المتغير للنوع بتعيينه بمحاذاة غيره من الإجراءات نحو ما فعلنا هنا بالمتغير <code dir="ltr">decor</code>. ولاحظ استعماله في الإجراء <code dir="ltr">__repr__</code> في جملة <code dir="ltr">if-else</code> من غير استعمال <code dir="ltr">self</code> لأننا لا نشير إلى معيَّن.</p>
-<div id="f7ad7c75" class="cell" data-execution_count="10">
+<div id="dfb08d3f" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    decor <span class="op">=</span> <span class="st">'&lt;&gt;'</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -635,7 +638,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="ss">f"(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>فيمكن الآن تعديل المتغير <code dir="ltr">decor</code> للنوع:</p>
-<div id="1775a1ef" class="cell" data-execution_count="11">
+<div id="6135552a" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> Point(<span class="dv">3</span>, <span class="dv">4</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> Point(<span class="dv">7</span>, <span class="dv">6</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p1, p2)</span>
@@ -666,7 +669,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>لمحة سريعة: <code dir="ltr">peek()</code> وكأنك تنظر إلى الورقة العليا دون سحبها</li>
 </ul>
 <p>وأقرب شيء له في بايثون هو القائمة (<code dir="ltr">list</code>) ولذلك ستكون هي تمثيلها الداخلي.</p>
-<div id="1f701730" class="cell" data-execution_count="12">
+<div id="577b31e8" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Stack:</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.items <span class="op">=</span> []</span>
@@ -694,7 +697,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>فعل <code dir="ltr">__repr__</code> يعطينا تمثيلاً للكومة بالاعتماد على تمثيل القائمة</li>
 </ul>
 <p>نجرب الآن أن ننشئها ثم نضع أربعة عناصر فيها ونظهرها:</p>
-<div id="cfb4aeee" class="cell" data-execution_count="13">
+<div id="86c3286b" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb20" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> Stack()</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>s.push(<span class="dv">10</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>s.push(<span class="dv">20</span>)</span>
@@ -706,7 +709,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>والآن نسحب عنصرًا (من الأخير)، ونظهرها:</p>
-<div id="38604cfe" class="cell" data-execution_count="14">
+<div id="d6b23af0" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb22" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>s.pop()</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -714,14 +717,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>ويمكن النظر في العنصر الأعلى دون سحبه بالفعل <code dir="ltr">peek</code>:</p>
-<div id="0088cb1d" class="cell" data-execution_count="15">
+<div id="c406ad49" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb24" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s.peek())</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>30</code></pre>
 </div>
 </div>
 <p>ونستطيع أن نعدها:</p>
-<div id="b2debeb8" class="cell" data-execution_count="16">
+<div id="70fd3033" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb26" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(s)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre dir="ltr"><code>3</code></pre>
@@ -730,7 +733,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="استعمال-الكومة" class="level4">
 <h4 class="anchored" data-anchor-id="استعمال-الكومة">استعمال الكومة</h4>
 <p>إذا كان لديك نص تريد التحقق من توازن الأقواس فيه، بحيث يكون لكل قوسٍ مفتوح قوسٌ يغلقه، فالكومة تساعدك في حل مثل هذه المسألة (انظر التوكيدات في الأسفل):</p>
-<div id="ef7a3dd8" class="cell" data-execution_count="17">
+<div id="d73b8eee" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb28" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_balanced(text: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Check if the text has balanced parentheses."""</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    stack <span class="op">=</span> Stack()</span>
@@ -743,7 +746,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>            stack.pop()    </span>
 <span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">len</span>(stack) <span class="op">==</span> <span class="dv">0</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="712de11a" class="cell" data-execution_count="18">
+<div id="dd2332ef" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb29" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> is_balanced(<span class="st">'()'</span>)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> is_balanced(<span class="st">'(())'</span>)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="kw">not</span> is_balanced(<span class="st">'(()'</span>)</span>
