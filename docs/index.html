@@ -1,1112 +1,0 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ar" xml:lang="ar" dir="rtl"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="حسان القوز">
-<meta name="description" content="مدخل عملي لتعلم البرمجة بلغة بايثون. كتاب موجه للمبتدئين في البرمجة من خلفيات تقنية أو غير تقنية، يعرض المفاهيم الأساسية بلغة واضحة، بتسلسل منطقي، مع مسائل واقعية وتطبيقات نافعة، بعيدًا عن العشوائية والسطحية. يصلح للتعلم الذاتي، وللتدريس كذلك">
-
-<title>البايثونية</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-</style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./setup.html" rel="next">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-800706539903139ffa187a61ec5db5e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "لا يوجد نتائج",
-    "search-matching-documents-text": "الصفحات المطابقة",
-    "search-copy-link-title": "نسخ الرابط إلى الحافظة",
-    "search-hide-matches-text": "إخفاء المطابقات الإضافية",
-    "search-more-match-text": "مطابقة واحدة في هذه الصفحة",
-    "search-more-matches-text": "مطابقات إضافية في هذه الصفحة",
-    "search-clear-button-title": "إزالة",
-    "search-text-placeholder": "ابحث عن...",
-    "search-detached-cancel-button-title": "إلغاء",
-    "search-submit-button-title": "إرسال",
-    "search-label": "البحث"
-  }
-}</script>
-
-
-<meta name="twitter:title" content="البايثونية">
-<meta name="twitter:description" content="مدخل عملي لتعلم البرمجة بلغة بايثون. كتاب موجه للمبتدئين في البرمجة من خلفيات تقنية أو غير تقنية، يعرض المفاهيم الأساسية بلغة واضحة، بتسلسل منطقي، مع مسائل واقعية وتطبيقات نافعة، بعيدًا عن العشوائية والسطحية. يصلح للتعلم الذاتي، وللتدريس كذلك">
-<meta name="twitter:image" content="https://hassanalgoz.github.io/python/cover.jpeg">
-<meta name="twitter:card" content="summary_large_image">
-</head>
-
-<body class="nav-sidebar floating quarto-light">
-
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">مقدمة</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">البايثونية</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://github.com/hassanalgoz/python/tree/main/book/" title="الكود المصدر" class="quarto-navigation-tool px-1" aria-label="الكود المصدر"><i class="bi bi-github"></i></a>
-    <div class="dropdown">
-      <a href="" title="المشاركة" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="المشاركة"><i class="bi bi-share"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-twitter pe-1"></i>
-            Twitter
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-facebook pe-1"></i>
-            Facebook
-            </a>
-          </li>
-      </ul>
-    </div>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="البحث"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">مقدمة</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">إعداد بيئة التطوير</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/00_rewrite/01_instructions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">النص البرمجي</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/00_rewrite/02_control_flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">توالي الأوامر</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/00_rewrite/03_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">الدالة</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/00_rewrite/04_sequences.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">التسلسل</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/00_rewrite/05_computer_and_world.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">الحاسب والعالم</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/00_rewrite/06_text_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">الملفات النصية</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/00_rewrite/07_regex.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">التعبير النمطي</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/00_rewrite/08_objects.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">الكائنات</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/00_rewrite/09_time.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/00_rewrite/10_errors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">مسائل موضوعية</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="تبديل القسم">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/problems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">في الأرقام</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/solutions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">حل المسائل</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/problems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">في الشرط والتكرار</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/solutions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">حل المسائل</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/05_sequences/problems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">في الجمع المرتب</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/05_sequences/solutions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">حل المسائل</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/06_mapping/c_problems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">في الجمع المرقَّم</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">مسائل مفتوحة</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="تبديل القسم">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/apps/random_problem.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">شبه العشوائية</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/apps/sentiment_analysis_problem.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">تحليل المشاعر</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/apps/sentiment_analysis_solution.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">الحل</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/apps/ceasar_cipher_problem.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">التشفير</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">الملحقات</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="تبديل القسم">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/a_numbers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">الأرقام</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/02_numbers/apps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">تطبيقات في الأرقام</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/control_flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">توالي الأوامر</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/03_control_flow/apps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">تطبيقات في توالي الأوامر</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/08_procedural/a1_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">الدالة</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/05_sequences/a_sequences.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">التسلسل</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/05_sequences/apps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">تطبيقات في التسلسل</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/06_mapping/a1_set.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">المجموعة</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/06_mapping/a2_dict.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">القاموس</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/06_mapping/b_apps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">تطبيقات في القاموس</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/07_strings/a1_strings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">النص</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/07_strings/a2_unicode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">L</span>&nbsp; <span class="chapter-title">ترميز الحروف</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/07_strings/regex.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">M</span>&nbsp; <span class="chapter-title">التعبير النمطي</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/09_files_and_directories/a1_file_io.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">الملفات</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/11_oop/a1_oop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">البرمجة الكائنية</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./appendix/appendix_collections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">P</span>&nbsp; <span class="chapter-title">خريطة الجُمُوع</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">المحاور</h2>
-   
-  <ul>
-  <li><a href="#مقدمة" id="toc-مقدمة" class="nav-link active" data-scroll-target="#مقدمة">مقدمة</a>
-  <ul class="collapse">
-  <li><a href="#لماذا-نبرمج" id="toc-لماذا-نبرمج" class="nav-link" data-scroll-target="#لماذا-نبرمج">لماذا نبرمج؟</a></li>
-  <li><a href="#لمن-هذا-الكتاب" id="toc-لمن-هذا-الكتاب" class="nav-link" data-scroll-target="#لمن-هذا-الكتاب">لمن هذا الكتاب؟</a></li>
-  <li><a href="#أهداف-الكتاب" id="toc-أهداف-الكتاب" class="nav-link" data-scroll-target="#أهداف-الكتاب">أهداف الكتاب</a></li>
-  <li><a href="#لماذا-وقع-الاختيار-على-لغة-بايثون" id="toc-لماذا-وقع-الاختيار-على-لغة-بايثون" class="nav-link" data-scroll-target="#لماذا-وقع-الاختيار-على-لغة-بايثون">لماذا وقع الاختيار على لغة بايثون؟</a>
-  <ul class="collapse">
-  <li><a href="#مجالات-لغة-بايثون" id="toc-مجالات-لغة-بايثون" class="nav-link" data-scroll-target="#مجالات-لغة-بايثون">مجالات لغة بايثون</a></li>
-  <li><a href="#تطوير-مواقع-الشبكة" id="toc-تطوير-مواقع-الشبكة" class="nav-link" data-scroll-target="#تطوير-مواقع-الشبكة">🌐 <strong>تطوير مواقع الشبكة</strong></a></li>
-  <li><a href="#تحليل-البيانات-وتصويرها" id="toc-تحليل-البيانات-وتصويرها" class="nav-link" data-scroll-target="#تحليل-البيانات-وتصويرها">📊 <strong>تحليل البيانات وتصويرها</strong></a></li>
-  <li><a href="#البيانات-الضخمة" id="toc-البيانات-الضخمة" class="nav-link" data-scroll-target="#البيانات-الضخمة">📊📊📊 <strong>البيانات الضخمة</strong></a></li>
-  <li><a href="#الذكاء-الاصطناعي-وتعلم-الآلة" id="toc-الذكاء-الاصطناعي-وتعلم-الآلة" class="nav-link" data-scroll-target="#الذكاء-الاصطناعي-وتعلم-الآلة">🤖 <strong>الذكاء الاصطناعي وتعلم الآلة</strong></a></li>
-  <li><a href="#معالجة-الصور" id="toc-معالجة-الصور" class="nav-link" data-scroll-target="#معالجة-الصور">🖼️ <strong>معالجة الصور</strong></a></li>
-  <li><a href="#التحليل-الرياضي" id="toc-التحليل-الرياضي" class="nav-link" data-scroll-target="#التحليل-الرياضي">📐 <strong>التحليل الرياضي</strong></a></li>
-  <li><a href="#الكيمياء" id="toc-الكيمياء" class="nav-link" data-scroll-target="#الكيمياء">🧪 <strong>الكيمياء</strong></a></li>
-  <li><a href="#الحوسبة-الكمومية" id="toc-الحوسبة-الكمومية" class="nav-link" data-scroll-target="#الحوسبة-الكمومية">⚛️ <strong>الحوسبة الكمومية</strong></a></li>
-  <li><a href="#علم-النفس" id="toc-علم-النفس" class="nav-link" data-scroll-target="#علم-النفس">🧠 <strong>علم النفس</strong></a></li>
-  <li><a href="#المعلوماتية-الحيوية" id="toc-المعلوماتية-الحيوية" class="nav-link" data-scroll-target="#المعلوماتية-الحيوية">🧬 <strong>المعلوماتية الحيوية</strong></a></li>
-  <li><a href="#علوم-الأرض" id="toc-علوم-الأرض" class="nav-link" data-scroll-target="#علوم-الأرض">🗻 <strong>علوم الأرض</strong></a></li>
-  <li><a href="#علم-الفلك" id="toc-علم-الفلك" class="nav-link" data-scroll-target="#علم-الفلك">🔭 <strong>علم الفلك</strong></a></li>
-  </ul></li>
-  <li><a href="#بايثون-وحدها-لا-تكفي" id="toc-بايثون-وحدها-لا-تكفي" class="nav-link" data-scroll-target="#بايثون-وحدها-لا-تكفي">بايثون وحدها لا تكفي</a></li>
-  <li><a href="#تعريب-المصطلح" id="toc-تعريب-المصطلح" class="nav-link" data-scroll-target="#تعريب-المصطلح">تعريب المصطلح</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
-    </div>
-<!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">البايثونية</h1>
-</div>
-
-<div>
-  <div class="description">
-    مدخل عملي لتعلم البرمجة بلغة بايثون. كتاب موجه للمبتدئين في البرمجة من خلفيات تقنية أو غير تقنية، يعرض المفاهيم الأساسية بلغة واضحة، بتسلسل منطقي، مع مسائل واقعية وتطبيقات نافعة، بعيدًا عن العشوائية والسطحية. يصلح للتعلم الذاتي، وللتدريس كذلك
-  </div>
-</div>
-
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">المؤلف</div>
-    <div class="quarto-title-meta-contents">
-             <p>حسان القوز </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">تم النشر</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">15 يونيو 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-
-<section id="مقدمة" class="level1 unnumbered">
-<h1 class="unnumbered">مقدمة</h1><p><img src="cover.jpeg" title="البايثونية" class="quarto-cover-image nolightbox img-fluid"></p>
-<p>بسم الله الرحمن الرحيم. والحمد لله والصلاة والسلام على رسول الله وآله وصحبه ومن والاه. أما بعد.</p>
-<section id="لماذا-نبرمج" class="level2">
-<h2 class="anchored" data-anchor-id="لماذا-نبرمج">لماذا نبرمج؟</h2>
-<p>ظل الذكاء الاصطناعي طموحًا عاليًا منذ بزوغ فجر علوم الحاسب (1953). وما زال هذا الهدف دافعًا قويًّا لكل من فهم أننا باختراع الحاسب (1833 - 1871) استطعنا <strong>محاكاة المنطق</strong> في آلات صماء. ولا حد لإمكانيَّة هذا المعالِج الآلي إلا تعبيرك اللغوي أيها الناطق البشري. فهذا جانب <strong>المعالجة</strong>.</p>
-<p>وجانب <strong>الإدراك</strong> فيه:</p>
-<p>أدوات <strong>الإحساس</strong> التي تُدخِلُ المرئيات والمسموعات ونحوها ؛ وقد تم محاكاتها بآلة التصوير (كاميرا) ولاقط الصوت (مايكروفون). وكذلك أجهزة استشعار دقيقة مثل مستشعر الحرارة أو الرطوبة أو أجهزة قياس المسافة أو ماسحات البصمة أو الرنين المغناطيسي (MRI) أو الموجات الكهرومغناطيسية في الأقمار الصناعية وأجهزة الملاحة الجوية والبحرية والبوصلة أو ميزان التسوية الأفقية (Gyroscope) وغيرها كثير.</p>
-<p>ومنها ما <strong>يُسجل يدويًّا</strong> كما يكون في المستشفى: العمر والوزن والطول، أو بيانات الحضور والانصراف أو المبيعات اليومية، أو بيانات طلاب أو متدربين في دورة تدريبية أو سجلات المخزون ونحو ذلك. وهي كثيرة جدًّا.</p>
-<p>ثم أدوات <strong>الاستيعاب</strong> وهي التي تجمع المحسوسات في وعاءٍ واحدٍ للاعتبار جُملةً واحدة، وقد تم محاكاتهُا بما نسميه <strong>الذاكرة</strong> (وهي على مراحل تَبعُد وتَقترب من مركز المعالجة). وتشبه الذاكرة في الجهاز ما يراه الشخص في الوقت الواحد أو يمكن تصوُّرُه في الذهن وتخيله في لحظة واحدة. أما الذكريات المخزنة لدينا ، وما نكتبه في مذكرات فيكون مسجلاً في أجهزة <strong>التخزين</strong>.</p>
-<p>ثم تأتي أدوات <strong>المعالجة</strong> وهي الآلات القابلة للبرمجة؛ مثل وحدة المعالجة المركزية (CPU) ووحدة المعالجة الرسومية (GPU) وغيرها؛ حيث يوضَع المنطق المترجَم من لغات البرمجة ويشغِّل هذه الإلكترونيات المجهرية لتحقيق مقصوده منها.</p>
-<p>ثم <strong>الفعل</strong>؛ بإرسال إشارات عبر منافذ الأجهزة المتصلة به حتى تتحول المعالجة الدقيقة لنتيجة ظاهرة جلية. فتنطبع صورة على الشاشة لنراها، وتصدر ذبذبة هوائية نسمعها، وإشارات متتابعة لحركة مفاصل ذراع آلية .. أو إلى آلة منطقية أخرى متصلة بالشبكة العالمية.</p>
-</section>
-<section id="لمن-هذا-الكتاب" class="level2">
-<h2 class="anchored" data-anchor-id="لمن-هذا-الكتاب">لمن هذا الكتاب؟</h2>
-<p>بدأت بوادر تأليف هذا الكتاب أثناء تدريسي البرمجة بلغة بايثون لخريجي التخصصات التقنية تمهيدًا لهم للدخول في علوم البيانات والذكاء الاصطناعي. فأردت أن أضع مادة جامعة <strong>شاملة لأهم مفاهيم البرمجة</strong> في مستوى تطبيقي مناسبٍ لذلك الغرض؛ فلا ينزل إلى التفاصيل الدقيقة التي لا يحتاج إليها.</p>
-<p>ثم أعدت النظر فيه فراعيت أصحاب <strong>التخصصات غير التقنية</strong> إذْ لم أغرِق في التفاصيل الرياضية ولا الحاسوبية الدقيقة.</p>
-<ul>
-<li><strong>فمن أراد أن يبدأ في البرمجة فليبدأ بهذا الكتاب</strong>؛ فالمواضيع منظمة بشكل منطقي وعملي مع مسائل نافعة للمبرمج تقترب في كل مرة من الواقع أكثر فأكثر.</li>
-<li>ومن <strong>أراد مرجِعًا لمواضيع البرمجة بلغة بايثون</strong> فهذا الكتاب صديقه؛ فالكتاب مقسَّم بحسب الموضوعات وكل موضوعٍ مقسَّم كذلك لتسهيل الوصول إلى أي مفهوم. كما تستطيع استعمال خاصيَّة البحث.</li>
-<li>وهو كذلك <strong>معينٌ لمن أراد تدريس البرمجة منطلقًا من لغة بايثون</strong>؛ فقد جمعتُ فيه ما تفرَّق ونظمتُه بعد نظرٍ في عدة مؤلفات مماثلة، وعلى ما رأيتُ أنه أنفع للمتعلم، وأضفتُ بعض الأقسام المتممة لما رأيت أنه ناقص بدونها.</li>
-</ul>
-</section>
-<section id="أهداف-الكتاب" class="level2">
-<h2 class="anchored" data-anchor-id="أهداف-الكتاب">أهداف الكتاب</h2>
-<ol type="1">
-<li>استيعاب ماهية البرمجة، ومعرفة إمكانياتها وحدودها</li>
-<li>إكساب مهارة التعبير الخوارزمي بلغة بايثون</li>
-<li>امتلاك القدرة على فتح مكتبات برمجية بايثونية والاستفادة من النتاج المعرفي البرمجي المتراكم في بناء تطبيقات مفيدة</li>
-</ol>
-</section>
-<section id="لماذا-وقع-الاختيار-على-لغة-بايثون" class="level2">
-<h2 class="anchored" data-anchor-id="لماذا-وقع-الاختيار-على-لغة-بايثون">لماذا وقع الاختيار على لغة بايثون؟</h2>
-<p>صممت بايثون لتكون <strong>عالية المستوى</strong>: أي مجردة عن كثير من التفاصيل الحاسوبية التي لا يهتم لها غير المختص. وهذا جلعها <strong>سهلة</strong>: ففي البداية يحس المتعلم أنه يتعلم لغة إنجليزية بقواعد معيَّنة. فزادت المكتبات البرمجية (وهي ما يتشاركه المجتمع من قطع برمجية) <strong>وتضافرت الجهود</strong> وتنوَّعت المجالات بشكل كبير جدًّا، حتى لا يكاد يوجد مجال إلا ودخلته بايثون.</p>
-<section id="مجالات-لغة-بايثون" class="level3">
-<h3 class="anchored" data-anchor-id="مجالات-لغة-بايثون">مجالات لغة بايثون</h3>
-<p>إذا نظرنا في إحصاء <a href="https://www.jetbrains.com/lp/devecosystem-2023/python/#python_for">JetBrains 2023</a> نجد مجالات استعمال لغة بايثون:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./assets/jetbrains devecosystem-2023 Python.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="بم تستعمل لغة بايثون؟"><img src="./assets/jetbrains devecosystem-2023 Python.png" class="img-fluid figure-img" target="_blank" alt="بم تستعمل لغة بايثون؟"></a></p>
-<figcaption>بم تستعمل لغة بايثون؟</figcaption>
-</figure>
-</div>
-<ul>
-<li>47% <a href="https://www.coursera.org/professional-certificates/google-advanced-data-analytics" target="_blank">تحليل البيانات</a></li>
-<li>42% <a href="https://www.youtube.com/playlist?list=PLuRv1IekA3YXlJIZIV8KjVcOEwoDXMY2b" target="_blank">تعلم الآلة</a> (الذكاء الاصطناعي)</li>
-<li>39% <a href="https://www.coursera.org/professional-certificates/meta-back-end-developer" target="_blank">تطوير المواقع</a></li>
-<li>31% <a href="https://www.youtube.com/playlist?list=PLzMcBGfZo4-n40rB1XaJ0ak1bemvlqumQ" target="_blank">برمجة كاسحات المواقع</a> (التي تجمع البيانات)</li>
-<li>30% <a href="https://www.coursera.org/professional-certificates/google-it-automation" target="_blank">أتمتة إدارة الأنظمة والبنية التحتية التقنية</a></li>
-<li>26% <a href="https://playwright.dev/python/docs/intro" target="_blank">أتمتة اختبار البرمجيات</a></li>
-<li>23% أغراض تعليمية</li>
-<li>22% صناعة برمجيات أوليَّة (أي لسهولتها)</li>
-</ul>
-<p>وانظر <a href="https://www.jetbrains.com/lp/devecosystem-2024/#functionality_by_lang" target="_blank">إحصاء JetBrains 2024</a> لمقارنة بايثون مع غيرها من اللغات، حيث يظهر في الجدول التالي توزيع استعمال المبرمجين للغات في مختلف المجالات. ويظهر لنا أن بايثون هي أكثر اللغات انتشارًا بين المجالات التقنية؛ فتعلمها يعطيك أوسع فرصة في المجالات:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./assets/devecossytem-2024 Code functionality by programming language.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="توزيع استعمال اللغات بحسب المجالات التقنية في 2024"><img src="./assets/devecossytem-2024 Code functionality by programming language.png" class="img-fluid figure-img" target="_blank" alt="توزيع استعمال اللغات بحسب المجالات التقنية في 2024"></a></p>
-<figcaption><a href="./assets/devecossytem-2024 Code functionality by programming language.png">توزيع استعمال اللغات بحسب المجالات التقنية في 2024</a></figcaption>
-</figure>
-</div>
-<p>ومن الشركات التقنية التي قامت على بايثون: Instagram، Spotify, Reddit, Netflix, Dropbox, Quora, Pintrest.</p>
-<p>والمجتمعات البرمجية في بايثون كثيرة ومتعددة في اهتماماتها. منها على سبيل المثال:</p>
-</section>
-<section id="تطوير-مواقع-الشبكة" class="level3">
-<h3 class="anchored" data-anchor-id="تطوير-مواقع-الشبكة">🌐 <strong>تطوير مواقع الشبكة</strong></h3>
-<ul>
-<li><a href="https://www.djangoproject.com/">Django</a> - لبناء مواقع متصلة بقواعد بيانات</li>
-<li><a href="https://fastapi.tiangolo.com/">FastAPI</a> - حديث وسريع لبناء واجهات برمجية على الشبكة</li>
-</ul>
-</section>
-<section id="تحليل-البيانات-وتصويرها" class="level3">
-<h3 class="anchored" data-anchor-id="تحليل-البيانات-وتصويرها">📊 <strong>تحليل البيانات وتصويرها</strong></h3>
-<ul>
-<li><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas</a> - لتحليل البيانات المرصوصة</li>
-<li><a href="https://www.statsmodels.org/">statsmodels</a> - للنماذج الإحصائية</li>
-<li><a href="https://seaborn.pydata.org/">Seaborn</a> - لتصوير البيانات الإحصائية على أساس Matplotlib.</li>
-<li><a href="https://matplotlib.org/">matplotlib</a> - مكتبة شاملة لإنشاء تصورات ثابتة ومتحركة وتفاعلية.</li>
-<li><a href="https://pypi.org/project/selenium/" target="_blank">Selenium</a> لتصفح المواقع بشكل آلي وسحب البيانات منها</li>
-</ul>
-</section>
-<section id="البيانات-الضخمة" class="level3">
-<h3 class="anchored" data-anchor-id="البيانات-الضخمة">📊📊📊 <strong>البيانات الضخمة</strong></h3>
-<ul>
-<li>معالجة البيانات المتدفقة بسرعة وكفاءة عالية: <a href="https://dask.org/" target="_blank">Dask</a> و <a href="https://ray.io/" target="_blank">Ray</a>.</li>
-<li>أتمتة عمليات البيانات: <a href="https://airflow.apache.org/" target="_blank">Airflow</a>,&nbsp;<a href="https://dagster.io/" target="_blank">Dagster</a> و <a href="https://www.prefect.io/" target="_blank">Prefect</a></li>
-</ul>
-</section>
-<section id="الذكاء-الاصطناعي-وتعلم-الآلة" class="level3">
-<h3 class="anchored" data-anchor-id="الذكاء-الاصطناعي-وتعلم-الآلة">🤖 <strong>الذكاء الاصطناعي وتعلم الآلة</strong></h3>
-<ul>
-<li><a href="https://scikit-learn.org/">scikit-learn</a> - لاكتشاف الأنماط والتنبؤ (تعلم الآلة)</li>
-<li><a href="https://pytorch.org/">PyTorch</a> - بناء وتدريب نماذج التعلم العميق</li>
-<li><a href="https://keras.io/">Keras</a> - بناء وتدريب نماذج التعلم العميق</li>
-<li><a href="https://huggingface.co/">Hugging Face</a> - اختيار وتدريب نماذج التعلم العميق</li>
-</ul>
-</section>
-<section id="معالجة-الصور" class="level3">
-<h3 class="anchored" data-anchor-id="معالجة-الصور">🖼️ <strong>معالجة الصور</strong></h3>
-<ul>
-<li><a href="https://pillow.readthedocs.io/en/stable/handbook/overview.html">Pillow</a></li>
-<li><a href="https://scikit-image.org/">Scikit-image</a></li>
-<li><a href="https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html">OpenCV</a></li>
-<li><a href="https://www.manim.community/">Manim</a> - تصوير الرياضيات: أسسها <a href="https://www.3blue1brown.com/">3Brown1Blue</a> ليستعملها في مقاطعه التعليمية على اليوتيوب.</li>
-</ul>
-</section>
-<section id="التحليل-الرياضي" class="level3">
-<h3 class="anchored" data-anchor-id="التحليل-الرياضي">📐 <strong>التحليل الرياضي</strong></h3>
-<ul>
-<li><a href="https://scipy.org/">SciPy</a> - خوارزميات أساسية في الحوسبة العلمية</li>
-<li><a href="https://www.sympy.org/">sympy</a> - للرياضيات الرمزية.</li>
-<li><a href="https://astroautomata.com/PySR/">PySR</a> - الانحدار الرمزي.</li>
-<li><a href="https://www.cvxpy.org/index.html">cvxPy</a> - التحسين (Convex Optimization)</li>
-<li><a href="https://fenicsproject.org/">FEniCS</a> - حل المعادلات التفاضلية الجزئية (PDEs) باستخدام طريقة العناصر المحدودة (FEM)</li>
-<li><a href="https://python.igraph.org/en/stable/tutorials/quickstart.html">igraph</a> - الترابطات والشبكات</li>
-<li><a href="https://python-control.readthedocs.io/">python-control</a> - أنظمة التحكم</li>
-</ul>
-</section>
-<section id="الكيمياء" class="level3">
-<h3 class="anchored" data-anchor-id="الكيمياء">🧪 <strong>الكيمياء</strong></h3>
-<ul>
-<li><a href="https://cantera.org/">Cantera</a></li>
-<li><a href="https://www.mdanalysis.org/">MDAnalysis</a></li>
-<li><a href="https://github.com/rdkit/rdkit">RDKit</a></li>
-<li><a href="https://www.pybamm.org/">PyBaMM</a></li>
-</ul>
-</section>
-<section id="الحوسبة-الكمومية" class="level3">
-<h3 class="anchored" data-anchor-id="الحوسبة-الكمومية">⚛️ <strong>الحوسبة الكمومية</strong></h3>
-<ul>
-<li><a href="https://pennylane.ai/">PennyLane</a></li>
-<li><a href="https://qiskit.org/">Qiskit</a></li>
-</ul>
-</section>
-<section id="علم-النفس" class="level3">
-<h3 class="anchored" data-anchor-id="علم-النفس">🧠 <strong>علم النفس</strong></h3>
-<ul>
-<li><a href="https://www.psychopy.org/">PsychoPy</a></li>
-</ul>
-</section>
-<section id="المعلوماتية-الحيوية" class="level3">
-<h3 class="anchored" data-anchor-id="المعلوماتية-الحيوية">🧬 <strong>المعلوماتية الحيوية</strong></h3>
-<ul>
-<li><a href="https://biopython.org/">BioPython</a></li>
-<li><a href="http://scikit-bio.org/">Scikit-Bio</a></li>
-<li><a href="https://github.com/openvax/pyensembl">PyEnsembl</a></li>
-<li><a href="http://etetoolkit.org/">ETE</a></li>
-</ul>
-</section>
-<section id="علوم-الأرض" class="level3">
-<h3 class="anchored" data-anchor-id="علوم-الأرض">🗻 <strong>علوم الأرض</strong></h3>
-<ul>
-<li><a href="https://pangeo.io/">Pangeo</a></li>
-<li><a href="https://simpeg.xyz/">Simpeg</a></li>
-<li><a href="https://github.com/obspy/obspy/wiki">ObsPy</a></li>
-<li><a href="https://www.fatiando.org/">Fatiando a Terra</a></li>
-</ul>
-</section>
-<section id="علم-الفلك" class="level3">
-<h3 class="anchored" data-anchor-id="علم-الفلك">🔭 <strong>علم الفلك</strong></h3>
-<ul>
-<li><a href="https://www.astropy.org/">AstroPy</a></li>
-<li><a href="https://sunpy.org/">SunPy</a></li>
-<li><a href="https://spacepy.github.io/">SpacePy</a></li>
-</ul>
-</section>
-</section>
-<section id="بايثون-وحدها-لا-تكفي" class="level2">
-<h2 class="anchored" data-anchor-id="بايثون-وحدها-لا-تكفي">بايثون وحدها لا تكفي</h2>
-<p>والواقع أن ليسَ ثمة لغة واحدة تحقق كل متطلبات بناء التطبيق؛ بل يغلب على المشاريع البرمجية تعدد اللغات فيها، وإن كانت مشاريع فردية صغيرة. وإن من منافع التعلم بالطريقة الصحيحة؛ أن تعلُّمَك للغة الثانية يصبح أسهل؛ فقد تختلف أساليب التعبير بين لغة وأخرى، إلا أن المفاهيم مشتركة.</p>
-</section>
-<section id="تعريب-المصطلح" class="level2">
-<h2 class="anchored" data-anchor-id="تعريب-المصطلح">تعريب المصطلح</h2>
-<p>لعل وصف المفاهيم باللغة الأم أقرب للطبع، وأمكن في الذهن وأوعى، وأسهل في التقليب والانتقاد، وأوسع في الاختراع والإبداع. فالمفاهيم لا تتعلق باللغة التي كتبت بحروفها ابتداءً. فالمعنى شيء، واللغة شيء ثاني. بل إنَّ علامة العلم أن تحسن التعبير عنه. فليس بينك وبين المفهوم حاجز اللغة، ولا هالة المصطلح.</p>
-<p>ويموت المصطلح وإن كان مُثبتًا في قواميس الدنيا؛ إذا لم يتداوله أهله. فإنَّ الأذن تستغرب غير المتداوَل من الكلام، كالطعم الجديد على اللسان؛ فإذا اعتاده استساغه. وقد تجد ذلك فيما شَاعَ ودَرَج كالجوال والسيارة، والكهرباء والطيارة.</p>
-<p>والمصطلح العلمي له من اللغة معنىً يتأثر بالسياق الذي يُستعمل فيه، وكذلك يتأثر بالمصطلحات المحيطة به. فإذا ما جُرِّد المصطلح عن قصته، ولم يُعرَف أصله؛ فقد يتسرع المرءُ بالحكم على عدم مناسبته.</p>
-<p>ولا يُفهم مما سبق أن المصطلح الإنجليزي مُهمَل؛ بل نضرب بالحجر عصفورين. إذْ لا بد لك من إتقان اللغة الإنجليزية لتستقي من تلك المنابع.</p>
-
-
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "تم النسخ!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "تم النسخ!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
-        }
-        return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
-    });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/hassanalgoz\.github\.io\/python\/");
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
-    }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
-      } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
-      }
-    }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
-          }
-        } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
-            if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
-      } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
-        });
-      }
-    }
-  });
-  </script>
-<script src="https://utteranc.es/client.js" repo="HassanAlgoz/python" issue-term="og:title" theme="github-light" crossorigin="anonymous" async="">
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./setup.html" class="pagination-link" aria-label="إعداد بيئة التطوير">
-        <span class="nav-page-text">إعداد بيئة التطوير</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
-</div> <!-- /content -->
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
-
-
-
-
-</body></html>
