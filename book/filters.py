@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from panflute import *
 
 def add_dir_ltr(elem, doc):
