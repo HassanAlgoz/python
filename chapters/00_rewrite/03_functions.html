@@ -524,11 +524,11 @@ window.Quarto = {
 
 <p>و<strong>الدالة</strong> (Function) قطعة نص برمجيّ لها اسم. وتسمى أيضًا <strong>الإجراء</strong> (Procedure). وهي من أقوى المركبات البرمجية التي تتم بها الخوارزميات.</p>
 <p>خذ على سبيل المثال وحدة الرياضيات (<a href="https://docs.python.org/3/library/math.html"><code dir="ltr">math</code></a>) التي يتم الاستفادة منها بعد جملة الاستيراد (<code dir="ltr">import</code>) على النحو التالي:</p>
-<div id="3abc856c" class="cell" data-execution_count="1">
+<div id="b07dbe2b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>فالعالم بالرياضيات برمج هذه الدوال وأعطاها اسما، فنستطيع استعمالها في حل المسائل الرياضية:</p>
-<div id="41263509" class="cell" data-execution_count="2">
+<div id="2a0b01b0" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.sqrt(<span class="dv">16</span>))  <span class="co"># الجذر التربيعي</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.<span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)) <span class="co"># القوة</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.cos(math.radians(<span class="dv">45</span>))) <span class="co"># جيب الزاوية 45 درجة</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -540,7 +540,7 @@ window.Quarto = {
 </div>
 <p><strong>ولولا مفهوم تخزين الأوامر وتسميتها</strong>، للزم أن نكتب الأوامر البرمجية التي تؤدي هذه الحسابات في كل مرة نريدها. وهذا يتعذر علينا لا لأنها خطوات كثيرة فحسب بل لأنها ليست بسيطة بحيث يتقنها كل مبرمج أصلاً.</p>
 <p>وقد تحتوي الوحدات على مسميات، كالثابت <span class="math inline">\(\pi\)</span> الذي يستعمل في علم المثلثات:</p>
-<div id="e3e6ff1c" class="cell" data-execution_count="3">
+<div id="d3a430d2" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.pi)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>3.141592653589793</code></pre>
@@ -548,14 +548,14 @@ window.Quarto = {
 </div>
 <p>تسمى النقطة (<code dir="ltr">.</code>) <strong>عامل إسناد</strong> (Dot Operator) في نحو العبارة <code dir="ltr">math.pi</code> أو عبارة <code dir="ltr">math.sin(A)</code>؛ وتفسرها بايثون أنها إشارة للمسمى المتضمن في الوحدة المسنَد إليها. سواءٌ كان ذلك دالة أو متغيرًا.</p>
 <p>ويجدر بالذكر أن بعض الدوال في لغة بايثون لا نحتاج فيها لإسنادها لوحدةٍ ما؛ فهي <strong>مبنيَّة</strong> (Built-in)، نحو: <code dir="ltr">print()</code>، بل ولا تحتاج إلى التصريح باستيرادها بجملة (<code dir="ltr">import</code>). ومثال ذلك أيضًا <code dir="ltr">round()</code> لتقريب العدد. ولم يتبيَّن لي وجه الفرق بين ما جُعِلَ مبنيًّا في وحدة أو مبنيًّا عائمًا.</p>
-<div id="c6a291b5" class="cell" data-execution_count="4">
+<div id="33db77ec" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">round</span>(math.pi, <span class="dv">4</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre dir="ltr"><code>3.1416</code></pre>
 </div>
 </div>
 <p>ويُمكن إشاعة المسميات المتضمَّنة في وِحدةٍ ما بجملة الاستيراد المبتدأة <strong>بمِن</strong> (<code dir="ltr">from</code>) بحيث لا نحتاج لإسنادها في كل مرة، وذلك يتم هذا النحو:</p>
-<div id="36950acd" class="cell" data-execution_count="5">
+<div id="86d67631" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> sin, radians</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">1000</span></span>
@@ -571,7 +571,7 @@ window.Quarto = {
 </div>
 </div>
 <p>ويُمكِن استيراد الكُلّ بعلامة النجمة (<code dir="ltr">*</code>)، على هذا النحو:</p>
-<div id="a6ec1b0c" class="cell" data-execution_count="6">
+<div id="bcbb7f16" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> cos(<span class="dv">2</span><span class="op">*</span>pi) <span class="op">-</span> sin(pi<span class="op">/</span><span class="dv">2</span>)</span>
@@ -598,7 +598,7 @@ window.Quarto = {
 <li><strong>القابلية للتركيب</strong>: إذا كانت القطعة ككل ذات وظيفة واضحة ومحددة، ورأيت أنها تنسجم مع غيرها من القطع إذا وضعت لها اسمًا</li>
 </ul>
 <p>ونمثل بتعريف الإجراء هذا:</p>
-<div id="bb202a5c" class="cell" data-execution_count="7">
+<div id="240a6d7f" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_bmi(weight, height):</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    sq <span class="op">=</span> height <span class="op">**</span> <span class="dv">2</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    bmi <span class="op">=</span> weight <span class="op">/</span> sq</span>
@@ -606,7 +606,7 @@ window.Quarto = {
 </div>
 <p>ويبتدأ تعريفه بكلمة <code dir="ltr">def</code> (تعني: Define)، ويليها <strong>اسمه</strong>، ويليه بين القوسين: <strong>معطياته</strong>: <code dir="ltr">(weight, height)</code>. ويلي ذلك <strong>علامة الابتداء</strong> (<code dir="ltr">:</code>)، ونسرد بعدها <strong>جسده</strong>؛ وهي الأوامِر التي تعالج هذه المعطيات. ويختص الإجراء بجملة <strong>الرجوع</strong> (<code dir="ltr">return x</code>) التي تعود بالنتيجة <code dir="ltr">x</code> للمكان الذي استُدعيَ منه الإجراء.</p>
 <p>ثم يحصل <strong>الاستدعاء</strong> (Call) بذكر اسم الإجراء مع <strong>عامل الاستدعاء</strong> (Call Operator) وهما القوسان بعده <code dir="ltr">()</code> وهما كالظرف تُمَرر إليه المعطيات فيهما.</p>
-<div id="af7aa144" class="cell" data-execution_count="8">
+<div id="b13330f5" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> calculate_bmi(<span class="dv">70</span>, <span class="fl">1.80</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -617,7 +617,7 @@ window.Quarto = {
 <section id="تعيين-معطيات-الإجراء-بالاسم" class="level2">
 <h2 class="anchored" data-anchor-id="تعيين-معطيات-الإجراء-بالاسم">تعيين معطيات الإجراء بالاسم</h2>
 <p>ويجوز تعيين المعطى بالاسم لا بالموضع:</p>
-<div id="b961c3da" class="cell" data-execution_count="9">
+<div id="92a7f9de" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> calculate_bmi(height<span class="op">=</span><span class="fl">1.80</span>, weight<span class="op">=</span><span class="dv">70</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -630,7 +630,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="المعرفات-في-الإجراء-لا-تتسرب-إلى-الخارج">المعرفات في الإجراء لا تتسرب إلى الخارج</h2>
 <p>ومن خصائص الإجراء أن أي اسم يتم تعريفه داخل الإجراء فإنه معروفٌ في نطاقه وليس يتسرب العلم به إلى الخارج.</p>
 <p>فنتوقع وقوع خطأ هنا لأن <code dir="ltr">bmi</code> غير معرَّفة في الخارج:</p>
-<div id="664853d8" class="cell" data-execution_count="10">
+<div id="da54e3d1" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bmi)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -648,7 +648,7 @@ window.Quarto = {
 <section id="دالة-قوة-كلمة-المرور" class="level2">
 <h2 class="anchored" data-anchor-id="دالة-قوة-كلمة-المرور">دالة: قوة كلمة المرور</h2>
 <p>وإليك مثالاً آخر لدالة تتحقق من قوة كلمة المرور:</p>
-<div id="c0dbf2f5" class="cell" data-execution_count="11">
+<div id="5ffd52b1" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb18" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> check_password_stength(password):</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(password) <span class="op">&lt;</span> <span class="dv">8</span>:</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Weak"</span></span>
@@ -659,7 +659,7 @@ window.Quarto = {
 </div>
 <p>لاحظ أننا استعملنا الدالة المبنية <code dir="ltr">len()</code> لحساب عدد الأحرف في النص.</p>
 <p>ثم نستعمل دالتنا:</p>
-<div id="8105d564" class="cell" data-execution_count="12">
+<div id="1e08ab7b" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(check_password_stength(<span class="st">"1234"</span>))</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(check_password_stength(<span class="st">"1234567890"</span>))</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(check_password_stength(<span class="st">"12345678901234567890"</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -677,14 +677,14 @@ Strong</code></pre>
 \text{distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
 \]</span></p>
 <p>ونكتبها في بايثون هكذا كدالة:</p>
-<div id="e7d37e4d" class="cell" data-execution_count="13">
+<div id="6d9b5313" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> distance(x1, y1, x2, y2):</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> math.sqrt((x2 <span class="op">-</span> x1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y2 <span class="op">-</span> y1)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ثم نستعملها:</p>
-<div id="6d825ced" class="cell" data-execution_count="14">
+<div id="195b4fbf" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb22" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(distance(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(distance(x1<span class="op">=</span><span class="dv">1</span>, y1<span class="op">=</span><span class="dv">1</span>, x2<span class="op">=-</span><span class="dv">2</span>, y2<span class="op">=-</span><span class="dv">2</span>)) <span class="co"># أو بتعيين المعطيات بالاسم</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -723,7 +723,7 @@ Strong</code></pre>
 \end{align*}
 \]</span></p>
 <p>إذاً نعرِّف المعادلة في بايثون هكذا:</p>
-<div id="b3ebca00" class="cell" data-execution_count="15">
+<div id="4f2319e7" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb24" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> factorial(n):</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Recursive case (تسلسل)</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
@@ -743,7 +743,7 @@ Strong</code></pre>
 <li><code dir="ltr">return 1</code> هي الجملة التي تنهي التسلسل</li>
 </ul>
 <p>وهنا قطعة نص برمجي نستعملها لتصور تسلسل الطلبات:</p>
-<div id="d619ee6b" class="cell" data-execution_count="16">
+<div id="365e35bc" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>الكود</summary>
 <div class="sourceCode cell-code" id="cb26" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> factorial(n, depth<span class="op">=</span><span class="dv">0</span>):</span>
@@ -793,7 +793,7 @@ Return 120 from factorial(5)</code></pre>
 <section id="صورة-البرنامج-كسلسلة-استدعاءات-متراكمة" class="level2">
 <h2 class="anchored" data-anchor-id="صورة-البرنامج-كسلسلة-استدعاءات-متراكمة">صورة البرنامج كسلسلة استدعاءات متراكمة</h2>
 <p>غالبًا ما تفكك المهمة الكبيرة إلى خطوات جزئية على شكل إجراءات منفصلة، ويتم استدعاؤها وربط نتائجها في الإجراء الأوَّل (<code dir="ltr">main()</code>). لذلك نتصوَّر أن البرنامج عبارة عن سلسلة من الاستدعاءات، التي قد تتضمن في طيها استدعاءات أخرى فتتراكم.</p>
-<div id="526e6eaf" class="cell" data-execution_count="17">
+<div id="be495e7f" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb29" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    p1()</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"middle"</span>)</span>

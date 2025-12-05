@@ -517,7 +517,7 @@ window.Quarto = {
 <section id="ترتيب-قائمة-الأسماء" class="level2">
 <h2 class="anchored" data-anchor-id="ترتيب-قائمة-الأسماء">ترتيب قائمة الأسماء</h2>
 <p>لو كان لدينا قائمة من الأسماء ونريد ترتيبها أبجديًّا؛ فإننا نستعمل الإجراء <code dir="ltr">sort()</code> الذي يأخذ القائمة كمفعول به ويرتبها في مكانها:</p>
-<div id="20d1b80e" class="cell" data-execution_count="1">
+<div id="5bf3c627" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> [</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Yousef"</span>,</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Ali"</span>,</span>
@@ -533,7 +533,7 @@ window.Quarto = {
 <section id="ضم-القوائم" class="level2">
 <h2 class="anchored" data-anchor-id="ضم-القوائم">ضم القوائم</h2>
 <p>تأتي البيانات عادة من مصادر متعددة. فلو كان لدينا قائمتان لدرجات الطلاب، بحيث تحتوي القائمة أزواجًا تحوي اسم الطالب ودرجته، فإننا نريد ضمها جميعًا في قائمة واحدة. وهذا يتحقق بعملية الجمع <code dir="ltr">+</code> بين القوائم:</p>
-<div id="d402e30f" class="cell" data-execution_count="2">
+<div id="db0a5c89" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>class1_marks <span class="op">=</span> [</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Yousef"</span>, <span class="dv">80</span>),</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Ali"</span>, <span class="dv">70</span>),</span>
@@ -556,14 +556,14 @@ window.Quarto = {
 </div>
 </div>
 <p>نتأكد من عدد الطلاب:</p>
-<div id="b001aef4" class="cell" data-execution_count="3">
+<div id="83252df2" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">len</span>(student_marks) <span class="op">==</span> <span class="bu">len</span>(class1_marks) <span class="op">+</span> <span class="bu">len</span>(class2_marks)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="ترتيب-قائمة-صفوف" class="level2">
 <h2 class="anchored" data-anchor-id="ترتيب-قائمة-صفوف">ترتيب قائمة صفوف</h2>
 <p>والآن نريد أن نرتب هذه القائمة تصاعديًّا بحسب الدرجات.</p>
-<div id="41bdd556" class="cell" data-execution_count="4">
+<div id="d094cc50" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># أولاً سنفصل قائمة الدرجات لوحدها</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>marks <span class="op">=</span> [mark <span class="cf">for</span> name, mark <span class="kw">in</span> student_marks]</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -587,7 +587,7 @@ window.Quarto = {
 </div>
 </div>
 <p>ولو أردنا أسماء الثلاثة الأوَل:</p>
-<div id="22820b91" class="cell" data-execution_count="5">
+<div id="a55abac8" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>high <span class="op">=</span> [x[<span class="dv">0</span>] <span class="cf">for</span> x <span class="kw">in</span> result[:<span class="dv">3</span>]]</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>high</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -595,7 +595,7 @@ window.Quarto = {
 </div>
 </div>
 <p>ونستطيع أن نأخذ أسماء الطلبة الأضعف في الدرجات حتى نفهم الأسباب ونحاول أن نرفع من مستواهم الدراسي. ولاحظ هنا نستعمل فك الأقواس بدل تحديد الموضع بالرقم:</p>
-<div id="2aafd7b1" class="cell" data-execution_count="6">
+<div id="fd2fdf0b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>low <span class="op">=</span> [name <span class="cf">for</span> name, mark <span class="kw">in</span> result[<span class="op">-</span><span class="dv">3</span>:]]</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>low</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -607,7 +607,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="توزيع-نماذج-الاختبار">توزيع نماذج الاختبار</h2>
 <p>تصور أن لدينا نموذجين من الاختبار، ونريد أن نوزعها بحيث يأخذ نصفهم النموذج الأول والنصف الثاني يأخي النموذج الثاني، لكن نريد أن يكون التوزيع بحسب الصف الذي يجلس فيه الطلاب.</p>
 <p>نفترض أن كل صف يجلس فيه ثلاثة طلاب، ونريد أن نجعل لكل صف نموذجًا.</p>
-<div id="9522c247" class="cell" data-execution_count="7">
+<div id="d426bb01" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> [</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Ahmad'</span>,</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Belal'</span>,</span>
@@ -620,7 +620,7 @@ window.Quarto = {
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>نمر على قائمة الأسماء بخطوة مقدارها 3 (عدد الطلاب في كل صف):</p>
-<div id="b9e79946" class="cell" data-execution_count="8">
+<div id="ad666231" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(students), <span class="dv">3</span>):</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(students[i:i<span class="op">+</span><span class="dv">3</span>])</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -630,7 +630,7 @@ window.Quarto = {
 </div>
 </div>
 <p>والآن نريد أن نحدد لكل صف نموذجًا. نحقق ذلك بعملية باقي القسمة لمعرفة ما إذا كان العدد يقبل القسمة على 2؛ إذ به يعرف الزوجي، والآخر هو الفردي:</p>
-<div id="6eb6b6d0" class="cell" data-execution_count="9">
+<div id="8bcff5ef" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(students), <span class="dv">3</span>):</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(students[i:i<span class="op">+</span><span class="dv">3</span>], <span class="st">'test1'</span>)</span>
@@ -646,7 +646,7 @@ window.Quarto = {
 <section id="فرز-البيانات" class="level2">
 <h2 class="anchored" data-anchor-id="فرز-البيانات">فرز البيانات</h2>
 <p>تصور أن لدينا قائمة من الأرقام الموجبة والسالبة في مجموعة واحدة، ونريد فصلها لمجموعتين:</p>
-<div id="5111b848" class="cell" data-execution_count="10">
+<div id="f2424f16" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="op">-</span><span class="dv">11</span>, <span class="op">-</span><span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="op">-</span><span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="op">-</span><span class="dv">18</span>, <span class="op">-</span><span class="dv">19</span>, <span class="dv">20</span>]</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>positives <span class="op">=</span> []</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>negatives <span class="op">=</span> []</span>
@@ -665,7 +665,7 @@ negatives: [-11, -12, -15, -18, -19]</code></pre>
 </div>
 </div>
 <p>أو باستعمال الإنشاء المختصر:</p>
-<div id="fc4a1241" class="cell" data-execution_count="11">
+<div id="ee4ed9bf" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb19" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="op">-</span><span class="dv">11</span>, <span class="op">-</span><span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="op">-</span><span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="op">-</span><span class="dv">18</span>, <span class="op">-</span><span class="dv">19</span>, <span class="dv">20</span>]</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>positives <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> numbers <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">0</span>]</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>negatives <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> numbers <span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">0</span>]</span>
@@ -681,7 +681,7 @@ negatives: [-11, -12, -15, -18, -19]</code></pre>
 <section id="المحاسبة-المالية" class="level2">
 <h2 class="anchored" data-anchor-id="المحاسبة-المالية">المحاسبة المالية</h2>
 <p>افترض أن لديك قائمة بالمصروفات والإيرادات لكل رُبع من السنة، وتريد حساب صافي الربح لكل ربع على حدة، ثم جمعها لتحصل على الربح الإجمالي للسنة.</p>
-<div id="89daae2a" class="cell" data-execution_count="12">
+<div id="05cc9fa2" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb21" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>income  <span class="op">=</span> [<span class="dv">52000</span>, <span class="dv">51000</span>, <span class="dv">48000</span>, <span class="dv">50000</span>]</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>expense <span class="op">=</span> [<span class="dv">46800</span>, <span class="dv">45900</span>, <span class="dv">43200</span>, <span class="dv">47000</span>]</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>net     <span class="op">=</span> [    <span class="dv">0</span>,     <span class="dv">0</span>,     <span class="dv">0</span>,     <span class="dv">0</span>]</span>
@@ -696,7 +696,7 @@ negatives: [-11, -12, -15, -18, -19]</code></pre>
 </div>
 </div>
 <p>أو باستعمال <code dir="ltr">zip</code> للتكرار على مضموم القائمتين:</p>
-<div id="7c44ff9e" class="cell" data-execution_count="13">
+<div id="298750f7" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb23" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>income  <span class="op">=</span> [<span class="dv">52000</span>, <span class="dv">51000</span>, <span class="dv">48000</span>, <span class="dv">50000</span>]</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>expense <span class="op">=</span> [<span class="dv">46800</span>, <span class="dv">45900</span>, <span class="dv">43200</span>, <span class="dv">47000</span>]</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>net <span class="op">=</span> []</span>
@@ -711,7 +711,7 @@ negatives: [-11, -12, -15, -18, -19]</code></pre>
 </div>
 </div>
 <p>أو باستعمال الإنشاء المختصر:</p>
-<div id="11741c20" class="cell" data-execution_count="14">
+<div id="21094863" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb25" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>income  <span class="op">=</span> [<span class="dv">52000</span>, <span class="dv">51000</span>, <span class="dv">48000</span>, <span class="dv">50000</span>]</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>expense <span class="op">=</span> [<span class="dv">46800</span>, <span class="dv">45900</span>, <span class="dv">43200</span>, <span class="dv">47000</span>]</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>net <span class="op">=</span> [inc <span class="op">-</span> exp <span class="cf">for</span> inc, exp <span class="kw">in</span> <span class="bu">zip</span>(income, expense)]</span>
@@ -727,7 +727,7 @@ negatives: [-11, -12, -15, -18, -19]</code></pre>
 <section id="أسعار-السلة" class="level2">
 <h2 class="anchored" data-anchor-id="أسعار-السلة">أسعار السلة</h2>
 <p>لديك قائمة بالأسعار:</p>
-<div id="b969f73f" class="cell" data-execution_count="15">
+<div id="8b1040b2" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb27" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>prices <span class="op">=</span> [</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'apple'</span>, <span class="dv">10</span>),</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'banana'</span>, <span class="dv">20</span>),</span>
@@ -737,7 +737,7 @@ negatives: [-11, -12, -15, -18, -19]</code></pre>
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وتريد حساب مجمل سلة مشتريات لأحد الزبائن:</p>
-<div id="5e1b77c9" class="cell" data-execution_count="16">
+<div id="41b5cce7" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb28" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>basket1 <span class="op">=</span> [</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'apple'</span>, <span class="dv">2</span>),</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'mango'</span>, <span class="dv">1</span>)</span>
@@ -749,7 +749,7 @@ negatives: [-11, -12, -15, -18, -19]</code></pre>
 <span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>نكرر على العناصر</p>
-<div id="14065396" class="cell" data-execution_count="17">
+<div id="c2d68919" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb29" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>total_basket1 <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fruit, count <span class="kw">in</span> basket1:</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> label, price <span class="kw">in</span> prices:</span>
@@ -761,7 +761,7 @@ negatives: [-11, -12, -15, -18, -19]</code></pre>
 </div>
 </div>
 <p>وكذلك للسلة الثانية:</p>
-<div id="dd2aa4b4" class="cell" data-execution_count="18">
+<div id="10f189b2" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb31" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>total_basket2 <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fruit, count <span class="kw">in</span> basket2:</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> label, price <span class="kw">in</span> prices:</span>
@@ -775,21 +775,21 @@ negatives: [-11, -12, -15, -18, -19]</code></pre>
 </section>
 <section id="إدارة-الطلبات" class="level2">
 <h2 class="anchored" data-anchor-id="إدارة-الطلبات">إدارة الطلبات</h2>
-<div id="c423673d" class="cell" data-execution_count="19">
+<div id="6fd777f4" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb33" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>orders <span class="op">=</span> []</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وتدخل الطلبات بإجراء الإلحاق <code dir="ltr">append</code> للقائمة:</p>
-<div id="75538f77" class="cell" data-execution_count="20">
+<div id="f5f72240" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb34" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> ((<span class="st">'kabab'</span>, <span class="st">'kabab'</span>, <span class="st">'shawerma'</span>, <span class="st">'water'</span>, <span class="st">'water'</span>), <span class="st">'8:45 PM'</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>orders.append(x)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وهكذا الطلبات اللاحقة:</p>
-<div id="2ef1396e" class="cell" data-execution_count="21">
+<div id="21b75e85" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb35" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>orders.append(((<span class="st">'falafel'</span>, <span class="st">'hummus'</span>, <span class="st">'tea'</span>), <span class="st">'8:48 PM'</span>))</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>orders.append(((<span class="st">'kabab'</span>, <span class="st">'tabbouleh'</span>, <span class="st">'water'</span>), <span class="st">'8:52 PM'</span>))</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>وإننا حين ننجز الطلبات أو نعرضها، يكون بالترتيب التي دخلت به من الأول:</p>
-<div id="41d27f6d" class="cell" data-execution_count="22">
+<div id="d680aea7" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb36" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> order <span class="kw">in</span> orders:</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(order)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -799,7 +799,7 @@ negatives: [-11, -12, -15, -18, -19]</code></pre>
 </div>
 </div>
 <p>وإذا أنجزنا الطلب (بالترتيب)، نزيله من القائمة:</p>
-<div id="97bcd9b7" class="cell" data-execution_count="23">
+<div id="88e073a8" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb38" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>finished <span class="op">=</span> orders.pop(<span class="dv">0</span>)</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'done:'</span>, finished)</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -814,7 +814,7 @@ remaining:
 </div>
 </div>
 <p>أو هب أن الزبون الأخير ألغى الطلب، فإننا نزيله هكذا:</p>
-<div id="b2a8186f" class="cell" data-execution_count="24">
+<div id="eac23a10" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb40" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>cancelled <span class="op">=</span> orders.pop(<span class="op">-</span><span class="dv">1</span>)</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'cancelled:'</span>, cancelled)</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -832,7 +832,7 @@ remaining:
 <section id="إزالة-العناصر-المتكررة" class="level2">
 <h2 class="anchored" data-anchor-id="إزالة-العناصر-المتكررة">إزالة العناصر المتكررة</h2>
 <p>هب أننا وجدنا الطلب أدخل بالخطأ مرتين، ونريد إزالة التكرارات الموجودة في قائمة الطلبات كلها:</p>
-<div id="bf916750" class="cell" data-execution_count="25">
+<div id="17f490a7" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb42" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>orders <span class="op">=</span> [</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    ((<span class="st">'falafel'</span>, <span class="st">'hummus'</span>, <span class="st">'tea'</span>), <span class="st">'8:42 PM'</span>),</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    ((<span class="st">'kabab'</span>, <span class="st">'kabab'</span>, <span class="st">'shawerma'</span>, <span class="st">'water'</span>, <span class="st">'water'</span>), <span class="st">'8:45 PM'</span>),</span>
@@ -841,7 +841,7 @@ remaining:
 <span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>لاحظ أن الطلب الأول والأخير ليسا مكررين، وذلك لأنهما في وقتين مختلفين، أم الطلبان في الوسط فهما في نفس الوقت بالضبط، ونريد إزالة مثل هذا التكرار:</p>
-<div id="a457deac" class="cell" data-execution_count="26">
+<div id="0d9aed1d" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb43" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> []</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> order <span class="kw">in</span> orders:</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> order <span class="kw">not</span> <span class="kw">in</span> result:</span>
@@ -857,18 +857,18 @@ remaining:
 <section id="تعديل-الطلب" class="level2">
 <h2 class="anchored" data-anchor-id="تعديل-الطلب">تعديل الطلب</h2>
 <p>نريد أن نتابع حالة الطلب، ونعدلها إذا أنهينا الطلب. لن نستطيع ذلك إذا حاولنا تعديل الصف <code dir="ltr">()</code>، بل يجب أولًا أن نجعل قائمة الطلبات مكونة من قوائم <code dir="ltr">[]</code> وليس من صفوف:</p>
-<div id="eef04595" class="cell" data-execution_count="27">
+<div id="5bbab791" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb45" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>orders <span class="op">=</span> [</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    [(<span class="st">'falafel'</span>, <span class="st">'hummus'</span>, <span class="st">'tea'</span>), <span class="st">'8:42 PM'</span>, <span class="st">'PENDING'</span>],</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    [(<span class="st">'kabab'</span>, <span class="st">'kabab'</span>, <span class="st">'shawerma'</span>, <span class="st">'water'</span>, <span class="st">'water'</span>), <span class="st">'8:45 PM'</span>, <span class="st">'PENDING'</span>],</span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    [(<span class="st">'falafel'</span>, <span class="st">'hummus'</span>, <span class="st">'tea'</span>), <span class="st">'8:50 PM'</span>, <span class="st">'PENDING'</span>],</span>
 <span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="8232abe9" class="cell" data-execution_count="28">
+<div id="ba46eac6" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb46" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>orders[<span class="dv">0</span>][<span class="dv">2</span>] <span class="op">=</span> <span class="st">'DONE'</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>والآن نستطيع فرز الطلبات بحسب حالة الطلب:</p>
-<div id="d735fd9c" class="cell" data-execution_count="29">
+<div id="c1d5189e" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb47" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>orders_done <span class="op">=</span> [order <span class="cf">for</span> order <span class="kw">in</span> orders <span class="cf">if</span> order[<span class="dv">2</span>] <span class="op">==</span> <span class="st">'DONE'</span>]</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>orders_pending <span class="op">=</span> [order <span class="cf">for</span> order <span class="kw">in</span> orders <span class="cf">if</span> order[<span class="dv">2</span>] <span class="op">==</span> <span class="st">'PENDING'</span>]</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -895,7 +895,7 @@ pending:
 d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
 \]</span></p>
 <p>نريد استعماله لقائمة من النقاط لمعرفة النقاط المجاورة.</p>
-<div id="945ad8fc" class="cell" data-execution_count="30">
+<div id="d41b375a" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb49" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>points <span class="op">=</span> [(<span class="dv">1</span>, <span class="dv">2</span>), (<span class="dv">5</span>, <span class="dv">6</span>), (<span class="dv">7</span>, <span class="dv">8</span>), (<span class="dv">3</span>, <span class="dv">4</span>)]</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>x1, y1 <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">4</span>)</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -927,7 +927,7 @@ nearest point to (2, 4) is (3, 4)</code></pre>
 <section id="أمثلة-إضافية-على-الإنشاء-المختصر" class="level2">
 <h2 class="anchored" data-anchor-id="أمثلة-إضافية-على-الإنشاء-المختصر">أمثلة إضافية على الإنشاء المختصر</h2>
 <p>يمكن استعمال اختصار من اختصار على النحو التالي. في هذا المثال نفرد قائمة مكونة من قوائم عددية، فنحوِّلها لتكون قائمة واحدة مكوَّنة من جميع هذه الأرقام:</p>
-<div id="44653d27" class="cell" data-execution_count="31">
+<div id="d3c1fc8e" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb51" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>vec <span class="op">=</span> [[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]]</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>[num <span class="cf">for</span> elem <span class="kw">in</span> vec <span class="cf">for</span> num <span class="kw">in</span> elem]</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
@@ -935,7 +935,7 @@ nearest point to (2, 4) is (3, 4)</code></pre>
 </div>
 </div>
 <p>إذا كتبناها من غير اختصار فشكلها كالتالي (لاحظ استعملنا متغير <code dir="ltr">flat</code> لتجميع القيَم المفردة):</p>
-<div id="c0aae58d" class="cell" data-execution_count="32">
+<div id="55db4f27" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb53" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>flat <span class="op">=</span> []</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> elem <span class="kw">in</span> vec:</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> num <span class="kw">in</span> elem:</span>
@@ -946,7 +946,7 @@ nearest point to (2, 4) is (3, 4)</code></pre>
 </div>
 </div>
 <p>وهذا مثال لحاصل الضرب الديكارتي بين مجموعتين رياضيتين:</p>
-<div id="57d3048d" class="cell" data-execution_count="33">
+<div id="c51070cd" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb55" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [<span class="st">'red'</span>, <span class="st">'green'</span>]</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>shapes <span class="op">=</span> [<span class="st">'circle'</span>, <span class="st">'square'</span>]</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>cartesian_product <span class="op">=</span> [(color, shape) <span class="cf">for</span> color <span class="kw">in</span> colors <span class="cf">for</span> shape <span class="kw">in</span> shapes]</span>
