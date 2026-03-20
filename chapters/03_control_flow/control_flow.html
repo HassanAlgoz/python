@@ -8,7 +8,7 @@
 
 <meta name="description" content="الأهداف: استيعاب ماهية البرمجة، ومعرفة إمكانياتها وحدودها. وإكساب مهارة التعبير الخوارزمي بلغة بايثون. وامتلاك القدرة على فتح مكتبات برمجية في بايثون سواء في الذكاء الاصطناعي أو تعلم الآلة أو بناء المواقع أو التصاميم ثلاثية الأبعاد.">
 
-<title>ملحق C — توالي الأوامر – المقدمة البايثونية للبرمجة باللغة العربية</title>
+<title>ملحق B — توالي الأوامر – المقدمة البايثونية للبرمجة باللغة العربية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,8 +66,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../chapters/03_control_flow/apps.html" rel="next">
-<link href="../../chapters/02_numbers/apps.html" rel="prev">
+<link href="../../chapters/08_procedural/a1_functions.html" rel="next">
+<link href="../../chapters/02_numbers/a_numbers.html" rel="prev">
 <link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-a01f51f54d07157d09e563e765f5ca10.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-800706539903139ffa187a61ec5db5e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -112,10 +112,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<meta property="og:title" content="ملحق C — توالي الأوامر – المقدمة البايثونية للبرمجة باللغة العربية">
+<meta property="og:title" content="ملحق B — توالي الأوامر – المقدمة البايثونية للبرمجة باللغة العربية">
 <meta property="og:description" content="الأهداف: استيعاب ماهية البرمجة، ومعرفة إمكانياتها وحدودها. وإكساب مهارة التعبير الخوارزمي بلغة بايثون. وامتلاك القدرة على فتح مكتبات برمجية في بايثون سواء في الذكاء الاصطناعي أو تعلم الآلة أو بناء المواقع أو التصاميم ثلاثية الأبعاد.">
 <meta property="og:site_name" content="المقدمة البايثونية للبرمجة باللغة العربية">
-<meta name="twitter:title" content="ملحق C — توالي الأوامر – المقدمة البايثونية للبرمجة باللغة العربية">
+<meta name="twitter:title" content="ملحق B — توالي الأوامر – المقدمة البايثونية للبرمجة باللغة العربية">
 <meta name="twitter:description" content="الأهداف: استيعاب ماهية البرمجة، ومعرفة إمكانياتها وحدودها. وإكساب مهارة التعبير الخوارزمي بلغة بايثون. وامتلاك القدرة على فتح مكتبات برمجية في بايثون سواء في الذكاء الاصطناعي أو تعلم الآلة أو بناء المواقع أو التصاميم ثلاثية الأبعاد.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -129,7 +129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/02_numbers/a_numbers.html">الملحقات</a></li><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/control_flow.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">توالي الأوامر</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/02_numbers/a_numbers.html">الملحقات</a></li><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/control_flow.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">توالي الأوامر</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -224,37 +224,84 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/00_rewrite/07_regex.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">التعبير النمطي</span></span></a>
+  <a href="../../chapters/00_rewrite/07_iterators.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">الكارات</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/00_rewrite/08_objects.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">الكائنات</span></span></a>
+  <a href="../../chapters/00_rewrite/08_regex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">التعبير النمطي</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/00_rewrite/09_time.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
+  <a href="../../chapters/00_rewrite/09_oop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">البرمجة بالكائنات</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/00_rewrite/10_errors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
+  <a href="../../chapters/00_rewrite/10_functional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">البرمجة بالإجراءات</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/11_errors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/00_rewrite/12_time.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">الوقت</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">مسائل موضوعية</span></a>
+ <span class="menu-text">تطبيقات</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="تبديل القسم">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_numbers/apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">تطبيقات في الأرقام</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_control_flow/apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">تطبيقات في توالي الأوامر</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_sequences/apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">تطبيقات في التسلسل</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/06_mapping/b_apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">تطبيقات في القاموس</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">مسائل</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="تبديل القسم">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/02_numbers/problems.html" class="sidebar-item-text sidebar-link">
@@ -297,17 +344,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">في الجمع المرقَّم</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">مسائل مفتوحة</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="تبديل القسم">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/apps/random_problem.html" class="sidebar-item-text sidebar-link">
@@ -351,92 +387,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/02_numbers/apps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">تطبيقات في الأرقام</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../chapters/03_control_flow/control_flow.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">توالي الأوامر</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/03_control_flow/apps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">تطبيقات في توالي الأوامر</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">توالي الأوامر</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/08_procedural/a1_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">الدالة</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">الدالة</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../appendix/lazy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">الإجراء المؤجَّل</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/05_sequences/a_sequences.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">التسلسل</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/05_sequences/apps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">تطبيقات في التسلسل</span></span></a>
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">التسلسل</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/06_mapping/a1_set.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">المجموعة</span></span></a>
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">المجموعة</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/06_mapping/a2_dict.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">القاموس</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/06_mapping/b_apps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">تطبيقات في القاموس</span></span></a>
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">القاموس</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/07_strings/a1_strings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">النص</span></span></a>
+ <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">النص</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/07_strings/a2_unicode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">L</span>&nbsp; <span class="chapter-title">ترميز الحروف</span></span></a>
+ <span class="menu-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">ترميز الحروف</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/07_strings/regex.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">M</span>&nbsp; <span class="chapter-title">التعبير النمطي</span></span></a>
+ <span class="menu-text"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">التعبير النمطي</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/09_files_and_directories/a1_file_io.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">الملفات</span></span></a>
+ <span class="menu-text"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">الملفات</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/11_oop/a1_oop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">البرمجة الكائنية</span></span></a>
+ <span class="menu-text"><span class="chapter-number">L</span>&nbsp; <span class="chapter-title">البرمجة الكائنية</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../appendix/appendix_collections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">P</span>&nbsp; <span class="chapter-title">خريطة الجُمُوع</span></span></a>
+ <span class="menu-text"><span class="chapter-number">M</span>&nbsp; <span class="chapter-title">خريطة الجُمُوع</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../appendix/errors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
   </div>
 </li>
       </ul>
@@ -465,9 +489,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/02_numbers/a_numbers.html">الملحقات</a></li><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/control_flow.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">توالي الأوامر</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/02_numbers/a_numbers.html">الملحقات</a></li><li class="breadcrumb-item"><a href="../../chapters/03_control_flow/control_flow.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">توالي الأوامر</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">ملحق C — توالي الأوامر</h1>
+<h1 class="title">ملحق B — توالي الأوامر</h1>
 </div>
 
 
@@ -487,7 +511,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="جملة-التعيين-المشروط" class="level2">
 <h2 class="anchored" data-anchor-id="جملة-التعيين-المشروط">جملة التعيين المشروط</h2>
 <p>تستطيع في بايثون أن تجعل جملة التعيين تأخذ قيمتها بحسب شرطٍ معين. مثلاً:</p>
-<div id="f2d4519b" class="cell" data-execution_count="1">
+<div id="7e778a6c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">18</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>status <span class="op">=</span> <span class="st">'adult'</span> <span class="cf">if</span> age <span class="op">&gt;</span> <span class="dv">14</span> <span class="cf">else</span> <span class="st">'child'</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -518,7 +542,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </center>
 <p>وهذا مكافئ للنص البرمجي التالي:</p>
-<div id="389a20bb" class="cell" data-execution_count="2">
+<div id="b6d735f1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">18</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> age <span class="op">&gt;</span> <span class="dv">14</span>:</span>
@@ -532,7 +556,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>ويحصل <strong>تسلسل التعيين المشروط</strong> بالصيغة التالية:</p>
-<div id="37196447" class="cell" data-execution_count="3">
+<div id="0de81feb" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>score <span class="op">=</span> <span class="dv">75</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>grade <span class="op">=</span> <span class="st">"A"</span> <span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">90</span> <span class="cf">else</span> <span class="st">"B"</span> <span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">80</span> <span class="cf">else</span> <span class="st">"C"</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(grade)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -640,7 +664,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<div id="ab87784e" class="cell" data-execution_count="4">
+<div id="77d5931b" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>score <span class="op">=</span> <span class="dv">95</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">90</span>:</span>
@@ -706,7 +730,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </center>
 <p>مثال:</p>
-<div id="475500b4" class="cell" data-execution_count="5">
+<div id="93c6c3ff" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span>
@@ -754,7 +778,7 @@ Done</code></pre>
 <p>وهذا تصوير لسير الإجراءات لنفس النص البرمجي. ملاحظة: اضغط على الزر <code dir="ltr">Prev</code> أو <code dir="ltr">Next</code> للتنقل بين خطوات التنفيذ الإجراءية:</p>
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
 </iframe>
-<p>لاحظ أن نسيان جملة الزيادة (<code dir="ltr">i += 1</code>) يجعل الشرط دائمًا صحيحًا، فيدور البرنامج في <strong>حلقة لا نهيائة</strong> ولا يخرج أبدًا. ويعتبر هذا خطأ برمجيًّا يتعذر على البرنامج التعامل معه بنفسه؛ بل يجب على المبرمج أن يكتشفه. وسيأتي الكلام عن أنواع الأخطاء في البرمجة في <a href="../../chapters/00_rewrite/10_errors.html">باب الخطأ</a>.</p>
+<p>لاحظ أن نسيان جملة الزيادة (<code dir="ltr">i += 1</code>) يجعل الشرط دائمًا صحيحًا، فيدور البرنامج في <strong>حلقة لا نهيائة</strong> ولا يخرج أبدًا. ويعتبر هذا خطأ برمجيًّا يتعذر على البرنامج التعامل معه بنفسه؛ بل يجب على المبرمج أن يكتشفه. وسيأتي الكلام عن أنواع الأخطاء في البرمجة في <a href="../../chapters/00_rewrite/11_errors.html">باب الخطأ</a>.</p>
 </section>
 <section id="الخروج-من-الحلقة" class="level3">
 <h3 class="anchored" data-anchor-id="الخروج-من-الحلقة">الخروج من الحلقة</h3>
@@ -763,7 +787,7 @@ Done</code></pre>
 <li>تستخدم كلمة <a href="https://docs.python.org/3/reference/simple_stmts.html#continue"><code dir="ltr">continue</code></a> للانتقال إلى الكرة التالية متخطيةً بقية الخطوات في الكرة الحالية.</li>
 </ul>
 <p>أولاً نمثل لاستعمال جملة <code dir="ltr">break</code> على النحو التالي:</p>
-<div id="05866264" class="cell" data-execution_count="6">
+<div id="9291f034" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
@@ -803,7 +827,7 @@ Done</code></pre>
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20if%20i%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20break%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
 </iframe>
 <p>وهذا مثال لاستخدام عبارة <code dir="ltr">continue</code> للتخطي:</p>
-<div id="2efdfb4c" class="cell" data-execution_count="7">
+<div id="8a56cbc1" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
@@ -845,7 +869,7 @@ Done</code></pre>
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=i%20%3D%200%0Awhile%20i%20%3C%205%3A%0A%20%20%20%20if%20i%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20continue%0A%20%20%20%20print%28i%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28'Done'%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
 </iframe>
 <p>أما جملة <code dir="ltr">break</code> المضمنة تحت طبقتين من التكرار فإن الذي يتوقف هو التكرار الداخلي فقط، ولا يتوقف الخارجي. وهذا مثال:</p>
-<div id="f05194e0" class="cell" data-execution_count="8">
+<div id="02a2fae0" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">3</span>:</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    j <span class="op">=</span> <span class="dv">0</span></span>
@@ -911,7 +935,7 @@ Done</code></pre>
 <li><code dir="ltr">set()</code></li>
 </ul>
 <p>وما عدا ذلك فيُلحق بنعم (<code dir="ltr">True</code>).</p>
-<div id="3b86874e" class="cell" data-execution_count="9">
+<div id="c1b375d9" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">False</span> <span class="kw">or</span> <span class="va">None</span> <span class="kw">or</span> <span class="dv">0</span> <span class="kw">or</span> <span class="fl">0.0</span> <span class="kw">or</span> <span class="st">''</span> <span class="kw">or</span> [] <span class="kw">or</span> () <span class="kw">or</span> {} <span class="kw">or</span> <span class="bu">set</span>():</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'True'</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
@@ -1329,13 +1353,13 @@ Done</code></pre>
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../chapters/02_numbers/apps.html" class="pagination-link" aria-label="تطبيقات في الأرقام">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">تطبيقات في الأرقام</span></span>
+      <a href="../../chapters/02_numbers/a_numbers.html" class="pagination-link" aria-label="الأرقام">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">الأرقام</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../chapters/03_control_flow/apps.html" class="pagination-link" aria-label="تطبيقات في توالي الأوامر">
-        <span class="nav-page-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">تطبيقات في توالي الأوامر</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../chapters/08_procedural/a1_functions.html" class="pagination-link" aria-label="الدالة">
+        <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">الدالة</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

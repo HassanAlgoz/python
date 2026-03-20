@@ -8,7 +8,7 @@
 
 <meta name="description" content="الأهداف: استيعاب ماهية البرمجة، ومعرفة إمكانياتها وحدودها. وإكساب مهارة التعبير الخوارزمي بلغة بايثون. وامتلاك القدرة على فتح مكتبات برمجية في بايثون سواء في الذكاء الاصطناعي أو تعلم الآلة أو بناء المواقع أو التصاميم ثلاثية الأبعاد.">
 
-<title>ملحق M — خريطة الجُمُوع – المقدمة البايثونية للبرمجة باللغة العربية</title>
+<title>ملحق N — الخطأ – المقدمة البايثونية للبرمجة باللغة العربية</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -31,8 +66,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../appendix/errors.html" rel="next">
-<link href="../chapters/11_oop/a1_oop.html" rel="prev">
+<link href="../appendix/appendix_collections.html" rel="prev">
 <link href="../favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -77,10 +111,10 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<meta property="og:title" content="ملحق M — خريطة الجُمُوع – المقدمة البايثونية للبرمجة باللغة العربية">
+<meta property="og:title" content="ملحق N — الخطأ – المقدمة البايثونية للبرمجة باللغة العربية">
 <meta property="og:description" content="الأهداف: استيعاب ماهية البرمجة، ومعرفة إمكانياتها وحدودها. وإكساب مهارة التعبير الخوارزمي بلغة بايثون. وامتلاك القدرة على فتح مكتبات برمجية في بايثون سواء في الذكاء الاصطناعي أو تعلم الآلة أو بناء المواقع أو التصاميم ثلاثية الأبعاد.">
 <meta property="og:site_name" content="المقدمة البايثونية للبرمجة باللغة العربية">
-<meta name="twitter:title" content="ملحق M — خريطة الجُمُوع – المقدمة البايثونية للبرمجة باللغة العربية">
+<meta name="twitter:title" content="ملحق N — الخطأ – المقدمة البايثونية للبرمجة باللغة العربية">
 <meta name="twitter:description" content="الأهداف: استيعاب ماهية البرمجة، ومعرفة إمكانياتها وحدودها. وإكساب مهارة التعبير الخوارزمي بلغة بايثون. وامتلاك القدرة على فتح مكتبات برمجية في بايثون سواء في الذكاء الاصطناعي أو تعلم الآلة أو بناء المواقع أو التصاميم ثلاثية الأبعاد.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -94,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02_numbers/a_numbers.html">الملحقات</a></li><li class="breadcrumb-item"><a href="../appendix/appendix_collections.html"><span class="chapter-number">M</span>&nbsp; <span class="chapter-title">خريطة الجُمُوع</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02_numbers/a_numbers.html">الملحقات</a></li><li class="breadcrumb-item"><a href="../appendix/errors.html"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">الخطأ</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="تبديل القائمة الجانبية" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="البحث" onclick="window.quartoOpenSearch();">
@@ -418,13 +452,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendix/appendix_collections.html" class="sidebar-item-text sidebar-link active">
+  <a href="../appendix/appendix_collections.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">M</span>&nbsp; <span class="chapter-title">خريطة الجُمُوع</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendix/errors.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendix/errors.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">الخطأ</span></span></a>
   </div>
 </li>
@@ -435,15 +469,31 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">المحاور</h2>
+   
+  <ul>
+  <li><a href="#قراءة-تسلسل-الاستدعاءات-إلى-الخطأ" id="toc-قراءة-تسلسل-الاستدعاءات-إلى-الخطأ" class="nav-link active" data-scroll-target="#قراءة-تسلسل-الاستدعاءات-إلى-الخطأ">قراءة تسلسل الاستدعاءات إلى الخطأ</a></li>
+  <li><a href="#تعريف-أخطاء-جديدة" id="toc-تعريف-أخطاء-جديدة" class="nav-link" data-scroll-target="#تعريف-أخطاء-جديدة">تعريف أخطاء جديدة</a></li>
+  <li><a href="#الاحتراز-والاستجابة" id="toc-الاحتراز-والاستجابة" class="nav-link" data-scroll-target="#الاحتراز-والاستجابة">الاحتراز والاستجابة</a></li>
+  <li><a href="#الفرق-بين-الاحتراز-والاستجابة" id="toc-الفرق-بين-الاحتراز-والاستجابة" class="nav-link" data-scroll-target="#الفرق-بين-الاحتراز-والاستجابة">الفرق بين: الاحتراز والاستجابة</a></li>
+  <li><a href="#الحالة-الأولى-أن-يستوعبه-السياق" id="toc-الحالة-الأولى-أن-يستوعبه-السياق" class="nav-link" data-scroll-target="#الحالة-الأولى-أن-يستوعبه-السياق">الحالة الأولى: أن يستوعبه السياق</a>
+  <ul class="collapse">
+  <li><a href="#فإن-كان-خطأ-جديدا" id="toc-فإن-كان-خطأ-جديدا" class="nav-link" data-scroll-target="#فإن-كان-خطأ-جديدا">فإن كان خطأ جديدًا</a></li>
+  <li><a href="#وإن-كان-خطا-مرفوعا" id="toc-وإن-كان-خطا-مرفوعا" class="nav-link" data-scroll-target="#وإن-كان-خطا-مرفوعا">وإن كان خطًا مرفوعًا</a></li>
+  <li><a href="#الحالة-الثانية-ألا-يستوعبه-السياق" id="toc-الحالة-الثانية-ألا-يستوعبه-السياق" class="nav-link" data-scroll-target="#الحالة-الثانية-ألا-يستوعبه-السياق">الحالة الثانية: ألا يستوعبه السياق</a></li>
+  </ul></li>
+  <li><a href="#من-الخطأ-إلتقاط-جميع-الأخطاء" id="toc-من-الخطأ-إلتقاط-جميع-الأخطاء" class="nav-link" data-scroll-target="#من-الخطأ-إلتقاط-جميع-الأخطاء">من الخطأ إلتقاط جميع الأخطاء</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02_numbers/a_numbers.html">الملحقات</a></li><li class="breadcrumb-item"><a href="../appendix/appendix_collections.html"><span class="chapter-number">M</span>&nbsp; <span class="chapter-title">خريطة الجُمُوع</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02_numbers/a_numbers.html">الملحقات</a></li><li class="breadcrumb-item"><a href="../appendix/errors.html"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">الخطأ</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">ملحق M — خريطة الجُمُوع</h1>
+<h1 class="title">ملحق N — الخطأ</h1>
 </div>
 
 
@@ -460,160 +510,176 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="ltr">
+<section id="قراءة-تسلسل-الاستدعاءات-إلى-الخطأ" class="level2">
+<h2 class="anchored" data-anchor-id="قراءة-تسلسل-الاستدعاءات-إلى-الخطأ">قراءة تسلسل الاستدعاءات إلى الخطأ</h2>
+</section>
+<section id="تعريف-أخطاء-جديدة" class="level2">
+<h2 class="anchored" data-anchor-id="تعريف-أخطاء-جديدة">تعريف أخطاء جديدة</h2>
+<p>تعريف الخطأ يكون بتعريف نوع جديد يرث من النوع <code dir="ltr">Exception</code>، وهذا ما يحققه السطر الأول بين القوسين. وتستطيع أن ترث ممن يرث، فتتكون لديك فروع من هذا الخطأ:</p>
+<div id="bfe01380" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ParentError(<span class="pp">Exception</span>):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> XError(ParentError):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> YError(ParentError):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<center>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
-<div id="fig-collections-tree" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-collections-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-collections-tree">classDiagram
-    class Container {
-        &lt;&lt;abstract&gt;&gt;
-        +__contains__()
-    }
-
-    class Iterable {
-        &lt;&lt;abstract&gt;&gt;
-        +__iter__()
-    }
-
-    class Iterator {
-        &lt;&lt;abstract&gt;&gt;
-        +__next__()
-    }
-
-    class Reversible {
-        &lt;&lt;abstract&gt;&gt;
-        +__reversed__()
-    }
-
-    class Sized {
-        &lt;&lt;abstract&gt;&gt;
-        +__len__()
-    }
-
-    class Collection {
-        &lt;&lt;abstract&gt;&gt;
-    }
-
-    class Sequence {
-        &lt;&lt;abstract&gt;&gt;
-        +__getitem__()
-        +index()
-        +count()
-    }
-
-    class MutableSequence {
-        &lt;&lt;abstract&gt;&gt;
-        +__setitem__()
-        +__delitem__()
-        +__len__()
-        +insert()
-        +append()
-        +clear()
-        +reverse()
-        +extend()
-        +pop()
-        +remove()
-        +__iadd__()
-    }
-
-    class Set {
-        &lt;&lt;abstract&gt;&gt;
-        +__le__()
-        +__lt__()
-        +__eq__()
-        +__ne__()
-        +__gt__()
-        +__ge__()
-        +__and__()
-        +__or__()
-        +__sub__()
-        +__xor__()
-        +isdisjoint()
-    }
-
-    class MutableSet {
-        &lt;&lt;abstract&gt;&gt;
-        +add()
-        +discard()
-        +clear()
-        +pop()
-        +remove()
-        +__ior__()
-        +__iand__()
-        +__ixor__()
-        +__isub__()
-    }
-
-    class Mapping {
-        &lt;&lt;abstract&gt;&gt;
-        +__getitem__()
-        +keys()
-        +items()
-        +values()
-        +get()
-        +__eq__()
-        +__ne__()
-    }
-
-    class MutableMapping {
-        &lt;&lt;abstract&gt;&gt;
-        +__setitem__()
-        +__delitem__()
-        +pop()
-        +popitem()
-        +clear()
-        +update()
-        +setdefault()
-    }
-
-    class str {
-        ...
-    }
-
-    class bytes {
-        ...
-    }
-
-    Iterable &lt;|-- Iterator
-    Iterable &lt;|-- Reversible
-
-    Sized &lt;|-- Collection
-    Iterable &lt;|-- Collection
-    Container &lt;|-- Collection
-
-    Reversible &lt;|-- Sequence
-    Collection &lt;|-- Sequence
-    Sequence &lt;|-- MutableSequence
-    Collection &lt;|-- Mapping
-    Mapping &lt;|-- MutableMapping
-
-    MutableSequence &lt;-- list
-    Sequence &lt;-- tuple
-    Sequence &lt;-- range
-    Sequence &lt;-- str
-    Sequence &lt;-- bytes
-    MutableMapping &lt;-- dict
-
-    Collection &lt;|-- Set
-    Set &lt;|-- MutableSet
-    MutableSet &lt;-- set
-    Set &lt;-- frozenset
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A[ParentError] --&gt; B[XError]
+    A --&gt; C[YError]
 </pre>
 </div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-collections-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-شكل&nbsp;M.1: الأنواع المجردة حول الجمع (Collection)
-</figcaption>
-</figure>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
+</center>
+<p>وهذا الإجراء يحصل فيه الخطأ بطريقة مصطنعة لكنها توضح ما نريد، وهو الخطأ الفرعي <code dir="ltr">XError</code> الذي يرث من الخطأ الأصلي <code dir="ltr">ParentError</code>:</p>
+<div id="ad743e2b" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> do_something():</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> XError(<span class="st">'Something went wrong'</span>)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>ثم حين نفحص، نستطيع أن نطابق بالأصل أو الفرع:</p>
+<div id="33a739b6" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    do_something()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> ParentError <span class="im">as</span> e:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"caught you:"</span>, e)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre dir="ltr"><code>caught you: Something went wrong</code></pre>
+</div>
+</div>
+</section>
+<section id="الاحتراز-والاستجابة" class="level2">
+<h2 class="anchored" data-anchor-id="الاحتراز-والاستجابة">الاحتراز والاستجابة</h2>
+<p>يهندس المبرمج الإجراءات بحيث تكون نتيجة كل واحدٍ منها مبنيًّا على معطياته المباشرة؛ بحيث لو تم تمرير نفس المعطيات فإن نفس النتائج تخرج. فأن تقليل العوامل المؤثرة في كل خطوة يجعل التحقق من صحتها أسهل. ثم يتم تركيب البرنامج بمجموعها لتعمل جميع العوامل؛ وحينها نكون أقدر على التركيب الصحيح.</p>
+<p>وذكرنا أن الإجراء له أحد أمرين لا ثالث لهما:</p>
+<ol type="1">
+<li><strong>المعالجة</strong>: أن يتعامل مع الاستثناء المرفوع؛ وذلك <strong>إن كان سياق الإجراء يسوعبه</strong>؛ أي: أن يكون في وعي الإجراء (في معطياته ومتغيراته) ما يمكن به معالجته.</li>
+<li><strong>الرفع</strong>: أن يكرر رفعه إلى من استدعاه هو؛ وذلك <strong>حين لا يكون في سياق الإجراء ما يمكن به معالجته</strong> فيرفعه (يرجع به) للإجراء المستدعي له (الذي هو أكثرُ وَعيًا منه) ليعالجه.</li>
+</ol>
+<p>والرفع يتسلسل حتى يخرج من البرنامج؛ حيث يصل إلى الإنسان (سواءً المستفيد أو المبرمج): برسالة مفادها أمران:</p>
+<ol type="1">
+<li>العثور عليه</li>
+<li>التعامل معه</li>
+</ol>
+<p>فأما <strong>حين يستوعبه السياق</strong>؛ فلدينا طريقتان لمعالجة الخطأ:</p>
+<ol type="1">
+<li><strong>الاحتراز</strong>: توقُّع حالات الخطأ والتحقق من عدمها قبل الإقدام على العملية.</li>
+<li><strong>الاستجابة</strong>: ترك العملية لترجع بالخطأ؛ ثم نتعامل معه بحسبه.</li>
+</ol>
+</section>
+<section id="الفرق-بين-الاحتراز-والاستجابة" class="level2">
+<h2 class="anchored" data-anchor-id="الفرق-بين-الاحتراز-والاستجابة">الفرق بين: الاحتراز والاستجابة</h2>
+<p>هذا الإجراء مسؤول عن تهيئة البرنامج، ومن خطواته أنه يقرأ ملف الضبط المخصص <code dir="ltr">custom_config.json</code>. وفي هذه الحالة قد يحصل خطأ. إذْ قد لا يكون الملف موجودًا أصلا!</p>
+<div class="sourceCode" id="cb5" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> initialize_program():</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ... code before</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'custom_config.json'</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ... code after</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ففي هذه الحالة يحصل استثناء من نوع <code dir="ltr">FileNotFoundError</code>.</p>
+<p>فإذا اخترنا طريق <strong>الاحتراز</strong> فإننا أولاً نلتمس وجوده قبل فتحه. ونتعامل مع حالة الخطأ هذه (أي: عدمه)، بأن -مثلاً- نقرأ ملف الضبط الافتراضي <code dir="ltr">default.json</code> بدلاً من الملف المطلوب. والفرق بين هذا الملف والذي قبله أننا موقنون بوجوده، والأوَّل وجوده مظنون إذْ الذي يضعه هو المستخدم.</p>
+<div class="sourceCode" id="cb6" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> initialize_program():</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ... code before</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> os.path.exists(<span class="st">'custom_config.json'</span>):</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'custom_config.json'</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'default.json'</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ... code after</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>وقد تقول، حسنًا ماذا يكون لو عُدم ملف <code dir="ltr">default.json</code> أيضًا؟ فنقول: لا بأس أن يحصل خطأ يوقف البرنامج. إذْ ذاك يعتبر خطأ منطقيًّا يجب إصلاحه بإضافة الملف، وليس ثمة مجال لأن يصلحه النص البرمجي بنفسه .. وفي هذه الحالة؛ الأفضل أن نترك الخطأ ليتفاقم وينهار البرنامج فوْر وقوعه لنكتشفه ونصلحه.</p>
+<p>أما <strong>الاستجابة</strong> فتكون بجملة <code dir="ltr">try-except</code> على النحو التالي:</p>
+<div class="sourceCode" id="cb7" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> initialize_program():</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ... code before</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'custom_config.json'</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">FileNotFoundError</span>:</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'default.json'</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ... code after</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ما هو الأفضل إذاً؟</p>
+<p>أما استعمال الاحتراز ففيه شك بوجود <strong>فجوة زمنية</strong> بين عمليتي الإدراك والفعل. فالحاسب تتوارد عليه البرمجيات، ولا يستأثر به برنامج واحد. فإذا تغيَّر الحال في هذه الفجوة الزمنية (بعد إدراك وجود الملف .. تم حذفه) فعاد بالنقض على صواب الإدراك؛ لذلك تكون <strong>الاستجابة أضمن من الاحتراز فيما هو عُرضة <a href="https://ar.wikipedia.org/wiki/%D8%AD%D8%A7%D9%84%D8%A9_%D8%AA%D8%B3%D8%A7%D8%A8%D9%82">لحالة التسابق</a></strong>.</p>
+</section>
+<section id="الحالة-الأولى-أن-يستوعبه-السياق" class="level2">
+<h2 class="anchored" data-anchor-id="الحالة-الأولى-أن-يستوعبه-السياق">الحالة الأولى: أن يستوعبه السياق</h2>
+<section id="فإن-كان-خطأ-جديدا" class="level3">
+<h3 class="anchored" data-anchor-id="فإن-كان-خطأ-جديدا">فإن كان خطأ جديدًا</h3>
+<p>مثاله الاحتراز مما لو لم تكن إحدى الخصائص موجودة (خطأ جديد)، فيمكن تعيينها بقيمة ابتدائية (الحل)، ولا يلزمنا تصعيد الخطأ. فهنا ننظر في المفتاح <code dir="ltr">language</code> هل هو موجود في القاموس <code dir="ltr">user</code> .. فإن لم توجَد عيَّنا له قيمة افتراضية: <code dir="ltr">ar</code> وأكمل الإجراء سيره:</p>
+<div class="sourceCode" id="cb8" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> save_user(user: <span class="bu">dict</span>):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'language'</span> <span class="kw">not</span> <span class="kw">in</span> user:</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        user[<span class="st">'language'</span>] <span class="op">=</span> <span class="st">'ar'</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ... rest of the code</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    save_to_database(user)</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>وبهذا يكون الإجراء قد تعامل مع الخطأ بنفسه.</p>
+</section>
+<section id="وإن-كان-خطا-مرفوعا" class="level3">
+<h3 class="anchored" data-anchor-id="وإن-كان-خطا-مرفوعا">وإن كان خطًا مرفوعًا</h3>
+<p>وقد مثلنا له بفتح الملف، ونمثل له بمثال آخر: وهو صعود خطأ من إجراء تحويل القيمة النصية الآتية من المستخدم (<code dir="ltr">guess</code>) إلى قيمة عدد صحيح (<code dir="ltr">int</code>)؛ فإننا نستجيب لحدوث الخطأ <code dir="ltr">ValueError</code> ونتعامل معه بإظهار رسالة تفيد المستخدم بمكمن الخطأ وكيفية إصلاحه من جهته: “القيمة ليست عددًا .. من فضلك أدخل قيمة عددية”.</p>
+<div id="44520d80" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_user_guess() <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Please enter a number'</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    guess <span class="op">=</span> <span class="bu">input</span>()</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        guess <span class="op">=</span> <span class="bu">int</span>(guess)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'The value "</span><span class="sc">{</span>guess<span class="sc">}</span><span class="ss">" is not a number'</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        guess <span class="op">=</span> get_user_guess() <span class="co"># recursive call</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> guess</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>وبهذا يكون الإجراء يصحح نفسه حتى يضمن عند الرجوع <code dir="ltr">return guess</code> أنه أتمَّ وظيفته بشكل صحيح.</p>
+</section>
+<section id="الحالة-الثانية-ألا-يستوعبه-السياق" class="level3">
+<h3 class="anchored" data-anchor-id="الحالة-الثانية-ألا-يستوعبه-السياق">الحالة الثانية: ألا يستوعبه السياق</h3>
+<section id="فإن-كان-خطأ-جديدا-1" class="level4">
+<h4 class="anchored" data-anchor-id="فإن-كان-خطأ-جديدا-1">فإن كان خطأ جديدًا</h4>
+<p>في هذا المثال نريد أن نُلزم كون وحدة القياس إحدى القيمتين: <code dir="ltr">C</code> (سيليلوز) أو <code dir="ltr">F</code> (فهرنهايت). وإلا فلا حيلة للإجراء أن يتمَّ وظيفته. لذا نرفع خطأ جديدًا بجملة <strong>الرفع</strong> <code dir="ltr">raise</code> على هذا النحو:</p>
+<div class="sourceCode" id="cb10" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> convert_temperature(value: <span class="bu">float</span>, unit: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> unit <span class="kw">not</span> <span class="kw">in</span> {<span class="st">'C'</span>, <span class="st">'F'</span>}:</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"Invalid unit: </span><span class="sc">{</span>unit<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> unit <span class="op">==</span> <span class="st">'C'</span>:</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> value <span class="op">*</span> <span class="dv">9</span><span class="op">/</span><span class="dv">5</span> <span class="op">+</span> <span class="dv">32</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> unit <span class="op">==</span> <span class="st">'F'</span>:</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (value <span class="op">-</span> <span class="dv">32</span>) <span class="op">*</span> <span class="dv">5</span><span class="op">/</span><span class="dv">9</span></span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>لاحظ أننا اخترنا <code dir="ltr">ValueError</code> لما تقدَّم بيانه عن أن هذا النوع من الأخطاء هو لما يكون صحيح النوع (<code dir="ltr">type</code>) لكن خاطئ القيمة.</p>
+</section>
+<section id="وإن-كان-خطأ-مرفوعا" class="level4">
+<h4 class="anchored" data-anchor-id="وإن-كان-خطأ-مرفوعا">وإن كان خطأً مرفوعًا</h4>
+<p><strong>فإن من الأخطاء ما يتعذر على البرنامج معالجته بنفسه:</strong></p>
+<ul>
+<li>إذا كانت المشكلة بامتلاء الذاكرة في الجهاز (<a href="https://en.wikipedia.org/wiki/Out_of_memory">Out-of-Memory - OOM</a>)؛ فإن البرنامج ليس له إلا أن يخرج برسالة للمستخدم أو المسؤول عن الجهاز .. وليس للبرنامج أن يتعرَّض للمساحة المخصصة لغيره من البرامج في الذاكرة ويتعدى عليها فيسمحها ليتمدد هو!</li>
+<li>أما إذا كانت المشكلة في تأخر الإجابة من الخادم مثلاً، فقد نعيد المحاول مرة أخرى بعد ثوانٍ، ونعيدها لعددٍ محدد من المرات، أملاً في الحصول على إجابة. ثم بعد ذلك لا يمكن إلا أن نظهر رسالة خطأ إن نفذت جميع المحاولات.</li>
+</ul>
+<p>ففي هذا المثال عملية قسمة؛ ونتوقع بحسب معرفتنا الرياضية بإمكان حصول القسمة على صفر في <code dir="ltr">(a / b)</code>، فيرتفع بذلك خطأ اسمه <code dir="ltr">ZeroDivisionError</code> من تلك العملية. والحقيقة أننا في هذا السياق ليس لنا أن نعدِّل الرقم، بل نريد لمن استدعى الإجراء أن يعلم بالخطأ، ولسنا نريد إضافة معلومة أخرى فوق ذلك. لذا نسكت عنه (أي: لا نضع <code dir="ltr">try-except</code>) وهذا يجعله ينتقل مباشرة للإجراء المستدعي.</p>
+<div class="sourceCode" id="cb11" dir="ltr"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> divide_lists(list1: <span class="bu">list</span>, list2: <span class="bu">list</span>) <span class="op">-&gt;</span> <span class="bu">list</span>:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Divide the elements of list1 by the elements of list2</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">    :raises ZeroDivisionError: If the denominator `b` is zero.</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> a, b <span class="kw">in</span> <span class="bu">zip</span>(list1, list2):</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        result.append(a <span class="op">/</span> b)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span></code><button title="نسخ إلى الحافظة" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>فالطريقة الصحيحة للتعامل مع مثل هذه الأخطاء، أن نتركها تصعد لوحدها، وندوِّن إمكان حصولها في شرح الإجراء (وهو النص الذي في أوَّل جسده).</p>
+</section>
+</section>
+</section>
+<section id="من-الخطأ-إلتقاط-جميع-الأخطاء" class="level2">
+<h2 class="anchored" data-anchor-id="من-الخطأ-إلتقاط-جميع-الأخطاء">من الخطأ إلتقاط جميع الأخطاء</h2>
+<p>من الخطأ في المنطق البرمجي إلتقاط جميع الأخطاء في الإجراءات باستعمال <code dir="ltr">except Exception</code> وهو النوع الشامل لجميع الأخطاء. فهذه الطريقة لا تخبرنا بنوع الخطأ وبالتالي لا نتعامل معه بحسبه، وإنما غاية ما تحقق هو منع تصعيد الخطأ لأعلى طبقة، إذْ حين يحصل ذلك توقف بايثون البرنامج (وعندها تظهر سلسلة الاستدعاءات).</p>
+<p>لكن الحالة النادرة تكون في <strong>أطر العمل</strong> (Frameworks) إذْ يجوز ذلك في قطع النص البرمجي التي يُراد لها الاستمرار، وإن فشلَ شيئٌ فيها. مثلاً: لا تريد للخادم أن يتوقف تمامًا بمجرد حصول خطأ واحد في أحد خيوط التنفيذ الخاصة بخدمة أحد الطلبات. ففي مثل ذلك يسوغ استخدام <code dir="ltr">except Exception</code> الشاملة. انظر مثلاً <a href="https://github.com/pallets/flask/blob/2fec0b206c6e83ea813ab26597e15c96fab08be7/src/flask/app.py#L893-L900">قطعة النص البرمجي في إطار الويب فلاسك المسؤول عن استقبال الطلبات</a>.</p>
+<hr>
+<p><strong>المراجع</strong>:</p>
+<ul>
+<li>Miguel Grinberg: <a href="https://blog.miguelgrinberg.com/post/the-ultimate-guide-to-error-handling-in-python">The Ultimate Guide to Error Handling in Python</a></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1019,14 +1085,11 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/11_oop/a1_oop.html" class="pagination-link" aria-label="البرمجة الكائنية">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">L</span>&nbsp; <span class="chapter-title">البرمجة الكائنية</span></span>
+      <a href="../appendix/appendix_collections.html" class="pagination-link" aria-label="خريطة الجُمُوع">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">M</span>&nbsp; <span class="chapter-title">خريطة الجُمُوع</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../appendix/errors.html" class="pagination-link" aria-label="الخطأ">
-        <span class="nav-page-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">الخطأ</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1034,4 +1097,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hassanalgoz/python/issues/new" class="toc-action"><i class="bi bi-github"></i>الإبلاغ عن مشكلة</a></li></ul></div></div></div></footer></body></html>
