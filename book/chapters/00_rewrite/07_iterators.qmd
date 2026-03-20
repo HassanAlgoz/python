@@ -1,0 +1,191 @@
+---
+og:title: iterators
+---
+
+# الكارات
+
+
+إن **الكر** (Iteration) من أكثر العمليات استعمالاً في البرمجة عمومًا. وقد خُصِّصَ لها في بايثون كائنان:
+
+الأول: **القابل للكر** ([`Iterable`](https://docs.python.org/3/glossary.html#term-iterable)) ما يُنتج عنصرًا في كل كرة، (لأن من إجراءاته `__iter__`). مثلُ الكتابِ؛ فهو لا يقلب صفحاته بنفسه. لكن عنده مفهوم التوالي.
+
+الثاني: **الكارُّ** ([`Iterator`](https://docs.python.org/3/tutorial/classes.html#iterators)) ما يحفظ مكانه، ليعطي ما بعده (لأن من إجراءاته `__next__`). مثلُ العلامة أو البطاقة التي توضع في الكتاب.
+
+ووجب أن نعلم أن كل قابل للكر، عند تنفيذ الكر عليه فإن بايثون تُنشئ له كارًّا لتكر عناصره في الحلقة مثلًا.
+
+وإن ما يُساق في جملة التكرار المبتدأة بكلمة `for` هو القابل للكر
+
+```python
+for item in iterable:
+    print(item)
+```
+
+وهذه شجرة توضح العلاقة بين الكائنات التي تقبل الكر في بايثون:
+
+
+```{mermaid}
+classDiagram
+
+    class Iterable {
+        <<abstract>>
+        +__iter__()
+    }
+
+    class Collection {
+        <<abstract>>
+    }
+
+    class Iterator {
+        <<abstract>>
+        +__next__()
+    }
+
+    Iterable <|-- Iterator
+    Iterable <|-- Collection
+
+    Collection <|-- list
+    Collection <|-- tuple
+    Collection <|-- dict
+    Collection <|-- str
+    Collection <|-- range
+```
+
+
+## القابل للكر
+
+فالقائمة (`list`) سلسلة، والسلسلة من الجمع، والجمع قابل للكر.
+
+```{python}
+my_list = [1, 2, 3]
+for item in my_list:
+    print(item)
+```
+
+والصف (`tuple`) سلسلة، والسلسلة من الجمع، والجمع قابل للكر.
+
+```{python}
+my_tuple = (1, 2, 3)
+for item in my_tuple:
+    print(item)
+```
+
+والنص (`str`): سلسلة أحرف، والسلسلة من الجمع، والجمع قابل للكر.
+
+```{python}
+my_string = "abc"
+for character in my_string:
+    print(character)
+```
+
+والقاموس: جمع، والجمع قابل للكر (`dict`).
+
+```{python}
+my_dict = {
+    'one': 100,
+    'two': 200,
+    'three': 300,
+}
+for key, value in my_dict.items():
+    print(key, value)
+```
+
+والنطاق (`range`): جمع وهو قابل للكر.
+
+```{python}
+for number in range(3):
+    print(number)
+```
+
+
+## الكارُّ
+
+فالملف (`file object`): كارٌّ، والكارُّ قابل للكر.
+
+```python
+my_file = open("myfile.txt")
+for line in my_file:
+    print(line)
+my_file.close()
+```
+
+
+### بيان وجه الفرق بين المكرر والكار
+
+سبق وأن ذكرنا أن القابل للكر يُنشأُ له كارٌّ متى ما أردنا كره.
+
+ووجه التفريق بينهما كوْن العمليَّة تحدث أثرًا أو لا.
+فقراءة سطرٍ في الملف ينتج عنه تحريك رأس الكتابة في الجهاز القارئ، فذلك أثر.
+وأما قراءة عنصرٍ من النطاق (`range`) مثلاً، فإنه لا يُحدث أثرًا.
+
+فكر الملف أمرٌ يُستهلَك وينفذ بالوصول إلى نهايته.
+أما النطاق (`range`) فإنه لا يُستهلَك، بل يُعادُ إنشاؤه في كل مرة.
+
+
+### مسالك معروفة في الكر
+
+ومنها مكررات مخصوصة في الحزمة `itertools`،
+، مثل **التباديل** (`permutations`): وهي جميع الاحتمالات الممكنة لترتيب عناصر المجموعة:
+
+```{python}
+from itertools import permutations
+
+perms = permutations('بحر')
+
+for p in perms:
+    print(p)
+```
+
+**والتوافيق**(`combinations`) وهي اختيار العناصر الفريدة بغض النظر عن ترتيبها:
+
+```{python}
+from itertools import combinations
+
+players = ['Ahmad', 'Belal', 'Camal']
+
+combs = combinations(players, 2)
+
+for c in combs:
+    print(c)
+```
+
+وكذلك **الضرب**(`product`) على هذا النحو:
+
+```{python}
+from itertools import product
+
+colors = ['red', 'blue']
+sizes = ['S', 'M']
+
+prod = product(colors, sizes)
+
+for p in prod:
+    print(p)
+```
+
+وغيرها تجدها في [المكتبة الأساسية في بايثون](https://docs.python.org/3/library/itertools.html).
+
+
+### المولد
+
+ومن المكرِّرات: **المولِّد** ([Generator](https://docs.python.org/3/tutorial/classes.html#generators)) وهي دوال قابلة للكر. ويلاحظ وجوع كلمة `yield` بدلاً من كلمة `return` لإنتاج القيَم، على النحو التالي:
+
+```{python}
+def my_generator():
+    yield 1
+    yield 2
+    yield 3
+
+for number in my_generator():
+    print(number)
+```
+
+مثال ذلك:
+
+```{python}
+def reverse(data):
+    for index in range(len(data)-1, -1, -1):
+        yield data[index]
+
+for char in reverse('golf'):
+    print(char)
+```
