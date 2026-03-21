@@ -1,10 +1,10 @@
 project:
-  type: book
+  type: website
   preview:
     port: 4200
-    browser: true
+    browser: false
     navigate: false
-  output-dir: ../_site
+  output-dir: _site
 
 filters:
   - ./dir-ltr.lua
@@ -12,7 +12,13 @@ filters:
 lightbox: auto
 
 python: 
-  path: ../.venv/bin/python
+  path: .venv/bin/python
+
+jupyter:
+  kernelspec: 
+    display_name: pythonia
+    language: python
+    name: pythonia
 
 execute:
   # https://quarto.org/docs/computations/python.html#kernel-daemon
@@ -28,82 +34,39 @@ number-depth: 1
 
 dir: rtl
 
-book:
+subtitle: "تعلم البرمجة من الصفر عن طريق بايثون"
+
+cover-image: cover.jpeg
+sharing: [twitter, facebook]
+
+author: "حسان القوز"
+date: "2025-6-15"
+
+website:
   # SEO Metadata
   title: "المقدمة البايثونية للبرمجة باللغة العربية"
-  subtitle: "تعلم البرمجة من الصفر عن طريق بايثون"
   description: "الأهداف: استيعاب ماهية البرمجة، ومعرفة إمكانياتها وحدودها. وإكساب مهارة التعبير الخوارزمي بلغة بايثون. وامتلاك القدرة على فتح مكتبات برمجية في بايثون سواء في الذكاء الاصطناعي أو تعلم الآلة أو بناء المواقع أو التصاميم ثلاثية الأبعاد."
-  cover-image: cover.jpeg
-  sharing: [twitter, facebook]
   twitter-card: true
   open-graph: true
 
   # 
   favicon: favicon.png
-  author: "حسان القوز"
-  date: "2025-6-15"
-  search: true
   site-url: https://hassanalgoz.github.io/python/
   repo-url: https://github.com/hassanalgoz/python
   repo-actions: [issue]
   repo-subdir: book
 
   sidebar:
-    collapse-level: 1
-
-  chapters:
-    - index.qmd
-    - setup.qmd
-    - chapters/00_rewrite/01_instructions.qmd
-    - chapters/00_rewrite/02_control_flow.qmd
-    - chapters/00_rewrite/03_functions.qmd
-    - chapters/00_rewrite/04_sequences.qmd
-    - chapters/00_rewrite/05_computer_and_world.qmd
-    - chapters/00_rewrite/06_text_files.qmd
-    - chapters/00_rewrite/07_iterators.qmd
-    - chapters/00_rewrite/09_oop.qmd
-    - chapters/00_rewrite/10_functional.ipynb
-    - chapters/00_rewrite/11_errors.qmd
-    - part: تطبيقات ومسائل
-      chapters:
-        - chapters/02_numbers/apps.qmd
-        - chapters/02_numbers/problems.qmd
-        - chapters/02_numbers/solutions.qmd
-        
-        - chapters/03_control_flow/apps.qmd
-        - chapters/03_control_flow/problems.qmd
-        - chapters/03_control_flow/solutions.qmd
-        
-        - chapters/05_sequences/apps.qmd
-        - chapters/05_sequences/problems.qmd
-        - chapters/05_sequences/solutions.qmd
-        
-        - chapters/06_mapping/b_apps.qmd
-        - chapters/06_mapping/c_problems.qmd
-        
-        - chapters/apps/docs_random_problem.qmd
-        - chapters/apps/requests_ex.ipynb
-        - chapters/apps/ceasar_cipher_problem.qmd
-        - chapters/apps/sentiment_analysis_problem.qmd
-    - part: زيادات
-      chapters:
-        - chapters/00_rewrite/08_regex.qmd
-        - chapters/00_rewrite/12_time.qmd
-  appendices:
-    - chapters/02_numbers/a_numbers.qmd
-    - chapters/03_control_flow/control_flow.qmd
-    - chapters/08_procedural/a1_functions.qmd
-    - appendix/lazy.qmd
-    - chapters/05_sequences/a_sequences.qmd
-    - chapters/06_mapping/a1_set.qmd
-    - chapters/06_mapping/a2_dict.qmd
-    - chapters/07_strings/a1_strings.qmd
-    - chapters/07_strings/a2_unicode.qmd
-    - chapters/07_strings/regex.qmd
-    - chapters/09_files_and_directories/a1_file_io.qmd
-    - chapters/11_oop/a1_oop.qmd
-    - appendix/appendix_collections.qmd
-    - appendix/errors.qmd
+    style: docked
+    search: true
+    contents:
+      - index.qmd
+      - contents: "content/*.ipynb"
+      - section: "زيادات"
+        contents:
+          contents: "extra/*.ipynb"
+      - section: "ملحقات"
+        contents: "appendix/*.ipynb"
 
 comments:
   utterances:
@@ -122,7 +85,24 @@ format:
       sidebar-width: 300px
       margin-width: 300px
     code-copy: true
-    
+  
+  revealjs:
+    slide-number: c/t
+    show-slide-number: all
+    transition: fade
+    background-transition: fade
+    chalkboard: true
+    progress: true
+    history: false
+    scrollable: true
+    rtl: true
+    dir: rtl
+    width: 1600
+    height: 900
+    center: false
+    code-line-numbers: true
+
+
 lang: ar
 
 language: _language_ar.yml
