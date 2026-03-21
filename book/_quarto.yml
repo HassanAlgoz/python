@@ -33,15 +33,6 @@ execute:
 number-depth: 1
 
 dir: rtl
-
-subtitle: "تعلم البرمجة من الصفر عن طريق بايثون"
-
-cover-image: cover.jpeg
-sharing: [twitter, facebook]
-
-author: "حسان القوز"
-date: "2025-6-15"
-
 website:
   # SEO Metadata
   title: "المقدمة البايثونية للبرمجة باللغة العربية"
@@ -60,19 +51,13 @@ website:
     style: docked
     search: true
     contents:
-      - index.qmd
-      - contents: "content/*.ipynb"
+      # - index.qmd
+      - section: "الدروس"
+        contents: content/*.ipynb
       - section: "زيادات"
-        contents:
-          contents: "extra/*.ipynb"
+        contents: extra/*.ipynb
       - section: "ملحقات"
-        contents: "appendix/*.ipynb"
-
-comments:
-  utterances:
-    repo: HassanAlgoz/python
-    label: Comment
-    issue-term: og:title
+        contents: appendix/*.ipynb
 
 format:
   html:
@@ -85,24 +70,13 @@ format:
       sidebar-width: 300px
       margin-width: 300px
     code-copy: true
-  
-  revealjs:
-    slide-number: c/t
-    show-slide-number: all
-    transition: fade
-    background-transition: fade
-    chalkboard: true
-    progress: true
-    history: false
-    scrollable: true
-    rtl: true
-    dir: rtl
-    width: 1600
-    height: 900
-    center: false
-    code-line-numbers: true
-
 
 lang: ar
-
 language: _language_ar.yml
+
+
+comments:
+  utterances:
+    repo: HassanAlgoz/python
+    label: Comment
+    issue-term: og:title
