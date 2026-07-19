@@ -1,5 +1,6 @@
 ---
 title: "قاموس المصطلحات"
+number-sections: false
 ---
 
 ## مقدمة
@@ -54,11 +55,59 @@ title: "قاموس المصطلحات"
 
 **English:** The family of numeric types in Python, including integers and floats.
 
-### نص (str)
+### العدد الصحيح (int)
+
+**عربي:** عدد بلا كسر، يُرمَز له بـ `int`؛ يُستعمل في الفهرسة والعد والترتيب والزيادة والنقصان.
+
+**English:** A whole number (`int`); used for indexing, counting, ordering, and increments.
+
+### العدد العشري (float)
+
+**عربي:** عدد بفاصلة عائمة يُرمَز له بـ `float`؛ يمثّل الكميات كالمال والمسافة والوقت.
+
+**English:** A floating-point number (`float`); represents quantities such as money, distance, and time.
+
+### العدد المركب (complex)
+
+**عربي:** عدد مركّب بجزء حقيقي وآخر تخيلي، يُرمَز له بـ `complex`.
+
+**English:** A complex number with real and imaginary parts (`complex`).
+
+### القيمة المنطقية (bool)
+
+**عربي:** قيمة منطقية أحد اثنين: نعم (`True`) أو لا (`False`)؛ وهي من صنف العدد في بايثون.
+
+**English:** A Boolean value, either `True` or `False`; in Python it is a numeric type.
+
+### النص (str)
 
 **عربي:** سلسلة أحرف تُعرَّف بعلامتي تنصيص مفردة أو مزدوجة.
 
 **English:** A sequence of characters, written with single or double quotes.
+
+### المتغير (Variable)
+
+**عربي:** اسم يُسنَد إليه قيمة أو تعبير يؤول إلى قيمة، فيمكن الإشارة إليها لاحقًا بالاسم.
+
+**English:** A name bound to a value or to an expression that yields a value, so it can be referred to later.
+
+### العوامل (Operators)
+
+**عربي:** رموز أو كلمات تُجرى بها عمليات على القيم، مثل الجمع `+` والمساواة `==`.
+
+**English:** Symbols or words that perform operations on values, such as `+` and `==`.
+
+### التعبير (Expression)
+
+**عربي:** تركيبة من قيم وعوامل تؤول إلى قيمة واحدة عند التقييم.
+
+**English:** A combination of values and operators that evaluates to a single value.
+
+### عامل التعيين (Assignment Operator)
+
+**عربي:** علامة `=` التي تسند قيمة إلى متغير؛ وليست علامة المساواة الرياضية.
+
+**English:** The `=` that binds a value to a variable; not mathematical equality.
 
 ### التعيين النسبي (Augmented Assignment)
 
@@ -134,6 +183,12 @@ title: "قاموس المصطلحات"
 
 **English:** Boolean algebra—George Boole’s formal logic—underlying digital true/false reasoning.
 
+### نعم (True)
+
+**عربي:** القيمة المنطقية الموجبة في بايثون.
+
+**English:** The Boolean true value in Python.
+
 ### لا (False)
 
 **عربي:** القيمة المنطقية السالبة في بايثون.
@@ -196,7 +251,7 @@ title: "قاموس المصطلحات"
 
 **English:** A reserved word with special meaning in Python (e.g. `if`, `for`, `and`) that cannot be used as an identifier.
 
-### عامل الإسناد (Dot Operator)
+### عامل إسناد (Dot Operator)
 
 **عربي:** النقطة (`.`) التي تشير إلى مسمّى متضمَّن في وحدة أو كائن، مثل `math.pi`.
 
@@ -366,6 +421,18 @@ title: "قاموس المصطلحات"
 
 **English:** A collection that supports membership tests (`in` / `not in`).
 
+### العضوية (Membership)
+
+**عربي:** اختبار وجود عنصر في جمع، بـ `in` / `not in`؛ طريقتها `__contains__`.
+
+**English:** Testing whether an element is in a collection with `in` / `not in`; implemented by `__contains__`.
+
+### العد (Length)
+
+**عربي:** عدد عناصر الجمع عبر `len`؛ طريقتها `__len__`.
+
+**English:** The number of elements in a collection via `len`; implemented by `__len__`.
+
 ### المحجَّم (Sized)
 
 **عربي:** جمع يقبل العد بـ `len`.
@@ -389,6 +456,24 @@ title: "قاموس المصطلحات"
 **عربي:** تسلسل ثابت يُعبَّر عنه غالبًا بالقوسين الهلاليين `()`.
 
 **English:** An immutable sequence, typically written with parentheses `()`.
+
+### جامد (Immutable)
+
+**عربي:** ما لا يقبل التغيير بعد إنشائه، كالصف والنص.
+
+**English:** An object that cannot be changed after creation, such as a tuple or a string.
+
+### متغير (Mutable)
+
+**عربي:** ما يقبل التعديل بعد إنشائه، كالقائمة والقاموس.
+
+**English:** An object that can be changed after creation, such as a list or a dict.
+
+### الشريحة (slice)
+
+**عربي:** استخراج جزء من التسلسل بالنقطتين الرأسيتين `:`، نحو `xs[start:stop]`.
+
+**English:** Extracting part of a sequence with `:` colons, e.g. `xs[start:stop]`.
 
 ### المجال / النطاق (range)
 
@@ -434,6 +519,12 @@ title: "قاموس المصطلحات"
 
 **English:** The identifier paired with a value in a dictionary; often a string, and must be hashable.
 
+### التجزئة (Hash)
+
+**عربي:** عملية تحوّل المفتاح أو العنصر إلى رقم يُستعمل لفهرسته في القاموس أو المجموعة؛ يشترط قابلية التجزئة.
+
+**English:** Turning a key or element into a number used for indexing in a dict or set; requires hashability.
+
 ### القيمة (Value)
 
 **عربي:** ما يُخزَّن مقابل المفتاح؛ قد تكون نصًا أو عددًا أو قائمة أو قاموسًا.
@@ -478,7 +569,7 @@ title: "قاموس المصطلحات"
 
 **English:** Programmatic handling of text in forms such as messages, articles, and web pages.
 
-### أحرف التحكم (Control Characters)
+### أحرف تحكم (Control Characters)
 
 **عربي:** أحرف قبل رمز المسافة في جدول ASCII تتحكم في أجهزة الكتابة دون ظهور حرف مقروء.
 
@@ -508,13 +599,13 @@ title: "قاموس المصطلحات"
 
 **English:** The `"\t"` character for indentation or column gaps; also used in Python layout.
 
-### مسار مطلق (Absolute Path)
+### مطلق (Absolute)
 
 **عربي:** مسار يحدد موقع الملف كاملاً بدءًا من جذر النظام.
 
 **English:** A path that fully locates a file starting from the filesystem root.
 
-### مسار نسبي (Relative Path)
+### نسبي (Relative)
 
 **عربي:** مسار يحدد الموقع بالنسبة للموضع الحالي.
 
@@ -828,6 +919,12 @@ title: "قاموس المصطلحات"
 
 ## زيادات
 
+### البرمجة الإجراءية (Functional Programming)
+
+**عربي:** نمط يقبل فيه الإجراءُ إجراءً في عوامله أو يُنتج إجراءً جديدًا، مع تفضيل الدوال النقية والتركيب.
+
+**English:** A style where functions take or return functions, favoring pure functions and composition.
+
 ### الإجراء العالي (Higher-order Function)
 
 **عربي:** إجراء يقبل إجراءً أو يُنتج إجراءً.
@@ -876,6 +973,12 @@ title: "قاموس المصطلحات"
 
 **English:** An object that remembers its place and yields the next item on demand.
 
+### المولِّد (Generator)
+
+**عربي:** دالة قابلة للكر تُنتج قيمًا عند الطلب (غالبًا بـ `yield`) بدل إرجاع قائمة كاملة دفعة واحدة.
+
+**English:** An iterable function that yields values on demand (often with `yield`) instead of returning a full list at once.
+
 ### التباديل (Permutations)
 
 **عربي:** جميع الترتيبات الممكنة لعناصر المجموعة (`itertools.permutations`).
@@ -899,6 +1002,12 @@ title: "قاموس المصطلحات"
 **عربي:** تمثيل التاريخ والساعة والمنطقة الزمنية كما يراه الإنسان، مثل `2024-11-25 08:30:25 GMT+3`.
 
 **English:** Human calendar date, clock time, and timezone, e.g. `2024-11-25 08:30:25 GMT+3`.
+
+### التوقيت العالمي المنسق (UTC)
+
+**عربي:** مرجع زمني عالمي (Coordinated Universal Time) ظهر عام 1967 لتنسيق التعامل بين الدول عبر القارات.
+
+**English:** The global time reference (Coordinated Universal Time), introduced in 1967 to coordinate across regions.
 
 ### المناطق الزمنية (Timezones)
 

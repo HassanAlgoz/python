@@ -66,6 +66,11 @@ body {
         }
     }
 
+    // Quarto keeps LTR arrow glyphs; flex already swaps prev/next sides in RTL.
+    .page-navigation .bi {
+        transform: scaleX(-1);
+    }
+
     // .progress {
     //     .progress-bar {
     //         float: right; // Ensure progress bar starts from the right
