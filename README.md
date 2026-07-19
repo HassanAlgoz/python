@@ -1,8 +1,12 @@
 # المقدمة البايثونية للبرمجة
 
-[اضغط على الرابط لتصفح الكتاب](https://halgoz.quarto.pub/pythonia/).
+[**اضغط على الرابط لتصفح الكتاب**](https://halgoz.quarto.pub/pythonia/).
 
-![رجل آلي يفكر بلغة بايثون](book/cover.png){height=400}
+<center>
+
+<img src="book/cover.png" alt="رجل آلي يفكر بلغة بايثون" style="height:400px;">
+
+</center>
 
 بسم الله الرحمن الرحيم. والحمد لله والصلاة والسلام على رسول الله وآله وصحبه ومن والاه. أما بعد.
 
