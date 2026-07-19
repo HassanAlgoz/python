@@ -1,28 +1,28 @@
 project:
-  type: website
+  type: book
   preview:
     port: 4200
     browser: false
     navigate: false
-  output-dir: _site
+  output-dir: _book
 
 filters:
   - ./dir-ltr.lua
 
 lightbox: auto
 
-python: 
+python:
   path: .venv/bin/python
 
 jupyter:
-  kernelspec: 
+  kernelspec:
     display_name: pythonia
     language: python
     name: pythonia
 
 execute:
   # https://quarto.org/docs/computations/python.html#kernel-daemon
-  daemon: true 
+  daemon: true
 
   # https://quarto.org/docs/computations/caching.html#jupyter-cache
   cache: true
@@ -33,22 +33,90 @@ execute:
 number-depth: 2
 
 dir: rtl
-website:
-  # SEO Metadata
+
+book:
   title: "المقدمة البايثونية للبرمجة"
+  author: "حسان القوز"
+  date: "2026-04-03"
   description: "الأهداف: استيعاب ماهية البرمجة، ومعرفة إمكانياتها وحدودها. وإكساب مهارة التعبير الخوارزمي بلغة بايثون. وامتلاك القدرة على فتح مكتبات برمجية في بايثون سواء في الذكاء الاصطناعي أو تعلم الآلة أو بناء المواقع أو التصاميم ثلاثية الأبعاد."
   twitter-card: true
   open-graph: true
-
-  # 
   favicon: favicon.png
+  cover-image: cover.png
   site-url: https://hassanalgoz.github.io/python/
   repo-url: https://github.com/hassanalgoz/python
   repo-actions: [issue]
   repo-subdir: book
-
+  sharing: [twitter, facebook]
   navbar:
     pinned: false
+  chapters:
+    - index.qmd
+    - part: "مقدمة"
+      chapters:
+        - chapters/ch0-intro/lesson_intro.ipynb
+        - chapters/ch0-intro/lesson_setup.ipynb
+    - part: "1 — التعليمات"
+      chapters:
+        - chapters/ch1-instructions/lesson_1.ipynb
+        - chapters/ch1-instructions/applications_1.ipynb
+        - chapters/ch1-instructions/exercise_1.ipynb
+        - chapters/ch1-instructions/solution_1.ipynb
+        - chapters/ch1-instructions/appendix_keywords.qmd
+        - chapters/ch1-instructions/appendix_numbers.ipynb
+    - part: "2 — توالي الأوامر"
+      chapters:
+        - chapters/ch2-control-flow/lesson_2.ipynb
+        - chapters/ch2-control-flow/applications_2.ipynb
+        - chapters/ch2-control-flow/exercise_2.ipynb
+        - chapters/ch2-control-flow/solution_2.ipynb
+    - part: "3 — الدوال"
+      chapters:
+        - chapters/ch3-functions/lesson_3.ipynb
+        - chapters/ch3-functions/applications_3.ipynb
+        - chapters/ch3-functions/exercise_3a.ipynb
+        - chapters/ch3-functions/exercise_3b.ipynb
+        - chapters/ch3-functions/solution_3a.ipynb
+        - chapters/ch3-functions/solution_3b.ipynb
+    - part: "4 — التسلسل"
+      chapters:
+        - chapters/ch4-sequences/lesson_4.ipynb
+        - chapters/ch4-sequences/applications_4.ipynb
+        - chapters/ch4-sequences/exercise_4.ipynb
+        - chapters/ch4-sequences/solution_4.ipynb
+        - chapters/ch4-sequences/appendix_sequences.ipynb
+    - part: "5 — القاموس"
+      chapters:
+        - chapters/ch5-dict/lesson_5.ipynb
+        - chapters/ch5-dict/applications_5.ipynb
+        - chapters/ch5-dict/exercise_5.ipynb
+        - chapters/ch5-dict/appendix_set.ipynb
+    - part: "6 — الملفات والنصوص"
+      chapters:
+        - chapters/ch6-text-files/lesson_6.ipynb
+        - chapters/ch6-text-files/exercise_6a.ipynb
+        - chapters/ch6-text-files/exercise_6b.ipynb
+        - chapters/ch6-text-files/exercise_6c.ipynb
+        - chapters/ch6-text-files/appendix_file_io.ipynb
+        - chapters/ch6-text-files/appendix_strings.ipynb
+    - part: "7 — الحاسب والعالم"
+      chapters:
+        - chapters/ch7-computer-and-world/lesson_7.ipynb
+        - chapters/ch7-computer-and-world/exercise_7.ipynb
+    - part: "8 — الأخطاء"
+      chapters:
+        - chapters/ch8-errors/lesson_8.ipynb
+        - chapters/ch8-errors/appendix_errors.ipynb
+    - part: "9 — البرمجة بالكائنات"
+      chapters:
+        - chapters/ch9-oop/lesson_9.ipynb
+        - chapters/ch9-oop/appendix_oop.ipynb
+    - part: "زيادات"
+      chapters:
+        - chapters/extra/lesson_time.ipynb
+        - chapters/extra/lesson_functional.ipynb
+        - chapters/extra/lesson_iterators.ipynb
+    - glossary.qmd
 
 format:
   html:
@@ -64,7 +132,6 @@ format:
 
 lang: ar
 language: _language_ar.yml
-
 
 comments:
   utterances:
